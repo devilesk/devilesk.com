@@ -10,31 +10,48 @@
 </article>
 {% endmacro %}
 
+{% macro getValueString(values) -%}
+{% for item in values[:-1] -%}
+{{ item }} / 
+{% endfor %}
+{{ values[-1] }}
+{% endmacro %}
+
 {% macro render_nav(menu, cls=None) -%}
 {% if menu -%}
-<nav {{'class='~cls if cls }}>
-    <ul>
-        {% for item in menu -%}
-        {% set active = False -%}
-        {% if item.type == 'page' -%}
-            {% set active = (resource.url ==
-                site.content.resource_from_relative_path(item.url).url) -%}
-        {% else -%}
-            {% set active = (node ==
-                site.content.node_from_relative_path(item.url)) -%}
-        {%- endif %}
-        {% set classes = ['button', 'white'] -%}
-        {% do classes.append('active') if active -%}
-        {% do classes.append(item.css_class) if item.css_class -%}
-        <li>
-            <a title="{{ item.description }}"
-                class="{{ classes|join(' ') }}"
-                href="{{ content_url(item.url) }}">
-                {{ item.name }}
-            </a>
-        </li>
-        {%- endfor %}
-    </ul>
-</nav>
+<div class="navbar navbar-default {{cls if cls }}">
+	<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ content_url('/dota2') }}" style="width:220px;"><div></div></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+			{% for item in menu -%}
+            <li class="dropdown {{ item.css_class }}">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ item.name }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ content_url(item.url) }}">{{ item.description }}</a></li>
+                <li class="divider"></li>
+				{% for subitem in item.submenu -%}
+				{% if subitem.type == 'page' -%}
+                <li><a href="{{ content_url(subitem.url) }}">{{ subitem.name }}</a></li>
+				{% elif subitem.type == 'header' -%}
+				<li class="dropdown-header">{{ subitem.name }}</li>
+				{% elif subitem.type == 'divider' -%}
+				<li class="divider"></li>
+				{%- endif %}
+				{%- endfor %}
+              </ul>
+            </li>
+			{%- endfor %}
+		  </ul>
+		</div>
+	</div>
+</div>
 {%- endif %}
 {%- endmacro %}

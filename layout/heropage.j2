@@ -1,0 +1,43 @@
+{% extends "base.j2" %}
+{% from "macros.j2" import getValueString %}
+{% block main %}
+
+<p><img src="http://media.steampowered.com/apps/dota2/images/heroes/{{ resource.meta.herodata.name.replace('npc_dota_hero_','') }}_lg.png"></p>
+
+{% for ability in resource.meta.herodata.abilities -%}
+{% if ability.name != 'attribute_bonus' %}
+<div class="ability panel panel-default">
+  <div class="abilityname panel-heading">{{ ability.displayname }}</div>
+  <div class="panel-body">
+    <div class="col-md-2"><img class="abilityportrait" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
+    <div class="col-md-10">{{ ability.description }}</div>
+  </div>
+  <table class="abilitydata table">
+    <tbody>
+    {% if ability.cooldown %}
+      <tr>
+        <td>COOLDOWN:</td>
+        <td>{{ getValueString(ability.cooldown) }}</td>
+      </tr>
+    {%- endif %}
+    {% if ability.manacost %}
+      <tr>
+        <td>MANA COST:</td>
+        <td>{{ getValueString(ability.manacost) }}</td>
+      </tr>
+    {%- endif %}
+    {% for attribute in ability.attributes -%}
+    {% if attribute.tooltip %}
+      <tr>
+        <td>{{ attribute.tooltip }}</td>
+        <td>{{ getValueString(attribute.value) }}</td>
+      </tr>
+    {%- endif %}
+    {%- endfor %}
+    </tbody>
+  </table>
+</div>
+{%- endif %}
+{%- endfor %}
+
+{%- endblock %}

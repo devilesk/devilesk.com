@@ -1,0 +1,487 @@
+---
+extends: base.j2
+title: Dota 2 Items
+description: Listing of all items in Dota 2.
+active_menu: page-items
+header: Items
+---
+
+  {% block css %}
+  <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
+  <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
+  <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
+  <style type="text/css">
+.item {
+margin:1px;
+width:73px;
+display:inline-block;
+opacity:0.75;
+filter:alpha(opacity=75); /* For IE8 and earlier */
+box-shadow:3px 3px #000000;
+}
+.item:hover,.shop:hover {
+cursor:pointer;
+cursor:hand;
+}
+.item-placeholder {
+margin:1px;
+width:73px;
+display:inline;
+opacity:0.75;
+filter:alpha(opacity=75); /* For IE8 and earlier */
+box-shadow:3px 3px #000000;
+}
+.shop {
+width:73px;
+display:inline;
+/*opacity:1;
+filter:alpha(opacity=100); /* For IE8 and earlier
+box-shadow:3px 3px #000000;*/
+border: solid 1px transparent;
+margin-top:10px;
+margin-bottom:10px;
+}
+.item:hover {
+opacity:1;
+filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+.item:active {
+opacity:0.75;
+filter:alpha(opacity=75); /* For IE8 and earlier */
+}
+.header-wrapper {
+	padding:0px 0px 10px 5px;
+	text-align:center;
+}
+
+.item_field {
+	display:block;
+}
+#item_name {
+	font-weight:bold;
+	display:inline;
+}
+#item_cost {
+	margin-left:10px;
+	display:inline;
+	background-image:url("{{ media_url('images/gold.png') }}");
+	padding:0px 0px 0px 27px;
+	background-repeat:no-repeat;
+}
+
+#item_manacost {
+	margin-right:10px;
+	display:inline;
+	background-image:url("{{ media_url('images/manacost.png') }}");
+	padding:0px 0px 0px 20px;
+	background-repeat:no-repeat;
+}
+#item_cooldown {
+	margin-right:10px;
+	display:inline;
+	background-image:url("{{ media_url('images/cooldown.png') }}");
+	padding:0px 0px 0px 20px;
+	background-repeat:no-repeat;
+}
+#item_cdmana {
+	padding:10px 0px 0px 0px;
+}
+
+#item_lore {
+	font-size:8pt;
+	font-style:italic;
+}
+
+.popover {
+	max-width: 800px;
+	width: 300px;
+}
+.tooltip-inner {
+	color:white;
+}
+  </style>
+  {% endblock css %}
+{% block main %}
+{% from "macros.j2" import render_excerpt with context %}
+<section class="blog_excerpt" style="display:inline-block">
+
+
+<div class="col-md-4">
+<div class="header-wrapper"><h3>Basics</h3></div>
+<div class="col-md-3 text-center">
+<img class="shop" src="{{ media_url('images/shop/consumables.png') }}" id="consumables"/><br>
+<div class="item itemsprite itemsprite-clarity" id="clarity"></div>
+<div class="item itemsprite itemsprite-tango" id="tango"></div>
+<div class="item itemsprite itemsprite-flask" id="flask"></div>
+<div class="item itemsprite itemsprite-smoke_of_deceit" id="smoke_of_deceit"></div>
+<div class="item itemsprite itemsprite-tpscroll" id="tpscroll"></div>
+<div class="item itemsprite itemsprite-dust" id="dust"></div>
+<div class="item itemsprite itemsprite-courier" id="courier"></div>
+<div class="item itemsprite itemsprite-flying_courier" id="flying_courier"></div>
+<div class="item itemsprite itemsprite-ward_observer" id="ward_observer"></div>
+<div class="item itemsprite itemsprite-ward_sentry" id="ward_sentry"></div>
+<div class="item itemsprite itemsprite-bottle" id="bottle"></div>
+<div class="item itemsprite" id="emptyitembg"></div>
+</div>
+<div class="col-md-3 text-center">
+<img class="shop" src="{{ media_url('images/shop/attributes.png') }}" id="attributes"/><br>
+<div class="item itemsprite itemsprite-branches" id="branches"></div>
+<div class="item itemsprite itemsprite-gauntlets" id="gauntlets"></div>
+<div class="item itemsprite itemsprite-slippers" id="slippers"></div>
+<div class="item itemsprite itemsprite-mantle" id="mantle"></div>
+<div class="item itemsprite itemsprite-circlet" id="circlet"></div>
+<div class="item itemsprite itemsprite-belt_of_strength" id="belt_of_strength"></div>
+<div class="item itemsprite itemsprite-boots_of_elves" id="boots_of_elves"></div>
+<div class="item itemsprite itemsprite-robe" id="robe"></div>
+<div class="item itemsprite itemsprite-blade_of_alacrity" id="blade_of_alacrity"></div>
+<div class="item itemsprite itemsprite-ogre_axe" id="ogre_axe"></div>
+<div class="item itemsprite itemsprite-staff_of_wizardry" id="staff_of_wizardry"></div>
+<div class="item itemsprite itemsprite-ultimate_orb" id="ultimate_orb"></div>
+</div>
+<div class="col-md-3 text-center">
+<img class="shop" src="{{ media_url('images/shop/armaments.png') }}" id="armaments"/><br>
+<div class="item itemsprite itemsprite-ring_of_protection" id="ring_of_protection"></div>
+<div class="item itemsprite itemsprite-quelling_blade" id="quelling_blade"></div>
+<div class="item itemsprite itemsprite-stout_shield" id="stout_shield"></div>
+<div class="item itemsprite itemsprite-blades_of_attack" id="blades_of_attack"></div>
+<div class="item itemsprite itemsprite-chainmail" id="chainmail"></div>
+<div class="item itemsprite itemsprite-helm_of_iron_will" id="helm_of_iron_will"></div>
+<div class="item itemsprite itemsprite-broadsword" id="broadsword"></div>
+<div class="item itemsprite itemsprite-quarterstaff" id="quarterstaff"></div>
+<div class="item itemsprite itemsprite-javelin" id="javelin"></div>
+<div class="item itemsprite itemsprite-claymore" id="claymore"></div>
+<div class="item itemsprite itemsprite-platemail" id="platemail"></div>
+<div class="item itemsprite itemsprite-mithril_hammer" id="mithril_hammer"></div>
+</div>
+<div class="col-md-3 text-center">
+<img class="shop" src="{{ media_url('images/shop/arcane.png') }}" id="arcane"/><br>
+<div class="item itemsprite itemsprite-magic_stick" id="magic_stick"></div>
+<div class="item itemsprite itemsprite-sobi_mask" id="sobi_mask"></div>
+<div class="item itemsprite itemsprite-ring_of_regen" id="ring_of_regen"></div>
+<div class="item itemsprite itemsprite-boots" id="boots"></div>
+<div class="item itemsprite itemsprite-gloves" id="gloves"></div>
+<div class="item itemsprite itemsprite-cloak" id="cloak"></div>
+<div class="item itemsprite itemsprite-gem" id="gem"></div>
+<div class="item itemsprite itemsprite-lifesteal" id="lifesteal"></div>
+<div class="item itemsprite itemsprite-talisman_of_evasion" id="talisman_of_evasion"></div>
+<div class="item itemsprite itemsprite-ghost" id="ghost"></div>
+<div class="item itemsprite itemsprite-blink" id="blink"></div>
+<div class="item itemsprite itemsprite-shadow_amulet" id="shadow_amulet"></div>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="header-wrapper"><h3>Upgrades</h3></div>
+<div class="col-md-2 text-center">
+<img class="shop" src="{{ media_url('images/shop/common.png') }}" id="common"/><br>
+<div class="item itemsprite itemsprite-wraith_band" id="wraith_band"></div>
+<div class="item itemsprite itemsprite-null_talisman" id="null_talisman"></div>
+<div class="item itemsprite itemsprite-magic_wand" id="magic_wand"></div>
+<div class="item itemsprite itemsprite-bracer" id="bracer"></div>
+<div class="item itemsprite itemsprite-poor_mans_shield" id="poor_mans_shield"></div>
+<div class="item itemsprite itemsprite-soul_ring" id="soul_ring"></div>
+<div class="item itemsprite itemsprite-phase_boots" id="phase_boots"></div>
+<div class="item itemsprite itemsprite-power_treads" id="power_treads"></div>
+<div class="item itemsprite itemsprite-oblivion_staff" id="oblivion_staff"></div>
+<div class="item itemsprite itemsprite-pers" id="pers"></div>
+<div class="item itemsprite itemsprite-hand_of_midas" id="hand_of_midas"></div>
+<div class="item itemsprite itemsprite-travel_boots" id="travel_boots"></div>
+</div>
+
+<div class="col-md-2 text-center">
+<img class="shop" src="{{ media_url('images/shop/support.png') }}" id="support"/><br>
+<div class="item itemsprite itemsprite-ring_of_basilius" id="ring_of_basilius"></div>
+<div class="item itemsprite itemsprite-headdress" id="headdress"></div>
+<div class="item itemsprite itemsprite-buckler" id="buckler"></div>
+<div class="item itemsprite itemsprite-urn_of_shadows" id="urn_of_shadows"></div>
+<div class="item itemsprite itemsprite-ring_of_aquila" id="ring_of_aquila"></div>
+<div class="item itemsprite itemsprite-tranquil_boots" id="tranquil_boots"></div>
+<div class="item itemsprite itemsprite-medallion_of_courage" id="medallion_of_courage"></div>
+<div class="item itemsprite itemsprite-arcane_boots" id="arcane_boots"></div>
+<div class="item itemsprite itemsprite-ancient_janggo" id="ancient_janggo"></div>
+<div class="item itemsprite itemsprite-vladmir" id="vladmir"></div>
+<div class="item itemsprite itemsprite-mekansm" id="mekansm"></div>
+<div class="item itemsprite itemsprite-pipe" id="pipe"></div>
+</div>
+
+<div class="col-md-2 text-center">
+<img class="shop" src="{{ media_url('images/shop/caster.png') }}" id="caster"/><br>
+<div class="item itemsprite itemsprite-force_staff" id="force_staff"></div>
+<div class="item itemsprite itemsprite-necronomicon" id="necronomicon"></div>
+<div class="item itemsprite itemsprite-cyclone" id="cyclone"></div>
+<div class="item itemsprite itemsprite-dagon" id="dagon"></div>
+<div class="item itemsprite itemsprite-veil_of_discord" id="veil_of_discord"></div>
+<div class="item itemsprite itemsprite-rod_of_atos" id="rod_of_atos"></div>
+<div class="item itemsprite itemsprite-ultimate_scepter" id="ultimate_scepter"></div>
+<div class="item itemsprite itemsprite-orchid" id="orchid"></div>
+<div class="item itemsprite itemsprite-refresher" id="refresher"></div>
+<div class="item itemsprite itemsprite-sheepstick" id="sheepstick"></div>
+<div class="item itemsprite" id="emptyitembg"></div>
+<div class="item itemsprite" id="emptyitembg"></div>
+</div>
+
+<div class="col-md-2 text-center">
+<img class="shop" src="{{ media_url('images/shop/weapons.png') }}" id="weapons"/><br>
+<div class="item itemsprite itemsprite-lesser_crit" id="lesser_crit"></div>
+<div class="item itemsprite itemsprite-armlet" id="armlet"></div>
+<div class="item itemsprite itemsprite-basher" id="basher"></div>
+<div class="item itemsprite itemsprite-invis_sword" id="invis_sword"></div>
+<div class="item itemsprite itemsprite-bfury" id="bfury"></div>
+<div class="item itemsprite itemsprite-ethereal_blade" id="ethereal_blade"></div>
+<div class="item itemsprite itemsprite-radiance" id="radiance"></div>
+<div class="item itemsprite itemsprite-monkey_king_bar" id="monkey_king_bar"></div>
+<div class="item itemsprite itemsprite-greater_crit" id="greater_crit"></div>
+<div class="item itemsprite itemsprite-butterfly" id="butterfly"></div>
+<div class="item itemsprite itemsprite-rapier" id="rapier"></div>
+<div class="item itemsprite itemsprite-abyssal_blade" id="abyssal_blade"></div>
+</div>
+
+<div class="col-md-2 text-center">
+<img class="shop" src="{{ media_url('images/shop/armor.png') }}" id="armor"/><br>
+<div class="item itemsprite itemsprite-hood_of_defiance" id="hood_of_defiance"></div>
+<div class="item itemsprite itemsprite-blade_mail" id="blade_mail"></div>
+<div class="item itemsprite itemsprite-vanguard" id="vanguard"></div>
+<div class="item itemsprite itemsprite-soul_booster" id="soul_booster"></div>
+<div class="item itemsprite itemsprite-black_king_bar" id="black_king_bar"></div>
+<div class="item itemsprite itemsprite-shivas_guard" id="shivas_guard"></div>
+<div class="item itemsprite itemsprite-manta" id="manta"></div>
+<div class="item itemsprite itemsprite-bloodstone" id="bloodstone"></div>
+<div class="item itemsprite itemsprite-sphere" id="sphere"></div>
+<div class="item itemsprite itemsprite-assault" id="assault"></div>
+<div class="item itemsprite itemsprite-heart" id="heart"></div>
+<div class="item itemsprite" id="emptyitembg"></div>
+</div>
+
+<div class="col-md-2 text-center">
+<img class="shop" src="{{ media_url('images/shop/artifacts.png') }}" id="artifacts"/><br>
+<div class="item itemsprite itemsprite-helm_of_the_dominator" id="helm_of_the_dominator"></div>
+<div class="item itemsprite itemsprite-mask_of_madness" id="mask_of_madness"></div>
+<div class="item itemsprite itemsprite-sange" id="sange"></div>
+<div class="item itemsprite itemsprite-yasha" id="yasha"></div>
+<div class="item itemsprite itemsprite-maelstrom" id="maelstrom"></div>
+<div class="item itemsprite itemsprite-diffusal_blade" id="diffusal_blade"></div>
+<div class="item itemsprite itemsprite-desolator" id="desolator"></div>
+<div class="item itemsprite itemsprite-heavens_halberd" id="heavens_halberd"></div>
+<div class="item itemsprite itemsprite-sange_and_yasha" id="sange_and_yasha"></div>
+<div class="item itemsprite itemsprite-mjollnir" id="mjollnir"></div>
+<div class="item itemsprite itemsprite-skadi" id="skadi"></div>
+<div class="item itemsprite itemsprite-satanic" id="satanic"></div>
+</div>
+</div>
+
+<div class="col-md-1">
+<div class="header-wrapper"><h3>Secret</h3></div>
+<div class="col-md-12 text-center">
+<img class="shop" style="box-shadow:3px 3px #000000;background-color:#1c1d1f" src="{{ media_url('images/shop/secret.png') }}" id="secret"/><br>
+<div class="item itemsprite itemsprite-orb_of_venom" id="orb_of_venom"></div>
+<div class="item itemsprite itemsprite-ring_of_health" id="ring_of_health"></div>
+<div class="item itemsprite itemsprite-void_stone" id="void_stone"></div>
+<div class="item itemsprite itemsprite-energy_booster" id="energy_booster"></div>
+<div class="item itemsprite itemsprite-vitality_booster" id="vitality_booster"></div>
+<div class="item itemsprite itemsprite-point_booster" id="point_booster"></div>
+<div class="item itemsprite itemsprite-hyperstone" id="hyperstone"></div>
+<div class="item itemsprite itemsprite-demon_edge" id="demon_edge"></div>
+<div class="item itemsprite itemsprite-mystic_staff" id="mystic_staff"></div>
+<div class="item itemsprite itemsprite-eagle" id="eagle"></div>
+<div class="item itemsprite itemsprite-reaver" id="reaver"></div>
+<div class="item itemsprite itemsprite-relic" id="relic"></div>
+</div>
+</div>
+
+</section>
+{% endblock main %}
+  {% block scripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script>
+$(function () {
+	$('#consumables').tooltip({
+		title: 'Consumables'
+	});
+	$('#attributes').tooltip({
+		title: 'Attributes'
+	});
+	$('#armaments').tooltip({
+		title: 'Armaments'
+	});
+	$('#arcane').tooltip({
+		title: 'Arcane'
+	});
+	$('#common').tooltip({
+		title: 'Common'
+	});
+	$('#support').tooltip({
+		title: 'Support'
+	});
+	$('#caster').tooltip({
+		title: 'Caster'
+	});
+	$('#weapons').tooltip({
+		title: 'Weapons'
+	});
+	$('#armor').tooltip({
+		title: 'Armor'
+	});
+	$('#artifacts').tooltip({
+		title: 'Artifacts'
+	});
+	$('#secret').tooltip({
+		title: 'Secret'
+	});
+
+	var item_data = {}
+
+	get_data_for_popover_and_display = function () {
+		var el = $(this);
+		if (el.attr('id') in item_data) {
+			el.attr('data-content', item_data[el.attr('id')]);
+			if (el.is(':hover')) {
+				el.popover('show');
+			}
+		} else {
+			getTooltipDataThrottled(el);
+		}
+	}
+
+	var getTooltipDataThrottled = _.debounce(getItemTooltipData, 250);
+
+	hide_popover = function () {
+		var el = $(this);
+		el.popover('hide')
+	}
+	$('.item').popover({
+		"trigger": "hover",
+		"html": "true"
+	});
+	$('.item').hover(get_data_for_popover_and_display, hide_popover);
+	
+	var itemtooltipdata = {}
+
+	function getTooltipItemDescription(item) {
+		var d = item.description;
+		for (var i=0;i<item.attributes.length;i++) {
+			if (item.attributes[i].name != null) {
+				var attributename = item.attributes[i].name;
+				var attributevalue = item.attributes[i].value[0];
+				for (var j=1;j<item.attributes[i].value.length;j++) {
+					attributevalue += ' / ' + item.attributes[i].value[j];
+				}
+				var regexp = new RegExp('%' + attributename + '%', "gi");
+				d = d.replace(regexp, attributevalue );
+			}
+		}
+		var regexp = new RegExp('%%', "gi");
+		d = d.replace(regexp,'%');
+		regexp = new RegExp('\n', "gi");
+		d = d.replace(/\\n/g, "<br>");
+		return d;
+	}
+
+	var ability_vars = {
+		'$health':'Health',
+		'$mana':'Mana',
+		'$armor':'Armor',
+		'$damage':'Damage',
+		'$str':'Strength',
+		'$int':'Intelligence',
+		'$agi':'Agility',
+		'$all':'All Attributes',
+		'$attack':'Attack Speed',
+		'$hp_regen':'HP Regeneration',
+		'$mana_regen':'Mana Regeneration',
+		'$move_speed':'Movement Speed',
+		'$evasion':'Evasion',
+		'$spell_resist':'Spell Resistance',
+		'$selected_attribute':'Selected Attribute'
+	}
+
+	function getTooltipItemAttributes(item) {
+		var a = '';
+		for (var i=0;i<item.attributes.length;i++) {
+			if (item.attributes[i].tooltip != null) {
+				var attributetooltip = item.attributes[i].tooltip;
+				var attributevalue = item.attributes[i].value[0];
+				for (var j=1;j<item.attributes[i].value.length;j++) {
+					attributevalue += ' / ' + item.attributes[i].value[j];
+				}
+				var p = attributetooltip.indexOf("%");
+				if (p == 0) {
+					attributevalue = attributevalue + '%';
+					attributetooltip = attributetooltip.slice(1);
+				}
+				var d = attributetooltip.indexOf("$");
+				if (d != -1) {
+					a = a + attributetooltip.slice(0, d) + ' ' + attributevalue + ' ' + ability_vars[attributetooltip.slice(d)] + '<br>';
+				}
+				else {
+					a = a + attributetooltip + ' ' + attributevalue + '<br>';
+				}
+			}
+		}
+		return a.trim('<br>');
+	}
+
+	function getTooltipItemCooldown(item) {
+		var c = '';
+		for (var i=0;i<item.cooldown.length; i++) {
+			c = c + ' ' + item.cooldown[i];
+		}
+		return c;
+	}
+
+	function getTooltipItemManaCost(item) {
+		var c = '';
+		for (var i=0;i<item.manacost.length; i++) {
+			if (item.manacost[i] > 0) {
+				c = c + ' ' + item.manacost[i];
+			}
+		}
+		return c;
+	}
+	
+	var itemData;
+	$.getJSON("{{ media_url('js/itemdata.json') }}", function (data) {
+		itemData = data;
+	});
+			
+	function getItemTooltipData(el) {
+		if (itemData['item_' + el.attr('id')] == undefined) {
+			return undefined;
+		}
+		var item = itemData['item_' + el.attr('id')];
+		var data = $('<div>');
+		data.append($('<span>').html(item.displayname).attr('id','item_name').addClass('item_field'));
+		data.append($('<span>').html(item.itemcost).attr('id','item_cost').addClass('item_field'));
+		data.append($('<hr>'));
+		if (item.description != null) {
+			data.append($('<div>').html(getTooltipItemDescription(item)).attr('id','item_description').addClass('item_field'));
+		}
+		var attributedata = getTooltipItemAttributes(item);
+		if (attributedata != '') {
+			data.append($('<div>').html(attributedata).attr('id','item_attributes').addClass('item_field'));
+		}
+		var cd = getTooltipItemCooldown(item);
+		var mana = getTooltipItemManaCost(item);
+		if (cd != '' || mana != '') {
+			var cdmanacost = $('<div>').attr('id','item_cdmana');
+			if (cd != '') {
+				cdmanacost.append($('<span>').html(cd).attr('id','item_cooldown').addClass('item_field'));
+			}
+			if (mana != '') {
+				cdmanacost.append($('<span>').html(mana).attr('id','item_manacost').addClass('item_field'));
+			}
+			data.append(cdmanacost);
+		}
+		if (item.lore != null) {
+			data.append($('<div>').html(item.lore).attr('id','item_lore').addClass('item_field'));
+		}
+		el.attr('data-content', data.html());
+		if (el.is(':hover')) {
+			el.popover('show');
+		}
+		item_data[el.attr('id')] = data.html();
+	}
+});
+    </script>
+  {% endblock scripts %}

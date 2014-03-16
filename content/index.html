@@ -1,20 +1,58 @@
----
-extends: base.j2
-default_block: main
-title: devilesk.com
-description: Home page for devilesk
----
-
-{% from "macros.j2" import render_excerpt with context %}
-<section class="blog_excerpt">
-{% set latest = site.content.walk_resources_sorted_by_time()|first %}
-
-{% if latest -%}
-{{ render_excerpt(latest, 'post') }}
-
-<a class="button white medium"
-    href="{{ content_url(latest.url) }}">Read more&hellip;</a>
-
-{%- endif %}
-
-</section>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>devilesk.com</title>
+		<meta name="description" content="devilesk's Personal website. Currently for Dota 2 content.">
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<link rel="shortcut icon" href="favicon.png"/>
+		<link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			html, body, #wrapper {
+				background-color: black;
+				color:#121212;
+				text-align:center;
+				height:100%;
+				font-family: 'Cinzel', serif;
+				margin:0;
+			}
+			#wrapper, #container {
+				display:inline-block;
+				vertical-align:middle;
+			}
+			img {
+				display:block;
+			}
+			a:link {
+				padding:10px;
+				transition: 0.5s ease;
+				color:#5d1f20;
+				text-decoration:none;
+				display:inline-block;
+			}
+			a:visited {
+				color:#5d1f20;
+			}
+			a:hover {
+				transition: 0.5s ease;
+				color:white;
+			}
+			h1 {
+				font-size:4em;
+				letter-spacing:.2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper"></div>
+		<div id="container">
+			<img src="{{ media_url('/images/background-devilesk.png') }}" alt="devilesk">
+			<a href="/dota2/"><h1>DOTA 2</h1></a>
+			<div>
+				<a href="http://www.youtube.com/user/devilesk">YOUTUBE</a>
+				<a href="http://www.twitch.tv/devilesk">TWITCH</a>
+				<a href="http://www.twitter.com/devilesk">TWITTER</a>
+				<a href="http://steamcommunity.com/id/devilesk/">STEAM</a>
+			</div>
+		</div>
+	</body>
+</html>

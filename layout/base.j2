@@ -31,11 +31,12 @@
   {% block favicons %}
   <!-- Place favicon.ico & apple-touch-icon.png
         in the root of your domain and delete these references -->
-  <link rel="shortcut icon" href="{{ media_url('/favicon.ico') }}">
-  <link rel="apple-touch-icon" href="{{ media_url('/apple-touch-icon.png') }}">
+  <link rel="shortcut icon" href="{{ media_url('/favicon.png') }}">
   {% endblock favicons %}
 
   {% block css %}
+  <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
   <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
   {% endblock css %}
@@ -47,20 +48,20 @@
   {% endblock headjs %}
   {% block endhead %}{% endblock endhead %}
 </head>
-<body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+<body id="{{ resource.meta.id if resource.meta.id else resource.slug }}" class="{{ resource.meta.active_menu }}">
+<div class="wrapper">
+  {% block nav %}
+  {% from "macros.j2" import render_nav with context %}
+  {{ render_nav(menu, 'main_nav') }}
+  {% endblock %}
   {% block content %}
-  <div id="container">
+  <div class="container">
       {% block container %}
       <div id="main" role="main">
           <header class="banner clearfix">
-          {% block header -%}
-            <h1>BASIC</h1>
-            <h3>A hyde website</h3>
-          {%- endblock %}
-          {% block nav %}
-          {% from "macros.j2" import render_nav with context %}
-          {{ render_nav(menu, 'main_nav') }}
-          {% endblock %}
+          {% block header %}
+          {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
+          {% endblock header %}
           </header>
           <section class="content">
           {% block main %}
@@ -68,21 +69,29 @@
           </section>
       </div>
     {% endblock container %}
+	<div class="push"></div>
   </div> <!--! end of #container -->
+</div>
   <footer>
-      <a href="mailto:admin@devilesk.com">admin@devilesk.com</a>
-      <br>
-      Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a>
+	  <img src="{{ media_url('images/footer.png') }}">
+	<div>
+		<a href="http://www.youtube.com/user/devilesk">Youtube</a>
+		<a href="http://www.twitch.tv/devilesk">Twitch</a>
+		<a href="http://www.twitter.com/devilesk">Twitter</a>
+		<a href="http://steamcommunity.com/id/devilesk/">Steam</a>
+	</div>
+      <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
+      <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a><p>
   </footer>
   {% endblock content%}
   {% block js %}
   <!-- Javascript at the bottom for fast page loading -->
   {% block jquery %}
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
   {% endblock jquery %}
-
+  <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
   {% block scripts %}
   {% endblock scripts %}
 
