@@ -1,0 +1,94 @@
+---
+extends: base.j2
+title: Dota 2 Interactive Map
+description: Interactive Dota 2 Map. See important areas and paths overlaid on a Dota 2 map.
+active_menu: page-webapps
+header: Interactive Dota 2 Map
+---
+{% block main %}
+		<p>Check out my improved Dota 2 interactive map <a href="/dota2/apps/interactivemap2/">here</a>.</p>
+		<p>If the map renders incorrectly, try refreshing the page.</p>
+		<div id='contentcontainer' style="width:1000px;z-index:1;position:relative;overflow:hidden;padding:0px;-moz-border-radius: 0px;border-radius: 0px;">
+			<img id="mapbackground2" src="{{ media_url('images/dota_minimap.jpg') }}" style="visibility:visible;
+overflow:hidden;z-index:-1;
+position:absolute;
+-ms-transform-origin:0 0;
+-webkit-transform-origin:0 0;
+transform-origin:0 0;
+-ms-transform:matrix(.19657951641, 0, 0, .19657951641, 0, 150);
+-webkit-transform:matrix(.19657951641, 0, 0, .19657951641, 0, 150);
+transform:matrix(.19657951641, 0, 0, .19657951641, 0, 150);">
+			<img id="mapbackground" src="{{ media_url('images/dota_map_full_compress2.jpg') }}" style="visibility:visible;
+overflow:hidden;z-index:-1;
+position:absolute;
+-ms-transform-origin:0 0;
+-webkit-transform-origin:0 0;
+transform-origin:0 0;
+-ms-transform:matrix(.19657951641, 0, 0, .19657951641, 0, 150);
+-webkit-transform:matrix(.19657951641, 0, 0, .19657951641, 0, 150);
+transform:matrix(.19657951641, 0, 0, .19657951641, 0, 150);">
+			<object type="image/svg+xml" data="drawing4.svg" width="1000" height="1118" style="z-index:3;padding:0px;margin:0px;">Your browser does not support SVG</object>
+			<div style="width:1001px;height:20px;background-color:#111111;-moz-border-radius: 0px;border-radius: 0px;position:absolute;top:1118px;"></div>
+		</div>
+		<div id='references'>
+			<p>References</p>
+			<ul>
+				<li><a href="http://www.team-dignitas.net/articles/blogs/DotA/1092/Dota-2-Ultimate-Guide-to-Warding/">Dota 2 Ultimate Guide to Warding</a></li>
+				<li><a href="http://www.reddit.com/r/DotA2/comments/182ggn/map_of_juke_paths_hiding_spots/">Critwhale's Map of Juke Paths and Hiding Spots</a></li>
+				<li><a href="http://www.reddit.com/r/DotA2/comments/124naq/neutral_camp_spawn_boxes_inspired_by_orange_vs/">BlueGhostGames' Neutral Camp Spawn Boxes Images</a></li>
+			</ul>
+		</div>
+{% endblock main %}
+  {% block scripts %}
+<script type="text/javascript">
+var sc = .19657951641
+var t=100
+function setCTM(m) {
+	
+	var s = "matrix(" + m.a + ",0,0," + m.d+ "," + m.e + "," + m.f + ")";
+	document.getElementById('mapbackground').style.msTransform =s;
+	document.getElementById('mapbackground').style.webkitTransform =s;
+	document.getElementById('mapbackground').style.transform=s;
+	document.getElementById('mapbackground2').style.msTransform =s;
+	document.getElementById('mapbackground2').style.webkitTransform =s;
+	document.getElementById('mapbackground2').style.transform=s;
+
+	var left = document.getElementById('contentcontainer').getBoundingClientRect().left;
+	var top = document.getElementById('contentcontainer').getBoundingClientRect().top;
+	var w = document.getElementById('contentcontainer').getBoundingClientRect().width;
+	var h = document.getElementById('contentcontainer').getBoundingClientRect().height;
+	/*document.getElementById('mapbackground2').style.clip='rect(' + left + 'px,' + top + 'px,' + width + 'px,' + height + 'px)';
+	document.getElementById('mapbackground2').style.clip='rect(0px,0px,100px,100px)';*/
+}
+
+function switch_map() {
+	if (document.getElementById('mapbackground').style.visibility == 'visible') {
+		document.getElementById('mapbackground').style.visibility = 'hidden';
+		document.getElementById('mapbackground2').style.visibility = 'visible';
+	}
+	else {
+		document.getElementById('mapbackground').style.visibility = 'visible';
+		document.getElementById('mapbackground2').style.visibility = 'hidden';
+	}
+}
+
+function drawShape(m){
+setCTM(m);
+/*  var w = document.getElementById('mapbackground').style.width;
+  w = parseInt(w.substring(0,w.length-2));
+  var h = document.getElementById('mapbackground').style.height;
+  h = parseInt(h.substring(0,h.length-2));
+  var top = document.getElementById('mapbackground').style.top;
+  top = parseInt(top.substring(0,top.length-2));
+  var left = document.getElementById('mapbackground').style.left;
+  left = parseInt(left.substring(0,left.length-2));
+  document.getElementById('mapbackground').style.width=w*z + 'px';
+  document.getElementById('mapbackground').style.height=w*z + 'px';
+  document.getElementById('mapbackground').style.top=top-(w*z-w)/2 + 'px';
+  alert(left);
+  document.getElementById('mapbackground').style.left=left-(h*z-h)/2 + 'px';
+  alert(y);
+  */
+}
+</script>
+{% endblock scripts %}

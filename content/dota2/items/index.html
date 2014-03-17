@@ -6,11 +6,7 @@ active_menu: page-items
 header: Items
 ---
 
-  {% block css %}
-  <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
-  <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
+  {% block custom_css %}
   <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
   <style type="text/css">
 .item {
@@ -102,7 +98,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 	color:white;
 }
   </style>
-  {% endblock css %}
+  {% endblock custom_css %}
 {% block main %}
 {% from "macros.j2" import render_excerpt with context %}
 <section class="blog_excerpt" style="display:inline-block">

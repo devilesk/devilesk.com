@@ -103,17 +103,18 @@ $(function () {
 		'witch_doctor',
 		'zuus'
 	];
+	$.getJSON("{{ media_url('js/herodata.json') }}", function (data) {
+		var herodata = data;
+		createQuestion();
 
-	createQuestion();
-
-	function createQuestion() {
-		$('#abilitybox_start').empty();
-		$('#abilitybox_end').empty();
-		$('#heroportrait').empty();
-		$('#heroname').empty();
-		var h = heroes[Math.floor(Math.random() * heroes.length)];
-		$.getJSON('/dota2/apps/herobuilder/herodata/npc_dota_hero_' + h + '.json', function (data) {
-			$('#heroportrait').css('background-image', 'url(/dota2/images/heroes/' + data.name.substring('npc_dota_hero_'.length) + '.png)');
+		function createQuestion() {
+			$('#abilitybox_start').empty();
+			$('#abilitybox_end').empty();
+			$('#heroportrait').empty();
+			$('#heroname').empty();
+			var h = heroes[Math.floor(Math.random() * heroes.length)];
+			var data = herodata['npc_dota_hero_' + h];
+			$('#heroportrait').css('background-image', 'url("http://media.steampowered.com/apps/dota2/images/heroes/' + h + '_hphover.png")');
 			$('#heroname').text(data.displayname);
 			var count = 0;
 			for (var i = 0; i < data.abilities.length; i++) {
@@ -140,7 +141,7 @@ $(function () {
 						}
 					}).appendTo('#abilitybox_end');
 
-					var imageUrl = '/dota2/images/spellicons/' + data.abilities[i].name + '.png'
+					var imageUrl = "http://media.steampowered.com/apps/dota2/images/abilities/" + data.abilities[i].name + "_hp2.png"
 					var ability = $('<div class=abilitybox id=' + data.abilities[i].name + '></div>').css('background-image', 'url(' + imageUrl + ')').draggable({
 						revert: 'invalid'
 					});
@@ -153,8 +154,6 @@ $(function () {
 					}
 				}
 			}
-		});
-
-	}
-
+		}
+	});
 });

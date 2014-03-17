@@ -1,0 +1,151 @@
+#ans_msg_container {
+	min-height:2em;
+}
+.shop,.hc-item {
+	max-width:50px;
+	padding:2px 0px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#shoptabs > li, #shoptabs > .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+#shoptabs, .nav-pills {
+    text-align:center;
+}
+#inventory {
+	/*min-height:57px;
+	border:1px solid #979aa2;*/
+}
+.item_field {
+	display:block;
+}
+#item_name {
+	font-weight:bold;
+	display:inline;
+}
+#item_cost {
+	margin-left:10px;
+	display:inline;
+	background-image:url('/dota2/images/gold.png');
+	padding:0px 0px 0px 27px;
+	background-repeat:no-repeat;
+}
+hr {
+margin:3px 0px;
+}
+#item_manacost {
+	margin-right:10px;
+	display:inline;
+	background-image:url('/dota2/images/manacost.png');
+	padding:0px 0px 0px 20px;
+	background-repeat:no-repeat;
+}
+#item_cooldown {
+	margin-right:10px;
+	display:inline;
+	background-image:url('/dota2/images/cooldown.png');
+	padding:0px 0px 0px 20px;
+	background-repeat:no-repeat;
+}
+#item_cdmana {
+	padding:10px 0px 0px 0px;
+}
+
+#item_lore {
+	font-size:8pt;
+	font-style:italic;
+}
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  color: #979aa2;
+  text-shadow: 0 1px 0 #131415;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.item_active {
+	border:1px solid goldenrod;
+	padding:0px;
+	float:left;
+}
+.item_inactive {
+	padding:1px;
+	float:left;
+}
+.ability_active {
+	opacity:1;
+}
+.ability_inactive, .item_disabled, .section_disabled {
+	opacity:.4;
+}
+.ability_active:hover,.ability_inactive:hover,.item_active:hover,.item_inactive:hover,.hc-item:hover ,.section_header {
+	cursor:pointer;
+	cursor:hand;
+}
+.section_header {
+	display:inline-block;
+}
+.progress-bar-danger {
+	background-color: #428bca;
+}
+.progress {
+	margin-bottom:0px;
+}
+td {
+	/*width:50%;*/
+}
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  margin-top:10px;
+}
+@media ( max-width:991px ) {
+	.bottom-buffer {
+		padding-bottom:20px;
+	}
+}
+@media ( min-width:990px ) {
+	.tabledropdown {
+		position:absolute;background-color:#131415;z-index:100;
+		border:1px solid #202126;
+	}
+}
+.bottom-buffer2 {
+	padding-bottom:20px;
+}
+.row2 {
+	margin-right:0px;
+	margin-left:0px;
+	padding-bottom:20px;
+}
+.row3 {
+	margin-right:0px;
+	margin-left:0px;
+	padding-bottom:0px;
+}
+.popover {
+	width:276px;
+}
+.btn-default {
+	border-color:#303239;
+}
+.form-control {
+	border: 1px solid #303239;
+}

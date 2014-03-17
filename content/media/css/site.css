@@ -2,6 +2,9 @@ html, body {
 	height: 100%;
 	margin:0;
 }
+html {
+    overflow-y: scroll; 
+}
 .wrapper {
 	min-height: 100%;
 	height: auto !important;
@@ -48,6 +51,8 @@ footer > img {
 body {
 	background-color:#131415;
 	color:#979aa2;
+	letter-spacing:.2px;
+	line-height:1.5em;
 }
 .navbar-default {
 	background-color:#202124;

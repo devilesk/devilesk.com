@@ -1,0 +1,69 @@
+---
+extends: base.j2
+title: Dota 2 Ability Matching
+description: Dota 2 Hero Ability Matching.
+active_menu: page-webapps
+header: Ability Matching
+---
+
+  {% block custom_css %}
+<style type="text/css">
+.abilitybox, .abilitybox_end {
+	width:105px;
+	background-color:#1c1d1f;
+	height:105px;
+	display:inline-block;
+	margin:5px;
+	border-radius:10px;
+	text-shadow: 0 0 0.4em #000, 0 0 0.4em #000, 0 0 0.4em #000,
+        0 0 0.4em #000;
+	color:white;
+	font-weight:bold;
+	vertical-align:middle;
+	position:relative;
+}
+.abilitybox {
+	border:1px solid black;
+}
+.abilitytextcontainer {
+	width:105px;
+	height:105px;
+	display:table;
+}
+.abilitytext {
+	display:table-cell; 
+	vertical-align:middle; 
+	text-align:center; 
+}
+.abilitybox:hover {
+	cursor:pointer;
+}
+
+#abilitybox_start, #abilitybox_end {
+	display:inline-block;
+	width:100%;
+}
+#heroportrait {
+	display:inline-block;
+	width:128px;
+	height:72px;
+	margin:5px;
+	border-radius:10px;
+	border:1px solid black;
+}
+</style>
+  {% endblock custom_css %}
+{% block main %}
+		<div id='contentcontainer' class='text-center'>
+			<h3 id='heroname'></h3>
+			<div id='heroportrait'></div>
+			<div id='abilitybox_end'></div>
+			<div id='abilitybox_start'></div>
+		</div>
+{% endblock main %}
+  {% block scripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="{{ media_url('js/libs/jquery-ui-1.10.2.custom.js') }}"></script>
+	<script src="{{ media_url('js/libs/jquery.ui.touch-punch.min.js') }}"></script>
+	<script src="{{ media_url('js/abilitymatching/abilitymatching.js') }}"></script>
+  {% endblock scripts %}

@@ -1,0 +1,122 @@
+<html>
+	<head>
+	<link rel="icon" type="image/png" href="/dota2/images/learnlogoicon16.png">
+		<title>Dota 2 Interactive Map 2</title>
+	<meta name="description" content="Dota 2 Interactive Map. View, pan, and zoom in on any part of the Dota 2 map. Turn on various overlays for more information, place wards to see sight ranges, and measure distances.">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="theme/default/style.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
+  		<script src="{{ media_url('js/libs/Openlayers.js') }}"></script>
+		<style type="text/css">
+			#controls {
+			position:absolute;
+			top:100px;
+			z-index:1000;
+			background-color:darkblue;
+			color:white;
+			}
+			#coords {
+			position:absolute;
+			bottom:0px;
+			right:0px;
+			z-index:1000;
+			background-color:white;
+			color:black;
+			padding:0px 5px;
+			}
+#controls img {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+#controls img:hover {
+	cursor:pointer;
+	cursor:hand;
+}
+#controls-max {
+	display:none;
+}
+#controlslist {
+	font-family:sans-serif;
+	font-weight:bold;
+	font-size:smaller;
+	list-style:none;
+	margin:0px;
+	padding:5px 10px 5px 25px;
+}
+#output {
+	padding:5px 10px 5px 25px;
+}
+#controlslist li{
+	padding:0px 5px;
+}
+		</style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39435120-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	</head>
+	<body>
+		<div style="width:100%; height:100%" id="map"></div>
+		<div id="controls">
+<div id="controls-max" class="maximizeDiv olButton" style="position: absolute;"><img width="18" height="18" id="OpenLayers_Control_MaximizeDiv_innerImage" class="olAlphaImg" src="img/layer-switcher-maximize.png" style="position: relative;"></div>
+<div id="controls-min" class="minimizeDiv olButton" style="position: absolute;"><img width="18" height="18" id="OpenLayers_Control_MinimizeDiv_innerImage" class="olAlphaImg" src="img/layer-switcher-minimize.png" style="position: relative;"></div>
+		<ul id="controlslist">
+			<b>Map Controls</b>
+			<li>
+				<input type="radio" name="type"
+					value="none" id="noneToggle"
+					onclick="toggleControl(this)"
+					checked="checked" />
+				<label for="noneToggle">Navigate</label>
+			</li>
+			<li>
+				<input type="radio" name="type" value="line" id="lineToggle"
+					onclick="toggleControl(this);" />
+				<label for="lineToggle">Measure Distance</label>
+			</li>
+			<li>
+				<input type="radio" name="type" value="circle" id="circleToggle"
+					onclick="toggleControl(this);" />
+				<label for="circleToggle">Measure Circle</label>
+			</li>
+			<li>
+				<input type="radio" name="type" value="observerclick" id="observerToggle"
+					onclick="toggleControl(this);" />
+				<label for="observerToggle">Place Observer Ward</label>
+			</li>
+			<li>
+				<input type="radio" name="type" value="sentryclick" id="sentryToggle"
+					onclick="toggleControl(this);" />
+				<label for="sentryToggle">Place Sentry Ward</label>
+			</li>
+			<!--<li>
+				<input type="radio" name="type"
+					value="polygonControl" id="polygonToggle"
+					onclick="toggleControl(this)" />
+				<label for="polygonToggle">Draw Circle</label>
+			</li>!-->
+			</li>
+				<input type="checkbox" id="coordControl" checked=true/>
+				<label for="coordControl">Show Coordinates</label>
+			</li>
+		</ul>
+        <div id="output"></div>
+	</div>
+	<div id="coords" style="height: 1.5em;"></div>
+		<script src="interactivemap4.js"></script>
+	</body>
+</html>

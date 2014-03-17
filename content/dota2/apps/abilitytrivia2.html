@@ -1,0 +1,38 @@
+---
+extends: base.j2
+title: Dota 2 Ability Trivia 2
+description: Dota 2 Hero Ability Trivia 2.
+active_menu: page-webapps
+header: Ability Trivia 2
+---
+
+  {% block custom_css %}
+<style type="text/css">
+
+</style>
+  {% endblock custom_css %}
+{% block main %}
+		<div id='contentcontainer' class='col-md-6'>
+			<div id='questionprompt'></div>
+			<div id='answercontainer'><input type="text" id="abilityname" name="abilityname"><span id="answerlabel"></span></div>
+			<div id='abilitytooltip'>
+				<p id="ability_name" class="item_field"></p>
+				<hr style="border-style:solid;border-color:#252525;margin-bottom:0px;">
+				<p id="ability_description" class="item_field"></p>
+				<p id="ability_aghsdescription" class="item_field"></p>
+				<p id="ability_attributes" class="item_field"></p>
+				<div id="ability_cdmana">
+				<p id="ability_cooldown" class="item_field"></p>
+				<p id="ability_manacost" class="item_field"></p>
+				</div>
+				<p id="ability_lore" class="item_field"></p>
+			</div>
+			<br>
+			<button id='skipbutton' class='btn btn-default'>Skip</button>
+			<br>	
+			<button id='mode' class='btn btn-default'></button>
+		</div>
+{% endblock main %}
+  {% block scripts %}
+	<script src="{{ media_url('js/abilitytrivia2/abilitytrivia2.js') }}"></script>
+  {% endblock scripts %}

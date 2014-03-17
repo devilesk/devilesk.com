@@ -6,11 +6,7 @@ active_menu: page-heroes
 header: Heroes
 ---
 
-  {% block css %}
-  <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
-  <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
+  {% block custom_css %}
   <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
   <style type="text/css">
 .hero {
@@ -59,7 +55,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 	text-align:center;
 }
   </style>
-  {% endblock css %}
+  {% endblock custom_css %}
 {% block main %}
 {% from "macros.j2" import render_excerpt with context %}
 <section class="blog_excerpt">
