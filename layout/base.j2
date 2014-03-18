@@ -1,36 +1,15 @@
 <!doctype html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<html>
 <head>
   {% block starthead %}{% endblock starthead %}
   <meta charset="{{ resource.meta.charset }}">
 
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-       Remove this if you use the .htaccess -->
-  <meta http-equiv="X-UA-Compatible" content="{{ resource.meta.compatibility }}">
-
-  <!-- encoding must be specified within the first 512 bytes
-        www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset -->
-
-  <!-- meta element for compatibility mode needs to be before
-        all elements except title & meta
-        msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx -->
-  <!-- Chrome Frame is only invoked if meta element for
-        compatibility mode is within the first 1K bytes
-        code.google.com/p/chromium/issues/detail?id=23003 -->
-
   <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
   <meta name="description" content="{{ resource.meta.description }}">
   <meta name="author" content="{{ resource.meta.author }}">
-
-  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="{{ resource.meta.viewport }}">
 
   {% block favicons %}
-  <!-- Place favicon.ico & apple-touch-icon.png
-        in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="{{ media_url('/favicon.png') }}">
   {% endblock favicons %}
 
@@ -44,9 +23,7 @@
   {% endblock custom_css %}
 
   {% block headjs %}
-  <!-- All JavaScript at the bottom, except for Modernizr which
-        enables HTML5 elements & feature detects -->
-    <script src="{{ media_url('js/libs/modernizr-1.7.min.js') }}"></script>
+    <!--<script src="{{ media_url('js/libs/modernizr-1.7.min.js') }}"></script>!-->
   {% endblock headjs %}
   {% block endhead %}{% endblock endhead %}
 </head>
@@ -86,14 +63,17 @@
       <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a><p>
   </footer>
   {% endblock content%}
+
   {% block js %}
-  <!-- Javascript at the bottom for fast page loading -->
+
   {% block jquery %}
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
   {% endblock jquery %}
+
   <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
+
   {% block scripts %}
   {% endblock scripts %}
 

@@ -7,8 +7,6 @@ active_menu: page-community
 header: Leagues
 ---
 
-{% from "macros.j2" import render_excerpt with context %}
-<section class="blog_excerpt">
     <div id="leagues-list_0" class="leagues-list col-md-6 list-group ">
         {% for league in leagues[0] -%}
         <div class="league_item list-group-item ">
@@ -26,4 +24,3 @@ header: Leagues
         </div>
         {%- endfor %}
     </div>
-</section>

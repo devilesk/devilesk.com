@@ -100,8 +100,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
   </style>
   {% endblock custom_css %}
 {% block main %}
-{% from "macros.j2" import render_excerpt with context %}
-<section class="blog_excerpt" style="display:inline-block">
+<div style="display:inline-block">
 
 
 <div class="col-md-4">
@@ -286,7 +285,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 </div>
 </div>
 
-</section>
+</div>
 {% endblock main %}
   {% block scripts %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>

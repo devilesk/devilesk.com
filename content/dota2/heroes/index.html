@@ -57,10 +57,6 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
   </style>
   {% endblock custom_css %}
 {% block main %}
-{% from "macros.j2" import render_excerpt with context %}
-<section class="blog_excerpt">
-
-
   <div class="col-md-4">
 <div class="header-wrapper"><span id="header-str">Strength</span></div>
 <br>
@@ -209,7 +205,4 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <a href="/dota2/heroes/obsidian_destroyer/"><div class="hero herosprite herosprite-obsidian_destroyer" title="Outworld Devourer"></div></a>
 <a href="/dota2/heroes/shadow_demon/"><div class="hero herosprite herosprite-shadow_demon" title="Shadow Demon"></div></a>
 <a href="/dota2/heroes/visage/"><div class="hero herosprite herosprite-visage" title="Visage"></div></a>
-
-
-</section>
 {% endblock main %}
