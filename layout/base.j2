@@ -51,6 +51,8 @@
 	<div class="push"></div>
   </div> <!--! end of #container -->
 </div>
+
+  {% block footer %}
   <footer>
 	  <img src="{{ media_url('images/footer.png') }}">
 	<div>
@@ -62,6 +64,7 @@
       <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
       <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a><p>
   </footer>
+    {% endblock footer%}
   {% endblock content%}
 
   {% block js %}

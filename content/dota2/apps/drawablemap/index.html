@@ -1,0 +1,379 @@
+---
+extends: base.j2
+title: Dota 2 Drawable Map
+description: Drawable Dota 2 Map. Create, save, and share drawings on a picture of the Dota 2 map.
+active_menu: page-webapps
+header: Drawable Map
+---
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.2.custom.css') }}" />
+	<style type=text/css>
+.ui-widget-header {
+background:#979aa1;
+}
+.ui-widget-content {
+background:black;
+}
+.img_icon {
+	display:block;
+}
+.icons {
+	float:left
+}
+#iconSavedContainer {
+	position:absolute;
+	right:-100px;
+	top:400px;
+	background-color:#1c1d1f;
+	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
+	min-height:320px;
+	width:32px;
+}
+#iconContainer {
+	display:none;
+	position:absolute;
+	left:-200px;
+	top:100px;
+	width:128px;
+	background-color:#1c1d1f;
+	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
+}
+#iconContainerText {
+	margin-left:10px;
+	margin-right:30px;
+}
+#iconContainerExpand, .img_icon,.icons {
+	cursor:pointer;
+	cursor:hand;
+}
+
+body {
+	min-width:1400px;
+}
+#main {
+	width:1000px;
+}
+#canvasToolsContainer {
+	position:relative;
+}
+#canvasDiv {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor:crosshair;
+}
+#canvasDiv:active {
+	cursor:crosshair;
+}
+#slider .ui-state-default {
+	background-color:#979aa1;
+}
+#slider:hover, #slider .ui-state-default:hover {
+	cursor:hand;
+	cursor:pointer;
+}
+select {
+	width:160px;
+	height:28px;
+	padding:4px 6px;
+	border-radius:4px;
+	background:#1c1d1f;
+	color:#979aa1;
+	border:0px;
+	
+}
+.select-wrapper {
+	box-shadow:2px 2px 2px 2px #000;
+	margin-left:10px;
+	margin-right:5px;
+	display:inline-block
+}
+#savebutton, #sharebutton {
+	margin-right:5px;
+}
+	</style>
+{% endblock custom_css %}
+{% block main %}
+	
+		<div id='contentcontainer'>
+		
+					<div id="canvasToolsContainer">
+			
+				<div id="iconSavedContainer"></div>
+				
+				<div id="iconContainer"><span id="iconContainerText">Hero Icons</span><span id="iconContainerExpand">-</span><hr width=100% style="border-style:solid;border-color:#252525"><div style="clear:both"></div>
+<img class="icons" src="{{ media_url('images/miniheroes/ward_observer.png') }}" id="icons_ward_observer">
+<img class="icons" src="{{ media_url('images/miniheroes/ward_sentry.png') }}" id="icons_ward_sentry">
+<img class="icons" src="{{ media_url('images/miniheroes/roshan.png') }}" id="icons_roshan">
+<img class="icons" src="{{ media_url('images/miniheroes/abaddon.png') }}" id="icons_abaddon">
+<img class="icons" src="{{ media_url('images/miniheroes/alchemist.png') }}" id="icons_alchemist">
+<img class="icons" src="{{ media_url('images/miniheroes/ancient_apparition.png') }}" id="icons_ancient_apparition">
+<img class="icons" src="{{ media_url('images/miniheroes/antimage.png') }}" id="icons_antimage">
+<img class="icons" src="{{ media_url('images/miniheroes/axe.png') }}" id="icons_axe">
+<img class="icons" src="{{ media_url('images/miniheroes/bane.png') }}" id="icons_bane">
+<img class="icons" src="{{ media_url('images/miniheroes/batrider.png') }}" id="icons_batrider">
+<img class="icons" src="{{ media_url('images/miniheroes/beastmaster.png') }}" id="icons_beastmaster">
+<img class="icons" src="{{ media_url('images/miniheroes/bloodseeker.png') }}" id="icons_bloodseeker">
+<img class="icons" src="{{ media_url('images/miniheroes/bounty_hunter.png') }}" id="icons_bounty_hunter">
+<img class="icons" src="{{ media_url('images/miniheroes/brewmaster.png') }}" id="icons_brewmaster">
+<img class="icons" src="{{ media_url('images/miniheroes/bristleback.png') }}" id="icons_bristleback">
+<img class="icons" src="{{ media_url('images/miniheroes/broodmother.png') }}" id="icons_broodmother">
+<img class="icons" src="{{ media_url('images/miniheroes/centaur.png') }}" id="icons_centaur">
+<img class="icons" src="{{ media_url('images/miniheroes/chaos_knight.png') }}" id="icons_chaos_knight">
+<img class="icons" src="{{ media_url('images/miniheroes/chen.png') }}" id="icons_chen">
+<img class="icons" src="{{ media_url('images/miniheroes/clinkz.png') }}" id="icons_clinkz">
+<img class="icons" src="{{ media_url('images/miniheroes/rattletrap.png') }}" id="icons_rattletrap">
+<img class="icons" src="{{ media_url('images/miniheroes/crystal_maiden.png') }}" id="icons_crystal_maiden">
+<img class="icons" src="{{ media_url('images/miniheroes/dark_seer.png') }}" id="icons_dark_seer">
+<img class="icons" src="{{ media_url('images/miniheroes/dazzle.png') }}" id="icons_dazzle">
+<img class="icons" src="{{ media_url('images/miniheroes/death_prophet.png') }}" id="icons_death_prophet">
+<img class="icons" src="{{ media_url('images/miniheroes/disruptor.png') }}" id="icons_disruptor">
+<img class="icons" src="{{ media_url('images/miniheroes/doom_bringer.png') }}" id="icons_doom_bringer">
+<img class="icons" src="{{ media_url('images/miniheroes/dragon_knight.png') }}" id="icons_dragon_knight">
+<img class="icons" src="{{ media_url('images/miniheroes/drow_ranger.png') }}" id="icons_drow_ranger">
+<img class="icons" src="{{ media_url('images/miniheroes/earthshaker.png') }}" id="icons_earthshaker">
+<img class="icons" src="{{ media_url('images/miniheroes/elder_titan.png') }}" id="icons_elder_titan">
+<img class="icons" src="{{ media_url('images/miniheroes/enchantress.png') }}" id="icons_enchantress">
+<img class="icons" src="{{ media_url('images/miniheroes/enigma.png') }}" id="icons_enigma">
+<img class="icons" src="{{ media_url('images/miniheroes/faceless_void.png') }}" id="icons_faceless_void">
+<img class="icons" src="{{ media_url('images/miniheroes/furion.png') }}" id="icons_furion">
+<img class="icons" src="{{ media_url('images/miniheroes/gyrocopter.png') }}" id="icons_gyrocopter">
+<img class="icons" src="{{ media_url('images/miniheroes/huskar.png') }}" id="icons_huskar">
+<img class="icons" src="{{ media_url('images/miniheroes/invoker.png') }}" id="icons_invoker">
+<img class="icons" src="{{ media_url('images/miniheroes/jakiro.png') }}" id="icons_jakiro">
+<img class="icons" src="{{ media_url('images/miniheroes/juggernaut.png') }}" id="icons_juggernaut">
+<img class="icons" src="{{ media_url('images/miniheroes/keeper_of_the_light.png') }}" id="icons_keeper_of_the_light">
+<img class="icons" src="{{ media_url('images/miniheroes/kunkka.png') }}" id="icons_kunkka">
+<img class="icons" src="{{ media_url('images/miniheroes/leshrac.png') }}" id="icons_leshrac">
+<img class="icons" src="{{ media_url('images/miniheroes/lich.png') }}" id="icons_lich">
+<img class="icons" src="{{ media_url('images/miniheroes/life_stealer.png') }}" id="icons_life_stealer">
+<img class="icons" src="{{ media_url('images/miniheroes/lina.png') }}" id="icons_lina">
+<img class="icons" src="{{ media_url('images/miniheroes/lion.png') }}" id="icons_lion">
+<img class="icons" src="{{ media_url('images/miniheroes/lone_druid.png') }}" id="icons_lone_druid">
+<img class="icons" src="{{ media_url('images/miniheroes/luna.png') }}" id="icons_luna">
+<img class="icons" src="{{ media_url('images/miniheroes/lycan.png') }}" id="icons_lycan">
+<img class="icons" src="{{ media_url('images/miniheroes/magnataur.png') }}" id="icons_magnataur">
+<img class="icons" src="{{ media_url('images/miniheroes/medusa.png') }}" id="icons_medusa">
+<img class="icons" src="{{ media_url('images/miniheroes/meepo.png') }}" id="icons_meepo">
+<img class="icons" src="{{ media_url('images/miniheroes/mirana.png') }}" id="icons_mirana">
+<img class="icons" src="{{ media_url('images/miniheroes/morphling.png') }}" id="icons_morphling">
+<img class="icons" src="{{ media_url('images/miniheroes/naga_siren.png') }}" id="icons_naga_siren">
+<img class="icons" src="{{ media_url('images/miniheroes/necrolyte.png') }}" id="icons_necrolyte">
+<img class="icons" src="{{ media_url('images/miniheroes/night_stalker.png') }}" id="icons_night_stalker">
+<img class="icons" src="{{ media_url('images/miniheroes/nyx_assassin.png') }}" id="icons_nyx_assassin">
+<img class="icons" src="{{ media_url('images/miniheroes/obsidian_destroyer.png') }}" id="icons_obsidian_destroyer">
+<img class="icons" src="{{ media_url('images/miniheroes/ogre_magi.png') }}" id="icons_ogre_magi">
+<img class="icons" src="{{ media_url('images/miniheroes/omniknight.png') }}" id="icons_omniknight">
+<img class="icons" src="{{ media_url('images/miniheroes/phantom_assassin.png') }}" id="icons_phantom_assassin">
+<img class="icons" src="{{ media_url('images/miniheroes/phantom_lancer.png') }}" id="icons_phantom_lancer">
+<img class="icons" src="{{ media_url('images/miniheroes/puck.png') }}" id="icons_puck">
+<img class="icons" src="{{ media_url('images/miniheroes/pudge.png') }}" id="icons_pudge">
+<img class="icons" src="{{ media_url('images/miniheroes/pugna.png') }}" id="icons_pugna">
+<img class="icons" src="{{ media_url('images/miniheroes/queenofpain.png') }}" id="icons_queenofpain">
+<img class="icons" src="{{ media_url('images/miniheroes/razor.png') }}" id="icons_razor">
+<img class="icons" src="{{ media_url('images/miniheroes/riki.png') }}" id="icons_riki">
+<img class="icons" src="{{ media_url('images/miniheroes/rubick.png') }}" id="icons_rubick">
+<img class="icons" src="{{ media_url('images/miniheroes/sand_king.png') }}" id="icons_sand_king">
+<img class="icons" src="{{ media_url('images/miniheroes/shadow_demon.png') }}" id="icons_shadow_demon">
+<img class="icons" src="{{ media_url('images/miniheroes/nevermore.png') }}" id="icons_nevermore">
+<img class="icons" src="{{ media_url('images/miniheroes/shadow_shaman.png') }}" id="icons_shadow_shaman">
+<img class="icons" src="{{ media_url('images/miniheroes/silencer.png') }}" id="icons_silencer">
+<img class="icons" src="{{ media_url('images/miniheroes/skeleton_king.png') }}" id="icons_skeleton_king">
+<img class="icons" src="{{ media_url('images/miniheroes/skywrath_mage.png') }}" id="icons_skywrath_mage">
+<img class="icons" src="{{ media_url('images/miniheroes/slardar.png') }}" id="icons_slardar">
+<img class="icons" src="{{ media_url('images/miniheroes/slark.png') }}" id="icons_slark">
+<img class="icons" src="{{ media_url('images/miniheroes/sniper.png') }}" id="icons_sniper">
+<img class="icons" src="{{ media_url('images/miniheroes/spectre.png') }}" id="icons_spectre">
+<img class="icons" src="{{ media_url('images/miniheroes/spirit_breaker.png') }}" id="icons_spirit_breaker">
+<img class="icons" src="{{ media_url('images/miniheroes/storm_spirit.png') }}" id="icons_storm_spirit">
+<img class="icons" src="{{ media_url('images/miniheroes/sven.png') }}" id="icons_sven">
+<img class="icons" src="{{ media_url('images/miniheroes/templar_assassin.png') }}" id="icons_templar_assassin">
+<img class="icons" src="{{ media_url('images/miniheroes/tidehunter.png') }}" id="icons_tidehunter">
+<img class="icons" src="{{ media_url('images/miniheroes/shredder.png') }}" id="icons_shredder">
+<img class="icons" src="{{ media_url('images/miniheroes/tinker.png') }}" id="icons_tinker">
+<img class="icons" src="{{ media_url('images/miniheroes/tiny.png') }}" id="icons_tiny">
+<img class="icons" src="{{ media_url('images/miniheroes/treant.png') }}" id="icons_treant">
+<img class="icons" src="{{ media_url('images/miniheroes/troll_warlord.png') }}" id="icons_troll_warlord">
+<img class="icons" src="{{ media_url('images/miniheroes/tusk.png') }}" id="icons_tusk">
+<img class="icons" src="{{ media_url('images/miniheroes/undying.png') }}" id="icons_undying">
+<img class="icons" src="{{ media_url('images/miniheroes/ursa.png') }}" id="icons_ursa">
+<img class="icons" src="{{ media_url('images/miniheroes/vengefulspirit.png') }}" id="icons_vengefulspirit">
+<img class="icons" src="{{ media_url('images/miniheroes/venomancer.png') }}" id="icons_venomancer">
+<img class="icons" src="{{ media_url('images/miniheroes/viper.png') }}" id="icons_viper">
+<img class="icons" src="{{ media_url('images/miniheroes/visage.png') }}" id="icons_visage">
+<img class="icons" src="{{ media_url('images/miniheroes/warlock.png') }}" id="icons_warlock">
+<img class="icons" src="{{ media_url('images/miniheroes/weaver.png') }}" id="icons_weaver">
+<img class="icons" src="{{ media_url('images/miniheroes/windrunner.png') }}" id="icons_windrunner">
+<img class="icons" src="{{ media_url('images/miniheroes/wisp.png') }}" id="icons_wisp">
+<img class="icons" src="{{ media_url('images/miniheroes/witch_doctor.png') }}" id="icons_witch_doctor">
+<img class="icons" src="{{ media_url('images/miniheroes/zuus.png') }}" id="icons_zuus">
+				
+				</div>			
+			
+			</div>
+		
+		
+			<p>Ctrl+Click - Pan, Mouse Wheel - Zoom, Ctrl+Z - Undo, Ctrl+Y - Redo. Click the hero icons on either side bar for easy access.<p>
+			<div id='canvascontainer' >
+				<div id="sidebar" style="display:none;width:1000px;border-radius:0px;"> 
+					<div id="scroller-anchor"></div> 
+					<div id="scroller" style="margin:0px;padding:5px 0px 5px 0px; width:1000px;border-radius:0px;"> 
+						<div id="brushcolorcontainer" style="float:left;margin:0px 5px 0px 0px;"><label for="brushcolor">Brush Color: </label><input id="brushcolor" class="color" style="width:60px;border: 0;display:inline"></div>
+						<div style="display:inline;float:left;"><label for="amount">Brush Size: </label><input type="text" id="amount" style="width:40px;display:inline;border: 0;" /></div>
+						<div style="margin:5px 5px 0px 5px;display:inline;float:left;width:200px;"><div id="slider"></div></div>
+						<div id="radio" style="float:left;margin:0px 0px 5px 0px;">
+<div id="radiogroup" class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary">
+    <input type="radio" name="radio" id="radio1">Marker
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="radio" id="radio2">Eraser
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="radio" id="radio3">Hero Icon
+  </label>
+</div>
+						</div>
+							<div class="select-wrapper" style="border-radius:4px;">
+							<select id="hero" class="fileinfo" name="hero">
+								<option value="ward_observer">Observer Ward</option>
+								<option value="ward_sentry">Sentry Ward</option>
+								<option value="roshan">Roshan</option>
+								<option value="abaddon">Abaddon</option>
+								<option value="alchemist">Alchemist</option>
+								<option value="ancient_apparition">Ancient Apparition</option>
+								<option value="antimage">Anti-Mage</option>
+								<option value="axe">Axe</option>
+								<option value="bane">Bane</option>
+								<option value="batrider">Batrider</option>
+								<option value="beastmaster">Beastmaster</option>
+								<option value="bloodseeker">Bloodseeker</option>
+								<option value="bounty_hunter">Bounty Hunter</option>
+								<option value="brewmaster">Brewmaster</option>
+								<option value="bristleback">Bristleback</option>
+								<option value="broodmother">Broodmother</option>
+								<option value="centaur">Centaur Warrunner</option>
+								<option value="chaos_knight">Chaos Knight</option>
+								<option value="chen">Chen</option>
+								<option value="clinkz">Clinkz</option>
+								<option value="rattletrap">Clockwerk</option>
+								<option value="crystal_maiden">Crystal Maiden</option>
+								<option value="dark_seer">Dark Seer</option>
+								<option value="dazzle">Dazzle</option>
+								<option value="death_prophet">Death Prophet</option>
+								<option value="disruptor">Disruptor</option>
+								<option value="doom_bringer">Doom Bringer</option>
+								<option value="dragon_knight">Dragon Knight</option>
+								<option value="drow_ranger">Drow Ranger</option>
+								<option value="earthshaker">Earthshaker</option>
+								<option value="elder_titan">Elder Titan</option>
+								<option value="enchantress">Enchantress</option>
+								<option value="enigma">Enigma</option>
+								<option value="faceless_void">Faceless Void</option>
+								<option value="furion">Nature's Prophet</option>
+								<option value="gyrocopter">Gyrocopter</option>
+								<option value="huskar">Huskar</option>
+								<option value="invoker">Invoker</option>
+								<option value="jakiro">Jakiro</option>
+								<option value="juggernaut">Juggernaut</option>
+								<option value="keeper_of_the_light">Keeper of the Light</option>
+								<option value="kunkka">Kunkka</option>
+								<option value="leshrac">Leshrac</option>
+								<option value="lich">Lich</option>
+								<option value="life_stealer">Lifestealer</option>
+								<option value="lina">Lina</option>
+								<option value="lion">Lion</option>
+								<option value="lone_druid">Lone Druid</option>
+								<option value="luna">Luna</option>
+								<option value="lycan">Lycanthrope</option>
+								<option value="magnataur">Magnus</option>
+								<option value="medusa">Medusa</option>
+								<option value="meepo">Meepo</option>
+								<option value="mirana">Mirana</option>
+								<option value="morphling">Morphling</option>
+								<option value="naga_siren">Naga Siren</option>
+								<option value="necrolyte">Necrolyte</option>
+								<option value="night_stalker">Night Stalker</option>
+								<option value="nyx_assassin">Nyx Assassin</option>
+								<option value="obsidian_destroyer">Outworld Destroyer</option>
+								<option value="ogre_magi">Ogre Magi</option>
+								<option value="omniknight">Omniknight</option>
+								<option value="phantom_assassin">Phantom Assassin</option>
+								<option value="phantom_lancer">Phantom Lancer</option>
+								<option value="puck">Puck</option>
+								<option value="pudge">Pudge</option>
+								<option value="pugna">Pugna</option>
+								<option value="queenofpain">Queen of Pain</option>
+								<option value="razor">Razor</option>
+								<option value="riki">Riki</option>
+								<option value="rubick">Rubick</option>
+								<option value="sand_king">Sand King</option>
+								<option value="shadow_demon">Shadow Demon</option>
+								<option value="nevermore">Shadow Fiend</option>
+								<option value="shadow_shaman">Shadow Shaman</option>
+								<option value="silencer">Silencer</option>
+								<option value="skeleton_king">Skeleton King</option>
+								<option value="skywrath_mage">Skywrath Mage</option>
+								<option value="slardar">Slardar</option>
+								<option value="slark">Slark</option>
+								<option value="sniper">Sniper</option>
+								<option value="spectre">Spectre</option>
+								<option value="spirit_breaker">Spirit Breaker</option>
+								<option value="storm_spirit">Storm Spirit</option>
+								<option value="sven">Sven</option>
+								<option value="templar_assassin">Templar Assassin</option>
+								<option value="tidehunter">Tidehunter</option>
+								<option value="shredder">Timbersaw</option>
+								<option value="tinker">Tinker</option>
+								<option value="tiny">Tiny</option>
+								<option value="treant">Treant Protector</option>
+								<option value="troll_warlord">Troll Warlord</option>
+								<option value="tusk">Tusk</option>
+								<option value="undying">Undying</option>
+								<option value="ursa">Ursa</option>
+								<option value="vengefulspirit">Vengeful Spirit</option>
+								<option value="venomancer">Venomancer</option>
+								<option value="viper">Viper</option>
+								<option value="visage">Visage</option>
+								<option value="warlock">Warlock</option>
+								<option value="weaver">Weaver</option>
+								<option value="windrunner">Windrunner</option>
+								<option value="wisp">Wisp</option>
+								<option value="witch_doctor">Witch Doctor</option>
+								<option value="zuus">Zeus</option>
+							</select>
+							</div>
+							<input name="herobrush" id="herobrush" style="display:inline;" type="checkbox"><label for="herobrush">Hero Brush</label>
+						<div id="zoombuttons" style="float:left;margin:5px 0px 10px 5px">
+							<button id="zoominbutton" type="button">Zoom In</button> 
+							<button id="zoomoutbutton" type="button">Zoom Out</button> 
+							<button id="undobutton" type="button">Undo</button>
+							<button id="redobutton" type="button">Redo</button>
+							<button id="clearbutton" type="button">Clear</button>
+							<button id="viewbutton" type="button">View</button>
+							<button id="sharebutton" type="button">Share</button>
+							<div id="sharelink" style="display:inline;margin:0px 0px 0px px"></div>
+							<button id="savebutton" type="button" onclick="save()">Save</button>
+							<div id="savelink" style="display:inline;margin:0px 0px 0px px"></div>
+						</div>
+						<div style="clear:both"></div>
+
+					</div>
+				</div>
+				<div id="canvasContainers" style="position:relative">
+					<div id="canvasDivBackground" style="position:absolute;width:50%;height:100%;border-radius:0 0 0 0"></div>
+					<div id="canvasDiv" style="position:absolute;width:50%;height:100%;border-radius:0 0 0 0"></div>
+				</div>
+				
+			</div>
+{% endblock main %}
+{% block footer %}
+{% endblock footer %}
+{% block scripts %}
+	<script type="text/javascript" src="{{ media_url('js/jscolor/jscolor.js') }}"></script>
+			<script type="text/javascript" src="drawablemap.js"></script>
+			<script type="text/javascript">
+				getUrlVars();
+			</script>		
+{% endblock scripts %}
