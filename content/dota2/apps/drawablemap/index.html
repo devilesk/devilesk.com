@@ -8,52 +8,31 @@ active_menu: page-webapps
 {% block custom_css %}
 	<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.2.custom.css') }}" />
 	<style type=text/css>
+#content {
+	text-align:center;
+}
+#canvasContainers {
+	margin:0 auto;
+}
 .ui-widget-header {
 background:#979aa1;
 }
 .ui-widget-content {
 background:black;
 }
-.img_icon {
-	display:block;
-}
 .icons {
 	float:left
 }
 #iconSavedContainer {
-	position:absolute;
-	right:-100px;
-	top:400px;
-	background-color:#1c1d1f;
+	background-color:#131415;
 	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
-	min-height:320px;
-	width:32px;
+	width:320px;
+	height:32px;
 }
 #iconContainer {
-	position:absolute;
-	left:-200px;
-	top:100px;
 	width:196px;
 	background-color:#1c1d1f;
 	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
-}
-#iconContainerText {
-	margin-left:10px;
-	margin-right:30px;
-}
-#iconContainerExpand, .img_icon,.icons {
-	cursor:pointer;
-	cursor:hand;
-}
-
-body {
-	min-width:1400px;
-}
-#main {
-	width:1000px;
-}
-#canvasToolsContainer {
-	position:relative;
 }
 #canvasDiv {
 	user-select: none;
@@ -151,8 +130,11 @@ select {
 				<li><button id="savebutton" type="button" onclick="save()">Save</button></li>
 				<li><div id="savelink" style="display:inline;margin:0px 0px 0px px"></div></li>
               </ul>
-            </li>
+	    </li>
             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Icons <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+            <li>
 							<select id="hero" class="fileinfo" name="hero">
 								<option value="ward_observer">Observer Ward</option>
 								<option value="ward_sentry">Sentry Ward</option>
@@ -261,20 +243,8 @@ select {
 								<option value="zuus">Zeus</option>
 							</select>
             </li>
-		  </ul>
-		</div>
-	</div>
-</div>
-  {% endblock %}
-{% block main %}
-	
-		<div id='contentcontainer'>
-		
-					<div id="canvasToolsContainer">
-			
-				<div id="iconSavedContainer"></div>
-				
-				<div id="iconContainer"><span id="iconContainerText">Hero Icons</span><span id="iconContainerExpand">-</span><hr width=100% style="border-style:solid;border-color:#252525"><div style="clear:both"></div>
+<li class="divider"></li>
+<li id="iconContainer">
 <img class="icons" src="{{ media_url('images/miniheroes/ward_observer.png') }}" id="icons_ward_observer">
 <img class="icons" src="{{ media_url('images/miniheroes/ward_sentry.png') }}" id="icons_ward_sentry">
 <img class="icons" src="{{ media_url('images/miniheroes/roshan.png') }}" id="icons_roshan">
@@ -381,19 +351,27 @@ select {
 <img class="icons" src="{{ media_url('images/miniheroes/witch_doctor.png') }}" id="icons_witch_doctor">
 <img class="icons" src="{{ media_url('images/miniheroes/zuus.png') }}" id="icons_zuus">
 				
-				</div>			
-			
-			</div>
+</li>			
+</ul>
+	    </li>
+	    <li>
+	<div id="iconSavedContainer"></div>
+	    </li>
+		  </ul>
+		</div>
+	</div>
+</div>
+  {% endblock %}
+{% block container %}
+	
 		
-			<div id='canvascontainer' >
 <div id="slider"></div>
 				<div id="canvasContainers" style="position:relative">
 					<div id="canvasDivBackground" style="position:absolute;background:black;"></div>
 					<div id="canvasDiv" style="position:absolute;"></div>
 				</div>
 				
-			</div>
-{% endblock main %}
+{% endblock container %}
 {% block push %}
 {% endblock push %}
 {% block footer %}

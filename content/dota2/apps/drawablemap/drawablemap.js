@@ -42,7 +42,7 @@ var drawingApp = (function () {
 
 	"use strict";
 	var getHeight = function() {
-       return $('html').height() - $('.navbar').outerHeight(true) - 10;
+       return $('html').height() - $('.navbar').outerHeight(true)-5;
 	};
 	var canvas, canvasMenu,
 		canvasBG,
@@ -78,6 +78,8 @@ var drawingApp = (function () {
 			canvas.height = canvasHeight;
 			canvasBG.width = canvasWidth;
 			canvasBG.height = canvasHeight;
+			$('#canvasContainers').width(canvasWidth);
+			$('#canvasContainers').height(canvasHeight);
 			scaleX = canvasWidth/initialWidth;
 			scaleY = canvasHeight/initialHeight;
 			xTransform = 0;
@@ -130,6 +132,7 @@ var drawingApp = (function () {
 			// Draw the outline image
 			if (start == 0) {
 			contextBG.drawImage(images.background, 0, 0, canvas.width, canvas.height);
+			contextBG.fillRect(0, 0, canvas.width, canvas.height);
 			}
 
 			// For each point drawn
@@ -471,7 +474,7 @@ var drawingApp = (function () {
 			context.restore();
 			redraw(0);
 			w.onload = function() {
-				w.document.getElementById('canvascontainer').appendChild(newCanvas);
+				w.document.getElementById('canvasContainers').appendChild(newCanvas);
 			}
 		},
 		/*
@@ -781,9 +784,23 @@ var drawingApp = (function () {
 			$(document).on('change', 'input:radio[id^="radio"]', function (event) {
 				selectedRadio = $(this).attr('id');
 			});
+
+
+$(".dropdown-menu input").click(function(e) {
+            e.stopPropagation();// prevent the default anchor functionality
+});
+$(".dropdown-menu label").click(function(e) {
+            e.stopPropagation();// prevent the default anchor functionality
+});
+$(".dropdown-menu select").click(function(e) {
+            e.stopPropagation();// prevent the default anchor functionality
+});
+$(".dropdown-menu img").click(function(e) {
+            e.stopPropagation();// prevent the default anchor functionality
+});
 			
 			var $window = $(window).on('resize', function(){
-			   var height = $('html').height() - $('.navbar').outerHeight(true)-10;
+			   var height = $('html').height() - $('.navbar').outerHeight(true)-5;
 			   //console.log($('.navbar').outerHeight(true));
 			   $('#canvasContainers').height(height);
 			   $('#canvasDiv').height(height);
