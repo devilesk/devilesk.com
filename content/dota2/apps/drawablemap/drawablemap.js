@@ -37,27 +37,30 @@ $("#canvasDiv").mouseover(function(){
 }).mouseout(function(){
         document.onselectstart = null;
 });
-var $window = $(window).on('resize', function(){
-       var height = $('html').height() - $('.navbar').height();
-       $('#canvasContainers').height(height);
-    }).trigger('resize');
+
 var drawingApp = (function () {
 
 	"use strict";
-
+	var getHeight = function() {
+       return $('html').height() - $('.navbar').outerHeight(true) - 10;
+	};
 	var canvas, canvasMenu,
 		canvasBG,
 		selectedRadio = 'radio1',
 		scaleTotal = 1,
 		scaleTotalprev = 1,
+		scaleX = 1,
+		scaleY = 1,
 		mouseXprev = 0,
 		mouseYprev = 0,
 		xTransform = 0,
 		yTransform = 0,
 		context,
 		contextBG,
-		canvasWidth = 500,//5087*.19657951641,
-		canvasHeight = 500,//4916*.19657951641,
+		initialWidth = 2048,
+		initialHeight = 2048,
+		canvasWidth = getHeight(),//5087*.19657951641,
+		canvasHeight = getHeight(),//4916*.19657951641,
 		colorPurple = "#cb3594",
 		dragStart = 0,
 		paint = false,
@@ -67,6 +70,22 @@ var drawingApp = (function () {
 		curSize = 1,
 		totalLoadResources = 5,
 		curLoadResNum = 0,
+		
+		resizeCanvas = function() {
+			canvasWidth = getHeight();
+			canvasHeight = getHeight();
+			canvas.width = canvasWidth;
+			canvas.height = canvasHeight;
+			canvasBG.width = canvasWidth;
+			canvasBG.height = canvasHeight;
+			scaleX = canvasWidth/initialWidth;
+			scaleY = canvasHeight/initialHeight;
+			xTransform = 0;
+			yTransform = 0;
+		scaleTotal = 1;
+		scaleTotalprev = 1;
+			redraw(0);
+		},
 		
 		// Clears the canvas.
 		clearCanvas = function () {
@@ -125,10 +144,10 @@ var drawingApp = (function () {
 				if (clickTool[i] == "b") {
 					context.globalCompositeOperation = "source-over";
 					if (clickIcon[i] == "ward_observer" || clickIcon[i] == "ward_sentry") {
-					context.drawImage(images[clickIcon[i]] ,clickX[i]-16*clickSize[i]/2,clickY[i]-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+					context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
 					}
 					else {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]-16*clickSize[i]/2,clickY[i]-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
 					}
 					if (!clickDrag[i]) {
 						dragStart = i;
@@ -150,20 +169,20 @@ var drawingApp = (function () {
 				else if (clickTool[i] == "h") {
 					context.globalCompositeOperation = "source-over";
 					if (clickIcon[i] == "ward_observer" || clickIcon[i] == "ward_sentry") {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]-16*clickSize[i]/2,clickY[i]-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
 					}
 					else {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]-16*clickSize[i]/2,clickY[i]-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
 					}
 				}
 				else {
 					if (clickDrag[i] && i) {
-						context.moveTo(clickX[i - 1], clickY[i - 1]);
+						context.moveTo(clickX[i - 1]/initialWidth*canvasWidth, clickY[i - 1]/initialHeight*canvasHeight);
 					} else {
 						// The x position is moved over one pixel so a circle even if not dragging
-						context.moveTo(clickX[i] - 1, clickY[i]);
+						context.moveTo(clickX[i]/initialWidth*canvasWidth - 1, clickY[i]/initialHeight*canvasHeight);
 					}
-					context.lineTo(clickX[i], clickY[i]);
+					context.lineTo(clickX[i]/initialWidth*canvasWidth, clickY[i]/initialHeight*canvasHeight);
 					
 					// Set the drawing color
 					if (clickTool[i] === "e") {
@@ -201,10 +220,9 @@ var drawingApp = (function () {
 		// @param y
 		// @param dragging
 		addClick = function (x, y, dragging) {
-			x = x*(1/scaleTotal)-xTransform*(1/scaleTotal);
-			y = y*(1/scaleTotal)-yTransform*(1/scaleTotal);
-			clickX.push(x);
-			clickY.push(y);
+			//console.log(x/canvasWidth*initialWidth*(1/scaleTotal)-xTransform*(1/scaleTotal),y/canvasHeight*initialHeight*(1/scaleTotal)-yTransform*(1/scaleTotal));
+			clickX.push(x/canvasWidth*initialWidth*(1/scaleTotal)-xTransform*(1/scaleTotal));
+			clickY.push(y/canvasHeight*initialHeight*(1/scaleTotal)-yTransform*(1/scaleTotal));
 			if (selectedRadio == 'radio1') {
 				//console.log('m');
 				clickTool.push('m');
@@ -242,7 +260,6 @@ var drawingApp = (function () {
 				var sizeHotspotStartX,
 					mouseX = (e.offsetX - this.offsetLeft),
 					mouseY = (e.offsetY - this.offsetTop);
-				console.log(e, $(this));
 				if (e.currentTarget.id == 'canvas' && e.button == 0 &&  isCtrl==false) {
 					paint = true;
 					addClick(mouseX, mouseY, false);
@@ -290,8 +307,9 @@ var drawingApp = (function () {
 						paint = false;
 						context.translate((mouseX-mouseXprev)*(1/scaleTotal), (mouseY-mouseYprev)*(1/scaleTotal));
 						contextBG.translate((mouseX-mouseXprev)*(1/scaleTotal), (mouseY-mouseYprev)*(1/scaleTotal));
-						xTransform = xTransform+(mouseX-mouseXprev);
-						yTransform = yTransform+(mouseY-mouseYprev);
+						xTransform = xTransform+(mouseX-mouseXprev)*(initialWidth/canvasWidth);
+						yTransform = yTransform+(mouseY-mouseYprev)*(initialHeight/canvasHeight);
+						//console.log(xTransform,yTransform);
 						mouseXprev = mouseX;
 						mouseYprev = mouseY;
 						redraw(0);
@@ -510,8 +528,8 @@ var drawingApp = (function () {
 		
 		zoomout = function() {
 						if (scaleTotal*.8 >= .8) {
-							var w = canvas.width*scaleTotal,
-								h = canvas.height*scaleTotal;
+							var w = canvas.width*(initialWidth/canvasWidth)*scaleTotal,
+								h = canvas.height*(initialWidth/canvasWidth)*scaleTotal;
 							scaleTotal = scaleTotal * .8;
 							context = canvas.getContext("2d");
 							contextBG = canvasBG.getContext("2d");
@@ -533,8 +551,8 @@ var drawingApp = (function () {
 		
 		zoomin = function() {
 						if (scaleTotal*1.25 <= (1/.19657951641)) {
-							var w = canvas.width*scaleTotal,
-								h = canvas.height*scaleTotal;
+							var w = canvas.width*(initialWidth/canvasWidth)*scaleTotal,
+								h = canvas.height*(initialWidth/canvasWidth)*scaleTotal;
 							scaleTotal = scaleTotal * 1.25;
 							context = canvas.getContext("2d");
 							contextBG = canvasBG.getContext("2d");
@@ -614,14 +632,13 @@ var drawingApp = (function () {
 
 		// Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
 		init = function () {
-
 			// Create the canvas (Necessary for IE because it doesn't know what a canvas element is)
 			canvas = document.createElement('canvas');
-			canvas.setAttribute('width', canvasWidth);
-			canvas.setAttribute('height', canvasHeight);
+			canvas.setAttribute('width', initialWidth);
+			canvas.setAttribute('height', initialHeight);
 			canvas.setAttribute('id', 'canvas');
-			canvas.style.border = "solid";
-			canvas.style.borderWidth = "1px";
+			//canvas.style.border = "solid";
+			//canvas.style.borderWidth = "1px";
 			document.getElementById('canvasDiv').appendChild(canvas);
 			if (typeof G_vmlCanvasManager !== "undefined") {
 				canvas = G_vmlCanvasManager.initElement(canvas);
@@ -632,11 +649,11 @@ var drawingApp = (function () {
 
 			// Create the canvas (Necessary for IE because it doesn't know what a canvas element is)
 			canvasBG = document.createElement('canvas');
-			canvasBG.setAttribute('width', canvasWidth);
-			canvasBG.setAttribute('height', canvasHeight);
+			canvasBG.setAttribute('width', initialWidth);
+			canvasBG.setAttribute('height', initialHeight);
 			canvasBG.setAttribute('id', 'canvas');
-			canvasBG.style.border = "solid";
-			canvasBG.style.borderWidth = "1px";
+			//canvasBG.style.border = "solid";
+			//canvasBG.style.borderWidth = "1px";
 			document.getElementById('canvasDivBackground').appendChild(canvasBG);
 			if (typeof G_vmlCanvasManager !== "undefined") {
 				canvas = G_vmlCanvasManager.initElement(canvasBG);
@@ -644,9 +661,10 @@ var drawingApp = (function () {
 			contextBG = canvasBG.getContext("2d"); // Grab the 2d canvas context
 			// Note: The above code is a workaround for IE 8 and lower. Otherwise we could have used:
 			//     context = document.getElementById('canvas').getContext("2d");
+		
 			
 			var sources = {
-			background: "{{ media_url('images/dota_map_full_compress2.jpg') }}",
+			background: "{{ media_url('images/dota_map.jpg') }}",
 			ward_observer: "{{ media_url('images/miniheroes/ward_observer.png') }}",
 			ward_sentry: "{{ media_url('images/miniheroes/ward_sentry.png') }}",
 			roshan: "{{ media_url('images/miniheroes/roshan.png') }}",
@@ -763,6 +781,16 @@ var drawingApp = (function () {
 			$(document).on('change', 'input:radio[id^="radio"]', function (event) {
 				selectedRadio = $(this).attr('id');
 			});
+			
+			var $window = $(window).on('resize', function(){
+			   var height = $('html').height() - $('.navbar').outerHeight(true)-10;
+			   //console.log($('.navbar').outerHeight(true));
+			   $('#canvasContainers').height(height);
+			   $('#canvasDiv').height(height);
+			   $('#canvasDivBackground').height(height);
+			   //console.log('resizing');
+			   resizeCanvas();
+			}).trigger('resize');
 		};
 	
 	document.onkeyup=function(e) {

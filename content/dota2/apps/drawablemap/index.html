@@ -3,7 +3,6 @@ extends: base.j2
 title: Dota 2 Drawable Map
 description: Drawable Dota 2 Map. Create, save, and share drawings on a picture of the Dota 2 map.
 active_menu: page-webapps
-header: Drawable Map
 ---
 
 {% block custom_css %}
@@ -31,11 +30,10 @@ background:black;
 	width:32px;
 }
 #iconContainer {
-	display:none;
 	position:absolute;
 	left:-200px;
 	top:100px;
-	width:128px;
+	width:196px;
 	background-color:#1c1d1f;
 	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
 }
@@ -94,6 +92,180 @@ select {
 }
 	</style>
 {% endblock custom_css %}
+  {% block nav %}
+<div class="navbar navbar-default {{cls if cls }}">
+	<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ content_url('/dota2') }}" style="width:220px;"><div></div></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brush <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+					<label for="brushcolor">Brush Color: </label><input id="brushcolor" class="color" style="width:60px;border: 0;display:inline">
+				</li>
+				<li>
+					<label for="amount">Brush Size: </label><input type="text" id="amount" style="width:40px;display:inline;border: 0;" value="1"/>
+				</li>
+				<li>
+<input name="herobrush" id="herobrush" style="display:inline;" type="checkbox"><label for="herobrush">Hero Brush</label>
+				</li>
+				<li>
+<div id="radiogroup" class="btn-group btn-group-vertical" data-toggle="buttons">
+  <label class="btn btn-primary">
+    <input type="radio" name="radio" id="radio1">Marker
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="radio" id="radio2">Eraser
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="radio" id="radio3">Hero Icon
+  </label>
+</div>
+				</li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><button id="zoominbutton" type="button">Zoom In</button> </li>
+				<li><button id="zoomoutbutton" type="button">Zoom Out</button> </li>
+				<li><button id="undobutton" type="button">Undo</button></li>
+				<li><button id="redobutton" type="button">Redo</button></li>
+				<li><button id="clearbutton" type="button">Clear</button></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+				<li><button id="viewbutton" type="button">View</button></li>
+				<li><button id="sharebutton" type="button">Share</button></li>
+				<li><div id="sharelink" style="display:inline;margin:0px 0px 0px px"></div></li>
+				<li><button id="savebutton" type="button" onclick="save()">Save</button></li>
+				<li><div id="savelink" style="display:inline;margin:0px 0px 0px px"></div></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+							<select id="hero" class="fileinfo" name="hero">
+								<option value="ward_observer">Observer Ward</option>
+								<option value="ward_sentry">Sentry Ward</option>
+								<option value="roshan">Roshan</option>
+								<option value="abaddon">Abaddon</option>
+								<option value="alchemist">Alchemist</option>
+								<option value="ancient_apparition">Ancient Apparition</option>
+								<option value="antimage">Anti-Mage</option>
+								<option value="axe">Axe</option>
+								<option value="bane">Bane</option>
+								<option value="batrider">Batrider</option>
+								<option value="beastmaster">Beastmaster</option>
+								<option value="bloodseeker">Bloodseeker</option>
+								<option value="bounty_hunter">Bounty Hunter</option>
+								<option value="brewmaster">Brewmaster</option>
+								<option value="bristleback">Bristleback</option>
+								<option value="broodmother">Broodmother</option>
+								<option value="centaur">Centaur Warrunner</option>
+								<option value="chaos_knight">Chaos Knight</option>
+								<option value="chen">Chen</option>
+								<option value="clinkz">Clinkz</option>
+								<option value="rattletrap">Clockwerk</option>
+								<option value="crystal_maiden">Crystal Maiden</option>
+								<option value="dark_seer">Dark Seer</option>
+								<option value="dazzle">Dazzle</option>
+								<option value="death_prophet">Death Prophet</option>
+								<option value="disruptor">Disruptor</option>
+								<option value="doom_bringer">Doom Bringer</option>
+								<option value="dragon_knight">Dragon Knight</option>
+								<option value="drow_ranger">Drow Ranger</option>
+								<option value="earthshaker">Earthshaker</option>
+								<option value="elder_titan">Elder Titan</option>
+								<option value="enchantress">Enchantress</option>
+								<option value="enigma">Enigma</option>
+								<option value="faceless_void">Faceless Void</option>
+								<option value="furion">Nature's Prophet</option>
+								<option value="gyrocopter">Gyrocopter</option>
+								<option value="huskar">Huskar</option>
+								<option value="invoker">Invoker</option>
+								<option value="jakiro">Jakiro</option>
+								<option value="juggernaut">Juggernaut</option>
+								<option value="keeper_of_the_light">Keeper of the Light</option>
+								<option value="kunkka">Kunkka</option>
+								<option value="leshrac">Leshrac</option>
+								<option value="lich">Lich</option>
+								<option value="life_stealer">Lifestealer</option>
+								<option value="lina">Lina</option>
+								<option value="lion">Lion</option>
+								<option value="lone_druid">Lone Druid</option>
+								<option value="luna">Luna</option>
+								<option value="lycan">Lycanthrope</option>
+								<option value="magnataur">Magnus</option>
+								<option value="medusa">Medusa</option>
+								<option value="meepo">Meepo</option>
+								<option value="mirana">Mirana</option>
+								<option value="morphling">Morphling</option>
+								<option value="naga_siren">Naga Siren</option>
+								<option value="necrolyte">Necrolyte</option>
+								<option value="night_stalker">Night Stalker</option>
+								<option value="nyx_assassin">Nyx Assassin</option>
+								<option value="obsidian_destroyer">Outworld Destroyer</option>
+								<option value="ogre_magi">Ogre Magi</option>
+								<option value="omniknight">Omniknight</option>
+								<option value="phantom_assassin">Phantom Assassin</option>
+								<option value="phantom_lancer">Phantom Lancer</option>
+								<option value="puck">Puck</option>
+								<option value="pudge">Pudge</option>
+								<option value="pugna">Pugna</option>
+								<option value="queenofpain">Queen of Pain</option>
+								<option value="razor">Razor</option>
+								<option value="riki">Riki</option>
+								<option value="rubick">Rubick</option>
+								<option value="sand_king">Sand King</option>
+								<option value="shadow_demon">Shadow Demon</option>
+								<option value="nevermore">Shadow Fiend</option>
+								<option value="shadow_shaman">Shadow Shaman</option>
+								<option value="silencer">Silencer</option>
+								<option value="skeleton_king">Skeleton King</option>
+								<option value="skywrath_mage">Skywrath Mage</option>
+								<option value="slardar">Slardar</option>
+								<option value="slark">Slark</option>
+								<option value="sniper">Sniper</option>
+								<option value="spectre">Spectre</option>
+								<option value="spirit_breaker">Spirit Breaker</option>
+								<option value="storm_spirit">Storm Spirit</option>
+								<option value="sven">Sven</option>
+								<option value="templar_assassin">Templar Assassin</option>
+								<option value="tidehunter">Tidehunter</option>
+								<option value="shredder">Timbersaw</option>
+								<option value="tinker">Tinker</option>
+								<option value="tiny">Tiny</option>
+								<option value="treant">Treant Protector</option>
+								<option value="troll_warlord">Troll Warlord</option>
+								<option value="tusk">Tusk</option>
+								<option value="undying">Undying</option>
+								<option value="ursa">Ursa</option>
+								<option value="vengefulspirit">Vengeful Spirit</option>
+								<option value="venomancer">Venomancer</option>
+								<option value="viper">Viper</option>
+								<option value="visage">Visage</option>
+								<option value="warlock">Warlock</option>
+								<option value="weaver">Weaver</option>
+								<option value="windrunner">Windrunner</option>
+								<option value="wisp">Wisp</option>
+								<option value="witch_doctor">Witch Doctor</option>
+								<option value="zuus">Zeus</option>
+							</select>
+            </li>
+		  </ul>
+		</div>
+	</div>
+</div>
+  {% endblock %}
 {% block main %}
 	
 		<div id='contentcontainer'>
@@ -213,161 +385,17 @@ select {
 			
 			</div>
 		
-		
-			<p>Ctrl+Click - Pan, Mouse Wheel - Zoom, Ctrl+Z - Undo, Ctrl+Y - Redo. Click the hero icons on either side bar for easy access.<p>
 			<div id='canvascontainer' >
-				<div id="sidebar" style="display:none;width:1000px;border-radius:0px;"> 
-					<div id="scroller-anchor"></div> 
-					<div id="scroller" style="margin:0px;padding:5px 0px 5px 0px; width:1000px;border-radius:0px;"> 
-						<div id="brushcolorcontainer" style="float:left;margin:0px 5px 0px 0px;"><label for="brushcolor">Brush Color: </label><input id="brushcolor" class="color" style="width:60px;border: 0;display:inline"></div>
-						<div style="display:inline;float:left;"><label for="amount">Brush Size: </label><input type="text" id="amount" style="width:40px;display:inline;border: 0;" /></div>
-						<div style="margin:5px 5px 0px 5px;display:inline;float:left;width:200px;"><div id="slider"></div></div>
-						<div id="radio" style="float:left;margin:0px 0px 5px 0px;">
-<div id="radiogroup" class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-    <input type="radio" name="radio" id="radio1">Marker
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="radio" id="radio2">Eraser
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="radio" id="radio3">Hero Icon
-  </label>
-</div>
-						</div>
-							<div class="select-wrapper" style="border-radius:4px;">
-							<select id="hero" class="fileinfo" name="hero">
-								<option value="ward_observer">Observer Ward</option>
-								<option value="ward_sentry">Sentry Ward</option>
-								<option value="roshan">Roshan</option>
-								<option value="abaddon">Abaddon</option>
-								<option value="alchemist">Alchemist</option>
-								<option value="ancient_apparition">Ancient Apparition</option>
-								<option value="antimage">Anti-Mage</option>
-								<option value="axe">Axe</option>
-								<option value="bane">Bane</option>
-								<option value="batrider">Batrider</option>
-								<option value="beastmaster">Beastmaster</option>
-								<option value="bloodseeker">Bloodseeker</option>
-								<option value="bounty_hunter">Bounty Hunter</option>
-								<option value="brewmaster">Brewmaster</option>
-								<option value="bristleback">Bristleback</option>
-								<option value="broodmother">Broodmother</option>
-								<option value="centaur">Centaur Warrunner</option>
-								<option value="chaos_knight">Chaos Knight</option>
-								<option value="chen">Chen</option>
-								<option value="clinkz">Clinkz</option>
-								<option value="rattletrap">Clockwerk</option>
-								<option value="crystal_maiden">Crystal Maiden</option>
-								<option value="dark_seer">Dark Seer</option>
-								<option value="dazzle">Dazzle</option>
-								<option value="death_prophet">Death Prophet</option>
-								<option value="disruptor">Disruptor</option>
-								<option value="doom_bringer">Doom Bringer</option>
-								<option value="dragon_knight">Dragon Knight</option>
-								<option value="drow_ranger">Drow Ranger</option>
-								<option value="earthshaker">Earthshaker</option>
-								<option value="elder_titan">Elder Titan</option>
-								<option value="enchantress">Enchantress</option>
-								<option value="enigma">Enigma</option>
-								<option value="faceless_void">Faceless Void</option>
-								<option value="furion">Nature's Prophet</option>
-								<option value="gyrocopter">Gyrocopter</option>
-								<option value="huskar">Huskar</option>
-								<option value="invoker">Invoker</option>
-								<option value="jakiro">Jakiro</option>
-								<option value="juggernaut">Juggernaut</option>
-								<option value="keeper_of_the_light">Keeper of the Light</option>
-								<option value="kunkka">Kunkka</option>
-								<option value="leshrac">Leshrac</option>
-								<option value="lich">Lich</option>
-								<option value="life_stealer">Lifestealer</option>
-								<option value="lina">Lina</option>
-								<option value="lion">Lion</option>
-								<option value="lone_druid">Lone Druid</option>
-								<option value="luna">Luna</option>
-								<option value="lycan">Lycanthrope</option>
-								<option value="magnataur">Magnus</option>
-								<option value="medusa">Medusa</option>
-								<option value="meepo">Meepo</option>
-								<option value="mirana">Mirana</option>
-								<option value="morphling">Morphling</option>
-								<option value="naga_siren">Naga Siren</option>
-								<option value="necrolyte">Necrolyte</option>
-								<option value="night_stalker">Night Stalker</option>
-								<option value="nyx_assassin">Nyx Assassin</option>
-								<option value="obsidian_destroyer">Outworld Destroyer</option>
-								<option value="ogre_magi">Ogre Magi</option>
-								<option value="omniknight">Omniknight</option>
-								<option value="phantom_assassin">Phantom Assassin</option>
-								<option value="phantom_lancer">Phantom Lancer</option>
-								<option value="puck">Puck</option>
-								<option value="pudge">Pudge</option>
-								<option value="pugna">Pugna</option>
-								<option value="queenofpain">Queen of Pain</option>
-								<option value="razor">Razor</option>
-								<option value="riki">Riki</option>
-								<option value="rubick">Rubick</option>
-								<option value="sand_king">Sand King</option>
-								<option value="shadow_demon">Shadow Demon</option>
-								<option value="nevermore">Shadow Fiend</option>
-								<option value="shadow_shaman">Shadow Shaman</option>
-								<option value="silencer">Silencer</option>
-								<option value="skeleton_king">Skeleton King</option>
-								<option value="skywrath_mage">Skywrath Mage</option>
-								<option value="slardar">Slardar</option>
-								<option value="slark">Slark</option>
-								<option value="sniper">Sniper</option>
-								<option value="spectre">Spectre</option>
-								<option value="spirit_breaker">Spirit Breaker</option>
-								<option value="storm_spirit">Storm Spirit</option>
-								<option value="sven">Sven</option>
-								<option value="templar_assassin">Templar Assassin</option>
-								<option value="tidehunter">Tidehunter</option>
-								<option value="shredder">Timbersaw</option>
-								<option value="tinker">Tinker</option>
-								<option value="tiny">Tiny</option>
-								<option value="treant">Treant Protector</option>
-								<option value="troll_warlord">Troll Warlord</option>
-								<option value="tusk">Tusk</option>
-								<option value="undying">Undying</option>
-								<option value="ursa">Ursa</option>
-								<option value="vengefulspirit">Vengeful Spirit</option>
-								<option value="venomancer">Venomancer</option>
-								<option value="viper">Viper</option>
-								<option value="visage">Visage</option>
-								<option value="warlock">Warlock</option>
-								<option value="weaver">Weaver</option>
-								<option value="windrunner">Windrunner</option>
-								<option value="wisp">Wisp</option>
-								<option value="witch_doctor">Witch Doctor</option>
-								<option value="zuus">Zeus</option>
-							</select>
-							</div>
-							<input name="herobrush" id="herobrush" style="display:inline;" type="checkbox"><label for="herobrush">Hero Brush</label>
-						<div id="zoombuttons" style="float:left;margin:5px 0px 10px 5px">
-							<button id="zoominbutton" type="button">Zoom In</button> 
-							<button id="zoomoutbutton" type="button">Zoom Out</button> 
-							<button id="undobutton" type="button">Undo</button>
-							<button id="redobutton" type="button">Redo</button>
-							<button id="clearbutton" type="button">Clear</button>
-							<button id="viewbutton" type="button">View</button>
-							<button id="sharebutton" type="button">Share</button>
-							<div id="sharelink" style="display:inline;margin:0px 0px 0px px"></div>
-							<button id="savebutton" type="button" onclick="save()">Save</button>
-							<div id="savelink" style="display:inline;margin:0px 0px 0px px"></div>
-						</div>
-						<div style="clear:both"></div>
-
-					</div>
-				</div>
+<div id="slider"></div>
 				<div id="canvasContainers" style="position:relative">
-					<div id="canvasDivBackground" style="position:absolute;width:50%;height:100%;border-radius:0 0 0 0"></div>
-					<div id="canvasDiv" style="position:absolute;width:50%;height:100%;border-radius:0 0 0 0"></div>
+					<div id="canvasDivBackground" style="position:absolute;background:black;"></div>
+					<div id="canvasDiv" style="position:absolute;"></div>
 				</div>
 				
 			</div>
 {% endblock main %}
+{% block push %}
+{% endblock push %}
 {% block footer %}
 {% endblock footer %}
 {% block scripts %}
