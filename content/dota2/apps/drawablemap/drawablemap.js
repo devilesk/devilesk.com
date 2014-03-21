@@ -167,14 +167,14 @@ var drawingApp = (function () {
 				
 				if (clickTool[i] == "b") {
 					context.globalCompositeOperation = "source-over";
-					if (clickIcon[i] == "ward_observer" || clickIcon[i] == "ward_sentry") {
-					context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
-					}
-					else {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
-					}
 					if (!clickDrag[i]) {
 						dragStart = i;
+						if (clickIcon[i] == "ward_observer" || clickIcon[i] == "ward_sentry") {
+						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+						}
+						else {
+							context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+						}
 					}
 					else {
 						clickDrag[i] = false;
@@ -202,6 +202,7 @@ var drawingApp = (function () {
 				else {
 					if (clickDrag[i] && i) {
 						context.moveTo(clickX[i - 1]/initialWidth*canvasWidth, clickY[i - 1]/initialHeight*canvasHeight);
+						console.log('drawing');
 					} else {
 						// The x position is moved over one pixel so a circle even if not dragging
 						context.moveTo(clickX[i]/initialWidth*canvasWidth - 1, clickY[i]/initialHeight*canvasHeight);
@@ -244,7 +245,7 @@ var drawingApp = (function () {
 		// @param y
 		// @param dragging
 		addClick = function (x, y, dragging) {
-			//console.log(x/canvasWidth*initialWidth*(1/scaleTotal)-xTransform*(1/scaleTotal),y/canvasHeight*initialHeight*(1/scaleTotal)-yTransform*(1/scaleTotal));
+		console.log(x,y,canvasWidth,canvasHeight,initialWidth,initialHeight,scaleTotal,yTransform,xTransform);
 			clickX.push(x/canvasWidth*initialWidth*(1/scaleTotal)-xTransform*(1/scaleTotal));
 			clickY.push(y/canvasHeight*initialHeight*(1/scaleTotal)-yTransform*(1/scaleTotal));
 			if (selectedRadio == 'radio1') {
@@ -279,11 +280,28 @@ var drawingApp = (function () {
 		// Add mouse and touch event listeners to the canvas
 		createUserEvents = function () {
 
-			var press = function (e) {
+			var 
+getOffset = function(evt) {
+  var el = evt.target,
+      x = 0,
+      y = 0;
+
+  while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+    x += el.offsetLeft - el.scrollLeft;
+    y += el.offsetTop - el.scrollTop;
+    el = el.offsetParent;
+  }
+
+  x = evt.clientX - x;
+  y = evt.clientY - y;
+
+  return { x: x, y: y };
+},
+			press = function (e) {
 				// Mouse down location
-				var sizeHotspotStartX,
-					mouseX = (e.offsetX - this.offsetLeft),
-					mouseY = (e.offsetY - this.offsetTop);
+					var m = getOffset(e),
+					mouseX = m.x,
+					mouseY = m.y;
 				if (e.currentTarget.id == 'canvas' && e.button == 0 &&  isCtrl==false) {
 					paint = true;
 					addClick(mouseX, mouseY, false);
@@ -303,11 +321,10 @@ var drawingApp = (function () {
 					pan=true;
 				}
 			},
-
 				drag = function (e) {
-					var sizeHotspotStartX,
-					mouseX = (e.offsetX - this.offsetLeft),
-					mouseY = (e.offsetY - this.offsetTop);		
+					var m = getOffset(e),
+					mouseX = m.x,
+					mouseY = m.y;
 					if (paint) {
 						addClick(mouseX, mouseY, true);
 						if (e.currentTarget.id == 'canvas' && e.button == 0 && isCtrl==false) {
@@ -344,6 +361,9 @@ var drawingApp = (function () {
 				},
 
 				release = function () {
+					if (paint) {
+						redraw(0);
+					}
 					paint = false;
 					if (pan == true) {
 						pan = false;
@@ -365,6 +385,7 @@ var drawingApp = (function () {
 
 			// Add mouse event listeners to canvas element
 			//document.getElementById("hero").addEventListener("onblur", press, false);
+			console.log('adding canvas events');
 			canvas.addEventListener("mousedown", press, false);
 			canvas.addEventListener("mousemove", drag, false);
 			canvas.addEventListener("mouseup", release);
@@ -805,10 +826,11 @@ var drawingApp = (function () {
 			witch_doctor: "{{ media_url('images/miniheroes/witch_doctor.png') }}",
 			zuus: "{{ media_url('images/miniheroes/zuus.png') }}"
 			};
-			
+			console.log('1');
 			loadImages(sources, function(images) {
 			clearCanvas();
 			redraw(0);
+			console.log('2');
 			createUserEvents();			
 			});
 			
