@@ -638,6 +638,7 @@ var jscolor = {
 				holdPad=true;
 				setPad(e);
 				dispatchImmediateChange();
+				e.stopPropagation();
 			};
 			p.sldM.onmouseup =
 			p.sldM.onmouseout = function() { if(holdSld) { holdSld=false; jscolor.fireEvent(valueElement,'change'); } };
@@ -645,6 +646,7 @@ var jscolor = {
 				holdSld=true;
 				setSld(e);
 				dispatchImmediateChange();
+				e.stopPropagation();
 			};
 
 			// picker

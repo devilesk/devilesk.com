@@ -7,7 +7,37 @@ active_menu: page-webapps
 
 {% block custom_css %}
 	<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.2.custom.css') }}" />
-	<style type=text/css>
+	        <style type="text/css">
+
+            #picker-wrapper {
+                width: 160px;
+                height: 160px;
+				float:left;
+				margin:5px;
+                position: relative;
+            }
+            #slider-wrapper {
+                width: 40px;
+                height: 160px;
+				float:right;
+				margin:5px;
+                position: relative;
+            }
+            #picker-indicator {
+                width: 3px;
+                height: 3px;
+                position: absolute;
+                border: 1px solid white;
+            }
+            #slider-indicator {
+                width: 100%;
+                height: 10px;
+                position: absolute;
+                border: 1px solid black;
+            }
+.dropdown-menu {
+	min-width:250px;
+}
 #content {
 	text-align:center;
 }
@@ -24,6 +54,7 @@ background:black;
 	float:left
 }
 #iconSavedContainer {
+	margin-top:8px;
 	background-color:#131415;
 	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
 	width:320px;
@@ -51,7 +82,7 @@ background:black;
 	cursor:pointer;
 }
 select {
-	width:160px;
+	width:100%;
 	height:28px;
 	padding:4px 6px;
 	border-radius:4px;
@@ -86,48 +117,83 @@ select {
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brush <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>
-					<label for="brushcolor">Brush Color: </label><input id="brushcolor" class="color" style="width:60px;border: 0;display:inline">
-				</li>
-				<li>
-					<label for="amount">Brush Size: </label><input type="text" id="amount" style="width:40px;display:inline;border: 0;" value="1"/>
-				</li>
-				<li>
-<input name="herobrush" id="herobrush" style="display:inline;" type="checkbox"><label for="herobrush">Hero Brush</label>
-				</li>
-				<li>
-<div id="radiogroup" class="btn-group btn-group-vertical" data-toggle="buttons">
-  <label class="btn btn-primary">
-    <input type="radio" name="radio" id="radio1">Marker
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="radio" id="radio2">Eraser
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="radio" id="radio3">Hero Icon
-  </label>
-</div>
-				</li>
+              <ul class="dropdown-menu" style="padding:10px">
+			  
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="brushcolor" class="col-sm-6 control-label">Brush Color</label>
+    <div class="col-sm-6">
+      <input id="brushcolor" class="form-control" value="FFFFFF">
+	</div>
+    <div class="col-sm-12">
+          <div id="picker-wrapper">
+              <div id="picker"></div>
+              <div id="picker-indicator"></div>
+          </div>
+          <div id="slider-wrapper">
+              <div id="slider"></div>
+              <div id="slider-indicator"></div>
+          </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="amount" class="col-sm-6 control-label">Brush Size</label>
+    <div class="col-sm-6">
+      <input type="text" id="amount" class="form-control" value="1"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-10">
+		<div id="size_slider"></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input name="herobrush" id="herobrush" type="checkbox"> Hero Brush
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+	<div class="col-sm-12">
+					<div id="radiogroup" class="btn-block btn-group-vertical" data-toggle="buttons">
+					  <label class="btn btn-default active">
+						<input type="radio" name="radio" id="radio1">Marker
+					  </label>
+					  <label class="btn btn-default">
+						<input type="radio" name="radio" id="radio2">Eraser
+					  </label>
+					  <label class="btn btn-default">
+						<input type="radio" name="radio" id="radio3">Hero Icon
+					  </label>
+					</div>
+	</div>
+  </div>
+</form>
+			  
+
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><button id="zoominbutton" type="button">Zoom In</button> </li>
-				<li><button id="zoomoutbutton" type="button">Zoom Out</button> </li>
-				<li><button id="undobutton" type="button">Undo</button></li>
-				<li><button id="redobutton" type="button">Redo</button></li>
-				<li><button id="clearbutton" type="button">Clear</button></li>
+                <li><button class="btn btn-default btn-block" id="zoominbutton" type="button">Zoom In</button> </li>
+				<li><button class="btn btn-default btn-block" id="zoomoutbutton" type="button">Zoom Out</button> </li>
+				<li><button class="btn btn-default btn-block" id="recenterbutton" type="button">Recenter</button></li>
+				<li class="divider"></li>
+				<li><button class="btn btn-default btn-block" id="undobutton" type="button">Undo</button></li>
+				<li><button class="btn btn-default btn-block" id="redobutton" type="button">Redo</button></li>
+				<li><button class="btn btn-default btn-block" id="clearbutton" type="button">Clear</button></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
               <ul class="dropdown-menu">
-				<li><button id="viewbutton" type="button">View</button></li>
-				<li><button id="sharebutton" type="button">Share</button></li>
-				<li><div id="sharelink" style="display:inline;margin:0px 0px 0px px"></div></li>
-				<li><button id="savebutton" type="button" onclick="save()">Save</button></li>
+				<li><button class="btn btn-default btn-block" id="viewbutton" type="button">View</button></li>
+				<li><button class="btn btn-default btn-block" id="sharebutton" type="button">Share</button></li>
+				<li><button class="btn btn-default btn-block" id="savebutton" type="button" onclick="save()">Save</button></li>
 				<li><div id="savelink" style="display:inline;margin:0px 0px 0px px"></div></li>
               </ul>
 	    </li>
@@ -357,27 +423,27 @@ select {
 	    <li>
 	<div id="iconSavedContainer"></div>
 	    </li>
+		<li class="dropdown"><div id="sharelink" style="padding-top:15px;padding-left:15px;"></div></li>
 		  </ul>
 		</div>
 	</div>
 </div>
   {% endblock %}
 {% block container %}
-	
-		
-<div id="slider"></div>
 				<div id="canvasContainers" style="position:relative">
 					<div id="canvasDivBackground" style="position:absolute;background:black;"></div>
 					<div id="canvasDiv" style="position:absolute;"></div>
 				</div>
-				
 {% endblock container %}
 {% block push %}
 {% endblock push %}
 {% block footer %}
 {% endblock footer %}
+{% block before_scripts %}
+	<script type="text/javascript" src="{{ media_url('js/libs/jquery-ui-1.10.2.custom.js') }}"></script>	
+{% endblock before_scripts %}
 {% block scripts %}
-	<script type="text/javascript" src="{{ media_url('js/jscolor/jscolor.js') }}"></script>
+	<script type="text/javascript" src="{{ media_url('js/libs/colorpicker.min.js') }}"></script>
 			<script type="text/javascript" src="drawablemap.js"></script>
 			<script type="text/javascript">
 				getUrlVars();

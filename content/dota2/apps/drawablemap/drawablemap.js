@@ -14,6 +14,27 @@
 
 /*jslint browser: true */
 /*global G_vmlCanvasManager */
+            ColorPicker.fixIndicators(
+                    document.getElementById('slider-indicator'),
+                    document.getElementById('picker-indicator'));
+
+            var cp = ColorPicker(
+                    document.getElementById('slider'), 
+                    document.getElementById('picker'), 
+
+                    function(hex, hsv, rgb, pickerCoordinate, sliderCoordinate) {
+
+                        ColorPicker.positionIndicators(
+                            document.getElementById('slider-indicator'),
+                            document.getElementById('picker-indicator'),
+                            sliderCoordinate, pickerCoordinate
+                        );
+
+                        $('#brushcolor').val(hex.substring(1,hex.length).toUpperCase());
+                });
+				$('#brushcolor').change(function() {
+					cp.setHex('#' + $(this).val());
+				});
 var heroIconContainerExpand = 0;
 var heroIconSaveCount = 0;
 var images = {};
@@ -132,7 +153,7 @@ var drawingApp = (function () {
 			// Draw the outline image
 			if (start == 0) {
 			contextBG.drawImage(images.background, 0, 0, canvas.width, canvas.height);
-			contextBG.fillRect(0, 0, canvas.width, canvas.height);
+			//contextBG.fillRect(0, 0, canvas.width, canvas.height);
 			}
 
 			// For each point drawn
@@ -373,6 +394,7 @@ var drawingApp = (function () {
 			$("#zoominbutton").click(zoomin);
 			$("#undobutton").click(undo);
 			$("#redobutton").click(redo);
+			$("#recenterbutton").click(recenter);
 			$("#clearbutton").click(function() {
 				clickX.length = 0;
 				clickY.length = 0;
@@ -407,6 +429,8 @@ var drawingApp = (function () {
 			context.setTransform(1,0,0,1,0,0);		
 			contextBG.setTransform(1,0,0,1,0,0);		
 			redraw(0);
+			context.globalCompositeOperation="destination-over";
+			context.drawImage(canvasBG, 0, 0);
 			try {
 				var img = canvas.toDataURL('image/jpeg', .8).split(',')[1];
 			} catch(e) {
@@ -452,10 +476,12 @@ var drawingApp = (function () {
 				w.document.write('Could not reach api.imgur.com. Sorry :(');
 			});
 		},
-		
+		recenter = function () {
+			resizeCanvas();
+		},
 		view = function () {
 			var context = canvas.getContext('2d');
-			var w = window.open('/dota2/apps/drawablemap/viewimage/');
+			var w = window.open('/dota2/apps/drawablemap/viewimage.html');
 			var newCanvas = w.document.createElement('canvas');
 			var newContext = newCanvas.getContext('2d');
 
@@ -466,12 +492,17 @@ var drawingApp = (function () {
 
 			//apply the old canvas to the new one		
 			context.save()
+			contextBG.save()
 			context.setTransform(1,0,0,1,0,0);		
+			contextBG.setTransform(1,0,0,1,0,0);		
 			redraw(0);
+			context.globalCompositeOperation="destination-over";
+			context.drawImage(canvasBG, 0, 0);
 			newContext.scale(scaleTotal,scaleTotal);
 			newContext.drawImage(canvas, 0, 0);
 			
 			context.restore();
+			contextBG.restore();
 			redraw(0);
 			w.onload = function() {
 				w.document.getElementById('canvasContainers').appendChild(newCanvas);
@@ -790,13 +821,15 @@ $(".dropdown-menu input").click(function(e) {
             e.stopPropagation();// prevent the default anchor functionality
 });
 $(".dropdown-menu label").click(function(e) {
-            e.stopPropagation();// prevent the default anchor functionality
+			if ($(this).parent().attr('id') != 'radiogroup') {
+				e.stopPropagation();// prevent the default anchor functionality
+			}
 });
 $(".dropdown-menu select").click(function(e) {
             e.stopPropagation();// prevent the default anchor functionality
 });
 $(".dropdown-menu img").click(function(e) {
-            e.stopPropagation();// prevent the default anchor functionality
+            //e.stopPropagation();// prevent the default anchor functionality
 });
 			
 			var $window = $(window).on('resize', function(){
@@ -851,8 +884,8 @@ for(var src in sources) {
 }
 }
 
- /*$(function() {
-$( "#slider" ).slider({
+ $(function() {
+$( "#size_slider" ).slider({
 range: "min",
 value: 5,
 min: 1,
@@ -861,11 +894,11 @@ slide: function( event, ui ) {
 $( "#amount" ).val(ui.value );
 }
 });
-$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+$( "#amount" ).val( $( "#size_slider" ).slider( "value" ) );
 
 //moveScroller();
 
-});*/
+});
 
 function moveScroller() {
     var move = function() {
@@ -908,20 +941,22 @@ $('#iconContainerExpand').click(function() {
 });
 
 $('.icons').click(function() {
-	var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).attr('id').substring(6)).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).attr('id').substring(6) + '.png');
-	icon_img.click(function() {
-		$('#hero').val($(this).attr('id').substring(5));
+	if ($('#iconSavedContainer').find(':last-child').attr('id') == undefined || $('#iconSavedContainer').find(':last-child').attr('id').substring(5) != $(this).attr('id').substring(6)) {
+		var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).attr('id').substring(6)).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).attr('id').substring(6) + '.png');
+		icon_img.click(function() {
+			$('#hero').val($(this).attr('id').substring(5));
+			$("#radio3").attr('checked', 'checked');
+		});
+		if (heroIconSaveCount < 10) {
+			heroIconSaveCount += 1;
+		}
+		else {
+			$('#iconSavedContainer').find(':first-child').remove();
+		}
+		$('#hero').val($(this).attr('id').substring(6));
+		$('#iconSavedContainer').append(icon_img);
 		$("#radio3").attr('checked', 'checked');
-	});
-	if (heroIconSaveCount < 10) {
-		heroIconSaveCount += 1;
 	}
-	else {
-		$('#iconSavedContainer').find(':first-child').remove();
-	}
-	$('#hero').val($(this).attr('id').substring(6));
-	$('#iconSavedContainer').append(icon_img);
-	$("#radio3").attr('checked', 'checked');
 });
 
 $('#hero').change(function() {
