@@ -8,13 +8,28 @@ active_menu: page-webapps
 {% block custom_css %}
 	<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.2.custom.css') }}" />
 	        <style type="text/css">
-
+.unselectable {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;			
+}
+.cursor_crosshair {
+	cursor: crosshair;
+}
+.cursor_hand {
+	cursor:hand;
+	cursor:pointer;
+}
+#picker {
+	height:160px;
+}
             #picker-wrapper {
                 width: 160px;
                 height: 160px;
 				float:left;
 				margin:5px;
                 position: relative;
+
             }
             #slider-wrapper {
                 width: 40px;
@@ -24,16 +39,18 @@ active_menu: page-webapps
                 position: relative;
             }
             #picker-indicator {
-                width: 3px;
-                height: 3px;
+                width: 6px;
+                height: 6px;
                 position: absolute;
-                border: 1px solid white;
+                border: 1px solid black;
+				border-radius:5px;
+				background-color:white;
             }
             #slider-indicator {
                 width: 100%;
                 height: 10px;
                 position: absolute;
-                border: 1px solid black;
+				border:1px solid black;
             }
 .dropdown-menu {
 	min-width:250px;
@@ -51,7 +68,13 @@ background:#979aa1;
 background:black;
 }
 .icons {
-	float:left
+	float:left;
+	cursor:hand;
+	cursor:pointer;	
+}
+.img_icon {
+	cursor:hand;
+	cursor:pointer;
 }
 #iconSavedContainer {
 	margin-top:8px;
@@ -64,15 +87,6 @@ background:black;
 	width:196px;
 	background-color:#1c1d1f;
 	/*box-shadow:0px 0px 4px 4px #0A0A0A;*/
-}
-#canvasDiv {
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	cursor:crosshair;
-}
-#canvasDiv:active {
-	cursor:crosshair;
 }
 #slider .ui-state-default {
 	background-color:#979aa1;
@@ -119,7 +133,7 @@ select {
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brush <b class="caret"></b></a>
               <ul class="dropdown-menu" style="padding:10px">
 			  
-<form class="form-horizontal" role="form">
+<form class="form-horizontal unselectable" role="form">
   <div class="form-group">
     <label for="brushcolor" class="col-sm-6 control-label">Brush Color</label>
     <div class="col-sm-6">
@@ -127,11 +141,11 @@ select {
 	</div>
     <div class="col-sm-12">
           <div id="picker-wrapper">
-              <div id="picker"></div>
+              <div class="cursor_crosshair" id="picker"></div>
               <div id="picker-indicator"></div>
           </div>
           <div id="slider-wrapper">
-              <div id="slider"></div>
+              <div class="cursor_crosshair" id="slider"></div>
               <div id="slider-indicator"></div>
           </div>
     </div>
@@ -197,7 +211,7 @@ select {
 				<li><div id="savelink" style="display:inline;margin:0px 0px 0px px"></div></li>
               </ul>
 	    </li>
-            <li class="dropdown">
+            <li class="dropdown unselectable">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Icons <b class="caret"></b></a>
               <ul class="dropdown-menu">
             <li>
@@ -421,7 +435,7 @@ select {
 </ul>
 	    </li>
 	    <li>
-	<div id="iconSavedContainer"></div>
+	<div class="unselectable" id="iconSavedContainer"></div>
 	    </li>
 		<li class="dropdown"><div id="sharelink" style="padding-top:15px;padding-left:15px;"></div></li>
 		  </ul>
@@ -430,7 +444,7 @@ select {
 </div>
   {% endblock %}
 {% block container %}
-				<div id="canvasContainers" style="position:relative">
+				<div class="unselectable cursor_crosshair" id="canvasContainers" style="position:relative">
 					<div id="canvasDivBackground" style="position:absolute;background:black;"></div>
 					<div id="canvasDiv" style="position:absolute;"></div>
 				</div>

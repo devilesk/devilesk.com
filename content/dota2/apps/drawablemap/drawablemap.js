@@ -31,6 +31,7 @@
                         );
 
                         $('#brushcolor').val(hex.substring(1,hex.length).toUpperCase());
+                        $('#brushcolor').css('background',hex);
                 });
 				$('#brushcolor').change(function() {
 					cp.setHex('#' + $(this).val());
