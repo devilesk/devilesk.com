@@ -203,7 +203,6 @@ var drawingApp = (function () {
 				else {
 					if (clickDrag[i] && i) {
 						context.moveTo(clickX[i - 1]/initialWidth*canvasWidth, clickY[i - 1]/initialHeight*canvasHeight);
-						console.log('drawing');
 					} else {
 						// The x position is moved over one pixel so a circle even if not dragging
 						context.moveTo(clickX[i]/initialWidth*canvasWidth - 1, clickY[i]/initialHeight*canvasHeight);
@@ -246,7 +245,7 @@ var drawingApp = (function () {
 		// @param y
 		// @param dragging
 		addClick = function (x, y, dragging) {
-		console.log(x,y,canvasWidth,canvasHeight,initialWidth,initialHeight,scaleTotal,yTransform,xTransform);
+		//console.log(x,y,canvasWidth,canvasHeight,initialWidth,initialHeight,scaleTotal,yTransform,xTransform);
 			clickX.push(x/canvasWidth*initialWidth*(1/scaleTotal)-xTransform*(1/scaleTotal));
 			clickY.push(y/canvasHeight*initialHeight*(1/scaleTotal)-yTransform*(1/scaleTotal));
 			if (selectedRadio == 'radio1') {
@@ -386,7 +385,6 @@ getOffset = function(evt) {
 
 			// Add mouse event listeners to canvas element
 			//document.getElementById("hero").addEventListener("onblur", press, false);
-			console.log('adding canvas events');
 			canvas.addEventListener("mousedown", press, false);
 			canvas.addEventListener("mousemove", drag, false);
 			canvas.addEventListener("mouseup", release);
@@ -827,11 +825,9 @@ getOffset = function(evt) {
 			witch_doctor: "{{ media_url('images/miniheroes/witch_doctor.png') }}",
 			zuus: "{{ media_url('images/miniheroes/zuus.png') }}"
 			};
-			console.log('1');
 			loadImages(sources, function(images) {
 			clearCanvas();
 			redraw(0);
-			console.log('2');
 			createUserEvents();			
 			});
 			
@@ -839,7 +835,30 @@ getOffset = function(evt) {
 				selectedRadio = $(this).attr('id');
 			});
 
-
+$('.icons').click(function() {
+	if ($('#iconSavedContainer').find(':last-child').attr('id') == undefined || $('#iconSavedContainer').find(':last-child').attr('id').substring(5) != $(this).attr('id').substring(6)) {
+		var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).attr('id').substring(6)).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).attr('id').substring(6) + '.png');
+		icon_img.click(function() {
+			$('#hero').val($(this).attr('id').substring(5));
+			selectedRadio = 'radio3';
+			$('#radio1').parent().removeClass('active');
+			$('#radio2').parent().removeClass('active');
+			$('#radio3').parent().addClass('active');
+		});
+		if (heroIconSaveCount < 10) {
+			heroIconSaveCount += 1;
+		}
+		else {
+			$('#iconSavedContainer').find(':first-child').remove();
+		}
+		$('#iconSavedContainer').append(icon_img);
+	}
+	$('#hero').val($(this).attr('id').substring(6));
+	selectedRadio = 'radio3';
+	$('#radio1').parent().removeClass('active');
+	$('#radio2').parent().removeClass('active');
+	$('#radio3').parent().addClass('active');
+});
 $(".dropdown-menu input").click(function(e) {
             e.stopPropagation();// prevent the default anchor functionality
 });
@@ -963,25 +982,6 @@ $('#iconContainerExpand').click(function() {
 	}
 });
 
-$('.icons').click(function() {
-	if ($('#iconSavedContainer').find(':last-child').attr('id') == undefined || $('#iconSavedContainer').find(':last-child').attr('id').substring(5) != $(this).attr('id').substring(6)) {
-		var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).attr('id').substring(6)).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).attr('id').substring(6) + '.png');
-		icon_img.click(function() {
-			$('#hero').val($(this).attr('id').substring(5));
-			$("#radio3").attr('checked', 'checked');
-		});
-		if (heroIconSaveCount < 10) {
-			heroIconSaveCount += 1;
-		}
-		else {
-			$('#iconSavedContainer').find(':first-child').remove();
-		}
-		$('#hero').val($(this).attr('id').substring(6));
-		$('#iconSavedContainer').append(icon_img);
-		$("#radio3").attr('checked', 'checked');
-	}
-});
-
 $('#hero').change(function() {
 	var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).val()).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).val() + '.png');
 	icon_img.click(function() {
@@ -1039,7 +1039,7 @@ function save() {
 		clickIconUndo]);
 	$.ajax({
 		type: "POST",
-		url: "/dota2/apps/drawablemap/mapdraw.py",
+		url: "drawablemap.py",
 		data: {'data':value},
 		dataType: "json",
 		success: function(data){
@@ -1047,7 +1047,7 @@ function save() {
 			//a.style.float = 'left';
 			a.href = "/dota2/apps/drawablemap/" + data.data;
 			a.target = "_blank";
-			a.innerHTML = "devilesk.com/dota2/apps/drawablemap/" + data.data;
+			a.innerHTML = "test.devilesk.com/dota2/apps/drawablemap/" + data.data;
 			document.getElementById('savelink').innerHTML = "";
 			document.getElementById('savelink').appendChild(a);
 		},
@@ -1060,12 +1060,12 @@ function save() {
 function getSaveData(value) {
 $.ajax({
     type: "POST",
-    url: "/dota2/apps/drawablemap/mapdraw.py",
-    data: {'id':value,'key2':'value2'},
+    url: "drawablemap.py",
+    data: {'id':value},
     dataType: "json",
     success: function(data){
-		if (data.data != "no file") {
-			result = JSON.parse(data.data);
+		if (data != "no file") {
+			result = JSON.parse(data);
 			clickX = result[0];
 			clickY = result[1];
 			clickColor = result[2];
