@@ -1,0 +1,95 @@
+---
+extends: base.j2
+title: Dota 2 Hero Data
+description: Dota 2 Hero Stats Sortable Table. Up-to-date hero information taken directly from Dota 2 game files.
+active_menu: page-heroes
+header: Hero Data
+---
+
+  {% block custom_css %}
+  <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<style type="text/css">
+img {
+  max-width: 100%;
+  width:40px;
+}
+.showColumn {
+	background-color:#202123 !important;
+}
+.hideColumn {
+	background-color:#131415 !important;
+}
+.form-inline .form-control {
+width: 100%;
+}
+</style>
+  {% endblock custom_css %}
+{% block main %}
+
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="row">
+<div class="col-md-4 form-group form-inline">
+<label for="herolevel">Hero Level</label>
+<select id="herolevel" class="form-control" data-bind="value: level, foreach: new Array(25)">
+	<option data-bind="text: $index()+1"></option>
+</select>
+</div>
+
+<div class="col-md-4 form-group form-inline">
+<label for="bonuslevel">Bonus Attribute Level</label>
+<select id="bonuslevel" class="form-control" data-bind="value: bonus, foreach: new Array(11)">
+	<option data-bind="text: $index()"></option>
+</select>
+</div>
+
+<div class="col-md-4 form-group form-inline">
+<label for="columns">Show Columns</label>
+<div class="dropdown">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Columns <span class="caret"></span></button>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-bind="foreach: headers">
+	<li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-bind="css: {showColumn: $parent.headers()[$index()].display(), hideColumn: !$parent.headers()[$index()].display()}, click: function(data, event) { $parent.toggleColumn($index, data, event); }, html: $data.name"></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div>
+<div class="form-group">
+<label for="sortby">Sorting by: </label>
+<span id="sortby" data-bind="foreach: sortColumns">
+	<span class="label label-primary" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
+</span>
+</div>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" data-bind="checked: multiSort">
+    Enable sorting on multiple columns. You can also hold shift while clicking column headers.
+  </label>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr data-bind="foreach: headers">
+	<th data-bind="visible: $parent.headers()[$index()].display()"><a href="#" data-bind="html: $parent.headerHTML($index, $data), click: function(data, event) { $parent.columnClick($index, data, event); }"></a></th>
+</tr>
+</thead>
+<tbody data-bind="foreach: data">
+<tr data-bind="foreach: $data">
+	<td data-bind="css: { 'text-right': $root.headers()[$index()].align == 'right', 'text-center': $root.headers()[$index()].align == 'center' }, html: $data, visible: $root.headers()[$index()].display()"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+{% endblock main %}
+  {% block scripts %}
+	<script src="{{ media_url('js/libs/knockout-2.3.0.js') }}"></script>
+	<script src="{{ media_url('js/herodata/herodata.js') }}"></script>
+  {% endblock scripts %}

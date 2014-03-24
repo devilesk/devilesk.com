@@ -39,7 +39,11 @@
                 <li class="divider"></li>
 				{% for subitem in item.submenu -%}
 				{% if subitem.type == 'page' -%}
-                <li><a href="{{ content_url(subitem.url) }}">{{ subitem.name }}</a></li>
+					{% if subitem.url -%}
+						<li><a href="{{ content_url(subitem.url) }}">{{ subitem.name }}</a></li>
+					{% elif subitem.ext_url -%}
+						<li><a href="{{ subitem.ext_url }}">{{ subitem.name }}</a></li>
+					{% endif %}
 				{% elif subitem.type == 'header' -%}
 				<li class="dropdown-header">{{ subitem.name }}</li>
 				{% elif subitem.type == 'divider' -%}

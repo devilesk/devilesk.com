@@ -5,6 +5,11 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+.btn-default {
+	color: #979aa2;
+	background-color: #131415;
+	border-color: #ccc;
+}
 .wrapper {
 	min-height: 100%;
 	height: auto !important;
@@ -118,6 +123,9 @@ hr {
 }
 .panel>.panel-body+.table {
     border-top:1px solid #202125;
+}
+.label-primary {
+	background-color:#202123;
 }
 .popover{position:absolute;top:0;left:0;z-index:1010;display:none;max-width:276px;padding:1px;text-align:left;white-space:normal;background-color:#131415;border:1px solid #ccc;border:1px solid rgba(0,0,0,.2);border-radius:6px;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 5px 10px rgba(0,0,0,.2);background-clip:padding-box}
 .popover.top{margin-top:-10px}.popover.right{margin-left:10px}.popover.bottom{margin-top:10px}.popover.left{margin-left:-10px}
