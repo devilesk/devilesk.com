@@ -7,7 +7,7 @@ header: Item Costs
 ---
 
     {% block scripts %}
-<script type="text/javascript">
+  <script type="text/javascript">
 function getItemCost(item) {
 	if (itemdata[item].components == null || itemdata[item].components.length == 0) {
 		return itemdata[item].cost;
@@ -38,6 +38,8 @@ var recipes = ["item_recipe_abyssal_blade","item_recipe_ancient_janggo","item_re
 var itemdata = {};
 var fullitemdata = {};
 c = 0;
+var result = {};
+var result2 = [];
 $.getJSON("/media/js/itemdata.json", function (data) {
 	itemdata = data;
 	$.getJSON("/media/js/items.json", function (data) {
@@ -63,6 +65,30 @@ $.getJSON("/media/js/itemdata.json", function (data) {
 		}
 		console.log(JSON.stringify(item_recipes));
 */
+		console.log(recipes);
+		for (var i=0;i<recipes.length;i++) {
+			var components = fullitemdata[recipes[i]].ItemRequirements['01'].split(';');
+			console.log(components);
+			var recipecost = parseInt(fullitemdata[recipes[i]].ItemCost);
+			var totalcost = _.reduce(components, function(memo, i) {
+				return memo + parseInt(fullitemdata[i].ItemCost);
+			}, recipecost );
+			console.log(totalcost);
+			console.log(itemdata[fullitemdata[recipes[i]].ItemResult].itemcost);
+			if (itemdata[fullitemdata[recipes[i]].ItemResult].itemcost != totalcost) {
+				console.log('no match ' + recipes[i]);
+			}
+			if (recipecost > 0) {
+				result[recipes[i]] = {'cost':recipecost,'name':itemdata[fullitemdata[recipes[i]].ItemResult].displayname + ' Recipe'};
+				result2.push(recipes[i]);
+			}
+		}
+		for (var i=0;i<items.length;i++) {
+			result['item_' + items[i]] = {'cost':itemdata['item_' + items[i]].itemcost,'name':itemdata['item_' + items[i]].displayname};
+			result2.push('item_' + items[i]);
+		}
+		console.log(JSON.stringify(result));
+		console.log(JSON.stringify(result2));
 	});
 
 });
