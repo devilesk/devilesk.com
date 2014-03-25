@@ -175,12 +175,12 @@ function generateQuestion() {
 		if ($(this).text() == answer) {
 			streak += 1;
 			//$('#ans_msg').css('color','green');
-			$('#ans_msg').html('<span class=\"label label-success\">Correct!</span>');
+			$('#ans_msg').html('<h3><span class=\"label label-success\">Correct!</span></h3>');
 			generateQuestion();
 		}
 		else {
 			//$('#ans_msg').css('color','red');
-			$('#ans_msg').html('<span class=\"label label-danger\">Wrong!</span>');
+			$('#ans_msg').html('<h3><span class=\"label label-danger\">Wrong!</span></h3>');
 			streak = 0;
 		}
 			if (streak > longeststreak) {
