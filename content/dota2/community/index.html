@@ -1,13 +1,38 @@
 ---
 extends: base.j2
-default_block: main
 title: Dota 2 Community
 description: Community
 active_menu: page-community
 ---
 
-<div class="jumbotron">
-  <div class="container">
+  {% block custom_css %}
+<style type="text/css">
+.reddit_link_more, .stream_link_more {
+  display:none;
+}
+</style>
+  {% endblock custom_css %}
+  {% block main %}
+<div class="box">
+	<h3>Top Dota 2 Reddit Threads</h3>
+	<div id="reddit-list" class="list-group">
 
-  </div>
+	</div>
+	<button type="button" id="reddit-show" class="btn btn-default btn-block">
+		<div class="glyphicon glyphicon-chevron-down"></div>
+	</button>
 </div>
+<div class="box">
+	<h3>Live Streams</h3>
+	<div id="streams-list" class="list-group">
+  
+	</div>
+	<button type="button" id="streams-show" class="btn btn-default btn-block">
+		<div class="glyphicon glyphicon-chevron-down"></div>
+	</button>
+</div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/community/community.js') }}"></script>
+  {% endblock scripts %}
