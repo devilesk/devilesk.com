@@ -1,13 +1,54 @@
 ---
 extends: base.j2
-default_block: main
 title: devilesk Dota 2
 description: devilesk Dota 2
-header: Test
+header: devilesk.com/dota2
 ---
 
-<div class="jumbotron">
-  <div class="container">
+{% block custom_css %}
+<style type="text/css">
+#box-timeline {
+border:1px solid #202126;
+display:inline-block;
+}
+#banner {
+overflow:hidden;
+opacity:.5;
+}
+</style>
+{% endblock custom_css %}
+
+{% block header %}
+<div id="banner" class="img-rounded">
+<img src="{{ media_url('/images/banner.png') }}" alt="banner">
+</div>
+{% endblock header %}
+		  
+{% block main %}
+<div class="row">
+  <div class="col-sm-6 col-md-6">
+        <h3>Trivia Channel</h3>
+    <div class="thumbnail">
+      <a href="{{ media_url('/images/trivia-channel-guide.png') }}"><img src="{{ media_url('/images/trivia-channel-guide.png') }}" alt="Dota 2 Trivia Channel"></a>
+      <div class="caption">
+        <p>I run a Dota 2 trivia bot in an in-game chat channel named Trivia. </p>
+		<p>More at info <a href="http://www.dotatrivia.com">dotatrivia.com</a></p>
+      </div>
+    </div>
+
+        <h3>Site Updates</h3>
+	<ul class="list-group">
+	<li class="list-group-item"><p>Changelog for patch 6.80 is out! Read it <a href="{{ content_url('/dota2/patches/6.80') }}">here</a>.</p></li>
+	</ul>
+
+  </div>
+  <div class="col-sm-6 col-md-6">
+<h3>Twitter</h3>
+<div id="box-timeline">
+<a width="600" data-link-color="#428bca" data-chrome="noheader transparent" data-border-color="#202126" class="twitter-timeline" href="https://twitter.com/search?q=%23dota+OR+%23dota2" data-widget-id="337341777382100992">Tweets about "#dota OR #dota2"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
 
   </div>
 </div>
+{% endblock main %}

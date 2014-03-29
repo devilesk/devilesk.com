@@ -10,28 +10,71 @@ active_menu: page-community
 .reddit_link_more, .stream_link_more {
   display:none;
 }
+#workshop img {
+  max-width:100%;
+}
+.box {
+  padding-bottom:10px;
+  border-bottom:1px solid #979aa2;
+}
+.box:last-child {
+  border-bottom:none;
+}
 </style>
   {% endblock custom_css %}
-  {% block main %}
+  {% block container %}
+  <div style="display:inline-block;width:100%">
+  <div class="col-md-6">
 <div class="box">
 	<h3>Top Dota 2 Reddit Threads</h3>
+<div class="text-center">
+<ul id="pager_reddit" class="pagination pagination-sm">
+  <li class="prev disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li class="next"><a href="#">&raquo;</a></li>
+</ul>
+</div>
 	<div id="reddit-list" class="list-group">
 
 	</div>
-	<button type="button" id="reddit-show" class="btn btn-default btn-block">
-		<div class="glyphicon glyphicon-chevron-down"></div>
-	</button>
 </div>
+<div id="dotablog" class="box">
+</div>
+</div>
+<div class="col-md-6">
 <div class="box">
-	<h3>Live Streams</h3>
+	<h3>Live Twitch Streams</h3>
+	<div class="text-center">
+<ul id="pager_streams" class="pagination pagination-sm">
+  <li class="prev disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">6</a></li>
+  <li><a href="#">7</a></li>
+  <li><a href="#">8</a></li>
+  <li><a href="#">9</a></li>
+  <li><a href="#">10</a></li>
+  <li class="next"><a href="#">&raquo;</a></li>
+</ul>
+</div>
 	<div id="streams-list" class="list-group">
   
 	</div>
-	<button type="button" id="streams-show" class="btn btn-default btn-block">
-		<div class="glyphicon glyphicon-chevron-down"></div>
-	</button>
+<a style="text-align:right;display:block" href="{{ content_url('/dota2/community/streams') }}">Full list...</a>
 </div>
-  {% endblock main %}
+<div id="workshop" class="box">
+</div>
+</div>
+
+</div>
+  {% endblock container %}
   
     {% block scripts %}
 	<script src="{{ media_url('js/community/community.js') }}"></script>
