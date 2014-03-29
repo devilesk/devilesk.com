@@ -7,7 +7,13 @@ active_menu: page-webapps
 
 {% block custom_css %}
 	<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.2.custom.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ media_url('css/heroes.css') }}" />
 	        <style type="text/css">
+.miniherosprite {
+	display:inline-block;
+	cursor:hand;
+	cursor:pointer;
+}
 .unselectable {
 	user-select: none;
 	-webkit-user-select: none;
@@ -19,6 +25,10 @@ active_menu: page-webapps
 .cursor_hand {
 	cursor:hand;
 	cursor:pointer;
+}
+.icon_wrapper {
+	float:left;
+	display:inline;
 }
 #picker {
 	height:160px;
@@ -69,12 +79,6 @@ background:black;
 }
 .icons {
 	float:left;
-	cursor:hand;
-	cursor:pointer;	
-}
-.img_icon {
-	cursor:hand;
-	cursor:pointer;
 }
 #iconSavedContainer {
 	border-radius:5px;
@@ -326,111 +330,111 @@ select {
             </li>
 <li class="divider"></li>
 <li id="iconContainer">
-<img class="icons" src="{{ media_url('images/miniheroes/ward_observer.png') }}" id="icons_ward_observer">
-<img class="icons" src="{{ media_url('images/miniheroes/ward_sentry.png') }}" id="icons_ward_sentry">
-<img class="icons" src="{{ media_url('images/miniheroes/roshan.png') }}" id="icons_roshan">
-<img class="icons" src="{{ media_url('images/miniheroes/abaddon.png') }}" id="icons_abaddon">
-<img class="icons" src="{{ media_url('images/miniheroes/alchemist.png') }}" id="icons_alchemist">
-<img class="icons" src="{{ media_url('images/miniheroes/ancient_apparition.png') }}" id="icons_ancient_apparition">
-<img class="icons" src="{{ media_url('images/miniheroes/antimage.png') }}" id="icons_antimage">
-<img class="icons" src="{{ media_url('images/miniheroes/axe.png') }}" id="icons_axe">
-<img class="icons" src="{{ media_url('images/miniheroes/bane.png') }}" id="icons_bane">
-<img class="icons" src="{{ media_url('images/miniheroes/batrider.png') }}" id="icons_batrider">
-<img class="icons" src="{{ media_url('images/miniheroes/beastmaster.png') }}" id="icons_beastmaster">
-<img class="icons" src="{{ media_url('images/miniheroes/bloodseeker.png') }}" id="icons_bloodseeker">
-<img class="icons" src="{{ media_url('images/miniheroes/bounty_hunter.png') }}" id="icons_bounty_hunter">
-<img class="icons" src="{{ media_url('images/miniheroes/brewmaster.png') }}" id="icons_brewmaster">
-<img class="icons" src="{{ media_url('images/miniheroes/bristleback.png') }}" id="icons_bristleback">
-<img class="icons" src="{{ media_url('images/miniheroes/broodmother.png') }}" id="icons_broodmother">
-<img class="icons" src="{{ media_url('images/miniheroes/centaur.png') }}" id="icons_centaur">
-<img class="icons" src="{{ media_url('images/miniheroes/chaos_knight.png') }}" id="icons_chaos_knight">
-<img class="icons" src="{{ media_url('images/miniheroes/chen.png') }}" id="icons_chen">
-<img class="icons" src="{{ media_url('images/miniheroes/clinkz.png') }}" id="icons_clinkz">
-<img class="icons" src="{{ media_url('images/miniheroes/rattletrap.png') }}" id="icons_rattletrap">
-<img class="icons" src="{{ media_url('images/miniheroes/crystal_maiden.png') }}" id="icons_crystal_maiden">
-<img class="icons" src="{{ media_url('images/miniheroes/dark_seer.png') }}" id="icons_dark_seer">
-<img class="icons" src="{{ media_url('images/miniheroes/dazzle.png') }}" id="icons_dazzle">
-<img class="icons" src="{{ media_url('images/miniheroes/death_prophet.png') }}" id="icons_death_prophet">
-<img class="icons" src="{{ media_url('images/miniheroes/disruptor.png') }}" id="icons_disruptor">
-<img class="icons" src="{{ media_url('images/miniheroes/doom_bringer.png') }}" id="icons_doom_bringer">
-<img class="icons" src="{{ media_url('images/miniheroes/dragon_knight.png') }}" id="icons_dragon_knight">
-<img class="icons" src="{{ media_url('images/miniheroes/drow_ranger.png') }}" id="icons_drow_ranger">
-<img class="icons" src="{{ media_url('images/miniheroes/earthshaker.png') }}" id="icons_earthshaker">
-<img class="icons" src="{{ media_url('images/miniheroes/elder_titan.png') }}" id="icons_elder_titan">
-<img class="icons" src="{{ media_url('images/miniheroes/enchantress.png') }}" id="icons_enchantress">
-<img class="icons" src="{{ media_url('images/miniheroes/enigma.png') }}" id="icons_enigma">
-<img class="icons" src="{{ media_url('images/miniheroes/faceless_void.png') }}" id="icons_faceless_void">
-<img class="icons" src="{{ media_url('images/miniheroes/furion.png') }}" id="icons_furion">
-<img class="icons" src="{{ media_url('images/miniheroes/gyrocopter.png') }}" id="icons_gyrocopter">
-<img class="icons" src="{{ media_url('images/miniheroes/huskar.png') }}" id="icons_huskar">
-<img class="icons" src="{{ media_url('images/miniheroes/invoker.png') }}" id="icons_invoker">
-<img class="icons" src="{{ media_url('images/miniheroes/jakiro.png') }}" id="icons_jakiro">
-<img class="icons" src="{{ media_url('images/miniheroes/juggernaut.png') }}" id="icons_juggernaut">
-<img class="icons" src="{{ media_url('images/miniheroes/keeper_of_the_light.png') }}" id="icons_keeper_of_the_light">
-<img class="icons" src="{{ media_url('images/miniheroes/kunkka.png') }}" id="icons_kunkka">
-<img class="icons" src="{{ media_url('images/miniheroes/leshrac.png') }}" id="icons_leshrac">
-<img class="icons" src="{{ media_url('images/miniheroes/lich.png') }}" id="icons_lich">
-<img class="icons" src="{{ media_url('images/miniheroes/life_stealer.png') }}" id="icons_life_stealer">
-<img class="icons" src="{{ media_url('images/miniheroes/lina.png') }}" id="icons_lina">
-<img class="icons" src="{{ media_url('images/miniheroes/lion.png') }}" id="icons_lion">
-<img class="icons" src="{{ media_url('images/miniheroes/lone_druid.png') }}" id="icons_lone_druid">
-<img class="icons" src="{{ media_url('images/miniheroes/luna.png') }}" id="icons_luna">
-<img class="icons" src="{{ media_url('images/miniheroes/lycan.png') }}" id="icons_lycan">
-<img class="icons" src="{{ media_url('images/miniheroes/magnataur.png') }}" id="icons_magnataur">
-<img class="icons" src="{{ media_url('images/miniheroes/medusa.png') }}" id="icons_medusa">
-<img class="icons" src="{{ media_url('images/miniheroes/meepo.png') }}" id="icons_meepo">
-<img class="icons" src="{{ media_url('images/miniheroes/mirana.png') }}" id="icons_mirana">
-<img class="icons" src="{{ media_url('images/miniheroes/morphling.png') }}" id="icons_morphling">
-<img class="icons" src="{{ media_url('images/miniheroes/naga_siren.png') }}" id="icons_naga_siren">
-<img class="icons" src="{{ media_url('images/miniheroes/necrolyte.png') }}" id="icons_necrolyte">
-<img class="icons" src="{{ media_url('images/miniheroes/night_stalker.png') }}" id="icons_night_stalker">
-<img class="icons" src="{{ media_url('images/miniheroes/nyx_assassin.png') }}" id="icons_nyx_assassin">
-<img class="icons" src="{{ media_url('images/miniheroes/obsidian_destroyer.png') }}" id="icons_obsidian_destroyer">
-<img class="icons" src="{{ media_url('images/miniheroes/ogre_magi.png') }}" id="icons_ogre_magi">
-<img class="icons" src="{{ media_url('images/miniheroes/omniknight.png') }}" id="icons_omniknight">
-<img class="icons" src="{{ media_url('images/miniheroes/phantom_assassin.png') }}" id="icons_phantom_assassin">
-<img class="icons" src="{{ media_url('images/miniheroes/phantom_lancer.png') }}" id="icons_phantom_lancer">
-<img class="icons" src="{{ media_url('images/miniheroes/puck.png') }}" id="icons_puck">
-<img class="icons" src="{{ media_url('images/miniheroes/pudge.png') }}" id="icons_pudge">
-<img class="icons" src="{{ media_url('images/miniheroes/pugna.png') }}" id="icons_pugna">
-<img class="icons" src="{{ media_url('images/miniheroes/queenofpain.png') }}" id="icons_queenofpain">
-<img class="icons" src="{{ media_url('images/miniheroes/razor.png') }}" id="icons_razor">
-<img class="icons" src="{{ media_url('images/miniheroes/riki.png') }}" id="icons_riki">
-<img class="icons" src="{{ media_url('images/miniheroes/rubick.png') }}" id="icons_rubick">
-<img class="icons" src="{{ media_url('images/miniheroes/sand_king.png') }}" id="icons_sand_king">
-<img class="icons" src="{{ media_url('images/miniheroes/shadow_demon.png') }}" id="icons_shadow_demon">
-<img class="icons" src="{{ media_url('images/miniheroes/nevermore.png') }}" id="icons_nevermore">
-<img class="icons" src="{{ media_url('images/miniheroes/shadow_shaman.png') }}" id="icons_shadow_shaman">
-<img class="icons" src="{{ media_url('images/miniheroes/silencer.png') }}" id="icons_silencer">
-<img class="icons" src="{{ media_url('images/miniheroes/skeleton_king.png') }}" id="icons_skeleton_king">
-<img class="icons" src="{{ media_url('images/miniheroes/skywrath_mage.png') }}" id="icons_skywrath_mage">
-<img class="icons" src="{{ media_url('images/miniheroes/slardar.png') }}" id="icons_slardar">
-<img class="icons" src="{{ media_url('images/miniheroes/slark.png') }}" id="icons_slark">
-<img class="icons" src="{{ media_url('images/miniheroes/sniper.png') }}" id="icons_sniper">
-<img class="icons" src="{{ media_url('images/miniheroes/spectre.png') }}" id="icons_spectre">
-<img class="icons" src="{{ media_url('images/miniheroes/spirit_breaker.png') }}" id="icons_spirit_breaker">
-<img class="icons" src="{{ media_url('images/miniheroes/storm_spirit.png') }}" id="icons_storm_spirit">
-<img class="icons" src="{{ media_url('images/miniheroes/sven.png') }}" id="icons_sven">
-<img class="icons" src="{{ media_url('images/miniheroes/templar_assassin.png') }}" id="icons_templar_assassin">
-<img class="icons" src="{{ media_url('images/miniheroes/tidehunter.png') }}" id="icons_tidehunter">
-<img class="icons" src="{{ media_url('images/miniheroes/shredder.png') }}" id="icons_shredder">
-<img class="icons" src="{{ media_url('images/miniheroes/tinker.png') }}" id="icons_tinker">
-<img class="icons" src="{{ media_url('images/miniheroes/tiny.png') }}" id="icons_tiny">
-<img class="icons" src="{{ media_url('images/miniheroes/treant.png') }}" id="icons_treant">
-<img class="icons" src="{{ media_url('images/miniheroes/troll_warlord.png') }}" id="icons_troll_warlord">
-<img class="icons" src="{{ media_url('images/miniheroes/tusk.png') }}" id="icons_tusk">
-<img class="icons" src="{{ media_url('images/miniheroes/undying.png') }}" id="icons_undying">
-<img class="icons" src="{{ media_url('images/miniheroes/ursa.png') }}" id="icons_ursa">
-<img class="icons" src="{{ media_url('images/miniheroes/vengefulspirit.png') }}" id="icons_vengefulspirit">
-<img class="icons" src="{{ media_url('images/miniheroes/venomancer.png') }}" id="icons_venomancer">
-<img class="icons" src="{{ media_url('images/miniheroes/viper.png') }}" id="icons_viper">
-<img class="icons" src="{{ media_url('images/miniheroes/visage.png') }}" id="icons_visage">
-<img class="icons" src="{{ media_url('images/miniheroes/warlock.png') }}" id="icons_warlock">
-<img class="icons" src="{{ media_url('images/miniheroes/weaver.png') }}" id="icons_weaver">
-<img class="icons" src="{{ media_url('images/miniheroes/windrunner.png') }}" id="icons_windrunner">
-<img class="icons" src="{{ media_url('images/miniheroes/wisp.png') }}" id="icons_wisp">
-<img class="icons" src="{{ media_url('images/miniheroes/witch_doctor.png') }}" id="icons_witch_doctor">
-<img class="icons" src="{{ media_url('images/miniheroes/zuus.png') }}" id="icons_zuus">
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-ward_observer" id="icons_ward_observer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-ward_sentry" id="icons_ward_sentry"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-roshan" id="icons_roshan"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-abaddon" id="icons_abaddon"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-alchemist" id="icons_alchemist"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-ancient_apparition" id="icons_ancient_apparition"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-antimage" id="icons_antimage"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-axe" id="icons_axe"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-bane" id="icons_bane"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-batrider" id="icons_batrider"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-beastmaster" id="icons_beastmaster"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-bloodseeker" id="icons_bloodseeker"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-bounty_hunter" id="icons_bounty_hunter"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-brewmaster" id="icons_brewmaster"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-bristleback" id="icons_bristleback"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-broodmother" id="icons_broodmother"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-centaur" id="icons_centaur"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-chaos_knight" id="icons_chaos_knight"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-chen" id="icons_chen"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-clinkz" id="icons_clinkz"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-rattletrap" id="icons_rattletrap"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-crystal_maiden" id="icons_crystal_maiden"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-dark_seer" id="icons_dark_seer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-dazzle" id="icons_dazzle"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-death_prophet" id="icons_death_prophet"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-disruptor" id="icons_disruptor"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-doom_bringer" id="icons_doom_bringer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-dragon_knight" id="icons_dragon_knight"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-drow_ranger" id="icons_drow_ranger"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-earthshaker" id="icons_earthshaker"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-elder_titan" id="icons_elder_titan"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-enchantress" id="icons_enchantress"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-enigma" id="icons_enigma"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-faceless_void" id="icons_faceless_void"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-furion" id="icons_furion"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-gyrocopter" id="icons_gyrocopter"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-huskar" id="icons_huskar"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-invoker" id="icons_invoker"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-jakiro" id="icons_jakiro"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-juggernaut" id="icons_juggernaut"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-keeper_of_the_light" id="icons_keeper_of_the_light"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-kunkka" id="icons_kunkka"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-leshrac" id="icons_leshrac"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-lich" id="icons_lich"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-life_stealer" id="icons_life_stealer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-lina" id="icons_lina"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-lion" id="icons_lion"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-lone_druid" id="icons_lone_druid"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-luna" id="icons_luna"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-lycan" id="icons_lycan"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-magnataur" id="icons_magnataur"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-medusa" id="icons_medusa"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-meepo" id="icons_meepo"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-mirana" id="icons_mirana"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-morphling" id="icons_morphling"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-naga_siren" id="icons_naga_siren"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-necrolyte" id="icons_necrolyte"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-night_stalker" id="icons_night_stalker"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-nyx_assassin" id="icons_nyx_assassin"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-obsidian_destroyer" id="icons_obsidian_destroyer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-ogre_magi" id="icons_ogre_magi"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-omniknight" id="icons_omniknight"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-phantom_assassin" id="icons_phantom_assassin"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-phantom_lancer" id="icons_phantom_lancer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-puck" id="icons_puck"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-pudge" id="icons_pudge"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-pugna" id="icons_pugna"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-queenofpain" id="icons_queenofpain"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-razor" id="icons_razor"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-riki" id="icons_riki"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-rubick" id="icons_rubick"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-sand_king" id="icons_sand_king"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-shadow_demon" id="icons_shadow_demon"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-nevermore" id="icons_nevermore"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-shadow_shaman" id="icons_shadow_shaman"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-silencer" id="icons_silencer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-skeleton_king" id="icons_skeleton_king"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-skywrath_mage" id="icons_skywrath_mage"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-slardar" id="icons_slardar"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-slark" id="icons_slark"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-sniper" id="icons_sniper"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-spectre" id="icons_spectre"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-spirit_breaker" id="icons_spirit_breaker"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-storm_spirit" id="icons_storm_spirit"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-sven" id="icons_sven"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-templar_assassin" id="icons_templar_assassin"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-tidehunter" id="icons_tidehunter"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-shredder" id="icons_shredder"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-tinker" id="icons_tinker"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-tiny" id="icons_tiny"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-treant" id="icons_treant"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-troll_warlord" id="icons_troll_warlord"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-tusk" id="icons_tusk"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-undying" id="icons_undying"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-ursa" id="icons_ursa"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-vengefulspirit" id="icons_vengefulspirit"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-venomancer" id="icons_venomancer"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-viper" id="icons_viper"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-visage" id="icons_visage"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-warlock" id="icons_warlock"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-weaver" id="icons_weaver"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-windrunner" id="icons_windrunner"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-wisp" id="icons_wisp"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-witch_doctor" id="icons_witch_doctor"></div></div>
+<div class="icon_wrapper"><div class="miniherosprite miniherosprite-zuus" id="icons_zuus"></div></div>
 				
 </li>			
 </ul>

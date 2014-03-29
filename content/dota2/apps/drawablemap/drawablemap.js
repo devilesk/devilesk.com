@@ -67,6 +67,7 @@ var drawingApp = (function () {
        return $('html').height() - $('.navbar').outerHeight(true)-5;
 	};
 	var canvas, canvasMenu,
+		spriteloc,
 		canvasBG,
 		selectedRadio = 'radio1',
 		scaleTotal = 1,
@@ -171,10 +172,12 @@ var drawingApp = (function () {
 					if (!clickDrag[i]) {
 						dragStart = i;
 						if (clickIcon[i] == "ward_observer" || clickIcon[i] == "ward_sentry") {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+							//context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+							context.drawImage(images['spritesheet'],spriteloc[clickIcon[i]].x,spriteloc[clickIcon[i]].y,32,32,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
 						}
 						else {
-							context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+							//context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+							context.drawImage(images['spritesheet'],spriteloc[clickIcon[i]].x,spriteloc[clickIcon[i]].y,32,32,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
 						}
 					}
 					else {
@@ -194,10 +197,12 @@ var drawingApp = (function () {
 				else if (clickTool[i] == "h") {
 					context.globalCompositeOperation = "source-over";
 					if (clickIcon[i] == "ward_observer" || clickIcon[i] == "ward_sentry") {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+						//context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
+						context.drawImage(images['spritesheet'],spriteloc[clickIcon[i]].x,spriteloc[clickIcon[i]].y,32,32,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i], 16*clickSize[i], 16*clickSize[i])
 					}
 					else {
-						context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+						//context.drawImage(images[clickIcon[i]] ,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
+						context.drawImage(images['spritesheet'],spriteloc[clickIcon[i]].x,spriteloc[clickIcon[i]].y,32,32,clickX[i]/initialWidth*canvasWidth-16*clickSize[i]/2,clickY[i]/initialHeight*canvasHeight-16*clickSize[i]/2, 16*clickSize[i], 16*clickSize[i])
 					}
 				}
 				else {
@@ -716,114 +721,500 @@ getOffset = function(evt) {
 			// Note: The above code is a workaround for IE 8 and lower. Otherwise we could have used:
 			//     context = document.getElementById('canvas').getContext("2d");
 		
-			
+			spriteloc = {
+    "abaddon": {
+        "x": 5,
+        "y": 5
+    },
+    "alchemist": {
+        "x": 47,
+        "y": 5
+    },
+    "ancient_apparition": {
+        "x": 89,
+        "y": 5
+    },
+    "antimage": {
+        "x": 131,
+        "y": 5
+    },
+    "axe": {
+        "x": 173,
+        "y": 5
+    },
+    "bane": {
+        "x": 215,
+        "y": 5
+    },
+    "batrider": {
+        "x": 257,
+        "y": 5
+    },
+    "beastmaster": {
+        "x": 299,
+        "y": 5
+    },
+    "bloodseeker": {
+        "x": 341,
+        "y": 5
+    },
+    "bm_earth": {
+        "x": 383,
+        "y": 5
+    },
+    "bm_fire": {
+        "x": 425,
+        "y": 5
+    },
+    "bm_storm": {
+        "x": 5,
+        "y": 47
+    },
+    "bounty_hunter": {
+        "x": 47,
+        "y": 47
+    },
+    "brewmaster": {
+        "x": 89,
+        "y": 47
+    },
+    "bristleback": {
+        "x": 131,
+        "y": 47
+    },
+    "broodmother": {
+        "x": 173,
+        "y": 47
+    },
+    "centaur": {
+        "x": 215,
+        "y": 47
+    },
+    "chaos_knight": {
+        "x": 257,
+        "y": 47
+    },
+    "chen": {
+        "x": 299,
+        "y": 47
+    },
+    "clinkz": {
+        "x": 341,
+        "y": 47
+    },
+    "crystal_maiden": {
+        "x": 383,
+        "y": 47
+    },
+    "dark_seer": {
+        "x": 425,
+        "y": 47
+    },
+    "dazzle": {
+        "x": 5,
+        "y": 89
+    },
+    "death_prophet": {
+        "x": 47,
+        "y": 89
+    },
+    "disruptor": {
+        "x": 89,
+        "y": 89
+    },
+    "doom": {
+        "x": 131,
+        "y": 89
+    },
+    "doom_bringer": {
+        "x": 173,
+        "y": 89
+    },
+    "dragon_knight": {
+        "x": 215,
+        "y": 89
+    },
+    "drow": {
+        "x": 257,
+        "y": 89
+    },
+    "drow_ranger": {
+        "x": 299,
+        "y": 89
+    },
+    "earth_spirit": {
+        "x": 341,
+        "y": 89
+    },
+    "earthshaker": {
+        "x": 383,
+        "y": 89
+    },
+    "elder_titan": {
+        "x": 425,
+        "y": 89
+    },
+    "ember_spirit": {
+        "x": 5,
+        "y": 131
+    },
+    "enchantress": {
+        "x": 47,
+        "y": 131
+    },
+    "enigma": {
+        "x": 89,
+        "y": 131
+    },
+    "faceless_void": {
+        "x": 131,
+        "y": 131
+    },
+    "furion": {
+        "x": 173,
+        "y": 131
+    },
+    "gyrocopter": {
+        "x": 215,
+        "y": 131
+    },
+    "huskar": {
+        "x": 257,
+        "y": 131
+    },
+    "invoker": {
+        "x": 299,
+        "y": 131
+    },
+    "jakiro": {
+        "x": 341,
+        "y": 131
+    },
+    "juggernaut": {
+        "x": 383,
+        "y": 131
+    },
+    "keeper_of_the_light": {
+        "x": 425,
+        "y": 131
+    },
+    "kunkka": {
+        "x": 5,
+        "y": 173
+    },
+    "lanaya": {
+        "x": 47,
+        "y": 173
+    },
+    "legion_commander": {
+        "x": 89,
+        "y": 173
+    },
+    "legion_commander_alt1": {
+        "x": 131,
+        "y": 173
+    },
+    "leshrac": {
+        "x": 173,
+        "y": 173
+    },
+    "lich": {
+        "x": 215,
+        "y": 173
+    },
+    "life_stealer": {
+        "x": 257,
+        "y": 173
+    },
+    "lina": {
+        "x": 299,
+        "y": 173
+    },
+    "lina_alt1": {
+        "x": 341,
+        "y": 173
+    },
+    "lion": {
+        "x": 383,
+        "y": 173
+    },
+    "lone_druid": {
+        "x": 425,
+        "y": 173
+    },
+    "luna": {
+        "x": 5,
+        "y": 215
+    },
+    "lycan": {
+        "x": 47,
+        "y": 215
+    },
+    "magnataur": {
+        "x": 89,
+        "y": 215
+    },
+    "medusa": {
+        "x": 131,
+        "y": 215
+    },
+    "meepo": {
+        "x": 173,
+        "y": 215
+    },
+    "mirana": {
+        "x": 215,
+        "y": 215
+    },
+    "morphling": {
+        "x": 257,
+        "y": 215
+    },
+    "naga_siren": {
+        "x": 299,
+        "y": 215
+    },
+    "necrolyte": {
+        "x": 341,
+        "y": 215
+    },
+    "nevermore": {
+        "x": 383,
+        "y": 215
+    },
+    "night_stalker": {
+        "x": 425,
+        "y": 215
+    },
+    "nyx_assassin": {
+        "x": 5,
+        "y": 257
+    },
+    "obsidian_destroyer": {
+        "x": 47,
+        "y": 257
+    },
+    "ogre_magi": {
+        "x": 89,
+        "y": 257
+    },
+    "omniknight": {
+        "x": 131,
+        "y": 257
+    },
+    "phantom_assassin": {
+        "x": 173,
+        "y": 257
+    },
+    "phantom_lancer": {
+        "x": 215,
+        "y": 257
+    },
+    "phoenix": {
+        "x": 257,
+        "y": 257
+    },
+    "puck": {
+        "x": 299,
+        "y": 257
+    },
+    "pudge": {
+        "x": 341,
+        "y": 257
+    },
+    "pugna": {
+        "x": 383,
+        "y": 257
+    },
+    "queenofpain": {
+        "x": 425,
+        "y": 257
+    },
+    "rattletrap": {
+        "x": 5,
+        "y": 299
+    },
+    "razor": {
+        "x": 47,
+        "y": 299
+    },
+    "riki": {
+        "x": 89,
+        "y": 299
+    },
+    "rikimaru": {
+        "x": 131,
+        "y": 299
+    },
+    "roshan": {
+        "x": 173,
+        "y": 299
+    },
+    "rubick": {
+        "x": 215,
+        "y": 299
+    },
+    "sand_king": {
+        "x": 257,
+        "y": 299
+    },
+    "sandking": {
+        "x": 299,
+        "y": 299
+    },
+    "shadow_demon": {
+        "x": 341,
+        "y": 299
+    },
+    "shadow_shaman": {
+        "x": 383,
+        "y": 299
+    },
+    "shredder": {
+        "x": 425,
+        "y": 299
+    },
+    "silencer": {
+        "x": 5,
+        "y": 341
+    },
+    "skeleton_king": {
+        "x": 47,
+        "y": 341
+    },
+    "skywrath_mage": {
+        "x": 89,
+        "y": 341
+    },
+    "slardar": {
+        "x": 131,
+        "y": 341
+    },
+    "slark": {
+        "x": 173,
+        "y": 341
+    },
+    "sniper": {
+        "x": 215,
+        "y": 341
+    },
+    "spectre": {
+        "x": 257,
+        "y": 341
+    },
+    "spirit_break": {
+        "x": 299,
+        "y": 341
+    },
+    "spirit_breaker": {
+        "x": 341,
+        "y": 341
+    },
+    "storm_spirit": {
+        "x": 383,
+        "y": 341
+    },
+    "sven": {
+        "x": 425,
+        "y": 341
+    },
+    "templar_assassin": {
+        "x": 5,
+        "y": 383
+    },
+    "terrorblade": {
+        "x": 47,
+        "y": 383
+    },
+    "terrorblade_alt1": {
+        "x": 89,
+        "y": 383
+    },
+    "tidehunter": {
+        "x": 131,
+        "y": 383
+    },
+    "tinker": {
+        "x": 173,
+        "y": 383
+    },
+    "tiny": {
+        "x": 215,
+        "y": 383
+    },
+    "treant": {
+        "x": 257,
+        "y": 383
+    },
+    "troll_warlord": {
+        "x": 299,
+        "y": 383
+    },
+    "tusk": {
+        "x": 341,
+        "y": 383
+    },
+    "undying": {
+        "x": 383,
+        "y": 383
+    },
+    "ursa": {
+        "x": 425,
+        "y": 383
+    },
+    "vengefulspirit": {
+        "x": 5,
+        "y": 425
+    },
+    "venomancer": {
+        "x": 47,
+        "y": 425
+    },
+    "viper": {
+        "x": 89,
+        "y": 425
+    },
+    "visage": {
+        "x": 131,
+        "y": 425
+    },
+    "ward_observer": {
+        "x": 173,
+        "y": 425
+    },
+    "ward_sentry": {
+        "x": 215,
+        "y": 425
+    },
+    "warlock": {
+        "x": 257,
+        "y": 425
+    },
+    "weaver": {
+        "x": 299,
+        "y": 425
+    },
+    "windrunner": {
+        "x": 341,
+        "y": 425
+    },
+    "wisp": {
+        "x": 383,
+        "y": 425
+    },
+    "witch_doctor": {
+        "x": 425,
+        "y": 425
+    },
+    "zuus": {
+        "x": 467,
+        "y": 5
+    }
+}
+
 			var sources = {
-			background: "{{ media_url('images/dota_map.jpg') }}",
-			ward_observer: "{{ media_url('images/miniheroes/ward_observer.png') }}",
-			ward_sentry: "{{ media_url('images/miniheroes/ward_sentry.png') }}",
-			roshan: "{{ media_url('images/miniheroes/roshan.png') }}",
-			abaddon: "{{ media_url('images/miniheroes/abaddon.png') }}",
-			alchemist: "{{ media_url('images/miniheroes/alchemist.png') }}",
-			ancient_apparition: "{{ media_url('images/miniheroes/ancient_apparition.png') }}",
-			antimage: "{{ media_url('images/miniheroes/antimage.png') }}",
-			axe: "{{ media_url('images/miniheroes/axe.png') }}",
-			bane: "{{ media_url('images/miniheroes/bane.png') }}",
-			batrider: "{{ media_url('images/miniheroes/batrider.png') }}",
-			beastmaster: "{{ media_url('images/miniheroes/beastmaster.png') }}",
-			bloodseeker: "{{ media_url('images/miniheroes/bloodseeker.png') }}",
-			bounty_hunter: "{{ media_url('images/miniheroes/bounty_hunter.png') }}",
-			brewmaster: "{{ media_url('images/miniheroes/brewmaster.png') }}",
-			bristleback: "{{ media_url('images/miniheroes/bristleback.png') }}",
-			broodmother: "{{ media_url('images/miniheroes/broodmother.png') }}",
-			centaur: "{{ media_url('images/miniheroes/centaur.png') }}",
-			chaos_knight: "{{ media_url('images/miniheroes/chaos_knight.png') }}",
-			chen: "{{ media_url('images/miniheroes/chen.png') }}",
-			clinkz: "{{ media_url('images/miniheroes/clinkz.png') }}",
-			crystal_maiden: "{{ media_url('images/miniheroes/crystal_maiden.png') }}",
-			dark_seer: "{{ media_url('images/miniheroes/dark_seer.png') }}",
-			dazzle: "{{ media_url('images/miniheroes/dazzle.png') }}",
-			death_prophet: "{{ media_url('images/miniheroes/death_prophet.png') }}",
-			disruptor: "{{ media_url('images/miniheroes/disruptor.png') }}",
-			doom_bringer: "{{ media_url('images/miniheroes/doom_bringer.png') }}",
-			dragon_knight: "{{ media_url('images/miniheroes/dragon_knight.png') }}",
-			drow_ranger: "{{ media_url('images/miniheroes/drow_ranger.png') }}",
-			earthshaker: "{{ media_url('images/miniheroes/earthshaker.png') }}",
-			elder_titan: "{{ media_url('images/miniheroes/elder_titan.png') }}",
-			enchantress: "{{ media_url('images/miniheroes/enchantress.png') }}",
-			enigma: "{{ media_url('images/miniheroes/enigma.png') }}",
-			faceless_void: "{{ media_url('images/miniheroes/faceless_void.png') }}",
-			furion: "{{ media_url('images/miniheroes/furion.png') }}",
-			gyrocopter: "{{ media_url('images/miniheroes/gyrocopter.png') }}",
-			huskar: "{{ media_url('images/miniheroes/huskar.png') }}",
-			invoker: "{{ media_url('images/miniheroes/invoker.png') }}",
-			jakiro: "{{ media_url('images/miniheroes/jakiro.png') }}",
-			juggernaut: "{{ media_url('images/miniheroes/juggernaut.png') }}",
-			keeper_of_the_light: "{{ media_url('images/miniheroes/keeper_of_the_light.png') }}",
-			kunkka: "{{ media_url('images/miniheroes/kunkka.png') }}",
-			leshrac: "{{ media_url('images/miniheroes/leshrac.png') }}",
-			lich: "{{ media_url('images/miniheroes/lich.png') }}",
-			life_stealer: "{{ media_url('images/miniheroes/life_stealer.png') }}",
-			lina: "{{ media_url('images/miniheroes/lina.png') }}",
-			lion: "{{ media_url('images/miniheroes/lion.png') }}",
-			lone_druid: "{{ media_url('images/miniheroes/lone_druid.png') }}",
-			luna: "{{ media_url('images/miniheroes/luna.png') }}",
-			lycan: "{{ media_url('images/miniheroes/lycan.png') }}",
-			magnataur: "{{ media_url('images/miniheroes/magnataur.png') }}",
-			medusa: "{{ media_url('images/miniheroes/medusa.png') }}",
-			meepo: "{{ media_url('images/miniheroes/meepo.png') }}",
-			mirana: "{{ media_url('images/miniheroes/mirana.png') }}",
-			morphling: "{{ media_url('images/miniheroes/morphling.png') }}",
-			naga_siren: "{{ media_url('images/miniheroes/naga_siren.png') }}",
-			necrolyte: "{{ media_url('images/miniheroes/necrolyte.png') }}",
-			night_stalker: "{{ media_url('images/miniheroes/night_stalker.png') }}",
-			nyx_assassin: "{{ media_url('images/miniheroes/nyx_assassin.png') }}",
-			obsidian_destroyer: "{{ media_url('images/miniheroes/obsidian_destroyer.png') }}",
-			ogre_magi: "{{ media_url('images/miniheroes/ogre_magi.png') }}",
-			omniknight: "{{ media_url('images/miniheroes/omniknight.png') }}",
-			phantom_assassin: "{{ media_url('images/miniheroes/phantom_assassin.png') }}",
-			phantom_lancer: "{{ media_url('images/miniheroes/phantom_lancer.png') }}",
-			puck: "{{ media_url('images/miniheroes/puck.png') }}",
-			pudge: "{{ media_url('images/miniheroes/pudge.png') }}",
-			pugna: "{{ media_url('images/miniheroes/pugna.png') }}",
-			queenofpain: "{{ media_url('images/miniheroes/queenofpain.png') }}",
-			rattletrap: "{{ media_url('images/miniheroes/rattletrap.png') }}",
-			razor: "{{ media_url('images/miniheroes/razor.png') }}",
-			riki: "{{ media_url('images/miniheroes/riki.png') }}",
-			rubick: "{{ media_url('images/miniheroes/rubick.png') }}",
-			sand_king: "{{ media_url('images/miniheroes/sand_king.png') }}",
-			shadow_demon: "{{ media_url('images/miniheroes/shadow_demon.png') }}",
-			nevermore: "{{ media_url('images/miniheroes/nevermore.png') }}",
-			shadow_shaman: "{{ media_url('images/miniheroes/shadow_shaman.png') }}",
-			silencer: "{{ media_url('images/miniheroes/silencer.png') }}",
-			skeleton_king: "{{ media_url('images/miniheroes/skeleton_king.png') }}",
-			skywrath_mage: "{{ media_url('images/miniheroes/skywrath_mage.png') }}",
-			slardar: "{{ media_url('images/miniheroes/slardar.png') }}",
-			slark: "{{ media_url('images/miniheroes/slark.png') }}",
-			sniper: "{{ media_url('images/miniheroes/sniper.png') }}",
-			spectre: "{{ media_url('images/miniheroes/spectre.png') }}",
-			spirit_breaker: "{{ media_url('images/miniheroes/spirit_breaker.png') }}",
-			storm_spirit: "{{ media_url('images/miniheroes/storm_spirit.png') }}",
-			sven: "{{ media_url('images/miniheroes/sven.png') }}",
-			templar_assassin: "{{ media_url('images/miniheroes/templar_assassin.png') }}",
-			tidehunter: "{{ media_url('images/miniheroes/tidehunter.png') }}",
-			shredder: "{{ media_url('images/miniheroes/shredder.png') }}",
-			tinker: "{{ media_url('images/miniheroes/tinker.png') }}",
-			tiny: "{{ media_url('images/miniheroes/tiny.png') }}",
-			treant: "{{ media_url('images/miniheroes/treant.png') }}",
-			troll_warlord: "{{ media_url('images/miniheroes/troll_warlord.png') }}",
-			tusk: "{{ media_url('images/miniheroes/tusk.png') }}",
-			undying: "{{ media_url('images/miniheroes/undying.png') }}",
-			ursa: "{{ media_url('images/miniheroes/ursa.png') }}",
-			vengefulspirit: "{{ media_url('images/miniheroes/vengefulspirit.png') }}",
-			venomancer: "{{ media_url('images/miniheroes/venomancer.png') }}",
-			viper: "{{ media_url('images/miniheroes/viper.png') }}",
-			visage: "{{ media_url('images/miniheroes/visage.png') }}",
-			warlock: "{{ media_url('images/miniheroes/warlock.png') }}",
-			weaver: "{{ media_url('images/miniheroes/weaver.png') }}",
-			windrunner: "{{ media_url('images/miniheroes/windrunner.png') }}",
-			wisp: "{{ media_url('images/miniheroes/wisp.png') }}",
-			witch_doctor: "{{ media_url('images/miniheroes/witch_doctor.png') }}",
-			zuus: "{{ media_url('images/miniheroes/zuus.png') }}"
+			spritesheet: "/media/images/miniherospritesheet.png",
+			background: "{{ media_url('images/dota_map.jpg') }}"
 			};
 			loadImages(sources, function(images) {
 			clearCanvas();
@@ -835,9 +1226,9 @@ getOffset = function(evt) {
 				selectedRadio = $(this).attr('id');
 			});
 
-$('.icons').click(function() {
+$('.miniherosprite').click(function() {
 	if ($('#iconSavedContainer').find(':last-child').attr('id') == undefined || $('#iconSavedContainer').find(':last-child').attr('id').substring(5) != $(this).attr('id').substring(6)) {
-		var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).attr('id').substring(6)).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).attr('id').substring(6) + '.png');
+		var icon_img = $('<div class=\'miniherosprite miniherosprite-' + $(this).attr('id').substring(6) + ' img_icon\'></div>').attr('id','icon_'+$(this).attr('id').substring(6));
 		icon_img.click(function() {
 			$('#hero').val($(this).attr('id').substring(5));
 			selectedRadio = 'radio3';
@@ -983,7 +1374,8 @@ $('#iconContainerExpand').click(function() {
 });
 
 $('#hero').change(function() {
-	var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).val()).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).val() + '.png');
+	var icon_img = $('<div class=\'miniherosprite miniherosprite-' + $(this).val() + ' img_icon\'></div>').attr('id','icon_'+$(this).val());
+	//var icon_img = $('<img class=\'img_icon\'>').attr('id','icon_'+$(this).val()).attr('src','{{ media_url('images/miniheroes/') }}' + $(this).val() + '.png');
 	icon_img.click(function() {
 		$('#hero').val($(this).attr('id').substring(5));
 		$("#radio3").attr('checked', 'checked');
