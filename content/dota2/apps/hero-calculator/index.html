@@ -160,8 +160,8 @@ header: Hero Calculator
 											<div data-bind="html: $parent.inventory.getItemSizeLabel($data)" style="position:absolute;left:0;bottom:0;color:white;padding:0px 2px"></div>
 										</div>
 										<div class="btn-group-vertical">
-											<button style="padding:3px 10px;" class="btn btn-primary btn-xs" title="Remove Item" data-bind="click: $parent.inventory.removeItem">&times;</button>
-											<button style="padding:3px 10px;" class="btn btn-primary btn-xs" title="Disable/Enable Item" data-bind="click: $parent.inventory.toggleMuteItem, html: enabled() ? 'o' : '-', attr: {title: enabled() ? 'Disable Item' : 'Enable Item'}">o</button>
+											<button style="padding:3px 10px;" class="btn btn-default btn-xs" title="Remove Item" data-bind="click: $parent.inventory.removeItem">&times;</button>
+											<button style="padding:3px 10px;" class="btn btn-default btn-xs" title="Disable/Enable Item" data-bind="click: $parent.inventory.toggleMuteItem, html: enabled() ? 'o' : '-', attr: {title: enabled() ? 'Disable Item' : 'Enable Item'}">o</button>
 										</div>
 									</div>
 								</div>
@@ -602,7 +602,7 @@ header: Hero Calculator
 	 
 	 
 					 <div class="row" data-bind="visible: inventory.hasInventory">
-						<h3>Inventory <small style="color:goldenrod" data-bind="html: inventory.totalCost() ? '<img src=\'http://cdn.dota2.com/apps/media/images/tooltips/gold.png\'/> ' + inventory.totalCost() : '' "></small></h3>
+						<h3>Inventory <small style="color:goldenrod" data-bind="html: inventory.totalCost() ? '<img src=\'http://cdn.dota2.com/apps/dota2/images/tooltips/gold.png\'/> ' + inventory.totalCost() : '' "></small></h3>
 						<div id="inventory" data-bind="foreach: inventory.items">
 							<div class="btn-group">
 								<img style="width:75px;" class="img-rounded" data-bind="css: { item_disabled: !enabled(), item_active: $parent.inventory.getActiveBorder($data) == 1, item_inactive: $parent.inventory.getActiveBorder($data) == 0 }, attr:{ src: $parent.inventory.getItemImage($data) }, click: function(data, event) { $parent.inventory.toggleItem($index, data, event); }, event: { dblclick: $parent.inventory.removeItem }"/>
@@ -611,8 +611,8 @@ header: Hero Calculator
 									<div data-bind="html: $parent.inventory.getItemSizeLabel($data)" style="position:absolute;left:0;bottom:0;color:white;padding:0px 2px"></div>
 								</div>
 								<div class="btn-group-vertical">
-									<button style="padding:3px 10px;" class="btn btn-primary btn-xs" title="Remove Item" data-bind="click: $parent.inventory.removeItem">&times;</button>
-									<button style="padding:3px 10px;" class="btn btn-primary btn-xs" title="Disable/Enable Item" data-bind="click: $parent.inventory.toggleMuteItem, html: enabled() ? 'o' : '-', attr: {title: enabled() ? 'Disable Item' : 'Enable Item'}">o</button>
+									<button style="padding:3px 10px;" class="btn btn-default btn-xs" title="Remove Item" data-bind="click: $parent.inventory.removeItem">&times;</button>
+									<button style="padding:3px 10px;" class="btn btn-default btn-xs" title="Disable/Enable Item" data-bind="click: $parent.inventory.toggleMuteItem, html: enabled() ? 'o' : '-', attr: {title: enabled() ? 'Disable Item' : 'Enable Item'}">o</button>
 								</div>
 							</div>
 						</div>

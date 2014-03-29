@@ -106,43 +106,43 @@ var HEROCALCULATOR = (function (my) {
 			switch (data.item) {
 				case 'power_treads':
 					if (data.state() == 0) {
-						return '/dota2/images/items/' + data.item + '_str.png';
+						return '/media/images/items/' + data.item + '_str.png';
 					}
 					else if (data.state() == 1) {
-						return '/dota2/images/items/' + data.item + '_int.png';
+						return '/media/images/items/' + data.item + '_int.png';
 					}
 					else {
-						return '/dota2/images/items/' + data.item + '_agi.png';
+						return '/media/images/items/' + data.item + '_agi.png';
 					}
 				break;
 				case 'tranquil_boots':
 					if (data.state() == 0) {
-						return '/dota2/images/items/' + data.item + '.png';
+						return '/media/images/items/' + data.item + '.png';
 					}
 					else {
-						return '/dota2/images/items/' + data.item + '_active.png';
+						return '/media/images/items/' + data.item + '_active.png';
 					}
 				break;
 				case 'armlet':
 					if (data.state() == 0) {
-						return '/dota2/images/items/' + data.item + '.png';
+						return '/media/images/items/' + data.item + '.png';
 					}
 					else {
-						return '/dota2/images/items/' + data.item + '_active.png';
+						return '/media/images/items/' + data.item + '_active.png';
 					}
 				break;
 				case 'dagon':
 				case 'diffusal_blade':
 				case 'necronomicon':
 					if (data.size > 1) {
-						return '/dota2/images/items/' + data.item + '_' + data.size + '.png';
+						return '/media/images/items/' + data.item + '_' + data.size + '.png';
 					}
 					else {
-						return '/dota2/images/items/' + data.item + '.png';
+						return '/media/images/items/' + data.item + '.png';
 					}
 				break;
 				default:
-					return '/dota2/images/items/' + data.item + '.png';			
+					return '/media/images/items/' + data.item + '.png';			
 				break;
 			}
 		};
