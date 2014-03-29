@@ -5,9 +5,33 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+.nav-tabs>li>a:hover {
+border-color: #303236;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+background-color: #303236;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+color: #2C8CE0;
+background-color: #202126;
+border: 1px solid #202126;
+}
+.nav-tabs {
+border-bottom: 1px solid #202126;
+}
 .label-primary {
 	background-color:#202123;
 	color: #979aa2;
+}
+.form-control {
+border: 1px solid #303239;
+}
+.form-control {
+color: #2C8CE0;
+background-color: #131415;
+}
+.progress {
+background-color:#202126;
 }
 .thumbnail {
 background-color: #131415;

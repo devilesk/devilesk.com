@@ -14,13 +14,13 @@ var HEROCALCULATOR = (function (my) {
 		self.parent = p;
 		self.selectedUnitLevel = ko.observable(1);
 		self.availableUnits = ko.observableArray([
-			new my.UnitOption('npc_dota_lone_druid_bear', 'Lone Druid Spirit Bear',4,'/dota2/images/units/spirit_bear.png', self.selectedUnitLevel),
-			new my.UnitOption('npc_dota_brewmaster_earth_','Brewmaster Earth Warrior',3,'/dota2/images/units/npc_dota_brewmaster_earth.png', self.selectedUnitLevel),
-			new my.UnitOption('npc_dota_brewmaster_fire_','Brewmaster Fire Warrior',3,'/dota2/images/units/npc_dota_brewmaster_fire.png', self.selectedUnitLevel),
-			new my.UnitOption('npc_dota_brewmaster_storm_','Brewmaster Storm Warrior',3,'/dota2/images/units/npc_dota_brewmaster_storm.png', self.selectedUnitLevel),
-			new my.UnitOption('npc_dota_necronomicon_archer_','Necronomicon Archer',3,'/dota2/images/units/npc_dota_necronomicon_archer.png', self.selectedUnitLevel),
-			new my.UnitOption('npc_dota_necronomicon_warrior_','Necronomicon Warrior',3,'/dota2/images/units/npc_dota_necronomicon_warrior.png', self.selectedUnitLevel),
-			new my.UnitOption('npc_dota_lycan_wolf','Lycan Wolf',4,'/dota2/images/units/npc_dota_lycan_wolf.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_lone_druid_bear', 'Lone Druid Spirit Bear',4,'/media/images/units/spirit_bear.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_brewmaster_earth_','Brewmaster Earth Warrior',3,'/media/images/units/npc_dota_brewmaster_earth.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_brewmaster_fire_','Brewmaster Fire Warrior',3,'/media/images/units/npc_dota_brewmaster_fire.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_brewmaster_storm_','Brewmaster Storm Warrior',3,'/media/images/units/npc_dota_brewmaster_storm.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_necronomicon_archer_','Necronomicon Archer',3,'/media/images/units/npc_dota_necronomicon_archer.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_necronomicon_warrior_','Necronomicon Warrior',3,'/media/images/units/npc_dota_necronomicon_warrior.png', self.selectedUnitLevel),
+			new my.UnitOption('npc_dota_lycan_wolf','Lycan Wolf',4,'/media/images/units/npc_dota_lycan_wolf.png', self.selectedUnitLevel),
 		]);
 		self.selectedUnit = ko.observable(self.availableUnits()[h]);
 		self.selectedUnit.subscribe(function(newValue) {

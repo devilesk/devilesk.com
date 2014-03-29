@@ -1,0 +1,17 @@
+---
+extends: base.j2
+title: Dota 2 Streams
+description: Live Twitch Streams
+active_menu: page-community
+header: Live Twitch Streams
+---
+
+  {% block main %}
+	<div id="streams-list" class="list-group">
+  
+	</div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/community/streams.js') }}"></script>
+  {% endblock scripts %}
