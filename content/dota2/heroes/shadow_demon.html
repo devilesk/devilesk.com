@@ -109,10 +109,10 @@ herodata:
     !!python/unicode 'cooldown': [2.75]
     !!python/unicode 'damage': [50, 50, 50, 50]
     !!python/unicode 'description': !!python/unicode 'Deals damage in a line, and
-      afflicts enemy units with a poison effect. The poison deals 1/2/4/8 times the
-      stack damage based on the number of stacks on the target, up to 5 stacks. Additional
-      stacks cause 50 damage each.  This deferred damage is dealt when Shadow Poison''s
-      duration is expired, or the Release sub-ability is used.'
+      afflicts enemy units with a poison effect. The poison deals 1/2/4/8/16 times
+      the stack damage based on the number of stacks on the target, up to 5 stacks.
+      Additional stacks cause 50 damage each.  This deferred damage is dealt when
+      Shadow Poison''s duration is expired, or the Release sub-ability is used.'
     !!python/unicode 'displayname': !!python/unicode 'Shadow Poison'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'The ever growing influence of the Shadow
@@ -158,6 +158,10 @@ herodata:
       !!python/unicode 'value': [3, 3, 3]
     - !!python/unicode 'name': !!python/unicode 'slow_rate'
       !!python/unicode 'value': [5, 3, 2]
+    - !!python/unicode 'name': !!python/unicode 'max_charges'
+      !!python/unicode 'value': [2]
+    - !!python/unicode 'name': !!python/unicode 'charge_restore_time'
+      !!python/unicode 'value': [40]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
     !!python/unicode 'cooldown': [50, 50, 50]
     !!python/unicode 'damage': [200, 300, 400]
@@ -165,7 +169,7 @@ herodata:
       removing positive buffs, and slowing the target for the duration.  The unit
       slowly regains its speed until the end of the duration, upon which damage is
       dealt.  Units under the effect of Disruption can still be affected by Demonic
-      Purge.'
+      Purge.\n\nUpgradable with Aghanim''s Scepter.'
     !!python/unicode 'displayname': !!python/unicode 'Demonic Purge'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'Once Shadow Demon no longer has any

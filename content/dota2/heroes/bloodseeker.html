@@ -6,7 +6,7 @@ herodata:
   !!python/unicode 'AttackDamageType': !!python/unicode 'DAMAGE_TYPE_ArmorPhysical'
   !!python/unicode 'HeroID': 4
   !!python/unicode 'abilities':
-  - !!python/unicode 'AbilityCastPoint': [0.6, 0.6, 0.6, 0.6]
+  - !!python/unicode 'AbilityCastPoint': 0.4
     !!python/unicode 'AbilityCastRange': 800
     !!python/unicode 'AbilityCastRangeBuffer': 250
     !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
@@ -61,9 +61,9 @@ herodata:
     !!python/unicode 'cooldown': [0, 0, 0, 0]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Bloodseeker revels in combat,
-      gaining health with every unit he kills or an enemy hero dies with a 325 radius
-      of Bloodseeker.  The health gained is a percentage of the killed unit''s maximum
-      HP.'
+      regaining health with every unit he kills or whenever an enemy Hero dies within
+      a 325 radius of Bloodseeker.  The health gained is a percentage of the killed
+      unit''s maximum HP.'
     !!python/unicode 'displayname': !!python/unicode 'Blood Bath'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'Flayed ones bathing in the blood of
@@ -80,11 +80,12 @@ herodata:
     !!python/unicode 'ID': 5017
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_BASIC'
     !!python/unicode 'attributes':
+    - !!python/unicode 'name': !!python/unicode 'invis_threshold_pct'
+      !!python/unicode 'tooltip': !!python/unicode '%TRUE SIGHT HEALTH:'
+      !!python/unicode 'value': [25]
     - !!python/unicode 'name': !!python/unicode 'bonus_movement_speed'
       !!python/unicode 'tooltip': !!python/unicode '%MOVEMENT SPEED:'
       !!python/unicode 'value': [5, 15, 25, 35]
-    - !!python/unicode 'name': !!python/unicode 'invis_threshold_pct'
-      !!python/unicode 'value': [25]
     - !!python/unicode 'name': !!python/unicode 'visibility_threshold_pct'
       !!python/unicode 'tooltip': !!python/unicode '%VISIBILITY HEALTH:'
       !!python/unicode 'value': [50]
@@ -95,9 +96,10 @@ herodata:
     !!python/unicode 'cooldown': [0, 0, 0, 0]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Enables Bloodseeker to sense
-      enemy Heroes with health below a certain percentage, giving him vision of that
-      unit, increased movement speed and increased damage. Bonuses stack per Hero.  Bloodseeker
-      gains True Sight of enemy heroes below half their visiblity threshold.'
+      enemy Heroes with health below a certain percentage wherever they are, giving
+      him vision of that unit, increased movement speed and increased damage. Bonuses
+      stack per Hero.  Bloodseeker gains True Sight of enemy Heroes below half their
+      visiblity threshold.'
     !!python/unicode 'displayname': !!python/unicode 'Thirst'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'Strygwyr becomes frenzied when blood

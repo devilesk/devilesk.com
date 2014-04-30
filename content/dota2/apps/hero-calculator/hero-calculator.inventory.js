@@ -15,7 +15,7 @@ var HEROCALCULATOR = (function (my) {
 	
 	my.InventoryViewModel = function() {
 		var self = this,
-		itemswithactive = ['smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic'];
+		itemswithactive = ['smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila'];
 		self.hasInventory = ko.observable(true);
 		self.items = ko.observableArray();
 		self.activeItems = ko.observableArray([]);
@@ -60,12 +60,16 @@ var HEROCALCULATOR = (function (my) {
 		}, this);
 		self.addItem = function(data, event) {
 			if (self.hasInventory() && data.selectedItem() != undefined) {
-	            	self.items.push({
-						item: data.selectedItem(),
-						state: ko.observable(0),
-						size: data.itemInputValue(),
-						enabled: ko.observable(true)
-					});
+				var new_item = {
+					item: data.selectedItem(),
+					state: ko.observable(0),
+					size: data.itemInputValue(),
+					enabled: ko.observable(true)
+				}
+	            self.items.push(new_item);
+				if (data.selectedItem() == 'ring_of_aquila' || data.selectedItem() == 'ring_of_basilius') {
+					self.toggleItem(undefined,new_item,undefined);
+				}
 			}
 		};
 		self.toggleItem = function (index, data, event) {
@@ -116,6 +120,7 @@ var HEROCALCULATOR = (function (my) {
 					}
 				break;
 				case 'tranquil_boots':
+				case 'ring_of_basilius':
 					if (data.state() == 0) {
 						return '/media/images/items/' + data.item + '.png';
 					}
@@ -129,6 +134,14 @@ var HEROCALCULATOR = (function (my) {
 					}
 					else {
 						return '/media/images/items/' + data.item + '_active.png';
+					}
+				break;
+				case 'ring_of_aquila':
+					if (data.state() == 0) {
+						return '/media/images/items/' + data.item + '_active.png';
+					}
+					else {
+						return '/media/images/items/' + data.item + '.png';
 					}
 				break;
 				case 'dagon':
@@ -160,11 +173,12 @@ var HEROCALCULATOR = (function (my) {
 				return '';
 			}
 		};
-
 		self.getActiveBorder = function (data) {
 			switch (data.item) {
 				case 'power_treads':
 				case 'tranquil_boots':
+				case 'ring_of_basilius':
+				case 'ring_of_aquila':
 				case 'armlet':
 					return 0;
 				break;
@@ -590,6 +604,7 @@ var HEROCALCULATOR = (function (my) {
 							total_attribute += parseInt(attribute.value[0]);
 						break;
 						case 'bonus_aoe_armor':
+						case 'aura_bonus_armor':
 							if (isactive) { total_attribute += parseInt(attribute.value[0]); };
 						break;
 						case 'heal_bonus_armor':

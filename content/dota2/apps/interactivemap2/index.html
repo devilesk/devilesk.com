@@ -9,6 +9,9 @@
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
   		<script src="{{ media_url('js/libs/OpenLayers.js') }}"></script>
 		<style type="text/css">
+			body {
+			margin:0;
+			}
 			#controls {
 			position:absolute;
 			top:100px;
@@ -72,8 +75,8 @@
 	<body>
 		<div style="width:100%; height:100%" id="map"></div>
 		<div id="controls">
-<div id="controls-max" class="maximizeDiv olButton" style="position: absolute;"><img width="18" height="18" id="OpenLayers_Control_MaximizeDiv_innerImage" class="olAlphaImg" src="img/layer-switcher-maximize.png" style="position: relative;"></div>
-<div id="controls-min" class="minimizeDiv olButton" style="position: absolute;"><img width="18" height="18" id="OpenLayers_Control_MinimizeDiv_innerImage" class="olAlphaImg" src="img/layer-switcher-minimize.png" style="position: relative;"></div>
+<div id="controls-max" class="maximizeDiv olButton" style="position: absolute;"><img width="18" height="18" id="OpenLayers_Control_MaximizeDiv_innerImage" class="olAlphaImg" src="{{ media_url('js/libs/img/layer-switcher-maximize.png') }}" style="position: relative;"></div>
+<div id="controls-min" class="minimizeDiv olButton" style="position: absolute;"><img width="18" height="18" id="OpenLayers_Control_MinimizeDiv_innerImage" class="olAlphaImg" src="{{ media_url('js/libs/img/layer-switcher-minimize.png') }}" style="position: relative;"></div>
 		<ul id="controlslist">
 			<b>Map Controls</b>
 			<li>

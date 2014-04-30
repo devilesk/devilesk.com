@@ -410,9 +410,15 @@ var HEROCALCULATOR = (function (my) {
 						for (var j=0;j<self.abilities()[i].attributes().length;j++) {
 							var attribute = self.abilities()[i].attributes()[j];
 							switch(attribute.name()) {
-								// lone_druid_true_form,lycan_shapeshift
+								// lone_druid_true_form,lycan_shapeshift,troll_warlord_berserkers_rage
 								case 'bonus_hp':
 									total_attribute += parseInt(attribute.value()[ability.level()-1]);
+								break;
+								// lone_druid_synergy
+								case 'true_form_hp_bonus':
+									if (self.isTrueFormActive()) {
+										total_attribute += parseInt(attribute.value()[ability.level()-1]);
+									}
 								break;
 							}
 						}
@@ -427,6 +433,16 @@ var HEROCALCULATOR = (function (my) {
 			}
 			return total_attribute;
 		});
+		
+		self.isTrueFormActive = function() {
+			for (var i=0; i<self.abilities().length;i++) {
+				var ability = self.abilities()[i];
+				if (ability.isactive() && ability.name() == 'lone_druid_true_form') {
+					return true;
+				}
+			}
+			return false;
+		}
 		
 		self.getHealthRegen = ko.computed(function() {
 			var total_attribute = 0;
@@ -551,7 +567,14 @@ var HEROCALCULATOR = (function (my) {
 							switch(attribute.name()) {
 								// templar_assassin_psi_blades,sniper_take_aim
 								case 'bonus_attack_range':
-									total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+								// terrorblade_metamorphosis,troll_warlord_berserkers_rage
+								case 'bonus_range':
+									if (ability.name() == 'terrorblade_metamorphosis') {
+										total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+									}
+									if (ability.name() == 'troll_warlord_berserkers_rage') {
+										total_attribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+									}
 								break;
 								// tiny_grow
 								case 'bonus_range_scepter':
@@ -751,6 +774,7 @@ var HEROCALCULATOR = (function (my) {
 		});	
 		self.getBaseDamage = ko.computed(function() {
 			var total_attribute = 0;
+			var sources = {};
 			for (var i=0; i<self.abilities().length;i++) {
 				var ability = self.abilities()[i];
 				if (!(ability.name() in self.abilityData)) {
@@ -758,16 +782,23 @@ var HEROCALCULATOR = (function (my) {
 						for (var j=0;j<self.abilities()[i].attributes().length;j++) {
 							var attribute = self.abilities()[i].attributes()[j];
 							switch(attribute.name()) {
-								// 
-								/*case '':
-									total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), '', ability.level());
-								break;*/
+								// tiny_grow
+								case 'bonus_damage':
+									if (ability.name() == 'tiny_grow') {
+										total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+										sources[ability.name()] = {
+											'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level()),
+											'damagetype': 'physical',
+											'displayname': ability.displayname()
+										}
+									}
+								break;
 							}
 						}
 					}
 				}
 			}
-			return total_attribute;
+			return { sources: sources, total: total_attribute };
 		});
 		self.getBAT = ko.computed(function() {
 			var total_attribute = 0;
@@ -799,11 +830,11 @@ var HEROCALCULATOR = (function (my) {
 						for (var j=0;j<self.abilities()[i].attributes().length;j++) {
 							var attribute = self.abilities()[i].attributes()[j];
 							switch(attribute.name()) {
-								// broodmother_insatiable_hunger,luna_lunar_blessing,templar_assassin_refraction,templar_assassin_meld
+								// broodmother_insatiable_hunger,luna_lunar_blessing,templar_assassin_refraction,templar_assassin_meld,terrorblade_metamorphosis,troll_warlord_berserkers_rage
 								case 'bonus_damage':
 									if (ability.name() == 'broodmother_insatiable_hunger' || ability.name() == 'luna_lunar_blessing'
 									 || ability.name() == 'templar_assassin_refraction' || ability.name() == 'templar_assassin_meld'
-									 || ability.name() == 'tiny_grow') {
+									 || ability.name() == 'terrorblade_metamorphosis' || ability.name() == 'troll_warlord_berserkers_rage') {
 										total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
 										sources[ability.name()] = {
 											'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level()),
@@ -1359,6 +1390,12 @@ var HEROCALCULATOR = (function (my) {
 									if (ability.name() == 'tiny_grow') {
 										total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
 									}
+								break;
+								// troll_warlord_berserkers_rage
+								case 'bonus_move_speed':
+									if (ability.name() == 'troll_warlord_berserkers_rage') {
+										total_attribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+									}								
 								break;
 								// lone_druid_true_form
 								case 'speed_loss':

@@ -86,7 +86,7 @@ herodata:
     !!python/unicode 'AbilityCastRange': 525
     !!python/unicode 'AbilityCastRangeBuffer': 250
     !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
-    !!python/unicode 'AbilityDuration': [12, 12, 12, 12]
+    !!python/unicode 'AbilityDuration': 12
     !!python/unicode 'AbilityModifierSupportBonus': 0
     !!python/unicode 'AbilityModifierSupportValue': 1
     !!python/unicode 'ID': 5140
@@ -108,7 +108,7 @@ herodata:
       !!python/unicode 'value': [12]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_AOE', !!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']
-    !!python/unicode 'cooldown': [35, 35, 35, 35]
+    !!python/unicode 'cooldown': [20]
     !!python/unicode 'damage': [5, 10, 15, 20]
     !!python/unicode 'description': !!python/unicode 'Curses all enemy Heroes in an
       area, causing them to take damage every 4 seconds, adding bonus damage for every
@@ -130,15 +130,17 @@ herodata:
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_ULTIMATE'
     !!python/unicode 'abilityunitdamagetype': !!python/unicode 'DAMAGE_TYPE_PHYSICAL'
     !!python/unicode 'attributes':
-    - !!python/unicode 'name': !!python/unicode 'damage'
-      !!python/unicode 'tooltip': !!python/unicode 'DAMAGE:'
-      !!python/unicode 'value': [60, 90, 120]
+    - !!python/unicode 'name': !!python/unicode 'bounces'
+      !!python/unicode 'tooltip': !!python/unicode 'BOUNCES:'
+      !!python/unicode 'value': [0, 0, 1]
     - !!python/unicode 'name': !!python/unicode 'damage_scepter'
       !!python/unicode 'tooltip': !!python/unicode 'SCEPTER DAMAGE:'
       !!python/unicode 'value': [90, 120, 150]
-    - !!python/unicode 'name': !!python/unicode 'bounces'
-      !!python/unicode 'value': [0, 0, 1]
+    - !!python/unicode 'name': !!python/unicode 'damage'
+      !!python/unicode 'tooltip': !!python/unicode 'DAMAGE:'
+      !!python/unicode 'value': [60, 90, 120]
     - !!python/unicode 'name': !!python/unicode 'scepter_bounces'
+      !!python/unicode 'tooltip': !!python/unicode 'SCEPTER BOUNCES:'
       !!python/unicode 'value': [4, 4, 4]
     - !!python/unicode 'name': !!python/unicode 'bounce_radius'
       !!python/unicode 'value': [650, 650, 650]
@@ -148,7 +150,7 @@ herodata:
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'CHANNELED - Summons a deadly
       ward to attack enemy heroes.  The Death Ward has attack range of 700, and attacks
-      every .25 seconds.  Level 3 Death Ward bounces once. Lasts 8 seconds.\n\nUpgradable
+      every .22 seconds.  Level 3 Death Ward bounces once. Lasts 8 seconds.\n\nUpgradable
       by Aghanim''s Scepter.'
     !!python/unicode 'displayname': !!python/unicode 'Death Ward'
     !!python/unicode 'level': 0

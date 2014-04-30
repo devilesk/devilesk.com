@@ -122,7 +122,7 @@ $(function () {
 			}
 		}
 		self.sortColumns.push(1);
-		self.data = ko.computed(function() {
+		self.data_cache = ko.computed(function() {
 			var d = ko.observableArray([]);
 			for (h in heroData) {
 				var row = []
@@ -162,10 +162,14 @@ $(function () {
 				
 				d.push(row);
 			}
+			return d;
+		});
+		self.data = ko.computed(function() {
+			var d = self.data_cache();
 			d.sort(function(a,b) {
 				var i = 0;
 				while (i < self.sortColumns().length) {
-					if (self.sortColumns()[i] > 2 && self.headers()[self.sortColumns()[i]].name != 'Attack Type') {
+					if (self.sortColumns()[i] > 2 && self.headers()[self.sortColumns()[i]].name != 'Atk Type') {
 						if (parseFloat(a[self.sortColumns()[i]]) > parseFloat(b[self.sortColumns()[i]])) return 1 * self.sortDirections()[self.sortColumns()[i]]();
 						if (parseFloat(a[self.sortColumns()[i]]) < parseFloat(b[self.sortColumns()[i]])) return -1 * self.sortDirections()[self.sortColumns()[i]]();
 					}

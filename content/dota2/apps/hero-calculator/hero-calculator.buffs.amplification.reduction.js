@@ -29,13 +29,11 @@ var HEROCALCULATOR = (function (my) {
 
 		self.getAbilityDamageAmpValue = function(abilityname,attributename) {
 			var a = _.findWhere(self.buffs(), {name: abilityname});
-			console.log(self);
 			if (a == undefined) {
 				return 0;
 			}
 			else {
 				var ability = a.data;
-				console.log(ability);
 				return self.getAbilityAttributeValue(ability.attributes(), attributename, ability.level());
 			}
 		}

@@ -4,55 +4,59 @@ $(function() {
 	$('#workshop').load("/media/json/workshop.json");
 	$('#youtube-video').load("/media/json/youtube.json");
 	$.getJSON("/media/json/matchticker.json", function(data) {
-		for (var i=0;i<data.started.length;i++) {
-			var m = data.started[i];
-			$('#matchticker').append($('<tr>')
-				.append($('<td>')
-					.append($('<span>')
-						.text(m.team1)
+		if (data.started) {
+			for (var i=0;i<data.started.length;i++) {
+				var m = data.started[i];
+				$('#matchticker').append($('<tr>')
+					.append($('<td>')
+						.append($('<span>')
+							.text(m.team1)
+						)
 					)
-				)
-				.append($('<td>')
-					.append($('<span>')
-						.text('vs.')
+					.append($('<td>')
+						.append($('<span>')
+							.text('vs.')
+						)
 					)
-				)
-				.append($('<td>')
-					.append($('<span>')
-						.text(m.team2)
+					.append($('<td>')
+						.append($('<span>')
+							.text(m.team2)
+						)
 					)
-				)
-				.append($('<td>')
-					.append($('<span>')
-						.text(m.liveIn)
+					.append($('<td>')
+						.append($('<span>')
+							.text(m.liveIn)
+						)
 					)
-				)
-			);
+				);
+			}
 		}
-		for (var i=0;i<data.upcoming.length;i++) {
-			var m = data.upcoming[i];
-			$('#matchticker').append($('<tr>')
-				.append($('<td>')
-					.append($('<span>')
-						.text(m.team1)
+		if (data.upcoming) {
+			for (var i=0;i<data.upcoming.length;i++) {
+				var m = data.upcoming[i];
+				$('#matchticker').append($('<tr>')
+					.append($('<td>')
+						.append($('<span>')
+							.text(m.team1)
+						)
 					)
-				)
-				.append($('<td>')
-					.append($('<span>')
-						.text('vs.')
+					.append($('<td>')
+						.append($('<span>')
+							.text('vs.')
+						)
 					)
-				)
-				.append($('<td>')
-					.append($('<span>')
-						.text(m.team2)
+					.append($('<td>')
+						.append($('<span>')
+							.text(m.team2)
+						)
 					)
-				)
-				.append($('<td>')
-					.append($('<span>')
-						.text(m.liveIn)
+					.append($('<td>')
+						.append($('<span>')
+							.text(m.liveIn)
+						)
 					)
-				)
-			);
+				);
+			}
 		}
 	});
 	

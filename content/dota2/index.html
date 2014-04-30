@@ -2,7 +2,6 @@
 extends: base.j2
 title: devilesk Dota 2
 description: devilesk Dota 2
-header: devilesk.com/dota2
 ---
 
 {% block custom_css %}
@@ -18,12 +17,6 @@ opacity:.5;
 </style>
 {% endblock custom_css %}
 
-{% block header %}
-<div id="banner">
-<img src="{{ media_url('/images/banner.png') }}" alt="banner">
-</div>
-{% endblock header %}
-		  
 {% block main %}
 <div class="row">
   <div class="col-sm-6 col-md-6">

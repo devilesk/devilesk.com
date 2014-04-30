@@ -6,7 +6,7 @@ herodata:
   !!python/unicode 'AttackDamageType': !!python/unicode 'DAMAGE_TYPE_ArmorPhysical'
   !!python/unicode 'HeroID': 22
   !!python/unicode 'abilities':
-  - !!python/unicode 'AbilityCastPoint': [0.4, 0.4, 0.4, 0.4]
+  - !!python/unicode 'AbilityCastPoint': 0.2
     !!python/unicode 'AbilityCastRange': 850
     !!python/unicode 'AbilityCastRangeBuffer': 250
     !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
@@ -47,19 +47,26 @@ herodata:
     !!python/unicode 'abilityunitdamagetype': !!python/unicode 'DAMAGE_TYPE_MAGICAL'
     !!python/unicode 'attributes':
     - !!python/unicode 'name': !!python/unicode 'sight_radius_day'
-      !!python/unicode 'value': [1000, 1000, 1000, 1000]
+      !!python/unicode 'tooltip': !!python/unicode 'SIGHT RADIUS:'
+      !!python/unicode 'value': [750]
     - !!python/unicode 'name': !!python/unicode 'sight_radius_night'
-      !!python/unicode 'value': [1000, 1000, 1000, 1000]
+      !!python/unicode 'value': [750]
     - !!python/unicode 'name': !!python/unicode 'true_sight_radius'
-      !!python/unicode 'value': [900, 900, 900]
+      !!python/unicode 'value': [750]
     - !!python/unicode 'name': !!python/unicode 'sight_duration'
+      !!python/unicode 'tooltip': !!python/unicode 'SIGHT DURATION:'
       !!python/unicode 'value': [3, 3, 3, 3]
-    !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
+    - !!python/unicode 'name': !!python/unicode 'spread_aoe'
+      !!python/unicode 'value': [250]
+    !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET',
+      !!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT']
     !!python/unicode 'cooldown': [6, 6, 6, 6]
     !!python/unicode 'damage': [100, 175, 275, 350]
-    !!python/unicode 'description': !!python/unicode 'Summons a bolt of lightning
-      to strike an enemy unit, causing damage and a mini-stun. Lightning Bolt also
-      provides True Sight around the target in a radius of 900.'
+    !!python/unicode 'description': !!python/unicode 'Calls down a bolt of lightning
+      to strike an enemy unit, causing damage and a mini-stun. When cast, Lightning
+      Bolt briefly provides unobstructed vision and True Sight around the target in
+      a 750 radius. Can be cast on the ground, affecting the closest enemy hero in
+      250 range.'
     !!python/unicode 'displayname': !!python/unicode 'Lightning Bolt'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'A shocking punishment for rebellious

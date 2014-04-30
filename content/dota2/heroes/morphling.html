@@ -21,7 +21,8 @@ herodata:
       !!python/unicode 'value': [200]
     - !!python/unicode 'name': !!python/unicode 'speed'
       !!python/unicode 'value': [1250]
-    !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT']
+    !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT',
+      !!python/unicode 'DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']
     !!python/unicode 'cooldown': [11, 11, 11, 11]
     !!python/unicode 'damage': [100, 175, 250, 325]
     !!python/unicode 'description': !!python/unicode 'Morphling dissolves into liquid
@@ -63,6 +64,9 @@ herodata:
       !!python/unicode 'value': [0.5, 1, 1.5, 2]
     - !!python/unicode 'name': !!python/unicode 'knockback_min'
       !!python/unicode 'value': [100]
+    - !!python/unicode 'name': !!python/unicode 'range_tooltip'
+      !!python/unicode 'tooltip': !!python/unicode 'CAST RANGE:'
+      !!python/unicode 'value': [600, 700, 800, 900]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
     !!python/unicode 'cooldown': [10]
     !!python/unicode 'damage': [0, 0, 0, 0]
@@ -157,12 +161,16 @@ herodata:
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_ULTIMATE'
     !!python/unicode 'attributes':
     - !!python/unicode 'name': !!python/unicode 'illusion_damage_out_pct'
+      !!python/unicode 'tooltip': !!python/unicode '%OUTGOING DAMAGE:'
       !!python/unicode 'value': [-50, -50, -50]
-    - !!python/unicode 'name': !!python/unicode 'illusion_damage_in_pct'
-      !!python/unicode 'value': [0, 0, 0]
+    - !!python/unicode 'name': !!python/unicode 'illusion_incoming_dmg_pct_tooltip'
+      !!python/unicode 'tooltip': !!python/unicode '%INCOMING DAMAGE:'
+      !!python/unicode 'value': [100, 100, 100]
     - !!python/unicode 'name': !!python/unicode 'duration'
       !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
       !!python/unicode 'value': [30, 45, 60]
+    - !!python/unicode 'name': !!python/unicode 'illusion_damage_in_pct'
+      !!python/unicode 'value': [0, 0, 0]
     - !!python/unicode 'name': !!python/unicode 'tooltip_cast_range'
       !!python/unicode 'tooltip': !!python/unicode 'CAST RANGE:'
       !!python/unicode 'value': [700, 1100, 1500]
@@ -170,8 +178,9 @@ herodata:
     !!python/unicode 'cooldown': [80, 80, 80]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Morphling replicates any hero,
-      friend or foe, although only dealing 50%% the original hero''s damage.  At any
-      time, Morphling can instantly take the position of the Replicate.'
+      friend or foe, dealing 50%% of the original Hero''s outgoing damage while taking
+      100%% of any incoming damage.  At any time, Morphling can instantly take the
+      position of the Replicate for 150 mana.'
     !!python/unicode 'displayname': !!python/unicode 'Replicate'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'Staring into Morphling produces a reflection

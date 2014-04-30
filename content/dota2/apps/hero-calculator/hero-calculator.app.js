@@ -116,8 +116,9 @@ var HEROCALCULATOR = (function (my) {
 		self.heroes.push(self.heroes[0].unit());
 		self.heroes.push(self.heroes[1].unit());
 		self.selectedTab = ko.observable(0);
+		self.selectedTabView = [ko.observable(true),ko.observable(true),ko.observable(false),ko.observable(false),ko.observable(false)];
 		self.selectedItem = ko.observable();
-		self.layout = ko.observable(1);
+		self.layout = ko.observable("1");
 		self.displayShop = ko.observable(true);
 		self.toggleDisplayShop = function() {
 			self.displayShop(!self.displayShop());
@@ -149,17 +150,64 @@ var HEROCALCULATOR = (function (my) {
 		self.clickTab = function(data, event) {
 			if (event.target.id == 'heroTab0') {
 				self.selectedTab(0);
+				self.selectedTabView[0](true);
+				self.selectedTabView[2](false);
+				self.selectedTabView[4](false);
 			}
 			else if (event.target.id == 'heroTab1') {
 				self.selectedTab(1);
+				self.selectedTabView[1](true);
+				self.selectedTabView[3](false);
+				self.selectedTabView[4](false);
 			}
 			else if (event.target.id == 'unitTab0') {
 				self.selectedTab(2);
+				self.selectedTabView[2](true);
+				self.selectedTabView[0](false);
+				self.selectedTabView[4](false);
 			}
 			else if (event.target.id == 'unitTab1') {
 				self.selectedTab(3);
+				self.selectedTabView[3](true);
+				self.selectedTabView[1](false);
+				self.selectedTabView[4](false);
+			}
+			else if (event.target.id == 'settingsTab') {
+				self.selectedTabView[4](true);
 			}
 		};
+		
+		self.sideView = ko.observable(false);
+		self.sideView.subscribe(function(newValue) {
+			console.log(newValue);
+			if (newValue) {
+				self.displayShop(false);
+				self.layout(0);
+			}
+		});
+		self.showSideTab = [
+			ko.computed(function() {
+				console.log('showSideTab',0, self.selectedTab());
+				return self.selectedTabView[0]() && self.sideView() && !self.selectedTabView[4]();
+			}),
+			ko.computed(function() {
+				console.log('showSideTab',1, self.selectedTab());
+				return self.selectedTabView[1]() && self.sideView() && !self.selectedTabView[4]();
+			}),
+			ko.computed(function() {
+				console.log('showSideTab',2, self.selectedTab());
+				return self.selectedTabView[2]() && self.sideView() && !self.selectedTabView[4]();
+			}),
+			ko.computed(function() {
+				console.log('showSideTab',3, self.selectedTab());
+				return self.selectedTabView[3]() && self.sideView() && !self.selectedTabView[4]();
+			}),
+			ko.computed(function() {
+				console.log('showSideTab',4, self.selectedTab());
+				return self.selectedTabView[4]() && self.sideView();
+			})
+		];
+		
 		self.changeSelectedItem = function (data,event) {
 			self.itemInputValue(1);
 			self.selectedItem(event.target.id);
@@ -184,21 +232,9 @@ var HEROCALCULATOR = (function (my) {
 		}, this);
 		self.itemInputValue = ko.observable(1);
 		self.save = function() {
-			console.log('this');
-			console.log(this);
-			console.log('ko.toJS');
 			var test = ko.toJS(this);
-			//test.unit = undefined;
-			//test.enemy = undefined;
-			console.log(test);
-			//console.log(JSON.decycle(test));
 			var serialized = JSON.stringify(JSON.decycle(test));
-			//console.log(serialized);
 			var unserialized = JSON.retrocycle(JSON.parse(serialized));
-			console.log('unserialized');
-			console.log(unserialized);
-			//console.log(JSON.stringify(test));
-			console.log('loading');
 			self.load(unserialized);
 			$.ajax({
 				type: "POST",
@@ -226,55 +262,24 @@ var HEROCALCULATOR = (function (my) {
 				self.heroes[i].selectedHeroLevel(data.heroes[i].selectedHeroLevel)
 				for (var j=0;j<data.heroes[i].ability.abilities.length;j++) {
 					self.heroes[i].ability().abilities()[j].level(data.heroes[i].ability.abilities[j].level);
-					console.log('level ' + data.heroes[i].ability.abilities[j].level);
 				}
 			}
-			console.log(this);
 		}
 	}
 
 	my.heroCalculator = {};
 
-	my.init = function() {
-		$.getJSON("{{ media_url('js/herodata.json') }}", function (data) {
+	my.init = function(HERODATA_PATH,ITEMDATA_PATH,UNITDATA_PATH) {
+		$.getJSON(HERODATA_PATH, function (data) {
 			my.heroData = data;
 			my.heroData['npc_dota_hero_chen'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
-/*			console.log(data);
-			console.log(my.heroData);
-				for (i in data) {
-					for (var j=0;j< data[i].abilities.length;j++) {
-						for (var k=0;k < data[i].abilities[j].attributes.length;k++) {
-							if (data[i].abilities[j].attributes[k].name == 'bonus_damage') {
-								console.log(data[i].abilities[j].name);
-							}
-						}
-					}
-				}
-*/
-			$.getJSON("{{ media_url('js/itemdata.json') }}", function (data) {
+			$.getJSON(ITEMDATA_PATH, function (data) {
 				my.itemData = data;
-				$.getJSON("{{ media_url('js/unitdata.json') }}", function (data) {
+				$.getJSON(UNITDATA_PATH, function (data) {
 					my.unitData = data;
-					console.log(my.unitData);
 					my.heroCalculator = new my.HeroCalculatorViewModel();
 					ko.applyBindings(my.heroCalculator);
-	/*				for (i in data) {
-						for (var j=0;j< data[i].attributes.length;j++) {
-							if (data[i].attributes[j].name == 'crit_chance') {
-								console.log(i);
-							}
-						}
-					}
-	*/
 				});
-/*				for (i in data) {
-					for (var j=0;j< data[i].attributes.length;j++) {
-						if (data[i].attributes[j].name == 'crit_chance') {
-							console.log(i);
-						}
-					}
-				}
-*/
 			});
 		});
 	}

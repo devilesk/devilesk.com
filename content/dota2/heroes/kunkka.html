@@ -6,7 +6,7 @@ herodata:
   !!python/unicode 'AttackDamageType': !!python/unicode 'DAMAGE_TYPE_ArmorPhysical'
   !!python/unicode 'HeroID': 23
   !!python/unicode 'abilities':
-  - !!python/unicode 'AbilityCastPoint': [0.4, 0.4, 0.4, 0.4]
+  - !!python/unicode 'AbilityCastPoint': 0.4
     !!python/unicode 'AbilityCastRange': 1500
     !!python/unicode 'AbilityCastRangeBuffer': 250
     !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
@@ -25,7 +25,7 @@ herodata:
       !!python/unicode 'value': [1, 2, 3, 4]
     - !!python/unicode 'name': !!python/unicode 'radius'
       !!python/unicode 'tooltip': !!python/unicode 'RADIUS:'
-      !!python/unicode 'value': [215, 215, 215, 215]
+      !!python/unicode 'value': [225]
     - !!python/unicode 'name': !!python/unicode 'stun_duration'
       !!python/unicode 'tooltip': !!python/unicode 'STUN DURATION:'
       !!python/unicode 'value': [1.53, 1.53, 1.53, 1.53]
@@ -84,14 +84,17 @@ herodata:
     !!python/unicode 'ID': 5033
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_BASIC'
     !!python/unicode 'attributes':
+    - !!python/unicode 'name': !!python/unicode 'allied_duration_tooltip'
+      !!python/unicode 'tooltip': !!python/unicode 'ALLIED DELAY:'
+      !!python/unicode 'value': [2, 4, 6, 8]
     - !!python/unicode 'name': !!python/unicode 'tooltip_range'
       !!python/unicode 'tooltip': !!python/unicode 'RANGE:'
       !!python/unicode 'value': [500, 650, 800, 950]
+    - !!python/unicode 'name': !!python/unicode 'duration'
+      !!python/unicode 'tooltip': !!python/unicode 'ENEMY DELAY:'
+      !!python/unicode 'value': [1, 2, 3, 4]
     - !!python/unicode 'name': !!python/unicode 'fow_range'
       !!python/unicode 'value': [400]
-    - !!python/unicode 'name': !!python/unicode 'duration'
-      !!python/unicode 'tooltip': !!python/unicode 'DELAY:'
-      !!python/unicode 'value': [1, 2, 3, 4]
     - !!python/unicode 'name': !!python/unicode 'fow_duration'
       !!python/unicode 'value': [5.94]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET',
@@ -100,7 +103,8 @@ herodata:
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Targets a friendly or enemy
       Hero, marks their position with an X, and returns them to it after several seconds.  Kunkka
-      can trigger the return at any time during the duration.'
+      can trigger the return at any time during the duration. Lasts twice as long
+      on allied heroes.'
     !!python/unicode 'displayname': !!python/unicode 'X Marks the Spot'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'The Admiral''s set of arcane abilities
@@ -118,34 +122,34 @@ herodata:
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_ULTIMATE'
     !!python/unicode 'abilityunitdamagetype': !!python/unicode 'DAMAGE_TYPE_MAGICAL'
     !!python/unicode 'attributes':
-    - !!python/unicode 'name': !!python/unicode 'ghostship_width'
-      !!python/unicode 'tooltip': !!python/unicode 'RADIUS:'
-      !!python/unicode 'value': [425, 425, 425]
     - !!python/unicode 'name': !!python/unicode 'ghostship_distance'
-      !!python/unicode 'tooltip': !!python/unicode 'TRAVEL DISTANCE:'
+      !!python/unicode 'tooltip': !!python/unicode 'RANGE:'
       !!python/unicode 'value': [1000, 1000, 1000]
-    - !!python/unicode 'name': !!python/unicode 'ghostship_speed'
-      !!python/unicode 'value': [650, 650, 650]
-    - !!python/unicode 'name': !!python/unicode 'buff_duration'
-      !!python/unicode 'tooltip': !!python/unicode 'BUFF DURATION:'
-      !!python/unicode 'value': [8]
+    - !!python/unicode 'name': !!python/unicode 'ghostship_width'
+      !!python/unicode 'tooltip': !!python/unicode 'WIDTH:'
+      !!python/unicode 'value': [425, 425, 425]
     - !!python/unicode 'name': !!python/unicode 'tooltip_delay'
       !!python/unicode 'tooltip': !!python/unicode 'IMPACT DELAY:'
       !!python/unicode 'value': [3]
     - !!python/unicode 'name': !!python/unicode 'stun_duration'
       !!python/unicode 'tooltip': !!python/unicode 'STUN DURATION:'
       !!python/unicode 'value': [1.4, 1.4, 1.4]
+    - !!python/unicode 'name': !!python/unicode 'ghostship_speed'
+      !!python/unicode 'value': [650, 650, 650]
     - !!python/unicode 'name': !!python/unicode 'movespeed_bonus'
-      !!python/unicode 'tooltip': !!python/unicode '%BONUS SPEED:'
+      !!python/unicode 'tooltip': !!python/unicode '%RUM BONUS SPEED:'
       !!python/unicode 'value': [10, 10, 10]
+    - !!python/unicode 'name': !!python/unicode 'buff_duration'
+      !!python/unicode 'tooltip': !!python/unicode 'RUM DURATION:'
+      !!python/unicode 'value': [10]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_DIRECTIONAL',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT', !!python/unicode 'DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']
     !!python/unicode 'cooldown': [60, 50, 40]
     !!python/unicode 'damage': [400, 500, 600]
     !!python/unicode 'description': !!python/unicode 'Summons a ghostship to cut a
-      swath through battle, causing damage and stuns to enemy units as it crashes
-      through. Allies are doused in Kunkka''s Rum, receiving bonus movement speed
-      and a delayed reaction to damage.'
+      swath through battle, causing damage and stunning enemy units as it crashes
+      through. Allies touched by the ship are doused in Kunkka''s Rum, receiving bonus
+      movement speed and a delayed reaction to damage.'
     !!python/unicode 'displayname': !!python/unicode 'Ghostship'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'The final ship of the Claddish Navy
@@ -192,7 +196,7 @@ herodata:
       X.'
     !!python/unicode 'displayname': !!python/unicode 'Return'
     !!python/unicode 'level': 0
-    !!python/unicode 'manacost': [50, 50, 50, 50]
+    !!python/unicode 'manacost': [50]
     !!python/unicode 'name': !!python/unicode 'kunkka_return'
   !!python/unicode 'abilitylayout': 4
   !!python/unicode 'armorphysical': 0

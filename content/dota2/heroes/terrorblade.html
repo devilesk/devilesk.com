@@ -23,9 +23,12 @@ herodata:
       !!python/unicode 'value': [40, 50, 60, 70]
     - !!python/unicode 'name': !!python/unicode 'illusion_duration'
       !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
-      !!python/unicode 'value': [5]
+      !!python/unicode 'value': [2.5, 3.5, 4.5, 5.5]
     - !!python/unicode 'name': !!python/unicode 'move_slow'
-      !!python/unicode 'tooltip': !!python/unicode '%SLOW:'
+      !!python/unicode 'tooltip': !!python/unicode '%MOVEMENT SLOW:'
+      !!python/unicode 'value': [60]
+    - !!python/unicode 'name': !!python/unicode 'attack_slow_tooltip'
+      !!python/unicode 'tooltip': !!python/unicode 'ATTACK SLOW:'
       !!python/unicode 'value': [60]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK']
@@ -52,8 +55,8 @@ herodata:
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_BASIC'
     !!python/unicode 'attributes':
     - !!python/unicode 'name': !!python/unicode 'illusion_incoming_damage'
-      !!python/unicode 'tooltip': !!python/unicode '%ILLUSION DAMAGE TAKEN:'
-      !!python/unicode 'value': [300]
+      !!python/unicode 'tooltip': !!python/unicode '%ADDITIONAL ILLUSION DAMAGE TAKEN:'
+      !!python/unicode 'value': [200]
     - !!python/unicode 'name': !!python/unicode 'illusion_outgoing_tooltip'
       !!python/unicode 'tooltip': !!python/unicode '%ILLUSION DAMAGE:'
       !!python/unicode 'value': [30, 40, 50, 60]
@@ -130,9 +133,8 @@ herodata:
     !!python/unicode 'cooldown': [120, 80, 40]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Severs the soul from both Terrorblade
-      and a target hero, then exchanges them, carrying part of the units'' life forces.
-      The percentage hit points of each unit are switched with the souls. Some hit
-      points must remain.'
+      and a target Hero, then exchanges them, carrying a percentage of each units''
+      life force. The target Hero is also dealt a ministun. Some hit points must remain.'
     !!python/unicode 'displayname': !!python/unicode 'Sunder'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'You didn''t need that life, did you?  The
@@ -175,7 +177,7 @@ herodata:
   !!python/unicode 'attributebasestrength': 15
   !!python/unicode 'attributeintelligencegain': 1.75
   !!python/unicode 'attributeprimary': !!python/unicode 'DOTA_ATTRIBUTE_AGILITY'
-  !!python/unicode 'attributestrengthgain': 1.9
+  !!python/unicode 'attributestrengthgain': 1.4
   !!python/unicode 'bio': !!python/unicode "Terrorblade is the demon marauder--an\
     \ outlaw hellion whom even other demons fear. A cosmic iconoclast, he stole from\
     \ the Demon Lords, ignored the codified rites that should have bound his behavior,\

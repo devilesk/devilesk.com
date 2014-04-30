@@ -7,7 +7,7 @@ herodata:
   !!python/unicode 'HeroID': 64
   !!python/unicode 'abilities':
   - !!python/unicode 'AbilityCastPoint': [0.65, 0.65, 0.65, 0.65]
-    !!python/unicode 'AbilityCastRange': 500
+    !!python/unicode 'AbilityCastRange': 550
     !!python/unicode 'AbilityCastRangeBuffer': 250
     !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
     !!python/unicode 'AbilityDuration': 5
@@ -21,7 +21,7 @@ herodata:
       !!python/unicode 'tooltip': !!python/unicode 'END RADIUS:'
       !!python/unicode 'value': [250, 250, 250, 250]
     - !!python/unicode 'name': !!python/unicode 'range'
-      !!python/unicode 'value': [700, 700, 700, 700]
+      !!python/unicode 'value': [750, 750, 750, 750]
     - !!python/unicode 'name': !!python/unicode 'start_radius'
       !!python/unicode 'tooltip': !!python/unicode 'START RADIUS:'
       !!python/unicode 'value': [200, 200, 200, 200]
@@ -36,6 +36,7 @@ herodata:
     - !!python/unicode 'name': !!python/unicode 'fire_delay'
       !!python/unicode 'value': [0.3, 0.3, 0.3, 0.3]
     - !!python/unicode 'name': !!python/unicode 'slow_attack_speed_pct'
+      !!python/unicode 'tooltip': !!python/unicode 'ATTACK SLOW:'
       !!python/unicode 'value': [-30]
     - !!python/unicode 'name': !!python/unicode 'tooltip_duration'
       !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
@@ -79,7 +80,7 @@ herodata:
       !!python/unicode 'value': [50]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT']
     !!python/unicode 'cooldown': [12, 11, 10, 9]
-    !!python/unicode 'damage': [0, 0, 0, 0]
+    !!python/unicode 'damage': 0
     !!python/unicode 'description': !!python/unicode 'Creates a path of ice that stuns
       and damages enemies that touch it.'
     !!python/unicode 'displayname': !!python/unicode 'Ice Path'
@@ -106,17 +107,19 @@ herodata:
       !!python/unicode 'tooltip': !!python/unicode 'BURN DAMAGE:'
       !!python/unicode 'value': [15, 20, 25, 30]
     - !!python/unicode 'name': !!python/unicode 'slow_attack_speed_pct'
-      !!python/unicode 'tooltip': !!python/unicode '%ATTACK SLOW:'
+      !!python/unicode 'tooltip': !!python/unicode 'ATTACK SLOW:'
       !!python/unicode 'value': [-20, -30, -40, -50]
     - !!python/unicode 'name': !!python/unicode 'tooltip_duration'
       !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
       !!python/unicode 'value': [5, 5, 5, 5]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_AUTOCAST', !!python/unicode 'DOTA_ABILITY_BEHAVIOR_ATTACK']
-    !!python/unicode 'cooldown': [20, 15, 10, 5]
+    !!python/unicode 'cooldown': [20, 15, 10, 4]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Jakiro burns his enemies in
-      an area of effect with fire added to his attack, while slowing their attacks.'
+      an area of effect with fire added to his attack, while slowing their attacks.\n\nLiquid
+      Fire is a Unique Attack Modifier, and does not stack with other Unique Attack
+      Modifiers.'
     !!python/unicode 'displayname': !!python/unicode 'Liquid Fire'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'The left maw of Jakiro opens, laying
@@ -127,7 +130,7 @@ herodata:
     !!python/unicode 'AbilityCastRange': 900
     !!python/unicode 'AbilityCastRangeBuffer': 250
     !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
-    !!python/unicode 'AbilityDuration': [7, 7, 7]
+    !!python/unicode 'AbilityDuration': [0, 0, 0, 0]
     !!python/unicode 'AbilityModifierSupportBonus': 0
     !!python/unicode 'AbilityModifierSupportValue': 1
     !!python/unicode 'ID': 5300
@@ -137,21 +140,27 @@ herodata:
     - !!python/unicode 'name': !!python/unicode 'damage'
       !!python/unicode 'tooltip': !!python/unicode 'DAMAGE:'
       !!python/unicode 'value': [100, 140, 180]
-    - !!python/unicode 'name': !!python/unicode 'burn_interval'
-      !!python/unicode 'value': [0.5, 0.5, 0.5]
-    - !!python/unicode 'name': !!python/unicode 'path_radius'
-      !!python/unicode 'value': [225]
-    - !!python/unicode 'name': !!python/unicode 'cast_range_scepter'
-      !!python/unicode 'tooltip': !!python/unicode 'SCEPTER RANGE:'
-      !!python/unicode 'value': [1350, 1350, 1350]
     - !!python/unicode 'name': !!python/unicode 'cast_range'
+      !!python/unicode 'tooltip': !!python/unicode 'RANGE:'
       !!python/unicode 'value': [900]
     - !!python/unicode 'name': !!python/unicode 'tooltip_duration'
       !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
       !!python/unicode 'value': [7, 7, 7]
+    - !!python/unicode 'name': !!python/unicode 'burn_interval'
+      !!python/unicode 'value': [0.5, 0.5, 0.5]
+    - !!python/unicode 'name': !!python/unicode 'duration_scepter'
+      !!python/unicode 'tooltip': !!python/unicode 'SCEPTER DURATION:'
+      !!python/unicode 'value': [14]
+    - !!python/unicode 'name': !!python/unicode 'duration'
+      !!python/unicode 'value': [7]
+    - !!python/unicode 'name': !!python/unicode 'path_radius'
+      !!python/unicode 'value': [225]
     - !!python/unicode 'name': !!python/unicode 'damage_scepter'
       !!python/unicode 'tooltip': !!python/unicode 'SCEPTER DAMAGE:'
       !!python/unicode 'value': [125, 175, 225]
+    - !!python/unicode 'name': !!python/unicode 'cast_range_scepter'
+      !!python/unicode 'tooltip': !!python/unicode 'SCEPTER RANGE:'
+      !!python/unicode 'value': [1800]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
     !!python/unicode 'cooldown': [60, 60, 60]

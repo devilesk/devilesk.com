@@ -60,20 +60,22 @@ herodata:
       !!python/unicode 'value': [2, 4, 6, 8]
     - !!python/unicode 'name': !!python/unicode 'radius'
       !!python/unicode 'value': [900]
+    - !!python/unicode 'name': !!python/unicode 'damage_time'
+      !!python/unicode 'value': [3]
     - !!python/unicode 'name': !!python/unicode 'bonus_movespeed'
       !!python/unicode 'tooltip': !!python/unicode '%MOVE SPEED:'
       !!python/unicode 'value': [20, 25, 30, 35]
     - !!python/unicode 'name': !!python/unicode 'fade_delay'
-      !!python/unicode 'value': [2, 2, 2, 2]
+      !!python/unicode 'value': [2]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_POINT',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_AOE']
     !!python/unicode 'cooldown': [30]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Throws out a web that renders
-      Broodmother invisible in its vicinity, while also boosting regeneration, and
-      granting a passive movement speed increase.  Webs never expire, but when the
-      maximum limit of webs is exceeded, the oldest web disappears. You have free
-      movement capabilities while on the Web when the enemy cannot see you.'
+      Broodmother invisible, grants a passive movement speed increase, gives free
+      movement, and boosts regeneration while in its vicinity. Free movement is disabled
+      for %damage_time% seconds if damage is taken. Webs never expire. When the maximum
+      limit of webs is exceeded, the oldest web disappears.'
     !!python/unicode 'displayname': !!python/unicode 'Spin Web'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'Weaving a bed of silken fibers, Arachnia''s
@@ -124,7 +126,7 @@ herodata:
     !!python/unicode 'attributes':
     - !!python/unicode 'name': !!python/unicode 'lifesteal_pct'
       !!python/unicode 'tooltip': !!python/unicode '%LIFESTEAL:'
-      !!python/unicode 'value': [40, 60, 80]
+      !!python/unicode 'value': [60, 80, 100]
     - !!python/unicode 'name': !!python/unicode 'duration'
       !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
       !!python/unicode 'value': [14, 14, 14]

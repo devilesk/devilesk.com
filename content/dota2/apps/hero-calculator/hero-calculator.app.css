@@ -37,7 +37,7 @@ img {
 #item_cost {
 	margin-left:10px;
 	display:inline;
-	background-image:url('/dota2/images/gold.png');
+	background-image:url('/media/images/gold.png');
 	padding:0px 0px 0px 27px;
 	background-repeat:no-repeat;
 }
@@ -47,14 +47,14 @@ margin:3px 0px;
 #item_manacost {
 	margin-right:10px;
 	display:inline;
-	background-image:url('/dota2/images/manacost.png');
+	background-image:url('/media/images/manacost.png');
 	padding:0px 0px 0px 20px;
 	background-repeat:no-repeat;
 }
 #item_cooldown {
 	margin-right:10px;
 	display:inline;
-	background-image:url('/dota2/images/cooldown.png');
+	background-image:url('/media/images/cooldown.png');
 	padding:0px 0px 0px 20px;
 	background-repeat:no-repeat;
 }
@@ -151,4 +151,13 @@ td {
 }
 .form-control {
 	border: 1px solid #303239;
+}
+.sideView {
+	width:50%;
+	float:left;
+	display:block !important;
+}
+.row-no-margin {
+	margin-right:0px;
+	margin-left:0px;
 }

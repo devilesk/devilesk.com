@@ -10,7 +10,6 @@ var HEROCALCULATOR = (function (my) {
 		for (h in my.heroData) {
 			options.push(new my.HeroOption(h.replace('npc_dota_hero_',''),my.heroData[h].displayname))
 		}
-		console.log(options);
 		return options;
 	};
 
@@ -25,7 +24,6 @@ var HEROCALCULATOR = (function (my) {
 			damageamp: ko.observable(false)
 		});
 		self.sectionDisplayToggle = function(section) {
-			console.log(section);
 			self.sectionDisplay()[section](!self.sectionDisplay()[section]());
 		}
 		self.availableHeroes.sort(function(left, right) {
@@ -260,8 +258,8 @@ var HEROCALCULATOR = (function (my) {
 						 + self.debuffs.getTurnRateReduction())).toFixed(2);
 		});
 		self.basedamage = ko.computed(function() {
-			return [Math.floor(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackdamagemin + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage()),
-					Math.floor(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackdamagemax + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage())];
+			return [Math.floor(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackdamagemin + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage().total),
+					Math.floor(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackdamagemax + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage().total)];
 		});
 		self.bonusdamage = ko.computed(function() {
 			return self.inventory.getBonusDamage().total
@@ -893,7 +891,6 @@ var HEROCALCULATOR = (function (my) {
 			for (var i=0;i<bracket.length;i++) {
 				if (_.findWhere(self.damageamplification.buffs, {name: bracket[i].name}) != undefined || _.findWhere(self.damagereduction.buffs, {name: bracket[i].name}) != undefined) {
 					multiplier += bracket[i].value;
-					console.log(bracket[i].value);
 				}
 			};
 			return initialdamage * multiplier;
@@ -903,8 +900,6 @@ var HEROCALCULATOR = (function (my) {
 			var damage = initialdamage;
 			var sources = self.damageamplification.getDamageMultiplierSources();
 			$.extend(sources, self.damagereduction.getDamageMultiplierSources());
-			console.log('sources');
-			console.log(sources);
 			var result = [];
 			if (!skipBracket4) {
 				result.push({
@@ -954,8 +949,6 @@ var HEROCALCULATOR = (function (my) {
 			var label = '';
 			if (sources['abaddon_aphotic_shield'] != undefined) {
 				multiplier += sources['abaddon_aphotic_shield'].multiplier;
-				console.log('abaddon_aphotic_shield');
-				console.log(multiplier);
 				label += sources['abaddon_aphotic_shield'].displayname + ', ';
 			}
 			damage -= multiplier;
@@ -976,8 +969,6 @@ var HEROCALCULATOR = (function (my) {
 				var label = '';
 				if (sources['shadow_demon_soul_catcher'] != undefined) {
 					multiplier += sources['shadow_demon_soul_catcher'].multiplier;
-					console.log('shadow_demon_soul_catcher');
-					console.log(multiplier);
 				}
 				damageBracket4 *= multiplier;
 				
@@ -1002,8 +993,6 @@ var HEROCALCULATOR = (function (my) {
 				var label = '';
 				if (sources['chen_penitence'] != undefined) {
 					multiplier += sources['chen_penitence'].multiplier;
-					console.log('chen_penitence');
-					console.log(multiplier);
 				}
 				damageBracket4 *= multiplier;
 				
@@ -1024,9 +1013,6 @@ var HEROCALCULATOR = (function (my) {
 				}			
 			}
 			
-			console.log('damage');
-			console.log(damage);
-			console.log(damageBracket4);
 			if (!skipBracket4) {
 				result.push({
 					label: 'Total Damage',

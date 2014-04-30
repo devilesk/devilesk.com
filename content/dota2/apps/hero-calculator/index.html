@@ -7,12 +7,21 @@ header: Hero Calculator
 ---
 {% block custom_css %}
 	<link rel="stylesheet" type="text/css" href="{{ media_url('css/heroes.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.3.custom.css') }}" />
-	<link rel="stylesheet" type="text/css" href="hero-calculator.app.css" />
-	<link rel="stylesheet" type="text/css" href="hero-calculator.items.css" />
+	{% if site.config.mode == "development" %}
+		<link rel="stylesheet" type="text/css" href="{{ media_url('css/jquery-ui-1.10.3.custom.css') }}" />
+		<link rel="stylesheet" type="text/css" href="hero-calculator.app.css" />
+		<link rel="stylesheet" type="text/css" href="hero-calculator.items.css" />
+	{% endif %}
+	{% if site.config.mode == "production" %}
+		<link rel="stylesheet" type="text/css" href="hero-calculator.min.css" />
+	{% endif %}
   {% endblock custom_css %}
-{% block main %}
-	
+{% block content %}
+	<div data-bind="css: { container: !(sideView()) }">
+          <header class="banner clearfix">
+          {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
+          </header>
+		  
 		<div class="col-md-8" data-bind="css: { 'col-md-8': displayShop(), 'col-md-12': !displayShop()}">
 			<ul class="nav nav-tabs">
 			  <li><a id="heroTab0" href="#hero0" style="color:#5cb85c" data-toggle="tab" data-bind="click: clickTab, text: heroes[0].hero().displayname()">Hero 1</a></li>
@@ -20,12 +29,13 @@ header: Hero Calculator
 			  <li><a id="heroTab1" href="#hero1" style="color:#d9534f" data-toggle="tab" data-bind="click: clickTab, text: heroes[1].hero().displayname()">Hero 2</a></li>
 			  <li><a id="unitTab1" href="#unit1" style="color:#d9534f" data-toggle="tab" data-bind="click: clickTab, text: heroes[1].unit().hero().displayname()">Unit 2</a></li>
 			  <li><a id="settingsTab" href="#settings" data-toggle="tab" data-bind="click: clickTab">Settings</a></li>
+			  <li> <div class="checkbox" style="margin-left:15px"><label><input type="checkbox" data-bind="checked: sideView"> Side by side view</label></div></li>
 			  <button class="close" data-bind="click: toggleDisplayShop, visible: !displayShop()">+</button>
 			</ul>
 
 			<div class="tab-content" data-bind="foreach: new Array(2)">
-				<div class="tab-pane" data-bind="css: { active: $index()==0}, attr: {id: 'hero' + $index()}, with: $parent.heroes[$index()]">
-					<div class="row">
+				<div class="tab-pane" data-bind="css: { active: $index()==0, sideView: $parent.showSideTab[$index()] }, attr: {id: 'hero' + $index()}, with: $parent.heroes[$index()]">
+					<div data-bind="css: { 'row-no-margin': $root.layout() == 1 }" class="row">
 						<div class="col-md-4">
 							<img class="img-rounded" data-bind="attr:{src: '/media/images/heroes/' + selectedHero().heroName + '.png'}"/>
 						</div>
@@ -41,7 +51,7 @@ header: Hero Calculator
 						</div>
 					</div>
 					
-					<div class="col-md-4" style="padding-left:0px;" data-bind="css: {'col-md-4': $root.layout() == 0, 'row': $root.layout() == 1}">
+					<div class="col-md-4" style="padding-left:0px;" data-bind="css: {'col-md-4': $root.layout() == 0, 'row-no-margin': $root.layout() == 1}">
 						<div class="row">
 							<h3 class="col-md-12">Stats <a class="btn btn-default btn-xs" data-bind="click: toggleStatDetails, text: !showStatDetails() ? 'Show more' : 'Show less'"></a></h3>
 			
@@ -148,10 +158,10 @@ header: Hero Calculator
 
 						</div>
 					
-					<div class="col-md-8" data-bind="css: {'col-md-8': $root.layout() == 0, 'row': $root.layout() == 1}">
+					<div class="col-md-8" data-bind="css: {'col-md-8': $root.layout() == 0, 'row-no-margin': $root.layout() == 1}">
 						<div class="col-md-12">
 							<div class="row">
-								<h3 class="section_header" data-bind="click: function(data, event) { sectionDisplayToggle('inventory'); }, css: { section_disabled: !sectionDisplay().inventory() }">Inventory <small style="color:goldenrod" data-bind="html: inventory.totalCost() ? '<img src=\'http://cdn.dota2.com/apps/media/images/tooltips/gold.png\'/> ' + inventory.totalCost() : '' "></small></h3>
+								<h3 class="section_header" data-bind="click: function(data, event) { sectionDisplayToggle('inventory'); }, css: { section_disabled: !sectionDisplay().inventory() }">Inventory <small style="color:goldenrod" data-bind="html: inventory.totalCost() ? '<img src=\'http://cdn.dota2.com/apps/dota2/images/tooltips/gold.png\'/> ' + inventory.totalCost() : '' "></small></h3>
 								<div id="inventory" data-bind="foreach: inventory.items, visible: sectionDisplay().inventory()">
 									<div class="btn-group">
 										<img style="width:75px;" class="img-rounded" data-bind="css: { item_disabled: !enabled(), item_active: $parent.inventory.getActiveBorder($data) == 1, item_inactive: $parent.inventory.getActiveBorder($data) == 0 }, attr:{ src: $parent.inventory.getItemImage($data) }, click: function(data, event) { $parent.inventory.toggleItem($index, data, event); }, event: { dblclick: $parent.inventory.removeItem }"/>
@@ -395,9 +405,9 @@ header: Hero Calculator
 					
 				</div>
 
-				<div class="tab-pane" data-bind="attr: {id: 'unit' + $index()}, with: $parent.heroes[$index()].unit">
+				<div class="tab-pane" data-bind="css: { sideView: $parent.showSideTab[$index()+2] }, attr: {id: 'unit' + $index()}, with: $parent.heroes[$index()].unit">
 					<h4 style="color:red">Under Construction</h4>
-					<div class="row">
+					<div data-bind="css: { 'row-no-margin': $root.layout() == 1 }" class="row">
 						<div class="col-md-4"><img class="img-rounded" data-bind="attr:{src: selectedUnit().image}"/></div>
 						<div class="col-md-4">
 							<label for="unitselect">Unit</label>
@@ -412,8 +422,8 @@ header: Hero Calculator
 						</div>
 					</div>
 	  
-					<div class="row">
-						<h3>Stats <a class="btn btn-default btn-xs" data-bind="click: toggleStatDetails, text: !showStatDetails() ? 'Show more' : 'Show less'"></a></h3>
+					<div data-bind="css: { 'row-no-margin': $root.layout() == 1 }" class="row">
+						<h3 class="col-md-12">Stats <a class="btn btn-default btn-xs" data-bind="click: toggleStatDetails, text: !showStatDetails() ? 'Show more' : 'Show less'"></a></h3>
 						
 						<div class="col-md-3" data-bind="visible: showStatDetails()"><table class="table table-condensed">
 						<tbody>
@@ -490,7 +500,7 @@ header: Hero Calculator
 					
 					</div>  
 	 
-					<div class="row" data-bind="visible: showDamageDetails()">
+					<div class="row" data-bind="css: { 'row-no-margin': $root.layout() == 1 }, visible: showDamageDetails()">
 						<h3>Damage Details
 							<span class="pull-right">
 							<small style="text-align:center" data-bind="style: {color: getDamageTypeColor('physical')}">Physical</small>
@@ -568,7 +578,7 @@ header: Hero Calculator
 						</table>
 					</div>
 	 
-					<div class="row">
+					<div data-bind="css: { 'row-no-margin': $root.layout() == 1 }" class="row">
 						<h3>Abilities <small style="color:inherit" data-bind="text: availableSkillPoints() ? (availableSkillPoints() == 1 ? '1 unspent skillpoint' : availableSkillPoints() + ' unspent skillpoints') : ''"></small></h3>
 						<div data-bind="foreach: ability().abilities">
 							<div data-bind="if: $data.displayname() != 'Empty' &&  ($data.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_HIDDEN') == -1 || $data.name().indexOf('invoker_') != -1),
@@ -601,7 +611,7 @@ header: Hero Calculator
 					</div>
 	 
 	 
-					 <div class="row" data-bind="visible: inventory.hasInventory">
+					 <div class="row" data-bind="css: { 'row-no-margin': $root.layout() == 1 }, visible: inventory.hasInventory">
 						<h3>Inventory <small style="color:goldenrod" data-bind="html: inventory.totalCost() ? '<img src=\'http://cdn.dota2.com/apps/dota2/images/tooltips/gold.png\'/> ' + inventory.totalCost() : '' "></small></h3>
 						<div id="inventory" data-bind="foreach: inventory.items">
 							<div class="btn-group">
@@ -620,7 +630,7 @@ header: Hero Calculator
 	 
 				</div>
 	  
-				<div class="tab-pane" id="settings" data-bind="if: $index() == 0">
+				<div class="tab-pane" id="settings" data-bind="if: $index() == 0, css: { sideView: $parent.showSideTab[4] }">
 					<h3>Settings</h3>
 					<label>Display the stat section as a column or in a row.</label>
 					<div class="form-group">
@@ -873,6 +883,38 @@ header: Hero Calculator
 			<button style="margin-top:10px" class="btn btn-default" data-bind="click: heroes[selectedTab()].inventory.addItem">Add Item</button>
 			<button style="display:none;margin-top:10px" class="btn btn-default" data-bind="click: save">Save/Share</button>
 			<div id="savelink"></div>
+			<button class="btn btn-default" data-toggle="modal" data-target="#myModal" style="display:none">Report a Bug</button>
+		</div>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Report a Bug</h4>
+					</div>
+					<div class="modal-body">
+						<form role="form">
+							<div class="form-group">
+								<label for="BugReportFormName">Name</label>
+								<input type="text" class="form-control" id="BugReportFormName" placeholder="(Optional)">
+							</div>
+							<div class="form-group">
+								<label for="BugReportFormEmail">Email address</label>
+								<input type="email" class="form-control" id="BugReportFormEmail" placeholder="(Optional)">
+							</div>
+							<div class="form-group">
+								<label for="BugReportFormText">Message</label>
+								<textarea class="form-control" rows="5" id="BugReportFormText"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="submitBugReport">Submit</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 <!--#include virtual="/includes/footer.shtml" -->
@@ -990,25 +1032,40 @@ header: Hero Calculator
 		</table>
 	</div>
 </script>
+	<div class="push"></div>
+	</div>
+	
+</div>
 
-  {% endblock main %}
+  <footer>
+	  <p><img src="{{ media_url('images/footer.png') }}"></p>
+      <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
+      <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a><p>
+  </footer>
+  {% endblock content %}
 {% block scripts %}
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-    <script src="{{ media_url('js/libs/knockout-2.3.0.js') }}"></script>
-	<script src="{{ media_url('js/libs/knockout.mapping-latest.js') }}"></script>
-    <script src="{{ media_url('js/libs/jquery-ui-1.10.3.custom.js') }}"></script>
-<script src="hero-calculator.inventory.js"></script>
-<script src="hero-calculator.tooltips.js"></script>
-<script src="hero-calculator.abilitydata.js"></script>
-<script src="hero-calculator.abilities.js"></script>
-<script src="hero-calculator.buffs.js"></script>
-<script src="hero-calculator.buffs.amplification.reduction.js"></script>
-<script src="hero-calculator.hero.js"></script>
-<script src="hero-calculator.unit.js"></script>
-	<script src="hero-calculator.app.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+	{% if site.config.mode == "development" %}
+		<script src="jquery-ui-1.10.3.custom.js"></script>
+		<script src="hero-calculator.inventory.js"></script>
+		<script src="hero-calculator.tooltips.js"></script>
+		<script src="hero-calculator.abilitydata.js"></script>
+		<script src="hero-calculator.abilities.js"></script>
+		<script src="hero-calculator.buffs.js"></script>
+		<script src="hero-calculator.buffs.amplification.reduction.js"></script>
+		<script src="hero-calculator.hero.js"></script>
+		<script src="hero-calculator.unit.js"></script>
+		<script src="hero-calculator.app.js"></script>
+	{% endif %}
+	{% if site.config.mode == "production" %}
+		<script src="hero-calculator.min.js"></script>
+		<script src="hero-calculator.app.min.js"></script>
+	{% endif %}
     <script type="text/javascript">
 	$(function () {
-		HEROCALCULATOR.init();
+		HEROCALCULATOR.init("{{ media_url('/js/herodata.json') }}","{{ media_url('/js/itemdata.json') }}","{{ media_url('/js/unitdata.json') }}");
 	});
 </script>
   {% endblock scripts %}

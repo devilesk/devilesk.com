@@ -219,8 +219,8 @@ var HEROCALCULATOR = (function (my) {
 						 + self.debuffs.getTurnRateReduction())).toFixed(2);
 		});
 		self.basedamage = ko.computed(function() {
-			return [Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemin + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage()),
-					Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemax + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage())];
+			return [Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemin + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage().total),
+					Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemax + self.totalAttribute(self.primaryattribute()) + self.ability().getBaseDamage().total)];
 		});
 		self.bonusdamage = ko.computed(function() {
 			return self.inventory.getBonusDamage().total

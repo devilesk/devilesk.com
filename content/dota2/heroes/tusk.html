@@ -59,36 +59,41 @@ herodata:
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_BASIC'
     !!python/unicode 'abilityunitdamagetype': !!python/unicode 'DAMAGE_TYPE_MAGICAL'
     !!python/unicode 'attributes':
-    - !!python/unicode 'name': !!python/unicode 'snowball_grow_rate'
-      !!python/unicode 'tooltip': !!python/unicode 'RADIUS GROW:'
-      !!python/unicode 'value': [40]
-    - !!python/unicode 'name': !!python/unicode 'snowball_damage'
-      !!python/unicode 'tooltip': !!python/unicode 'DAMAGE:'
-      !!python/unicode 'value': [80, 120, 160, 200]
-    - !!python/unicode 'name': !!python/unicode 'snowball_radius'
-      !!python/unicode 'tooltip': !!python/unicode 'RADIUS:'
-      !!python/unicode 'value': [200]
-    - !!python/unicode 'name': !!python/unicode 'bonus_stun'
-      !!python/unicode 'value': [0]
-    - !!python/unicode 'name': !!python/unicode 'speed_pct'
+    - !!python/unicode 'name': !!python/unicode 'snowball_speed_pct'
       !!python/unicode 'value': [150]
+    - !!python/unicode 'name': !!python/unicode 'snowball_damage_bonus'
+      !!python/unicode 'tooltip': !!python/unicode 'BONUS DAMAGE PER ALLY:'
+      !!python/unicode 'value': [20, 30, 40, 50]
+    - !!python/unicode 'name': !!python/unicode 'snowball_damage'
+      !!python/unicode 'tooltip': !!python/unicode 'BASE DAMAGE:'
+      !!python/unicode 'value': [80, 120, 160, 200]
+    - !!python/unicode 'name': !!python/unicode 'snowball_windup_radius'
+      !!python/unicode 'tooltip': !!python/unicode 'GATHER RADIUS:'
+      !!python/unicode 'value': [100]
+    - !!python/unicode 'name': !!python/unicode 'snowball_duration'
+      !!python/unicode 'value': [3]
+    - !!python/unicode 'name': !!python/unicode 'snowball_speed_bonus'
+      !!python/unicode 'tooltip': !!python/unicode 'BONUS SPEED PER ALLY:'
+      !!python/unicode 'value': [75]
     - !!python/unicode 'name': !!python/unicode 'stun_duration'
       !!python/unicode 'tooltip': !!python/unicode 'STUN DURATION:'
       !!python/unicode 'value': [0.5, 0.75, 1, 1.25]
-    - !!python/unicode 'name': !!python/unicode 'bonus_damage'
-      !!python/unicode 'value': [0]
-    - !!python/unicode 'name': !!python/unicode 'snowball_duration'
-      !!python/unicode 'tooltip': !!python/unicode 'DURATION:'
-      !!python/unicode 'value': [3]
-    - !!python/unicode 'name': !!python/unicode 'snowball_range'
-      !!python/unicode 'value': [1250]
+    - !!python/unicode 'name': !!python/unicode 'snowball_radius'
+      !!python/unicode 'value': [200]
+    - !!python/unicode 'name': !!python/unicode 'snowball_grow_rate'
+      !!python/unicode 'value': [40]
+    - !!python/unicode 'name': !!python/unicode 'snowball_windup'
+      !!python/unicode 'tooltip': !!python/unicode 'LAUNCH TIME:'
+      !!python/unicode 'value': [4]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
     !!python/unicode 'cooldown': [21]
     !!python/unicode 'damage': [0, 0, 0, 0]
-    !!python/unicode 'description': !!python/unicode 'Tusk and any nearby allied heroes
-      roll in a quickly growing snowball towards the target enemy unit. Any victims
-      caught in the snowball''s path take damage and are briefly stunned.  The snowball
-      moves at a percentage of Tusk''s current movement speed.'
+    !!python/unicode 'description': !!python/unicode 'Tusk begins rolling into a snowball,
+      automatically gathering allied Heroes within a %snowball_windup_radius% radius.
+      Allies within a 400 radius can also be added to the snowball by right-clicking
+      on them. Once launched, any enemies caught in the snowball''s path will be stunned
+      and take damage. Each allied Hero in the snowball will add to its speed and
+      damage.'
     !!python/unicode 'displayname': !!python/unicode 'Snowball'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'Tales are still told of the wild feat
@@ -115,7 +120,7 @@ herodata:
       !!python/unicode 'tooltip': !!python/unicode 'RADIUS:'
       !!python/unicode 'value': [600]
     - !!python/unicode 'name': !!python/unicode 'attack_slow'
-      !!python/unicode 'tooltip': !!python/unicode '%ATTACK SLOW:'
+      !!python/unicode 'tooltip': !!python/unicode 'ATTACK SLOW:'
       !!python/unicode 'value': [30, 40, 50, 60]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_NO_TARGET']
     !!python/unicode 'cooldown': [50, 50, 50, 50]
@@ -191,6 +196,28 @@ herodata:
     !!python/unicode 'level': 0
     !!python/unicode 'manacost': [0, 0, 0, 0]
     !!python/unicode 'name': !!python/unicode 'attribute_bonus'
+  - !!python/unicode 'AbilityCastPoint': [0, 0, 0, 0]
+    !!python/unicode 'AbilityCastRange': 0
+    !!python/unicode 'AbilityCastRangeBuffer': 250
+    !!python/unicode 'AbilityChannelTime': [0, 0, 0, 0]
+    !!python/unicode 'AbilityDuration': [0, 0, 0, 0]
+    !!python/unicode 'AbilityModifierSupportBonus': 0
+    !!python/unicode 'AbilityModifierSupportValue': 1
+    !!python/unicode 'ID': 5641
+    !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_BASIC'
+    !!python/unicode 'attributes': []
+    !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_HIDDEN',
+      !!python/unicode 'DOTA_ABILITY_BEHAVIOR_NO_TARGET', !!python/unicode 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE',
+      !!python/unicode 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE', !!python/unicode 'DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE']
+    !!python/unicode 'cooldown': [0, 0, 0, 0]
+    !!python/unicode 'damage': [0, 0, 0, 0]
+    !!python/unicode 'description': !!python/unicode 'Launch the snowball toward the
+      target.'
+    !!python/unicode 'displayname': !!python/unicode 'Launch Snowball'
+    !!python/unicode 'level': 0
+    !!python/unicode 'lore': !!python/unicode 'Into the great wide white!'
+    !!python/unicode 'manacost': [0, 0, 0, 0]
+    !!python/unicode 'name': !!python/unicode 'tusk_launch_snowball'
   !!python/unicode 'abilitylayout': 4
   !!python/unicode 'armorphysical': 0
   !!python/unicode 'attackdamagemax': 31

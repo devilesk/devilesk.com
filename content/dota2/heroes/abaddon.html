@@ -35,7 +35,8 @@ herodata:
       of Abaddon''s health.'
     !!python/unicode 'displayname': !!python/unicode 'Mist Coil'
     !!python/unicode 'level': 0
-    !!python/unicode 'lore': !!python/unicode ''
+    !!python/unicode 'lore': !!python/unicode 'A mysterious vapor from the Font of
+      Avernus now infuses the breath of Abaddon, who releases it at will.'
     !!python/unicode 'manacost': [75, 75, 75, 75]
     !!python/unicode 'name': !!python/unicode 'abaddon_death_coil'
   - !!python/unicode 'AbilityCastPoint': [0.452, 0.452, 0.452, 0.452]
@@ -67,7 +68,8 @@ herodata:
       and stuns on cast.'
     !!python/unicode 'displayname': !!python/unicode 'Aphotic Shield'
     !!python/unicode 'level': 0
-    !!python/unicode 'lore': !!python/unicode ''
+    !!python/unicode 'lore': !!python/unicode 'The powers of the black mist rise to
+      absorb attacks like the black mist absorbs light.'
     !!python/unicode 'manacost': [100, 105, 110, 115]
     !!python/unicode 'name': !!python/unicode 'abaddon_aphotic_shield'
   - !!python/unicode 'AbilityCastPoint': [0, 0, 0, 0]
@@ -84,17 +86,20 @@ herodata:
       !!python/unicode 'tooltip': !!python/unicode 'BUFF DURATION:'
       !!python/unicode 'value': [4.5]
     - !!python/unicode 'name': !!python/unicode 'slow_pct'
-      !!python/unicode 'tooltip': !!python/unicode '%SLOW:'
+      !!python/unicode 'tooltip': !!python/unicode '%MOVEMENT SLOW:'
       !!python/unicode 'value': [5, 10, 15, 20]
     - !!python/unicode 'name': !!python/unicode 'debuff_duration'
       !!python/unicode 'tooltip': !!python/unicode 'DEBUFF DURATION:'
       !!python/unicode 'value': [2.5]
-    - !!python/unicode 'name': !!python/unicode 'move_speed_pct'
-      !!python/unicode 'tooltip': !!python/unicode '%MOVE SPEED BONUS:'
-      !!python/unicode 'value': [15]
     - !!python/unicode 'name': !!python/unicode 'attack_speed'
       !!python/unicode 'tooltip': !!python/unicode 'ATTACK SPEED BONUS:'
       !!python/unicode 'value': [10, 20, 30, 40]
+    - !!python/unicode 'name': !!python/unicode 'attack_slow_tooltip'
+      !!python/unicode 'tooltip': !!python/unicode 'ATTACK SLOW:'
+      !!python/unicode 'value': [5, 10, 15, 20]
+    - !!python/unicode 'name': !!python/unicode 'move_speed_pct'
+      !!python/unicode 'tooltip': !!python/unicode '%MOVE SPEED BONUS:'
+      !!python/unicode 'value': [15]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_PASSIVE']
     !!python/unicode 'cooldown': [0, 0, 0, 0]
     !!python/unicode 'damage': [0, 0, 0, 0]
@@ -104,7 +109,8 @@ herodata:
       time.'
     !!python/unicode 'displayname': !!python/unicode 'Curse of Avernus'
     !!python/unicode 'level': 0
-    !!python/unicode 'lore': !!python/unicode ''
+    !!python/unicode 'lore': !!python/unicode 'The curse that slows an enemy, speeds
+      an ally.'
     !!python/unicode 'manacost': [0, 0, 0, 0]
     !!python/unicode 'name': !!python/unicode 'abaddon_frostmourne'
   - !!python/unicode 'AbilityCastPoint': [0.452, 0.452, 0.452]
@@ -126,17 +132,24 @@ herodata:
     - !!python/unicode 'name': !!python/unicode 'hp_threshold'
       !!python/unicode 'tooltip': !!python/unicode 'HP THRESHOLD:'
       !!python/unicode 'value': [400]
+    - !!python/unicode 'name': !!python/unicode 'redirect'
+      !!python/unicode 'value': [0.35]
+    - !!python/unicode 'name': !!python/unicode 'redirect_range_tooltip_scepter'
+      !!python/unicode 'tooltip': !!python/unicode 'REDIRECT RANGE:'
+      !!python/unicode 'value': [900]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_NO_TARGET',
       !!python/unicode 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE']
     !!python/unicode 'cooldown': [60, 50, 40]
     !!python/unicode 'damage': [0, 0, 0, 0]
-    !!python/unicode 'description': !!python/unicode 'When activated, most negative
-      buffs will be removed and any damage you take will heal instead of damaging
-      you. If the ability is not in cooldown, it will passively activate when your
-      hitpoints drop below a certain threshold.\n\nUpgradable by Aghanim''s Scepter.'
+    !!python/unicode 'description': !!python/unicode 'When activated, all damage dealt
+      to you will heal instead of harm. Most negative buffs will also be removed.
+      If the ability is not on cooldown, it will passively activate if your hitpoints
+      drop below %hp_threshold%.\n\nUpgradable by Aghanim''s Scepter.'
     !!python/unicode 'displayname': !!python/unicode 'Borrowed Time'
     !!python/unicode 'level': 0
-    !!python/unicode 'lore': !!python/unicode ''
+    !!python/unicode 'lore': !!python/unicode 'The most unnatural of all the gifts
+      of the Font of Avernus, this power defies mortal understanding.  What should
+      hurt, instead heals; and what should kill gives strength anew.'
     !!python/unicode 'manacost': [0, 0, 0]
     !!python/unicode 'name': !!python/unicode 'abaddon_borrowed_time'
   - !!python/unicode 'AbilityCastPoint': [0, 0, 0, 0]

@@ -514,3 +514,12 @@ a.olControlZoomOut {
 img.olTileImage {
     max-width: none;
 }
+
+/* fix for non-loading tiles when overlay is on */
+svg {
+	-webkit-transform: none !important;
+}
+.olTileImage {
+	-webkit-backface-visibility: visible !important;
+	-webkit-transform: none !important;
+}

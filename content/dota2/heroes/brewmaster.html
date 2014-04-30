@@ -26,7 +26,7 @@ herodata:
       !!python/unicode 'tooltip': !!python/unicode 'RADIUS:'
       !!python/unicode 'value': [400, 400, 400, 400]
     - !!python/unicode 'name': !!python/unicode 'attack_speed_slow'
-      !!python/unicode 'tooltip': !!python/unicode '%ATTACK SLOW:'
+      !!python/unicode 'tooltip': !!python/unicode 'ATTACK SLOW:'
       !!python/unicode 'value': [25, 35, 45, 55]
     - !!python/unicode 'name': !!python/unicode 'damage'
       !!python/unicode 'tooltip': !!python/unicode 'DAMAGE:'
@@ -97,15 +97,18 @@ herodata:
       !!python/unicode 'value': [10, 15, 20, 25]
     - !!python/unicode 'name': !!python/unicode 'crit_multiplier'
       !!python/unicode 'tooltip': !!python/unicode '%CRIT DAMAGE:'
-      !!python/unicode 'value': [200, 200, 200, 200]
+      !!python/unicode 'value': [200]
     - !!python/unicode 'name': !!python/unicode 'dodge_chance'
       !!python/unicode 'tooltip': !!python/unicode '%DODGE CHANCE:'
       !!python/unicode 'value': [10, 15, 20, 25]
+    - !!python/unicode 'name': !!python/unicode 'last_proc'
+      !!python/unicode 'value': [10]
     !!python/unicode 'behavior': [!!python/unicode 'DOTA_ABILITY_BEHAVIOR_PASSIVE']
     !!python/unicode 'cooldown': [0, 0, 0, 0]
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Gives a chance to avoid attacks
-      and to deal critical damage.'
+      and to deal critical damage. Drunken Brawler will always activate if you have
+      not attacked, or have not been attacked, in the last %last_proc% seconds.'
     !!python/unicode 'displayname': !!python/unicode 'Drunken Brawler'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'When Mangix won his title as the Brewmaster

@@ -175,7 +175,7 @@
   "cooldown": [
    30
   ], 
-  "description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack and +%bonus_movement_speed_pct%%% movement speed to surrounding allies.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to surrounding allies.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
+  "description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to surrounding allies.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to surrounding allies.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
   "displayname": "Drum of Endurance", 
   "id": 185, 
   "itemcost": 1850, 
@@ -804,7 +804,7 @@
    {
     "name": "heal_on_death_base", 
     "value": [
-     400
+     500
     ]
    }, 
    {
@@ -854,7 +854,7 @@
   "cooldown": [
    300
   ], 
-  "description": "Active: Pocket Suicide - Instantly commits suicide.\\n\\nPassive: Bloodpact - Starts with 8 charges. Gains 1 charge each time an enemy hero dies within 1675 range. Each charge bestows 1 mana regeneration per second, reduces gold lost from death by 25, and reduces respawn time by 4 seconds. When the bearer dies, restores 400 HP + 30 HP per charge to allied units within 1675 units, then loses a third of its charges. While dead, the bearer continues to receive experience at the death location and gives 1800 unit vision there.", 
+  "description": "Active: Pocket Suicide - Instantly commits suicide.\\n\\nPassive: Bloodpact - Starts with 8 charges. Gains 1 charge each time an enemy hero dies within 1675 range. Each charge bestows 1 mana regeneration per second, reduces gold lost from death by 25, and reduces respawn time by 4 seconds. When the bearer dies, restores 500 HP + 30 HP per charge to allied units within 1675 units, then loses a third of its charges. While dead, the bearer continues to receive experience at the death location and gives 1800 unit vision there.", 
   "displayname": "Bloodstone", 
   "id": 121, 
   "itemcost": 5050, 
@@ -923,8 +923,7 @@
   "AbilityBehavior": [
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
-   "DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET", 
-   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+   "DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
   ], 
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 350, 
@@ -968,7 +967,7 @@
   "cooldown": [
    0.5
   ], 
-  "description": "Use:  Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain.  You can also store runes in the bottle, to save for later use.  After 2 minutes, stored Runes will be activated.  If Bottle is empty, it causes a courier to move 30%% slower.", 
+  "description": "Use:  Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain.  You can also store runes in the bottle, to save for later use.  After 2 minutes, stored Runes will be activated.  If Bottle is empty, it causes a courier to move 30%% slower.\\n\\nHold Control to use your Bottle on an allied hero.", 
   "displayname": "Bottle", 
   "id": 41, 
   "itemcost": 650, 
@@ -1285,14 +1284,14 @@
     "name": "total_mana", 
     "tooltip": "MANA RESTORED:", 
     "value": [
-     100
+     135
     ]
    }, 
    {
     "name": "buff_duration", 
     "tooltip": "DURATION:", 
     "value": [
-     30
+     40
     ]
    }
   ], 
@@ -1431,7 +1430,7 @@
   "cooldown": [
    23
   ], 
-  "description": "Active: Cyclone - Target unit is swept up in a cyclone for %cyclone_duration% seconds, and is invulnerable.\\n\\nFlat movement speed bonuses from multiple Eul's Scepters do not stack.", 
+  "description": "Active: Cyclone - A target unit is swept up in a cyclone and made invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.\\n\\nFlat movement speed bonuses from multiple Eul's Scepters do not stack.", 
   "displayname": "Eul's Scepter of Divinity", 
   "id": 100, 
   "itemcost": 2700, 
@@ -1502,6 +1501,17 @@
      500, 
      600, 
      700, 
+     800
+    ]
+   }, 
+   {
+    "name": "range_tooltip", 
+    "tooltip": "CAST RANGE:", 
+    "value": [
+     600, 
+     650, 
+     700, 
+     750, 
      800
     ]
    }
@@ -1590,6 +1600,17 @@
      700, 
      800
     ]
+   }, 
+   {
+    "name": "range_tooltip", 
+    "tooltip": "CAST RANGE:", 
+    "value": [
+     600, 
+     650, 
+     700, 
+     750, 
+     800
+    ]
    }
   ], 
   "cooldown": [
@@ -1674,6 +1695,17 @@
      500, 
      600, 
      700, 
+     800
+    ]
+   }, 
+   {
+    "name": "range_tooltip", 
+    "tooltip": "CAST RANGE:", 
+    "value": [
+     600, 
+     650, 
+     700, 
+     750, 
      800
     ]
    }
@@ -1762,6 +1794,17 @@
      700, 
      800
     ]
+   }, 
+   {
+    "name": "range_tooltip", 
+    "tooltip": "CAST RANGE:", 
+    "value": [
+     600, 
+     650, 
+     700, 
+     750, 
+     800
+    ]
    }
   ], 
   "cooldown": [
@@ -1844,6 +1887,17 @@
      500, 
      600, 
      700, 
+     800
+    ]
+   }, 
+   {
+    "name": "range_tooltip", 
+    "tooltip": "CAST RANGE:", 
+    "value": [
+     600, 
+     650, 
+     700, 
+     750, 
      800
     ]
    }
@@ -1939,6 +1993,7 @@
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 600, 
   "AbilitySharedCooldown": "diffusal", 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_INVULNERABLE", 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_BOTH", 
   "AbilityUnitTargetType": [
    "DOTA_UNIT_TARGET_HERO", 
@@ -2031,6 +2086,7 @@
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 600, 
   "AbilitySharedCooldown": "diffusal", 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_INVULNERABLE", 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_BOTH", 
   "AbilityUnitTargetType": [
    "DOTA_UNIT_TARGET_HERO", 
@@ -2897,13 +2953,6 @@
   "ItemShopTags": "str;damage;evasion", 
   "attributes": [
    {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
-    "value": [
-     20
-    ]
-   }, 
-   {
     "name": "maim_chance", 
     "tooltip": "%MAIM CHANCE:", 
     "value": [
@@ -2911,16 +2960,10 @@
     ]
    }, 
    {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
+    "name": "maim_movement_speed", 
+    "tooltip": "%MAIM MOVEMENT SLOW:", 
     "value": [
-     25
-    ]
-   }, 
-   {
-    "name": "maim_duration", 
-    "value": [
-     4
+     -20
     ]
    }, 
    {
@@ -2931,16 +2974,30 @@
     ]
    }, 
    {
-    "name": "maim_movement_speed", 
-    "tooltip": "%SLOW:", 
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "maim_duration", 
+    "value": [
+     4
+    ]
+   }, 
+   {
+    "name": "maim_attack_speed", 
+    "tooltip": "MAIM ATTACK SLOW:", 
     "value": [
      -20
     ]
    }, 
    {
-    "name": "maim_attack_speed", 
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
     "value": [
-     -20
+     25
     ]
    }, 
    {
@@ -3155,7 +3212,7 @@
    {
     "name": "windwalk_duration", 
     "value": [
-     12
+     14
     ]
    }, 
    {
@@ -3187,7 +3244,7 @@
   "cooldown": [
    28
   ], 
-  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 12 seconds.", 
+  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 14 seconds.", 
   "displayname": "Shadow Blade", 
   "id": 152, 
   "itemcost": 3000, 
@@ -3862,6 +3919,7 @@
    }, 
    {
     "name": "static_duration", 
+    "tooltip": "STATIC DURATION:", 
     "value": [
      20
     ]
@@ -3881,6 +3939,7 @@
    }, 
    {
     "name": "static_damage", 
+    "tooltip": "STATIC DAMAGE:", 
     "value": [
      200
     ]
@@ -3893,6 +3952,7 @@
    }, 
    {
     "name": "static_chance", 
+    "tooltip": "%STATIC CHANCE:", 
     "value": [
      20
     ]
@@ -3919,7 +3979,7 @@
     "name": "chain_damage", 
     "tooltip": "CHAIN DAMAGE:", 
     "value": [
-     160
+     150
     ]
    }, 
    {
@@ -3930,7 +3990,7 @@
    }, 
    {
     "name": "chain_chance", 
-    "tooltip": "%CHANCE TO CHAIN:", 
+    "tooltip": "%CHAIN CHANCE:", 
     "value": [
      25
     ]
@@ -3951,7 +4011,7 @@
   "cooldown": [
    35
   ], 
-  "description": "Active: Static Charge - Places a charged shield on a target unit\\nPassive: Chain Lightning - Grants a chance to release Chain Lighting on attack, dealing damage to multiple targets.\\n\\nMjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
+  "description": "Active: Static Charge - Places a charged shield on a target unit which has a %static_chance%%% chance to release a shocking bolt at a nearby attacker and %static_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits %chain_strikes% targets, dealing damage.\\n\\nMjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
   "displayname": "Mjollnir", 
   "id": 158, 
   "itemcost": 5300, 
@@ -5013,7 +5073,7 @@
     "name": "health_regen", 
     "tooltip": "+$hp_regen", 
     "value": [
-     11
+     8
     ]
    }, 
    {
@@ -5040,12 +5100,25 @@
     "value": [
      10
     ]
+   }, 
+   {
+    "name": "aura_radius", 
+    "value": [
+     750
+    ]
+   }, 
+   {
+    "name": "aura_health_regen", 
+    "tooltip": "AURA REGEN:", 
+    "value": [
+     4
+    ]
    }
   ], 
   "cooldown": [
    60
   ], 
-  "description": "Active: Barrier - Gives nearby friendly units a shield that blocks %barrier_block% spell damage.\\n\\nMultiple instances of spell resistance from items do not stack.", 
+  "description": "Active: Barrier - Gives nearby friendly units a shield that blocks %barrier_block% spell damage.\\nPassive: Insight Aura - Gives nearby friendly units %aura_health_regen% health regeneration.\\n\\nMultiple instances of spell resistance from items do not stack.", 
   "displayname": "Pipe of Insight", 
   "id": 90, 
   "itemcost": 3625, 
@@ -7102,7 +7175,7 @@
    }
   ], 
   "cooldown": [
-   12
+   10
   ], 
   "description": "Active: Cripple - Slows the target's movement speed.", 
   "displayname": "Rod of Atos", 
@@ -7122,10 +7195,17 @@
   "ItemShopTags": "damage;str;unique", 
   "attributes": [
    {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
+    "name": "maim_movement_speed", 
+    "tooltip": "%MAIM MOVEMENT SLOW:", 
     "value": [
-     16
+     -20
+    ]
+   }, 
+   {
+    "name": "maim_attack_speed", 
+    "tooltip": "MAIM ATTACK SLOW:", 
+    "value": [
+     -20
     ]
    }, 
    {
@@ -7136,10 +7216,10 @@
     ]
    }, 
    {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
     "value": [
-     10
+     16
     ]
    }, 
    {
@@ -7149,16 +7229,10 @@
     ]
    }, 
    {
-    "name": "maim_movement_speed", 
-    "tooltip": "%SLOW:", 
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
     "value": [
-     -20
-    ]
-   }, 
-   {
-    "name": "maim_attack_speed", 
-    "value": [
-     -20
+     10
     ]
    }
   ], 
@@ -7183,8 +7257,22 @@
   "ItemShopTags": "damage;str;agi;attack_speed;unique", 
   "attributes": [
    {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
+    "name": "maim_slow_movement", 
+    "tooltip": "%MAIM MOVEMENT SLOW:", 
+    "value": [
+     -32
+    ]
+   }, 
+   {
+    "name": "maim_slow_attack", 
+    "tooltip": "MAIM ATTACK SLOW:", 
+    "value": [
+     -32
+    ]
+   }, 
+   {
+    "name": "maim_chance", 
+    "tooltip": "%MAIM CHANCE:", 
     "value": [
      16
     ]
@@ -7197,6 +7285,13 @@
     ]
    }, 
    {
+    "name": "bonus_attack_speed", 
+    "tooltip": "+$attack", 
+    "value": [
+     16
+    ]
+   }, 
+   {
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
@@ -7204,22 +7299,8 @@
     ]
    }, 
    {
-    "name": "maim_chance", 
-    "tooltip": "%MAIM CHANCE:", 
-    "value": [
-     16
-    ]
-   }, 
-   {
-    "name": "maim_slow_movement", 
-    "tooltip": "%SLOW:", 
-    "value": [
-     -32
-    ]
-   }, 
-   {
-    "name": "bonus_attack_speed", 
-    "tooltip": "+$attack", 
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
     "value": [
      16
     ]
@@ -7229,12 +7310,6 @@
     "tooltip": "%+$move_speed", 
     "value": [
      16
-    ]
-   }, 
-   {
-    "name": "maim_slow_attack", 
-    "value": [
-     -32
     ]
    }, 
    {
@@ -7348,7 +7423,7 @@
   "cooldown": [
    10
   ], 
-  "description": "Active: Fade - Grants invisibility to you or target allied hero over 1.5 seconds. Moving breaks the invisibility.", 
+  "description": "Active: Fade - Grants invisibility to you or target allied hero over 1.5 seconds. Moving breaks the invisibility. There is no cooldown when using this item on yourself.", 
   "displayname": "Shadow Amulet", 
   "id": 215, 
   "itemcost": 1600, 
@@ -7400,7 +7475,7 @@
    {
     "name": "sheep_movement_speed", 
     "value": [
-     100
+     140
     ]
    }, 
    {
@@ -7472,13 +7547,14 @@
    }, 
    {
     "name": "blast_damage", 
+    "tooltip": "BLAST DAMAGE:", 
     "value": [
      200
     ]
    }, 
    {
     "name": "aura_attack_speed", 
-    "tooltip": "AURA SLOW:", 
+    "tooltip": "AURA ATTACK SLOW:", 
     "value": [
      -40
     ]
@@ -7491,12 +7567,14 @@
    }, 
    {
     "name": "blast_movement_speed", 
+    "tooltip": "%BLAST MOVEMENT SLOW:", 
     "value": [
      -40
     ]
    }, 
    {
     "name": "blast_debuff_duration", 
+    "tooltip": "BLAST SLOW DURATION:", 
     "value": [
      4
     ]
@@ -7568,7 +7646,7 @@
    }, 
    {
     "name": "cold_attack_speed", 
-    "tooltip": "%ATTACK SLOW:", 
+    "tooltip": "ATTACK SLOW:", 
     "value": [
      -35
     ]
@@ -8458,6 +8536,41 @@
   "ItemShopTags": "int;armor;regen_health;hard_to_tag", 
   "attributes": [
    {
+    "name": "resist_debuff", 
+    "tooltip": "%BONUS MAGIC DAMAGE:", 
+    "value": [
+     -25
+    ]
+   }, 
+   {
+    "name": "bonus_health_regen", 
+    "tooltip": "+$hp_regen", 
+    "value": [
+     6
+    ]
+   }, 
+   {
+    "name": "debuff_radius", 
+    "tooltip": "RADIUS:", 
+    "value": [
+     600
+    ]
+   }, 
+   {
+    "name": "bonus_agility", 
+    "tooltip": "+$agi", 
+    "value": [
+     6
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
+    "value": [
+     6
+    ]
+   }, 
+   {
     "name": "bonus_intellect", 
     "tooltip": "+$int", 
     "value": [
@@ -8465,8 +8578,8 @@
     ]
    }, 
    {
-    "name": "bonus_health_regen", 
-    "tooltip": "+$hp_regen", 
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
     "value": [
      6
     ]
@@ -8482,41 +8595,6 @@
     "name": "resist_debuff_duration", 
     "value": [
      25
-    ]
-   }, 
-   {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
-    "value": [
-     6
-    ]
-   }, 
-   {
-    "name": "debuff_radius", 
-    "tooltip": "RADIUS:", 
-    "value": [
-     600
-    ]
-   }, 
-   {
-    "name": "resist_debuff", 
-    "tooltip": "%BONUS MAGIC DAMAGE:", 
-    "value": [
-     -25
-    ]
-   }, 
-   {
-    "name": "bonus_agility", 
-    "tooltip": "+$agi", 
-    "value": [
-     6
-    ]
-   }, 
-   {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
-    "value": [
-     6
     ]
    }
   ], 
@@ -8552,7 +8630,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "", 
+  "description": null, 
   "displayname": "Vitality Booster", 
   "id": 61, 
   "itemcost": 1100, 
@@ -8652,10 +8730,11 @@
  "item_ward_observer": {
   "AbilityBehavior": [
    "DOTA_ABILITY_BEHAVIOR_POINT", 
-   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+   "DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
   ], 
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 500, 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO", 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
   "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
   "ItemAliases": [
@@ -8691,7 +8770,7 @@
   "cooldown": [
    1
   ], 
-  "description": "Use: Places an Observer Ward to give sight of the surrounding area.\\n\\nLasts 7 minutes.", 
+  "description": "Use: Places an Observer Ward to give sight of the surrounding area. Lasts 7 minutes.\\n\\nHold Control to give one Observer Ward to an allied hero.", 
   "displayname": "Observer Ward", 
   "id": 42, 
   "itemcost": 150, 
@@ -8703,10 +8782,11 @@
  "item_ward_sentry": {
   "AbilityBehavior": [
    "DOTA_ABILITY_BEHAVIOR_POINT", 
-   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+   "DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
   ], 
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 500, 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO", 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
   "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
   "ItemAliases": [
@@ -8747,7 +8827,7 @@
   "cooldown": [
    1
   ], 
-  "description": "Use: Places a Sentry Ward to give True Sight of the surrounding area.\\n\\nLasts 4 minutes.", 
+  "description": "Use: Places a Sentry Ward to give True Sight of the surrounding area. Lasts 4 minutes.\\n\\nHold Control to give one Sentry Ward to an allied hero.", 
   "displayname": "Sentry Ward", 
   "id": 43, 
   "itemcost": 200, 

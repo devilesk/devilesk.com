@@ -34,6 +34,7 @@
   {{ render_nav(menu, 'main_nav') }}
   {% endblock %}
   {% block content %}
+  {% block content2 %}
   <div class="container">
       {% block container %}
       <div id="main" role="main">
@@ -52,6 +53,7 @@
 	<div class="push"></div>
 	{% endblock push %}
   </div> <!--! end of #container -->
+  {% endblock content2 %}
 </div>
 
   {% block footer %}
