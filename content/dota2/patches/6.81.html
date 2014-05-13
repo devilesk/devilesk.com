@@ -1,0 +1,1042 @@
+---
+extends: base.j2
+title: Patch 6.81 Notes
+description: Dota 2 Patch 6.81 Notes & Changelog. Information about changes to heroes, items, and general gameplay.
+active_menu: page-community
+---
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<link rel="stylesheet" href="{{ media_url('css/items.css') }}">
+<style type="text/css">
+a.anchor{display: block; position: relative; top: -110px; visibility: hidden;}
+@media (max-width: 767px){
+.affix{
+    position:static;
+}
+</style>
+{% endblock custom_css %}
+
+{% block container %}
+		<div class='col-md-3'>
+<div class="bs-sidebar hidden-print" role="complementary">
+<ol class="nav bs-sidenav affix">
+<li><a href="#General">General</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Heroes A-D<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Abaddon">Abaddon</a></li>
+<li><a href="#Ancient-Apparition">Ancient Apparition</a></li>
+<li><a href="#Anti-Mage">Anti-Mage</a></li>
+<li><a href="#Axe">Axe</a></li>
+<li><a href="#Batrider">Batrider</a></li>
+<li><a href="#Beastmaster">Beastmaster</a></li>
+<li><a href="#Bloodseeker">Bloodseeker</a></li>
+<li><a href="#Bounty-Hunter">Bounty Hunter</a></li>
+<li><a href="#Brewmaster">Brewmaster</a></li>
+<li><a href="#Bristleback">Bristleback</a></li>
+<li><a href="#Broodmother">Broodmother</a></li>
+<li><a href="#Centaur-Warrunner">Centaur Warrunner</a></li>
+<li><a href="#Chaos-Knight">Chaos Knight</a></li>
+<li><a href="#Chen">Chen</a></li>
+<li><a href="#Clinkz">Clinkz</a></li>
+<li><a href="#Dazzle">Dazzle</a></li>
+<li><a href="#Disruptor">Disruptor</a></li>
+<li><a href="#Doom">Doom</a></li>
+<li><a href="#Drow-Ranger">Drow Ranger</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Heroes E-L<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Earth-Spirit">Earth Spirit</a></li>
+<li><a href="#Earthshaker">Earthshaker</a></li>
+<li><a href="#Elder-Titan">Elder Titan</a></li>
+<li><a href="#Ember-Spirit">Ember Spirit</a></li>
+<li><a href="#Enchantress">Enchantress</a></li>
+<li><a href="#Enigma">Enigma</a></li>
+<li><a href="#Faceless-Void">Faceless Void</a></li>
+<li><a href="#Gyrocopter">Gyrocopter</a></li>
+<li><a href="#Huskar">Huskar</a></li>
+<li><a href="#Invoker">Invoker</a></li>
+<li><a href="#Jakiro">Jakiro</a></li>
+<li><a href="#Juggernaut">Juggernaut</a></li>
+<li><a href="#Keeper-of-the-Light">Keeper of the Light</a></li>
+<li><a href="#Kunkka">Kunkka</a></li>
+<li><a href="#Legion-Commander">Legion Commander</a></li>
+<li><a href="#Leshrac">Leshrac</a></li>
+<li><a href="#Lich">Lich</a></li>
+<li><a href="#Lina">Lina</a></li>
+<li><a href="#Lion">Lion</a></li>
+<li><a href="#Lone-Druid">Lone Druid</a></li>
+<li><a href="#Luna">Luna</a></li>
+<li><a href="#Lycan">Lycan</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Heroes M-R<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Magnus">Magnus</a></li>
+<li><a href="#Medusa">Medusa</a></li>
+<li><a href="#Meepo">Meepo</a></li>
+<li><a href="#Mirana">Mirana</a></li>
+<li><a href="#Naga-Siren">Naga Siren</a></li>
+<li><a href="#Necrophos">Necrophos</a></li>
+<li><a href="#Night-Stalker">Night Stalker</a></li>
+<li><a href="#Nyx-Assassin">Nyx Assassin</a></li>
+<li><a href="#Ogre-Magi">Ogre Magi</a></li>
+<li><a href="#Omniknight">Omniknight</a></li>
+<li><a href="#Phantom-Assassin">Phantom Assassin</a></li>
+<li><a href="#Phoenix">Phoenix</a></li>
+<li><a href="#Pugna">Pugna</a></li>
+<li><a href="#Queen-of-Pain">Queen of Pain</a></li>
+<li><a href="#Razor">Razor</a></li>
+<li><a href="#Riki">Riki</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Heroes S-T<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Shadow-Demon">Shadow Demon</a></li>
+<li><a href="#Shadow-Fiend">Shadow Fiend</a></li>
+<li><a href="#Silencer">Silencer</a></li>
+<li><a href="#Skywrath-Mage">Skywrath Mage</a></li>
+<li><a href="#Sniper">Sniper</a></li>
+<li><a href="#Spirit-Breaker">Spirit Breaker</a></li>
+<li><a href="#Sven">Sven</a></li>
+<li><a href="#Templar-Assassin">Templar Assassin</a></li>
+<li><a href="#Terrorblade">Terrorblade</a></li>
+<li><a href="#Tidehunter">Tidehunter</a></li>
+<li><a href="#Tinker">Tinker</a></li>
+<li><a href="#Tiny">Tiny</a></li>
+<li><a href="#Troll-Warlord">Troll Warlord</a></li>
+<li><a href="#Tusk">Tusk</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Heroes U-Z<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Undying">Undying</a></li>
+<li><a href="#Ursa">Ursa</a></li>
+<li><a href="#Vengeful-Spirit">Vengeful Spirit</a></li>
+<li><a href="#Visage">Visage</a></li>
+<li><a href="#Warlock">Warlock</a></li>
+<li><a href="#Windranger">Windranger</a></li>
+<li><a href="#Witch-Doctor">Witch Doctor</a></li>
+<li><a href="#Wraith-King">Wraith-King</a></li>
+<li><a href="#Zeus">Zeus</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Items A-H<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Animal-Courier">Animal Courier</a></li>
+<li><a href="#Bloodstone">Bloodstone</a></li>
+<li><a href="#Clarity">Clarity</a></li>
+<li><a href="#Euls-Scepter-of-Divinity">Eul's Scepter of Divinity</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Items I-R<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Manta-Style">Manta Style</a></li>
+<li><a href="#Mjollnir">Mjollnir</a></li>
+<li><a href="#Necronomicon">Necronomicon</a></li>
+<li><a href="#Observer-Ward">Observer Ward</a></li>
+<li><a href="#Pipe-of-Insight">Pipe of Insight</a></li>
+<li><a href="#Rod-of-Atos">Rod of Atos</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Items S-Z<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+<li><a href="#Scythe-of-Vyse">Scythe of Vyse</a></li>
+<li><a href="#Sentry-Ward">Sentry Ward</a></li>
+<li><a href="#Shadow-Amulet">Shadow Amulet</a></li>
+<li><a href="#Shadow-Blade">Shadow Blade</a></li>
+<li><a href="#Town-Portal-Scroll">Town Portal Scroll</a></li>
+        </ul>
+      </li>
+<li><a href="#Community-Analysis-and-Discussion">Community Analysis <br>& Discussion</a></li>
+</ol>
+</div>
+</div>	
+
+<div id='patchcontent' class='col-md-9' role="main">
+	<div id='headercontainer'>
+	<h2>Patch 6.81 Changelog</h2>
+	</div>
+<p>
+6.81 Update Notes</p>
+<p>6.81 Gameplay Update
+</p>
+<a class="anchor" id="General"></a>
+<h3>GENERAL</h3>
+<ul>
+<li>Roshan base armor increased by 1</li>
+<li>Attack Speed now always continually adjusts based on the latest modifications applied to the unit
+<br>This makes it so heavy attack speed slows don't linger into the next attack even after their duration has expired (most impactful with abilities like Untouchable and Fire Spirits)</li>
+<li>Melee illusions created by a Rune of Illusion take 200% instead of 300% damage</li>
+<li>Random Draft hero selection pool increased from 22 to 24</li>
+<li>Captain's Draft hero selection pool increased from 24 to 27 (8 per type to 9)</li>
+<li>Captain's Draft hero bans increased from 4 to 6</li>
+<li>Meepo is no longer available in Ability Draft</li>
+</ul>
+ 
+ 
+<h3>HEROES</h3>
+
+<div class="hero herosprite herosprite-abaddon" title="Abaddon"></div>
+<a class="anchor" id="Abaddon"></a>
+<p>Abaddon
+<ul>
+<li>Aghanim's Scepter Borrowed Time now redirects 35% of all damage dealt to nearby allied heroes to Abaddon when active 
+<br>
+Heroes within a range of 900 of Abaddon will have their damage redirected
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-ancient_apparition" title="Ancient Apparition"></div>
+<a class="anchor" id="Ancient-Apparition"></a>
+<p>Ancient Apparition
+<ul>
+<li>Chilling Touch attack speed reduction increased from -15 to -20</li> 
+</ul></p>
+
+<div class="hero herosprite herosprite-antimage" title="Anti-Mage"></div>
+<a class="anchor" id="Anti-Mage"></a>
+<p>Anti-Mage
+<ul>
+<li>Mana Void's area of effect increased from 450 to 500</li> 
+</ul></p>
+
+<div class="hero herosprite herosprite-axe" title="Axe"></div>
+<a class="anchor" id="Axe"></a>
+<p>Axe
+<ul>
+<li>Counter Helix now uses Pseudo Random chance 
+<br>
+This reduces the chances that a very unlucky or lucky streak of procs occurs
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-batrider" title="Batrider"></div>
+<a class="anchor" id="Batrider"></a>
+<p>Batrider
+<ul>
+<li>Flaming Lasso mana cost increased from 150 to 225</li> 
+</ul></p>
+
+<div class="hero herosprite herosprite-beastmaster" title="Beastmaster"></div>
+<a class="anchor" id="Beastmaster"></a>
+<p>Beastmaster
+<ul>
+<li>Base damage increased by 4</li> 
+</ul></p>
+
+<div class="hero herosprite herosprite-bloodseeker" title="Bloodseeker"></div>
+<a class="anchor" id="Bloodseeker"></a>
+<p>Bloodseeker
+<ul>
+<li>Bloodrage cast point improved from 0.6 to 0.4</li> 
+<li>Bloodrage can no longer be dispelled 
+<br>
+Using abilities like Manta or BKB will not remove the Silence
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-bounty_hunter" title="Bounty Hunter"></div>
+<a class="anchor" id="Bounty-Hunter"></a>
+<p>Bounty Hunter
+<ul>
+<li>Track cast range increased from 900/1050/1200 to 1200</li> 
+</ul></p>
+
+<div class="hero herosprite herosprite-brewmaster" title="Brewmaster"></div>
+<a class="anchor" id="Brewmaster"></a>
+<p>Brewmaster
+<ul>
+<li>If you have not attacked for 10 seconds, your next attack will always activate a Drunken Brawler critical hit</li> 
+<li>If you have not been attacked for 10 seconds, Drunken Brawler will cause you to evade the next attack
+<br>
+This mechanic carries over to your Fire Spirit when it has the passive via Aghanim Scepter
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-bristleback" title="Bristleback"></div>
+<a class="anchor" id="Bristleback"></a>
+<p>Bristleback
+<ul>
+<li>Warpath no longer has unique values for the first movement speed stack
+<br>
+First stack bonus was 5/7/10% movement speed. It now does the same as all stacks.
+</li> 
+<li>Warpath movement speed stack bonus increased from 1/2/3% to 3/4/5% 
+<br>
+Old Level 1: 5-&gt;9%   Old Level 3: 10-&gt;28% 
+<br>
+New Level 1: 3-&gt;15%  New Level 3: 5-&gt;35% 
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-broodmother" title="Broodmother"></div>
+<a class="anchor" id="Broodmother"></a>
+<p>Broodmother
+<ul>
+<li>Spiderling's Poison Sting damage per second increased from 4 to 8</li> 
+<li>Spin Web's free pathing no longer deactivates when enemy has vision on Broodmother</li>
+<li>Spin Web's free pathing is now disabled for 3 seconds when Broodmother takes damage 
+<br>
+Uses the same damage source rules as Blink Dagger
+</li>
+<li>Insatiable Hunger lifesteal increased from 40/60/80% to 60/80/100%</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-centaur" title="Centaur Warrunner"></div>
+<a class="anchor" id="Centaur-Warrunner"></a>
+<p>Centaur Warrunner
+<ul>
+<li>Hoof Stomp mana cost increased from 85/100/115/130 to 130</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-chaos_knight" title="Chaos Knight"></div>
+<a class="anchor" id="Chaos-Knight"></a>
+<p>Chaos Knight
+<ul>
+<li>Phantasm now has a 50% chance to create one extra illusion when cast</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-chen" title="Chen"></div>
+<a class="anchor" id="Chen"></a>
+<p>Chen
+<ul>
+<li>Penitence cooldown reduced from 14 to 14/13/12/11</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-clinkz" title="Clinkz"></div>
+<a class="anchor" id="Clinkz"></a>
+<p>Clinkz
+<ul>
+<li>Death Pact cooldown reduced from 45 to 45/40/35</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-dazzle" title="Dazzle"></div>
+<a class="anchor" id="Dazzle"></a>
+<p>Dazzle
+<ul>
+<li>Poison Touch no longer causes a ministun
+<br>
+This only removes the instant ministun at the start. The debuff will still stun the target when the poison sets in at level 4
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-disruptor" title="Disruptor"></div>
+<a class="anchor" id="Disruptor"></a>
+<p>Disruptor
+<ul>
+<li>Kinetic Field cooldown reduced from 14 to 14/13/12/11</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-doom_bringer" title="Doom"></div>
+<a class="anchor" id="Doom"></a>
+<p>Doom
+<ul>
+<li>Doom damage no longer ignores magic shields 
+<br>
+Applies to shields such as the barrier from Pipe of Insight
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-drow_ranger" title="Drow Ranger"></div>
+<a class="anchor" id="Drow-Ranger"></a>
+<p>Drow Ranger
+<ul>
+<li>Gust knockback duration increased from 0.2 to 0.5</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-earth_spirit" title="Earth Spirit"></div>
+<a class="anchor" id="Earth-Spirit"></a>
+<p>Earth Spirit
+<ul>
+<li>Stone Remnant recharge time reduced from 35 to 30</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-earthshaker" title="Earthshaker"></div>
+<a class="anchor" id="Earthshaker"></a>
+<p>Earthshaker
+<ul>
+<li>Creeps no longer try to path around Fissure; they will wait for it to disappear</li>
+<li>Echo Slam no longer ignores units that are invisible or in Fog of War</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-elder_titan" title="Elder Titan"></div>
+<a class="anchor" id="Elder-Titan"></a>
+<p>Elder Titan
+<ul>
+<li>Echo Stomp mana cost reduced from 100/115/130/145 to 100</li>
+<li>Echo Stomp physical and magical damage increased from 80 to 80/85/90/95 each</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-ember_spirit" title="Ember Spirit"></div>
+<a class="anchor" id="Ember-Spirit"></a>
+<p>Ember Spirit
+<ul>
+<li>Searing Chains duration reduced from 2/2/3/3 to 1/2/2/3 
+<br>
+Total damage is still 80/120/240/300
+</li>
+<li>Sleight of Fist bonus damage reduced from 30/60/90/120 to 20/40/60/80</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-enchantress" title="Enchantress"></div>
+<a class="anchor" id="Enchantress"></a>
+<p>Enchantress
+<ul>
+<li>Untouchable slow duration increased from 3 to 4</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-enigma" title="Enigma"></div>
+<a class="anchor" id="Enigma"></a>
+<p>Enigma
+<ul>
+<li>Midnight Pulse area of effect increased from 400 to 600</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-faceless_void" title="Faceless Void"></div>
+<a class="anchor" id="Faceless-Void"></a>
+<p>Faceless Void
+<ul>
+<li>Base agility increased from 21 to 23</li>
+<li>Turn rate improved from 0.5 to 1</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-gyrocopter" title="Gyrocopter"></div>
+<a class="anchor" id="Gyrocopter"></a>
+<p>Gyrocopter
+<ul>
+<li>Homing Missile now hits invisible units</li>
+<li>Homing Missile hits required to destroy increased from 3 to 3/3/4/5</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-huskar" title="Huskar"></div>
+<a class="anchor" id="Huskar"></a>
+<p>Huskar
+<ul>
+<li>Burning Spears is no longer a Unique Attack Modifier</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-invoker" title="Invoker"></div>
+<a class="anchor" id="Invoker"></a>
+<p>Invoker
+<ul>
+<li>Ghost Walk slow no longer affects magic immune enemies</li>
+<li>EMP delay increased from 2.6 to 2.9</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-jakiro" title="Jakiro"></div>
+<a class="anchor" id="Jakiro"></a>
+<p>Jakiro
+<ul>
+<li>Dual Breath range increased by 50 
+</li><li>Liquid Fire level 4 cooldown reduced from 5 to 4</li>			
+<li>Aghanim's Scepter Macropyre duration increased from 7 to 14</li>
+<li>Aghanim's Scepter Macropyre range increased from 1350 to 1800 
+<br>
+Unupgraded is still 900
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-juggernaut" title="Juggernaut"></div>
+<a class="anchor" id="Juggernaut"></a>
+<p>Juggernaut
+<ul>
+<li>Base attack time improved from 1.6 to 1.5</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-keeper_of_the_light" title="Keeper of the Light"></div>
+<a class="anchor" id="Keeper-of-the-Light"></a>
+<p>Keeper of the Light
+<ul>
+<li>Added Aghanim's Scepter upgrade: Provides permanent Spirit Form. Additionally, the following effects are active during the day: Keeper of the Light gains unobstructed vision and Illuminate heals allies for 75% of the damage values</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-kunkka" title="Kunkka"></div>
+<a class="anchor" id="Kunkka"></a>
+<p>Kunkka
+<ul>
+<li>Torrent area of effect increased from 215 to 225</li>
+<li>X Marks The Spot can now last twice as long on allied heroes</li>			
+<li>Ghost Ship allied buff duration increased from 8 to 10</li>		
+<li>Add Ghost Ship AOE indicator for allies</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-legion_commander" title="Legion Commander"></div>
+<a class="anchor" id="Legion-Commander"></a>
+<p>Legion Commander
+<ul>
+<li>Overwhelming Odds bonus damage per hero is increased from 14/16/18/20 to 20/35/50/65 
+<br>
+Per creep is still 14/16/18/20
+</li>
+<li>Overwhelming Odds area of effect increased from 315 to 330</li>		
+<li>Overwhelming Odds base damage rescaled from 50/100/150/200 to 60/100/140/180</li>	
+<li>Moment of Courage now uses Pseudo Random chance 
+<br>
+This reduces the chances that a very unlucky or lucky streak of procs occurs
+</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-leshrac" title="Leshrac"></div>
+<a class="anchor" id="Leshrac"></a>
+<p>Leshrac
+<ul>
+<li>Lightning Storm now slows its targets by 75% for 0.5 seconds</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-lich" title="Lich"></div>
+<a class="anchor" id="Lich"></a>
+<p>Lich
+<ul>
+<li>Frost Armor can now be cast on buildings</li>
+<li>Aghanim's Scepter Chain Frost no longer has a bounce limit</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-lina" title="Lina"></div>
+<a class="anchor" id="Lina"></a>
+<p>Lina
+<ul>
+<li>Attack range increased from 650 to 670</li>
+<li>Aghanim's Scepter Laguna Blade damage goes through magic immunity 
+<br>
+Damage can still be reduced by normal spell resistance
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-lion" title="Lion"></div>
+<a class="anchor" id="Lion"></a>
+<p>Lion
+<ul>
+<li>Hex cooldown reduced from 30/25/20/15 to 30/24/18/12</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-lone_druid" title="Lone Druid"></div>
+<a class="anchor" id="Lone-Druid"></a>
+<p>Lone Druid
+<ul>
+<li>Spirit Bear health regeneration increased from 2 to 2/3/4/5</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-luna" title="Luna"></div>
+<a class="anchor" id="Luna"></a>
+<p>Luna
+<ul>
+<li>Base agility reduced from 22 to 18</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-lycan" title="Lycan"></div>
+<a class="anchor" id="Lycan"></a>
+<p>Lycan
+<ul>
+<li>Shapeshift no longer provides 100/200/300 bonus health</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-magnataur" title="Magnus"></div>
+<a class="anchor" id="Magnus"></a>
+<p>Magnus
+<ul>
+<li>Removed Skewer maximum target limit</li>
+<li>Skewer range increased from 600/800/1000/1200 to 750/900/1050/1200</li>			
+</ul></p>			
+
+<div class="hero herosprite herosprite-medusa" title="Medusa"></div>
+<a class="anchor" id="Medusa"></a>
+<p>Medusa
+<ul>
+<li>Split Shot reworked from 50/60/70/80% damage with 5 maximum targets, to 80% damage with 2/3/4/5 maximum targets</li>
+<li>Mystic Snake no longer requires Fog of War vision to bounce</li>
+<li>Mana Shield damage absorption per mana increased from 1/1.5/2/2.5 to 1.6/1.9/2.2/2.5</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-meepo" title="Meepo"></div>
+<a class="anchor" id="Meepo"></a>
+<p>Meepo
+<ul>
+<li>Base movement speed increased from 305 to 315</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-mirana" title="Mirana"></div>
+<a class="anchor" id="Mirana"></a>
+<p>Mirana
+<ul>
+<li>Sacred Arrow vision reduced from 800 to 650</li>		
+</ul></p>
+
+<div class="hero herosprite herosprite-naga_siren" title="Naga Siren"></div>
+<a class="anchor" id="Naga-Siren"></a>
+<p>Naga Siren
+<ul>
+<li>Mirror Image illusion damage dealt reduced from 30/35/40/45% to 20/25/30/35%</li>
+<li>Rip Tide area of effect reduced from 350 to 320</li>
+<li>Rip Tide negative armor no longer goes through magic immunity</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-necrolyte" title="Necrophos"></div>
+<a class="anchor" id="Necrophos"></a>
+<p>Necrophos
+<ul>
+<li>Heartstopper Aura area of effect increased from 1000 to 1200</li>
+<li>Reaper's Scythe now adds +30% duration to the respawn timer</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-night_stalker" title="Night Stalker"></div>
+<a class="anchor" id="Night-Stalker"></a>
+<p>Night Stalker
+<ul>
+<li>Darkness now also affects the vision of buildings</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-nyx_assassin" title="Nyx Assassin"></div>
+<a class="anchor" id="Nyx-Assassin"></a>
+<p>Nyx Assassin
+<ul>
+<li>Impale cooldown increased from 11 to 13</li>
+<li>Impale can no longer be blocked by Linken's Sphere</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-ogre_magi" title="Ogre Magi"></div>
+<a class="anchor" id="Ogre-Magi"></a>
+<p>Ogre Magi
+<ul>
+<li>Base armor increased by 1</li>
+<li>Cast animation improved from 0.56 to 0.45</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-omniknight" title="Omniknight"></div>
+<a class="anchor" id="Omniknight"></a>
+<p>Omniknight
+<ul>
+<li>Purification area of effect increased from 225 to 240</li>
+<li>Repel no longer removes positive buffs from allies 
+<br>
+This means that Repel will no longer remove Guardian Angel
+</li>
+<li>Guardian Angel duration increased from 5/6/7 to 6/7/8</li>
+<li>Aghanim's Scepter Guardian Angel duration increased from 5/6/7 to 8/9/10</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-phantom_assassin" title="Phantom Assassin"></div>
+<a class="anchor" id="Phantom-Assassin"></a>
+<p>Phantom Assassin
+<ul>
+<li>Stifling Dagger cooldown reduced from 8 to 6</li>
+<li>Blur evasion chance increased from 20/25/30/40 to 20/30/40/50</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-phoenix" title="Phoenix"></div>
+<a class="anchor" id="Phoenix"></a>
+<p>Phoenix
+<ul>
+<li>Icarus Dive cast point extended from 0.01 to 0.2</li>
+<li>Fire Spirits damage reduced from 15/35/55/75 to 10/30/50/70</li>
+<li>Fire Spirits health cost increased from 15% to 20%</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-pugna" title="Pugna"></div>
+<a class="anchor" id="Pugna"></a>
+<p>Pugna
+<ul>
+<li>Decrepify mana cost reduced from 100 to 60</li>
+<li>Nether Ward duration increased from 25 to 30</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-queenofpain" title="Queen of Pain"></div>
+<a class="anchor" id="Queen-of-Pain"></a>
+<p>Queen of Pain
+<ul>
+<li>Shadow Strike cooldown reduced from 20/16/12/8 to 16/12/8/4</li>
+<li>Shadow Strike cast range increased from 400 to 435</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-razor" title="Razor"></div>
+<a class="anchor" id="Razor"></a>
+<p>Razor
+<ul>
+<li>Strength gain increased from 1.7 to 2.3</li>
+<li>Unstable Current slow duration increased from 0.4/0.8/1.2/1.6 to 0.5/1/1.5/2</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-riki" title="Riki"></div>
+<a class="anchor" id="Riki"></a>
+<p>Riki
+<ul>
+<li>Backstab now works when attacking allied units</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-shadow_demon" title="Shadow Demon"></div>
+<a class="anchor" id="Shadow-Demon"></a>
+<p>Shadow Demon
+<ul>
+<li>Added Aghanim's Scepter upgrade: Demonic Purge cooldown replaced with two charges that have a 40 second replenish time</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-nevermore" title="Shadow Fiend"></div>
+<a class="anchor" id="Shadow-Fiend"></a>
+<p>Shadow Fiend
+<ul>
+<li>Requiem of Souls' secondary debuff now affects magic immune units</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-silencer" title="Silencer"></div>
+<a class="anchor" id="Silencer"></a>
+<p>Silencer
+<ul>
+<li>Agility growth increased from 2.1 to 3.0</li>
+<li>Curse of the Silent cooldown reduced from 20/18/16/14 to 20/16/12/8</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-skywrath_mage" title="Skywrath Mage"></div>
+<a class="anchor" id="Skywrath-Mage"></a>
+<p>Skywrath Mage
+<ul>
+<li>Base movement speed increased from 315 to 325</li>
+<li>Concussive Shot damage increased from 50/100/150/200 to 60/120/180/240</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-sniper" title="Sniper"></div>
+<a class="anchor" id="Sniper"></a>
+<p>Sniper
+<ul>
+<li>Fixed Sniper's acquisition range not matching his maximum attack range 
+<br>
+This affects his ability to auto attack units at his maximum range
+</li>		
+</ul></p>
+
+<div class="hero herosprite herosprite-spirit_breaker" title="Spirit Breaker"></div>
+<a class="anchor" id="Spirit-Breaker"></a>
+<p>Spirit Breaker
+<ul>
+<li>Nether Strike cast range increased from 400/550/700 to 700  
+<br>
+Scepter range increased from 550/700/850 to 850
+</li>
+<li>Nether Strike cooldown rebalanced from 75 to 80/70/60</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-sven" title="Sven"></div>
+<a class="anchor" id="Sven"></a>
+<p>Sven
+<ul>
+<li>Base damage increased by 6</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-templar_assassin" title="Templar Assassin"></div>
+<a class="anchor" id="Templar-Assassin"></a>
+<p>Templar Assassin
+<ul>
+<li>Psionic Trap sub-ability now has the same cast point as the ability on the trap itself
+<br>
+Previously the sub-ability and the ability on the trap had different cast behaviors (both zero now). If you cast it with your hero it would take longer. 
+</li>					
+</ul></p>
+
+<div class="hero herosprite herosprite-terrorblade" title="Terrorblade"></div>
+<a class="anchor" id="Terrorblade"></a>
+<p>Terrorblade
+<ul>
+<li>Strength gain reduced from 1.9 to 1.4</li>
+<li>Reflection slow no longer persists through magic immunity</li>
+<li>Reflection duration rebalanced from 5 to 2.5/3.5/4.5/5.5</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-tidehunter" title="Tidehunter"></div>
+<a class="anchor" id="Tidehunter"></a>
+<p>Tidehunter
+<ul>
+<li>Anchor Smash damage reduction increased from 40 to 60%</li>
+<li>Anchor Smash now works on Ancient creeps
+<br>
+Still does not affect Roshan 
+</li>								
+</ul></p>
+
+<div class="hero herosprite herosprite-tinker" title="Tinker"></div>
+<a class="anchor" id="Tinker"></a>
+<p>Tinker
+<ul>
+<li>Heat Seeking Missile is no longer blocked by Ethereal</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-tiny" title="Tiny"></div>
+<a class="anchor" id="Tiny"></a>
+<p>Tiny
+<ul>
+<li>Craggy Exterior stun duration rescaled from 1.2/1.3/1.4/1.5 to 1/1.25/1.5/1.75</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-troll_warlord" title="Troll Warlord"></div>
+<a class="anchor" id="Troll-Warlord"></a>
+<p>Troll Warlord
+<ul>
+<li>Melee Whirling Axes cast point improved from 0.2 to 0</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-tusk" title="Tusk"></div>
+<a class="anchor" id="Tusk"></a>
+<p>Tusk
+<ul>
+<li>Reworked Snowball into a two-part ability: one which creates the snowball, and a sub-ability to launch the snowball. You have up to 4 seconds to use the sub-ability. The area that automatically pulls allies in has been reduced. 
+<br>
+Old:
+<br>====
+<br>Tusk and any nearby allied heroes roll in a quickly growing snowball towards the target enemy unit. Any victims caught in the snowball's path take damage and are briefly stunned.  The snowball moves at a percentage of Tusk's current movement speed.
+<br>Radius: 200
+<br>Radius Grow: 40
+<br>Damage: 80 / 120 / 160 / 200
+<br>Stun Duraion: 0.5 / 0.75 / 1 / 1.25 
+<br>
+<br>
+<br>New:
+<br>====
+<br>Snowball
+<br>Tusk begins rolling into a snowball, automatically gathering allied Heroes within a 100 radius. Allies within a 400 radius can also be added to the snowball by right-clicking on them. Once launched, any enemies caught in the snowball's path will be stunned and take damage. Each allied Hero in the snowball will add to its speed and damage.
+<br>Base Damage: 80 / 120 / 160 / 200
+<br>Bonus Damage Per Ally: 20 / 30 / 40 / 50
+<br>Bonus Speed Per Ally: 75
+<br>Stun Duration: 0.5 / 0.75 / 1 / 1.25 
+<br>Gather Radius: 100
+<br>Launch Time: 4
+</li>			
+<li>You can now load an ally into your snowball within 400 range by right clicking on them</li>	
+<li>Snowball moves 75 MS faster for each allied hero inside it</li>	
+<li>Snowball deals 20/30/40/50 extra damage for each additional hero in it</li>		
+</ul></p>
+
+<div class="hero herosprite herosprite-undying" title="Undying"></div>
+<a class="anchor" id="Undying"></a>
+<p>Undying
+<ul>
+<li>Soul Rip area of effect increased from 975 to 1300</li>
+<li>Tombstone Zombie Deathlust's Max % health threshold increased from 5/10/15/20% to 20/25/30/35%</li>
+<li>Tombstone Zombies no longer give any experience or gold 
+<br>
+Down from 25 experience and 5-7 gold
+</li>
+<li>Tombstone Bounty increased from 70/90/110/130 to 75/100/125/150</li>
+<li>Flesh Golem's Plague Aura now affects magic immune units</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-ursa" title="Ursa"></div>
+<a class="anchor" id="Ursa"></a>
+<p>Ursa
+<ul>
+<li>Fury Swipes is no longer a Unique Attack Modifier</li>				
+</ul></p>
+
+<div class="hero herosprite herosprite-vengefulspirit" title="Vengeful Spirit"></div>
+<a class="anchor" id="Vengeful-Spirit"></a>
+<p>Vengeful Spirit
+<ul>
+<li>When Vengeful Spirit is slain, her killer is inflicted with a negative Vengeance Aura, which decreases the damage of her killer and their nearby allies, until she revives 
+<br>
+The damage reduction is based on Vengeful Spirit's Vengeance Aura level, and has a 900 range area of effect around Vengeful Spirit's killer
+</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-visage" title="Visage"></div>
+<a class="anchor" id="Visage"></a>
+<p>Visage
+<ul>
+<li>Grave Chill cooldown increased from 10 to 16/14/12/10</li>
+</ul></p>
+
+<div class="hero herosprite herosprite-warlock" title="Warlock"></div>
+<a class="anchor" id="Warlock"></a>
+<p>Warlock
+<ul>
+<li>Shadow Word duration increased from 9 to 11</li>
+<li>Upheaval cooldown reduced from 50 to 50/46/42/38</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-windrunner" title="Windranger"></div>
+<a class="anchor" id="Windranger"></a>
+<p>Windranger
+<ul>
+<li>Activating Windrun now disjoints incoming attack projectiles</li>
+<li>Aghanim's Scepter Focus Fire damage reduction decreased from -50/-40/-30 to -30/-15/0, and no longer has special rules for procs</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-witch_doctor" title="Witch Doctor"></div>
+<a class="anchor" id="Witch-Doctor"></a>
+<p>Witch Doctor
+<ul>
+<li>Maledict cooldown reduced from 35 to 20</li>
+<li>Death Ward base attack time improved from 0.25 to 0.22</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-skeleton_king" title="Wraith King"></div>
+<a class="anchor" id="Wraith-King"></a>
+<p>Wraith King
+<ul>
+<li>Mortal Strike damage ratio increased from 1.25/1.75/2.25/2.75 to 1.5/2/2.5/3</li>
+<li>Base armor reduced by 1</li>			
+</ul></p>
+
+<div class="hero herosprite herosprite-zuus" title="Zeus"></div>
+<a class="anchor" id="Zeus"></a>
+<p>Zeus
+<ul>
+<li>Arc Lightning cast point improved from 0.4 to 0.2</li>
+<li>Lightning Bolt true sight range reduced from 900 to 750</li>
+<li>Lightning Bolt flying vision range reduced from 1000 to 750</li>
+<li>Lightning Bolt can now be cast on the ground, affecting the closest enemy hero in a 250 range</li>			
+</ul></p>
+
+<h3>ITEMS</h3>
+
+<div class="item itemsprite itemsprite-courier" id="courier"></div>
+<a class="anchor" id="Animal-Courier"></a>
+<p>Animal Courier
+<ul>
+<li>Ground Courier respawn time reduced from 180 seconds to 140 seconds</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-bloodstone" id="bloodstone"></div>
+<a class="anchor" id="Bloodstone"></a>
+<p>Bloodstone
+<ul>
+<li>Bloodpact heal increased from 400 HP + 30 HP/charge to 500 HP + 30 HP/charge</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-clarity" id="clarity"></div>
+<a class="anchor" id="Clarity"></a>
+<p>Clarity
+<ul>
+<li>Mana regeneration from 100 over 30 seconds to 135 over 40 seconds</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-cyclone" id="cyclone"></div>
+<a class="anchor" id="Euls-Scepter-of-Divinity"></a>
+<p>Eul's Scepter of Divinity
+<ul>
+<li>Cyclone now deals 50 damage to enemy units when they land</li>
+<li>You can now cast Cyclone on yourself while you are magic immune</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-manta" id="manta"></div>
+<a class="anchor" id="Manta-Style"></a>
+<p>Manta Style
+<ul>
+<li>Mirror Image now resets the current attack and spell targeting priority 
+<br>
+Also affects other image shuffle based spells like Chaos Knight's Phantasm and Naga Siren's Mirror Image
+</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-mjollnir" id="mjollnir"></div>
+<a class="anchor" id="Mjollnir"></a>
+<p>Mjollnir
+<ul>
+<li>Chain Lightning damage reduced from 160 to 150</li>
+<li>Static Shock area of effect is now centered around the unit with the Static Charge, rather than around the attacker</li>
+<li>Fixed Chain Lightning not functioning properly when it procs while a previous proc is still bouncing 
+<br>
+This affects Maelstrom and Mjollnir and makes them more reliable when they proc in sequence.
+</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-necronomicon" id="necronomicon"></div>
+<a class="anchor" id="Necronomicon"></a>
+<p>Necronomicon
+<ul>
+<li>Necronomicon Warrior's movement speed rescaled from 330/360/390 to 350</li>
+<li>Necronomicon units XP bounty increased from 59 to 100/150/200</li>				
+</ul></p>
+
+<div class="item itemsprite itemsprite-ward_observer" id="ward_observer"></div>
+<a class="anchor" id="Observer-Wards"></a>
+<p>Observer Wards
+<ul>
+<li>Sharing wards with allies now requires a Control key override.
+<br>
+If you hold Control, using a ward will only target heroes. If you do not, you may only target the ground
+</li>
+<li>Wards can no longer be placed in the fountain areas</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-pipe" id="pipe"></div>
+<a class="anchor" id="Pipe-of Insight"></a>
+<p>Pipe of Insight
+<ul>
+<li>Pipe health regeneration reduced from 11 to 8</li>
+<li>Pipe now provides Insight Aura, which grants 4 health regeneration to nearby allies</li>
+<li>Pipe's active buff is no longer dispellable</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-rod_of_atos" id="rod_of_atos"></div>
+<a class="anchor" id="Rod-of-Atos"></a>
+<p>Rod of Atos
+<ul>
+<li>Cripple ability cooldown reduced from 12 to 10</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-sheepstick" id="sheepstick"></div>
+<a class="anchor" id="Scythe-of-Vyse"></a>
+<p>Scythe of Vyse
+<ul>
+<li>Hexed units' base movement speed increased from 100 to 140
+<br>
+This only affects Scythe of Vyse
+</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-ward_sentry" id="ward_sentry"></div>
+<a class="anchor" id="Sentry-Wards"></a>
+<p>Sentry Wards
+<ul>
+<li>Sharing wards with allies now requires a Control key override.
+<br>
+If you hold Control, using a ward will only target heroes. If you do not, you may only target the ground
+</li>
+<li>Wards can no longer be placed in the fountain areas</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-shadow_amulet" id="shadow_amulet"></div>
+<a class="anchor" id="Shadow-Amulet"></a>
+<p>Shadow Amulet
+<ul>
+<li>Fade no longer requires the target to remain stationary 
+<br>
+Invisibility still requires the target to remain stationary.
+</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-invis_sword" id="invis_sword"></div>
+<a class="anchor" id="Shadow-Blade"></a>
+<p>Shadow Blade
+<ul>
+<li>Shadow Walk duration increased from 12 to 14</li>
+</ul></p>
+
+<div class="item itemsprite itemsprite-tpscroll" id="tpscroll"></div>
+<a class="anchor" id="Town-Portal-Scroll"></a>
+<p>Town Portal Scroll
+<ul>
+<li>Added an option to require a halt command to in order to cancel a Town Portal Scroll</li>
+</ul></p>
+
+<br>
+<p>Source: <a href="http://www.dota2.com/springcleaning/">Official Dota 2 Blog</a></p>
+<br>
+<a class="anchor" id="Community-Analysis-and-Discussion"></a>
+<h4>Community Patch Analysis Shows</h4>
+<ul>
+
+</ul>
+<h4>Community Patch Discussions & Reactions</h4>
+<ul>
+
+</ul>
+<div class="push"></div>
+</div>
+{% endblock container %}

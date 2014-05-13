@@ -1,0 +1,29 @@
+---
+extends: base.j2
+title: Dota 2 Live Games
+description: Live Games in Dota 2
+active_menu: page-community
+header: Top Live Games
+---
+
+  {% block custom_css %}
+	<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+	<style type="text/css">
+	tbody tr:first-child td {
+		border-top:none;
+	}
+	td {
+		height:48px;
+	}
+	.canvasContainer {
+		text-align:center;
+	}
+	</style>
+  {% endblock custom_css %}
+  {% block main %}
+	<div id="content" class="container"></div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/community/live-games.js') }}"></script>
+  {% endblock scripts %}
