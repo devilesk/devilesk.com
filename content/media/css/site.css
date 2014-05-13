@@ -5,6 +5,15 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+@media only screen and (min-width : 768px) {
+    /* Make Navigation Toggle on Desktop Hover */
+    .top-nav-menu .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .mobile-only {
+        display: none;
+    }
+}
 .nav-tabs>li>a:hover {
 border-color: #303236;
 }
@@ -132,6 +141,7 @@ body {
 }
 .dropdown-menu>li>a {
 	color: #979aa2;
+    padding:7px 20px;
 }
 .dropdown-menu {
 	background-color:#131415;
@@ -151,6 +161,7 @@ body {
 }
 .dropdown-header {
 	color:#fff;
+    font-size:14px;
 }
 .list-group-item {
     background-color:#131415;

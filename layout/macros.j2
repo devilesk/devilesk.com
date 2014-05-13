@@ -30,29 +30,34 @@
           <a class="navbar-brand" href="{{ content_url('/dota2') }}" style="width:220px;"><div></div></a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+          <ul class="top-nav-menu nav navbar-nav">
 			{% for item in menu -%}
-            <li class="dropdown {{ item.css_class }}">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ item.name }} <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ content_url(item.url) }}">{{ item.description }}</a></li>
-                <li class="divider"></li>
-				{% for subitem in item.submenu -%}
-				{% if subitem.type == 'page' -%}
-					{% if subitem.url -%}
-						<li><a href="{{ content_url(subitem.url) }}">{{ subitem.name }}</a></li>
-					{% elif subitem.ext_url -%}
-						<li><a href="{{ subitem.ext_url }}">{{ subitem.name }}</a></li>
-					{% endif %}
-				{% elif subitem.type == 'header' -%}
-				<li class="dropdown-header">{{ subitem.name }}</li>
-				{% elif subitem.type == 'divider' -%}
-				<li class="divider"></li>
-				{%- endif %}
-				{%- endfor %}
-              </ul>
-            </li>
+                {% if item.submenu -%}
+                <li class="dropdown {{ item.css_class }}">
+                  <a href="{{ content_url(item.url) }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.name }} <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="{{ content_url(item.url) }}">{{ item.description }}</a></li>
+                    <li class="divider mobile-only"></li>
+                    {% for subitem in item.submenu -%}
+                    {% if subitem.type == 'page' -%}
+                        {% if subitem.url -%}
+                            <li><a href="{{ content_url(subitem.url) }}">{{ subitem.name }}</a></li>
+                        {% elif subitem.ext_url -%}
+                            <li><a href="{{ subitem.ext_url }}">{{ subitem.name }}</a></li>
+                        {% endif %}
+                    {% elif subitem.type == 'header' -%}
+                    <li class="dropdown-header">{{ subitem.name }}</li>
+                    {% elif subitem.type == 'divider' -%}
+                    <li class="divider"></li>
+                    {%- endif %}
+                    {%- endfor %}
+                  </ul>
+                </li>
+                {% else %}
+                <li class="{{ item.css_class }}"><a href="{{ content_url(item.url) }}">{{ item.name }}</a></li>
+                {%- endif %}
 			{%- endfor %}
+            
 <li class="li-forums"><a href="/dota2/forums/index.php">FORUMS</a></li>
 		  </ul>
 		</div>

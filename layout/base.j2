@@ -82,7 +82,15 @@
   {% block before_scripts %}
   {% endblock before_scripts %}
   <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
-
+  <script type="text/javascript">
+    $('.top-nav-menu .dropdown-toggle').click(function() {
+      if ($('.mobile-only').css('display') == 'none') {
+        var location = $(this).attr('href');
+        window.location.href = location;
+        return false;
+      }
+    });
+  </script>
   {% block scripts %}
   {% endblock scripts %}
 
