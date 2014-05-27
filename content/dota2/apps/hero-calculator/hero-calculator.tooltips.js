@@ -148,6 +148,14 @@ var HEROCALCULATOR = (function (my) {
 
 	function getTooltipAbilityAttributes(item) {
 		var a = '';
+        if (item.damage.length > 0 && _.reduce(item.damage, function(memo, num){ return memo + num; }, 0) > 0) {
+            var attributetooltip = 'DAMAGE: ';
+            var attributevalue = item.damage[0];
+            for (var j=1;j<item.damage.length;j++) {
+                attributevalue += ' / ' + item.damage[j];
+            }
+            a = a + attributetooltip + ' ' + attributevalue + '<br>';
+        }
 		for (var i=0;i<item.attributes.length;i++) {
 			if (item.attributes[i].tooltip != null) {
 				var attributetooltip = item.attributes[i].tooltip;
@@ -172,8 +180,14 @@ var HEROCALCULATOR = (function (my) {
 		return a.trim('<br>');
 	}
 
-	function getTooltipAbilityCooldown(item) {
+	function getTooltipAbilityManaCost(item) {
 		var c = '';
+        if (_.reduce(item.manacost, function(memo, num){ return memo + num; }, 0) == 0) {
+            return c;
+        }
+        if (_.every(item.manacost, function(num) { return num == item.manacost[0]; })) {
+            return item.manacost[0].toString();
+        }
 		for (var i = 0; i < 4; i++) {
 			if (item.manacost[i] != null) {
 				c = c + " " + item.manacost[i];
@@ -182,8 +196,14 @@ var HEROCALCULATOR = (function (my) {
 		return c;
 	}
 
-	function getTooltipAbilityManaCost(item) {
+	function getTooltipAbilityCooldown(item) {
 		var c = '';
+        if (_.reduce(item.cooldown, function(memo, num){ return memo + num; }, 0) == 0) {
+            return c;
+        }
+        if (_.every(item.cooldown, function(num) { return num == item.cooldown[0]; })) {
+            return item.cooldown[0].toString();
+        }
 		for (var i = 0; i < 4; i++) {
 			if (item.cooldown[i] != null) {
 				c = c + " " + item.cooldown[i];
@@ -225,10 +245,10 @@ var HEROCALCULATOR = (function (my) {
 			if (cd != '' || mana != '') {
 				var cdmanacost = $('<div>').attr('id','item_cdmana');
 				if (mana != '') {
-					cdmanacost.append($('<span>').html(mana.trim()).attr('id','item_cooldown').addClass('item_field'));
+					cdmanacost.append($('<span>').html(mana.trim()).attr('id','item_manacost').addClass('item_field'));
 				}
 				if (cd != '') {
-					cdmanacost.append($('<span>').html(cd.trim()).attr('id','item_manacost').addClass('item_field'));
+					cdmanacost.append($('<span>').html(cd.trim()).attr('id','item_cooldown').addClass('item_field'));
 				}
 				data.append(cdmanacost);
 			}

@@ -11,7 +11,6 @@ header: Items
   <style type="text/css">
 .item {
 margin:1px;
-width:73px;
 display:inline-block;
 opacity:0.75;
 filter:alpha(opacity=75); /* For IE8 and earlier */
@@ -30,12 +29,9 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 box-shadow:3px 3px #000000;
 }
 .shop {
-width:73px;
-display:inline;
 /*opacity:1;
 filter:alpha(opacity=100); /* For IE8 and earlier
 box-shadow:3px 3px #000000;*/
-border: solid 1px transparent;
 margin-top:10px;
 margin-bottom:10px;
 }
@@ -106,7 +102,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <div class="col-md-4">
 <div class="header-wrapper"><h3>Basics</h3></div>
 <div class="col-md-3 text-center">
-<img class="shop" src="{{ media_url('images/shop/consumables.png') }}" id="consumables"/><br>
+<div class="shop itemsprite itemsprite-consumables" id="consumables"></div><br>
 <div class="item itemsprite itemsprite-clarity" id="clarity"></div>
 <div class="item itemsprite itemsprite-tango" id="tango"></div>
 <div class="item itemsprite itemsprite-flask" id="flask"></div>
@@ -121,7 +117,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <div class="item itemsprite" id="emptyitembg"></div>
 </div>
 <div class="col-md-3 text-center">
-<img class="shop" src="{{ media_url('images/shop/attributes.png') }}" id="attributes"/><br>
+<div class="shop itemsprite itemsprite-attributes" id="attributes"></div><br>
 <div class="item itemsprite itemsprite-branches" id="branches"></div>
 <div class="item itemsprite itemsprite-gauntlets" id="gauntlets"></div>
 <div class="item itemsprite itemsprite-slippers" id="slippers"></div>
@@ -136,7 +132,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <div class="item itemsprite itemsprite-ultimate_orb" id="ultimate_orb"></div>
 </div>
 <div class="col-md-3 text-center">
-<img class="shop" src="{{ media_url('images/shop/armaments.png') }}" id="armaments"/><br>
+<div class="shop itemsprite itemsprite-armaments" id="armaments"></div><br>
 <div class="item itemsprite itemsprite-ring_of_protection" id="ring_of_protection"></div>
 <div class="item itemsprite itemsprite-quelling_blade" id="quelling_blade"></div>
 <div class="item itemsprite itemsprite-stout_shield" id="stout_shield"></div>
@@ -151,7 +147,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <div class="item itemsprite itemsprite-mithril_hammer" id="mithril_hammer"></div>
 </div>
 <div class="col-md-3 text-center">
-<img class="shop" src="{{ media_url('images/shop/arcane.png') }}" id="arcane"/><br>
+<div class="shop itemsprite itemsprite-arcane" id="arcane"></div><br>
 <div class="item itemsprite itemsprite-magic_stick" id="magic_stick"></div>
 <div class="item itemsprite itemsprite-sobi_mask" id="sobi_mask"></div>
 <div class="item itemsprite itemsprite-ring_of_regen" id="ring_of_regen"></div>
@@ -170,7 +166,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <div class="col-md-6">
 <div class="header-wrapper"><h3>Upgrades</h3></div>
 <div class="col-md-2 text-center">
-<img class="shop" src="{{ media_url('images/shop/common.png') }}" id="common"/><br>
+<div class="shop itemsprite itemsprite-common" id="common"></div><br>
 <div class="item itemsprite itemsprite-wraith_band" id="wraith_band"></div>
 <div class="item itemsprite itemsprite-null_talisman" id="null_talisman"></div>
 <div class="item itemsprite itemsprite-magic_wand" id="magic_wand"></div>
@@ -186,7 +182,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 </div>
 
 <div class="col-md-2 text-center">
-<img class="shop" src="{{ media_url('images/shop/support.png') }}" id="support"/><br>
+<div class="shop itemsprite itemsprite-support" id="support"></div><br>
 <div class="item itemsprite itemsprite-ring_of_basilius" id="ring_of_basilius"></div>
 <div class="item itemsprite itemsprite-headdress" id="headdress"></div>
 <div class="item itemsprite itemsprite-buckler" id="buckler"></div>
@@ -202,7 +198,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 </div>
 
 <div class="col-md-2 text-center">
-<img class="shop" src="{{ media_url('images/shop/caster.png') }}" id="caster"/><br>
+<div class="shop itemsprite itemsprite-caster" id="caster"></div><br>
 <div class="item itemsprite itemsprite-force_staff" id="force_staff"></div>
 <div class="item itemsprite itemsprite-necronomicon" id="necronomicon"></div>
 <div class="item itemsprite itemsprite-cyclone" id="cyclone"></div>
@@ -218,7 +214,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 </div>
 
 <div class="col-md-2 text-center">
-<img class="shop" src="{{ media_url('images/shop/weapons.png') }}" id="weapons"/><br>
+<div class="shop itemsprite itemsprite-weapons" id="weapons"></div><br>
 <div class="item itemsprite itemsprite-lesser_crit" id="lesser_crit"></div>
 <div class="item itemsprite itemsprite-armlet" id="armlet"></div>
 <div class="item itemsprite itemsprite-basher" id="basher"></div>
@@ -234,7 +230,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 </div>
 
 <div class="col-md-2 text-center">
-<img class="shop" src="{{ media_url('images/shop/armor.png') }}" id="armor"/><br>
+<div class="shop itemsprite itemsprite-armor" id="armor"></div><br>
 <div class="item itemsprite itemsprite-hood_of_defiance" id="hood_of_defiance"></div>
 <div class="item itemsprite itemsprite-blade_mail" id="blade_mail"></div>
 <div class="item itemsprite itemsprite-vanguard" id="vanguard"></div>
@@ -250,7 +246,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 </div>
 
 <div class="col-md-2 text-center">
-<img class="shop" src="{{ media_url('images/shop/artifacts.png') }}" id="artifacts"/><br>
+<div class="shop itemsprite itemsprite-artifacts" id="artifacts"></div><br>
 <div class="item itemsprite itemsprite-helm_of_the_dominator" id="helm_of_the_dominator"></div>
 <div class="item itemsprite itemsprite-mask_of_madness" id="mask_of_madness"></div>
 <div class="item itemsprite itemsprite-sange" id="sange"></div>
@@ -269,7 +265,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 <div class="col-md-1">
 <div class="header-wrapper"><h3>Secret</h3></div>
 <div class="col-md-12 text-center">
-<img class="shop" style="box-shadow:3px 3px #000000;background-color:#1c1d1f" src="{{ media_url('images/shop/secret.png') }}" id="secret"/><br>
+<div class="shop itemsprite itemsprite-secret" id="secret" style="opacity:.5"></div><br>
 <div class="item itemsprite itemsprite-orb_of_venom" id="orb_of_venom"></div>
 <div class="item itemsprite itemsprite-ring_of_health" id="ring_of_health"></div>
 <div class="item itemsprite itemsprite-void_stone" id="void_stone"></div>

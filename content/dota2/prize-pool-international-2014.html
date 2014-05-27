@@ -41,6 +41,7 @@
         <div id="container" class="stretchedToMargin"></div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.1/highcharts.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.1/modules/exporting.js"></script>
         <script type="text/javascript">
 $(function () {
     function pad(number, length){
@@ -85,7 +86,17 @@ $(function () {
             [4500000, 'New Music', 'Grants a new music pack for Dota 2.'],
             [5000000, 'New Matchmaking', 'Unlocks a 1v1 mid-lane-only Match-making option (available to all players, not just Compendium owners).'],
             [5500000, 'Environmental Effects', 'Grants new environment effects in the Dota map.'],
-            [6000000, 'Base Customization', 'Grants an item that allows Compendium owners to customize a building in their base.']
+            [6000000, 'Base Customization', 'Grants an item that allows Compendium owners to customize a building in their base.'],
+            [6400000, 'Techies Unusual Taunt', 'Performs a special Taunt animation with added visual effects.<br>Techies will also Taunt enemies in their Death Cam when killed by you.<br>Item will be granted to all Compendium Owners when Techies is released after The International.'],
+            [6800000, 'Daily Hero Challenge', 'Earn 25 compendium points every day by winning a game with the Hero we choose for you.'],
+            [7200000, 'Alternate Voice', 'Vote for the Hero you’d like to receive a new, alternate voice & dialogue pack.<br>When the recording is complete, you will be granted an item that unlocks the new voice.'],
+            [7600000, 'Favorite Hero Challenge', 'Start training for the next International.<br>Select one of your Least Played heroes and we’ll provide a GPM/XPM analysis tool during the game to help you compare your performance with previous games.<br>Win 10 games before July 28th and you’ll earn compendium points.'],
+            [8000000, 'Model Update Vote', 'Vote for the Hero you\'d like to receive a reworked model.'],
+            [8400000, 'Multi-Kill Banner', 'You\'ll receive an item that customizes your Multi-Kill Banner.'],
+            [8800000, 'Afterparty Broadcast', 'Live Broadcasting of the after party with special guest Darude.'],
+            [9200000, 'New Upgraded Creeps', 'Unlocks new models for your creeps after you\'ve killed the enemy barracks.<br>(Available to all players, not just Compendium Owners)'],
+            [9600000, 'A->Z Challenge Support', 'A new quest system will be added to track your progress, and earn you rewards as you win with all the Dota Heroes.<br>(Available to all players, not just Compendium Owners)'],
+            [10000000, 'Victory Prediction Taunt', 'Unlocks the ability for you to perform a voice taunt with your Hero in the early stages of the game.<br>Keeps track of how many successful predictions you\'ve made in a row.']
         ]
         subtitle = ''
         for (var i=0;i<stretch_goals.length;i++) {
@@ -95,6 +106,7 @@ $(function () {
         }
         $('#container').highcharts({
             chart: {
+                zoomType: 'x',
                 type: 'spline',
                 events: {
                     redraw: function() {

@@ -336,7 +336,9 @@ var HEROCALCULATOR = (function (my) {
 			}
 		});
 		self.ehp_physical = ko.computed(function() {
-			return ((self.health() * (1 + .06 * self.totalarmorphysical())) / (1-(1-(self.inventory.getEvasion() * self.ability().getEvasion())))).toFixed(2);
+			var ehp = (self.health() * (1 + .06 * self.totalarmorphysical())) / (1-(1-(self.inventory.getEvasion() * self.ability().getEvasion())))
+            ehp *= (_.some(self.inventory.activeItems(), function(item) {return item.item == 'mask_of_madness';}) ? (1/1.3) : 1);
+            return ehp.toFixed(2);
 		});
 		self.ehp_magical = ko.computed(function() {
 			return (self.health() / self.totalmagicresistanceproduct()).toFixed(2);

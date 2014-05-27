@@ -5,7 +5,7 @@
         <title>Prize Pool for The International 2014</title>
 
         <meta name="author" content="devilesk">
-		<meta name="description" content="A chart of how much is being added to the Dota 2 International 2014 prize pool every half an hour.">
+		<meta name="description" content="A chart of the Dota 2 International 2014 prize pool growth every 24 hours since the compendium release.">
         <link rel="shortcut icon" href="/media/favicon.png">
         <style type="text/css">
             html,body
@@ -60,11 +60,22 @@ $(function () {
         var prize_pool_data = [],
             d = data.data,
             offset = new Date().getTimezoneOffset() * 60 * 1000;
+        var current_month = d[0][2]-1;
+        var current_day = d[0][3];
+        var value = 1600000;
+        var total = 0;
+        var num_days = 0;
         for (var i = 1; i < d.length; i++) {
             date = Date.UTC(d[i][1], d[i][2] - 1, d[i][3], d[i][4], d[i][5], d[i][6]) - offset;
-            value = d[i][0] - d[i-1][0];
-            prize_pool_data.push([date, value])
+            if (current_day != d[i][3] && d[i][4] == 6) {
+                prize_pool_data.push([date, d[i][0]-value]);
+                total += d[i][0]-value;
+                num_days += 1;
+                value = d[i][0];
+                current_day = d[i][3];
+            }
         }
+        var average = total / num_days;
         $('#container').highcharts({
             chart: {
                 zoomType: 'x',
@@ -74,7 +85,7 @@ $(function () {
                 text: 'The International 2014 Prize Pool'
             },
             subtitle: {
-                text: 'Half hour prize pool growth',
+                text: 'Prize pool growth every 24 hours since compendium release',
             },
             xAxis: {
                 type: 'datetime',
@@ -90,7 +101,21 @@ $(function () {
                 title: {
                     text: 'Prize Pool Growth ($)'
                 },
-                min: 0
+                min: 0,
+                plotLines: [{
+                    color: 'red',
+                    width: 2,
+                    value: average,
+                    zIndex: 5,
+                    label: {
+                        text: 'Average $' + average.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+                        align: 'center',
+                        style: {
+                            color: 'red',
+                            fontWeight: 'bold'
+                        }
+                    }
+                }]
             },
             tooltip: {
                 headerFormat: '<b>{series.name}</b><br>',
@@ -102,7 +127,7 @@ $(function () {
                 }
             },
             series: [{
-                name: 'Prize Pool',
+                name: 'Daily Prize Pool Growth',
                 data: prize_pool_data
             }]
         });

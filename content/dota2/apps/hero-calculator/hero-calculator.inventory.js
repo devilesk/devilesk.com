@@ -101,6 +101,7 @@ var HEROCALCULATOR = (function (my) {
 			}
 		}.bind(this);
 		self.removeItem = function (item) {
+            self.activeItems.remove(item);
 			self.items.remove(item);
 		}.bind(this);
 		self.toggleMuteItem = function (item) {

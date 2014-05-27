@@ -179,7 +179,6 @@ var HEROCALCULATOR = (function (my) {
 		
 		self.sideView = ko.observable(false);
 		self.sideView.subscribe(function(newValue) {
-			console.log(newValue);
 			if (newValue) {
 				self.displayShop(false);
 				self.layout(0);
@@ -187,23 +186,18 @@ var HEROCALCULATOR = (function (my) {
 		});
 		self.showSideTab = [
 			ko.computed(function() {
-				console.log('showSideTab',0, self.selectedTab());
 				return self.selectedTabView[0]() && self.sideView() && !self.selectedTabView[4]();
 			}),
 			ko.computed(function() {
-				console.log('showSideTab',1, self.selectedTab());
 				return self.selectedTabView[1]() && self.sideView() && !self.selectedTabView[4]();
 			}),
 			ko.computed(function() {
-				console.log('showSideTab',2, self.selectedTab());
 				return self.selectedTabView[2]() && self.sideView() && !self.selectedTabView[4]();
 			}),
 			ko.computed(function() {
-				console.log('showSideTab',3, self.selectedTab());
 				return self.selectedTabView[3]() && self.sideView() && !self.selectedTabView[4]();
 			}),
 			ko.computed(function() {
-				console.log('showSideTab',4, self.selectedTab());
 				return self.selectedTabView[4]() && self.sideView();
 			})
 		];
@@ -265,6 +259,25 @@ var HEROCALCULATOR = (function (my) {
 				}
 			}
 		}
+        
+        self.sendReport = function() {
+            if ($('#BugReportFormText').val()) {
+                $.post( "report.php", { name: $('#BugReportFormName').val(), email: $('#BugReportFormEmail').val(), body: $('#BugReportFormText').val() })
+                .done(function(data) {
+                    if (data == 'Success') {
+                        alert('Report successfully sent. Thanks!');
+                        $('#BugReportFormText').val('');
+                    }
+                    else {
+                        alert('Failed to send report. Try again later or email admin@devilesk.com');
+                    }
+                });
+                $('#myModal').modal('hide');
+            }
+            else {
+                alert('Message is required.');
+            }
+        }
 	}
 
 	my.heroCalculator = {};

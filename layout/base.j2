@@ -16,7 +16,7 @@
   {% block css %}
   <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
+  <link rel="stylesheet" href="{{ media_url('css/site.css') }}" id="theme-css">
   <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
   {% endblock css %}
   {% block custom_css %}
@@ -29,45 +29,44 @@
 </head>
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}" class="{{ resource.meta.active_menu }}">
 <div class="wrapper">
-  {% block nav %}
-  {% from "macros.j2" import render_nav with context %}
-  {{ render_nav(menu, 'main_nav') }}
-  {% endblock %}
-  {% block content %}
-  {% block content2 %}
+    {% block nav %}
+        {% from "macros.j2" import render_nav with context %}
+        {{ render_nav(menu, 'main_nav') }}
+    {% endblock %}
+    {% block content %}
+        {% block content2 %}
   <div class="container">
-      {% block container %}
-      <div id="main" role="main">
-          <header class="banner clearfix">
-          {% block header %}
-          {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
-          {% endblock header %}
-          </header>
-          <section class="content">
-          {% block main %}
-          {% endblock main %}
-          </section>
-      </div>
+    {% block container %}
+    <div id="main" role="main">
+        <header class="banner clearfix">
+            {% block header %}
+                {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
+            {% endblock header %}
+        </header>
+        <section class="content">
+            {% block main %}
+            {% endblock main %}
+        </section>
+    </div>
     {% endblock container %}
+  </div> <!--! end of #container -->
 	{% block push %}
 	<div class="push"></div>
 	{% endblock push %}
-  </div> <!--! end of #container -->
   {% endblock content2 %}
 </div>
 
   {% block footer %}
   <footer>
 	  <img src="{{ media_url('images/footer.png') }}">
-<!--!	<div>
-		<a href="http://www.youtube.com/user/devilesk">Youtube</a>
-		<a href="http://www.twitch.tv/devilesk">Twitch</a>
-		<a href="http://www.twitter.com/devilesk">Twitter</a>
-		<a href="http://steamcommunity.com/id/devilesk/">Steam</a>
-	</div>
--->
       <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
-      <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a><p>
+      <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a></p>
+      <p>Theme 
+        <select id="theme-select" class="form-control" style="display: inline;width: auto;height: auto;padding: 0;font-size: inherit;">
+          <option value="dark">dark</option>
+          <option value="light">light</option>
+        </select>
+      </p>
   </footer>
     {% endblock footer%}
   {% endblock content%}
@@ -90,6 +89,39 @@
         return false;
       }
     });
+    if (readCookie('theme') == 'light') {
+        $('#theme-css').attr('href','{{ media_url('css/site-light.css') }}');
+        $("#theme-select").val('light');
+    }
+    else {
+        $('#theme-css').attr('href','{{ media_url('css/site.css') }}');
+        $("#theme-select").val('dark');
+    }
+    $('#theme-select').change( function() {
+        var expiration_date = 365*24*60*60*1000;
+        if ($(this).val() == 'light') {
+            $('#theme-css').attr('href','{{ media_url('css/site-light.css') }}');
+            var d = new Date();
+            d.setTime(d.getTime() + expiration_date);
+            document.cookie = 'theme=light;path=/;expires='+d.toGMTString()+';max-age='+expiration_date+';';
+        }
+        else {
+            $('#theme-css').attr('href','{{ media_url('css/site.css') }}');
+            var d = new Date();
+            d.setTime(d.getTime() + expiration_date);
+            document.cookie = 'theme=dark;path=/;expires='+d.toGMTString()+';max-age='+expiration_date+';';
+        }
+    });
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
   </script>
   {% block scripts %}
   {% endblock scripts %}

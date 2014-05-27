@@ -1,82 +1,45 @@
 ---
 extends: base.j2
-title: Dota 2 Heroes
-description: Dota 2 Hero Patch History. Changelog notes for every hero starting from patch 6.48 to 6.81
-active_menu: page-heroes
-header: Patch History
+title: Dota 2 Hero Selection Trainer
+description: Dota 2 Hero Selection Trainer. How fast can you select a hero in the hero selection screen? Practice selecting a given hero in a timed game.
+active_menu: page-webapps
+header: Hero Selection Trainer
 ---
 
   {% block custom_css %}
   <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
-  <style type="text/css">
+<style type="text/css">
 .hero {
 margin:1px;
 width:73px;
 display:inline-block;
-box-shadow:3px 3px #0A0A0A;
 }
 .hero:hover {
 cursor:hand;
 cursor:pointer;
 }
-
-#header-str {
-	background-image:url("{{ media_url('images/overviewicon_str.png') }}");
-	background-repeat:no-repeat;
-	padding:6px 10px 15px 40px;
-	font-size:16px;
-	/*font-family:Georgia;*/
-	font-weight:bold;
-}
-#header-agi {
-	background-image:url("{{ media_url('images/overviewicon_agi.png') }}");
-	background-repeat:no-repeat;
-	padding:6px 10px 15px 40px;
-	font-size:16px;
-	/*font-family:Georgia;*/
-	font-weight:bold;
-}
-#header-int {
-	background-image:url("{{ media_url('images/overviewicon_int.png') }}");
-	background-repeat:no-repeat;
-	padding:6px 10px 15px 40px;
-	font-size:16px;
-	/*font-family:Georgia;*/
-	font-weight:bold;
-}
-.header-wrapper {
+#info {
 	padding-top:10px;
-	text-align:center;
+    text-align:center;
+    display:inline-block;
 }
-.lemonchiffon {
-	color:lemonchiffon;
+#hero_name {
+    min-height:1.1em;
 }
-.lime {
-	color:lime;
+#start, #stop {
+    margin-top:20px;
 }
-.magenta {
-	color:magenta;
+#start, #stop, #layout {
+    width:250px;
+    margin-left:auto;
+    margin-right:auto;
 }
-.cyan {
-	color:cyan;
-}
-img {
-	display:none;
-}
-.patch_number {
-	width:50px;
-	display:inline-block;
-}
-#hero_hero_container {
-	clear:both;
-	padding-top:10px;
-}
-  </style>
+</style>
   {% endblock custom_css %}
-{% block main %}
-  <div class="col-md-4">
-<div class="header-wrapper"><span id="header-str">Strength</span></div>
-<br>
+  {% block main %}
+                            <div class="hero_wrapper col-md-12">
+              <div class="hero_page col-md-4">
+<div class="hero_section">
 <div class="hero herosprite herosprite-earthshaker" title="Earthshaker" id="h_earthshaker"></div>
 <div class="hero herosprite herosprite-sven" title="Sven" id="h_sven"></div>
 <div class="hero herosprite herosprite-tiny" title="Tiny" id="h_tiny"></div>
@@ -104,6 +67,8 @@ img {
 <br>
 <div class="hero herosprite herosprite-phoenix" title="Phoenix" id="h_phoenix"></div>
 <br>
+</div>
+<div class="hero_section">
 <div class="hero herosprite herosprite-axe" title="Axe" id="h_axe"></div>
 <div class="hero herosprite herosprite-pudge" title="Pudge" id="h_pudge"></div>
 <div class="hero herosprite herosprite-sand_king" title="Sand King" id="h_sand_king"></div>
@@ -122,12 +87,11 @@ img {
 <div class="hero herosprite herosprite-undying" title="Undying" id="h_undying"></div>
 <div class="hero herosprite herosprite-magnataur" title="Magnus" id="h_magnataur"></div>
 <div class="hero herosprite herosprite-abaddon" title="Abaddon" id="h_abaddon"></div>
+</div>
+</div>
 
-  </div>
-
-  <div class="col-md-4">
-<div class="header-wrapper"><span id="header-agi">Agility</span></div>
-<br>
+  <div class="hero_page col-md-4">
+<div class="hero_section">
 <div class="hero herosprite herosprite-antimage" title="Anti-Mage" id="h_antimage"></div>
 <div class="hero herosprite herosprite-drow_ranger" title="Drow Ranger" id="h_drow_ranger"></div>
 <div class="hero herosprite herosprite-juggernaut" title="Juggernaut" id="h_juggernaut"></div>
@@ -151,6 +115,8 @@ img {
 <div class="hero herosprite herosprite-troll_warlord" title="Troll Warlord" id="h_troll_warlord"></div>
 <div class="hero herosprite herosprite-ember_spirit" title="Ember Spirit" id="h_ember_spirit"></div>
 <br>
+</div>
+<div class="hero_section">
 <div class="hero herosprite herosprite-bloodseeker" title="Bloodseeker" id="h_bloodseeker"></div>
 <div class="hero herosprite herosprite-nevermore" title="Shadow Fiend" id="h_nevermore"></div>
 <div class="hero herosprite herosprite-razor" title="Razor" id="h_razor"></div>
@@ -170,12 +136,11 @@ img {
 <div class="hero herosprite herosprite-slark" title="Slark" id="h_slark"></div>
 <div class="hero herosprite herosprite-medusa" title="Medusa" id="h_medusa"></div>
 <div class="hero herosprite herosprite-terrorblade" title="Terrorblade" id="h_terrorblade"></div>
-
+</div>
   </div>
 
-  <div class="col-md-4">
-<div class="header-wrapper"><span id="header-int">Intelligence</span></div>
-<br>
+  <div class="hero_page col-md-4">
+<div class="hero_section">
 <div class="hero herosprite herosprite-crystal_maiden" title="Crystal Maiden" id="h_crystal_maiden"></div>
 <div class="hero herosprite herosprite-puck" title="Puck" id="h_puck"></div>
 <div class="hero herosprite herosprite-storm_spirit" title="Storm Spirit" id="h_storm_spirit"></div>
@@ -199,6 +164,8 @@ img {
 <div class="hero herosprite herosprite-keeper_of_the_light" title="Keeper of the Light" id="h_keeper_of_the_light"></div>
 <div class="hero herosprite herosprite-skywrath_mage" title="Skywrath Mage" id="h_skywrath_mage"></div>
 <br>
+</div>
+<div class="hero_section">
 <div class="hero herosprite herosprite-bane" title="Bane" id="h_bane"></div>
 <div class="hero herosprite herosprite-lich" title="Lich" id="h_lich"></div>
 <div class="hero herosprite herosprite-lion" title="Lion" id="h_lion"></div>
@@ -223,19 +190,25 @@ img {
 <div class="hero herosprite herosprite-shadow_demon" title="Shadow Demon" id="h_shadow_demon"></div>
 <div class="hero herosprite herosprite-visage" title="Visage" id="h_visage"></div>
 </div>
+</div>
+</div>
 
-<div id="hero_hero_container"></div>
-Source: <a href="http://www.playdota.com/forums/showthread.php?t=1349921">PlayDotA.com thread</a>
-{% endblock main %}
-{% block scripts %}
-    <script type="text/javascript">
-	$( "#hero_hero_container" ).load( "{{ media_url('patchhistory.shtml') }}", function() {
-		$('.hero_patch_notes').hide();
-		$('.hero').click(function() {
-			$('.hero_patch_notes').hide().filter('#npc_dota_hero_' + $(this).attr('id').substring(2)).show();
-		});	
-	});
-
-	</script>
-
-{% endblock scripts %}
+<div id="info" class="col-md-12">
+    <h2 id="hero_name"></h2>
+    <span id="minutes">00</span>:<span id="seconds">00</span>.<span id="hundredthseconds">0</span>
+    <div style="margin-top:20px"><h4 id='progress'>Progress: </h4></div>
+    <div><h4 id='streak'>Current Streak: 0</h4></div>
+    <div><h4 id='longeststreak'>Longest Streak: 0</h4></div>
+    <div><h4 id='incorrect'>Incorrect: 0</h4></div>
+        <label for="layout" style="margin-top:20px">Layout</label> <select id="layout" class="form-control">
+          <option value="normal">All Pick</option>
+          <option value="captain">Captain's Mode</option>
+        </select>
+        <button id="start" class="btn btn-default btn-block">Start</button>
+        <button id="stop" class="btn btn-default btn-block" style="display:none">Quit</button>
+</div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/hero-selection-trainer/hero-selection-trainer.js') }}"></script>
+  {% endblock scripts %}

@@ -4,6 +4,15 @@
 img {
 	max-width: 100%;
 }
+.modal-content {
+    background-color:#1c1d1f;
+}
+.modal-header {
+    border-bottom:1px solid #303239;
+}
+.modal-footer {
+    border-top:1px solid #303239;
+}
 .shop,.hc-item {
 	max-width:50px;
 	padding:2px 0px;

@@ -1,1117 +1,1057 @@
 .itemsprite {
-    background-image: url("{{ media_url('images/itemspritesheet.jpg') }}");
+    background-image: url("{{ media_url('images/itemspritesheet2.jpg') }}");
     background-repeat: no-repeat;
     display: block;
 }
 
 .itemsprite-abyssal_blade {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -1px;
 }
 
 .itemsprite-aegis {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -1px;
 }
 
 .itemsprite-ancient_janggo {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -1px;
+}
+
+.itemsprite-arcane {
+    width: 64px;
+    height: 64px;
+    background-position: -199px -1px;
 }
 
 .itemsprite-arcane_boots {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -1px;
+}
+
+.itemsprite-armaments {
+    width: 64px;
+    height: 64px;
+    background-position: -331px -1px;
 }
 
 .itemsprite-armlet {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -1px;
 }
 
 .itemsprite-armlet_active {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -1px;
+}
+
+.itemsprite-armor {
+    width: 64px;
+    height: 64px;
+    background-position: -529px -1px;
+}
+
+.itemsprite-artifacts {
+    width: 64px;
+    height: 64px;
+    background-position: -595px -1px;
 }
 
 .itemsprite-assault {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -1px;
+}
+
+.itemsprite-attributes {
+    width: 64px;
+    height: 64px;
+    background-position: -1px -51px;
+}
+
+.itemsprite-band_of_elvenskin {
+    width: 64px;
+    height: 48px;
+    background-position: -67px -51px;
 }
 
 .itemsprite-basher {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -51px;
 }
 
 .itemsprite-belt_of_strength {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -51px;
 }
 
 .itemsprite-bfury {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -51px;
 }
 
 .itemsprite-black_king_bar {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -51px;
 }
 
 .itemsprite-blade_mail {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -51px;
 }
 
 .itemsprite-blade_of_alacrity {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -101px;
 }
 
 .itemsprite-blades_of_attack {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -101px;
 }
 
 .itemsprite-blink {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -101px;
 }
 
 .itemsprite-bloodstone {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -101px;
 }
 
 .itemsprite-boots {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -101px;
 }
 
 .itemsprite-boots_of_elves {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -101px;
 }
 
 .itemsprite-bottle {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -101px;
 }
 
 .itemsprite-bottle_doubledamage {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -101px;
 }
 
 .itemsprite-bottle_empty {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -101px;
 }
 
 .itemsprite-bottle_haste {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -101px;
 }
 
 .itemsprite-bottle_illusion {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -151px;
 }
 
 .itemsprite-bottle_invisibility {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -151px;
 }
 
 .itemsprite-bottle_medium {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -151px;
 }
 
 .itemsprite-bottle_regeneration {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -151px;
 }
 
 .itemsprite-bottle_small {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -151px;
 }
 
 .itemsprite-bracer {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -151px;
 }
 
 .itemsprite-branches {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -151px;
 }
 
 .itemsprite-broadsword {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -151px;
 }
 
 .itemsprite-buckler {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -151px;
 }
 
 .itemsprite-butterfly {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -151px;
+}
+
+.itemsprite-caster {
+    width: 64px;
+    height: 64px;
+    background-position: -661px -151px;
 }
 
 .itemsprite-chainmail {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -217px;
 }
 
 .itemsprite-cheese {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -217px;
 }
 
 .itemsprite-circlet {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -217px;
 }
 
 .itemsprite-clarity {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -217px;
 }
 
 .itemsprite-claymore {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -217px;
 }
 
 .itemsprite-cloak {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -217px;
+}
+
+.itemsprite-common {
+    width: 64px;
+    height: 64px;
+    background-position: -397px -217px;
+}
+
+.itemsprite-consumables {
+    width: 64px;
+    height: 64px;
+    background-position: -463px -217px;
 }
 
 .itemsprite-courier {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -194px;
-}
-
-.itemsprite-courier_dire {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -194px;
-}
-
-.itemsprite-courier_dire_flying {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -194px;
-}
-
-.itemsprite-courier_radiant {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -194px;
-}
-
-.itemsprite-courier_radiant_flying {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -217px;
 }
 
 .itemsprite-cyclone {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -217px;
 }
 
 .itemsprite-dagon {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -217px;
 }
 
 .itemsprite-dagon_2 {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -267px;
 }
 
 .itemsprite-dagon_3 {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -267px;
 }
 
 .itemsprite-dagon_4 {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -267px;
 }
 
 .itemsprite-dagon_5 {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -267px;
 }
 
 .itemsprite-demon_edge {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -267px;
 }
 
 .itemsprite-desolator {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -267px;
 }
 
 .itemsprite-diffusal_blade {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -267px;
 }
 
 .itemsprite-diffusal_blade_2 {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -267px;
 }
 
 .itemsprite-dust {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -267px;
 }
 
 .itemsprite-eagle {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -257px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -317px;
 }
 
 .itemsprite-emptyitembg {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -317px;
 }
 
 .itemsprite-energy_booster {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -317px;
 }
 
 .itemsprite-ethereal_blade {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -317px;
 }
 
 .itemsprite-flask {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -317px;
+}
+
+.itemsprite-flask2 {
+    width: 64px;
+    height: 48px;
+    background-position: -331px -317px;
 }
 
 .itemsprite-flying_courier {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -317px;
 }
 
 .itemsprite-force_staff {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -317px;
 }
 
 .itemsprite-gauntlets {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -317px;
 }
 
 .itemsprite-gem {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -317px;
+}
+
+.itemsprite-gem_of_true_sight {
+    width: 64px;
+    height: 48px;
+    background-position: -661px -317px;
 }
 
 .itemsprite-ghost {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -367px;
+}
+
+.itemsprite-ghost_scepter {
+    width: 64px;
+    height: 48px;
+    background-position: -67px -367px;
 }
 
 .itemsprite-gloves {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -320px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -367px;
+}
+
+.itemsprite-gloves_of_haste {
+    width: 64px;
+    height: 48px;
+    background-position: -199px -367px;
+}
+
+.itemsprite-greater_clarity {
+    width: 64px;
+    height: 48px;
+    background-position: -265px -367px;
 }
 
 .itemsprite-greater_crit {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -320px;
-}
-
-.itemsprite-greevil_whistle {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -383px;
-}
-
-.itemsprite-greevil_whistle_toggle {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -383px;
-}
-
-.itemsprite-halloween_candy_corn {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -383px;
-}
-
-.itemsprite-halloween_rapier {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -367px;
 }
 
 .itemsprite-hand_of_midas {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -367px;
 }
 
 .itemsprite-headdress {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -367px;
 }
 
 .itemsprite-heart {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -367px;
 }
 
 .itemsprite-heavens_halberd {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -367px;
 }
 
 .itemsprite-helm_of_iron_will {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -367px;
 }
 
 .itemsprite-helm_of_the_dominator {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -417px;
 }
 
 .itemsprite-hood_of_defiance {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -383px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -417px;
 }
 
 .itemsprite-hyperstone {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -417px;
 }
 
 .itemsprite-invis_sword {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -417px;
 }
 
 .itemsprite-javelin {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -417px;
 }
 
 .itemsprite-lesser_crit {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -417px;
 }
 
 .itemsprite-lifesteal {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -417px;
 }
 
 .itemsprite-maelstrom {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -417px;
 }
 
 .itemsprite-magic_stick {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -417px;
 }
 
 .itemsprite-magic_wand {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -417px;
 }
 
 .itemsprite-manta {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -417px;
 }
 
 .itemsprite-mantle {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -467px;
 }
 
 .itemsprite-mask_of_madness {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -446px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -467px;
 }
 
 .itemsprite-medallion_of_courage {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -509px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -467px;
 }
 
 .itemsprite-mekansm {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -509px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -467px;
 }
 
 .itemsprite-mithril_hammer {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -509px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -467px;
 }
 
 .itemsprite-mjollnir {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -509px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -467px;
 }
 
 .itemsprite-monkey_king_bar {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -509px;
-}
-
-.itemsprite-mystery_arrow {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -509px;
-}
-
-.itemsprite-mystery_hook {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -509px;
-}
-
-.itemsprite-mystery_missile {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -509px;
-}
-
-.itemsprite-mystery_toss {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -509px;
-}
-
-.itemsprite-mystery_vacuum {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -509px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -467px;
 }
 
 .itemsprite-mystic_staff {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -509px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -467px;
 }
 
 .itemsprite-necronomicon {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -467px;
 }
 
 .itemsprite-necronomicon_2 {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -467px;
 }
 
 .itemsprite-necronomicon_3 {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -467px;
 }
 
 .itemsprite-null_talisman {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -517px;
 }
 
 .itemsprite-oblivion_staff {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -517px;
 }
 
 .itemsprite-ogre_axe {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -517px;
 }
 
 .itemsprite-orb_of_venom {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -517px;
 }
 
 .itemsprite-orchid {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -517px;
 }
 
 .itemsprite-pers {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -517px;
 }
 
 .itemsprite-phase_boots {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -517px;
 }
 
 .itemsprite-pipe {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -572px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -517px;
 }
 
 .itemsprite-platemail {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -517px;
 }
 
 .itemsprite-point_booster {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -517px;
 }
 
 .itemsprite-poor_mans_shield {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -517px;
 }
 
 .itemsprite-power_treads {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -567px;
 }
 
 .itemsprite-power_treads_agi {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -567px;
 }
 
 .itemsprite-power_treads_int {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -567px;
 }
 
 .itemsprite-power_treads_str {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -635px;
-}
-
-.itemsprite-present {
-    width: 73px;
-    height: 38px;
-    background-position: -586px -635px;
-}
-
-.itemsprite-present-copy {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -567px;
 }
 
 .itemsprite-quarterstaff {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -567px;
 }
 
 .itemsprite-quelling_blade {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -635px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -567px;
 }
 
 .itemsprite-radiance {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -567px;
 }
 
 .itemsprite-radiance_inactive {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -567px;
 }
 
 .itemsprite-rapier {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -567px;
 }
 
 .itemsprite-reaver {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -567px;
 }
 
 .itemsprite-recipe {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -698px;
-}
-
-.itemsprite-recipe_scroll {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -567px;
 }
 
 .itemsprite-refresher {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -617px;
 }
 
 .itemsprite-relic {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -617px;
 }
 
 .itemsprite-ring_of_aquila {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -617px;
 }
 
 .itemsprite-ring_of_aquila_active {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -617px;
 }
 
 .itemsprite-ring_of_basilius {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -698px;
+    width: 64px;
+    height: 48px;
+    background-position: -265px -617px;
 }
 
 .itemsprite-ring_of_basilius_active {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -617px;
 }
 
 .itemsprite-ring_of_health {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -617px;
 }
 
 .itemsprite-ring_of_protection {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -617px;
 }
 
 .itemsprite-ring_of_regen {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -617px;
 }
 
 .itemsprite-robe {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -617px;
 }
 
 .itemsprite-rod_of_atos {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -617px;
+}
+
+.itemsprite-salve {
+    width: 64px;
+    height: 48px;
+    background-position: -1px -667px;
 }
 
 .itemsprite-sange {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -667px;
 }
 
 .itemsprite-sange_and_yasha {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -667px;
 }
 
 .itemsprite-satanic {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -667px;
+}
+
+.itemsprite-secret {
+    width: 64px;
+    height: 64px;
+    background-position: -265px -667px;
 }
 
 .itemsprite-shadow_amulet {
-    width: 73px;
-    height: 51px;
-    background-position: -752px -761px;
+    width: 64px;
+    height: 47px;
+    background-position: -331px -667px;
 }
 
 .itemsprite-sheepstick {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -761px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -667px;
 }
 
 .itemsprite-shivas_guard {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -667px;
 }
 
 .itemsprite-skadi {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -667px;
 }
 
 .itemsprite-slippers {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -667px;
+}
+
+.itemsprite-slippers_of_halcyon {
+    width: 64px;
+    height: 48px;
+    background-position: -661px -667px;
 }
 
 .itemsprite-smoke_of_deceit {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -1px -717px;
 }
 
 .itemsprite-sobi_mask {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -717px;
 }
 
 .itemsprite-soul_booster {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -717px;
 }
 
 .itemsprite-soul_ring {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -199px -717px;
 }
 
 .itemsprite-sphere {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -331px -717px;
 }
 
 .itemsprite-staff_of_wizardry {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -397px -717px;
 }
 
 .itemsprite-stout_shield {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -463px -717px;
+}
+
+.itemsprite-support {
+    width: 64px;
+    height: 64px;
+    background-position: -727px -1px;
 }
 
 .itemsprite-talisman_of_evasion {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -824px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -67px;
 }
 
 .itemsprite-tango {
-    width: 73px;
-    height: 53px;
-    background-position: -5px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -117px;
+}
+
+.itemsprite-tango_single {
+    width: 64px;
+    height: 48px;
+    background-position: -727px -167px;
 }
 
 .itemsprite-tpscroll {
-    width: 73px;
-    height: 53px;
-    background-position: -88px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -217px;
 }
 
 .itemsprite-tranquil_boots {
-    width: 73px;
-    height: 53px;
-    background-position: -171px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -267px;
 }
 
 .itemsprite-tranquil_boots_active {
-    width: 73px;
-    height: 53px;
-    background-position: -254px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -317px;
 }
 
 .itemsprite-travel_boots {
-    width: 73px;
-    height: 53px;
-    background-position: -337px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -367px;
 }
 
 .itemsprite-ultimate_orb {
-    width: 73px;
-    height: 53px;
-    background-position: -420px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -417px;
 }
 
 .itemsprite-ultimate_scepter {
-    width: 73px;
-    height: 53px;
-    background-position: -503px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -467px;
 }
 
 .itemsprite-urn_of_shadows {
-    width: 73px;
-    height: 53px;
-    background-position: -586px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -517px;
 }
 
 .itemsprite-vanguard {
-    width: 73px;
-    height: 53px;
-    background-position: -669px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -567px;
 }
 
 .itemsprite-veil_of_discord {
-    width: 73px;
-    height: 53px;
-    background-position: -752px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -617px;
 }
 
 .itemsprite-vitality_booster {
-    width: 73px;
-    height: 53px;
-    background-position: -835px -887px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -667px;
 }
 
 .itemsprite-vladmir {
-    width: 73px;
-    height: 53px;
-    background-position: -918px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -529px -717px;
 }
 
 .itemsprite-void_stone {
-    width: 73px;
-    height: 53px;
-    background-position: -918px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -595px -717px;
 }
 
 .itemsprite-ward_observer {
-    width: 73px;
-    height: 53px;
-    background-position: -918px -131px;
+    width: 64px;
+    height: 48px;
+    background-position: -661px -717px;
 }
 
 .itemsprite-ward_sentry {
-    width: 73px;
-    height: 53px;
-    background-position: -918px -194px;
+    width: 64px;
+    height: 48px;
+    background-position: -727px -717px;
 }
 
-.itemsprite-winter_cake {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -257px;
-}
-
-.itemsprite-winter_coal {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -318px;
-}
-
-.itemsprite-winter_coco {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -379px;
-}
-
-.itemsprite-winter_cookie {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -440px;
-}
-
-.itemsprite-winter_greevil_chewy {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -501px;
-}
-
-.itemsprite-winter_greevil_garbage {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -562px;
-}
-
-.itemsprite-winter_greevil_treat {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -623px;
-}
-
-.itemsprite-winter_ham {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -684px;
-}
-
-.itemsprite-winter_kringle {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -745px;
-}
-
-.itemsprite-winter_mushroom {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -806px;
-}
-
-.itemsprite-winter_skates {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -867px;
-}
-
-.itemsprite-winter_snowball {
-    width: 73px;
-    height: 51px;
-    background-position: -918px -928px;
-}
-
-.itemsprite-winter_stocking {
-    width: 73px;
-    height: 51px;
-    background-position: -5px -989px;
-}
-
-.itemsprite-winter_woolies {
-    width: 73px;
-    height: 51px;
-    background-position: -88px -989px;
+.itemsprite-weapons {
+    width: 64px;
+    height: 64px;
+    background-position: -1px -767px;
 }
 
 .itemsprite-wraith_band {
-    width: 73px;
-    height: 53px;
-    background-position: -1001px -5px;
+    width: 64px;
+    height: 48px;
+    background-position: -67px -767px;
 }
 
 .itemsprite-yasha {
-    width: 73px;
-    height: 53px;
-    background-position: -1001px -68px;
+    width: 64px;
+    height: 48px;
+    background-position: -133px -767px;
 }
 
 
