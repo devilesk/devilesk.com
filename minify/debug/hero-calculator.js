@@ -1,12 +1,10354 @@
-(function($,undefined){var uuid=0,runiqueId=/^ui-id-\d+$/;$.ui=$.ui||{};$.extend($.ui,{version:"1.10.3",keyCode:{BACKSPACE:8,COMMA:188,DELETE:46,DOWN:40,END:35,ENTER:13,ESCAPE:27,HOME:36,LEFT:37,NUMPAD_ADD:107,NUMPAD_DECIMAL:110,NUMPAD_DIVIDE:111,NUMPAD_ENTER:108,NUMPAD_MULTIPLY:106,NUMPAD_SUBTRACT:109,PAGE_DOWN:34,PAGE_UP:33,PERIOD:190,RIGHT:39,SPACE:32,TAB:9,UP:38}});$.fn.extend({focus:function(orig){return function(delay,fn){return typeof delay==="number"?this.each(function(){var elem=this;setTimeout(function(){$(elem).focus();if(fn){fn.call(elem)}},delay)}):orig.apply(this,arguments)}}($.fn.focus),scrollParent:function(){var scrollParent;if($.ui.ie&&/(static|relative)/.test(this.css("position"))||/absolute/.test(this.css("position"))){scrollParent=this.parents().filter(function(){return/(relative|absolute|fixed)/.test($.css(this,"position"))&&/(auto|scroll)/.test($.css(this,"overflow")+$.css(this,"overflow-y")+$.css(this,"overflow-x"))}).eq(0)}else{scrollParent=this.parents().filter(function(){return/(auto|scroll)/.test($.css(this,"overflow")+$.css(this,"overflow-y")+$.css(this,"overflow-x"))}).eq(0)}return/fixed/.test(this.css("position"))||!scrollParent.length?$(document):scrollParent},zIndex:function(zIndex){if(zIndex!==undefined){return this.css("zIndex",zIndex)}if(this.length){var elem=$(this[0]),position,value;while(elem.length&&elem[0]!==document){position=elem.css("position");if(position==="absolute"||position==="relative"||position==="fixed"){value=parseInt(elem.css("zIndex"),10);if(!isNaN(value)&&value!==0){return value}}elem=elem.parent()}}return 0},uniqueId:function(){return this.each(function(){if(!this.id){this.id="ui-id-"+ ++uuid}})},removeUniqueId:function(){return this.each(function(){if(runiqueId.test(this.id)){$(this).removeAttr("id")}})}});function focusable(element,isTabIndexNotNaN){var map,mapName,img,nodeName=element.nodeName.toLowerCase();if("area"===nodeName){map=element.parentNode;mapName=map.name;if(!element.href||!mapName||map.nodeName.toLowerCase()!=="map"){return false}img=$("img[usemap=#"+mapName+"]")[0];return!!img&&visible(img)}return(/input|select|textarea|button|object/.test(nodeName)?!element.disabled:"a"===nodeName?element.href||isTabIndexNotNaN:isTabIndexNotNaN)&&visible(element)}function visible(element){return $.expr.filters.visible(element)&&!$(element).parents().addBack().filter(function(){return $.css(this,"visibility")==="hidden"}).length}$.extend($.expr[":"],{data:$.expr.createPseudo?$.expr.createPseudo(function(dataName){return function(elem){return!!$.data(elem,dataName)}}):function(elem,i,match){return!!$.data(elem,match[3])},focusable:function(element){return focusable(element,!isNaN($.attr(element,"tabindex")))},tabbable:function(element){var tabIndex=$.attr(element,"tabindex"),isTabIndexNaN=isNaN(tabIndex);return(isTabIndexNaN||tabIndex>=0)&&focusable(element,!isTabIndexNaN)}});if(!$("<a>").outerWidth(1).jquery){$.each(["Width","Height"],function(i,name){var side=name==="Width"?["Left","Right"]:["Top","Bottom"],type=name.toLowerCase(),orig={innerWidth:$.fn.innerWidth,innerHeight:$.fn.innerHeight,outerWidth:$.fn.outerWidth,outerHeight:$.fn.outerHeight};function reduce(elem,size,border,margin){$.each(side,function(){size-=parseFloat($.css(elem,"padding"+this))||0;if(border){size-=parseFloat($.css(elem,"border"+this+"Width"))||0}if(margin){size-=parseFloat($.css(elem,"margin"+this))||0}});return size}$.fn["inner"+name]=function(size){if(size===undefined){return orig["inner"+name].call(this)}return this.each(function(){$(this).css(type,reduce(this,size)+"px")})};$.fn["outer"+name]=function(size,margin){if(typeof size!=="number"){return orig["outer"+name].call(this,size)}return this.each(function(){$(this).css(type,reduce(this,size,true,margin)+"px")})}})}if(!$.fn.addBack){$.fn.addBack=function(selector){return this.add(selector==null?this.prevObject:this.prevObject.filter(selector))}}if($("<a>").data("a-b","a").removeData("a-b").data("a-b")){$.fn.removeData=function(removeData){return function(key){if(arguments.length){return removeData.call(this,$.camelCase(key))}else{return removeData.call(this)}}}($.fn.removeData)}$.ui.ie=!!/msie [\w.]+/.exec(navigator.userAgent.toLowerCase());$.support.selectstart="onselectstart"in document.createElement("div");$.fn.extend({disableSelection:function(){return this.bind(($.support.selectstart?"selectstart":"mousedown")+".ui-disableSelection",function(event){event.preventDefault()})},enableSelection:function(){return this.unbind(".ui-disableSelection")}});$.extend($.ui,{plugin:{add:function(module,option,set){var i,proto=$.ui[module].prototype;for(i in set){proto.plugins[i]=proto.plugins[i]||[];proto.plugins[i].push([option,set[i]])}},call:function(instance,name,args){var i,set=instance.plugins[name];if(!set||!instance.element[0].parentNode||instance.element[0].parentNode.nodeType===11){return}for(i=0;i<set.length;i++){if(instance.options[set[i][0]]){set[i][1].apply(instance.element,args)}}}},hasScroll:function(el,a){if($(el).css("overflow")==="hidden"){return false}var scroll=a&&a==="left"?"scrollLeft":"scrollTop",has=false;if(el[scroll]>0){return true}el[scroll]=1;has=el[scroll]>0;el[scroll]=0;return has}})})(jQuery);(function($,undefined){var uuid=0,slice=Array.prototype.slice,_cleanData=$.cleanData;$.cleanData=function(elems){for(var i=0,elem;(elem=elems[i])!=null;i++){try{$(elem).triggerHandler("remove")}catch(e){}}_cleanData(elems)};$.widget=function(name,base,prototype){var fullName,existingConstructor,constructor,basePrototype,proxiedPrototype={},namespace=name.split(".")[0];name=name.split(".")[1];fullName=namespace+"-"+name;if(!prototype){prototype=base;base=$.Widget}$.expr[":"][fullName.toLowerCase()]=function(elem){return!!$.data(elem,fullName)};$[namespace]=$[namespace]||{};existingConstructor=$[namespace][name];constructor=$[namespace][name]=function(options,element){if(!this._createWidget){return new constructor(options,element)}if(arguments.length){this._createWidget(options,element)}};$.extend(constructor,existingConstructor,{version:prototype.version,_proto:$.extend({},prototype),_childConstructors:[]});basePrototype=new base;basePrototype.options=$.widget.extend({},basePrototype.options);$.each(prototype,function(prop,value){if(!$.isFunction(value)){proxiedPrototype[prop]=value;return}proxiedPrototype[prop]=function(){var _super=function(){return base.prototype[prop].apply(this,arguments)},_superApply=function(args){return base.prototype[prop].apply(this,args)};return function(){var __super=this._super,__superApply=this._superApply,returnValue;this._super=_super;this._superApply=_superApply;returnValue=value.apply(this,arguments);this._super=__super;this._superApply=__superApply;return returnValue}}()});constructor.prototype=$.widget.extend(basePrototype,{widgetEventPrefix:existingConstructor?basePrototype.widgetEventPrefix:name},proxiedPrototype,{constructor:constructor,namespace:namespace,widgetName:name,widgetFullName:fullName});if(existingConstructor){$.each(existingConstructor._childConstructors,function(i,child){var childPrototype=child.prototype;$.widget(childPrototype.namespace+"."+childPrototype.widgetName,constructor,child._proto)});delete existingConstructor._childConstructors}else{base._childConstructors.push(constructor)}$.widget.bridge(name,constructor)};$.widget.extend=function(target){var input=slice.call(arguments,1),inputIndex=0,inputLength=input.length,key,value;for(;inputIndex<inputLength;inputIndex++){for(key in input[inputIndex]){value=input[inputIndex][key];if(input[inputIndex].hasOwnProperty(key)&&value!==undefined){if($.isPlainObject(value)){target[key]=$.isPlainObject(target[key])?$.widget.extend({},target[key],value):$.widget.extend({},value)}else{target[key]=value}}}}return target};$.widget.bridge=function(name,object){var fullName=object.prototype.widgetFullName||name;$.fn[name]=function(options){var isMethodCall=typeof options==="string",args=slice.call(arguments,1),returnValue=this;options=!isMethodCall&&args.length?$.widget.extend.apply(null,[options].concat(args)):options;if(isMethodCall){this.each(function(){var methodValue,instance=$.data(this,fullName);if(!instance){return $.error("cannot call methods on "+name+" prior to initialization; "+"attempted to call method '"+options+"'")}if(!$.isFunction(instance[options])||options.charAt(0)==="_"){return $.error("no such method '"+options+"' for "+name+" widget instance")}methodValue=instance[options].apply(instance,args);if(methodValue!==instance&&methodValue!==undefined){returnValue=methodValue&&methodValue.jquery?returnValue.pushStack(methodValue.get()):methodValue;return false}})}else{this.each(function(){var instance=$.data(this,fullName);if(instance){instance.option(options||{})._init()}else{$.data(this,fullName,new object(options,this))}})}return returnValue}};$.Widget=function(){};$.Widget._childConstructors=[];$.Widget.prototype={widgetName:"widget",widgetEventPrefix:"",defaultElement:"<div>",options:{disabled:false,create:null},_createWidget:function(options,element){element=$(element||this.defaultElement||this)[0];this.element=$(element);this.uuid=uuid++;this.eventNamespace="."+this.widgetName+this.uuid;this.options=$.widget.extend({},this.options,this._getCreateOptions(),options);this.bindings=$();this.hoverable=$();this.focusable=$();if(element!==this){$.data(element,this.widgetFullName,this);this._on(true,this.element,{remove:function(event){if(event.target===element){this.destroy()}}});this.document=$(element.style?element.ownerDocument:element.document||element);this.window=$(this.document[0].defaultView||this.document[0].parentWindow)}this._create();this._trigger("create",null,this._getCreateEventData());this._init()},_getCreateOptions:$.noop,_getCreateEventData:$.noop,_create:$.noop,_init:$.noop,destroy:function(){this._destroy();this.element.unbind(this.eventNamespace).removeData(this.widgetName).removeData(this.widgetFullName).removeData($.camelCase(this.widgetFullName));this.widget().unbind(this.eventNamespace).removeAttr("aria-disabled").removeClass(this.widgetFullName+"-disabled "+"ui-state-disabled");this.bindings.unbind(this.eventNamespace);this.hoverable.removeClass("ui-state-hover");this.focusable.removeClass("ui-state-focus")},_destroy:$.noop,widget:function(){return this.element},option:function(key,value){var options=key,parts,curOption,i;if(arguments.length===0){return $.widget.extend({},this.options)}if(typeof key==="string"){options={};parts=key.split(".");key=parts.shift();if(parts.length){curOption=options[key]=$.widget.extend({},this.options[key]);for(i=0;i<parts.length-1;i++){curOption[parts[i]]=curOption[parts[i]]||{};curOption=curOption[parts[i]]}key=parts.pop();if(value===undefined){return curOption[key]===undefined?null:curOption[key]}curOption[key]=value}else{if(value===undefined){return this.options[key]===undefined?null:this.options[key]}options[key]=value}}this._setOptions(options);return this},_setOptions:function(options){var key;for(key in options){this._setOption(key,options[key])}return this},_setOption:function(key,value){this.options[key]=value;if(key==="disabled"){this.widget().toggleClass(this.widgetFullName+"-disabled ui-state-disabled",!!value).attr("aria-disabled",value);this.hoverable.removeClass("ui-state-hover");this.focusable.removeClass("ui-state-focus")}return this},enable:function(){return this._setOption("disabled",false)},disable:function(){return this._setOption("disabled",true)},_on:function(suppressDisabledCheck,element,handlers){var delegateElement,instance=this;if(typeof suppressDisabledCheck!=="boolean"){handlers=element;element=suppressDisabledCheck;suppressDisabledCheck=false}if(!handlers){handlers=element;element=this.element;delegateElement=this.widget()}else{element=delegateElement=$(element);this.bindings=this.bindings.add(element)}$.each(handlers,function(event,handler){function handlerProxy(){if(!suppressDisabledCheck&&(instance.options.disabled===true||$(this).hasClass("ui-state-disabled"))){return}return(typeof handler==="string"?instance[handler]:handler).apply(instance,arguments)}if(typeof handler!=="string"){handlerProxy.guid=handler.guid=handler.guid||handlerProxy.guid||$.guid++}var match=event.match(/^(\w+)\s*(.*)$/),eventName=match[1]+instance.eventNamespace,selector=match[2];if(selector){delegateElement.delegate(selector,eventName,handlerProxy)}else{element.bind(eventName,handlerProxy)}})},_off:function(element,eventName){eventName=(eventName||"").split(" ").join(this.eventNamespace+" ")+this.eventNamespace;element.unbind(eventName).undelegate(eventName)},_delay:function(handler,delay){function handlerProxy(){return(typeof handler==="string"?instance[handler]:handler).apply(instance,arguments)}var instance=this;return setTimeout(handlerProxy,delay||0)},_hoverable:function(element){this.hoverable=this.hoverable.add(element);this._on(element,{mouseenter:function(event){$(event.currentTarget).addClass("ui-state-hover")},mouseleave:function(event){$(event.currentTarget).removeClass("ui-state-hover")}})},_focusable:function(element){this.focusable=this.focusable.add(element);this._on(element,{focusin:function(event){$(event.currentTarget).addClass("ui-state-focus")},focusout:function(event){$(event.currentTarget).removeClass("ui-state-focus")}})},_trigger:function(type,event,data){var prop,orig,callback=this.options[type];data=data||{};event=$.Event(event);event.type=(type===this.widgetEventPrefix?type:this.widgetEventPrefix+type).toLowerCase();event.target=this.element[0];orig=event.originalEvent;if(orig){for(prop in orig){if(!(prop in event)){event[prop]=orig[prop]}}}this.element.trigger(event,data);return!($.isFunction(callback)&&callback.apply(this.element[0],[event].concat(data))===false||event.isDefaultPrevented())}};$.each({show:"fadeIn",hide:"fadeOut"},function(method,defaultEffect){$.Widget.prototype["_"+method]=function(element,options,callback){if(typeof options==="string"){options={effect:options}}var hasOptions,effectName=!options?method:options===true||typeof options==="number"?defaultEffect:options.effect||defaultEffect;options=options||{};if(typeof options==="number"){options={duration:options}}hasOptions=!$.isEmptyObject(options);options.complete=callback;if(options.delay){element.delay(options.delay)}if(hasOptions&&$.effects&&$.effects.effect[effectName]){element[method](options)}else if(effectName!==method&&element[effectName]){element[effectName](options.duration,options.easing,callback)}else{element.queue(function(next){$(this)[method]();if(callback){callback.call(element[0])}next()})}}})})(jQuery);(function($,undefined){$.ui=$.ui||{};var cachedScrollbarWidth,max=Math.max,abs=Math.abs,round=Math.round,rhorizontal=/left|center|right/,rvertical=/top|center|bottom/,roffset=/[\+\-]\d+(\.[\d]+)?%?/,rposition=/^\w+/,rpercent=/%$/,_position=$.fn.position;function getOffsets(offsets,width,height){return[parseFloat(offsets[0])*(rpercent.test(offsets[0])?width/100:1),parseFloat(offsets[1])*(rpercent.test(offsets[1])?height/100:1)]}function parseCss(element,property){return parseInt($.css(element,property),10)||0}function getDimensions(elem){var raw=elem[0];if(raw.nodeType===9){return{width:elem.width(),height:elem.height(),offset:{top:0,left:0}}}if($.isWindow(raw)){return{width:elem.width(),height:elem.height(),offset:{top:elem.scrollTop(),left:elem.scrollLeft()}}}if(raw.preventDefault){return{width:0,height:0,offset:{top:raw.pageY,left:raw.pageX}}}return{width:elem.outerWidth(),height:elem.outerHeight(),offset:elem.offset()}}$.position={scrollbarWidth:function(){if(cachedScrollbarWidth!==undefined){return cachedScrollbarWidth}var w1,w2,div=$("<div style='display:block;width:50px;height:50px;overflow:hidden;'><div style='height:100px;width:auto;'></div></div>"),innerDiv=div.children()[0];$("body").append(div);w1=innerDiv.offsetWidth;div.css("overflow","scroll");w2=innerDiv.offsetWidth;if(w1===w2){w2=div[0].clientWidth}div.remove();return cachedScrollbarWidth=w1-w2},getScrollInfo:function(within){var overflowX=within.isWindow?"":within.element.css("overflow-x"),overflowY=within.isWindow?"":within.element.css("overflow-y"),hasOverflowX=overflowX==="scroll"||overflowX==="auto"&&within.width<within.element[0].scrollWidth,hasOverflowY=overflowY==="scroll"||overflowY==="auto"&&within.height<within.element[0].scrollHeight;return{width:hasOverflowY?$.position.scrollbarWidth():0,height:hasOverflowX?$.position.scrollbarWidth():0}},getWithinInfo:function(element){var withinElement=$(element||window),isWindow=$.isWindow(withinElement[0]);return{element:withinElement,isWindow:isWindow,offset:withinElement.offset()||{left:0,top:0},scrollLeft:withinElement.scrollLeft(),scrollTop:withinElement.scrollTop(),width:isWindow?withinElement.width():withinElement.outerWidth(),height:isWindow?withinElement.height():withinElement.outerHeight()}}};$.fn.position=function(options){if(!options||!options.of){return _position.apply(this,arguments)}options=$.extend({},options);var atOffset,targetWidth,targetHeight,targetOffset,basePosition,dimensions,target=$(options.of),within=$.position.getWithinInfo(options.within),scrollInfo=$.position.getScrollInfo(within),collision=(options.collision||"flip").split(" "),offsets={};dimensions=getDimensions(target);if(target[0].preventDefault){options.at="left top"}targetWidth=dimensions.width;targetHeight=dimensions.height;targetOffset=dimensions.offset;basePosition=$.extend({},targetOffset);$.each(["my","at"],function(){var pos=(options[this]||"").split(" "),horizontalOffset,verticalOffset;if(pos.length===1){pos=rhorizontal.test(pos[0])?pos.concat(["center"]):rvertical.test(pos[0])?["center"].concat(pos):["center","center"]}pos[0]=rhorizontal.test(pos[0])?pos[0]:"center";pos[1]=rvertical.test(pos[1])?pos[1]:"center";horizontalOffset=roffset.exec(pos[0]);verticalOffset=roffset.exec(pos[1]);offsets[this]=[horizontalOffset?horizontalOffset[0]:0,verticalOffset?verticalOffset[0]:0];options[this]=[rposition.exec(pos[0])[0],rposition.exec(pos[1])[0]]});if(collision.length===1){collision[1]=collision[0]}if(options.at[0]==="right"){basePosition.left+=targetWidth}else if(options.at[0]==="center"){basePosition.left+=targetWidth/2}if(options.at[1]==="bottom"){basePosition.top+=targetHeight}else if(options.at[1]==="center"){basePosition.top+=targetHeight/2}atOffset=getOffsets(offsets.at,targetWidth,targetHeight);basePosition.left+=atOffset[0];basePosition.top+=atOffset[1];return this.each(function(){var collisionPosition,using,elem=$(this),elemWidth=elem.outerWidth(),elemHeight=elem.outerHeight(),marginLeft=parseCss(this,"marginLeft"),marginTop=parseCss(this,"marginTop"),collisionWidth=elemWidth+marginLeft+parseCss(this,"marginRight")+scrollInfo.width,collisionHeight=elemHeight+marginTop+parseCss(this,"marginBottom")+scrollInfo.height,position=$.extend({},basePosition),myOffset=getOffsets(offsets.my,elem.outerWidth(),elem.outerHeight());if(options.my[0]==="right"){position.left-=elemWidth}else if(options.my[0]==="center"){position.left-=elemWidth/2}if(options.my[1]==="bottom"){position.top-=elemHeight}else if(options.my[1]==="center"){position.top-=elemHeight/2}position.left+=myOffset[0];position.top+=myOffset[1];if(!$.support.offsetFractions){position.left=round(position.left);position.top=round(position.top)}collisionPosition={marginLeft:marginLeft,marginTop:marginTop};$.each(["left","top"],function(i,dir){if($.ui.position[collision[i]]){$.ui.position[collision[i]][dir](position,{targetWidth:targetWidth,targetHeight:targetHeight,elemWidth:elemWidth,elemHeight:elemHeight,collisionPosition:collisionPosition,collisionWidth:collisionWidth,collisionHeight:collisionHeight,offset:[atOffset[0]+myOffset[0],atOffset[1]+myOffset[1]],my:options.my,at:options.at,within:within,elem:elem})}});if(options.using){using=function(props){var left=targetOffset.left-position.left,right=left+targetWidth-elemWidth,top=targetOffset.top-position.top,bottom=top+targetHeight-elemHeight,feedback={target:{element:target,left:targetOffset.left,top:targetOffset.top,width:targetWidth,height:targetHeight},element:{element:elem,left:position.left,top:position.top,width:elemWidth,height:elemHeight},horizontal:right<0?"left":left>0?"right":"center",vertical:bottom<0?"top":top>0?"bottom":"middle"};if(targetWidth<elemWidth&&abs(left+right)<targetWidth){feedback.horizontal="center"}if(targetHeight<elemHeight&&abs(top+bottom)<targetHeight){feedback.vertical="middle"}if(max(abs(left),abs(right))>max(abs(top),abs(bottom))){feedback.important="horizontal"}else{feedback.important="vertical"}options.using.call(this,props,feedback)}}elem.offset($.extend(position,{using:using}))})};$.ui.position={fit:{left:function(position,data){var within=data.within,withinOffset=within.isWindow?within.scrollLeft:within.offset.left,outerWidth=within.width,collisionPosLeft=position.left-data.collisionPosition.marginLeft,overLeft=withinOffset-collisionPosLeft,overRight=collisionPosLeft+data.collisionWidth-outerWidth-withinOffset,newOverRight;if(data.collisionWidth>outerWidth){if(overLeft>0&&overRight<=0){newOverRight=position.left+overLeft+data.collisionWidth-outerWidth-withinOffset;position.left+=overLeft-newOverRight}else if(overRight>0&&overLeft<=0){position.left=withinOffset}else{if(overLeft>overRight){position.left=withinOffset+outerWidth-data.collisionWidth}else{position.left=withinOffset}}}else if(overLeft>0){position.left+=overLeft}else if(overRight>0){position.left-=overRight}else{position.left=max(position.left-collisionPosLeft,position.left)}},top:function(position,data){var within=data.within,withinOffset=within.isWindow?within.scrollTop:within.offset.top,outerHeight=data.within.height,collisionPosTop=position.top-data.collisionPosition.marginTop,overTop=withinOffset-collisionPosTop,overBottom=collisionPosTop+data.collisionHeight-outerHeight-withinOffset,newOverBottom;if(data.collisionHeight>outerHeight){if(overTop>0&&overBottom<=0){newOverBottom=position.top+overTop+data.collisionHeight-outerHeight-withinOffset;position.top+=overTop-newOverBottom}else if(overBottom>0&&overTop<=0){position.top=withinOffset}else{if(overTop>overBottom){position.top=withinOffset+outerHeight-data.collisionHeight}else{position.top=withinOffset}}}else if(overTop>0){position.top+=overTop}else if(overBottom>0){position.top-=overBottom}else{position.top=max(position.top-collisionPosTop,position.top)}}},flip:{left:function(position,data){var within=data.within,withinOffset=within.offset.left+within.scrollLeft,outerWidth=within.width,offsetLeft=within.isWindow?within.scrollLeft:within.offset.left,collisionPosLeft=position.left-data.collisionPosition.marginLeft,overLeft=collisionPosLeft-offsetLeft,overRight=collisionPosLeft+data.collisionWidth-outerWidth-offsetLeft,myOffset=data.my[0]==="left"?-data.elemWidth:data.my[0]==="right"?data.elemWidth:0,atOffset=data.at[0]==="left"?data.targetWidth:data.at[0]==="right"?-data.targetWidth:0,offset=-2*data.offset[0],newOverRight,newOverLeft;if(overLeft<0){newOverRight=position.left+myOffset+atOffset+offset+data.collisionWidth-outerWidth-withinOffset;if(newOverRight<0||newOverRight<abs(overLeft)){position.left+=myOffset+atOffset+offset}}else if(overRight>0){newOverLeft=position.left-data.collisionPosition.marginLeft+myOffset+atOffset+offset-offsetLeft;if(newOverLeft>0||abs(newOverLeft)<overRight){position.left+=myOffset+atOffset+offset}}},top:function(position,data){var within=data.within,withinOffset=within.offset.top+within.scrollTop,outerHeight=within.height,offsetTop=within.isWindow?within.scrollTop:within.offset.top,collisionPosTop=position.top-data.collisionPosition.marginTop,overTop=collisionPosTop-offsetTop,overBottom=collisionPosTop+data.collisionHeight-outerHeight-offsetTop,top=data.my[1]==="top",myOffset=top?-data.elemHeight:data.my[1]==="bottom"?data.elemHeight:0,atOffset=data.at[1]==="top"?data.targetHeight:data.at[1]==="bottom"?-data.targetHeight:0,offset=-2*data.offset[1],newOverTop,newOverBottom;if(overTop<0){newOverBottom=position.top+myOffset+atOffset+offset+data.collisionHeight-outerHeight-withinOffset;if(position.top+myOffset+atOffset+offset>overTop&&(newOverBottom<0||newOverBottom<abs(overTop))){position.top+=myOffset+atOffset+offset}}else if(overBottom>0){newOverTop=position.top-data.collisionPosition.marginTop+myOffset+atOffset+offset-offsetTop;if(position.top+myOffset+atOffset+offset>overBottom&&(newOverTop>0||abs(newOverTop)<overBottom)){position.top+=myOffset+atOffset+offset}}}},flipfit:{left:function(){$.ui.position.flip.left.apply(this,arguments);$.ui.position.fit.left.apply(this,arguments)},top:function(){$.ui.position.flip.top.apply(this,arguments);$.ui.position.fit.top.apply(this,arguments)}}};(function(){var testElement,testElementParent,testElementStyle,offsetLeft,i,body=document.getElementsByTagName("body")[0],div=document.createElement("div");testElement=document.createElement(body?"div":"body");testElementStyle={visibility:"hidden",width:0,height:0,border:0,margin:0,background:"none"};if(body){$.extend(testElementStyle,{position:"absolute",left:"-1000px",top:"-1000px"})}for(i in testElementStyle){testElement.style[i]=testElementStyle[i]}testElement.appendChild(div);testElementParent=body||document.documentElement;testElementParent.insertBefore(testElement,testElementParent.firstChild);div.style.cssText="position: absolute; left: 10.7432222px;";offsetLeft=$(div).offset().left;$.support.offsetFractions=offsetLeft>10&&offsetLeft<11;testElement.innerHTML="";testElementParent.removeChild(testElement)})()})(jQuery);(function($,undefined){var requestIndex=0;$.widget("ui.autocomplete",{version:"1.10.3",defaultElement:"<input>",options:{appendTo:null,autoFocus:false,delay:300,minLength:1,position:{my:"left top",at:"left bottom",collision:"none"},source:null,change:null,close:null,focus:null,open:null,response:null,search:null,select:null},pending:0,_create:function(){var suppressKeyPress,suppressKeyPressRepeat,suppressInput,nodeName=this.element[0].nodeName.toLowerCase(),isTextarea=nodeName==="textarea",isInput=nodeName==="input";this.isMultiLine=isTextarea?true:isInput?false:this.element.prop("isContentEditable");this.valueMethod=this.element[isTextarea||isInput?"val":"text"];this.isNewMenu=true;this.element.addClass("ui-autocomplete-input").attr("autocomplete","off");this._on(this.element,{keydown:function(event){if(this.element.prop("readOnly")){suppressKeyPress=true;suppressInput=true;suppressKeyPressRepeat=true;return}suppressKeyPress=false;suppressInput=false;suppressKeyPressRepeat=false;var keyCode=$.ui.keyCode;switch(event.keyCode){case keyCode.PAGE_UP:suppressKeyPress=true;this._move("previousPage",event);break;case keyCode.PAGE_DOWN:suppressKeyPress=true;this._move("nextPage",event);break;case keyCode.UP:suppressKeyPress=true;this._keyEvent("previous",event);break;case keyCode.DOWN:suppressKeyPress=true;this._keyEvent("next",event);break;case keyCode.ENTER:case keyCode.NUMPAD_ENTER:if(this.menu.active){suppressKeyPress=true;event.preventDefault();this.menu.select(event)}break;case keyCode.TAB:if(this.menu.active){this.menu.select(event)}break;case keyCode.ESCAPE:if(this.menu.element.is(":visible")){this._value(this.term);this.close(event);event.preventDefault()}break;default:suppressKeyPressRepeat=true;this._searchTimeout(event);break}},keypress:function(event){if(suppressKeyPress){suppressKeyPress=false;if(!this.isMultiLine||this.menu.element.is(":visible")){event.preventDefault()}return}if(suppressKeyPressRepeat){return}var keyCode=$.ui.keyCode;switch(event.keyCode){case keyCode.PAGE_UP:this._move("previousPage",event);break;case keyCode.PAGE_DOWN:this._move("nextPage",event);break;case keyCode.UP:this._keyEvent("previous",event);break;case keyCode.DOWN:this._keyEvent("next",event);break}},input:function(event){if(suppressInput){suppressInput=false;event.preventDefault();return}this._searchTimeout(event)},focus:function(){this.selectedItem=null;this.previous=this._value()},blur:function(event){if(this.cancelBlur){delete this.cancelBlur;return}clearTimeout(this.searching);this.close(event);this._change(event)}});this._initSource();this.menu=$("<ul>").addClass("ui-autocomplete ui-front").appendTo(this._appendTo()).menu({role:null}).hide().data("ui-menu");this._on(this.menu.element,{mousedown:function(event){event.preventDefault();this.cancelBlur=true;this._delay(function(){delete this.cancelBlur});var menuElement=this.menu.element[0];if(!$(event.target).closest(".ui-menu-item").length){this._delay(function(){var that=this;this.document.one("mousedown",function(event){if(event.target!==that.element[0]&&event.target!==menuElement&&!$.contains(menuElement,event.target)){that.close()}})})}},menufocus:function(event,ui){if(this.isNewMenu){this.isNewMenu=false;if(event.originalEvent&&/^mouse/.test(event.originalEvent.type)){this.menu.blur();this.document.one("mousemove",function(){$(event.target).trigger(event.originalEvent)});return}}var item=ui.item.data("ui-autocomplete-item");if(false!==this._trigger("focus",event,{item:item})){if(event.originalEvent&&/^key/.test(event.originalEvent.type)){this._value(item.value)}}else{this.liveRegion.text(item.value)}},menuselect:function(event,ui){var item=ui.item.data("ui-autocomplete-item"),previous=this.previous;if(this.element[0]!==this.document[0].activeElement){this.element.focus();this.previous=previous;this._delay(function(){this.previous=previous;this.selectedItem=item})}if(false!==this._trigger("select",event,{item:item})){this._value(item.value)}this.term=this._value();this.close(event);this.selectedItem=item}});this.liveRegion=$("<span>",{role:"status","aria-live":"polite"}).addClass("ui-helper-hidden-accessible").insertBefore(this.element);this._on(this.window,{beforeunload:function(){this.element.removeAttr("autocomplete")}})},_destroy:function(){clearTimeout(this.searching);this.element.removeClass("ui-autocomplete-input").removeAttr("autocomplete");this.menu.element.remove();this.liveRegion.remove()},_setOption:function(key,value){this._super(key,value);if(key==="source"){this._initSource()}if(key==="appendTo"){this.menu.element.appendTo(this._appendTo())}if(key==="disabled"&&value&&this.xhr){this.xhr.abort()}},_appendTo:function(){var element=this.options.appendTo;if(element){element=element.jquery||element.nodeType?$(element):this.document.find(element).eq(0)}if(!element){element=this.element.closest(".ui-front")}if(!element.length){element=this.document[0].body}return element},_initSource:function(){var array,url,that=this;if($.isArray(this.options.source)){array=this.options.source;this.source=function(request,response){response($.ui.autocomplete.filter(array,request.term))}}else if(typeof this.options.source==="string"){url=this.options.source;this.source=function(request,response){if(that.xhr){that.xhr.abort()}that.xhr=$.ajax({url:url,data:request,dataType:"json",success:function(data){response(data)},error:function(){response([])}})}}else{this.source=this.options.source}},_searchTimeout:function(event){clearTimeout(this.searching);this.searching=this._delay(function(){if(this.term!==this._value()){this.selectedItem=null;this.search(null,event)}},this.options.delay)},search:function(value,event){value=value!=null?value:this._value();this.term=this._value();if(value.length<this.options.minLength){return this.close(event)}if(this._trigger("search",event)===false){return}return this._search(value)},_search:function(value){this.pending++;this.element.addClass("ui-autocomplete-loading");this.cancelSearch=false;this.source({term:value},this._response())},_response:function(){var that=this,index=++requestIndex;return function(content){if(index===requestIndex){that.__response(content)}that.pending--;if(!that.pending){that.element.removeClass("ui-autocomplete-loading")}}},__response:function(content){if(content){content=this._normalize(content)}this._trigger("response",null,{content:content});if(!this.options.disabled&&content&&content.length&&!this.cancelSearch){this._suggest(content);this._trigger("open")}else{this._close()}},close:function(event){this.cancelSearch=true;
-this._close(event)},_close:function(event){if(this.menu.element.is(":visible")){this.menu.element.hide();this.menu.blur();this.isNewMenu=true;this._trigger("close",event)}},_change:function(event){if(this.previous!==this._value()){this._trigger("change",event,{item:this.selectedItem})}},_normalize:function(items){if(items.length&&items[0].label&&items[0].value){return items}return $.map(items,function(item){if(typeof item==="string"){return{label:item,value:item}}return $.extend({label:item.label||item.value,value:item.value||item.label},item)})},_suggest:function(items){var ul=this.menu.element.empty();this._renderMenu(ul,items);this.isNewMenu=true;this.menu.refresh();ul.show();this._resizeMenu();ul.position($.extend({of:this.element},this.options.position));if(this.options.autoFocus){this.menu.next()}},_resizeMenu:function(){var ul=this.menu.element;ul.outerWidth(Math.max(ul.width("").outerWidth()+1,this.element.outerWidth()))},_renderMenu:function(ul,items){var that=this;$.each(items,function(index,item){that._renderItemData(ul,item)})},_renderItemData:function(ul,item){return this._renderItem(ul,item).data("ui-autocomplete-item",item)},_renderItem:function(ul,item){return $("<li>").append($("<a>").text(item.label)).appendTo(ul)},_move:function(direction,event){if(!this.menu.element.is(":visible")){this.search(null,event);return}if(this.menu.isFirstItem()&&/^previous/.test(direction)||this.menu.isLastItem()&&/^next/.test(direction)){this._value(this.term);this.menu.blur();return}this.menu[direction](event)},widget:function(){return this.menu.element},_value:function(){return this.valueMethod.apply(this.element,arguments)},_keyEvent:function(keyEvent,event){if(!this.isMultiLine||this.menu.element.is(":visible")){this._move(keyEvent,event);event.preventDefault()}}});$.extend($.ui.autocomplete,{escapeRegex:function(value){return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&")},filter:function(array,term){var matcher=new RegExp($.ui.autocomplete.escapeRegex(term),"i");return $.grep(array,function(value){return matcher.test(value.label||value.value||value)})}});$.widget("ui.autocomplete",$.ui.autocomplete,{options:{messages:{noResults:"No search results.",results:function(amount){return amount+(amount>1?" results are":" result is")+" available, use up and down arrow keys to navigate."}}},__response:function(content){var message;this._superApply(arguments);if(this.options.disabled||this.cancelSearch){return}if(content&&content.length){message=this.options.messages.results(content.length)}else{message=this.options.messages.noResults}this.liveRegion.text(message)}})})(jQuery);(function($,undefined){$.widget("ui.menu",{version:"1.10.3",defaultElement:"<ul>",delay:300,options:{icons:{submenu:"ui-icon-carat-1-e"},menus:"ul",position:{my:"left top",at:"right top"},role:"menu",blur:null,focus:null,select:null},_create:function(){this.activeMenu=this.element;this.mouseHandled=false;this.element.uniqueId().addClass("ui-menu ui-widget ui-widget-content ui-corner-all").toggleClass("ui-menu-icons",!!this.element.find(".ui-icon").length).attr({role:this.options.role,tabIndex:0}).bind("click"+this.eventNamespace,$.proxy(function(event){if(this.options.disabled){event.preventDefault()}},this));if(this.options.disabled){this.element.addClass("ui-state-disabled").attr("aria-disabled","true")}this._on({"mousedown .ui-menu-item > a":function(event){event.preventDefault()},"click .ui-state-disabled > a":function(event){event.preventDefault()},"click .ui-menu-item:has(a)":function(event){var target=$(event.target).closest(".ui-menu-item");if(!this.mouseHandled&&target.not(".ui-state-disabled").length){this.mouseHandled=true;this.select(event);if(target.has(".ui-menu").length){this.expand(event)}else if(!this.element.is(":focus")){this.element.trigger("focus",[true]);if(this.active&&this.active.parents(".ui-menu").length===1){clearTimeout(this.timer)}}}},"mouseenter .ui-menu-item":function(event){var target=$(event.currentTarget);target.siblings().children(".ui-state-active").removeClass("ui-state-active");this.focus(event,target)},mouseleave:"collapseAll","mouseleave .ui-menu":"collapseAll",focus:function(event,keepActiveItem){var item=this.active||this.element.children(".ui-menu-item").eq(0);if(!keepActiveItem){this.focus(event,item)}},blur:function(event){this._delay(function(){if(!$.contains(this.element[0],this.document[0].activeElement)){this.collapseAll(event)}})},keydown:"_keydown"});this.refresh();this._on(this.document,{click:function(event){if(!$(event.target).closest(".ui-menu").length){this.collapseAll(event)}this.mouseHandled=false}})},_destroy:function(){this.element.removeAttr("aria-activedescendant").find(".ui-menu").addBack().removeClass("ui-menu ui-widget ui-widget-content ui-corner-all ui-menu-icons").removeAttr("role").removeAttr("tabIndex").removeAttr("aria-labelledby").removeAttr("aria-expanded").removeAttr("aria-hidden").removeAttr("aria-disabled").removeUniqueId().show();this.element.find(".ui-menu-item").removeClass("ui-menu-item").removeAttr("role").removeAttr("aria-disabled").children("a").removeUniqueId().removeClass("ui-corner-all ui-state-hover").removeAttr("tabIndex").removeAttr("role").removeAttr("aria-haspopup").children().each(function(){var elem=$(this);if(elem.data("ui-menu-submenu-carat")){elem.remove()}});this.element.find(".ui-menu-divider").removeClass("ui-menu-divider ui-widget-content")},_keydown:function(event){var match,prev,character,skip,regex,preventDefault=true;function escape(value){return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&")}switch(event.keyCode){case $.ui.keyCode.PAGE_UP:this.previousPage(event);break;case $.ui.keyCode.PAGE_DOWN:this.nextPage(event);break;case $.ui.keyCode.HOME:this._move("first","first",event);break;case $.ui.keyCode.END:this._move("last","last",event);break;case $.ui.keyCode.UP:this.previous(event);break;case $.ui.keyCode.DOWN:this.next(event);break;case $.ui.keyCode.LEFT:this.collapse(event);break;case $.ui.keyCode.RIGHT:if(this.active&&!this.active.is(".ui-state-disabled")){this.expand(event)}break;case $.ui.keyCode.ENTER:case $.ui.keyCode.SPACE:this._activate(event);break;case $.ui.keyCode.ESCAPE:this.collapse(event);break;default:preventDefault=false;prev=this.previousFilter||"";character=String.fromCharCode(event.keyCode);skip=false;clearTimeout(this.filterTimer);if(character===prev){skip=true}else{character=prev+character}regex=new RegExp("^"+escape(character),"i");match=this.activeMenu.children(".ui-menu-item").filter(function(){return regex.test($(this).children("a").text())});match=skip&&match.index(this.active.next())!==-1?this.active.nextAll(".ui-menu-item"):match;if(!match.length){character=String.fromCharCode(event.keyCode);regex=new RegExp("^"+escape(character),"i");match=this.activeMenu.children(".ui-menu-item").filter(function(){return regex.test($(this).children("a").text())})}if(match.length){this.focus(event,match);if(match.length>1){this.previousFilter=character;this.filterTimer=this._delay(function(){delete this.previousFilter},1e3)}else{delete this.previousFilter}}else{delete this.previousFilter}}if(preventDefault){event.preventDefault()}},_activate:function(event){if(!this.active.is(".ui-state-disabled")){if(this.active.children("a[aria-haspopup='true']").length){this.expand(event)}else{this.select(event)}}},refresh:function(){var menus,icon=this.options.icons.submenu,submenus=this.element.find(this.options.menus);submenus.filter(":not(.ui-menu)").addClass("ui-menu ui-widget ui-widget-content ui-corner-all").hide().attr({role:this.options.role,"aria-hidden":"true","aria-expanded":"false"}).each(function(){var menu=$(this),item=menu.prev("a"),submenuCarat=$("<span>").addClass("ui-menu-icon ui-icon "+icon).data("ui-menu-submenu-carat",true);item.attr("aria-haspopup","true").prepend(submenuCarat);menu.attr("aria-labelledby",item.attr("id"))});menus=submenus.add(this.element);menus.children(":not(.ui-menu-item):has(a)").addClass("ui-menu-item").attr("role","presentation").children("a").uniqueId().addClass("ui-corner-all").attr({tabIndex:-1,role:this._itemRole()});menus.children(":not(.ui-menu-item)").each(function(){var item=$(this);if(!/[^\-\u2014\u2013\s]/.test(item.text())){item.addClass("ui-widget-content ui-menu-divider")}});menus.children(".ui-state-disabled").attr("aria-disabled","true");if(this.active&&!$.contains(this.element[0],this.active[0])){this.blur()}},_itemRole:function(){return{menu:"menuitem",listbox:"option"}[this.options.role]},_setOption:function(key,value){if(key==="icons"){this.element.find(".ui-menu-icon").removeClass(this.options.icons.submenu).addClass(value.submenu)}this._super(key,value)},focus:function(event,item){var nested,focused;this.blur(event,event&&event.type==="focus");this._scrollIntoView(item);this.active=item.first();focused=this.active.children("a").addClass("ui-state-focus");if(this.options.role){this.element.attr("aria-activedescendant",focused.attr("id"))}this.active.parent().closest(".ui-menu-item").children("a:first").addClass("ui-state-active");if(event&&event.type==="keydown"){this._close()}else{this.timer=this._delay(function(){this._close()},this.delay)}nested=item.children(".ui-menu");if(nested.length&&/^mouse/.test(event.type)){this._startOpening(nested)}this.activeMenu=item.parent();this._trigger("focus",event,{item:item})},_scrollIntoView:function(item){var borderTop,paddingTop,offset,scroll,elementHeight,itemHeight;if(this._hasScroll()){borderTop=parseFloat($.css(this.activeMenu[0],"borderTopWidth"))||0;paddingTop=parseFloat($.css(this.activeMenu[0],"paddingTop"))||0;offset=item.offset().top-this.activeMenu.offset().top-borderTop-paddingTop;scroll=this.activeMenu.scrollTop();elementHeight=this.activeMenu.height();itemHeight=item.height();if(offset<0){this.activeMenu.scrollTop(scroll+offset)}else if(offset+itemHeight>elementHeight){this.activeMenu.scrollTop(scroll+offset-elementHeight+itemHeight)}}},blur:function(event,fromFocus){if(!fromFocus){clearTimeout(this.timer)}if(!this.active){return}this.active.children("a").removeClass("ui-state-focus");this.active=null;this._trigger("blur",event,{item:this.active})},_startOpening:function(submenu){clearTimeout(this.timer);if(submenu.attr("aria-hidden")!=="true"){return}this.timer=this._delay(function(){this._close();this._open(submenu)},this.delay)},_open:function(submenu){var position=$.extend({of:this.active},this.options.position);clearTimeout(this.timer);this.element.find(".ui-menu").not(submenu.parents(".ui-menu")).hide().attr("aria-hidden","true");submenu.show().removeAttr("aria-hidden").attr("aria-expanded","true").position(position)},collapseAll:function(event,all){clearTimeout(this.timer);this.timer=this._delay(function(){var currentMenu=all?this.element:$(event&&event.target).closest(this.element.find(".ui-menu"));if(!currentMenu.length){currentMenu=this.element}this._close(currentMenu);this.blur(event);this.activeMenu=currentMenu},this.delay)},_close:function(startMenu){if(!startMenu){startMenu=this.active?this.active.parent():this.element}startMenu.find(".ui-menu").hide().attr("aria-hidden","true").attr("aria-expanded","false").end().find("a.ui-state-active").removeClass("ui-state-active")},collapse:function(event){var newItem=this.active&&this.active.parent().closest(".ui-menu-item",this.element);if(newItem&&newItem.length){this._close();this.focus(event,newItem)}},expand:function(event){var newItem=this.active&&this.active.children(".ui-menu ").children(".ui-menu-item").first();if(newItem&&newItem.length){this._open(newItem.parent());this._delay(function(){this.focus(event,newItem)})}},next:function(event){this._move("next","first",event)},previous:function(event){this._move("prev","last",event)},isFirstItem:function(){return this.active&&!this.active.prevAll(".ui-menu-item").length},isLastItem:function(){return this.active&&!this.active.nextAll(".ui-menu-item").length},_move:function(direction,filter,event){var next;if(this.active){if(direction==="first"||direction==="last"){next=this.active[direction==="first"?"prevAll":"nextAll"](".ui-menu-item").eq(-1)}else{next=this.active[direction+"All"](".ui-menu-item").eq(0)}}if(!next||!next.length||!this.active){next=this.activeMenu.children(".ui-menu-item")[filter]()}this.focus(event,next)},nextPage:function(event){var item,base,height;if(!this.active){this.next(event);return}if(this.isLastItem()){return}if(this._hasScroll()){base=this.active.offset().top;height=this.element.height();this.active.nextAll(".ui-menu-item").each(function(){item=$(this);return item.offset().top-base-height<0});this.focus(event,item)}else{this.focus(event,this.activeMenu.children(".ui-menu-item")[!this.active?"first":"last"]())}},previousPage:function(event){var item,base,height;if(!this.active){this.next(event);return}if(this.isFirstItem()){return}if(this._hasScroll()){base=this.active.offset().top;height=this.element.height();this.active.prevAll(".ui-menu-item").each(function(){item=$(this);return item.offset().top-base+height>0});this.focus(event,item)}else{this.focus(event,this.activeMenu.children(".ui-menu-item").first())}},_hasScroll:function(){return this.element.outerHeight()<this.element.prop("scrollHeight")},select:function(event){this.active=this.active||$(event.target).closest(".ui-menu-item");var ui={item:this.active};if(!this.active.has(".ui-menu").length){this.collapseAll(event,true)}this._trigger("select",event,ui)}})})(jQuery);
-var HEROCALCULATOR=function(my){var my={};my.heroData={};my.itemData={};my.unitData={};my.abilityData={};my.stackableitems=["clarity","flask","dust","ward_observer","ward_sentry","tango","tpscroll","smoke_of_deceit"];my.levelitems=["necronomicon","dagon","diffusal_blade"];my.ItemInput=function(value,name){this.value=ko.observable(value);this.name=ko.observable(name);this.displayname=ko.observable(name+" ")};my.InventoryViewModel=function(){var self=this,itemswithactive=["smoke_of_deceit","dust","ghost","tranquil_boots","phase_boots","power_treads","buckler","medallion_of_courage","ancient_janggo","mekansm","pipe","veil_of_discord","rod_of_atos","orchid","sheepstick","armlet","invis_sword","ethereal_blade","shivas_guard","manta","mask_of_madness","diffusal_blade","mjollnir","satanic","ring_of_basilius","ring_of_aquila"];self.hasInventory=ko.observable(true);self.items=ko.observableArray();self.activeItems=ko.observableArray([]);self.hasScepter=ko.computed(function(){for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(item=="ultimate_scepter"&&self.items()[i].enabled()){return true}}return false},this);self.totalCost=ko.computed(function(){var c=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(!self.items()[i].enabled())continue;if(my.stackableitems.indexOf(item)!=-1){c+=my.itemData["item_"+item].itemcost*self.items()[i].size}else if(my.levelitems.indexOf(item)!=-1){switch(item){case"diffusal_blade":c+=my.itemData["item_"+item].itemcost+(self.items()[i].size-1)*850;break;case"necronomicon":case"dagon":c+=my.itemData["item_"+item].itemcost+(self.items()[i].size-1)*1250;break;default:c+=my.itemData["item_"+item].itemcost;break}}else{c+=my.itemData["item_"+item].itemcost}}return c},this);self.addItem=function(data,event){if(self.hasInventory()&&data.selectedItem()!=undefined){var new_item={item:data.selectedItem(),state:ko.observable(0),size:data.itemInputValue(),enabled:ko.observable(true)};self.items.push(new_item);if(data.selectedItem()=="ring_of_aquila"||data.selectedItem()=="ring_of_basilius"){self.toggleItem(undefined,new_item,undefined)}}};self.toggleItem=function(index,data,event){if(itemswithactive.indexOf(data.item)>=0){if(self.activeItems.indexOf(data)<0){self.activeItems.push(data)}else{self.activeItems.remove(data)}switch(data.item){case"power_treads":if(data.state()<2){data.state(data.state()+1)}else{data.state(0)}break;default:if(data.state()==0){data.state(1)}else{data.state(0)}break}}}.bind(this);self.removeItem=function(item){self.activeItems.remove(item);self.items.remove(item)}.bind(this);self.toggleMuteItem=function(item){item.enabled(!item.enabled())}.bind(this);self.getItemImage=function(data){switch(data.item){case"power_treads":if(data.state()==0){return"/media/images/items/"+data.item+"_str.png"}else if(data.state()==1){return"/media/images/items/"+data.item+"_int.png"}else{return"/media/images/items/"+data.item+"_agi.png"}break;case"tranquil_boots":case"ring_of_basilius":if(data.state()==0){return"/media/images/items/"+data.item+".png"}else{return"/media/images/items/"+data.item+"_active.png"}break;case"armlet":if(data.state()==0){return"/media/images/items/"+data.item+".png"}else{return"/media/images/items/"+data.item+"_active.png"}break;case"ring_of_aquila":if(data.state()==0){return"/media/images/items/"+data.item+"_active.png"}else{return"/media/images/items/"+data.item+".png"}break;case"dagon":case"diffusal_blade":case"necronomicon":if(data.size>1){return"/media/images/items/"+data.item+"_"+data.size+".png"}else{return"/media/images/items/"+data.item+".png"}break;default:return"/media/images/items/"+data.item+".png";break}};self.getItemSizeLabel=function(data){if(my.stackableitems.indexOf(data.item)!=-1){return'<span style="font-size:10px">Qty: </span>'+data.size}else if(my.levelitems.indexOf(data.item)!=-1){return'<span style="font-size:10px">Lvl: </span>'+data.size}else if(data.item=="bloodstone"){return'<span style="font-size:10px">Charges: </span>'+data.size}else{return""}};self.getActiveBorder=function(data){switch(data.item){case"power_treads":case"tranquil_boots":case"ring_of_basilius":case"ring_of_aquila":case"armlet":return 0;break;default:return data.state();break}};self.getItemAttributeValue=function(attributes,attributename,level){for(var i=0;i<attributes.length;i++){if(attributes[i].name==attributename){if(level==0){return parseFloat(attributes[i].value[0])}else if(level>attributes[i].value.length){return parseFloat(attributes[i].value[0])}else{return parseFloat(attributes[i].value[level-1])}}}};self.getAttributes=function(attributetype){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;var size=self.items()[i].size;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_all_stats":total_attribute+=parseInt(attribute.value[0]);break;case"bonus_stats":total_attribute+=parseInt(attribute.value[0]);break}switch(attributetype){case"agi":if(attribute.name=="bonus_agility"){if(item=="diffusal_blade"){total_attribute+=parseInt(attribute.value[size-1])}else{total_attribute+=parseInt(attribute.value[0])}}if(attribute.name=="bonus_stat"&&self.items()[i].state()==2){total_attribute+=parseInt(attribute.value[0])};break;case"int":if(attribute.name=="bonus_intellect"){if(item=="necronomicon"){total_attribute+=parseInt(attribute.value[size-1])}else if(item=="diffusal_blade"){total_attribute+=parseInt(attribute.value[size-1])}else if(item=="dagon"){total_attribute+=parseInt(attribute.value[size-1])}else{total_attribute+=parseInt(attribute.value[0])}}if(attribute.name=="bonus_int"){total_attribute+=parseInt(attribute.value[0])};if(attribute.name=="bonus_stat"&&self.items()[i].state()==1){total_attribute+=parseInt(attribute.value[0])};break;case"str":if(attribute.name=="bonus_strength"){if(item=="necronomicon"){total_attribute+=parseInt(attribute.value[size-1])}else{total_attribute+=parseInt(attribute.value[0])}}if(attribute.name=="bonus_stat"&&self.items()[i].state()==0){total_attribute+=parseInt(attribute.value[0])};if(attribute.name=="unholy_bonus_strength"&&isactive){total_attribute+=parseInt(attribute.value[0])};break}}}return total_attribute};self.getBash=function(attacktype){var total_attribute=1;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bash_chance":total_attribute*=1-parseInt(attribute.value[0])/100;break;case"bash_chance_melee":if(attacktype=="DOTA_UNIT_CAP_MELEE_ATTACK"){total_attribute*=1-parseInt(attribute.value[0])/100};break;case"bash_chance_ranged":if(attacktype=="DOTA_UNIT_CAP_RANGED_ATTACK"){total_attribute*=1-parseInt(attribute.value[0])/100};break}}}return total_attribute};self.getCritChance=function(){var total_attribute=1;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"crit_chance":total_attribute*=1-parseInt(attribute.value[0])/100;break}}}return total_attribute};self.getCritSource=function(){var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;switch(item){case"lesser_crit":case"greater_crit":if(sources[item]==undefined){sources[item]={chance:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"crit_chance",0)/100,multiplier:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"crit_multiplier",0)/100,count:1,displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break}}return sources};self.getCleaveSource=function(){var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;switch(item){case"bfury":if(sources[item]==undefined){sources[item]={radius:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"cleave_radius",0),magnitude:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"cleave_damage_percent",0)/100,count:1,displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break}}return sources};self.getBashSource=function(attacktype){var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;switch(item){case"javelin":if(sources[item]==undefined){sources[item]={damage:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bonus_chance_damage",1),damagetype:"physical",count:1,chance:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bonus_chance",1)/100,displayname:my.itemData["item_"+item].displayname+" Pierce"}}else{sources[item].count+=1}break;case"monkey_king_bar":if(sources[item]==undefined){sources[item]={item:item,chance:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_chance",0)/100,damage:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_damage",0),duration:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_stun",0),count:1,damagetype:"magic",displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break;case"abyssal_blade":case"basher":if(sources[item]==undefined){if(attacktype=="DOTA_UNIT_CAP_MELEE_ATTACK"){sources[item]={item:item,chance:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_chance_melee",0)/100,damage:0,duration:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_duration",0),count:1,damagetype:"physical",displayname:my.itemData["item_"+item].displayname}}else{sources[item]={item:item,chance:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_chance_ranged",0)/100,damage:0,duration:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"bash_duration",0),count:1,damagetype:"physical",displayname:my.itemData["item_"+item].displayname}}}else{sources[item].count+=1}break}}return sources};self.getOrbProcSource=function(){var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;switch(item){case"maelstrom":case"mjollnir":if(sources[item]==undefined){sources[item]={chance:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"chain_chance",0)/100,damage:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"chain_damage",0),count:1,damagetype:"magic",displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break}}return sources};self.getOrbSource=function(){var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;switch(item){case"diffusal_blade":if(sources[item]==undefined){sources[item]={chance:1,damage:self.getItemAttributeValue(my.itemData["item_"+item].attributes,"feedback_mana_burn",self.items()[i].size),count:1,damagetype:"physical",displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break}}return sources};self.getHealth=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_health":total_attribute+=parseInt(attribute.value[0]);break}}}return total_attribute};self.getHealthRegen=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"aura_health_regen":total_attribute+=parseInt(attribute.value[0]);break;case"health_regen":total_attribute+=parseInt(attribute.value[0]);break;case"bonus_health_regen":if(item=="tranquil_boots"&&!isactive){total_attribute+=parseInt(attribute.value[0])}else if(item!="tranquil_boots"){total_attribute+=parseInt(attribute.value[0])}break;case"hp_regen":total_attribute+=parseInt(attribute.value[0]);break}}}return total_attribute};self.getMana=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_mana":total_attribute+=parseInt(attribute.value[0]);break}}}return total_attribute};self.getManaRegenPercent=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_mana_regen":total_attribute+=parseFloat(attribute.value[0]);break;case"mana_regen":total_attribute+=parseFloat(attribute.value[0]);break;case"bonus_mana_regen_pct":total_attribute+=parseFloat(attribute.value[0]);break}}}return total_attribute/100};self.getManaRegenBloodstone=function(){for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;if(!self.items()[i].enabled())continue;if(item.indexOf("bloodstone")!=-1){return parseInt(self.items()[i].size)}}return 0};self.getArmor=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_armor":if(!isactive||item!="medallion_of_courage"){total_attribute+=parseInt(attribute.value[0])};break;case"aura_positive_armor":total_attribute+=parseInt(attribute.value[0]);break;case"bonus_aoe_armor":case"aura_bonus_armor":if(isactive){total_attribute+=parseInt(attribute.value[0])};break;case"heal_bonus_armor":if(isactive){total_attribute+=parseInt(attribute.value[0])};break;case"armor_aura":total_attribute+=parseInt(attribute.value[0]);break}}}return total_attribute};self.getEvasion=function(){var total_attribute=1;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_evasion":total_attribute*=1-parseInt(attribute.value[0])/100;break}}}return total_attribute};self.getMovementSpeedFlat=function(){var total_attribute=0,hasBoots=false,hasEuls=false,bootItems=["boots","phase_boots","arcane_boots","travel_boots","power_treads","tranquil_boots"];for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_movement_speed":if(!hasBoots&&bootItems.indexOf(item)>=0){if(item!="tranquil_boots"||item=="tranquil_boots"&&!isactive){total_attribute+=parseInt(attribute.value[0]);hasBoots=true}}else if(!hasEuls&&item=="cyclone"){total_attribute+=parseInt(attribute.value[0]);hasEuls=true}break;case"broken_movement_speed":if(!hasBoots&&bootItems.indexOf(item)>=0){if(item=="tranquil_boots"&&isactive){total_attribute+=parseInt(attribute.value[0]);hasBoots=true}}break;case"bonus_movement":if(!hasBoots&&bootItems.indexOf(item)>=0){total_attribute+=parseInt(attribute.value[0]);hasBoots=true}break}}}return total_attribute};self.getMovementSpeedPercent=function(){var total_attribute=0,hasYasha=false,hasDrums=false,hasDrumsActive=false,hasPhaseActive=false,hasShadowBladeActive=false,hasMoMActive=false,yashaItems=["manta","yasha","sange_and_yasha"];for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"movement_speed_percent_bonus":if(!hasYasha&&yashaItems.indexOf(item)>=0){total_attribute+=parseInt(attribute.value[0]);hasYasha=true}break;case"bonus_aura_movement_speed_pct":if(!hasDrums&&item=="ancient_janggo"){total_attribute+=parseInt(attribute.value[0]);hasDrums=true}break;case"phase_movement_speed":if(isactive&&!hasPhaseActive){total_attribute+=parseInt(attribute.value[0]);hasPhaseActive=true}break;case"bonus_movement_speed_pct":if(isactive&&!hasDrumsActive&&item=="ancient_janggo"){total_attribute+=parseInt(attribute.value[0]);hasDrumsActive=true}break;case"windwalk_movement_speed":if(isactive&&!hasShadowBladeActive&&item=="invis_sword"){total_attribute+=parseInt(attribute.value[0]);hasShadowBladeActive=true}break;case"berserk_bonus_movement_speed":if(isactive&&!hasMoMActive&&item=="mask_of_madness"){total_attribute+=parseInt(attribute.value[0]);hasMoMActive=true}break;case"bonus_movement_speed":if(!hasYasha&&item=="manta"){total_attribute+=parseInt(attribute.value[0]);hasYasha=true}else if(item=="smoke_of_deceit"&&isactive){total_attribute+=parseInt(attribute.value[0])}break}}}return total_attribute/100};self.getMovementSpeedPercentReduction=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"movespeed":if(item=="dust"&&isactive){total_attribute+=parseInt(attribute.value[0])}break}}}return total_attribute/100};self.getBonusDamage=function(){var total_attribute=0;var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_damage":total_attribute+=parseInt(attribute.value[0]);if(sources[item]==undefined){sources[item]={damage:parseInt(attribute.value[0]),damagetype:"physical",count:1,displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break;case"unholy_bonus_damage":if(isactive){total_attribute+=parseInt(attribute.value[0]);if(sources[item+"_active"]==undefined){sources[item+"_active"]={damage:parseInt(attribute.value[0]),damagetype:"physical",count:1,displayname:my.itemData["item_"+item].displayname+" Unholy Strength"}}else{sources[item].count+=1}}break}}}return{sources:sources,total:total_attribute}};self.getBonusDamagePercent=function(){var total_attribute=0;var sources={};for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"damage_aura":total_attribute+=parseInt(attribute.value[0])/100;if(sources[item]==undefined){sources[item]={damage:parseInt(attribute.value[0])/100,damagetype:"physical",count:1,displayname:my.itemData["item_"+item].displayname}}else{sources[item].count+=1}break}}}return{sources:sources,total:total_attribute}};self.getAttackSpeed=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_attack_speed":total_attribute+=parseInt(attribute.value[0]);break;case"bonus_speed":total_attribute+=parseInt(attribute.value[0]);break;case"aura_attack_speed":if(item!="shivas_guard"){total_attribute+=parseInt(attribute.value[0])};break;case"bonus_aura_attack_speed_pct":total_attribute+=parseInt(attribute.value[0]);break;case"bonus_attack_speed_pct":if(isactive){total_attribute+=parseInt(attribute.value[0])};break;case"unholy_bonus_attack_speed":if(isactive){total_attribute+=parseInt(attribute.value[0])};break;case"berserk_bonus_attack_speed":if(isactive){total_attribute+=parseInt(attribute.value[0])};break}}}return total_attribute};self.getLifesteal=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"lifesteal_percent":if(item=="satanic"){if(!isactive){return parseInt(attribute.value[0])}}else{return parseInt(attribute.value[0])}break;case"unholy_lifesteal_percent":if(isactive){return parseInt(attribute.value[0])};break}}}return total_attribute};self.getLifestealAura=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"vampiric_aura":return parseInt(attribute.value[0]);break}}}return total_attribute};self.getMagicResist=function(){var total_attribute=0;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"bonus_magical_armor":var d=parseInt(attribute.value[0]);if(d>total_attribute){total_attribute=d};break;case"bonus_spell_resist":var d=parseInt(attribute.value[0]);if(d>total_attribute){total_attribute=d};break;case"magic_resistance":var d=parseInt(attribute.value[0]);if(d>total_attribute){total_attribute=d};break}}}return total_attribute};self.getMagicResistReduction=function(){var total_attribute=1;for(var i=0;i<self.items().length;i++){var item=self.items()[i].item;var isactive=self.activeItems.indexOf(self.items()[i])>=0?true:false;if(!self.items()[i].enabled())continue;if(isactive){for(var j=0;j<my.itemData["item_"+item].attributes.length;j++){var attribute=my.itemData["item_"+item].attributes[j];switch(attribute.name){case"ethereal_damage_bonus":case"resist_debuff":total_attribute*=1-parseInt(attribute.value[0])/100;break}}}}return total_attribute};self.itemOptions=ko.observableArray([]);for(i in my.itemData){self.itemOptions.push(new my.ItemInput(i.replace("item_",""),my.itemData[i].displayname))}return self};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){var itemtooltipdata={};function getTooltipItemDescription(item){var d=item.description;for(var i=0;i<item.attributes.length;i++){if(item.attributes[i].name!=null){var attributename=item.attributes[i].name;var attributevalue=item.attributes[i].value[0];for(var j=1;j<item.attributes[i].value.length;j++){attributevalue+=" / "+item.attributes[i].value[j]}var regexp=new RegExp("%"+attributename+"%","gi");d=d.replace(regexp,attributevalue)}}var regexp=new RegExp("%%","gi");d=d.replace(regexp,"%");regexp=new RegExp("\n","gi");d=d.replace(/\\n/g,"<br>");return d}var ability_vars={$health:"Health",$mana:"Mana",$armor:"Armor",$damage:"Damage",$str:"Strength",$int:"Intelligence",$agi:"Agility",$all:"All Attributes",$attack:"Attack Speed",$hp_regen:"HP Regeneration",$mana_regen:"Mana Regeneration",$move_speed:"Movement Speed",$evasion:"Evasion",$spell_resist:"Spell Resistance",$selected_attribute:"Selected Attribute"};function getTooltipItemAttributes(item){var a="";for(var i=0;i<item.attributes.length;i++){if(item.attributes[i].tooltip!=null){var attributetooltip=item.attributes[i].tooltip;var attributevalue=item.attributes[i].value[0];for(var j=1;j<item.attributes[i].value.length;j++){attributevalue+=" / "+item.attributes[i].value[j]}var p=attributetooltip.indexOf("%");if(p==0){attributevalue=attributevalue+"%";attributetooltip=attributetooltip.slice(1)}var d=attributetooltip.indexOf("$");if(d!=-1){a=a+attributetooltip.slice(0,d)+" "+attributevalue+" "+ability_vars[attributetooltip.slice(d)]+"<br>"}else{a=a+attributetooltip+" "+attributevalue+"<br>"}}}return a.trim("<br>")}function getTooltipItemCooldown(item){var c="";for(var i=0;i<item.cooldown.length;i++){c=c+" "+item.cooldown[i]}return c}function getTooltipItemManaCost(item){var c="";for(var i=0;i<item.manacost.length;i++){if(item.manacost[i]>0){c=c+" "+item.manacost[i]}}return c}my.getItemTooltipData=function(el){if(my.itemData["item_"+el]==undefined){return undefined}if(itemtooltipdata[el]==undefined){var item=my.itemData["item_"+el];var data=$("<div>");data.append($("<span>").html(item.displayname).attr("id","item_name").addClass("item_field"));data.append($("<span>").html(item.itemcost).attr("id","item_cost").addClass("item_field"));data.append($("<hr>"));if(item.description!=null){data.append($("<div>").html(getTooltipItemDescription(item)).attr("id","item_description").addClass("item_field"))}var attributedata=getTooltipItemAttributes(item);if(attributedata!=""){data.append($("<div>").html(attributedata).attr("id","item_attributes").addClass("item_field"))}var cd=getTooltipItemCooldown(item);var mana=getTooltipItemManaCost(item);if(cd!=""||mana!=""){var cdmanacost=$("<div>").attr("id","item_cdmana");if(cd!=""){cdmanacost.append($("<span>").html(cd).attr("id","item_cooldown").addClass("item_field"))}if(mana!=""){cdmanacost.append($("<span>").html(mana).attr("id","item_manacost").addClass("item_field"))}data.append(cdmanacost)}if(item.lore!=null){data.append($("<div>").html(item.lore).attr("id","item_lore").addClass("item_field"))}itemtooltipdata[el]=data.html();return data.html()}else{return itemtooltipdata[el]}};var abilitytooltipdata={};function getTooltipAbilityDescription(item){var d=item.description;for(var i=0;i<item.attributes.length;i++){if(item.attributes[i].name!=null){var attributename=item.attributes[i].name;var attributevalue=item.attributes[i].value[0];for(var j=1;j<item.attributes[i].value.length;j++){attributevalue+=" / "+item.attributes[i].value[j]}regexp=new RegExp("%"+attributename+"%","gi");d=d.replace(regexp,attributevalue)}}var regexp=new RegExp("%%","gi");d=d.replace(regexp,"%");regexp=new RegExp("\n","gi");d=d.replace(/\\n/g,"<br>");return d}function getTooltipAbilityAttributes(item){var a="";if(item.damage.length>0&&_.reduce(item.damage,function(memo,num){return memo+num},0)>0){var attributetooltip="DAMAGE: ";var attributevalue=item.damage[0];for(var j=1;j<item.damage.length;j++){attributevalue+=" / "+item.damage[j]}a=a+attributetooltip+" "+attributevalue+"<br>"}for(var i=0;i<item.attributes.length;i++){if(item.attributes[i].tooltip!=null){var attributetooltip=item.attributes[i].tooltip;var attributevalue=item.attributes[i].value[0];for(var j=1;j<item.attributes[i].value.length;j++){attributevalue+=" / "+item.attributes[i].value[j]}var p=attributetooltip.indexOf("%");if(p==0){if(attributevalue.toString().indexOf("/")==-1){attributevalue=attributevalue+"%"}else{var regexp2=new RegExp("/","gi");attributevalue=attributevalue.replace(regexp2,"%/")+"%"}attributetooltip=attributetooltip.slice(1)}var d=attributetooltip.indexOf("$");a=a+attributetooltip+" "+attributevalue+"<br>"}}return a.trim("<br>")}function getTooltipAbilityManaCost(item){var c="";if(_.reduce(item.manacost,function(memo,num){return memo+num},0)==0){return c}if(_.every(item.manacost,function(num){return num==item.manacost[0]})){return item.manacost[0].toString()}for(var i=0;i<4;i++){if(item.manacost[i]!=null){c=c+" "+item.manacost[i]}}return c}function getTooltipAbilityCooldown(item){var c="";if(_.reduce(item.cooldown,function(memo,num){return memo+num},0)==0){return c}if(_.every(item.cooldown,function(num){return num==item.cooldown[0]})){return item.cooldown[0].toString()}for(var i=0;i<4;i++){if(item.cooldown[i]!=null){c=c+" "+item.cooldown[i]}}return c}my.getAbilityTooltipData=function(hero,el){if(abilitytooltipdata[el]==undefined){var abilityname=el;var ability={};if(my.heroData[hero]==undefined){for(var i=0;i<my.unitData[hero].abilities.length;i++){if(my.unitData[hero].abilities[i].name==el){ability=my.unitData[hero].abilities[i]}}}else{for(var i=0;i<my.heroData[hero].abilities.length;i++){if(my.heroData[hero].abilities[i].name==el){ability=my.heroData[hero].abilities[i]}}}var data=$("<div>");data.append($("<span>").html(ability.displayname).attr("id","item_name").addClass("item_field"));data.append($("<hr>"));if(ability.description!=null){data.append($("<div>").html(getTooltipAbilityDescription(ability)).attr("id","item_description").addClass("item_field"))}var attributedata=getTooltipAbilityAttributes(ability);if(attributedata!=""){data.append($("<div>").html(attributedata).attr("id","item_attributes").addClass("item_field"))}var cd=getTooltipAbilityCooldown(ability);var mana=getTooltipAbilityManaCost(ability);if(cd!=""||mana!=""){var cdmanacost=$("<div>").attr("id","item_cdmana");if(mana!=""){cdmanacost.append($("<span>").html(mana.trim()).attr("id","item_manacost").addClass("item_field"))}if(cd!=""){cdmanacost.append($("<span>").html(cd.trim()).attr("id","item_cooldown").addClass("item_field"))}data.append(cdmanacost)}if(ability.lore!=null){data.append($("<div>").html(ability.lore).attr("id","item_lore").addClass("item_field"))}abilitytooltipdata[el]=data.html();return data.html()}else{return abilitytooltipdata[el]}};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){my.abilityData={alchemist_acid_spray:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"armor_reduction",label:"Total Damage",controltype:"text",fn:function(v,a){return-a},returnproperty:"armorreduction"}],alchemist_unstable_concoction:[{label:"Brew Time",controltype:"input"},{attributename:"max_damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a/5}},{attributename:"max_stun",label:"Total Stun",controltype:"text",fn:function(v,a){return v*a/5}}],ancient_apparition_cold_feet:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"stun_duration",label:"Total Stun",controltype:"text",fn:function(v,a){return a}}],ancient_apparition_ice_blast:[{label:"Duration",controltype:"input"},{attributename:"dot_damage",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")+v*a}}],antimage_mana_void:[{label:"Enemy Missing Mana",controltype:"input"},{attributename:"mana_void_damage_per_mana",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],axe_battle_hunger:[{label:"Battle Hungered Enemies",controltype:"input"},{attributename:"speed_bonus",label:"Movement Speed Bonus",controltype:"text",nolevel:true,fn:function(v,a){return v*a},returnproperty:"movementspeedpct"},{attributename:"slow",label:"Movement Speed Bonus",controltype:"text",nolevel:true,fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],bane_nightmare:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],bane_fiends_grip:[{label:"Duration",controltype:"input"},{label:"Enemy Max Mana",controltype:"input"},{attributename:"fiend_grip_damage",label:"Total Damage",controltype:"text",controls:[0,1],fn:function(v,a,parent,index){if(parent.inventory.hasScepter()){return v[0]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"fiend_grip_damage_scepter",parent.ability().abilities()[index].level())}else{return v[0]*a}}},{attributename:"fiend_grip_mana_drain",label:"Total Mana Drain",controltype:"text",controls:[0,1],nolevel:true,fn:function(v,a,parent,index){if(parent.inventory.hasScepter()){return v[0]*v[1]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"fiend_grip_mana_drain_scepter",parent.ability().abilities()[index].level())/100}else{return v[0]*v[1]*a/100}}}],batrider_sticky_napalm:[{label:"Stacks",controltype:"input"},{attributename:"damage",label:"Total Bonus Damage",controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusdamage"},{attributename:"movement_speed_pct",label:"Enemy Movement Speed Slow",controltype:"text",fn:function(v,a){return v*a},returnproperty:"movementspeedpctreduction"},{attributename:"turn_rate_pct",label:"Enemy Turn Rate Slow",controltype:"text",fn:function(v,a){return a},returnproperty:"turnratereduction"}],batrider_firefly:[{label:"Duration",controltype:"input"},{attributename:"damage_per_second",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],bloodseeker_bloodrage:[{label:"Duration",controltype:"input"},{label:"DAMAGE OVER TIME:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}},{attributename:"damage_increase_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusdamagepct"}],bloodseeker_rupture:[{label:"Enemy Distance Traveled",controltype:"input"},{attributename:"movement_damage_pct",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")+v*a/100}}],bristleback_viscous_nasal_goo:[{label:"Stacks",controltype:"input"},{attributename:"armor_per_stack",label:"Enemy Armor Reduction",controltype:"text",fn:function(v,a){return-v*a},returnproperty:"armorreduction"},{attributename:"move_slow_per_stack",label:"%SLOW:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index,abilitylist){return-(abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"base_move_slow",0)+v*a)},returnproperty:"movementspeedpctreduction"}],bristleback_quill_spray:[{label:"Stacks",controltype:"input"},{attributename:"quill_stack_damage",label:"DAMAGE",controltype:"text",fn:function(v,a,parent,index){var total=parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"quill_base_damage",parent.ability().abilities()[index].level())+v*a,damage_cap=parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"max_damage",0);if(total>damage_cap){total=damage_cap}return total}}],bristleback_warpath:[{label:"Stacks",controltype:"input"},{attributename:"damage_per_stack",label:"BONUS DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){if(v<1){return 0}else{return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"base_damage",parent.ability().abilities()[index].level())+(v-1)*a}}},{attributename:"move_speed_per_stack",label:"%MOVEMENT:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){if(v<1){return 0}else{return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"base_move_speed",parent.ability().abilities()[index].level())+(v-1)*a}},returnproperty:"movementspeedpct"}],centaur_return:[{label:"Strength",controltype:"input"},{attributename:"strength_pct",label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"return_damage",parent.ability().abilities()[index].level())+v*a/100}}],centaur_stampede:[{label:"Strength",controltype:"input"},{attributename:"strength_damage",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"slow_movement_speed",label:"Enemy Movement Speed Slow",controltype:"text",fn:function(v,a){return-a},returnproperty:"movementspeedpctreduction"}],crystal_maiden_frostbite:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],dark_seer_ion_shell:[{label:"Duration",controltype:"input"},{attributename:"damage_per_second",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],dazzle_shadow_wave:[{label:"Targets",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],dazzle_weave:[{label:"Duration",controltype:"input"},{attributename:"armor_per_second",label:"ARMOR",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"armor"},{attributename:"armor_per_second",label:"ARMOR REDUCTION:",ignoretooltip:true,controltype:"text",fn:function(v,a){return-v*a},returnproperty:"armorreduction"}],death_prophet_exorcism:[{label:"Damage Dealt",controltype:"input"},{attributename:"heal_percent",label:"Total Armor",controltype:"text",fn:function(v,a){return v*a/100}}],disruptor_static_storm:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){var damagevalue=.25*(130+40*parent.ability().abilities()[index].level())*(1/20),mult=v*4*(v*4+1)/2;return damagevalue*mult}}],doom_bringer_scorched_earth:[{label:"Duration",controltype:"input"},{attributename:"damage_per_second",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"bonus_movement_speed_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpct"},{attributename:"damage_per_second",label:"HP REGEN:",ignoretooltip:true,controltype:"text",fn:function(v,a){return a},returnproperty:"healthregen"}],doom_bringer_doom:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index){if(parent.inventory.hasScepter()){return v*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"damage_scepter",parent.ability().abilities()[index].level())}else{return v*a}}}],dragon_knight_elder_dragon_form:[{label:"Duration",controltype:"input"},{attributename:"bonus_attack_range",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackrange"},{attributename:"bonus_movement_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedflat"}],drow_ranger_trueshot:[{label:"Drow's Agility",controltype:"input",display:"buff"},{attributename:"trueshot_ranged_damage",label:"DAMAGE BONUS:",ignoretooltip:true,controltype:"text",display:"buff",fn:function(v,a){return v*a/100},returnproperty:"bonusdamageprecisionaura"}],earth_spirit_rolling_boulder:[{label:"Using Stone",controltype:"checkbox"},{attributename:"move_slow",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v){return-a}else{return 0}},returnproperty:"movementspeedpctreduction"},{attributename:"attack_slow",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v){return-a}else{return 0}},returnproperty:"attackspeedreduction"}],earthshaker_echo_slam:[{label:"Enemies in Range",controltype:"input"},{attributename:"echo_slam_echo_damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],elder_titan_ancestral_spirit:[{label:"HEROES PASSED THROUGH",controltype:"input"},{label:"CREEPS PASSED THROUGH",controltype:"input"},{attributename:"damage_creeps",label:"DAMAGE:",ignoretooltip:true,controltype:"text",controls:[0,1],fn:function(v,a,parent,index){return v[0]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"damage_heroes",parent.ability().abilities()[index].level())+v[1]*a},returnproperty:"bonusdamage"},{attributename:"move_pct_creeps",label:"%BONUS SPEED:",ignoretooltip:true,controltype:"text",controls:[0,1],fn:function(v,a,parent,index){return v[0]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"move_pct_heroes",parent.ability().abilities()[index].level())+v[1]*a},returnproperty:"movementspeedpct"}],elder_titan_earth_splitter:[{label:"Enemy Max Health",controltype:"input"},{attributename:"damage_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a/100}},{attributename:"slow_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return-a},returnproperty:"movementspeedpctreduction"}],enchantress_natures_attendants:[{label:"Duration",controltype:"input"},{attributename:"heal",label:"HEAL:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"wisp_count",parent.ability().abilities()[index].level())*v*a}}],enigma_malefice:[{label:"Hits",controltype:"input"},{attributename:"damage",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"stun_duration",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],enigma_midnight_pulse:[{label:"Duration",controltype:"input"},{label:"Enemy Max Health",controltype:"input"},{attributename:"damage_percent",label:"DAMAGE:",ignoretooltip:true,controltype:"text",controls:[0,1],fn:function(v,a,parent,index){return v[0]*v[1]*a/100}}],enigma_black_hole:[{label:"Duration",controltype:"input"},{attributename:"far_damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"near_damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],faceless_void_time_lock:[{label:"In Chronosphere",controltype:"checkbox"},{attributename:"bonus_damage",label:"%MOVESPEED AS DAMAGE",controltype:"text",fn:function(v,a){if(v){return a*2}else{return a}},returnproperty:"bashbonusdamage"},{attributename:"duration",label:"Total Damage",controltype:"text",fn:function(v,a){return a}},{attributename:"chance_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bash"}],gyrocopter_rocket_barrage:[{label:"Rockets",controltype:"input"},{attributename:"rockets_per_second",label:"Total Damage",controltype:"text",fn:function(v,a){return a}},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],huskar_burning_spear:[{label:"Stacks",controltype:"input"},{attributename:"health_cost",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],huskar_berserkers_blood:[{label:"Stacks",controltype:"input"},{attributename:"resistance_per_stack",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a},returnproperty:"magicresist"},{attributename:"attack_speed_bonus_per_stack",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a},returnproperty:"attackspeed"}],huskar_life_break:[{label:"Enemy Current HP",controltype:"input"},{attributename:"health_damage",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{label:"Huskar Current HP",controltype:"input"},{attributename:"health_cost_percent",label:"DAMAGE TAKEN:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"movespeed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],invoker_quas:[{label:"Instances",controltype:"input"},{attributename:"bonus_strength",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusstrength"},{attributename:"health_regen_per_instance",label:"HP REGEN:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"healthregen"}],invoker_wex:[{label:"Instances",controltype:"input"},{attributename:"bonus_agility",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusagility"},{attributename:"move_speed_per_instance",label:"%MOVE SPEED:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"movementspeedpct"},{attributename:"attack_speed_per_instance",label:"%ATTACK SPEED:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"attackspeed"}],invoker_exort:[{label:"Instances",controltype:"input"},{attributename:"bonus_intelligence",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusint"},{attributename:"bonus_damage_per_instance",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusdamage"}],invoker_ghost_walk:[{label:"Quas Level",controltype:"input"},{attributename:"enemy_slow",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v==0){return 0}return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"enemy_slow",v)},returnproperty:"movementspeedpctreduction"},{label:"Wex Level",controltype:"input",display:"ability"},{attributename:"self_slow",label:"Total Damage",controltype:"text",display:"ability",fn:function(v,a,parent,index,abilitylist){if(v==0){return 0}return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"self_slow",v)},returnproperty:"movementspeedpct"}],invoker_alacrity:[{label:"Wex Level",controltype:"input"},{attributename:"bonus_attack_speed",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v==0){return 0}return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"bonus_attack_speed",v)},returnproperty:"attackspeed"},{label:"Exort Level",controltype:"input"},{attributename:"bonus_damage",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v==0){return 0}return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"bonus_damage",v)},returnproperty:"bonusdamage"}],invoker_ice_wall:[{label:"Quas Level",controltype:"input"},{attributename:"slow",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v==0){return 0}return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"slow",v)},returnproperty:"movementspeedpctreduction"},{label:"Exort Level",controltype:"input",display:"ability"},{label:"Duration",controltype:"input",display:"ability"},{attributename:"damage_per_second",label:"DAMAGE:",ignoretooltip:true,controltype:"text",display:"ability",controls:[1,2],fn:function(v,a,parent,index,abilitylist){if(v[0]==0){return 0}return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"damage_per_second",v[0])*v[1]}}],jakiro_dual_breath:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*2+parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"burn_damage",parent.ability().abilities()[index].level())*v}},{attributename:"slow_movement_speed_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"},{attributename:"slow_attack_speed_pct",label:"%ATTACK SLOW:",ignoretooltip:true,controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"}],jakiro_liquid_fire:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"slow_attack_speed_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"}],jakiro_macropyre:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],juggernaut_blade_fury:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],juggernaut_healing_ward:[{label:"Duration",controltype:"input"},{label:"Max Health",controltype:"input"},{attributename:"healing_ward_heal_amount",label:"HEAL OVER TIME:",ignoretooltip:true,controltype:"text",controls:[0,1],fn:function(v,a,parent,index){return v[0]*v[1]*a/100}}],juggernaut_omni_slash:[{label:"Jumps",controltype:"input"},{label:"MIN DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"omni_slash_damage",1)*v}},{label:"MAX DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"omni_slash_damage",2)*v}}],keeper_of_the_light_illuminate:[{label:"Duration",controltype:"input"},{attributename:"damage_per_second",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}}],keeper_of_the_light_mana_leak:[{label:"Distance Moved",controltype:"input"},{label:"Enemy Max Mana",controltype:"input"},{attributename:"mana_leak_pct",label:"MANA LEAKED:",ignoretooltip:true,controltype:"text",controls:[0,1],fn:function(v,a,parent,index){return v[0]/100*v[1]*a/100}}],leshrac_pulse_nova:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"mana_cost_per_second",label:"MANA COST:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}}],lich_chain_frost:[{label:"Bounce Hits",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"slow_movement_speed",label:"Enemy Movement Speed Slow",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"},{attributename:"slow_attack_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"}],life_stealer_feast:[{label:"Enemy Current HP",controltype:"input"},{attributename:"hp_leech_percent",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a/100},returnproperty:"bonusdamage"}],life_stealer_open_wounds:[{label:"Duration",controltype:"input"},{attributename:"heal_percent",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"lifesteal"},{attributename:"slow_steps",label:"%SLOW:",ignoretooltip:true,controltype:"text",nolevel:true,fn:function(v,a,parent,index,abilitylist){return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"slow_steps",v+1)},returnproperty:"movementspeedpctreduction"}],lina_fiery_soul:[{label:"Duration",controltype:"input"},{attributename:"fiery_soul_move_speed_bonus",label:"Enemy Movement Speed Slow",controltype:"text",fn:function(v,a){return v*a},returnproperty:"movementspeedpct"},{attributename:"fiery_soul_attack_speed_bonus",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a},returnproperty:"attackspeed"}],lion_mana_drain:[{label:"Duration",controltype:"input"},{attributename:"mana_per_second",label:"MANA DRAINED:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}}],luna_moon_glaive:[{label:"Bounces",controltype:"input"},{label:"Damage",controltype:"input"},{attributename:"damage_reduction_percent",label:"BOUNCE DAMAGE:",ignoretooltip:true,controltype:"text",controls:[0,1],fn:function(v,a,parent,index){return v[1]*Math.pow(a/100,v[0])}}],luna_eclipse:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],medusa_mystic_snake:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],meepo_poof:[{label:"Meepo Count",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],meepo_geostrike:[{label:"Stacks",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index,abilitylist){return abilitylist.getAbilityPropertyValue(abilitylist.abilities()[index],"damage")*v}},{attributename:"slow",label:"%SLOW:",ignoretooltip:true,controltype:"text",nolevel:true,fn:function(v,a,parent,index,abilitylist){return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"slow",abilitylist.abilities()[index].level())*v},returnproperty:"movementspeedpctreduction"}],mirana_arrow:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],morphling_morph_agi:[{label:"Shifts",controltype:"input"},{attributename:"points_per_tick",label:"AGI SHIFT GAIN:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusagility"},{attributename:"points_per_tick",label:"STR SHIFT LOSS:",ignoretooltip:true,controltype:"text",fn:function(v,a){return-v*a},returnproperty:"bonusstrength"},{attributename:"bonus_attributes",label:"SHIFT TIME:",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusagility2"},{attributename:"morph_cooldown",label:"SHIFT TIME:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"mana_cost",label:"SHIFT MANA COST:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return v*a*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"morph_cooldown",parent.ability().abilities()[index].level())}}],morphling_morph_str:[{label:"Shifts",controltype:"input"},{attributename:"points_per_tick",label:"STR SHIFT GAIN:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusstrength"},{attributename:"points_per_tick",label:"AGI SHIFT LOSS:",ignoretooltip:true,controltype:"text",fn:function(v,a){return-v*a},returnproperty:"bonusagility"},{attributename:"bonus_attributes",label:"SHIFT TIME:",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusstrength2"},{attributename:"morph_cooldown",label:"SHIFT TIME:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"mana_cost",label:"SHIFT MANA COST:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return v*a*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"morph_cooldown",parent.ability().abilities()[index].level())}}],furion_force_of_nature:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],furion_wrath_of_nature:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],necrolyte_heartstopper_aura:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],necrolyte_sadist:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],night_stalker_crippling_fear:[{label:"Is Night",controltype:"checkbox"},{attributename:"bonus_attack_speed_night",label:"%CHANCE TO MISS:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index,abilitylist){if(v){return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"miss_rate_night",abilitylist.abilities()[index].level())}else{return abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"miss_rate_day",abilitylist.abilities()[index].level())}},returnproperty:"misschance"}],night_stalker_hunter_in_the_night:[{label:"Is Night",controltype:"checkbox"},{attributename:"bonus_attack_speed_night",label:"Total Damage",controltype:"text",fn:function(v,a){if(v){return a}else{return 0}},returnproperty:"attackspeed"},{attributename:"bonus_movement_speed_pct_night",label:"Total Damage",controltype:"text",fn:function(v,a){if(v){return a}else{return 0}},returnproperty:"movementspeedpct"}],obsidian_destroyer_arcane_orb:[{label:"Current Mana",controltype:"input"},{attributename:"mana_pool_damage_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a/100},returnproperty:"bonusdamageorb"}],ogre_magi_ignite:[{label:"Duration",controltype:"input"},{attributename:"burn_damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"slow_movement_speed_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],pudge_rot:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index,abilitylist){return abilitylist.getAbilityPropertyValue(abilitylist.abilities()[index],"damage")*v}},{attributename:"rot_slow",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],pudge_flesh_heap:[{label:"Stacks",controltype:"input"},{attributename:"flesh_heap_strength_buff_amount",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusstrength"},{attributename:"flesh_heap_magic_resist",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"magicresist"}],pudge_dismember:[{label:"Duration",controltype:"input"},{attributename:"dismember_damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],pugna_nether_ward:[{label:"Enemy Mana Spent",controltype:"input"},{attributename:"mana_multiplier",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"mana_regen",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"manaregenreduction"}],pugna_life_drain:[{label:"Duration",controltype:"input"},{attributename:"health_drain",label:"HEALTH DRAINED:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}}],queenofpain_shadow_strike:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],razor_plasma_field:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],razor_static_link:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],razor_eye_of_the_storm:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],rubick_fade_bolt:[{label:"Jumps",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index,abilitylist){return a*(1-v*abilitylist.getAbilityAttributeValue(abilitylist.abilities()[index].attributes(),"jump_damage_reduction_pct",abilitylist.abilities()[index].level())/100)}},{attributename:"hero_attack_damage_reduction",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bonusdamagereduction"}],sandking_sand_storm:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],sandking_epicenter:[{label:"Pulses",controltype:"input"},{attributename:"epicenter_damage",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"epicenter_slow",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"},{attributename:"epicenter_slow_as",label:"%ATTACK SLOW:",ignoretooltip:true,controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"}],shadow_demon_shadow_poison:[{label:"Duration",controltype:"input"},{attributename:"stack_damage",label:"Total Damage",controltype:"text",fn:function(v,a){var stackmult=[1,2,4,8];if(v>4){return a*stackmult[3]+50*(v-4)}else if(v<=0){return 0}else{return a*stackmult[v-1]}}}],nevermore_necromastery:[{label:"Souls",controltype:"input"},{attributename:"necromastery_damage_per_soul",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusdamage"}],nevermore_requiem:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],shadow_shaman_shackles:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],silencer_curse_of_the_silent:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],silencer_glaives_of_wisdom:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],skywrath_mage_mystic_flare:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],slark_essence_shift:[{label:"Attacks",controltype:"input"},{attributename:"agi_gain",label:"Total Damage",controltype:"text",display:"ability",fn:function(v,a){return v*a
-},returnproperty:"bonusagility"},{attributename:"stat_loss",label:"Total Damage",controltype:"text",fn:function(v,a){return-v*a},returnproperty:"bonusallstatsreduction"}],sniper_shrapnel:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}},{attributename:"building_damage",label:"BUILDING DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"slow_movement_speed",label:"Enemy Movement Speed Slow",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],spectre_dispersion:[{label:"Damage Taken",controltype:"input"},{attributename:"damage_reflection_pct",label:"DAMAGE REFLECTED:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a/100}}],storm_spirit_ball_lightning:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],templar_assassin_trap:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],shredder_reactive_armor:[{label:"Stacks",controltype:"input"},{attributename:"bonus_armor",label:"Total Armor Bonus",controltype:"text",nolevel:true,fn:function(v,a){return v*a},returnproperty:"armor"},{attributename:"bonus_hp_regen",label:"Total HP Regen Bonus",controltype:"text",nolevel:true,fn:function(v,a){return v*a},returnproperty:"healthregen"}],shredder_chakram:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],spirit_breaker_greater_bash:[{label:"Bash Proc",controltype:"checkbox"},{attributename:"damage",label:"%MOVESPEED AS DAMAGE",controltype:"text",fn:function(v,a){if(v){return a}else{return 0}},returnproperty:"bashbonusdamage"},{attributename:"bonus_movespeed_pct",label:"Total Damage",controltype:"text",fn:function(v,a){if(v){return a}else{return 0}},returnproperty:"movementspeedpct"},{attributename:"chance_pct",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"bash"}],tinker_march_of_the_machines:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],treant_leech_seed:[{label:"Pulses",controltype:"input"},{attributename:"leech_damage",label:"DAMAGE/HEAL:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}},{attributename:"movement_slow",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],troll_warlord_fervor:[{label:"Stacks",controltype:"input"},{attributename:"attack_speed",label:"ATTACK SPEED:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"attackspeed"}],undying_decay:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],undying_soul_rip:[{label:"Units",controltype:"input"},{attributename:"damage_per_unit",label:"DAMAGE/HEAL:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a}}],ursa_fury_swipes:[{label:"Stacks",controltype:"input"},{attributename:"damage_per_stack",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a},returnproperty:"bonusdamage"}],ursa_enrage:[{label:"Current HP",controltype:"input"},{attributename:"life_damage_bonus_percent",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a/100},returnproperty:"bonusdamage"}],venomancer_venomous_gale:[{label:"Duration",controltype:"input"},{attributename:"tick_damage",label:"Total Damage",controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(),"strike_damage",parent.ability().abilities()[index].level())+Math.floor(v/3)*a}},{attributename:"movement_slow",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],venomancer_poison_sting:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"movement_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"}],venomancer_plague_ward:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],venomancer_poison_nova:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],viper_poison_attack:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"bonus_movement_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"},{attributename:"bonus_attack_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"}],viper_corrosive_skin:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"bonus_movement_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"},{attributename:"bonus_attack_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"},{attributename:"bonus_magic_resistance",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"magicresist"}],viper_viper_strike:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}},{attributename:"bonus_movement_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"movementspeedpctreduction"},{attributename:"bonus_attack_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeedreduction"}],visage_soul_assumption:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],visage_gravekeepers_cloak:[{label:"Layers",controltype:"input"},{attributename:"bonus_armor",label:"ARMOR:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"armor"},{attributename:"bonus_resist",label:"%RESIST:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a},returnproperty:"magicresist"}],warlock_shadow_word:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],warlock_upheaval:[{label:"Duration",controltype:"input"},{attributename:"slow_rate",label:"DAMAGE:",controltype:"text",fn:function(v,a){return-v*a},returnproperty:"movementspeedpctreduction"}],weaver_the_swarm:[{label:"Attacks",controltype:"input"},{attributename:"damage",label:"DAMAGE:",controltype:"text",fn:function(v,a){return v*a}},{attributename:"armor_reduction",label:"DAMAGE:",controltype:"text",fn:function(v,a){return-v*a},returnproperty:"armorreduction"}],windrunner_powershot:[{label:"Duration",controltype:"input"},{label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index],"damage")*v}}],wisp_spirits:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],wisp_overcharge:[{label:"Current HP",controltype:"input"},{attributename:"drain_pct",label:"%HP DRAIN:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return v*a}},{label:"Current MP",controltype:"input"},{attributename:"drain_pct",label:"%MP DRAIN:",ignoretooltip:true,controltype:"text",fn:function(v,a,parent,index){return v*a}},{attributename:"bonus_attack_speed",label:"Total Damage",controltype:"text",fn:function(v,a){return a},returnproperty:"attackspeed"}],witch_doctor_paralyzing_cask:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],witch_doctor_voodoo_restoration:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],witch_doctor_maledict:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],witch_doctor_death_ward:[{label:"Duration",controltype:"input"},{attributename:"damage",label:"Total Damage",controltype:"text",fn:function(v,a){return v*a}}],zuus_static_field:[{label:"Enemy HP",controltype:"input"},{attributename:"damage_health_pct",label:"DAMAGE:",ignoretooltip:true,controltype:"text",fn:function(v,a){return v*a/100}}]};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){my.AbilityModel=function(a){var self=this;self.abilityData=my.abilityData;self.hasScepter=ko.observable(false);self.abilities=a;for(var i=0;i<self.abilities().length;i++){self.abilities()[i].isactive=ko.observable(false);self.abilities()[i].isdetail=ko.observable(false);self.abilities()[i].basedamage=ko.observable(0);self.abilities()[i].bash=ko.observable(0);self.abilities()[i].bashbonusdamage=ko.observable(0);self.abilities()[i].bonusdamage=ko.observable(0);self.abilities()[i].bonusdamageorb=ko.observable(0);self.abilities()[i].bonusdamagepct=ko.observable(0);self.abilities()[i].bonusdamageprecisionaura=ko.observable(0);self.abilities()[i].bonusdamagereduction=ko.observable(0);self.abilities()[i].bonushealth=ko.observable(0);self.abilities()[i].bonusstrength=ko.observable(0);self.abilities()[i].bonusstrength2=ko.observable(0);self.abilities()[i].bonusagility=ko.observable(0);self.abilities()[i].bonusagility2=ko.observable(0);self.abilities()[i].bonusint=ko.observable(0);self.abilities()[i].bonusallstatsreduction=ko.observable(0);self.abilities()[i].evasion=ko.observable(0);self.abilities()[i].magicresist=ko.observable(0);self.abilities()[i].manaregen=ko.observable(0);self.abilities()[i].manaregenreduction=ko.observable(0);self.abilities()[i].misschance=ko.observable(0);self.abilities()[i].movementspeedflat=ko.observable(0);self.abilities()[i].movementspeedpct=ko.observable(0);self.abilities()[i].movementspeedpctreduction=ko.observable(0);self.abilities()[i].turnratereduction=ko.observable(0);self.abilities()[i].attackrange=ko.observable(0);self.abilities()[i].attackspeed=ko.observable(0);self.abilities()[i].attackspeedreduction=ko.observable(0);self.abilities()[i].armor=ko.observable(0);self.abilities()[i].armorreduction=ko.observable(0);self.abilities()[i].healthregen=ko.observable(0);self.abilities()[i].lifesteal=ko.observable(0);self.abilities()[i].visionnight=ko.observable(0);self.abilities()[i].visionday=ko.observable(0)}self.abilityControlData={};self.abilitySettingsData=function(data,parent,index){if(self.abilityControlData[data]==undefined){return self.processAbility(data,parent,index,self.abilityData[data])}else{return self.abilityControlData[data]}};self.processAbility=function(data,parent,index,args){var result={};result.data=[];var v;var v_list=[];for(var i=0;i<args.length;i++){switch(args[i].controltype){case"input":v=ko.observable(0);v_list.push(v);result.data.push({labelname:args[i].label.toUpperCase()+":",controlval:v,controltype:args[i].controltype,display:args[i].display});break;case"checkbox":v=ko.observable(false);v_list.push(v);result.data.push({labelname:args[i].label.toUpperCase()+"?",controlval:v,controltype:args[i].controltype,display:args[i].display});break;case"text":if(args[i].controls==undefined){if(args[i].nolevel){var attributevalue=function(attributename){return{fn:ko.computed(function(){return self.getAbilityAttributeValue(self.abilities()[index].attributes(),attributename,0)})}}}else{var attributevalue=function(attributename){return{fn:ko.computed(function(){return self.getAbilityAttributeValue(self.abilities()[index].attributes(),attributename,self.abilities()[index].level())})}}}var g=attributevalue(args[i].attributename);var r=self.getComputedFunction(v,g.fn,args[i].fn,parent,index,self,args[i].returnproperty);var tooltip=self.getAbilityAttributeTooltip(self.abilities()[index].attributes(),args[i].attributename);if(tooltip==""||args[i].ignoretooltip){tooltip=args[i].label}result.data.push({labelname:tooltip,controlval:r,controltype:args[i].controltype,display:args[i].display,clean:g.fn})}else{if(args[i].nolevel){var attributevalue=function(attributename){return{fn:ko.computed(function(){return self.getAbilityAttributeValue(self.abilities()[index].attributes(),attributename,0)})}}}else{var attributevalue=function(attributename){return{fn:ko.computed(function(){return self.getAbilityAttributeValue(self.abilities()[index].attributes(),attributename,self.abilities()[index].level())})}}}var g=attributevalue(args[i].attributename);var r=self.getComputedFunction(v_list,g.fn,args[i].fn,parent,index,self,args[i].returnproperty,args[i].controls);var tooltip=self.getAbilityAttributeTooltip(self.abilities()[index].attributes(),args[i].attributename);if(tooltip==""||args[i].ignoretooltip){tooltip=args[i].label}result.data.push({labelname:tooltip,controlval:r,controltype:args[i].controltype,display:args[i].display,clean:g.fn})}break}}self.abilityControlData[data]=result;return result};self.getComputedFunction=function(v,attributevalue,fn,parent,index,abilitylist,returnproperty,controls){return ko.computed(function(){if(controls==undefined){if(typeof v()=="boolean"){var returnval=fn(v(),attributevalue(),parent,index,abilitylist)}else{var returnval=fn(parseFloat(v()),attributevalue(),parent,index,abilitylist)}if(returnproperty!=undefined){self.abilities()[index][returnproperty](returnval)}return returnval}else{var v_list=[];for(var i=0;i<controls.length;i++){if(typeof v[controls[i]]()=="boolean"){v_list.push(v[controls[i]]())}else{v_list.push(parseFloat(v[controls[i]]()))}}var returnval=fn(v_list,attributevalue(),parent,index,abilitylist);if(returnproperty!=undefined){self.abilities()[index][returnproperty](returnval)}return returnval}})};self.getAbilityAttributeValue=function(attributes,attributename,level){for(var i=0;i<attributes.length;i++){if(attributes[i].name()==attributename){if(level==0){return parseFloat(attributes[i].value()[0])}else if(level>attributes[i].value().length){return parseFloat(attributes[i].value()[0])}else{return parseFloat(attributes[i].value()[level-1])}}}};self.getAbilityAttributeTooltip=function(attributes,attributename){for(var i=0;i<attributes.length;i++){if(attributes[i].name()==attributename){return attributes[i].tooltip()}}return""};self.getAbilityLevelByAbilityName=function(abilityname){for(var i=0;i<self.abilities().length;i++){if(self.abilities()[i].name()==abilityname){return self.abilities()[i].level()}}return-1};self.getAbilityByName=function(abilityname){for(var i=0;i<self.abilities().length;i++){if(self.abilities()[i].name()==abilityname){return self.abilities()[i]}}return undefined};self.getAbilityPropertyValue=function(ability,property){return parseFloat(ability[property]()[ability.level()-1])};self.getAttributeBonusLevel=function(){for(var i=0;i<self.abilities().length;i++){if(self.abilities()[i].name()=="attribute_bonus"){return self.abilities()[i].level()}}return 0};self.getAllStatsReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j]}}}else if(ability.bonusallstatsreduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusallstatsreduction()}}}return total_attribute});self.getAgility=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"marksmanship_agility_bonus":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}}}else{if(ability.bonusagility!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusagility()}}if(ability.bonusagility2!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusagility2()}}}}return total_attribute});self.getIntelligence=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){}}}}else if(ability.bonusint!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusint()}}}return total_attribute});self.getArmor=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_armor":if(ability.name()!="templar_assassin_meld"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"warcry_armor":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break;case"armor_bonus":if(ability.name()=="lich_frost_armor"||ability.name()=="ogre_magi_frost_armor"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break}}}}else if(ability.armor!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.armor()}}}return total_attribute});self.getArmorBaseReduction=ko.computed(function(){var total_attribute=1;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){switch(ability.name()){case"elder_titan_natural_order":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),"armor_reduction_pct",ability.level())/100;break}}}}return total_attribute});self.getArmorReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){switch(ability.name()){case"templar_assassin_meld":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),"bonus_armor",ability.level());break;case"tidehunter_gush":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),"armor_bonus",ability.level());break;case"naga_siren_rip_tide":case"slardar_amplify_damage":case"vengefulspirit_wave_of_terror":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),"armor_reduction",ability.level());break;case"nevermore_dark_lord":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),"presence_armor_reduction",ability.level());break}}}else if(ability.armorreduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.armorreduction()}}}return total_attribute});self.getHealth=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_hp":total_attribute+=parseInt(attribute.value()[ability.level()-1]);break;case"true_form_hp_bonus":if(self.isTrueFormActive()){total_attribute+=parseInt(attribute.value()[ability.level()-1])}break}}}}}return total_attribute});self.isTrueFormActive=function(){for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(ability.isactive()&&ability.name()=="lone_druid_true_form"){return true}}return false};self.getHealthRegen=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_health_regen":case"heath_regen":case"health_regen":total_attribute+=parseInt(attribute.value()[ability.level()-1]);break;case"hp_regen":total_attribute+=parseInt(attribute.value()[ability.level()-1]);break}}}}else if(ability.healthregen!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.healthregen()}}}return total_attribute});self.getManaRegen=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_mana_regen":total_attribute+=parseInt(attribute.value()[ability.level()-1]);break}}}}else if(ability.manaregen!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.manaregen()}}}return total_attribute});self.getManaRegenArcaneAura=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"mana_regen":if(ability.name()=="crystal_maiden_brilliance_aura"){total_attribute+=parseFloat(attribute.value()[ability.level()-1])}break}}}}}return total_attribute});self.getManaRegenReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j]}}}else if(ability.manaregenreduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.manaregenreduction()}}}return total_attribute});self.getAttackRange=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_attack_range":case"bonus_range":if(ability.name()=="terrorblade_metamorphosis"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}if(ability.name()=="troll_warlord_berserkers_rage"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"bonus_range_scepter":if(ability.name()=="tiny_grow"&&self.hasScepter()){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"bonus_attack_range_scepter":if(ability.name()=="enchantress_impetus"&&self.hasScepter()){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break}}if(ability.name()=="lone_druid_true_form"){total_attribute-=422}}}else if(ability.attackrange!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.attackrange()}}}return total_attribute});self.getAttackSpeed=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"attack_speed":case"attack_speed_bonus_pct":case"attackspeed_bonus":case"leap_speedbonus_as":case"attack_speed_bonus":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break;case"speed_bonus":if(ability.name()=="axe_culling_blade"||ability.name()=="necronomicon_archer_aoe"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"attack_speed_pct":if(ability.name()=="ancient_apparition_chilling_touch"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"bonus_attack_speed":if(ability.name()=="beastmaster_inner_beast"||ability.name()=="lycan_feral_impulse"||ability.name()=="lone_druid_rabid"||ability.name()=="tiny_grow"||ability.name()=="phantom_assassin_phantom_strike"||ability.name()=="windrunner_focusfire"||ability.name()=="ogre_magi_bloodlust"||ability.name()=="centaur_khan_endurance_aura"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break}}}}else if(ability.attackspeed!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.attackspeed()}}}return total_attribute});self.getAttackSpeedReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"attackspeed_slow":case"slow_attack_speed":case"slow_attack_speed_pct":case"overload_attack_slow":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break;case"speed_bonus":if(ability.name()=="omniknight_degen_aura"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"attack_slow":if(ability.name()=="crystal_maiden_freezing_field"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}else if(ability.name()=="tusk_frozen_sigil"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"attack_speed_pct":if(ability.name()=="faceless_void_time_walk"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"bonus_attackspeed":if(ability.name()=="bounty_hunter_jinada"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"attack_speed_slow":if(ability.name()=="brewmaster_thunder_clap"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"slow":if(ability.name()=="medusa_stone_gaze"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"attackspeed_bonus":total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}if(ability.name()=="enraged_wildkin_tornado"){total_attribute-=15}}}else if(ability.attackspeedreduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.attackspeedreduction()}}}return total_attribute});self.getBash=ko.computed(function(){var total_attribute=1;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"chance":case"proc_chance":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break}}}}else if(ability.bash!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute*=1-ability.bash()/100}}}return total_attribute});self.getBaseDamage=ko.computed(function(){var total_attribute=0;var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_damage":if(ability.name()=="tiny_grow"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());sources[ability.name()]={damage:self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level()),damagetype:"physical",displayname:ability.displayname()}}break}}}}}return{sources:sources,total:total_attribute}});self.getBAT=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"base_attack_time":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}}}}return total_attribute});self.getBonusDamage=ko.computed(function(){var total_attribute=0;var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_damage":if(ability.name()=="broodmother_insatiable_hunger"||ability.name()=="luna_lunar_blessing"||ability.name()=="templar_assassin_refraction"||ability.name()=="templar_assassin_meld"||ability.name()=="terrorblade_metamorphosis"||ability.name()=="troll_warlord_berserkers_rage"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());sources[ability.name()]={damage:self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level()),damagetype:"physical",displayname:ability.displayname()}}break;case"hero_bonus_damage":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());sources[ability.name()]={damage:self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level()),damagetype:"physical",displayname:ability.displayname()};break}}if(ability.name()=="storm_spirit_overload"){total_attribute+=self.getAbilityPropertyValue(ability,"damage");sources[ability.name()]={damage:self.getAbilityPropertyValue(ability,"damage"),damagetype:"magic",displayname:ability.displayname()}}}}else if(ability.bonusdamage!=undefined&&ability.bonusdamage()!=0){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusdamage();sources[ability.name()]={damage:ability.bonusdamage(),damagetype:"physical",displayname:ability.displayname()}}}}return{sources:sources,total:total_attribute}});self.getBonusDamagePercent=ko.computed(function(){var total_attribute=0;var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_damage_pct":if(ability.name()=="magnataur_empower"||ability.name()=="vengefulspirit_command_aura"||ability.name()=="alpha_wolf_command_aura"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;sources[ability.name()]={damage:self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100,damagetype:"physical",displayname:ability.displayname()}}break;case"gods_strength_damage":if(ability.name()=="sven_gods_strength"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;sources[ability.name()]={damage:self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100,damagetype:"physical",displayname:ability.displayname()}}break}}}}else if(ability.bonusdamagepct!=undefined&&ability.bonusdamagepct()!=0){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusdamagepct()/100;sources[ability.name()]={damage:ability.bonusdamagepct()/100,damagetype:"physical",displayname:ability.displayname()}}}}return{sources:sources,total:total_attribute}});self.getBonusDamagePrecisionAura=ko.computed(function(){var total_attribute1=0;var total_attribute2=0;var sources=[];for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(ability.name()=="drow_ranger_trueshot"){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"trueshot_ranged_damage":total_attribute1+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;sources.push({damage:self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100,damagetype:"physical",displayname:ability.displayname()});break}}if(ability.bonusdamageprecisionaura!=undefined){total_attribute2+=ability.bonusdamageprecisionaura();sources.push({damage:ability.bonusdamageprecisionaura(),damagetype:"physical",displayname:ability.displayname()})}}}}return{sources:sources,total:[total_attribute1,total_attribute2]}});self.getBonusDamageReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"enfeeble_attack_reduction":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}}}else if(ability.bonusdamagereduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusdamagereduction()}}}return total_attribute});self.getStrength=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j]}}}else{if(ability.bonusstrength!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusstrength()}}if(ability.bonusstrength2!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.bonusstrength2()}}}}return total_attribute});self.getCritSource=ko.computed(function(){var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){switch(ability.name()){case"phantom_assassin_coup_de_grace":if(sources[ability.name()]==undefined){sources[ability.name()]={chance:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_chance",ability.level())/100,multiplier:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_bonus",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"brewmaster_drunken_brawler":if(sources[ability.name()]==undefined){sources[ability.name()]={chance:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_chance",ability.level())/100,multiplier:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_multiplier",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"chaos_knight_chaos_strike":case"lycan_shapeshift":if(sources[ability.name()]==undefined){sources[ability.name()]={chance:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_chance",ability.level())/100,multiplier:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_damage",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"skeleton_king_mortal_strike":if(sources[ability.name()]==undefined){sources[ability.name()]={chance:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_chance",ability.level())/100,multiplier:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_mult",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"juggernaut_blade_dance":if(sources[ability.name()]==undefined){sources[ability.name()]={chance:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"blade_dance_crit_chance",ability.level())/100,multiplier:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"blade_dance_crit_mult",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"alpha_wolf_critical_strike":case"giant_wolf_critical_strike":if(sources[ability.name()]==undefined){sources[ability.name()]={chance:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_chance",ability.level())/100,multiplier:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"crit_mult",ability.level())/100,count:1,displayname:ability.displayname()}
-}else{sources[ability.name()].count+=1}break}}}}return sources});self.getCleaveSource=ko.computed(function(){var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){switch(ability.name()){case"magnataur_empower":if(sources[ability.name()]==undefined){sources[ability.name()]={radius:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"cleave_radius",ability.level()),magnitude:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"cleave_damage_pct",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"sven_great_cleave":if(sources[ability.name()]==undefined){sources[ability.name()]={radius:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"great_cleave_radius",ability.level()),magnitude:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"great_cleave_damage",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"kunkka_tidebringer":if(sources[ability.name()]==undefined){sources[ability.name()]={radius:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"radius",ability.level()),magnitude:1,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}break;case"tiny_grow":if(self.hasScepter()){if(sources[ability.name()]==undefined){sources[ability.name()]={radius:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"bonus_cleave_radius_scepter",ability.level()),magnitude:self.getAbilityAttributeValue(self.abilities()[i].attributes(),"bonus_cleave_damage_scepter",ability.level())/100,count:1,displayname:ability.displayname()}}else{sources[ability.name()].count+=1}}break}}}}return sources});self.getCritChance=ko.computed(function(){var total_attribute=1;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"crit_chance":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break}}}}}return total_attribute});self.getEvasion=ko.computed(function(){var total_attribute=1;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_evasion":case"dodge_chance":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break;case"dodge_chance_pct":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break}}}}}return total_attribute});self.getMissChance=ko.computed(function(){var total_attribute=1;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"miss_chance":case"miss_rate":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break}}}}else if(ability.misschance!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute*=1-ability.misschance()/100}}}return total_attribute});self.getLifesteal=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"vampiric_aura":case"lifesteal_pct":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}}}else if(ability.lifesteal!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.lifesteal()}}}return total_attribute});self.getMagicResist=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"spell_shield_resistance":return self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break;case"magic_resistance_pct":if(ability.name()=="phantom_lancer_phantom_edge"){return self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"magic_damage_reduction_pct":if(ability.name()=="rubick_null_field"){return self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break}}}}else if(ability.magicresist!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.magicresist()}}}return total_attribute});self.getMagicResistReduction=ko.computed(function(){var total_attribute=1;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"spell_resist_pct":case"bonus_spell_damage_pct":case"resist_debuff":total_attribute*=1-self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break;case"magic_resistance_pct":total_attribute*=1+self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break}}}}}return total_attribute});self.getMovementSpeedFlat=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_movespeed":if(ability.name()=="alchemist_chemical_rage"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"bonus_movement_speed":if(ability.name()=="tiny_grow"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"bonus_move_speed":if(ability.name()=="troll_warlord_berserkers_rage"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())}break;case"speed_loss":total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}}}else if(ability.movementspeedflat!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.movementspeedflat()}}}return total_attribute});self.getMovementSpeedPercent=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"move_speed_pct":case"bonus_move_speed_pct":case"leap_speedbonus":case"warcry_movespeed":case"move_speed_bonus_pct":case"movespeed_bonus_pct":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break;case"bonus_movespeed":if(ability.name()=="broodmother_spin_web"||ability.name()=="spectre_spectral_dagger"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"speed_bonus":if(ability.name()=="axe_culling_blade"||ability.name()=="necronomicon_archer_aoe"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movement_speed":if(ability.name()=="nyx_assassin_vendetta"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"bonus_movespeed_pct":if(ability.name()=="spirit_breaker_empowering_haste"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"bonus_movement_speed":if(ability.name()=="ogre_magi_bloodlust"||ability.name()=="slark_shadow_dance"||ability.name()=="death_prophet_witchcraft"||ability.name()=="kobold_taskmaster_speed_aura"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movement_speed_pct":if(ability.name()=="razor_unstable_current"||ability.name()=="phantom_lancer_doppelwalk"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"bonus_move_speed":if(ability.name()=="treant_natures_guise"||ability.name()=="lone_druid_rabid"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movespeed":if(ability.name()=="wisp_tether"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movespeed_bonus":if(ability.name()=="kunkka_ghostship"||ability.name()=="visage_grave_chill"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break}}}}else if(ability.movementspeedpct!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.movementspeedpct()/100}}}return total_attribute});self.getMovementSpeedPercentReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"slow_pct":total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break;case"movespeed_slow":case"slow_movement_speed":case"slow_movement_speed_pct":case"frost_arrows_movement_speed":case"blast_slow":case"crush_extra_slow":case"overload_move_slow":case"enemy_movespeed_bonus_pct":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break;case"move_slow":if(ability.name()=="phantom_assassin_stifling_dagger"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}else if(ability.name()=="tusk_frozen_sigil"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"slow":if(ability.name()=="medusa_stone_gaze"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}else{total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"bonus_movespeed":if(ability.name()=="broodmother_incapacitating_bite"||ability.name()=="bounty_hunter_jinada"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}else if(ability.name()=="spectre_spectral_dagger"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"speed_bonus":if(ability.name()=="omniknight_degen_aura"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movement_speed":if(ability.name()=="tidehunter_gush"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"bonus_movement_speed":if(ability.name()=="pugna_decrepify"||ability.name()=="chen_penitence"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movement_speed_pct":if(ability.name()=="ancient_apparition_ice_vortex"||ability.name()=="phantom_lancer_spirit_lance"||ability.name()=="faceless_void_time_walk"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}else if(ability.name()=="skywrath_mage_concussive_shot"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"slow_amount":if(ability.name()=="razor_unstable_current"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movement_slow":if(ability.name()=="brewmaster_drunken_haze"||ability.name()=="brewmaster_thunder_clap"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}else if(ability.name()=="ursa_earthshock"||ability.name()=="treant_leech_seed"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movespeed":if(ability.name()=="skeleton_king_reincarnation"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break;case"movespeed_bonus":if(ability.name()=="kunkka_torrent"){total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}else if(ability.name()=="visage_grave_chill"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break}}if(ability.name()=="satyr_trickster_purge"){total_attribute-=80/100}else if(ability.name()=="enraged_wildkin_tornado"){total_attribute-=15/100}}}else if(ability.movementspeedpctreduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.movementspeedpctreduction()/100}}}return total_attribute});self.getTurnRateReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"slow":if(ability.name()=="medusa_stone_gaze"){total_attribute-=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100}break}}}}else if(ability.turnratereduction!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.turnratereduction()/100}}}return total_attribute});self.getVisionRangeNight=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"bonus_night_vision":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level());break}}}}else if(ability.visionnight!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){total_attribute+=ability.visionnight()}}}return total_attribute});self.getVisionRangePctReduction=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"blind_percentage":total_attribute+=self.getAbilityAttributeValue(self.abilities()[i].attributes(),attribute.name(),ability.level())/100;break}}}}}return total_attribute});self.setEvasion=ko.computed(function(){var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){if(ability.name()=="windrunner_windrun"){return 1}}}return total_attribute});self.setMovementSpeed=ko.computed(function(){var MAX_MOVESPEED=522;var MIN_MOVESPEED=100;var total_attribute=0;for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){if(ability.name()=="spirit_breaker_charge_of_darkness"){return self.getAbilityAttributeValue(ability.attributes(),"movement_speed",ability.level())}if(ability.name()=="dark_seer_surge"){return MAX_MOVESPEED}if(ability.name()=="centaur_stampede"){return MAX_MOVESPEED}if(ability.name()=="lion_voodoo"||ability.name()=="shadow_shaman_voodoo"){return MIN_MOVESPEED}}}return total_attribute});self.getBashSource=function(attacktype){var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"proc_chance":if(sources[ability.name()]==undefined&&ability.name()=="sniper_headshot"){sources[ability.name()]={chance:self.getAbilityAttributeValue(ability.attributes(),attribute.name(),ability.level())/100,damage:self.getAbilityPropertyValue(ability,"damage"),count:1,damagetype:"physical",displayname:ability.displayname()}}break;case"chance":if(sources[ability.name()]==undefined&&ability.name()=="slardar_bash"){sources[ability.name()]={chance:self.getAbilityAttributeValue(ability.attributes(),attribute.name(),ability.level())/100,damage:self.getAbilityAttributeValue(ability.attributes(),"bonus_damage",ability.level()),count:1,damagetype:"physical",displayname:ability.displayname()}}break}}}}else if(ability.bashbonusdamage!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){if(sources[ability.name()]==undefined&&ability.name()=="faceless_void_time_lock"){sources[ability.name()]={chance:ability.bash()/100,damage:ability.bashbonusdamage(),count:1,damagetype:"magic",displayname:ability.displayname()}}if(sources[ability.name()]==undefined&&ability.name()=="spirit_breaker_greater_bash"){sources[ability.name()]={chance:ability.bash()/100,damage:ability.bashbonusdamage()/100,count:1,damagetype:"magic",displayname:ability.displayname()}}}}}return sources};self.getOrbSource=function(){var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(!(ability.name()in self.abilityData)){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){for(var j=0;j<self.abilities()[i].attributes().length;j++){var attribute=self.abilities()[i].attributes()[j];switch(attribute.name()){case"mana_per_hit":if(sources[ability.name()]==undefined&&ability.name()=="antimage_mana_break"){sources[ability.name()]={damage:self.getAbilityAttributeValue(ability.attributes(),attribute.name(),ability.level())*self.getAbilityAttributeValue(ability.attributes(),"damage_per_burn",ability.level()),damagetype:"physical",displayname:ability.displayname()}}break;case"damage_bonus":if(sources[ability.name()]==undefined&&ability.name()=="clinkz_searing_arrows"){sources[ability.name()]={damage:self.getAbilityAttributeValue(ability.attributes(),attribute.name(),ability.level()),damagetype:"physical",displayname:ability.displayname()}}break}}}}else if(ability.bonusdamageorb!=undefined){if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){if(sources[ability.name()]==undefined&&ability.name()=="obsidian_destroyer_arcane_orb"){sources[ability.name()]={damage:ability.bonusdamageorb(),damagetype:"pure",displayname:ability.displayname()}}}}}return sources};self.toggleAbility=function(index,data,event){if(self.abilities()[index()].behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")<0){if(self.abilities()[index()].isactive()){self.abilities()[index()].isactive(false)}else{self.abilities()[index()].isactive(true)}}}.bind(this);self.toggleAbilityDetail=function(index,data,event){if(self.abilities()[index()].isdetail()){self.abilities()[index()].isdetail(false)}else{self.abilities()[index()].isdetail(true)}}.bind(this);self.getAbilityTooltipData=function(hero,el){return my.getAbilityTooltipData(hero,el)};self.levelUpAbility=function(index,data,event,hero){if(self.abilities()[index()].level()<hero.getAbilityLevelMax(data)&&hero.availableSkillPoints()>0){switch(self.abilities()[index()].abilitytype()){case"DOTA_ABILITY_TYPE_ULTIMATE":if((self.abilities()[index()].level()+1)*5+1<=parseInt(hero.selectedHeroLevel())){self.abilities()[index()].level(self.abilities()[index()].level()+1)}break;default:if(self.abilities()[index()].level()*2+1<=parseInt(hero.selectedHeroLevel())){self.abilities()[index()].level(self.abilities()[index()].level()+1)}break}switch(self.abilities()[index()].name()){case"beastmaster_call_of_the_wild":case"chen_test_of_faith":case"morphling_morph_agi":case"shadow_demon_shadow_poison":self.abilities()[index()+1].level(self.abilities()[index()].level());break;case"morphling_morph_str":self.abilities()[index()-1].level(self.abilities()[index()].level());break;case"keeper_of_the_light_spirit_form":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()-2].level(self.abilities()[index()].level());case"nevermore_shadowraze1":self.abilities()[index()+1].level(self.abilities()[index()].level());self.abilities()[index()+2].level(self.abilities()[index()].level());break;case"nevermore_shadowraze2":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()+1].level(self.abilities()[index()].level());break;case"nevermore_shadowraze3":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()-2].level(self.abilities()[index()].level());break;case"ember_spirit_fire_remnant":self.abilities()[index()-1].level(self.abilities()[index()].level());break}}};self.levelDownAbility=function(index,data,event,hero){if(self.abilities()[index()].level()>0){self.abilities()[index()].level(self.abilities()[index()].level()-1);switch(self.abilities()[index()].name()){case"beastmaster_call_of_the_wild":case"chen_test_of_faith":case"morphling_morph_agi":case"shadow_demon_shadow_poison":self.abilities()[index()+1].level(self.abilities()[index()].level());break;case"morphling_morph_str":self.abilities()[index()-1].level(self.abilities()[index()].level());break;case"keeper_of_the_light_spirit_form":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()-2].level(self.abilities()[index()].level());case"nevermore_shadowraze1":self.abilities()[index()+1].level(self.abilities()[index()].level());self.abilities()[index()+2].level(self.abilities()[index()].level());break;case"nevermore_shadowraze2":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()+1].level(self.abilities()[index()].level());break;case"nevermore_shadowraze3":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()-2].level(self.abilities()[index()].level());break;case"ember_spirit_fire_remnant":self.abilities()[index()-1].level(self.abilities()[index()].level());break}}}};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){my.BuffOption=function(hero,ability){this.buffName=ability;if(my.heroData["npc_dota_hero_"+hero]==undefined){this.hero=hero;this.abilityData=_.findWhere(my.unitData[hero].abilities,{name:ability});this.buffDisplayName=my.unitData[hero].displayname+" - "+this.abilityData.displayname}else{this.hero="npc_dota_hero_"+hero;this.abilityData=_.findWhere(my.heroData["npc_dota_hero_"+hero].abilities,{name:ability});this.buffDisplayName=my.heroData["npc_dota_hero_"+hero].displayname+" - "+this.abilityData.displayname}};my.BuffViewModel=function(a){var self=new my.AbilityModel(ko.observableArray([]));self.availableBuffs=ko.observableArray([new my.BuffOption("abaddon","abaddon_frostmourne"),new my.BuffOption("axe","axe_culling_blade"),new my.BuffOption("beastmaster","beastmaster_inner_beast"),new my.BuffOption("bloodseeker","bloodseeker_bloodrage"),new my.BuffOption("bounty_hunter","bounty_hunter_track"),new my.BuffOption("centaur","centaur_stampede"),new my.BuffOption("crystal_maiden","crystal_maiden_brilliance_aura"),new my.BuffOption("dark_seer","dark_seer_surge"),new my.BuffOption("dazzle","dazzle_weave"),new my.BuffOption("drow_ranger","drow_ranger_trueshot"),new my.BuffOption("invoker","invoker_alacrity"),new my.BuffOption("wisp","wisp_tether"),new my.BuffOption("wisp","wisp_overcharge"),new my.BuffOption("kunkka","kunkka_ghostship"),new my.BuffOption("lich","lich_frost_armor"),new my.BuffOption("life_stealer","life_stealer_open_wounds"),new my.BuffOption("luna","luna_lunar_blessing"),new my.BuffOption("lycan","lycan_howl"),new my.BuffOption("magnataur","magnataur_empower"),new my.BuffOption("mirana","mirana_leap"),new my.BuffOption("ogre_magi","ogre_magi_bloodlust"),new my.BuffOption("omniknight","omniknight_guardian_angel"),new my.BuffOption("rubick","rubick_null_field"),new my.BuffOption("skeleton_king","skeleton_king_vampiric_aura"),new my.BuffOption("spirit_breaker","spirit_breaker_empowering_haste"),new my.BuffOption("sven","sven_warcry"),new my.BuffOption("treant","treant_living_armor"),new my.BuffOption("vengefulspirit","vengefulspirit_command_aura"),new my.BuffOption("npc_dota_neutral_alpha_wolf","alpha_wolf_critical_strike"),new my.BuffOption("npc_dota_neutral_alpha_wolf","alpha_wolf_command_aura"),new my.BuffOption("npc_dota_neutral_centaur_khan","centaur_khan_endurance_aura"),new my.BuffOption("npc_dota_neutral_giant_wolf","giant_wolf_critical_strike"),new my.BuffOption("npc_dota_neutral_kobold_taskmaster","kobold_taskmaster_speed_aura"),new my.BuffOption("npc_dota_neutral_ogre_magi","ogre_magi_frost_armor"),new my.BuffOption("npc_dota_neutral_satyr_hellcaller","satyr_hellcaller_unholy_aura"),new my.BuffOption("npc_dota_neutral_enraged_wildkin","enraged_wildkin_toughness_aura"),new my.BuffOption("npc_dota_necronomicon_archer_1","necronomicon_archer_aoe")]);self.availableDebuffs=ko.observableArray([new my.BuffOption("alchemist","alchemist_acid_spray"),new my.BuffOption("ancient_apparition","ancient_apparition_ice_vortex"),new my.BuffOption("axe","axe_battle_hunger"),new my.BuffOption("bane","bane_enfeeble"),new my.BuffOption("batrider","batrider_sticky_napalm"),new my.BuffOption("beastmaster","beastmaster_primal_roar"),new my.BuffOption("bounty_hunter","bounty_hunter_jinada"),new my.BuffOption("brewmaster","brewmaster_thunder_clap"),new my.BuffOption("brewmaster","brewmaster_drunken_haze"),new my.BuffOption("bristleback","bristleback_viscous_nasal_goo"),new my.BuffOption("broodmother","broodmother_incapacitating_bite"),new my.BuffOption("centaur","centaur_stampede"),new my.BuffOption("chen","chen_penitence"),new my.BuffOption("crystal_maiden","crystal_maiden_crystal_nova"),new my.BuffOption("crystal_maiden","crystal_maiden_freezing_field"),new my.BuffOption("dazzle","dazzle_weave"),new my.BuffOption("drow_ranger","drow_ranger_frost_arrows"),new my.BuffOption("earth_spirit","earth_spirit_rolling_boulder"),new my.BuffOption("elder_titan","elder_titan_natural_order"),new my.BuffOption("elder_titan","elder_titan_earth_splitter"),new my.BuffOption("enchantress","enchantress_untouchable"),new my.BuffOption("enchantress","enchantress_enchant"),new my.BuffOption("faceless_void","faceless_void_time_walk"),new my.BuffOption("huskar","huskar_life_break"),new my.BuffOption("invoker","invoker_ghost_walk"),new my.BuffOption("invoker","invoker_ice_wall"),new my.BuffOption("wisp","wisp_tether"),new my.BuffOption("jakiro","jakiro_dual_breath"),new my.BuffOption("jakiro","jakiro_liquid_fire"),new my.BuffOption("keeper_of_the_light","keeper_of_the_light_blinding_light"),new my.BuffOption("kunkka","kunkka_torrent"),new my.BuffOption("lich","lich_frost_nova"),new my.BuffOption("lich","lich_frost_armor"),new my.BuffOption("lich","lich_chain_frost"),new my.BuffOption("life_stealer","life_stealer_open_wounds"),new my.BuffOption("lion","lion_voodoo"),new my.BuffOption("magnataur","magnataur_skewer"),new my.BuffOption("medusa","medusa_stone_gaze"),new my.BuffOption("meepo","meepo_geostrike"),new my.BuffOption("naga_siren","naga_siren_rip_tide"),new my.BuffOption("night_stalker","night_stalker_void"),new my.BuffOption("night_stalker","night_stalker_crippling_fear"),new my.BuffOption("night_stalker","night_stalker_darkness"),new my.BuffOption("ogre_magi","ogre_magi_ignite"),new my.BuffOption("omniknight","omniknight_degen_aura"),new my.BuffOption("phantom_assassin","phantom_assassin_stifling_dagger"),new my.BuffOption("phantom_lancer","phantom_lancer_spirit_lance"),new my.BuffOption("pudge","pudge_rot"),new my.BuffOption("pugna","pugna_decrepify"),new my.BuffOption("queenofpain","queenofpain_shadow_strike"),new my.BuffOption("riki","riki_smoke_screen"),new my.BuffOption("rubick","rubick_fade_bolt"),new my.BuffOption("sand_king","sandking_epicenter"),new my.BuffOption("nevermore","nevermore_dark_lord"),new my.BuffOption("shadow_shaman","shadow_shaman_voodoo"),new my.BuffOption("skeleton_king","skeleton_king_hellfire_blast"),new my.BuffOption("skeleton_king","skeleton_king_reincarnation"),new my.BuffOption("skywrath_mage","skywrath_mage_concussive_shot"),new my.BuffOption("slardar","slardar_slithereen_crush"),new my.BuffOption("slardar","slardar_amplify_damage"),new my.BuffOption("slark","slark_essence_shift"),new my.BuffOption("sniper","sniper_shrapnel"),new my.BuffOption("spectre","spectre_spectral_dagger"),new my.BuffOption("storm_spirit","storm_spirit_overload"),new my.BuffOption("templar_assassin","templar_assassin_meld"),new my.BuffOption("tidehunter","tidehunter_gush"),new my.BuffOption("tinker","tinker_laser"),new my.BuffOption("treant","treant_leech_seed"),new my.BuffOption("tusk","tusk_frozen_sigil"),new my.BuffOption("ursa","ursa_earthshock"),new my.BuffOption("vengefulspirit","vengefulspirit_wave_of_terror"),new my.BuffOption("venomancer","venomancer_venomous_gale"),new my.BuffOption("venomancer","venomancer_poison_sting"),new my.BuffOption("viper","viper_poison_attack"),new my.BuffOption("viper","viper_corrosive_skin"),new my.BuffOption("viper","viper_viper_strike"),new my.BuffOption("visage","visage_grave_chill"),new my.BuffOption("warlock","warlock_upheaval"),new my.BuffOption("weaver","weaver_the_swarm"),new my.BuffOption("windrunner","windrunner_windrun"),new my.BuffOption("npc_dota_neutral_ghost","ghost_frost_attack"),new my.BuffOption("npc_dota_neutral_polar_furbolg_ursa_warrior","polar_furbolg_ursa_warrior_thunder_clap"),new my.BuffOption("npc_dota_neutral_ogre_magi","ogre_magi_frost_armor"),new my.BuffOption("npc_dota_neutral_satyr_trickster","satyr_trickster_purge"),new my.BuffOption("npc_dota_neutral_enraged_wildkin","enraged_wildkin_tornado")]);self.selectedBuff=ko.observable(self.availableBuffs()[0]);self.buffs=ko.observableArray([]);self.addBuff=function(data,event){if(_.findWhere(self.buffs(),{name:self.selectedBuff().buffName})==undefined){var a=ko.mapping.fromJS(self.selectedBuff().abilityData);a.isactive=ko.observable(false);a.isdetail=ko.observable(false);a.basedamage=ko.observable(0);a.bash=ko.observable(0);a.bashbonusdamage=ko.observable(0);a.bonusdamage=ko.observable(0);a.bonusdamageorb=ko.observable(0);a.bonusdamagepct=ko.observable(0);a.bonusdamageprecisionaura=ko.observable(0);a.bonusdamagereduction=ko.observable(0);a.bonushealth=ko.observable(0);a.bonusstrength=ko.observable(0);a.bonusstrength2=ko.observable(0);a.bonusagility=ko.observable(0);a.bonusagility2=ko.observable(0);a.bonusint=ko.observable(0);a.bonusallstatsreduction=ko.observable(0);a.evasion=ko.observable(0);a.magicresist=ko.observable(0);a.manaregen=ko.observable(0);a.manaregenreduction=ko.observable(0);a.misschance=ko.observable(0);a.movementspeedflat=ko.observable(0);a.movementspeedpct=ko.observable(0);a.movementspeedpctreduction=ko.observable(0);a.turnratereduction=ko.observable(0);a.attackrange=ko.observable(0);a.attackspeed=ko.observable(0);a.attackspeedreduction=ko.observable(0);a.armor=ko.observable(0);a.armorreduction=ko.observable(0);a.healthregen=ko.observable(0);a.lifesteal=ko.observable(0);a.visionnight=ko.observable(0);a.visionday=ko.observable(0);switch(a.name()){case"invoker_cold_snap":case"invoker_ghost_walk":case"invoker_tornado":case"invoker_emp":case"invoker_alacrity":case"invoker_chaos_meteor":case"invoker_sun_strike":case"invoker_forge_spirit":case"invoker_ice_wall":case"invoker_deafening_blast":a.level(1);break}self.abilities.push(a);self.buffs.push({name:self.selectedBuff().buffName,hero:self.selectedBuff().hero,data:a})}};self.removeBuff=function(data,event,abilityname){if(_.findWhere(self.buffs(),{name:abilityname})!=undefined){self.buffs.remove(_.findWhere(self.buffs(),{name:abilityname}));if(self.abilityControlData[abilityname]!=undefined){for(var i=0;i<self.abilityControlData[abilityname].data.length;i++){if(self.abilityControlData[abilityname].data[i].controlval.dispose!=undefined){self.abilityControlData[abilityname].data[i].controlval.dispose();self.abilityControlData[abilityname].data[i].clean.dispose()}}self.abilityControlData[abilityname]=undefined}for(var i=0;i<self.abilities().length;i++){if(self.abilities()[i].name()==abilityname){self.abilities()[i].level(0);self.abilities.remove(self.abilities()[i]);break}}}};self.toggleBuff=function(index,data,event){if(self.buffs()[index()].data.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")<0){if(self.buffs()[index()].data.isactive()){self.buffs()[index()].data.isactive(false);self.abilities()[index()].isactive(false)}else{self.buffs()[index()].data.isactive(true);self.abilities()[index()].isactive(true)}}}.bind(this);self.toggleBuffDetail=function(index,data,event){if(self.buffs()[index()].data.isdetail()){self.buffs()[index()].data.isdetail(false)}else{self.buffs()[index()].data.isdetail(true)}}.bind(this);self.levelUpAbility=function(index,data,event,hero){if(self.abilities()[index()].level()<hero.getAbilityLevelMax(data)){switch(self.abilities()[index()].abilitytype()){case"DOTA_ABILITY_TYPE_ULTIMATE":self.abilities()[index()].level(self.abilities()[index()].level()+1);break;default:self.abilities()[index()].level(self.abilities()[index()].level()+1);break}switch(self.abilities()[index()].name()){case"beastmaster_call_of_the_wild":case"chen_test_of_faith":case"morphling_morph_agi":case"shadow_demon_shadow_poison":self.abilities()[index()+1].level(self.abilities()[index()].level());break;case"morphling_morph_str":self.abilities()[index()-1].level(self.abilities()[index()].level());break;case"keeper_of_the_light_spirit_form":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()-2].level(self.abilities()[index()].level());case"nevermore_shadowraze1":self.abilities()[index()+1].level(self.abilities()[index()].level());self.abilities()[index()+2].level(self.abilities()[index()].level());break;case"nevermore_shadowraze2":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()+1].level(self.abilities()[index()].level());break;case"nevermore_shadowraze3":self.abilities()[index()-1].level(self.abilities()[index()].level());self.abilities()[index()-2].level(self.abilities()[index()].level());break}}};return self};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){my.DamageAmpViewModel=function(a){var self=new my.BuffViewModel(ko.observableArray([]));self.availableBuffs=ko.observableArray([new my.BuffOption("slardar","slardar_sprint"),new my.BuffOption("undying","undying_flesh_golem"),new my.BuffOption("chen","chen_penitence"),new my.BuffOption("medusa","medusa_stone_gaze"),new my.BuffOption("shadow_demon","shadow_demon_soul_catcher")]);self.availableDebuffs=ko.observableArray([new my.BuffOption("medusa","medusa_mana_shield"),new my.BuffOption("templar_assassin","templar_assassin_refraction"),new my.BuffOption("faceless_void","faceless_void_backtrack"),new my.BuffOption("nyx_assassin","nyx_assassin_spiked_carapace"),new my.BuffOption("spectre","spectre_dispersion"),new my.BuffOption("wisp","wisp_overcharge"),new my.BuffOption("bristleback","bristleback_bristleback"),new my.BuffOption("abaddon","abaddon_borrowed_time"),new my.BuffOption("abaddon","abaddon_aphotic_shield"),new my.BuffOption("kunkka","kunkka_ghostship"),new my.BuffOption("treant","treant_living_armor"),new my.BuffOption("dazzle","dazzle_shallow_grave")]);self.selectedBuff=ko.observable(self.availableBuffs()[0]);self.buffs=ko.observableArray([]);self.getAbilityDamageAmpValue=function(abilityname,attributename){var a=_.findWhere(self.buffs(),{name:abilityname});if(a==undefined){return 0}else{var ability=a.data;return self.getAbilityAttributeValue(ability.attributes(),attributename,ability.level())}};self.getDamageMultiplierSources=ko.computed(function(){var sources={};for(var i=0;i<self.abilities().length;i++){var ability=self.abilities()[i];if(ability.level()>0&&(ability.isactive()||ability.behavior().indexOf("DOTA_ABILITY_BEHAVIOR_PASSIVE")!=-1)){switch(ability.name()){case"slardar_sprint":case"undying_flesh_golem":case"medusa_stone_gaze":case"chen_penitence":sources[ability.name()]={multiplier:self.getAbilityAttributeValue(ability.attributes(),"bonus_damage_taken",ability.level())/100,damagetype:"physical",displayname:ability.displayname()};break;case"shadow_demon_soul_catcher":sources[ability.name()]={multiplier:self.getAbilityAttributeValue(ability.attributes(),"bonus_damage_taken",ability.level())/100,damagetype:"pure",displayname:ability.displayname()};break;case"medusa_mana_shield":sources[ability.name()]={multiplier:-.5,damagetype:"percentreduction",displayname:ability.displayname()};break;case"spectre_dispersion":sources[ability.name()]={multiplier:-self.getAbilityAttributeValue(ability.attributes(),"damage_reflection_pct",ability.level())/100,damagetype:"percentreduction",displayname:ability.displayname()};break;case"abaddon_aphotic_shield":sources[ability.name()]={multiplier:self.getAbilityAttributeValue(ability.attributes(),"damage_absorb",ability.level()),damagetype:"flatreduction",displayname:ability.displayname()};break}}}return sources});return self};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){my.HeroOption=function(name,displayname){this.heroName=name;this.heroDisplayName=displayname};function createHeroOptions(){var options=[];for(h in my.heroData){options.push(new my.HeroOption(h.replace("npc_dota_hero_",""),my.heroData[h].displayname))}return options}my.HeroCalculatorModel=function(h){var self=this;self.availableHeroes=ko.observableArray(createHeroOptions());self.sectionDisplay=ko.observable({inventory:ko.observable(true),ability:ko.observable(true),buff:ko.observable(true),debuff:ko.observable(true),damageamp:ko.observable(false)});self.sectionDisplayToggle=function(section){self.sectionDisplay()[section](!self.sectionDisplay()[section]())};self.availableHeroes.sort(function(left,right){return left.heroDisplayName==right.heroDisplayName?0:left.heroDisplayName<right.heroDisplayName?-1:1});self.selectedHero=ko.observable(self.availableHeroes()[h]);self.selectedHeroLevel=ko.observable(1);self.inventory=new my.InventoryViewModel;self.buffs=new my.BuffViewModel;self.buffs.hasScepter=self.inventory.hasScepter;self.debuffs=new my.BuffViewModel;self.damageamplification=new my.DamageAmpViewModel;self.damagereduction=new my.DamageAmpViewModel;self.hero=ko.computed(function(){return ko.mapping.fromJS(my.heroData["npc_dota_hero_"+self.selectedHero().heroName])});self.enemy=ko.observable(self);self.unit=ko.observable(self);self.getAbilityLevelMax=function(data){if(data.abilitytype()=="DOTA_ABILITY_TYPE_ATTRIBUTES"){return 10}else if(data.name()=="invoker_quas"||data.name()=="invoker_wex"||data.name()=="invoker_exort"){return 7}else if(data.name()=="invoker_invoke"){return 4}else if(data.name()=="earth_spirit_stone_caller"){return 1}else if(data.abilitytype()=="DOTA_ABILITY_TYPE_ULTIMATE"||data.name()=="keeper_of_the_light_recall"||data.name()=="keeper_of_the_light_blinding_light"||data.name()=="ember_spirit_activate_fire_remnant"){return 3}else if(data.name()=="puck_ethereal_jaunt"||data.name()=="shadow_demon_shadow_poison_release"||data.name()=="templar_assassin_trap"||data.name()=="spectre_reality"){return 0}else if(data.name()=="invoker_cold_snap"||data.name()=="invoker_ghost_walk"||data.name()=="invoker_tornado"||data.name()=="invoker_emp"||data.name()=="invoker_alacrity"||data.name()=="invoker_chaos_meteor"||data.name()=="invoker_sun_strike"||data.name()=="invoker_forge_spirit"||data.name()=="invoker_ice_wall"||data.name()=="invoker_deafening_blast"){return 0}else{return 4}};self.ability=ko.computed(function(){var a=new my.AbilityModel(ko.mapping.fromJS(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].abilities));if(self.selectedHero().heroName=="earth_spirit"){a.abilities()[3].level(1)}if(self.selectedHero().heroName=="invoker"){for(var i=6;i<16;i++){a.abilities()[i].level(1)}}a.hasScepter=self.inventory.hasScepter;return a});self.showCriticalStrikeDetails=ko.observable(false);self.toggleCriticalStrikeDetails=function(){self.showCriticalStrikeDetails(!self.showCriticalStrikeDetails())};self.damageInputValue=ko.observable(0);self.showDamageDetails=ko.observable(false);self.toggleDamageDetails=function(){self.showDamageDetails(!self.showDamageDetails())};self.showStatDetails=ko.observable(false);self.toggleStatDetails=function(){self.showStatDetails(!self.showStatDetails())};self.availableSkillPoints=ko.computed(function(){var c=self.selectedHeroLevel();for(var i=0;i<self.ability().abilities().length;i++){switch(self.ability().abilities()[i].abilitytype()){case"DOTA_ABILITY_TYPE_ULTIMATE":if((self.ability().abilities()[i].level()+1)*5+1>parseInt(self.selectedHeroLevel())){self.ability().abilities()[i].level(Math.floor((parseInt(self.selectedHeroLevel())-1)/5))}break;default:if(self.ability().abilities()[i].level()*2+1>parseInt(self.selectedHeroLevel())){self.ability().abilities()[i].level(Math.floor((parseInt(self.selectedHeroLevel())+1)/2))}break}switch(self.ability().abilities()[i].name()){case"beastmaster_call_of_the_wild_boar":case"chen_test_of_faith_teleport":case"keeper_of_the_light_recall":case"keeper_of_the_light_blinding_light":case"morphling_morph_str":case"shadow_demon_shadow_poison_release":case"nevermore_shadowraze2":case"nevermore_shadowraze3":case"earth_spirit_stone_caller":case"ember_spirit_activate_fire_remnant":case"invoker_cold_snap":case"invoker_ghost_walk":case"invoker_tornado":case"invoker_emp":case"invoker_alacrity":case"invoker_chaos_meteor":case"invoker_sun_strike":case"invoker_forge_spirit":case"invoker_ice_wall":case"invoker_deafening_blast":break;default:c-=self.ability().abilities()[i].level();break}}if(c<0){for(var i=0;i<self.ability().abilities().length;i++){self.ability().abilities()[i].level(0)}c=self.selectedHeroLevel()}return c},this);self.primaryattribute=ko.computed(function(){var v=my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributeprimary;if(v=="DOTA_ATTRIBUTE_AGILITY"){return"agi"}else if(v=="DOTA_ATTRIBUTE_INTELLECT"){return"int"}else if(v=="DOTA_ATTRIBUTE_STRENGTH"){return"str"}else{return""}});self.totalAttribute=function(a){if(a=="agi"){return parseFloat(self.totalagi())}if(a=="int"){return parseFloat(self.totalint())}if(a=="str"){return parseFloat(self.totalstr())}};self.totalagi=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributebaseagility+my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributeagilitygain*(self.selectedHeroLevel()-1)+self.inventory.getAttributes("agi")+self.ability().getAttributeBonusLevel()*2+self.ability().getAgility()+self.enemy().ability().getAllStatsReduction()+self.debuffs.getAllStatsReduction()).toFixed(2)});self.totalint=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributebaseintelligence+my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributeintelligencegain*(self.selectedHeroLevel()-1)+self.inventory.getAttributes("int")+self.ability().getAttributeBonusLevel()*2+self.ability().getIntelligence()+self.enemy().ability().getAllStatsReduction()+self.debuffs.getAllStatsReduction()).toFixed(2)});self.totalstr=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributebasestrength+my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attributestrengthgain*(self.selectedHeroLevel()-1)+self.inventory.getAttributes("str")+self.ability().getAttributeBonusLevel()*2+self.ability().getStrength()+self.enemy().ability().getAllStatsReduction()+self.debuffs.getAllStatsReduction()).toFixed(2)});self.health=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].statushealth+self.totalstr()*19+self.inventory.getHealth()+self.ability().getHealth()).toFixed(2)});self.healthregen=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].statushealthregen+self.totalstr()*.03+self.inventory.getHealthRegen()+self.ability().getHealthRegen()+self.buffs.getHealthRegen()).toFixed(2)});self.mana=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].statusmana+self.totalint()*13+self.inventory.getMana()).toFixed(2)});self.manaregen=ko.computed(function(){return((my.heroData["npc_dota_hero_"+self.selectedHero().heroName].statusmanaregen+self.totalint()*.04+self.ability().getManaRegen())*(1+self.inventory.getManaRegenPercent())+(self.selectedHero().heroName=="crystal_maiden"?self.ability().getManaRegenArcaneAura()*2:self.buffs.getManaRegenArcaneAura())+self.inventory.getManaRegenBloodstone()-self.enemy().ability().getManaRegenReduction()).toFixed(2)});self.totalarmorphysical=ko.computed(function(){return(self.enemy().ability().getArmorBaseReduction()*self.debuffs.getArmorBaseReduction()*(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].armorphysical+self.totalagi()*.14)+self.inventory.getArmor()+self.ability().getArmor()+self.enemy().ability().getArmorReduction()+self.buffs.getArmor()+self.debuffs.getArmorReduction()).toFixed(2)});self.totalarmorphysicalreduction=ko.observable();self.damagreduction=ko.observable();self.totalmovementspeed=ko.computed(function(){var ms=self.ability().setMovementSpeed()>0?self.ability().setMovementSpeed():self.buffs.setMovementSpeed();if(ms>0){return ms}else{return((my.heroData["npc_dota_hero_"+self.selectedHero().heroName].movementspeed+self.inventory.getMovementSpeedFlat()+self.ability().getMovementSpeedFlat())*(1+self.inventory.getMovementSpeedPercent()+self.ability().getMovementSpeedPercent()+self.enemy().inventory.getMovementSpeedPercentReduction()+self.enemy().ability().getMovementSpeedPercentReduction()+self.buffs.getMovementSpeedPercent()+self.debuffs.getMovementSpeedPercentReduction()+self.unit().ability().getMovementSpeedPercent())).toFixed(2)}});self.totalturnrate=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].movementturnrate*(1+self.enemy().ability().getTurnRateReduction()+self.debuffs.getTurnRateReduction())).toFixed(2)});self.basedamage=ko.computed(function(){return[Math.floor(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attackdamagemin+self.totalAttribute(self.primaryattribute())+self.ability().getBaseDamage().total),Math.floor(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attackdamagemax+self.totalAttribute(self.primaryattribute())+self.ability().getBaseDamage().total)]});self.bonusdamage=ko.computed(function(){return self.inventory.getBonusDamage().total+self.ability().getBonusDamage().total+self.buffs.getBonusDamage().total+Math.floor((self.basedamage()[0]+self.basedamage()[1])/2*(self.inventory.getBonusDamagePercent().total+self.ability().getBonusDamagePercent().total+self.buffs.getBonusDamagePercent().total))+Math.floor(self.hero().attacktype()=="DOTA_UNIT_CAP_RANGED_ATTACK"?self.selectedHero().heroName=="drow_ranger"?self.ability().getBonusDamagePrecisionAura().total[0]*self.totalagi():self.buffs.getBonusDamagePrecisionAura().total[1]:0)});self.bonusdamagereduction=ko.computed(function(){return Math.abs(self.enemy().ability().getBonusDamageReduction()+self.debuffs.getBonusDamageReduction())});self.damage=ko.computed(function(){return[self.basedamage()[0]+self.bonusdamage()[0],self.basedamage()[1]+self.bonusdamage()[1]]});self.damageagainstenemy=ko.observable();self.totalmagicresistanceproduct=ko.computed(function(){return(1-my.heroData["npc_dota_hero_"+self.selectedHero().heroName].magicalresistance/100)*(1-self.inventory.getMagicResist()/100)*(1-self.ability().getMagicResist()/100)*(1-self.buffs.getMagicResist()/100)*self.enemy().inventory.getMagicResistReduction()*self.enemy().ability().getMagicResistReduction()*self.debuffs.getMagicResistReduction()});self.totalmagicresistance=ko.computed(function(){return 1-self.totalmagicresistanceproduct()});self.bat=ko.computed(function(){var abilityBAT=self.ability().getBAT();if(abilityBAT>0){return abilityBAT}return my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attackrate});self.ias=ko.computed(function(){var val=parseFloat(self.totalagi())+self.inventory.getAttackSpeed()+self.ability().getAttackSpeed()+self.enemy().ability().getAttackSpeedReduction()+self.buffs.getAttackSpeed()+self.debuffs.getAttackSpeedReduction()+self.unit().ability().getAttackSpeed();if(val<-80){return-80}else if(val>400){return 400}return val.toFixed(2)});self.attacktime=ko.computed(function(){return(self.bat()/(1+self.ias()/100)).toFixed(2)});self.attackspersecond=ko.computed(function(){return(1+self.ias()/100)/self.bat()});self.evasion=ko.computed(function(){var e=self.ability().setEvasion();if(e){return(e*100).toFixed(2)+"%"}else{return((1-self.inventory.getEvasion()*self.ability().getEvasion())*100).toFixed(2)+"%"}});self.ehp_physical=ko.computed(function(){var ehp=self.health()*(1+.06*self.totalarmorphysical())/(1-(1-self.inventory.getEvasion()*self.ability().getEvasion()));ehp*=_.some(self.inventory.activeItems(),function(item){return item.item=="mask_of_madness"})?1/1.3:1;return ehp.toFixed(2)});self.ehp_magical=ko.computed(function(){return(self.health()/self.totalmagicresistanceproduct()).toFixed(2)});self.bash=ko.computed(function(){var attacktype=my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attacktype;return((1-self.inventory.getBash(attacktype)*self.ability().getBash())*100).toFixed(2)+"%"});self.cleaveinfo=ko.computed(function(){var cleavesources=self.inventory.getCleaveSource();$.extend(cleavesources,self.ability().getCleaveSource());$.extend(cleavesources,self.buffs.getCleaveSource());var cleavesources_array=[];for(prop in cleavesources){var el=cleavesources[prop];el.name=prop;cleavesources_array.push(el)}function compareByRadius(a,b){if(a.radius<b.radius)return 1;if(a.radius>b.radius)return-1;return 0}cleavesources_array.sort(compareByRadius);var cleavesources_by_radius={};for(var i=0;i<cleavesources_array.length;i++){var total=0;for(var j=0;j<cleavesources_array.length;j++){if(cleavesources_array[j].radius>=cleavesources_array[i].radius){total+=cleavesources_array[j].magnitude*cleavesources_array[j].count}}cleavesources_by_radius[cleavesources_array[i].radius]=total}var result=[];for(prop in cleavesources_by_radius){result.push({radius:prop,magnitude:cleavesources_by_radius[prop]})}return result});self.critchance=ko.computed(function(){return((1-self.inventory.getCritChance()*self.ability().getCritChance())*100).toFixed(2)+"%"});self.critinfo=ko.computed(function(){var critsources=self.inventory.getCritSource();$.extend(critsources,self.ability().getCritSource());$.extend(critsources,self.buffs.getCritSource());var critsources_array=[];for(prop in critsources){var el=critsources[prop];el.name=prop;critsources_array.push(el)}function compareByMultiplier(a,b){if(a.multiplier<b.multiplier)return 1;if(a.multiplier>b.multiplier)return-1;return 0}critsources_array.sort(compareByMultiplier);var result=[];var crit_total=0;for(var i=0;i<critsources_array.length;i++){var total=1;for(var j=0;j<i;j++){for(var k=0;k<critsources_array[j].count;k++){total*=1-critsources_array[j].chance}}var total2=1;for(var k=0;k<critsources_array[i].count;k++){total2*=1-critsources_array[i].chance}total*=1-total2;crit_total+=total;if(critsources_array[i].count>1){result.push({name:critsources_array[i].displayname+" x"+critsources_array[i].count,chance:critsources_array[i].chance,multiplier:critsources_array[i].multiplier,count:critsources_array[i].count,totalchance:total})}else{result.push({name:critsources_array[i].displayname,chance:critsources_array[i].chance,multiplier:critsources_array[i].multiplier,count:critsources_array[i].count,totalchance:total})}}return{sources:result,total:crit_total}});self.bashinfo=ko.computed(function(){var attacktype=my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attacktype;var bashsources=self.inventory.getBashSource(attacktype);$.extend(bashsources,self.ability().getBashSource());var bashsources_array=[];for(prop in bashsources){var el=bashsources[prop];el.name=prop;bashsources_array.push(el)}function compareByDuration(a,b){if(a.duration<b.duration)return 1;if(a.duration>b.duration)return-1;return 0}var result=[];var bash_total=0;for(var i=0;i<bashsources_array.length;i++){var total=1;for(var j=0;j<i;j++){for(var k=0;k<bashsources_array[j].count;k++){total*=1-bashsources_array[j].chance}}var total2=1;for(var k=0;k<bashsources_array[i].count;k++){total2*=1-bashsources_array[i].chance}total*=1-total2;bash_total+=total;if(bashsources_array[i].name=="spirit_breaker_greater_bash"){var d=bashsources_array[i].damage*self.totalmovementspeed()}else{var d=bashsources_array[i].damage}if(bashsources_array[i].count>1){result.push({name:bashsources_array[i].displayname+" x"+bashsources_array[i].count,chance:bashsources_array[i].chance,damage:d,count:bashsources_array[i].count,damagetype:bashsources_array[i].damagetype,totalchance:total})}else{result.push({name:bashsources_array[i].displayname,chance:bashsources_array[i].chance,damage:d,count:bashsources_array[i].count,damagetype:bashsources_array[i].damagetype,totalchance:total})}}return{sources:result,total:bash_total}});self.orbprocinfo=ko.computed(function(){var attacktype=my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attacktype;var damagesources=self.inventory.getOrbProcSource();var damagesources_array=[];for(prop in damagesources){var el=damagesources[prop];el.name=prop;damagesources_array.push(el)}function compareByDamage(a,b){if(a.priority>b.priority){return 1}if(a.priority<b.priority){return-1}if(a.damage<b.damage)return 1;if(a.damage>b.damage)return-1;return 0}damagesources_array.sort(compareByDamage);var result=[];var damage_total=0;for(var i=0;i<damagesources_array.length;i++){var total=1;for(var j=0;j<i;j++){for(var k=0;k<damagesources_array[j].count;k++){total*=1-damagesources_array[j].chance}}var total2=1;for(var k=0;k<damagesources_array[i].count;k++){total2*=1-damagesources_array[i].chance}total*=1-total2;damage_total+=total;if(damagesources_array[i].count>1){result.push({name:damagesources_array[i].displayname+" x"+damagesources_array[i].count,chance:damagesources_array[i].chance,damage:damagesources_array[i].damage,count:damagesources_array[i].count,damagetype:damagesources_array[i].damagetype,totalchance:total})}else{result.push({name:damagesources_array[i].displayname,chance:damagesources_array[i].chance,damage:damagesources_array[i].damage,count:damagesources_array[i].count,damagetype:damagesources_array[i].damagetype,totalchance:total})}}return{sources:result,total:damage_total}});self.getReducedDamage=function(value,type){switch(type){case"physical":if(self.enemy().totalarmorphysical()>=0){return value*(1-.06*self.enemy().totalarmorphysical()/(1+.06*self.enemy().totalarmorphysical()))}else{return value*(1+(1-Math.pow(.94,-self.enemy().totalarmorphysical())))}break;case"magic":return value*(1-self.enemy().totalmagicresistance());break;case"pure":return value;break}};self.damagetotalinfo=ko.computed(function(){var bonusdamage_array=[self.ability().getBonusDamage().sources,self.buffs.getBonusDamage().sources],bonusdamagepct_array=[self.ability().getBonusDamagePercent().sources,self.buffs.getBonusDamagePercent().sources],itembonusdamage=self.inventory.getBonusDamage().sources,itembonusdamagepct=self.inventory.getBonusDamagePercent().sources,critsources=self.critinfo(),abilityorbsources=self.ability().getOrbSource(),itemorbsources=self.inventory.getOrbSource(),itemprocorbsources=self.orbprocinfo(),bashsources=self.bashinfo(),basedamage=(self.basedamage()[0]+self.basedamage()[1])/2,totaldamage=basedamage,totalcritabledamage=basedamage,totalcrit=0,damage={pure:0,physical:basedamage,magic:0},result=[],crits=[];for(i in itembonusdamage){var d=itembonusdamage[i].damage*itembonusdamage[i].count;result.push({name:itembonusdamage[i].displayname+(itembonusdamage[i].count>1?" x"+itembonusdamage[i].count:""),damage:d,damagetype:itembonusdamage[i].damagetype,damagereduced:self.getReducedDamage(d,itembonusdamage[i].damagetype)});totaldamage+=d;totalcritabledamage+=d;damage[itembonusdamage[i].damagetype]+=d}for(i in itembonusdamagepct){var d=basedamage*itembonusdamagepct[i].damage;result.push({name:itembonusdamagepct[i].displayname,damage:d,damagetype:itembonusdamagepct[i].damagetype,damagereduced:self.getReducedDamage(d,itembonusdamagepct[i].damagetype)});totaldamage+=d;totalcritabledamage+=d;damage[itembonusdamagepct[i].damagetype]+=d}for(var i=0;i<bonusdamage_array.length;i++){for(j in bonusdamage_array[i]){var d=bonusdamage_array[i][j].damage;result.push({name:bonusdamage_array[i][j].displayname,damage:d,damagetype:bonusdamage_array[i][j].damagetype,damagereduced:self.getReducedDamage(d,bonusdamage_array[i][j].damagetype)});totaldamage+=d;totalcritabledamage+=d;damage[bonusdamage_array[i][j].damagetype]+=d}}for(var i=0;i<bonusdamagepct_array.length;i++){for(j in bonusdamagepct_array[i]){var d=basedamage*bonusdamagepct_array[i][j].damage;result.push({name:bonusdamagepct_array[i][j].displayname,damage:d,damagetype:bonusdamagepct_array[i][j].damagetype,damagereduced:self.getReducedDamage(d,bonusdamagepct_array[i][j].damagetype)});totaldamage+=d;totalcritabledamage+=d;damage[bonusdamagepct_array[i][j].damagetype]+=d}}if(self.hero().attacktype()=="DOTA_UNIT_CAP_RANGED_ATTACK"){if(self.selectedHero().heroName=="drow_ranger"){var s=self.ability().getBonusDamagePrecisionAura().sources;var index=0}else{var s=self.buffs.getBonusDamagePrecisionAura().sources;var index=1}if(s[index]!=undefined){if(self.selectedHero().heroName=="drow_ranger"){var d=s[index].damage*self.totalagi()}else{var d=s[index].damage}result.push({name:s[index].displayname,damage:d,damagetype:"physical",damagereduced:self.getReducedDamage(d,"physical")});totaldamage+=d;totalcritabledamage+=d;damage.physical+=d}}for(var i=0;i<bashsources.sources.length;i++){var d=bashsources.sources[i].damage*bashsources.sources[i].chance*bashsources.sources[i].count;result.push({name:bashsources.sources[i].name,damage:d,damagetype:bashsources.sources[i].damagetype,damagereduced:self.getReducedDamage(d,bashsources.sources[i].damagetype)});totaldamage+=d;damage[bashsources.sources[i].damagetype]+=d}for(var i=0;i<itemprocorbsources.sources.length;i++){var d=itemprocorbsources.sources[i].damage*(1-Math.pow(1-itemprocorbsources.sources[i].chance,itemprocorbsources.sources[i].count));result.push({name:itemprocorbsources.sources[i].name,damage:d,damagetype:itemprocorbsources.sources[i].damagetype,damagereduced:self.getReducedDamage(d,itemprocorbsources.sources[i].damagetype)});totaldamage+=d;damage[itemprocorbsources.sources[i].damagetype]+=d}for(orb in abilityorbsources){var d=abilityorbsources[orb].damage*(1-itemprocorbsources.total);result.push({name:abilityorbsources[orb].displayname,damage:d,damagetype:abilityorbsources[orb].damagetype,damagereduced:self.getReducedDamage(d,abilityorbsources[orb].damagetype)});totaldamage+=d;damage[abilityorbsources[orb].damagetype]+=d}if(_.size(abilityorbsources)==0){for(orb in itemorbsources){var d=itemorbsources[orb].damage*(1-itemprocorbsources.total);result.push({name:itemorbsources[orb].displayname,damage:d,damagetype:itemorbsources[orb].damagetype,damagereduced:self.getReducedDamage(d,itemorbsources[orb].damagetype)});totaldamage+=d;damage[itemorbsources[orb].damagetype]+=d}}for(var i=0;i<critsources.sources.length;i++){var d=totalcritabledamage*(critsources.sources[i].multiplier-1)*critsources.sources[i].totalchance;crits.push({name:critsources.sources[i].name,damage:d,damagetype:"physical",damagereduced:self.getReducedDamage(d,"physical")});totalcrit+=d}return{sources:result,sourcescrit:crits,total:totaldamage,totalcrit:totalcrit,totalcritreduced:self.getReducedDamage(totalcrit,"physical"),totalreduced:self.getReducedDamage(damage.pure,"pure")+self.getReducedDamage(damage.physical,"physical")+self.getReducedDamage(damage.magic,"magic")}});self.getDamageTypeColor=function(damagetype){switch(damagetype){case"physical":return"#979aa2";break;case"pure":return"goldenrod";break;case"magic":return"#428bca";break;default:return"#979aa2";break}};self.critdamage=ko.computed(function(){self.critinfo();return 0+"%"});self.misschance=ko.computed(function(){return((1-self.enemy().ability().getMissChance()*self.debuffs.getMissChance())*100).toFixed(2)+"%"});self.totalattackrange=ko.computed(function(){return my.heroData["npc_dota_hero_"+self.selectedHero().heroName].attackrange+self.ability().getAttackRange()});self.visionrangeday=ko.computed(function(){return my.heroData["npc_dota_hero_"+self.selectedHero().heroName].visiondaytimerange*(1+self.enemy().ability().getVisionRangePctReduction()+self.debuffs.getVisionRangePctReduction())});self.visionrangenight=ko.computed(function(){return(my.heroData["npc_dota_hero_"+self.selectedHero().heroName].visionnighttimerange+self.ability().getVisionRangeNight())*(1+self.enemy().ability().getVisionRangePctReduction()+self.debuffs.getVisionRangePctReduction())});self.lifesteal=ko.computed(function(){var total=self.inventory.getLifesteal()+self.ability().getLifesteal()+self.buffs.getLifesteal();if(self.hero().attacktype()=="DOTA_UNIT_CAP_MELEE_ATTACK"){total+=self.inventory.getLifestealAura()}return total.toFixed(2)+"%"});self.damage_brackets=[[{name:"medusa_mana_shield",source:self.damagereduction,value:-.5},{name:"templar_assassin_refraction",source:self.damagereduction,value:-1},{name:"faceless_void_backtrack",source:self.damagereduction,value:-1},{name:"nyx_assassin_spiked_carapace",source:self.damagereduction,value:-1}],[{name:"spectre_dispersion",source:self.damagereduction,value:-self.damagereduction.getAbilityDamageAmpValue("spectre_dispersion","damage_reflection_pct")},{name:"wisp_overcharge",source:self.damagereduction,value:self.damagereduction.getAbilityDamageAmpValue("wisp_overcharge","bonus_damage_pct")},{name:"slardar_sprint",source:self.damageamplification,value:.5},{name:"bristleback_bristleback",source:self.damagereduction,value:-.5},{name:"undying_flesh_golem",source:self.damageamplification,value:.5}],[{name:"abaddon_borrowed_time",source:self.damagereduction,value:.5},{name:"abaddon_aphotic_shield",source:self.damagereduction,value:self.damagereduction.getAbilityDamageAmpValue("abaddon_aphotic_shield","damage_absorb"),type:"absorb"},{name:"kunkka_ghostship",source:self.damagereduction,value:.5},{name:"treant_living_armor",source:self.damagereduction,value:.5}],[{name:"chen_penitence",source:self.damageamplification,value:.5},{name:"medusa_stone_gaze",source:self.damageamplification,value:.5},{name:"shadow_demon_soul_catcher",source:self.damageamplification,value:.5}],[{name:"dazzle_shallow_grave",source:self.damagereduction,value:.5}]];self.damage_brackets=[["medusa_mana_shield","templar_assassin_refraction","faceless_void_backtrack","nyx_assassin_spiked_carapace"],["spectre_dispersion","wisp_overcharge","slardar_sprint","bristleback_bristleback","undying_flesh_golem"],["abaddon_borrowed_time","abaddon_aphotic_shield","kunkka_ghostship","treant_living_armor"],["chen_penitence","medusa_stone_gaze","shadow_demon_soul_catcher"],["dazzle_shallow_grave"]];self.getDamageAfterBracket=function(initialdamage,index){var bracket=self.damage_brackets[index];var multiplier=1;for(var i=0;i<bracket.length;i++){if(_.findWhere(self.damageamplification.buffs,{name:bracket[i].name})!=undefined||_.findWhere(self.damagereduction.buffs,{name:bracket[i].name})!=undefined){multiplier+=bracket[i].value}}return initialdamage*multiplier};self.getDamageAmpReduc=function(initialdamage,skipBracket4){var damage=initialdamage;var sources=self.damageamplification.getDamageMultiplierSources();$.extend(sources,self.damagereduction.getDamageMultiplierSources());var result=[];if(!skipBracket4){result.push({label:"Initial Damage",damagetype:"physical",value:damage})}var multiplier=1;var label="";for(var i=0;i<self.damage_brackets[1].length;i++){if(sources[self.damage_brackets[1][i]]!=undefined){multiplier+=sources[self.damage_brackets[1][i]].multiplier;label+=sources[self.damage_brackets[1][i]].displayname+", "}damage*=multiplier;if(label!=""){result.push({label:"After "+label.substring(0,label.length-2)+" Reductions",damagetype:sources[self.damage_brackets[1][i]].damagetype,value:damage})}}var multiplier=1;var label="";for(var i=0;i<self.damage_brackets[1].length;i++){if(sources[self.damage_brackets[1][i]]!=undefined){multiplier+=sources[self.damage_brackets[1][i]].multiplier;label+=sources[self.damage_brackets[1][i]].displayname+", "}damage*=multiplier;if(label!=""){result.push({label:"After "+label.substring(0,label.length-2)+" Reductions",damagetype:sources[self.damage_brackets[1][i]].damagetype,value:damage})}}var multiplier=0;var label="";if(sources["abaddon_aphotic_shield"]!=undefined){multiplier+=sources["abaddon_aphotic_shield"].multiplier;label+=sources["abaddon_aphotic_shield"].displayname+", "}damage-=multiplier;if(label!=""){result.push({label:"After "+label.substring(0,label.length-2)+" Reductions",damagetype:sources["abaddon_aphotic_shield"].damagetype,value:damage})}var damageBracket4=0;var damageBracket4total=0;if(!skipBracket4){damageBracket4=damage;var multiplier=0;var label="";if(sources["shadow_demon_soul_catcher"]!=undefined){multiplier+=sources["shadow_demon_soul_catcher"].multiplier}damageBracket4*=multiplier;var resultBracket4=self.getDamageAmpReduc(damageBracket4,true);if(sources["shadow_demon_soul_catcher"]!=undefined){result.push({label:sources["shadow_demon_soul_catcher"].displayname,damagetype:sources["shadow_demon_soul_catcher"].damagetype,value:damageBracket4})}damageBracket4=resultBracket4.value;damageBracket4total+=resultBracket4.value;if(sources["shadow_demon_soul_catcher"]!=undefined){for(var i=0;i<resultBracket4.sources.length;i++){result.push(resultBracket4.sources[i])}}damageBracket4=damage;var multiplier=0;var label="";if(sources["chen_penitence"]!=undefined){multiplier+=sources["chen_penitence"].multiplier}damageBracket4*=multiplier;var resultBracket4=self.getDamageAmpReduc(damageBracket4,true);if(sources["chen_penitence"]!=undefined){result.push({label:sources["chen_penitence"].displayname,damagetype:sources["chen_penitence"].damagetype,value:damageBracket4})}damageBracket4=resultBracket4.value;damageBracket4total+=resultBracket4.value;if(sources["chen_penitence"]!=undefined){for(var i=0;i<resultBracket4.sources.length;i++){result.push(resultBracket4.sources[i])}}}if(!skipBracket4){result.push({label:"Total Damage",damagetype:"physical",value:damage+damageBracket4total})}return{value:damage+damageBracket4total,sources:result}};self.damageInputModified=ko.computed(function(){return self.getDamageAmpReduc(self.damageInputValue(),false)})};return my}(HEROCALCULATOR);
-var HEROCALCULATOR=function(my){my.UnitOption=function(name,displayname,levels,image,level){this.heroName=ko.computed(function(){return levels>0?name+(level()<=levels?level():1):name});this.heroDisplayName=displayname;this.image=image;this.levels=levels};my.UnitViewModel=function(h,p){var self=new my.HeroCalculatorModel(0);self.parent=p;self.selectedUnitLevel=ko.observable(1);self.availableUnits=ko.observableArray([new my.UnitOption("npc_dota_lone_druid_bear","Lone Druid Spirit Bear",4,"/media/images/units/spirit_bear.png",self.selectedUnitLevel),new my.UnitOption("npc_dota_brewmaster_earth_","Brewmaster Earth Warrior",3,"/media/images/units/npc_dota_brewmaster_earth.png",self.selectedUnitLevel),new my.UnitOption("npc_dota_brewmaster_fire_","Brewmaster Fire Warrior",3,"/media/images/units/npc_dota_brewmaster_fire.png",self.selectedUnitLevel),new my.UnitOption("npc_dota_brewmaster_storm_","Brewmaster Storm Warrior",3,"/media/images/units/npc_dota_brewmaster_storm.png",self.selectedUnitLevel),new my.UnitOption("npc_dota_necronomicon_archer_","Necronomicon Archer",3,"/media/images/units/npc_dota_necronomicon_archer.png",self.selectedUnitLevel),new my.UnitOption("npc_dota_necronomicon_warrior_","Necronomicon Warrior",3,"/media/images/units/npc_dota_necronomicon_warrior.png",self.selectedUnitLevel),new my.UnitOption("npc_dota_lycan_wolf","Lycan Wolf",4,"/media/images/units/npc_dota_lycan_wolf.png",self.selectedUnitLevel)]);self.selectedUnit=ko.observable(self.availableUnits()[h]);self.selectedUnit.subscribe(function(newValue){if(newValue.heroName().indexOf("npc_dota_lone_druid_bear")!=-1){self.inventory.hasInventory(true);self.inventory.items.removeAll();self.inventory.activeItems.removeAll()}else{self.inventory.hasInventory(false);self.inventory.items.removeAll();self.inventory.activeItems.removeAll()}});self.hero=ko.computed(function(){return ko.mapping.fromJS(my.unitData[self.selectedUnit().heroName()])});self.getAbilityLevelMax=function(data){if(data.abilitytype()=="DOTA_ABILITY_TYPE_ATTRIBUTES"){return 10}else if(data.name()=="necronomicon_archer_mana_burn"||data.name()=="necronomicon_archer_aoe"||data.name()=="necronomicon_warrior_mana_burn"||data.name()=="necronomicon_warrior_last_will"){return 3}else if(data.name()=="necronomicon_warrior_sight"){return 1}else{return 4}};self.ability=ko.computed(function(){var a=new my.AbilityModel(ko.mapping.fromJS(my.unitData[self.selectedUnit().heroName()].abilities));a.hasScepter=self.inventory.hasScepter;switch(self.selectedUnit().heroName()){case"npc_dota_necronomicon_archer_1":case"npc_dota_necronomicon_warrior_1":a.abilities()[0].level(1);a.abilities()[1].level(1);break;case"npc_dota_necronomicon_archer_2":case"npc_dota_necronomicon_warrior_2":a.abilities()[0].level(2);a.abilities()[1].level(2);break;case"npc_dota_necronomicon_archer_3":a.abilities()[0].level(3);a.abilities()[1].level(3);break;case"npc_dota_necronomicon_warrior_3":a.abilities()[0].level(3);a.abilities()[1].level(3);a.abilities()[2].level(1);break}a.levelUpAbility=function(index,data,event,hero){switch(a.abilities()[index()].name()){case"necronomicon_archer_mana_burn":case"necronomicon_archer_aoe":case"necronomicon_warrior_mana_burn":case"necronomicon_warrior_last_will":case"necronomicon_warrior_sight":break;default:if(a.abilities()[index()].level()<hero.getAbilityLevelMax(data)){a.abilities()[index()].level(a.abilities()[index()].level()+1)}break}};a.levelDownAbility=function(index,data,event,hero){switch(a.abilities()[index()].name()){case"necronomicon_archer_mana_burn":case"necronomicon_archer_aoe":case"necronomicon_warrior_mana_burn":case"necronomicon_warrior_last_will":case"necronomicon_warrior_sight":break;default:if(a.abilities()[index()].level()>0){a.abilities()[index()].level(a.abilities()[index()].level()-1)}break}};return a});self.primaryattribute=ko.computed(function(){var v=0;if(v=="DOTA_ATTRIBUTE_AGILITY"){return"agi"}else if(v=="DOTA_ATTRIBUTE_INTELLECT"){return"int"}else if(v=="DOTA_ATTRIBUTE_STRENGTH"){return"str"}else{return""}});self.totalAttribute=function(a){if(a=="agi"){return parseFloat(self.totalagi())}if(a=="int"){return parseFloat(self.totalint())}if(a=="str"){return parseFloat(self.totalstr())}return 0};self.totalagi=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].attributebaseagility+my.unitData[self.selectedUnit().heroName()].attributeagilitygain*(self.selectedHeroLevel()-1)+self.ability().getAttributeBonusLevel()*2+self.ability().getAgility()+self.enemy().ability().getAllStatsReduction()+self.debuffs.getAllStatsReduction()).toFixed(2)});self.totalint=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].attributebaseintelligence+my.unitData[self.selectedUnit().heroName()].attributeintelligencegain*(self.selectedHeroLevel()-1)+self.ability().getAttributeBonusLevel()*2+self.ability().getIntelligence()+self.enemy().ability().getAllStatsReduction()+self.debuffs.getAllStatsReduction()).toFixed(2)});self.totalstr=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].attributebasestrength+my.unitData[self.selectedUnit().heroName()].attributestrengthgain*(self.selectedHeroLevel()-1)+self.ability().getAttributeBonusLevel()*2+self.ability().getStrength()+self.enemy().ability().getAllStatsReduction()+self.debuffs.getAllStatsReduction()).toFixed(2)});self.health=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].statushealth+self.totalstr()*19+self.inventory.getHealth()+self.ability().getHealth()).toFixed(2)});self.healthregen=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].statushealthregen+self.totalstr()*.03+self.inventory.getHealthRegen()+self.ability().getHealthRegen()+self.buffs.getHealthRegen()).toFixed(2)});self.mana=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].statusmana+self.totalint()*13+self.inventory.getMana()).toFixed(2)});self.manaregen=ko.computed(function(){return((my.unitData[self.selectedUnit().heroName()].statusmanaregen+self.totalint()*.04+self.ability().getManaRegen())*(1+self.inventory.getManaRegenPercent())+(self.selectedHero().heroName=="crystal_maiden"?self.ability().getManaRegenArcaneAura()*2:self.buffs.getManaRegenArcaneAura())+self.inventory.getManaRegenBloodstone()-self.enemy().ability().getManaRegenReduction()).toFixed(2)});self.totalarmorphysical=ko.computed(function(){return(self.enemy().ability().getArmorBaseReduction()*self.debuffs.getArmorBaseReduction()*(my.unitData[self.selectedUnit().heroName()].armorphysical+self.totalagi()*.14)+self.inventory.getArmor()+self.ability().getArmor()+self.enemy().ability().getArmorReduction()+self.buffs.getArmor()+self.debuffs.getArmorReduction()).toFixed(2)});self.totalarmorphysicalreduction=ko.observable();self.damagreduction=ko.observable();self.totalmovementspeed=ko.computed(function(){var ms=self.ability().setMovementSpeed()>0?self.ability().setMovementSpeed():self.buffs.setMovementSpeed();if(ms>0){return ms}else{return((my.unitData[self.selectedUnit().heroName()].movementspeed+self.inventory.getMovementSpeedFlat()+self.ability().getMovementSpeedFlat())*(1+self.inventory.getMovementSpeedPercent()+self.ability().getMovementSpeedPercent()+self.enemy().inventory.getMovementSpeedPercentReduction()+self.enemy().ability().getMovementSpeedPercentReduction()+self.buffs.getMovementSpeedPercent()+self.debuffs.getMovementSpeedPercentReduction())).toFixed(2)}});self.totalturnrate=ko.computed(function(){return(my.unitData[self.selectedUnit().heroName()].movementturnrate*(1+self.enemy().ability().getTurnRateReduction()+self.debuffs.getTurnRateReduction())).toFixed(2)});self.basedamage=ko.computed(function(){return[Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemin+self.totalAttribute(self.primaryattribute())+self.ability().getBaseDamage().total),Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemax+self.totalAttribute(self.primaryattribute())+self.ability().getBaseDamage().total)]});self.bonusdamage=ko.computed(function(){return self.inventory.getBonusDamage().total+self.ability().getBonusDamage().total+self.buffs.getBonusDamage().total+Math.floor((self.basedamage()[0]+self.basedamage()[1])/2*(self.inventory.getBonusDamagePercent().total+self.ability().getBonusDamagePercent().total+self.buffs.getBonusDamagePercent().total))+Math.floor(self.hero().attacktype()=="DOTA_UNIT_CAP_RANGED_ATTACK"?self.selectedHero().heroName=="drow_ranger"?self.ability().getBonusDamagePrecisionAura().total[0]*self.totalagi():self.buffs.getBonusDamagePrecisionAura().total[1]:0)});self.bonusdamagereduction=ko.computed(function(){return Math.abs(self.enemy().ability().getBonusDamageReduction()+self.debuffs.getBonusDamageReduction())});self.damage=ko.computed(function(){return[self.basedamage()[0]+self.bonusdamage()[0],self.basedamage()[1]+self.bonusdamage()[1]]});self.damageagainstenemy=ko.observable();self.totalmagicresistanceproduct=ko.computed(function(){return(1-my.unitData[self.selectedUnit().heroName()].magicalresistance/100)*(1-self.inventory.getMagicResist()/100)*(1-self.ability().getMagicResist()/100)*(1-self.buffs.getMagicResist()/100)*self.enemy().inventory.getMagicResistReduction()*self.enemy().ability().getMagicResistReduction()*self.debuffs.getMagicResistReduction()});self.totalmagicresistance=ko.computed(function(){return 1-self.totalmagicresistanceproduct()});self.bat=ko.computed(function(){var abilityBAT=self.ability().getBAT();if(abilityBAT>0){return abilityBAT}return my.unitData[self.selectedUnit().heroName()].attackrate});self.ias=ko.computed(function(){var val=parseFloat(self.totalagi())+self.inventory.getAttackSpeed()+self.ability().getAttackSpeed()+self.enemy().ability().getAttackSpeedReduction()+self.buffs.getAttackSpeed()+self.debuffs.getAttackSpeedReduction();if(val<-80){return-80}else if(val>400){return 400}return val.toFixed(2)});self.attacktime=ko.computed(function(){return(self.bat()/(1+self.ias()/100)).toFixed(2)});self.attackspersecond=ko.computed(function(){return(1+self.ias()/100)/self.bat()});self.evasion=ko.computed(function(){var e=self.ability().setEvasion();if(e){return(e*100).toFixed(2)+"%"}else{return((1-self.inventory.getEvasion()*self.ability().getEvasion())*100).toFixed(2)+"%"}});self.ehp_physical=ko.computed(function(){return(self.health()*(1+.06*self.totalarmorphysical())/(1-(1-self.inventory.getEvasion()*self.ability().getEvasion()))).toFixed(2)});self.ehp_magical=ko.computed(function(){return(self.health()/self.totalmagicresistanceproduct()).toFixed(2)});return self};return my}(HEROCALCULATOR);
+/*! jQuery UI - v1.10.3 - 2013-11-18
+* http://jqueryui.com
+* Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.position.js, jquery.ui.autocomplete.js, jquery.ui.menu.js
+* Copyright 2013 jQuery Foundation and other contributors; Licensed MIT */
+
+(function( $, undefined ) {
+
+var uuid = 0,
+	runiqueId = /^ui-id-\d+$/;
+
+// $.ui might exist from components with no dependencies, e.g., $.ui.position
+$.ui = $.ui || {};
+
+$.extend( $.ui, {
+	version: "1.10.3",
+
+	keyCode: {
+		BACKSPACE: 8,
+		COMMA: 188,
+		DELETE: 46,
+		DOWN: 40,
+		END: 35,
+		ENTER: 13,
+		ESCAPE: 27,
+		HOME: 36,
+		LEFT: 37,
+		NUMPAD_ADD: 107,
+		NUMPAD_DECIMAL: 110,
+		NUMPAD_DIVIDE: 111,
+		NUMPAD_ENTER: 108,
+		NUMPAD_MULTIPLY: 106,
+		NUMPAD_SUBTRACT: 109,
+		PAGE_DOWN: 34,
+		PAGE_UP: 33,
+		PERIOD: 190,
+		RIGHT: 39,
+		SPACE: 32,
+		TAB: 9,
+		UP: 38
+	}
+});
+
+// plugins
+$.fn.extend({
+	focus: (function( orig ) {
+		return function( delay, fn ) {
+			return typeof delay === "number" ?
+				this.each(function() {
+					var elem = this;
+					setTimeout(function() {
+						$( elem ).focus();
+						if ( fn ) {
+							fn.call( elem );
+						}
+					}, delay );
+				}) :
+				orig.apply( this, arguments );
+		};
+	})( $.fn.focus ),
+
+	scrollParent: function() {
+		var scrollParent;
+		if (($.ui.ie && (/(static|relative)/).test(this.css("position"))) || (/absolute/).test(this.css("position"))) {
+			scrollParent = this.parents().filter(function() {
+				return (/(relative|absolute|fixed)/).test($.css(this,"position")) && (/(auto|scroll)/).test($.css(this,"overflow")+$.css(this,"overflow-y")+$.css(this,"overflow-x"));
+			}).eq(0);
+		} else {
+			scrollParent = this.parents().filter(function() {
+				return (/(auto|scroll)/).test($.css(this,"overflow")+$.css(this,"overflow-y")+$.css(this,"overflow-x"));
+			}).eq(0);
+		}
+
+		return (/fixed/).test(this.css("position")) || !scrollParent.length ? $(document) : scrollParent;
+	},
+
+	zIndex: function( zIndex ) {
+		if ( zIndex !== undefined ) {
+			return this.css( "zIndex", zIndex );
+		}
+
+		if ( this.length ) {
+			var elem = $( this[ 0 ] ), position, value;
+			while ( elem.length && elem[ 0 ] !== document ) {
+				// Ignore z-index if position is set to a value where z-index is ignored by the browser
+				// This makes behavior of this function consistent across browsers
+				// WebKit always returns auto if the element is positioned
+				position = elem.css( "position" );
+				if ( position === "absolute" || position === "relative" || position === "fixed" ) {
+					// IE returns 0 when zIndex is not specified
+					// other browsers return a string
+					// we ignore the case of nested elements with an explicit value of 0
+					// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+					value = parseInt( elem.css( "zIndex" ), 10 );
+					if ( !isNaN( value ) && value !== 0 ) {
+						return value;
+					}
+				}
+				elem = elem.parent();
+			}
+		}
+
+		return 0;
+	},
+
+	uniqueId: function() {
+		return this.each(function() {
+			if ( !this.id ) {
+				this.id = "ui-id-" + (++uuid);
+			}
+		});
+	},
+
+	removeUniqueId: function() {
+		return this.each(function() {
+			if ( runiqueId.test( this.id ) ) {
+				$( this ).removeAttr( "id" );
+			}
+		});
+	}
+});
+
+// selectors
+function focusable( element, isTabIndexNotNaN ) {
+	var map, mapName, img,
+		nodeName = element.nodeName.toLowerCase();
+	if ( "area" === nodeName ) {
+		map = element.parentNode;
+		mapName = map.name;
+		if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+			return false;
+		}
+		img = $( "img[usemap=#" + mapName + "]" )[0];
+		return !!img && visible( img );
+	}
+	return ( /input|select|textarea|button|object/.test( nodeName ) ?
+		!element.disabled :
+		"a" === nodeName ?
+			element.href || isTabIndexNotNaN :
+			isTabIndexNotNaN) &&
+		// the element and all of its ancestors must be visible
+		visible( element );
+}
+
+function visible( element ) {
+	return $.expr.filters.visible( element ) &&
+		!$( element ).parents().addBack().filter(function() {
+			return $.css( this, "visibility" ) === "hidden";
+		}).length;
+}
+
+$.extend( $.expr[ ":" ], {
+	data: $.expr.createPseudo ?
+		$.expr.createPseudo(function( dataName ) {
+			return function( elem ) {
+				return !!$.data( elem, dataName );
+			};
+		}) :
+		// support: jQuery <1.8
+		function( elem, i, match ) {
+			return !!$.data( elem, match[ 3 ] );
+		},
+
+	focusable: function( element ) {
+		return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+	},
+
+	tabbable: function( element ) {
+		var tabIndex = $.attr( element, "tabindex" ),
+			isTabIndexNaN = isNaN( tabIndex );
+		return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !isTabIndexNaN );
+	}
+});
+
+// support: jQuery <1.8
+if ( !$( "<a>" ).outerWidth( 1 ).jquery ) {
+	$.each( [ "Width", "Height" ], function( i, name ) {
+		var side = name === "Width" ? [ "Left", "Right" ] : [ "Top", "Bottom" ],
+			type = name.toLowerCase(),
+			orig = {
+				innerWidth: $.fn.innerWidth,
+				innerHeight: $.fn.innerHeight,
+				outerWidth: $.fn.outerWidth,
+				outerHeight: $.fn.outerHeight
+			};
+
+		function reduce( elem, size, border, margin ) {
+			$.each( side, function() {
+				size -= parseFloat( $.css( elem, "padding" + this ) ) || 0;
+				if ( border ) {
+					size -= parseFloat( $.css( elem, "border" + this + "Width" ) ) || 0;
+				}
+				if ( margin ) {
+					size -= parseFloat( $.css( elem, "margin" + this ) ) || 0;
+				}
+			});
+			return size;
+		}
+
+		$.fn[ "inner" + name ] = function( size ) {
+			if ( size === undefined ) {
+				return orig[ "inner" + name ].call( this );
+			}
+
+			return this.each(function() {
+				$( this ).css( type, reduce( this, size ) + "px" );
+			});
+		};
+
+		$.fn[ "outer" + name] = function( size, margin ) {
+			if ( typeof size !== "number" ) {
+				return orig[ "outer" + name ].call( this, size );
+			}
+
+			return this.each(function() {
+				$( this).css( type, reduce( this, size, true, margin ) + "px" );
+			});
+		};
+	});
+}
+
+// support: jQuery <1.8
+if ( !$.fn.addBack ) {
+	$.fn.addBack = function( selector ) {
+		return this.add( selector == null ?
+			this.prevObject : this.prevObject.filter( selector )
+		);
+	};
+}
+
+// support: jQuery 1.6.1, 1.6.2 (http://bugs.jquery.com/ticket/9413)
+if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
+	$.fn.removeData = (function( removeData ) {
+		return function( key ) {
+			if ( arguments.length ) {
+				return removeData.call( this, $.camelCase( key ) );
+			} else {
+				return removeData.call( this );
+			}
+		};
+	})( $.fn.removeData );
+}
+
+
+
+
+
+// deprecated
+$.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
+
+$.support.selectstart = "onselectstart" in document.createElement( "div" );
+$.fn.extend({
+	disableSelection: function() {
+		return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
+			".ui-disableSelection", function( event ) {
+				event.preventDefault();
+			});
+	},
+
+	enableSelection: function() {
+		return this.unbind( ".ui-disableSelection" );
+	}
+});
+
+$.extend( $.ui, {
+	// $.ui.plugin is deprecated. Use $.widget() extensions instead.
+	plugin: {
+		add: function( module, option, set ) {
+			var i,
+				proto = $.ui[ module ].prototype;
+			for ( i in set ) {
+				proto.plugins[ i ] = proto.plugins[ i ] || [];
+				proto.plugins[ i ].push( [ option, set[ i ] ] );
+			}
+		},
+		call: function( instance, name, args ) {
+			var i,
+				set = instance.plugins[ name ];
+			if ( !set || !instance.element[ 0 ].parentNode || instance.element[ 0 ].parentNode.nodeType === 11 ) {
+				return;
+			}
+
+			for ( i = 0; i < set.length; i++ ) {
+				if ( instance.options[ set[ i ][ 0 ] ] ) {
+					set[ i ][ 1 ].apply( instance.element, args );
+				}
+			}
+		}
+	},
+
+	// only used by resizable
+	hasScroll: function( el, a ) {
+
+		//If overflow is hidden, the element might have extra content, but the user wants to hide it
+		if ( $( el ).css( "overflow" ) === "hidden") {
+			return false;
+		}
+
+		var scroll = ( a && a === "left" ) ? "scrollLeft" : "scrollTop",
+			has = false;
+
+		if ( el[ scroll ] > 0 ) {
+			return true;
+		}
+
+		// TODO: determine which cases actually cause this to happen
+		// if the element doesn't have the scroll set, see if it's possible to
+		// set the scroll
+		el[ scroll ] = 1;
+		has = ( el[ scroll ] > 0 );
+		el[ scroll ] = 0;
+		return has;
+	}
+});
+
+})( jQuery );
+(function( $, undefined ) {
+
+var uuid = 0,
+	slice = Array.prototype.slice,
+	_cleanData = $.cleanData;
+$.cleanData = function( elems ) {
+	for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
+		try {
+			$( elem ).triggerHandler( "remove" );
+		// http://bugs.jquery.com/ticket/8235
+		} catch( e ) {}
+	}
+	_cleanData( elems );
+};
+
+$.widget = function( name, base, prototype ) {
+	var fullName, existingConstructor, constructor, basePrototype,
+		// proxiedPrototype allows the provided prototype to remain unmodified
+		// so that it can be used as a mixin for multiple widgets (#8876)
+		proxiedPrototype = {},
+		namespace = name.split( "." )[ 0 ];
+
+	name = name.split( "." )[ 1 ];
+	fullName = namespace + "-" + name;
+
+	if ( !prototype ) {
+		prototype = base;
+		base = $.Widget;
+	}
+
+	// create selector for plugin
+	$.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
+		return !!$.data( elem, fullName );
+	};
+
+	$[ namespace ] = $[ namespace ] || {};
+	existingConstructor = $[ namespace ][ name ];
+	constructor = $[ namespace ][ name ] = function( options, element ) {
+		// allow instantiation without "new" keyword
+		if ( !this._createWidget ) {
+			return new constructor( options, element );
+		}
+
+		// allow instantiation without initializing for simple inheritance
+		// must use "new" keyword (the code above always passes args)
+		if ( arguments.length ) {
+			this._createWidget( options, element );
+		}
+	};
+	// extend with the existing constructor to carry over any static properties
+	$.extend( constructor, existingConstructor, {
+		version: prototype.version,
+		// copy the object used to create the prototype in case we need to
+		// redefine the widget later
+		_proto: $.extend( {}, prototype ),
+		// track widgets that inherit from this widget in case this widget is
+		// redefined after a widget inherits from it
+		_childConstructors: []
+	});
+
+	basePrototype = new base();
+	// we need to make the options hash a property directly on the new instance
+	// otherwise we'll modify the options hash on the prototype that we're
+	// inheriting from
+	basePrototype.options = $.widget.extend( {}, basePrototype.options );
+	$.each( prototype, function( prop, value ) {
+		if ( !$.isFunction( value ) ) {
+			proxiedPrototype[ prop ] = value;
+			return;
+		}
+		proxiedPrototype[ prop ] = (function() {
+			var _super = function() {
+					return base.prototype[ prop ].apply( this, arguments );
+				},
+				_superApply = function( args ) {
+					return base.prototype[ prop ].apply( this, args );
+				};
+			return function() {
+				var __super = this._super,
+					__superApply = this._superApply,
+					returnValue;
+
+				this._super = _super;
+				this._superApply = _superApply;
+
+				returnValue = value.apply( this, arguments );
+
+				this._super = __super;
+				this._superApply = __superApply;
+
+				return returnValue;
+			};
+		})();
+	});
+	constructor.prototype = $.widget.extend( basePrototype, {
+		// TODO: remove support for widgetEventPrefix
+		// always use the name + a colon as the prefix, e.g., draggable:start
+		// don't prefix for widgets that aren't DOM-based
+		widgetEventPrefix: existingConstructor ? basePrototype.widgetEventPrefix : name
+	}, proxiedPrototype, {
+		constructor: constructor,
+		namespace: namespace,
+		widgetName: name,
+		widgetFullName: fullName
+	});
+
+	// If this widget is being redefined then we need to find all widgets that
+	// are inheriting from it and redefine all of them so that they inherit from
+	// the new version of this widget. We're essentially trying to replace one
+	// level in the prototype chain.
+	if ( existingConstructor ) {
+		$.each( existingConstructor._childConstructors, function( i, child ) {
+			var childPrototype = child.prototype;
+
+			// redefine the child widget using the same prototype that was
+			// originally used, but inherit from the new version of the base
+			$.widget( childPrototype.namespace + "." + childPrototype.widgetName, constructor, child._proto );
+		});
+		// remove the list of existing child constructors from the old constructor
+		// so the old child constructors can be garbage collected
+		delete existingConstructor._childConstructors;
+	} else {
+		base._childConstructors.push( constructor );
+	}
+
+	$.widget.bridge( name, constructor );
+};
+
+$.widget.extend = function( target ) {
+	var input = slice.call( arguments, 1 ),
+		inputIndex = 0,
+		inputLength = input.length,
+		key,
+		value;
+	for ( ; inputIndex < inputLength; inputIndex++ ) {
+		for ( key in input[ inputIndex ] ) {
+			value = input[ inputIndex ][ key ];
+			if ( input[ inputIndex ].hasOwnProperty( key ) && value !== undefined ) {
+				// Clone objects
+				if ( $.isPlainObject( value ) ) {
+					target[ key ] = $.isPlainObject( target[ key ] ) ?
+						$.widget.extend( {}, target[ key ], value ) :
+						// Don't extend strings, arrays, etc. with objects
+						$.widget.extend( {}, value );
+				// Copy everything else by reference
+				} else {
+					target[ key ] = value;
+				}
+			}
+		}
+	}
+	return target;
+};
+
+$.widget.bridge = function( name, object ) {
+	var fullName = object.prototype.widgetFullName || name;
+	$.fn[ name ] = function( options ) {
+		var isMethodCall = typeof options === "string",
+			args = slice.call( arguments, 1 ),
+			returnValue = this;
+
+		// allow multiple hashes to be passed on init
+		options = !isMethodCall && args.length ?
+			$.widget.extend.apply( null, [ options ].concat(args) ) :
+			options;
+
+		if ( isMethodCall ) {
+			this.each(function() {
+				var methodValue,
+					instance = $.data( this, fullName );
+				if ( !instance ) {
+					return $.error( "cannot call methods on " + name + " prior to initialization; " +
+						"attempted to call method '" + options + "'" );
+				}
+				if ( !$.isFunction( instance[options] ) || options.charAt( 0 ) === "_" ) {
+					return $.error( "no such method '" + options + "' for " + name + " widget instance" );
+				}
+				methodValue = instance[ options ].apply( instance, args );
+				if ( methodValue !== instance && methodValue !== undefined ) {
+					returnValue = methodValue && methodValue.jquery ?
+						returnValue.pushStack( methodValue.get() ) :
+						methodValue;
+					return false;
+				}
+			});
+		} else {
+			this.each(function() {
+				var instance = $.data( this, fullName );
+				if ( instance ) {
+					instance.option( options || {} )._init();
+				} else {
+					$.data( this, fullName, new object( options, this ) );
+				}
+			});
+		}
+
+		return returnValue;
+	};
+};
+
+$.Widget = function( /* options, element */ ) {};
+$.Widget._childConstructors = [];
+
+$.Widget.prototype = {
+	widgetName: "widget",
+	widgetEventPrefix: "",
+	defaultElement: "<div>",
+	options: {
+		disabled: false,
+
+		// callbacks
+		create: null
+	},
+	_createWidget: function( options, element ) {
+		element = $( element || this.defaultElement || this )[ 0 ];
+		this.element = $( element );
+		this.uuid = uuid++;
+		this.eventNamespace = "." + this.widgetName + this.uuid;
+		this.options = $.widget.extend( {},
+			this.options,
+			this._getCreateOptions(),
+			options );
+
+		this.bindings = $();
+		this.hoverable = $();
+		this.focusable = $();
+
+		if ( element !== this ) {
+			$.data( element, this.widgetFullName, this );
+			this._on( true, this.element, {
+				remove: function( event ) {
+					if ( event.target === element ) {
+						this.destroy();
+					}
+				}
+			});
+			this.document = $( element.style ?
+				// element within the document
+				element.ownerDocument :
+				// element is window or document
+				element.document || element );
+			this.window = $( this.document[0].defaultView || this.document[0].parentWindow );
+		}
+
+		this._create();
+		this._trigger( "create", null, this._getCreateEventData() );
+		this._init();
+	},
+	_getCreateOptions: $.noop,
+	_getCreateEventData: $.noop,
+	_create: $.noop,
+	_init: $.noop,
+
+	destroy: function() {
+		this._destroy();
+		// we can probably remove the unbind calls in 2.0
+		// all event bindings should go through this._on()
+		this.element
+			.unbind( this.eventNamespace )
+			// 1.9 BC for #7810
+			// TODO remove dual storage
+			.removeData( this.widgetName )
+			.removeData( this.widgetFullName )
+			// support: jquery <1.6.3
+			// http://bugs.jquery.com/ticket/9413
+			.removeData( $.camelCase( this.widgetFullName ) );
+		this.widget()
+			.unbind( this.eventNamespace )
+			.removeAttr( "aria-disabled" )
+			.removeClass(
+				this.widgetFullName + "-disabled " +
+				"ui-state-disabled" );
+
+		// clean up events and states
+		this.bindings.unbind( this.eventNamespace );
+		this.hoverable.removeClass( "ui-state-hover" );
+		this.focusable.removeClass( "ui-state-focus" );
+	},
+	_destroy: $.noop,
+
+	widget: function() {
+		return this.element;
+	},
+
+	option: function( key, value ) {
+		var options = key,
+			parts,
+			curOption,
+			i;
+
+		if ( arguments.length === 0 ) {
+			// don't return a reference to the internal hash
+			return $.widget.extend( {}, this.options );
+		}
+
+		if ( typeof key === "string" ) {
+			// handle nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
+			options = {};
+			parts = key.split( "." );
+			key = parts.shift();
+			if ( parts.length ) {
+				curOption = options[ key ] = $.widget.extend( {}, this.options[ key ] );
+				for ( i = 0; i < parts.length - 1; i++ ) {
+					curOption[ parts[ i ] ] = curOption[ parts[ i ] ] || {};
+					curOption = curOption[ parts[ i ] ];
+				}
+				key = parts.pop();
+				if ( value === undefined ) {
+					return curOption[ key ] === undefined ? null : curOption[ key ];
+				}
+				curOption[ key ] = value;
+			} else {
+				if ( value === undefined ) {
+					return this.options[ key ] === undefined ? null : this.options[ key ];
+				}
+				options[ key ] = value;
+			}
+		}
+
+		this._setOptions( options );
+
+		return this;
+	},
+	_setOptions: function( options ) {
+		var key;
+
+		for ( key in options ) {
+			this._setOption( key, options[ key ] );
+		}
+
+		return this;
+	},
+	_setOption: function( key, value ) {
+		this.options[ key ] = value;
+
+		if ( key === "disabled" ) {
+			this.widget()
+				.toggleClass( this.widgetFullName + "-disabled ui-state-disabled", !!value )
+				.attr( "aria-disabled", value );
+			this.hoverable.removeClass( "ui-state-hover" );
+			this.focusable.removeClass( "ui-state-focus" );
+		}
+
+		return this;
+	},
+
+	enable: function() {
+		return this._setOption( "disabled", false );
+	},
+	disable: function() {
+		return this._setOption( "disabled", true );
+	},
+
+	_on: function( suppressDisabledCheck, element, handlers ) {
+		var delegateElement,
+			instance = this;
+
+		// no suppressDisabledCheck flag, shuffle arguments
+		if ( typeof suppressDisabledCheck !== "boolean" ) {
+			handlers = element;
+			element = suppressDisabledCheck;
+			suppressDisabledCheck = false;
+		}
+
+		// no element argument, shuffle and use this.element
+		if ( !handlers ) {
+			handlers = element;
+			element = this.element;
+			delegateElement = this.widget();
+		} else {
+			// accept selectors, DOM elements
+			element = delegateElement = $( element );
+			this.bindings = this.bindings.add( element );
+		}
+
+		$.each( handlers, function( event, handler ) {
+			function handlerProxy() {
+				// allow widgets to customize the disabled handling
+				// - disabled as an array instead of boolean
+				// - disabled class as method for disabling individual parts
+				if ( !suppressDisabledCheck &&
+						( instance.options.disabled === true ||
+							$( this ).hasClass( "ui-state-disabled" ) ) ) {
+					return;
+				}
+				return ( typeof handler === "string" ? instance[ handler ] : handler )
+					.apply( instance, arguments );
+			}
+
+			// copy the guid so direct unbinding works
+			if ( typeof handler !== "string" ) {
+				handlerProxy.guid = handler.guid =
+					handler.guid || handlerProxy.guid || $.guid++;
+			}
+
+			var match = event.match( /^(\w+)\s*(.*)$/ ),
+				eventName = match[1] + instance.eventNamespace,
+				selector = match[2];
+			if ( selector ) {
+				delegateElement.delegate( selector, eventName, handlerProxy );
+			} else {
+				element.bind( eventName, handlerProxy );
+			}
+		});
+	},
+
+	_off: function( element, eventName ) {
+		eventName = (eventName || "").split( " " ).join( this.eventNamespace + " " ) + this.eventNamespace;
+		element.unbind( eventName ).undelegate( eventName );
+	},
+
+	_delay: function( handler, delay ) {
+		function handlerProxy() {
+			return ( typeof handler === "string" ? instance[ handler ] : handler )
+				.apply( instance, arguments );
+		}
+		var instance = this;
+		return setTimeout( handlerProxy, delay || 0 );
+	},
+
+	_hoverable: function( element ) {
+		this.hoverable = this.hoverable.add( element );
+		this._on( element, {
+			mouseenter: function( event ) {
+				$( event.currentTarget ).addClass( "ui-state-hover" );
+			},
+			mouseleave: function( event ) {
+				$( event.currentTarget ).removeClass( "ui-state-hover" );
+			}
+		});
+	},
+
+	_focusable: function( element ) {
+		this.focusable = this.focusable.add( element );
+		this._on( element, {
+			focusin: function( event ) {
+				$( event.currentTarget ).addClass( "ui-state-focus" );
+			},
+			focusout: function( event ) {
+				$( event.currentTarget ).removeClass( "ui-state-focus" );
+			}
+		});
+	},
+
+	_trigger: function( type, event, data ) {
+		var prop, orig,
+			callback = this.options[ type ];
+
+		data = data || {};
+		event = $.Event( event );
+		event.type = ( type === this.widgetEventPrefix ?
+			type :
+			this.widgetEventPrefix + type ).toLowerCase();
+		// the original event may come from any element
+		// so we need to reset the target on the new event
+		event.target = this.element[ 0 ];
+
+		// copy original event properties over to the new event
+		orig = event.originalEvent;
+		if ( orig ) {
+			for ( prop in orig ) {
+				if ( !( prop in event ) ) {
+					event[ prop ] = orig[ prop ];
+				}
+			}
+		}
+
+		this.element.trigger( event, data );
+		return !( $.isFunction( callback ) &&
+			callback.apply( this.element[0], [ event ].concat( data ) ) === false ||
+			event.isDefaultPrevented() );
+	}
+};
+
+$.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
+	$.Widget.prototype[ "_" + method ] = function( element, options, callback ) {
+		if ( typeof options === "string" ) {
+			options = { effect: options };
+		}
+		var hasOptions,
+			effectName = !options ?
+				method :
+				options === true || typeof options === "number" ?
+					defaultEffect :
+					options.effect || defaultEffect;
+		options = options || {};
+		if ( typeof options === "number" ) {
+			options = { duration: options };
+		}
+		hasOptions = !$.isEmptyObject( options );
+		options.complete = callback;
+		if ( options.delay ) {
+			element.delay( options.delay );
+		}
+		if ( hasOptions && $.effects && $.effects.effect[ effectName ] ) {
+			element[ method ]( options );
+		} else if ( effectName !== method && element[ effectName ] ) {
+			element[ effectName ]( options.duration, options.easing, callback );
+		} else {
+			element.queue(function( next ) {
+				$( this )[ method ]();
+				if ( callback ) {
+					callback.call( element[ 0 ] );
+				}
+				next();
+			});
+		}
+	};
+});
+
+})( jQuery );
+(function( $, undefined ) {
+
+$.ui = $.ui || {};
+
+var cachedScrollbarWidth,
+	max = Math.max,
+	abs = Math.abs,
+	round = Math.round,
+	rhorizontal = /left|center|right/,
+	rvertical = /top|center|bottom/,
+	roffset = /[\+\-]\d+(\.[\d]+)?%?/,
+	rposition = /^\w+/,
+	rpercent = /%$/,
+	_position = $.fn.position;
+
+function getOffsets( offsets, width, height ) {
+	return [
+		parseFloat( offsets[ 0 ] ) * ( rpercent.test( offsets[ 0 ] ) ? width / 100 : 1 ),
+		parseFloat( offsets[ 1 ] ) * ( rpercent.test( offsets[ 1 ] ) ? height / 100 : 1 )
+	];
+}
+
+function parseCss( element, property ) {
+	return parseInt( $.css( element, property ), 10 ) || 0;
+}
+
+function getDimensions( elem ) {
+	var raw = elem[0];
+	if ( raw.nodeType === 9 ) {
+		return {
+			width: elem.width(),
+			height: elem.height(),
+			offset: { top: 0, left: 0 }
+		};
+	}
+	if ( $.isWindow( raw ) ) {
+		return {
+			width: elem.width(),
+			height: elem.height(),
+			offset: { top: elem.scrollTop(), left: elem.scrollLeft() }
+		};
+	}
+	if ( raw.preventDefault ) {
+		return {
+			width: 0,
+			height: 0,
+			offset: { top: raw.pageY, left: raw.pageX }
+		};
+	}
+	return {
+		width: elem.outerWidth(),
+		height: elem.outerHeight(),
+		offset: elem.offset()
+	};
+}
+
+$.position = {
+	scrollbarWidth: function() {
+		if ( cachedScrollbarWidth !== undefined ) {
+			return cachedScrollbarWidth;
+		}
+		var w1, w2,
+			div = $( "<div style='display:block;width:50px;height:50px;overflow:hidden;'><div style='height:100px;width:auto;'></div></div>" ),
+			innerDiv = div.children()[0];
+
+		$( "body" ).append( div );
+		w1 = innerDiv.offsetWidth;
+		div.css( "overflow", "scroll" );
+
+		w2 = innerDiv.offsetWidth;
+
+		if ( w1 === w2 ) {
+			w2 = div[0].clientWidth;
+		}
+
+		div.remove();
+
+		return (cachedScrollbarWidth = w1 - w2);
+	},
+	getScrollInfo: function( within ) {
+		var overflowX = within.isWindow ? "" : within.element.css( "overflow-x" ),
+			overflowY = within.isWindow ? "" : within.element.css( "overflow-y" ),
+			hasOverflowX = overflowX === "scroll" ||
+				( overflowX === "auto" && within.width < within.element[0].scrollWidth ),
+			hasOverflowY = overflowY === "scroll" ||
+				( overflowY === "auto" && within.height < within.element[0].scrollHeight );
+		return {
+			width: hasOverflowY ? $.position.scrollbarWidth() : 0,
+			height: hasOverflowX ? $.position.scrollbarWidth() : 0
+		};
+	},
+	getWithinInfo: function( element ) {
+		var withinElement = $( element || window ),
+			isWindow = $.isWindow( withinElement[0] );
+		return {
+			element: withinElement,
+			isWindow: isWindow,
+			offset: withinElement.offset() || { left: 0, top: 0 },
+			scrollLeft: withinElement.scrollLeft(),
+			scrollTop: withinElement.scrollTop(),
+			width: isWindow ? withinElement.width() : withinElement.outerWidth(),
+			height: isWindow ? withinElement.height() : withinElement.outerHeight()
+		};
+	}
+};
+
+$.fn.position = function( options ) {
+	if ( !options || !options.of ) {
+		return _position.apply( this, arguments );
+	}
+
+	// make a copy, we don't want to modify arguments
+	options = $.extend( {}, options );
+
+	var atOffset, targetWidth, targetHeight, targetOffset, basePosition, dimensions,
+		target = $( options.of ),
+		within = $.position.getWithinInfo( options.within ),
+		scrollInfo = $.position.getScrollInfo( within ),
+		collision = ( options.collision || "flip" ).split( " " ),
+		offsets = {};
+
+	dimensions = getDimensions( target );
+	if ( target[0].preventDefault ) {
+		// force left top to allow flipping
+		options.at = "left top";
+	}
+	targetWidth = dimensions.width;
+	targetHeight = dimensions.height;
+	targetOffset = dimensions.offset;
+	// clone to reuse original targetOffset later
+	basePosition = $.extend( {}, targetOffset );
+
+	// force my and at to have valid horizontal and vertical positions
+	// if a value is missing or invalid, it will be converted to center
+	$.each( [ "my", "at" ], function() {
+		var pos = ( options[ this ] || "" ).split( " " ),
+			horizontalOffset,
+			verticalOffset;
+
+		if ( pos.length === 1) {
+			pos = rhorizontal.test( pos[ 0 ] ) ?
+				pos.concat( [ "center" ] ) :
+				rvertical.test( pos[ 0 ] ) ?
+					[ "center" ].concat( pos ) :
+					[ "center", "center" ];
+		}
+		pos[ 0 ] = rhorizontal.test( pos[ 0 ] ) ? pos[ 0 ] : "center";
+		pos[ 1 ] = rvertical.test( pos[ 1 ] ) ? pos[ 1 ] : "center";
+
+		// calculate offsets
+		horizontalOffset = roffset.exec( pos[ 0 ] );
+		verticalOffset = roffset.exec( pos[ 1 ] );
+		offsets[ this ] = [
+			horizontalOffset ? horizontalOffset[ 0 ] : 0,
+			verticalOffset ? verticalOffset[ 0 ] : 0
+		];
+
+		// reduce to just the positions without the offsets
+		options[ this ] = [
+			rposition.exec( pos[ 0 ] )[ 0 ],
+			rposition.exec( pos[ 1 ] )[ 0 ]
+		];
+	});
+
+	// normalize collision option
+	if ( collision.length === 1 ) {
+		collision[ 1 ] = collision[ 0 ];
+	}
+
+	if ( options.at[ 0 ] === "right" ) {
+		basePosition.left += targetWidth;
+	} else if ( options.at[ 0 ] === "center" ) {
+		basePosition.left += targetWidth / 2;
+	}
+
+	if ( options.at[ 1 ] === "bottom" ) {
+		basePosition.top += targetHeight;
+	} else if ( options.at[ 1 ] === "center" ) {
+		basePosition.top += targetHeight / 2;
+	}
+
+	atOffset = getOffsets( offsets.at, targetWidth, targetHeight );
+	basePosition.left += atOffset[ 0 ];
+	basePosition.top += atOffset[ 1 ];
+
+	return this.each(function() {
+		var collisionPosition, using,
+			elem = $( this ),
+			elemWidth = elem.outerWidth(),
+			elemHeight = elem.outerHeight(),
+			marginLeft = parseCss( this, "marginLeft" ),
+			marginTop = parseCss( this, "marginTop" ),
+			collisionWidth = elemWidth + marginLeft + parseCss( this, "marginRight" ) + scrollInfo.width,
+			collisionHeight = elemHeight + marginTop + parseCss( this, "marginBottom" ) + scrollInfo.height,
+			position = $.extend( {}, basePosition ),
+			myOffset = getOffsets( offsets.my, elem.outerWidth(), elem.outerHeight() );
+
+		if ( options.my[ 0 ] === "right" ) {
+			position.left -= elemWidth;
+		} else if ( options.my[ 0 ] === "center" ) {
+			position.left -= elemWidth / 2;
+		}
+
+		if ( options.my[ 1 ] === "bottom" ) {
+			position.top -= elemHeight;
+		} else if ( options.my[ 1 ] === "center" ) {
+			position.top -= elemHeight / 2;
+		}
+
+		position.left += myOffset[ 0 ];
+		position.top += myOffset[ 1 ];
+
+		// if the browser doesn't support fractions, then round for consistent results
+		if ( !$.support.offsetFractions ) {
+			position.left = round( position.left );
+			position.top = round( position.top );
+		}
+
+		collisionPosition = {
+			marginLeft: marginLeft,
+			marginTop: marginTop
+		};
+
+		$.each( [ "left", "top" ], function( i, dir ) {
+			if ( $.ui.position[ collision[ i ] ] ) {
+				$.ui.position[ collision[ i ] ][ dir ]( position, {
+					targetWidth: targetWidth,
+					targetHeight: targetHeight,
+					elemWidth: elemWidth,
+					elemHeight: elemHeight,
+					collisionPosition: collisionPosition,
+					collisionWidth: collisionWidth,
+					collisionHeight: collisionHeight,
+					offset: [ atOffset[ 0 ] + myOffset[ 0 ], atOffset [ 1 ] + myOffset[ 1 ] ],
+					my: options.my,
+					at: options.at,
+					within: within,
+					elem : elem
+				});
+			}
+		});
+
+		if ( options.using ) {
+			// adds feedback as second argument to using callback, if present
+			using = function( props ) {
+				var left = targetOffset.left - position.left,
+					right = left + targetWidth - elemWidth,
+					top = targetOffset.top - position.top,
+					bottom = top + targetHeight - elemHeight,
+					feedback = {
+						target: {
+							element: target,
+							left: targetOffset.left,
+							top: targetOffset.top,
+							width: targetWidth,
+							height: targetHeight
+						},
+						element: {
+							element: elem,
+							left: position.left,
+							top: position.top,
+							width: elemWidth,
+							height: elemHeight
+						},
+						horizontal: right < 0 ? "left" : left > 0 ? "right" : "center",
+						vertical: bottom < 0 ? "top" : top > 0 ? "bottom" : "middle"
+					};
+				if ( targetWidth < elemWidth && abs( left + right ) < targetWidth ) {
+					feedback.horizontal = "center";
+				}
+				if ( targetHeight < elemHeight && abs( top + bottom ) < targetHeight ) {
+					feedback.vertical = "middle";
+				}
+				if ( max( abs( left ), abs( right ) ) > max( abs( top ), abs( bottom ) ) ) {
+					feedback.important = "horizontal";
+				} else {
+					feedback.important = "vertical";
+				}
+				options.using.call( this, props, feedback );
+			};
+		}
+
+		elem.offset( $.extend( position, { using: using } ) );
+	});
+};
+
+$.ui.position = {
+	fit: {
+		left: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.isWindow ? within.scrollLeft : within.offset.left,
+				outerWidth = within.width,
+				collisionPosLeft = position.left - data.collisionPosition.marginLeft,
+				overLeft = withinOffset - collisionPosLeft,
+				overRight = collisionPosLeft + data.collisionWidth - outerWidth - withinOffset,
+				newOverRight;
+
+			// element is wider than within
+			if ( data.collisionWidth > outerWidth ) {
+				// element is initially over the left side of within
+				if ( overLeft > 0 && overRight <= 0 ) {
+					newOverRight = position.left + overLeft + data.collisionWidth - outerWidth - withinOffset;
+					position.left += overLeft - newOverRight;
+				// element is initially over right side of within
+				} else if ( overRight > 0 && overLeft <= 0 ) {
+					position.left = withinOffset;
+				// element is initially over both left and right sides of within
+				} else {
+					if ( overLeft > overRight ) {
+						position.left = withinOffset + outerWidth - data.collisionWidth;
+					} else {
+						position.left = withinOffset;
+					}
+				}
+			// too far left -> align with left edge
+			} else if ( overLeft > 0 ) {
+				position.left += overLeft;
+			// too far right -> align with right edge
+			} else if ( overRight > 0 ) {
+				position.left -= overRight;
+			// adjust based on position and margin
+			} else {
+				position.left = max( position.left - collisionPosLeft, position.left );
+			}
+		},
+		top: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.isWindow ? within.scrollTop : within.offset.top,
+				outerHeight = data.within.height,
+				collisionPosTop = position.top - data.collisionPosition.marginTop,
+				overTop = withinOffset - collisionPosTop,
+				overBottom = collisionPosTop + data.collisionHeight - outerHeight - withinOffset,
+				newOverBottom;
+
+			// element is taller than within
+			if ( data.collisionHeight > outerHeight ) {
+				// element is initially over the top of within
+				if ( overTop > 0 && overBottom <= 0 ) {
+					newOverBottom = position.top + overTop + data.collisionHeight - outerHeight - withinOffset;
+					position.top += overTop - newOverBottom;
+				// element is initially over bottom of within
+				} else if ( overBottom > 0 && overTop <= 0 ) {
+					position.top = withinOffset;
+				// element is initially over both top and bottom of within
+				} else {
+					if ( overTop > overBottom ) {
+						position.top = withinOffset + outerHeight - data.collisionHeight;
+					} else {
+						position.top = withinOffset;
+					}
+				}
+			// too far up -> align with top
+			} else if ( overTop > 0 ) {
+				position.top += overTop;
+			// too far down -> align with bottom edge
+			} else if ( overBottom > 0 ) {
+				position.top -= overBottom;
+			// adjust based on position and margin
+			} else {
+				position.top = max( position.top - collisionPosTop, position.top );
+			}
+		}
+	},
+	flip: {
+		left: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.offset.left + within.scrollLeft,
+				outerWidth = within.width,
+				offsetLeft = within.isWindow ? within.scrollLeft : within.offset.left,
+				collisionPosLeft = position.left - data.collisionPosition.marginLeft,
+				overLeft = collisionPosLeft - offsetLeft,
+				overRight = collisionPosLeft + data.collisionWidth - outerWidth - offsetLeft,
+				myOffset = data.my[ 0 ] === "left" ?
+					-data.elemWidth :
+					data.my[ 0 ] === "right" ?
+						data.elemWidth :
+						0,
+				atOffset = data.at[ 0 ] === "left" ?
+					data.targetWidth :
+					data.at[ 0 ] === "right" ?
+						-data.targetWidth :
+						0,
+				offset = -2 * data.offset[ 0 ],
+				newOverRight,
+				newOverLeft;
+
+			if ( overLeft < 0 ) {
+				newOverRight = position.left + myOffset + atOffset + offset + data.collisionWidth - outerWidth - withinOffset;
+				if ( newOverRight < 0 || newOverRight < abs( overLeft ) ) {
+					position.left += myOffset + atOffset + offset;
+				}
+			}
+			else if ( overRight > 0 ) {
+				newOverLeft = position.left - data.collisionPosition.marginLeft + myOffset + atOffset + offset - offsetLeft;
+				if ( newOverLeft > 0 || abs( newOverLeft ) < overRight ) {
+					position.left += myOffset + atOffset + offset;
+				}
+			}
+		},
+		top: function( position, data ) {
+			var within = data.within,
+				withinOffset = within.offset.top + within.scrollTop,
+				outerHeight = within.height,
+				offsetTop = within.isWindow ? within.scrollTop : within.offset.top,
+				collisionPosTop = position.top - data.collisionPosition.marginTop,
+				overTop = collisionPosTop - offsetTop,
+				overBottom = collisionPosTop + data.collisionHeight - outerHeight - offsetTop,
+				top = data.my[ 1 ] === "top",
+				myOffset = top ?
+					-data.elemHeight :
+					data.my[ 1 ] === "bottom" ?
+						data.elemHeight :
+						0,
+				atOffset = data.at[ 1 ] === "top" ?
+					data.targetHeight :
+					data.at[ 1 ] === "bottom" ?
+						-data.targetHeight :
+						0,
+				offset = -2 * data.offset[ 1 ],
+				newOverTop,
+				newOverBottom;
+			if ( overTop < 0 ) {
+				newOverBottom = position.top + myOffset + atOffset + offset + data.collisionHeight - outerHeight - withinOffset;
+				if ( ( position.top + myOffset + atOffset + offset) > overTop && ( newOverBottom < 0 || newOverBottom < abs( overTop ) ) ) {
+					position.top += myOffset + atOffset + offset;
+				}
+			}
+			else if ( overBottom > 0 ) {
+				newOverTop = position.top -  data.collisionPosition.marginTop + myOffset + atOffset + offset - offsetTop;
+				if ( ( position.top + myOffset + atOffset + offset) > overBottom && ( newOverTop > 0 || abs( newOverTop ) < overBottom ) ) {
+					position.top += myOffset + atOffset + offset;
+				}
+			}
+		}
+	},
+	flipfit: {
+		left: function() {
+			$.ui.position.flip.left.apply( this, arguments );
+			$.ui.position.fit.left.apply( this, arguments );
+		},
+		top: function() {
+			$.ui.position.flip.top.apply( this, arguments );
+			$.ui.position.fit.top.apply( this, arguments );
+		}
+	}
+};
+
+// fraction support test
+(function () {
+	var testElement, testElementParent, testElementStyle, offsetLeft, i,
+		body = document.getElementsByTagName( "body" )[ 0 ],
+		div = document.createElement( "div" );
+
+	//Create a "fake body" for testing based on method used in jQuery.support
+	testElement = document.createElement( body ? "div" : "body" );
+	testElementStyle = {
+		visibility: "hidden",
+		width: 0,
+		height: 0,
+		border: 0,
+		margin: 0,
+		background: "none"
+	};
+	if ( body ) {
+		$.extend( testElementStyle, {
+			position: "absolute",
+			left: "-1000px",
+			top: "-1000px"
+		});
+	}
+	for ( i in testElementStyle ) {
+		testElement.style[ i ] = testElementStyle[ i ];
+	}
+	testElement.appendChild( div );
+	testElementParent = body || document.documentElement;
+	testElementParent.insertBefore( testElement, testElementParent.firstChild );
+
+	div.style.cssText = "position: absolute; left: 10.7432222px;";
+
+	offsetLeft = $( div ).offset().left;
+	$.support.offsetFractions = offsetLeft > 10 && offsetLeft < 11;
+
+	testElement.innerHTML = "";
+	testElementParent.removeChild( testElement );
+})();
+
+}( jQuery ) );
+(function( $, undefined ) {
+
+// used to prevent race conditions with remote data sources
+var requestIndex = 0;
+
+$.widget( "ui.autocomplete", {
+	version: "1.10.3",
+	defaultElement: "<input>",
+	options: {
+		appendTo: null,
+		autoFocus: false,
+		delay: 300,
+		minLength: 1,
+		position: {
+			my: "left top",
+			at: "left bottom",
+			collision: "none"
+		},
+		source: null,
+
+		// callbacks
+		change: null,
+		close: null,
+		focus: null,
+		open: null,
+		response: null,
+		search: null,
+		select: null
+	},
+
+	pending: 0,
+
+	_create: function() {
+		// Some browsers only repeat keydown events, not keypress events,
+		// so we use the suppressKeyPress flag to determine if we've already
+		// handled the keydown event. #7269
+		// Unfortunately the code for & in keypress is the same as the up arrow,
+		// so we use the suppressKeyPressRepeat flag to avoid handling keypress
+		// events when we know the keydown event was used to modify the
+		// search term. #7799
+		var suppressKeyPress, suppressKeyPressRepeat, suppressInput,
+			nodeName = this.element[0].nodeName.toLowerCase(),
+			isTextarea = nodeName === "textarea",
+			isInput = nodeName === "input";
+
+		this.isMultiLine =
+			// Textareas are always multi-line
+			isTextarea ? true :
+			// Inputs are always single-line, even if inside a contentEditable element
+			// IE also treats inputs as contentEditable
+			isInput ? false :
+			// All other element types are determined by whether or not they're contentEditable
+			this.element.prop( "isContentEditable" );
+
+		this.valueMethod = this.element[ isTextarea || isInput ? "val" : "text" ];
+		this.isNewMenu = true;
+
+		this.element
+			.addClass( "ui-autocomplete-input" )
+			.attr( "autocomplete", "off" );
+
+		this._on( this.element, {
+			keydown: function( event ) {
+				/*jshint maxcomplexity:15*/
+				if ( this.element.prop( "readOnly" ) ) {
+					suppressKeyPress = true;
+					suppressInput = true;
+					suppressKeyPressRepeat = true;
+					return;
+				}
+
+				suppressKeyPress = false;
+				suppressInput = false;
+				suppressKeyPressRepeat = false;
+				var keyCode = $.ui.keyCode;
+				switch( event.keyCode ) {
+				case keyCode.PAGE_UP:
+					suppressKeyPress = true;
+					this._move( "previousPage", event );
+					break;
+				case keyCode.PAGE_DOWN:
+					suppressKeyPress = true;
+					this._move( "nextPage", event );
+					break;
+				case keyCode.UP:
+					suppressKeyPress = true;
+					this._keyEvent( "previous", event );
+					break;
+				case keyCode.DOWN:
+					suppressKeyPress = true;
+					this._keyEvent( "next", event );
+					break;
+				case keyCode.ENTER:
+				case keyCode.NUMPAD_ENTER:
+					// when menu is open and has focus
+					if ( this.menu.active ) {
+						// #6055 - Opera still allows the keypress to occur
+						// which causes forms to submit
+						suppressKeyPress = true;
+						event.preventDefault();
+						this.menu.select( event );
+					}
+					break;
+				case keyCode.TAB:
+					if ( this.menu.active ) {
+						this.menu.select( event );
+					}
+					break;
+				case keyCode.ESCAPE:
+					if ( this.menu.element.is( ":visible" ) ) {
+						this._value( this.term );
+						this.close( event );
+						// Different browsers have different default behavior for escape
+						// Single press can mean undo or clear
+						// Double press in IE means clear the whole form
+						event.preventDefault();
+					}
+					break;
+				default:
+					suppressKeyPressRepeat = true;
+					// search timeout should be triggered before the input value is changed
+					this._searchTimeout( event );
+					break;
+				}
+			},
+			keypress: function( event ) {
+				if ( suppressKeyPress ) {
+					suppressKeyPress = false;
+					if ( !this.isMultiLine || this.menu.element.is( ":visible" ) ) {
+						event.preventDefault();
+					}
+					return;
+				}
+				if ( suppressKeyPressRepeat ) {
+					return;
+				}
+
+				// replicate some key handlers to allow them to repeat in Firefox and Opera
+				var keyCode = $.ui.keyCode;
+				switch( event.keyCode ) {
+				case keyCode.PAGE_UP:
+					this._move( "previousPage", event );
+					break;
+				case keyCode.PAGE_DOWN:
+					this._move( "nextPage", event );
+					break;
+				case keyCode.UP:
+					this._keyEvent( "previous", event );
+					break;
+				case keyCode.DOWN:
+					this._keyEvent( "next", event );
+					break;
+				}
+			},
+			input: function( event ) {
+				if ( suppressInput ) {
+					suppressInput = false;
+					event.preventDefault();
+					return;
+				}
+				this._searchTimeout( event );
+			},
+			focus: function() {
+				this.selectedItem = null;
+				this.previous = this._value();
+			},
+			blur: function( event ) {
+				if ( this.cancelBlur ) {
+					delete this.cancelBlur;
+					return;
+				}
+
+				clearTimeout( this.searching );
+				this.close( event );
+				this._change( event );
+			}
+		});
+
+		this._initSource();
+		this.menu = $( "<ul>" )
+			.addClass( "ui-autocomplete ui-front" )
+			.appendTo( this._appendTo() )
+			.menu({
+				// disable ARIA support, the live region takes care of that
+				role: null
+			})
+			.hide()
+			.data( "ui-menu" );
+
+		this._on( this.menu.element, {
+			mousedown: function( event ) {
+				// prevent moving focus out of the text field
+				event.preventDefault();
+
+				// IE doesn't prevent moving focus even with event.preventDefault()
+				// so we set a flag to know when we should ignore the blur event
+				this.cancelBlur = true;
+				this._delay(function() {
+					delete this.cancelBlur;
+				});
+
+				// clicking on the scrollbar causes focus to shift to the body
+				// but we can't detect a mouseup or a click immediately afterward
+				// so we have to track the next mousedown and close the menu if
+				// the user clicks somewhere outside of the autocomplete
+				var menuElement = this.menu.element[ 0 ];
+				if ( !$( event.target ).closest( ".ui-menu-item" ).length ) {
+					this._delay(function() {
+						var that = this;
+						this.document.one( "mousedown", function( event ) {
+							if ( event.target !== that.element[ 0 ] &&
+									event.target !== menuElement &&
+									!$.contains( menuElement, event.target ) ) {
+								that.close();
+							}
+						});
+					});
+				}
+			},
+			menufocus: function( event, ui ) {
+				// support: Firefox
+				// Prevent accidental activation of menu items in Firefox (#7024 #9118)
+				if ( this.isNewMenu ) {
+					this.isNewMenu = false;
+					if ( event.originalEvent && /^mouse/.test( event.originalEvent.type ) ) {
+						this.menu.blur();
+
+						this.document.one( "mousemove", function() {
+							$( event.target ).trigger( event.originalEvent );
+						});
+
+						return;
+					}
+				}
+
+				var item = ui.item.data( "ui-autocomplete-item" );
+				if ( false !== this._trigger( "focus", event, { item: item } ) ) {
+					// use value to match what will end up in the input, if it was a key event
+					if ( event.originalEvent && /^key/.test( event.originalEvent.type ) ) {
+						this._value( item.value );
+					}
+				} else {
+					// Normally the input is populated with the item's value as the
+					// menu is navigated, causing screen readers to notice a change and
+					// announce the item. Since the focus event was canceled, this doesn't
+					// happen, so we update the live region so that screen readers can
+					// still notice the change and announce it.
+					this.liveRegion.text( item.value );
+				}
+			},
+			menuselect: function( event, ui ) {
+				var item = ui.item.data( "ui-autocomplete-item" ),
+					previous = this.previous;
+
+				// only trigger when focus was lost (click on menu)
+				if ( this.element[0] !== this.document[0].activeElement ) {
+					this.element.focus();
+					this.previous = previous;
+					// #6109 - IE triggers two focus events and the second
+					// is asynchronous, so we need to reset the previous
+					// term synchronously and asynchronously :-(
+					this._delay(function() {
+						this.previous = previous;
+						this.selectedItem = item;
+					});
+				}
+
+				if ( false !== this._trigger( "select", event, { item: item } ) ) {
+					this._value( item.value );
+				}
+				// reset the term after the select event
+				// this allows custom select handling to work properly
+				this.term = this._value();
+
+				this.close( event );
+				this.selectedItem = item;
+			}
+		});
+
+		this.liveRegion = $( "<span>", {
+				role: "status",
+				"aria-live": "polite"
+			})
+			.addClass( "ui-helper-hidden-accessible" )
+			.insertBefore( this.element );
+
+		// turning off autocomplete prevents the browser from remembering the
+		// value when navigating through history, so we re-enable autocomplete
+		// if the page is unloaded before the widget is destroyed. #7790
+		this._on( this.window, {
+			beforeunload: function() {
+				this.element.removeAttr( "autocomplete" );
+			}
+		});
+	},
+
+	_destroy: function() {
+		clearTimeout( this.searching );
+		this.element
+			.removeClass( "ui-autocomplete-input" )
+			.removeAttr( "autocomplete" );
+		this.menu.element.remove();
+		this.liveRegion.remove();
+	},
+
+	_setOption: function( key, value ) {
+		this._super( key, value );
+		if ( key === "source" ) {
+			this._initSource();
+		}
+		if ( key === "appendTo" ) {
+			this.menu.element.appendTo( this._appendTo() );
+		}
+		if ( key === "disabled" && value && this.xhr ) {
+			this.xhr.abort();
+		}
+	},
+
+	_appendTo: function() {
+		var element = this.options.appendTo;
+
+		if ( element ) {
+			element = element.jquery || element.nodeType ?
+				$( element ) :
+				this.document.find( element ).eq( 0 );
+		}
+
+		if ( !element ) {
+			element = this.element.closest( ".ui-front" );
+		}
+
+		if ( !element.length ) {
+			element = this.document[0].body;
+		}
+
+		return element;
+	},
+
+	_initSource: function() {
+		var array, url,
+			that = this;
+		if ( $.isArray(this.options.source) ) {
+			array = this.options.source;
+			this.source = function( request, response ) {
+				response( $.ui.autocomplete.filter( array, request.term ) );
+			};
+		} else if ( typeof this.options.source === "string" ) {
+			url = this.options.source;
+			this.source = function( request, response ) {
+				if ( that.xhr ) {
+					that.xhr.abort();
+				}
+				that.xhr = $.ajax({
+					url: url,
+					data: request,
+					dataType: "json",
+					success: function( data ) {
+						response( data );
+					},
+					error: function() {
+						response( [] );
+					}
+				});
+			};
+		} else {
+			this.source = this.options.source;
+		}
+	},
+
+	_searchTimeout: function( event ) {
+		clearTimeout( this.searching );
+		this.searching = this._delay(function() {
+			// only search if the value has changed
+			if ( this.term !== this._value() ) {
+				this.selectedItem = null;
+				this.search( null, event );
+			}
+		}, this.options.delay );
+	},
+
+	search: function( value, event ) {
+		value = value != null ? value : this._value();
+
+		// always save the actual value, not the one passed as an argument
+		this.term = this._value();
+
+		if ( value.length < this.options.minLength ) {
+			return this.close( event );
+		}
+
+		if ( this._trigger( "search", event ) === false ) {
+			return;
+		}
+
+		return this._search( value );
+	},
+
+	_search: function( value ) {
+		this.pending++;
+		this.element.addClass( "ui-autocomplete-loading" );
+		this.cancelSearch = false;
+
+		this.source( { term: value }, this._response() );
+	},
+
+	_response: function() {
+		var that = this,
+			index = ++requestIndex;
+
+		return function( content ) {
+			if ( index === requestIndex ) {
+				that.__response( content );
+			}
+
+			that.pending--;
+			if ( !that.pending ) {
+				that.element.removeClass( "ui-autocomplete-loading" );
+			}
+		};
+	},
+
+	__response: function( content ) {
+		if ( content ) {
+			content = this._normalize( content );
+		}
+		this._trigger( "response", null, { content: content } );
+		if ( !this.options.disabled && content && content.length && !this.cancelSearch ) {
+			this._suggest( content );
+			this._trigger( "open" );
+		} else {
+			// use ._close() instead of .close() so we don't cancel future searches
+			this._close();
+		}
+	},
+
+	close: function( event ) {
+		this.cancelSearch = true;
+		this._close( event );
+	},
+
+	_close: function( event ) {
+		if ( this.menu.element.is( ":visible" ) ) {
+			this.menu.element.hide();
+			this.menu.blur();
+			this.isNewMenu = true;
+			this._trigger( "close", event );
+		}
+	},
+
+	_change: function( event ) {
+		if ( this.previous !== this._value() ) {
+			this._trigger( "change", event, { item: this.selectedItem } );
+		}
+	},
+
+	_normalize: function( items ) {
+		// assume all items have the right format when the first item is complete
+		if ( items.length && items[0].label && items[0].value ) {
+			return items;
+		}
+		return $.map( items, function( item ) {
+			if ( typeof item === "string" ) {
+				return {
+					label: item,
+					value: item
+				};
+			}
+			return $.extend({
+				label: item.label || item.value,
+				value: item.value || item.label
+			}, item );
+		});
+	},
+
+	_suggest: function( items ) {
+		var ul = this.menu.element.empty();
+		this._renderMenu( ul, items );
+		this.isNewMenu = true;
+		this.menu.refresh();
+
+		// size and position menu
+		ul.show();
+		this._resizeMenu();
+		ul.position( $.extend({
+			of: this.element
+		}, this.options.position ));
+
+		if ( this.options.autoFocus ) {
+			this.menu.next();
+		}
+	},
+
+	_resizeMenu: function() {
+		var ul = this.menu.element;
+		ul.outerWidth( Math.max(
+			// Firefox wraps long text (possibly a rounding bug)
+			// so we add 1px to avoid the wrapping (#7513)
+			ul.width( "" ).outerWidth() + 1,
+			this.element.outerWidth()
+		) );
+	},
+
+	_renderMenu: function( ul, items ) {
+		var that = this;
+		$.each( items, function( index, item ) {
+			that._renderItemData( ul, item );
+		});
+	},
+
+	_renderItemData: function( ul, item ) {
+		return this._renderItem( ul, item ).data( "ui-autocomplete-item", item );
+	},
+
+	_renderItem: function( ul, item ) {
+		return $( "<li>" )
+			.append( $( "<a>" ).text( item.label ) )
+			.appendTo( ul );
+	},
+
+	_move: function( direction, event ) {
+		if ( !this.menu.element.is( ":visible" ) ) {
+			this.search( null, event );
+			return;
+		}
+		if ( this.menu.isFirstItem() && /^previous/.test( direction ) ||
+				this.menu.isLastItem() && /^next/.test( direction ) ) {
+			this._value( this.term );
+			this.menu.blur();
+			return;
+		}
+		this.menu[ direction ]( event );
+	},
+
+	widget: function() {
+		return this.menu.element;
+	},
+
+	_value: function() {
+		return this.valueMethod.apply( this.element, arguments );
+	},
+
+	_keyEvent: function( keyEvent, event ) {
+		if ( !this.isMultiLine || this.menu.element.is( ":visible" ) ) {
+			this._move( keyEvent, event );
+
+			// prevents moving cursor to beginning/end of the text field in some browsers
+			event.preventDefault();
+		}
+	}
+});
+
+$.extend( $.ui.autocomplete, {
+	escapeRegex: function( value ) {
+		return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
+	},
+	filter: function(array, term) {
+		var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
+		return $.grep( array, function(value) {
+			return matcher.test( value.label || value.value || value );
+		});
+	}
+});
+
+
+// live region extension, adding a `messages` option
+// NOTE: This is an experimental API. We are still investigating
+// a full solution for string manipulation and internationalization.
+$.widget( "ui.autocomplete", $.ui.autocomplete, {
+	options: {
+		messages: {
+			noResults: "No search results.",
+			results: function( amount ) {
+				return amount + ( amount > 1 ? " results are" : " result is" ) +
+					" available, use up and down arrow keys to navigate.";
+			}
+		}
+	},
+
+	__response: function( content ) {
+		var message;
+		this._superApply( arguments );
+		if ( this.options.disabled || this.cancelSearch ) {
+			return;
+		}
+		if ( content && content.length ) {
+			message = this.options.messages.results( content.length );
+		} else {
+			message = this.options.messages.noResults;
+		}
+		this.liveRegion.text( message );
+	}
+});
+
+}( jQuery ));
+(function( $, undefined ) {
+
+$.widget( "ui.menu", {
+	version: "1.10.3",
+	defaultElement: "<ul>",
+	delay: 300,
+	options: {
+		icons: {
+			submenu: "ui-icon-carat-1-e"
+		},
+		menus: "ul",
+		position: {
+			my: "left top",
+			at: "right top"
+		},
+		role: "menu",
+
+		// callbacks
+		blur: null,
+		focus: null,
+		select: null
+	},
+
+	_create: function() {
+		this.activeMenu = this.element;
+		// flag used to prevent firing of the click handler
+		// as the event bubbles up through nested menus
+		this.mouseHandled = false;
+		this.element
+			.uniqueId()
+			.addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
+			.toggleClass( "ui-menu-icons", !!this.element.find( ".ui-icon" ).length )
+			.attr({
+				role: this.options.role,
+				tabIndex: 0
+			})
+			// need to catch all clicks on disabled menu
+			// not possible through _on
+			.bind( "click" + this.eventNamespace, $.proxy(function( event ) {
+				if ( this.options.disabled ) {
+					event.preventDefault();
+				}
+			}, this ));
+
+		if ( this.options.disabled ) {
+			this.element
+				.addClass( "ui-state-disabled" )
+				.attr( "aria-disabled", "true" );
+		}
+
+		this._on({
+			// Prevent focus from sticking to links inside menu after clicking
+			// them (focus should always stay on UL during navigation).
+			"mousedown .ui-menu-item > a": function( event ) {
+				event.preventDefault();
+			},
+			"click .ui-state-disabled > a": function( event ) {
+				event.preventDefault();
+			},
+			"click .ui-menu-item:has(a)": function( event ) {
+				var target = $( event.target ).closest( ".ui-menu-item" );
+				if ( !this.mouseHandled && target.not( ".ui-state-disabled" ).length ) {
+					this.mouseHandled = true;
+
+					this.select( event );
+					// Open submenu on click
+					if ( target.has( ".ui-menu" ).length ) {
+						this.expand( event );
+					} else if ( !this.element.is( ":focus" ) ) {
+						// Redirect focus to the menu
+						this.element.trigger( "focus", [ true ] );
+
+						// If the active item is on the top level, let it stay active.
+						// Otherwise, blur the active item since it is no longer visible.
+						if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
+							clearTimeout( this.timer );
+						}
+					}
+				}
+			},
+			"mouseenter .ui-menu-item": function( event ) {
+				var target = $( event.currentTarget );
+				// Remove ui-state-active class from siblings of the newly focused menu item
+				// to avoid a jump caused by adjacent elements both having a class with a border
+				target.siblings().children( ".ui-state-active" ).removeClass( "ui-state-active" );
+				this.focus( event, target );
+			},
+			mouseleave: "collapseAll",
+			"mouseleave .ui-menu": "collapseAll",
+			focus: function( event, keepActiveItem ) {
+				// If there's already an active item, keep it active
+				// If not, activate the first item
+				var item = this.active || this.element.children( ".ui-menu-item" ).eq( 0 );
+
+				if ( !keepActiveItem ) {
+					this.focus( event, item );
+				}
+			},
+			blur: function( event ) {
+				this._delay(function() {
+					if ( !$.contains( this.element[0], this.document[0].activeElement ) ) {
+						this.collapseAll( event );
+					}
+				});
+			},
+			keydown: "_keydown"
+		});
+
+		this.refresh();
+
+		// Clicks outside of a menu collapse any open menus
+		this._on( this.document, {
+			click: function( event ) {
+				if ( !$( event.target ).closest( ".ui-menu" ).length ) {
+					this.collapseAll( event );
+				}
+
+				// Reset the mouseHandled flag
+				this.mouseHandled = false;
+			}
+		});
+	},
+
+	_destroy: function() {
+		// Destroy (sub)menus
+		this.element
+			.removeAttr( "aria-activedescendant" )
+			.find( ".ui-menu" ).addBack()
+				.removeClass( "ui-menu ui-widget ui-widget-content ui-corner-all ui-menu-icons" )
+				.removeAttr( "role" )
+				.removeAttr( "tabIndex" )
+				.removeAttr( "aria-labelledby" )
+				.removeAttr( "aria-expanded" )
+				.removeAttr( "aria-hidden" )
+				.removeAttr( "aria-disabled" )
+				.removeUniqueId()
+				.show();
+
+		// Destroy menu items
+		this.element.find( ".ui-menu-item" )
+			.removeClass( "ui-menu-item" )
+			.removeAttr( "role" )
+			.removeAttr( "aria-disabled" )
+			.children( "a" )
+				.removeUniqueId()
+				.removeClass( "ui-corner-all ui-state-hover" )
+				.removeAttr( "tabIndex" )
+				.removeAttr( "role" )
+				.removeAttr( "aria-haspopup" )
+				.children().each( function() {
+					var elem = $( this );
+					if ( elem.data( "ui-menu-submenu-carat" ) ) {
+						elem.remove();
+					}
+				});
+
+		// Destroy menu dividers
+		this.element.find( ".ui-menu-divider" ).removeClass( "ui-menu-divider ui-widget-content" );
+	},
+
+	_keydown: function( event ) {
+		/*jshint maxcomplexity:20*/
+		var match, prev, character, skip, regex,
+			preventDefault = true;
+
+		function escape( value ) {
+			return value.replace( /[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&" );
+		}
+
+		switch ( event.keyCode ) {
+		case $.ui.keyCode.PAGE_UP:
+			this.previousPage( event );
+			break;
+		case $.ui.keyCode.PAGE_DOWN:
+			this.nextPage( event );
+			break;
+		case $.ui.keyCode.HOME:
+			this._move( "first", "first", event );
+			break;
+		case $.ui.keyCode.END:
+			this._move( "last", "last", event );
+			break;
+		case $.ui.keyCode.UP:
+			this.previous( event );
+			break;
+		case $.ui.keyCode.DOWN:
+			this.next( event );
+			break;
+		case $.ui.keyCode.LEFT:
+			this.collapse( event );
+			break;
+		case $.ui.keyCode.RIGHT:
+			if ( this.active && !this.active.is( ".ui-state-disabled" ) ) {
+				this.expand( event );
+			}
+			break;
+		case $.ui.keyCode.ENTER:
+		case $.ui.keyCode.SPACE:
+			this._activate( event );
+			break;
+		case $.ui.keyCode.ESCAPE:
+			this.collapse( event );
+			break;
+		default:
+			preventDefault = false;
+			prev = this.previousFilter || "";
+			character = String.fromCharCode( event.keyCode );
+			skip = false;
+
+			clearTimeout( this.filterTimer );
+
+			if ( character === prev ) {
+				skip = true;
+			} else {
+				character = prev + character;
+			}
+
+			regex = new RegExp( "^" + escape( character ), "i" );
+			match = this.activeMenu.children( ".ui-menu-item" ).filter(function() {
+				return regex.test( $( this ).children( "a" ).text() );
+			});
+			match = skip && match.index( this.active.next() ) !== -1 ?
+				this.active.nextAll( ".ui-menu-item" ) :
+				match;
+
+			// If no matches on the current filter, reset to the last character pressed
+			// to move down the menu to the first item that starts with that character
+			if ( !match.length ) {
+				character = String.fromCharCode( event.keyCode );
+				regex = new RegExp( "^" + escape( character ), "i" );
+				match = this.activeMenu.children( ".ui-menu-item" ).filter(function() {
+					return regex.test( $( this ).children( "a" ).text() );
+				});
+			}
+
+			if ( match.length ) {
+				this.focus( event, match );
+				if ( match.length > 1 ) {
+					this.previousFilter = character;
+					this.filterTimer = this._delay(function() {
+						delete this.previousFilter;
+					}, 1000 );
+				} else {
+					delete this.previousFilter;
+				}
+			} else {
+				delete this.previousFilter;
+			}
+		}
+
+		if ( preventDefault ) {
+			event.preventDefault();
+		}
+	},
+
+	_activate: function( event ) {
+		if ( !this.active.is( ".ui-state-disabled" ) ) {
+			if ( this.active.children( "a[aria-haspopup='true']" ).length ) {
+				this.expand( event );
+			} else {
+				this.select( event );
+			}
+		}
+	},
+
+	refresh: function() {
+		var menus,
+			icon = this.options.icons.submenu,
+			submenus = this.element.find( this.options.menus );
+
+		// Initialize nested menus
+		submenus.filter( ":not(.ui-menu)" )
+			.addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
+			.hide()
+			.attr({
+				role: this.options.role,
+				"aria-hidden": "true",
+				"aria-expanded": "false"
+			})
+			.each(function() {
+				var menu = $( this ),
+					item = menu.prev( "a" ),
+					submenuCarat = $( "<span>" )
+						.addClass( "ui-menu-icon ui-icon " + icon )
+						.data( "ui-menu-submenu-carat", true );
+
+				item
+					.attr( "aria-haspopup", "true" )
+					.prepend( submenuCarat );
+				menu.attr( "aria-labelledby", item.attr( "id" ) );
+			});
+
+		menus = submenus.add( this.element );
+
+		// Don't refresh list items that are already adapted
+		menus.children( ":not(.ui-menu-item):has(a)" )
+			.addClass( "ui-menu-item" )
+			.attr( "role", "presentation" )
+			.children( "a" )
+				.uniqueId()
+				.addClass( "ui-corner-all" )
+				.attr({
+					tabIndex: -1,
+					role: this._itemRole()
+				});
+
+		// Initialize unlinked menu-items containing spaces and/or dashes only as dividers
+		menus.children( ":not(.ui-menu-item)" ).each(function() {
+			var item = $( this );
+			// hyphen, em dash, en dash
+			if ( !/[^\-\u2014\u2013\s]/.test( item.text() ) ) {
+				item.addClass( "ui-widget-content ui-menu-divider" );
+			}
+		});
+
+		// Add aria-disabled attribute to any disabled menu item
+		menus.children( ".ui-state-disabled" ).attr( "aria-disabled", "true" );
+
+		// If the active item has been removed, blur the menu
+		if ( this.active && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
+			this.blur();
+		}
+	},
+
+	_itemRole: function() {
+		return {
+			menu: "menuitem",
+			listbox: "option"
+		}[ this.options.role ];
+	},
+
+	_setOption: function( key, value ) {
+		if ( key === "icons" ) {
+			this.element.find( ".ui-menu-icon" )
+				.removeClass( this.options.icons.submenu )
+				.addClass( value.submenu );
+		}
+		this._super( key, value );
+	},
+
+	focus: function( event, item ) {
+		var nested, focused;
+		this.blur( event, event && event.type === "focus" );
+
+		this._scrollIntoView( item );
+
+		this.active = item.first();
+		focused = this.active.children( "a" ).addClass( "ui-state-focus" );
+		// Only update aria-activedescendant if there's a role
+		// otherwise we assume focus is managed elsewhere
+		if ( this.options.role ) {
+			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
+		}
+
+		// Highlight active parent menu item, if any
+		this.active
+			.parent()
+			.closest( ".ui-menu-item" )
+			.children( "a:first" )
+			.addClass( "ui-state-active" );
+
+		if ( event && event.type === "keydown" ) {
+			this._close();
+		} else {
+			this.timer = this._delay(function() {
+				this._close();
+			}, this.delay );
+		}
+
+		nested = item.children( ".ui-menu" );
+		if ( nested.length && ( /^mouse/.test( event.type ) ) ) {
+			this._startOpening(nested);
+		}
+		this.activeMenu = item.parent();
+
+		this._trigger( "focus", event, { item: item } );
+	},
+
+	_scrollIntoView: function( item ) {
+		var borderTop, paddingTop, offset, scroll, elementHeight, itemHeight;
+		if ( this._hasScroll() ) {
+			borderTop = parseFloat( $.css( this.activeMenu[0], "borderTopWidth" ) ) || 0;
+			paddingTop = parseFloat( $.css( this.activeMenu[0], "paddingTop" ) ) || 0;
+			offset = item.offset().top - this.activeMenu.offset().top - borderTop - paddingTop;
+			scroll = this.activeMenu.scrollTop();
+			elementHeight = this.activeMenu.height();
+			itemHeight = item.height();
+
+			if ( offset < 0 ) {
+				this.activeMenu.scrollTop( scroll + offset );
+			} else if ( offset + itemHeight > elementHeight ) {
+				this.activeMenu.scrollTop( scroll + offset - elementHeight + itemHeight );
+			}
+		}
+	},
+
+	blur: function( event, fromFocus ) {
+		if ( !fromFocus ) {
+			clearTimeout( this.timer );
+		}
+
+		if ( !this.active ) {
+			return;
+		}
+
+		this.active.children( "a" ).removeClass( "ui-state-focus" );
+		this.active = null;
+
+		this._trigger( "blur", event, { item: this.active } );
+	},
+
+	_startOpening: function( submenu ) {
+		clearTimeout( this.timer );
+
+		// Don't open if already open fixes a Firefox bug that caused a .5 pixel
+		// shift in the submenu position when mousing over the carat icon
+		if ( submenu.attr( "aria-hidden" ) !== "true" ) {
+			return;
+		}
+
+		this.timer = this._delay(function() {
+			this._close();
+			this._open( submenu );
+		}, this.delay );
+	},
+
+	_open: function( submenu ) {
+		var position = $.extend({
+			of: this.active
+		}, this.options.position );
+
+		clearTimeout( this.timer );
+		this.element.find( ".ui-menu" ).not( submenu.parents( ".ui-menu" ) )
+			.hide()
+			.attr( "aria-hidden", "true" );
+
+		submenu
+			.show()
+			.removeAttr( "aria-hidden" )
+			.attr( "aria-expanded", "true" )
+			.position( position );
+	},
+
+	collapseAll: function( event, all ) {
+		clearTimeout( this.timer );
+		this.timer = this._delay(function() {
+			// If we were passed an event, look for the submenu that contains the event
+			var currentMenu = all ? this.element :
+				$( event && event.target ).closest( this.element.find( ".ui-menu" ) );
+
+			// If we found no valid submenu ancestor, use the main menu to close all sub menus anyway
+			if ( !currentMenu.length ) {
+				currentMenu = this.element;
+			}
+
+			this._close( currentMenu );
+
+			this.blur( event );
+			this.activeMenu = currentMenu;
+		}, this.delay );
+	},
+
+	// With no arguments, closes the currently active menu - if nothing is active
+	// it closes all menus.  If passed an argument, it will search for menus BELOW
+	_close: function( startMenu ) {
+		if ( !startMenu ) {
+			startMenu = this.active ? this.active.parent() : this.element;
+		}
+
+		startMenu
+			.find( ".ui-menu" )
+				.hide()
+				.attr( "aria-hidden", "true" )
+				.attr( "aria-expanded", "false" )
+			.end()
+			.find( "a.ui-state-active" )
+				.removeClass( "ui-state-active" );
+	},
+
+	collapse: function( event ) {
+		var newItem = this.active &&
+			this.active.parent().closest( ".ui-menu-item", this.element );
+		if ( newItem && newItem.length ) {
+			this._close();
+			this.focus( event, newItem );
+		}
+	},
+
+	expand: function( event ) {
+		var newItem = this.active &&
+			this.active
+				.children( ".ui-menu " )
+				.children( ".ui-menu-item" )
+				.first();
+
+		if ( newItem && newItem.length ) {
+			this._open( newItem.parent() );
+
+			// Delay so Firefox will not hide activedescendant change in expanding submenu from AT
+			this._delay(function() {
+				this.focus( event, newItem );
+			});
+		}
+	},
+
+	next: function( event ) {
+		this._move( "next", "first", event );
+	},
+
+	previous: function( event ) {
+		this._move( "prev", "last", event );
+	},
+
+	isFirstItem: function() {
+		return this.active && !this.active.prevAll( ".ui-menu-item" ).length;
+	},
+
+	isLastItem: function() {
+		return this.active && !this.active.nextAll( ".ui-menu-item" ).length;
+	},
+
+	_move: function( direction, filter, event ) {
+		var next;
+		if ( this.active ) {
+			if ( direction === "first" || direction === "last" ) {
+				next = this.active
+					[ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menu-item" )
+					.eq( -1 );
+			} else {
+				next = this.active
+					[ direction + "All" ]( ".ui-menu-item" )
+					.eq( 0 );
+			}
+		}
+		if ( !next || !next.length || !this.active ) {
+			next = this.activeMenu.children( ".ui-menu-item" )[ filter ]();
+		}
+
+		this.focus( event, next );
+	},
+
+	nextPage: function( event ) {
+		var item, base, height;
+
+		if ( !this.active ) {
+			this.next( event );
+			return;
+		}
+		if ( this.isLastItem() ) {
+			return;
+		}
+		if ( this._hasScroll() ) {
+			base = this.active.offset().top;
+			height = this.element.height();
+			this.active.nextAll( ".ui-menu-item" ).each(function() {
+				item = $( this );
+				return item.offset().top - base - height < 0;
+			});
+
+			this.focus( event, item );
+		} else {
+			this.focus( event, this.activeMenu.children( ".ui-menu-item" )
+				[ !this.active ? "first" : "last" ]() );
+		}
+	},
+
+	previousPage: function( event ) {
+		var item, base, height;
+		if ( !this.active ) {
+			this.next( event );
+			return;
+		}
+		if ( this.isFirstItem() ) {
+			return;
+		}
+		if ( this._hasScroll() ) {
+			base = this.active.offset().top;
+			height = this.element.height();
+			this.active.prevAll( ".ui-menu-item" ).each(function() {
+				item = $( this );
+				return item.offset().top - base + height > 0;
+			});
+
+			this.focus( event, item );
+		} else {
+			this.focus( event, this.activeMenu.children( ".ui-menu-item" ).first() );
+		}
+	},
+
+	_hasScroll: function() {
+		return this.element.outerHeight() < this.element.prop( "scrollHeight" );
+	},
+
+	select: function( event ) {
+		// TODO: It should never be possible to not have an active item at this
+		// point, but the tests don't trigger mouseenter before click.
+		this.active = this.active || $( event.target ).closest( ".ui-menu-item" );
+		var ui = { item: this.active };
+		if ( !this.active.has( ".ui-menu" ).length ) {
+			this.collapseAll( event, true );
+		}
+		this._trigger( "select", event, ui );
+	}
+});
+
+}( jQuery ));
+var HEROCALCULATOR = (function (my) {
+    var my = {};
+    my.heroData = {};
+    my.itemData = {};
+    my.unitData = {};
+    my.abilityData = {};
+    my.stackableItems = ['clarity','flask','dust','ward_observer','ward_sentry','tango','tpscroll','smoke_of_deceit']
+    my.levelitems = ['necronomicon','dagon','diffusal_blade']
+    
+    my.ItemInput = function (value, name) {
+        this.value = ko.observable(value);
+        this.name = ko.observable(name);
+        this.displayname = ko.observable(name + ' ');
+    };
+    
+    my.InventoryViewModel = function() {
+        var self = this,
+        itemsWithActive = ['smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila'];
+        self.hasInventory = ko.observable(true);
+        self.items = ko.observableArray();
+        self.activeItems = ko.observableArray([]);
+        self.hasScepter = ko.computed(function() {
+            for (var i=0;i<self.items().length;i++) {
+                var item = self.items()[i].item
+                if (item == 'ultimate_scepter' && self.items()[i].enabled()) {
+                    return true;
+                }
+                
+            }
+            return false;
+        }, this);
+        self.totalCost = ko.computed(function() {
+            var c = 0;
+            for (var i=0;i<self.items().length;i++) {
+                var item = self.items()[i].item
+                if (!self.items()[i].enabled()) continue;
+                if (my.stackableItems.indexOf(item) != -1) {
+                    c += my.itemData['item_' + item].itemcost * self.items()[i].size;
+                }
+                else if (my.levelitems.indexOf(item) != -1) {
+                    switch(item) {
+                        case 'diffusal_blade':
+                            c += my.itemData['item_' + item].itemcost + (self.items()[i].size-1) * 850;
+                        break;
+                        case 'necronomicon':
+                        case 'dagon':
+                            c += my.itemData['item_' + item].itemcost + (self.items()[i].size-1) * 1250;
+                        break;
+                        default:
+                            c += my.itemData['item_' + item].itemcost;
+                        break;
+                    }
+                }
+                else {
+                    c += my.itemData['item_' + item].itemcost;
+                }
+                
+            }
+            return c;
+        }, this);
+        self.addItem = function(data, event) {
+            if (self.hasInventory() && data.selectedItem() != undefined) {
+                var new_item = {
+                    item: data.selectedItem(),
+                    state: ko.observable(0),
+                    size: data.itemInputValue(),
+                    enabled: ko.observable(true)
+                }
+                self.items.push(new_item);
+                if (data.selectedItem() == 'ring_of_aquila' || data.selectedItem() == 'ring_of_basilius') {
+                    self.toggleItem(undefined,new_item,undefined);
+                }
+            }
+        };
+        self.toggleItem = function (index, data, event) {
+            if (itemsWithActive.indexOf(data.item) >= 0) {
+                if (self.activeItems.indexOf(data) < 0) {
+                    self.activeItems.push(data);
+                }
+                else {
+                    self.activeItems.remove(data);
+                }
+                switch (data.item) {
+                    case 'power_treads':
+                        if (data.state() < 2) {
+                            data.state(data.state()+1);
+                        }
+                        else {
+                            data.state(0);
+                        }                
+                    break;
+                    default:
+                        if (data.state() == 0) {
+                            data.state(1);
+                        }
+                        else {
+                            data.state(0);
+                        }                
+                    break;
+                }
+            }
+        }.bind(this);
+        self.removeItem = function (item) {
+            self.activeItems.remove(item);
+            self.items.remove(item);
+        }.bind(this);
+        self.toggleMuteItem = function (item) {
+            item.enabled(!item.enabled());
+        }.bind(this);        
+        self.getItemImage = function (data) {
+            switch (data.item) {
+                case 'power_treads':
+                    if (data.state() == 0) {
+                        return '/media/images/items/' + data.item + '_str.png';
+                    }
+                    else if (data.state() == 1) {
+                        return '/media/images/items/' + data.item + '_int.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '_agi.png';
+                    }
+                break;
+                case 'tranquil_boots':
+                case 'ring_of_basilius':
+                    if (data.state() == 0) {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '_active.png';
+                    }
+                break;
+                case 'armlet':
+                    if (data.state() == 0) {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '_active.png';
+                    }
+                break;
+                case 'ring_of_aquila':
+                    if (data.state() == 0) {
+                        return '/media/images/items/' + data.item + '_active.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                break;
+                case 'dagon':
+                case 'diffusal_blade':
+                case 'necronomicon':
+                    if (data.size > 1) {
+                        return '/media/images/items/' + data.item + '_' + data.size + '.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                break;
+                default:
+                    return '/media/images/items/' + data.item + '.png';            
+                break;
+            }
+        };
+        self.getItemSizeLabel = function(data) {
+            if (my.stackableItems.indexOf(data.item) != -1) {
+                return '<span style="font-size:10px">Qty: </span>' + data.size;
+            }
+            else if (my.levelitems.indexOf(data.item) != -1) {
+                return '<span style="font-size:10px">Lvl: </span>' + data.size;
+            }
+            else if (data.item == 'bloodstone') {
+                return '<span style="font-size:10px">Charges: </span>' + data.size;
+            }
+            else {
+                return '';
+            }
+        };
+        self.getActiveBorder = function (data) {
+            switch (data.item) {
+                case 'power_treads':
+                case 'tranquil_boots':
+                case 'ring_of_basilius':
+                case 'ring_of_aquila':
+                case 'armlet':
+                    return 0;
+                break;
+                default:
+                    return data.state();    
+                break;
+            }
+            
+        }
+
+        self.getItemAttributeValue = function(attributes, attributeName, level) {
+            for (var i=0;i<attributes.length;i++) {
+                if (attributes[i].name == attributeName) {
+                    if (level == 0) {
+                        return parseFloat(attributes[i].value[0]);
+                    }
+                    else if (level > attributes[i].value.length) {
+                        return parseFloat(attributes[i].value[0]);
+                    }
+                    else {
+                        return parseFloat(attributes[i].value[level-1]);
+                    }
+                }
+            }
+        }
+        
+        self.getAttributes = function(attributetype) {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                var size = self.items()[i].size;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_all_stats':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'bonus_stats':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                    }
+                    switch(attributetype) {
+                        case 'agi':
+                            if (attribute.name == 'bonus_agility') {
+                                if (item == 'diffusal_blade') {
+                                    totalAttribute += parseInt(attribute.value[size-1]);
+                                }
+                                else {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                }
+                            }
+                            if (attribute.name == 'bonus_stat' && self.items()[i].state() == 2) {totalAttribute += parseInt(attribute.value[0]);};
+                        break;
+                        case 'int':
+                            if (attribute.name == 'bonus_intellect') {
+                                if (item == 'necronomicon') {
+                                    totalAttribute += parseInt(attribute.value[size-1]);
+                                }
+                                else if (item == 'diffusal_blade') {
+                                    totalAttribute += parseInt(attribute.value[size-1]);
+                                }
+                                else if (item == 'dagon') {
+                                    totalAttribute += parseInt(attribute.value[size-1]);
+                                }
+                                else {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                }
+                            }
+                            if (attribute.name == 'bonus_int') {totalAttribute += parseInt(attribute.value[0]);};
+                            if (attribute.name == 'bonus_stat' && self.items()[i].state() == 1) {totalAttribute += parseInt(attribute.value[0]);};
+                        break;
+                        case 'str':
+                            if (attribute.name == 'bonus_strength') {
+                                if (item == 'necronomicon') {
+                                    totalAttribute += parseInt(attribute.value[size-1]);
+                                }
+                                else {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                }
+                            }
+                            if (attribute.name == 'bonus_stat' && self.items()[i].state() == 0) {totalAttribute += parseInt(attribute.value[0]);};
+                            if (attribute.name == 'unholy_bonus_strength' && isActive) {totalAttribute += parseInt(attribute.value[0]);};
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getBash = function(attacktype) {
+            var totalAttribute = 1;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bash_chance':
+                            totalAttribute *= (1 - parseInt(attribute.value[0])/100);
+                        break;
+                        case 'bash_chance_melee':
+                            if (attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK') { totalAttribute *= (1 - parseInt(attribute.value[0])/100); };
+                        break;
+                        case 'bash_chance_ranged':
+                            if (attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK') { totalAttribute *= (1 - parseInt(attribute.value[0])/100); };
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        
+        self.getCritChance = function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'crit_chance':
+                            totalAttribute *= (1 - parseInt(attribute.value[0])/100);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        
+        self.getCritSource = function() {
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                switch (item) {
+                    case 'lesser_crit':
+                    case 'greater_crit':
+                        if (sources[item] == undefined) {
+                            sources[item] = {
+                                'chance': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'crit_chance', 0)/100,
+                                'multiplier': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'crit_multiplier', 0)/100,
+                                'count': 1,
+                                'displayname': my.itemData['item_' + item].displayname
+                            }
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                }
+
+            }
+            return sources;
+        };
+
+        self.getCleaveSource = function() {
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                switch (item) {
+                    case 'bfury':
+                        if (sources[item] == undefined) {
+                            sources[item] = {
+                                'radius': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'cleave_radius', 0),
+                                'magnitude': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'cleave_damage_percent', 0)/100,
+                                'count': 1,
+                                'displayname': my.itemData['item_' + item].displayname
+                            }
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                }
+
+            }
+            return sources;
+        };
+        
+        self.getBashSource = function(attacktype) {
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                switch (item) {
+                    case 'javelin':
+                        if (sources[item] == undefined) {
+                            sources[item] = {
+                                'damage': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bonus_chance_damage', 1),
+                                'damageType': 'physical',
+                                'count':1,
+                                'chance': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bonus_chance', 1)/100,
+                                'displayname': my.itemData['item_' + item].displayname + ' Pierce'
+                            }                            
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                    case 'monkey_king_bar':
+                        if (sources[item] == undefined) {
+                            sources[item] = {
+                                'item': item,
+                                'chance': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_chance', 0)/100,
+                                'damage': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_damage', 0),
+                                'duration': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_stun', 0),
+                                'count': 1,
+                                'damageType': 'magic',
+                                'displayname': my.itemData['item_' + item].displayname
+                            }
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                    case 'abyssal_blade':
+                    case 'basher':
+                        if (sources[item] == undefined) {
+                            if (attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK') {
+                                sources[item] = {
+                                    'item': item,
+                                    'chance': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_chance_melee', 0)/100,
+                                    'damage': 0,
+                                    'duration': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_duration', 0),
+                                    'count': 1,
+                                    'damageType': 'physical',
+                                    'displayname': my.itemData['item_' + item].displayname
+                                }                            
+                            }
+                            else {
+                                sources[item] = {
+                                    'item': item,
+                                    'chance': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_chance_ranged', 0)/100,
+                                    'damage': 0,
+                                    'duration': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'bash_duration', 0),
+                                    'count': 1,
+                                    'damageType': 'physical',
+                                    'displayname': my.itemData['item_' + item].displayname
+                                }                            
+
+                            }
+
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                }
+
+            }
+            return sources;
+        };
+        
+        self.getOrbProcSource = function() {
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                switch (item) {
+                    case 'maelstrom':
+                    case 'mjollnir':
+                        if (sources[item] == undefined) {
+                            sources[item] = {
+                                'chance': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'chain_chance', 0)/100,
+                                'damage': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'chain_damage', 0),
+                                'count': 1,
+                                'damageType': 'magic',
+                                'displayname': my.itemData['item_' + item].displayname
+                            }
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                }
+
+            }
+            return sources;
+        };
+
+        self.getOrbSource = function() {
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                switch (item) {
+                    case 'diffusal_blade':
+                        if (sources[item] == undefined) {
+                            sources[item] = {
+                                'chance': 1,
+                                'damage': self.getItemAttributeValue(my.itemData['item_' + item].attributes, 'feedback_mana_burn', self.items()[i].size),
+                                'count': 1,
+                                'damageType': 'physical',
+                                'displayname': my.itemData['item_' + item].displayname
+                            }
+                        }
+                        else {
+                            sources[item].count += 1;
+                        }
+                    break;
+                }
+
+            }
+            return sources;
+        };
+        
+        self.getHealth = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_health':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getHealthRegen = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'aura_health_regen':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'health_regen':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'bonus_health_regen':
+                                if (item == 'tranquil_boots' && !isActive) {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                }
+                                else if (item != 'tranquil_boots') {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                }
+                        break;
+                        case 'hp_regen':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getMana = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_mana':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getManaRegenPercent = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_mana_regen':
+                            totalAttribute += parseFloat(attribute.value[0]);
+                        break;
+                        case 'mana_regen':
+                            totalAttribute += parseFloat(attribute.value[0]);
+                        break;
+                        case 'bonus_mana_regen_pct':
+                            totalAttribute += parseFloat(attribute.value[0]);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute/100;    
+        };
+        self.getManaRegenBloodstone = function() {
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                if (!self.items()[i].enabled()) continue;
+                if (item.indexOf('bloodstone') != -1) {
+                    return parseInt(self.items()[i].size);
+                }
+            }
+            return 0;
+        };
+        self.getArmor = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_armor':
+                            if (!isActive || item != 'medallion_of_courage') { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'aura_positive_armor':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'bonus_aoe_armor':
+                        case 'aura_bonus_armor':
+                            if (isActive) { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'heal_bonus_armor':
+                            if (isActive) { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'armor_aura':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getEvasion = function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_evasion':
+                            totalAttribute *= (1 - parseInt(attribute.value[0])/100);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getMovementSpeedFlat = function() {
+            var totalAttribute = 0,
+            hasBoots = false,
+            hasEuls = false,
+            bootItems = ['boots','phase_boots','arcane_boots','travel_boots','power_treads','tranquil_boots'];
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_movement_speed':
+                            if (!hasBoots && bootItems.indexOf(item) >= 0) {
+                                if (item != 'tranquil_boots' || (item == 'tranquil_boots' && !isActive)) {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                    hasBoots = true;
+                                }
+                            }
+                            //else if (!hasEuls && item == 'cyclone') {
+                            else if (item == 'cyclone') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasEuls = true;
+                            }
+                        break;
+                        case 'broken_movement_speed':
+                            if (!hasBoots && bootItems.indexOf(item) >= 0) {
+                                if (item == 'tranquil_boots' && isActive) {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                    hasBoots = true;
+                                }
+                            }
+                        break;
+                        case 'bonus_movement':
+                            if (!hasBoots && bootItems.indexOf(item) >= 0) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasBoots = true;
+                            }
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getMovementSpeedPercent = function() {
+            var totalAttribute = 0,
+            hasYasha = false,
+            hasDrums = false,
+            hasDrumsActive = false,
+            hasPhaseActive = false,
+            hasShadowBladeActive = false,
+            hasMoMActive = false,
+            yashaItems = ['manta','yasha','sange_and_yasha'];
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'movement_speed_percent_bonus':
+                            if (!hasYasha && yashaItems.indexOf(item) >= 0) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasYasha = true;
+                            }
+                        break;
+                        case 'bonus_aura_movement_speed_pct':
+                            if (!hasDrums && item == 'ancient_janggo') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasDrums = true;
+                            }
+                        break;
+                        case 'phase_movement_speed':
+                            if (isActive && !hasPhaseActive) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasPhaseActive = true;
+                            }
+                        break;
+                        case 'bonus_movement_speed_pct':
+                            if (isActive && !hasDrumsActive && item == 'ancient_janggo') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasDrumsActive = true;
+                            }
+                        break;
+                        case 'windwalk_movement_speed':
+                            if (isActive && !hasShadowBladeActive && item == 'invis_sword') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasShadowBladeActive = true;
+                            }
+                        break;
+                        case 'berserk_bonus_movement_speed':
+                            if (isActive && !hasMoMActive && item == 'mask_of_madness') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasMoMActive = true;
+                            }
+                        break;
+                        case 'bonus_movement_speed': //manta
+                            if (!hasYasha && item == 'manta') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasYasha = true;
+                            }
+                            else if (item == 'smoke_of_deceit' && isActive) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                            }
+                        break;
+                    }
+                }
+            }
+            return totalAttribute/100;
+        };
+        
+        self.getMovementSpeedPercentReduction = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'movespeed':
+                            if (item == 'dust' && isActive) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                            }
+                        break;
+                    }
+                }
+            }
+            return totalAttribute/100;
+        };
+        
+        self.getBonusDamage = function() {
+            var totalAttribute = 0;
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_damage':
+                            totalAttribute += parseInt(attribute.value[0]);
+                            if (sources[item] == undefined) {
+                                sources[item] = {
+                                    'damage': parseInt(attribute.value[0]),
+                                    'damageType': 'physical',
+                                    'count':1,
+                                    'displayname': my.itemData['item_' + item].displayname
+                                }                            
+                            }
+                            else {
+                                sources[item].count += 1;
+                            }
+                        break;
+                        case 'unholy_bonus_damage':
+                            if (isActive) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                if (sources[item + '_active'] == undefined) {
+                                    sources[item + '_active'] = {
+                                        'damage': parseInt(attribute.value[0]),
+                                        'damageType': 'physical',
+                                        'count':1,
+                                        'displayname': my.itemData['item_' + item].displayname + ' Unholy Strength'
+                                    }                            
+                                }
+                                else {
+                                    sources[item].count += 1;
+                                }
+                            }
+                        break;
+                    }
+                }
+            }
+            return { sources: sources, total: totalAttribute };
+        };
+        self.getBonusDamagePercent = function() {
+            var totalAttribute = 0;
+            var sources = {};
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'damage_aura':
+                            totalAttribute += parseInt(attribute.value[0])/100;
+                            if (sources[item] == undefined) {
+                                sources[item] = {
+                                    'damage': parseInt(attribute.value[0])/100,
+                                    'damageType': 'physical',
+                                    'count':1,
+                                    'displayname': my.itemData['item_' + item].displayname
+                                }                            
+                            }
+                            else {
+                                sources[item].count += 1;
+                            }
+                        break;
+                    }
+                }
+            }
+            return { sources: sources, total: totalAttribute };
+        };
+        self.getAttackSpeed = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_attack_speed':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'bonus_speed':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'aura_attack_speed':
+                            if (item != 'shivas_guard') { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'bonus_aura_attack_speed_pct':
+                            totalAttribute += parseInt(attribute.value[0]);
+                        break;
+                        case 'bonus_attack_speed_pct':
+                            if (isActive) { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'unholy_bonus_attack_speed':
+                            if (isActive) { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'berserk_bonus_attack_speed':
+                            if (isActive) { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getLifesteal = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'lifesteal_percent':
+                            if (item == 'satanic') {
+                                if (!isActive) { return parseInt(attribute.value[0]); };
+                            }
+                            else {
+                                return parseInt(attribute.value[0]);
+                            }
+                        break;
+                        case 'unholy_lifesteal_percent':
+                            if (isActive) { return parseInt(attribute.value[0]); };
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getLifestealAura = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'vampiric_aura':
+                            return parseInt(attribute.value[0]);
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getMagicResist = function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_magical_armor':
+                            var d = parseInt(attribute.value[0]);
+                            if (d > totalAttribute) { totalAttribute = d; };
+                        break;
+                        case 'bonus_spell_resist':
+                            var d = parseInt(attribute.value[0]);
+                            if (d > totalAttribute) { totalAttribute = d; };
+                        break;
+                        case 'magic_resistance':
+                            var d = parseInt(attribute.value[0]);
+                            if (d > totalAttribute) { totalAttribute = d; };
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };
+        self.getMagicResistReduction = function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.items().length;i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                if (isActive) {
+                    for (var j=0;j<my.itemData['item_' + item].attributes.length;j++) {
+                        var attribute = my.itemData['item_' + item].attributes[j];
+                        switch(attribute.name) {
+                            case 'ethereal_damage_bonus':
+                            case 'resist_debuff':
+                                totalAttribute *= (1 - parseInt(attribute.value[0])/100);
+                            break;
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        };        
+
+        self.itemOptions = ko.observableArray([]);
+        for (i in my.itemData) {
+            self.itemOptions.push(new my.ItemInput(i.replace('item_',''),my.itemData[i].displayname));
+        }
+    
+        return self;
+    };
+
+    
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
+    var itemtooltipdata = {}
+
+    function getTooltipItemDescription(item) {
+        var d = item.description;
+        for (var i=0;i<item.attributes.length;i++) {
+            if (item.attributes[i].name != null) {
+                var attributeName = item.attributes[i].name;
+                var attributeValue = item.attributes[i].value[0];
+                for (var j=1;j<item.attributes[i].value.length;j++) {
+                    attributeValue += ' / ' + item.attributes[i].value[j];
+                }
+                var regexp = new RegExp('%' + attributeName + '%', "gi");
+                d = d.replace(regexp, attributeValue );
+            }
+        }
+        var regexp = new RegExp('%%', "gi");
+        d = d.replace(regexp,'%');
+        regexp = new RegExp('\n', "gi");
+        d = d.replace(/\\n/g, "<br>");
+        return d;
+    }
+
+    var ability_vars = {
+        '$health':'Health',
+        '$mana':'Mana',
+        '$armor':'Armor',
+        '$damage':'Damage',
+        '$str':'Strength',
+        '$int':'Intelligence',
+        '$agi':'Agility',
+        '$all':'All Attributes',
+        '$attack':'Attack Speed',
+        '$hp_regen':'HP Regeneration',
+        '$mana_regen':'Mana Regeneration',
+        '$move_speed':'Movement Speed',
+        '$evasion':'Evasion',
+        '$spell_resist':'Spell Resistance',
+        '$selected_attribute':'Selected Attribute'
+    }
+
+    function getTooltipItemAttributes(item) {
+        var a = '';
+        for (var i=0;i<item.attributes.length;i++) {
+            if (item.attributes[i].tooltip != null) {
+                var attributeTooltip = item.attributes[i].tooltip;
+                var attributeValue = item.attributes[i].value[0];
+                for (var j=1;j<item.attributes[i].value.length;j++) {
+                    attributeValue += ' / ' + item.attributes[i].value[j];
+                }
+                var p = attributeTooltip.indexOf("%");
+                if (p == 0) {
+                    attributeValue = attributeValue + '%';
+                    attributeTooltip = attributeTooltip.slice(1);
+                }
+                var d = attributeTooltip.indexOf("$");
+                if (d != -1) {
+                    a = a + attributeTooltip.slice(0, d) + ' ' + attributeValue + ' ' + ability_vars[attributeTooltip.slice(d)] + '<br>';
+                }
+                else {
+                    a = a + attributeTooltip + ' ' + attributeValue + '<br>';
+                }
+            }
+        }
+        return a.trim('<br>');
+    }
+
+    function getTooltipItemCooldown(item) {
+        var c = '';
+        for (var i=0;i<item.cooldown.length; i++) {
+            c = c + ' ' + item.cooldown[i];
+        }
+        return c;
+    }
+
+    function getTooltipItemManaCost(item) {
+        var c = '';
+        for (var i=0;i<item.manacost.length; i++) {
+            if (item.manacost[i] > 0) {
+                c = c + ' ' + item.manacost[i];
+            }
+        }
+        return c;
+    }
+    
+    my.getItemTooltipData = function(el) {
+        if (my.itemData['item_' + el] == undefined) {
+            return undefined;
+        }
+        if (itemtooltipdata[el] == undefined) {
+            var item = my.itemData['item_' + el];
+            var data = $('<div>');
+            data.append($('<span>').html(item.displayname).attr('id','item_name').addClass('item_field'));
+            data.append($('<span>').html(item.itemcost).attr('id','item_cost').addClass('item_field'));
+            data.append($('<hr>'));
+            if (item.description != null) {
+                data.append($('<div>').html(getTooltipItemDescription(item)).attr('id','item_description').addClass('item_field'));
+            }
+            var attributedata = getTooltipItemAttributes(item);
+            if (attributedata != '') {
+                data.append($('<div>').html(attributedata).attr('id','item_attributes').addClass('item_field'));
+            }
+            var cd = getTooltipItemCooldown(item);
+            var mana = getTooltipItemManaCost(item);
+            if (cd != '' || mana != '') {
+                var cdmanacost = $('<div>').attr('id','item_cdmana');
+                if (cd != '') {
+                    cdmanacost.append($('<span>').html(cd).attr('id','item_cooldown').addClass('item_field'));
+                }
+                if (mana != '') {
+                    cdmanacost.append($('<span>').html(mana).attr('id','item_manacost').addClass('item_field'));
+                }
+                data.append(cdmanacost);
+            }
+            if (item.lore != null) {
+                data.append($('<div>').html(item.lore).attr('id','item_lore').addClass('item_field'));
+            }
+            itemtooltipdata[el] = data.html();
+            return data.html();
+        }
+        else {
+            return itemtooltipdata[el];
+        }
+    }
+
+    var abilityTooltipData = {}
+
+    function getTooltipAbilityDescription(item) {
+        var d = item.description;
+        for (var i=0;i<item.attributes.length;i++) {
+            if (item.attributes[i].name != null) {
+                var attributeName = item.attributes[i].name;
+                var attributeValue = item.attributes[i].value[0];
+                for (var j=1;j<item.attributes[i].value.length;j++) {
+                    attributeValue += ' / ' + item.attributes[i].value[j];
+                }
+                regexp = new RegExp('%' + attributeName + '%', "gi");
+                d = d.replace(regexp, attributeValue);
+            }
+        }
+        var regexp = new RegExp('%%', "gi");
+        d = d.replace(regexp, '%');
+        regexp = new RegExp('\n', "gi");
+        d = d.replace(/\\n/g, "<br>");
+        return d;
+    }
+
+    function getTooltipAbilityAttributes(item) {
+        var a = '';
+        if (item.damage.length > 0 && _.reduce(item.damage, function(memo, num){ return memo + num; }, 0) > 0) {
+            var attributeTooltip = 'DAMAGE: ';
+            var attributeValue = item.damage[0];
+            for (var j=1;j<item.damage.length;j++) {
+                attributeValue += ' / ' + item.damage[j];
+            }
+            a = a + attributeTooltip + ' ' + attributeValue + '<br>';
+        }
+        for (var i=0;i<item.attributes.length;i++) {
+            if (item.attributes[i].tooltip != null) {
+                var attributeTooltip = item.attributes[i].tooltip;
+                var attributeValue = item.attributes[i].value[0];
+                for (var j=1;j<item.attributes[i].value.length;j++) {
+                    attributeValue += ' / ' + item.attributes[i].value[j];
+                }
+                var p = attributeTooltip.indexOf("%");
+                if (p == 0) {
+                    if (attributeValue.toString().indexOf("/") == -1) {
+                        attributeValue = attributeValue + '%';
+                    } else {
+                        var regexp2 = new RegExp("/", "gi");
+                        attributeValue = attributeValue.replace(regexp2, "%/") + '%';
+                    }
+                    attributeTooltip = attributeTooltip.slice(1);
+                }
+                var d = attributeTooltip.indexOf("$");
+                a = a + attributeTooltip + ' ' + attributeValue + '<br>';
+            }
+        }
+        return a.trim('<br>');
+    }
+
+    function getTooltipAbilityManaCost(item) {
+        var c = '';
+        if (_.reduce(item.manacost, function(memo, num){ return memo + num; }, 0) == 0) {
+            return c;
+        }
+        if (_.every(item.manacost, function(num) { return num == item.manacost[0]; })) {
+            return item.manacost[0].toString();
+        }
+        for (var i = 0; i < 4; i++) {
+            if (item.manacost[i] != null) {
+                c = c + " " + item.manacost[i];
+            }
+        }
+        return c;
+    }
+
+    function getTooltipAbilityCooldown(item) {
+        var c = '';
+        if (_.reduce(item.cooldown, function(memo, num){ return memo + num; }, 0) == 0) {
+            return c;
+        }
+        if (_.every(item.cooldown, function(num) { return num == item.cooldown[0]; })) {
+            return item.cooldown[0].toString();
+        }
+        for (var i = 0; i < 4; i++) {
+            if (item.cooldown[i] != null) {
+                c = c + " " + item.cooldown[i];
+            }
+        }
+        return c;
+    }
+        
+    my.getAbilityTooltipData = function(hero, el) {
+        if (abilityTooltipData[el] == undefined) {
+            var abilityName = el
+            var ability = {};
+            if (my.heroData[hero] == undefined) {
+                for (var i=0;i<my.unitData[hero].abilities.length;i++) {
+                    if (my.unitData[hero].abilities[i].name == el) {
+                        ability = my.unitData[hero].abilities[i];
+                    }
+                }            
+            }
+            else {
+                for (var i=0;i<my.heroData[hero].abilities.length;i++) {
+                    if (my.heroData[hero].abilities[i].name == el) {
+                        ability = my.heroData[hero].abilities[i];
+                    }
+                }
+            }
+            var data = $('<div>')
+            data.append($('<span>').html(ability.displayname).attr('id','item_name').addClass('item_field'));
+            data.append($('<hr>'));
+            if (ability.description != null) {
+                data.append($('<div>').html(getTooltipAbilityDescription(ability)).attr('id','item_description').addClass('item_field'));
+            }
+            var attributedata = getTooltipAbilityAttributes(ability);
+            if (attributedata != '') {
+                data.append($('<div>').html(attributedata).attr('id','item_attributes').addClass('item_field'));
+            }
+            var cd = getTooltipAbilityCooldown(ability);
+            var mana = getTooltipAbilityManaCost(ability);
+            if (cd != '' || mana != '') {
+                var cdmanacost = $('<div>').attr('id','item_cdmana');
+                if (mana != '') {
+                    cdmanacost.append($('<span>').html(mana.trim()).attr('id','item_manacost').addClass('item_field'));
+                }
+                if (cd != '') {
+                    cdmanacost.append($('<span>').html(cd.trim()).attr('id','item_cooldown').addClass('item_field'));
+                }
+                data.append(cdmanacost);
+            }
+            if (ability.lore != null) {
+                data.append($('<div>').html(ability.lore).attr('id','item_lore').addClass('item_field'));
+            }
+            abilityTooltipData[el] = data.html();
+            return data.html();
+        }
+        else {
+            return abilityTooltipData[el];
+        }
+    }
+    
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+    my.abilityData = {
+        'alchemist_acid_spray': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'armor_reduction',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -a;
+                },
+                returnProperty: 'armorReduction'
+            }
+        ],
+        'alchemist_unstable_concoction': [
+            {
+                label: 'Brew Time',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'max_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/5;
+                }
+            },
+            {
+                attributeName: 'max_stun',
+                label: 'Total Stun',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/5;
+                }
+            }
+        ],
+        'ancient_apparition_cold_feet': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'stun_duration',
+                label: 'Total Stun',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                }
+            }
+        ],
+        'ancient_apparition_ice_blast': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'dot_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')+v*a;
+                }
+            }
+        ],
+        'antimage_mana_void': [
+            {
+                label: 'Enemy Missing Mana',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'mana_void_damage_per_mana',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'axe_battle_hunger': [
+            {
+                label: 'Battle Hungered Enemies',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'speed_bonus',
+                label: 'Movement Speed Bonus',
+                controlType: 'text',
+                noLevel: true,
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'movementSpeedPct'
+            },
+            {
+                attributeName: 'slow',
+                label: 'Movement Speed Bonus',
+                controlType: 'text',
+                noLevel: true,
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'bane_nightmare': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'bane_fiends_grip': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'Enemy Max Mana',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'fiend_grip_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    if (parent.inventory.hasScepter()) {
+                        return v[0]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'fiend_grip_damage_scepter',parent.ability().abilities()[index].level());
+                    }
+                    else {
+                        return v[0]*a;
+                    }
+                }
+            },
+            {
+                attributeName: 'fiend_grip_mana_drain',
+                label: 'Total Mana Drain',
+                controlType: 'text',
+                controls: [0,1],
+                noLevel: true,
+                fn: function(v,a,parent,index) {
+                    if (parent.inventory.hasScepter()) {
+                        return v[0]*v[1]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'fiend_grip_mana_drain_scepter',parent.ability().abilities()[index].level())/100;
+                    }
+                    else {
+                        return v[0]*v[1]*a/100;
+                    }
+                }
+            }
+        ],
+        'batrider_sticky_napalm': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Bonus Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusDamage'
+            },
+            {
+                attributeName: 'movement_speed_pct',
+                label: 'Enemy Movement Speed Slow',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'turn_rate_pct',
+                label: 'Enemy Turn Rate Slow',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'turnRateReduction'
+            }
+        ],
+        'batrider_firefly': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_second',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'bloodseeker_bloodrage': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE OVER TIME:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            },
+            {
+                attributeName: 'damage_increase_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusDamagePct'
+            }
+        ],
+        'bloodseeker_rupture': [
+            {
+                label: 'Enemy Distance Traveled',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'movement_damage_pct',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage') + v*a/100;
+                }
+            }
+        ],
+        'bristleback_viscous_nasal_goo': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'armor_per_stack',
+                label: 'Enemy Armor Reduction',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'armorReduction'
+            },
+            {
+                attributeName: 'move_slow_per_stack',
+                label: '%SLOW:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    return -(abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'base_move_slow',0)+v*a);
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'bristleback_quill_spray': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'quill_stack_damage',
+                label: 'DAMAGE',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    var total = parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'quill_base_damage',parent.ability().abilities()[index].level())+v*a,
+                    damage_cap = parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'max_damage',0);
+                    if (total > damage_cap) {
+                        total = damage_cap;
+                    }
+                    return total;
+                }
+            }
+        ],
+        'bristleback_warpath': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_stack',
+                label: 'BONUS DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    if (v < 1) {
+                        return 0;
+                    }
+                    else {
+                        return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'base_damage',parent.ability().abilities()[index].level())+(v-1)*a;
+                    }
+                }
+            },
+            {
+                attributeName: 'move_speed_per_stack',
+                label: '%MOVEMENT:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    if (v < 1) {
+                        return 0;
+                    }
+                    else {
+                        return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'base_move_speed',parent.ability().abilities()[index].level())+(v-1)*a;
+                    }
+                },
+                returnProperty: 'movementSpeedPct'
+            }
+        ],
+        'centaur_return': [
+            {
+                label: 'Strength',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'strength_pct',
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'return_damage',parent.ability().abilities()[index].level()) + v*a/100;
+                }
+            }
+        ],
+        'centaur_stampede': [
+            {
+                label: 'Strength',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'strength_damage',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'slow_movement_speed',
+                label: 'Enemy Movement Speed Slow',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'crystal_maiden_frostbite': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'dark_seer_ion_shell': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_second',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'dazzle_shadow_wave': [
+            {
+                label: 'Targets',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'dazzle_weave': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'armor_per_second',
+                label: 'ARMOR',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'armor'
+            },
+            {
+                attributeName: 'armor_per_second',
+                label: 'ARMOR REDUCTION:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'armorReduction'
+            }
+        ],
+        'death_prophet_exorcism': [
+            {
+                label: 'Damage Dealt',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'heal_percent',
+                label: 'Total Armor',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                }
+            }
+        ],
+        'disruptor_static_storm': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    var damagevalue = 0.25 * (130 + 40 * parent.ability().abilities()[index].level()) * (1/20),
+                    mult = (v*4)*((v*4)+1)/2;
+                    return damagevalue * mult;
+                }
+            }
+        ],
+        'doom_bringer_scorched_earth': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_second',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'bonus_movement_speed_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPct'
+            },
+            {
+                attributeName: 'damage_per_second',
+                label: 'HP REGEN:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'healthregen'
+            }
+        ],
+        'doom_bringer_doom': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    if (parent.inventory.hasScepter()) {
+                        return v*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'damage_scepter',parent.ability().abilities()[index].level());
+                    }
+                    else {
+                        return v*a;
+                    }
+                }
+            }
+        ],
+        'dragon_knight_elder_dragon_form': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_attack_range',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackrange'
+            },
+            {
+                attributeName: 'bonus_movement_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedFlat'
+            }
+        ],
+        'drow_ranger_trueshot': [
+            {
+                label: 'Drow\'s Agility',
+                controlType: 'input',
+                display: 'buff'
+            },
+            {
+                attributeName: 'trueshot_ranged_damage',
+                label: 'DAMAGE BONUS:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                display: 'buff',
+                fn: function(v,a) {
+                    return v*a/100;
+                },
+                returnProperty: 'bonusDamagePrecisionAura'
+            }
+        ],
+        'earth_spirit_rolling_boulder': [
+            {
+                label: 'Using Stone',
+                controlType: 'checkbox'
+            },
+            {
+                attributeName: 'move_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v) {
+                        return -a;
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'attack_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v) {
+                        return -a;
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],    
+        'earthshaker_echo_slam': [
+            {
+                label: 'Enemies in Range',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'echo_slam_echo_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'elder_titan_ancestral_spirit': [
+            {
+                label: 'HEROES PASSED THROUGH',
+                controlType: 'input'
+            },
+            {
+                label: 'CREEPS PASSED THROUGH',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_creeps',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    return v[0]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'damage_heroes',parent.ability().abilities()[index].level()) + v[1]*a;
+                },
+                returnProperty: 'bonusDamage'
+            },
+            {
+                attributeName: 'move_pct_creeps',
+                label: '%BONUS SPEED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    return v[0]*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'move_pct_heroes',parent.ability().abilities()[index].level()) + v[1]*a;
+                },
+                returnProperty: 'movementSpeedPct'
+            }
+        ],
+        'elder_titan_earth_splitter': [
+            {
+                label: 'Enemy Max Health',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                }
+            },
+            {
+                attributeName: 'slow_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'enchantress_natures_attendants': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'heal',
+                label: 'HEAL:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'wisp_count',parent.ability().abilities()[index].level())*v*a;
+                }
+            }
+        ],
+        'enigma_malefice': [
+            {
+                label: 'Hits',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'stun_duration',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'enigma_midnight_pulse': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'Enemy Max Health',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_percent',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    return v[0]*v[1]*a/100;
+                }
+            }
+        ],
+        'enigma_black_hole': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'far_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'near_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'faceless_void_time_lock': [
+            {
+                label: 'In Chronosphere',
+                controlType: 'checkbox'
+            },
+            {
+                attributeName: 'bonus_damage',
+                label: '%MOVESPEED AS DAMAGE',
+                controlType: 'text',
+                fn: function(v,a) {
+                    if (v) {
+                        return a*2;
+                    }
+                    else {
+                        return a;
+                    }
+                },
+                returnProperty: 'bashBonusDamage'
+            },
+            {
+                attributeName: 'duration',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                }
+            },
+            {
+                attributeName: 'chance_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bash'
+            }
+        ],
+        'gyrocopter_rocket_barrage': [
+            {
+                label: 'Rockets',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'rockets_per_second',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                }
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+/*        'gyrocopter_homing_missile': [
+            {
+                label: 'Distance Traveled',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'gyrocopter_flak_cannon': [
+            {
+                label: 'Attacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],*/
+        'huskar_burning_spear': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'health_cost',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'huskar_berserkers_blood': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'resistance_per_stack',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'magicResist'
+            },
+            {
+                attributeName: 'attack_speed_bonus_per_stack',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'attackspeed'
+            }
+        ],
+        'huskar_life_break': [
+            {
+                label: 'Enemy Current HP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'health_damage',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                label: 'Huskar Current HP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'health_cost_percent',
+                label: 'DAMAGE TAKEN:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'movespeed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'invoker_quas': [
+            {
+                label: 'Instances',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_strength',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusStrength'
+            },
+            {
+                attributeName: 'health_regen_per_instance',
+                label: 'HP REGEN:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'healthregen'
+            }
+        ],
+        'invoker_wex': [
+            {
+                label: 'Instances',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_agility',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusAgility'
+            },
+            {
+                attributeName: 'move_speed_per_instance',
+                label: '%MOVE SPEED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'movementSpeedPct'
+            },
+            {
+                attributeName: 'attack_speed_per_instance',
+                label: '%ATTACK SPEED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'attackspeed'
+            }
+        ],
+        'invoker_exort': [
+            {
+                label: 'Instances',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_intelligence',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusInt'
+            },
+            {
+                attributeName: 'bonus_damage_per_instance',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusDamage'
+            }
+        ],
+        'invoker_ghost_walk': [
+            {
+                label: 'Quas Level',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'enemy_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v == 0) {
+                        return 0;
+                    }
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'enemy_slow',v);
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                label: 'Wex Level',
+                controlType: 'input',
+                display: 'ability'
+            },
+            {
+                attributeName: 'self_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                display: 'ability',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v == 0) {
+                        return 0;
+                    }
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'self_slow',v);
+                },
+                returnProperty: 'movementSpeedPct'
+            }
+        ],
+        'invoker_alacrity': [
+            {
+                label: 'Wex Level',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_attack_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v == 0) {
+                        return 0;
+                    }
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'bonus_attack_speed',v);
+                },
+                returnProperty: 'attackspeed'
+            },
+            {
+                label: 'Exort Level',
+                controlType: 'input',
+            },
+            {
+                attributeName: 'bonus_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v == 0) {
+                        return 0;
+                    }
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'bonus_damage',v);
+                },
+                returnProperty: 'bonusDamage'
+            }
+        ],
+        'invoker_ice_wall': [
+            {
+                label: 'Quas Level',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v == 0) {
+                        return 0;
+                    }
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'slow',v);
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                label: 'Exort Level',
+                controlType: 'input',
+                display: 'ability'
+            },
+            {
+                label: 'Duration',
+                controlType: 'input',
+                display: 'ability'
+            },
+            {
+                attributeName: 'damage_per_second',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                display: 'ability',
+                controls: [1,2],
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v[0] == 0) {
+                        return 0;
+                    }
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'damage_per_second',v[0])*v[1];
+                }
+            }
+        ],
+        'jakiro_dual_breath': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*2 + 
+                    parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'burn_damage',parent.ability().abilities()[index].level())*v;
+                }
+            },
+            {
+                attributeName: 'slow_movement_speed_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'slow_attack_speed_pct',
+                label: '%ATTACK SLOW:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],
+        'jakiro_liquid_fire': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'slow_attack_speed_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],
+        'jakiro_macropyre': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'juggernaut_blade_fury': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'juggernaut_healing_ward': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'Max Health',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'healing_ward_heal_amount',
+                label: 'HEAL OVER TIME:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    return v[0]*v[1]*a/100;
+                }
+            }
+        ],
+        'juggernaut_omni_slash': [
+            {
+                label: 'Jumps',
+                controlType: 'input'
+            },
+            {
+                label: 'MIN DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'omni_slash_damage',1)*v;
+                }
+            },
+            {
+                label: 'MAX DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'omni_slash_damage',2)*v;
+                }
+            }
+        ],
+        'keeper_of_the_light_illuminate': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_second',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'keeper_of_the_light_mana_leak': [
+            {
+                label: 'Distance Moved',
+                controlType: 'input'
+            },
+            {
+                label: 'Enemy Max Mana',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'mana_leak_pct',
+                label: 'MANA LEAKED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    return v[0]/100*v[1]*a/100;
+                }
+            }
+        ],
+        'leshrac_pulse_nova': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'mana_cost_per_second',
+                label: 'MANA COST:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'lich_chain_frost': [
+            {
+                label: 'Bounce Hits',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'slow_movement_speed',
+                label: 'Enemy Movement Speed Slow',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'slow_attack_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],
+        'life_stealer_feast': [
+            {
+                label: 'Enemy Current HP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'hp_leech_percent',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                },
+                returnProperty: 'bonusDamage'
+            }
+        ],
+        'life_stealer_open_wounds': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'heal_percent',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'lifesteal'
+            },
+            {
+                attributeName: 'slow_steps',
+                label: '%SLOW:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                noLevel: true,
+                fn: function(v,a,parent,index,abilityList) {
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'slow_steps',v+1);
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'lina_fiery_soul': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'fiery_soul_move_speed_bonus',
+                label: 'Enemy Movement Speed Slow',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'movementSpeedPct'
+            },
+            {
+                attributeName: 'fiery_soul_attack_speed_bonus',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'attackspeed'
+            }
+        ],
+        'lion_mana_drain': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'mana_per_second',
+                label: 'MANA DRAINED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'luna_moon_glaive': [
+            {
+                label: 'Bounces',
+                controlType: 'input'
+            },
+            {
+                label: 'Damage',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_reduction_percent',
+                label: 'BOUNCE DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    return v[1]*Math.pow(a/100,v[0]);
+                }
+            }
+        ],
+        'luna_eclipse': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'medusa_mystic_snake': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'meepo_poof': [
+            {
+                label: 'Meepo Count',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'meepo_geostrike': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    return abilityList.getAbilityPropertyValue(abilityList.abilities()[index], 'damage')*v;
+                }
+            },
+            {
+                attributeName: 'slow',
+                label: '%SLOW:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                noLevel: true,
+                fn: function(v,a,parent,index,abilityList) {
+                    return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'slow',abilityList.abilities()[index].level())*v;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'mirana_arrow': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'morphling_morph_agi': [
+            {
+                label: 'Shifts',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'points_per_tick',
+                label: 'AGI SHIFT GAIN:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusAgility'
+            },
+            {
+                attributeName: 'points_per_tick',
+                label: 'STR SHIFT LOSS:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'bonusStrength'
+            },
+            {
+                attributeName: 'bonus_attributes',
+                label: 'SHIFT TIME:',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusAgility2'
+            },
+            {
+                attributeName: 'morph_cooldown',
+                label: 'SHIFT TIME:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'mana_cost',
+                label: 'SHIFT MANA COST:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return v*a*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'morph_cooldown',parent.ability().abilities()[index].level());
+                }
+            }
+        ],
+        'morphling_morph_str': [
+            {
+                label: 'Shifts',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'points_per_tick',
+                label: 'STR SHIFT GAIN:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusStrength'
+            },
+            {
+                attributeName: 'points_per_tick',
+                label: 'AGI SHIFT LOSS:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'bonusAgility'
+            },
+            {
+                attributeName: 'bonus_attributes',
+                label: 'SHIFT TIME:',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusStrength2'
+            },
+            {
+                attributeName: 'morph_cooldown',
+                label: 'SHIFT TIME:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'mana_cost',
+                label: 'SHIFT MANA COST:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return v*a*parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'morph_cooldown',parent.ability().abilities()[index].level());
+                }
+            }
+        ],
+        'furion_force_of_nature': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'furion_wrath_of_nature': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'necrolyte_heartstopper_aura': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'necrolyte_sadist': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'night_stalker_crippling_fear': [
+            {
+                label: 'Is Night',
+                controlType: 'checkbox'
+            },
+            {
+                attributeName: 'bonus_attack_speed_night',
+                label: '%CHANCE TO MISS:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    if (v) {
+                        return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'miss_rate_night',abilityList.abilities()[index].level());
+                    }
+                    else {
+                        return abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'miss_rate_day',abilityList.abilities()[index].level());
+                    }
+                },
+                returnProperty: 'missChance'
+            }
+        ],    
+        'night_stalker_hunter_in_the_night': [
+            {
+                label: 'Is Night',
+                controlType: 'checkbox'
+            },
+            {
+                attributeName: 'bonus_attack_speed_night',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    if (v) {
+                        return a;
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                returnProperty: 'attackspeed'
+            },
+            {
+                attributeName: 'bonus_movement_speed_pct_night',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    if (v) {
+                        return a;
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                returnProperty: 'movementSpeedPct'
+            }
+        ],    
+        'obsidian_destroyer_arcane_orb': [
+            {
+                label: 'Current Mana',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'mana_pool_damage_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                },
+                returnProperty: 'bonusDamageOrb'
+            }
+        ],
+        'ogre_magi_ignite': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'burn_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'slow_movement_speed_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'pudge_rot': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    return abilityList.getAbilityPropertyValue(abilityList.abilities()[index], 'damage')*v;
+                }
+            },
+            {
+                attributeName: 'rot_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'pudge_flesh_heap': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'flesh_heap_strength_buff_amount',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusStrength'
+            },
+            {
+                attributeName: 'flesh_heap_magic_resist',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'magicResist'
+            }
+        ],
+        'pudge_dismember': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'dismember_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'pugna_nether_ward': [
+            {
+                label: 'Enemy Mana Spent',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'mana_multiplier',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'mana_regen',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'manaregenreduction'
+            }
+        ],
+        'pugna_life_drain': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'health_drain',
+                label: 'HEALTH DRAINED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'queenofpain_shadow_strike': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'razor_plasma_field': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'razor_static_link': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'razor_eye_of_the_storm': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'rubick_fade_bolt': [
+            {
+                label: 'Jumps',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index,abilityList) {
+                    return a * (1 - v*abilityList.getAbilityAttributeValue(abilityList.abilities()[index].attributes(), 'jump_damage_reduction_pct',abilityList.abilities()[index].level())/100);
+                }
+            },
+            {
+                attributeName: 'hero_attack_damage_reduction',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'bonusDamageReduction'
+            }
+        ],
+        'sandking_sand_storm': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'sandking_epicenter': [
+            {
+                label: 'Pulses',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'epicenter_damage',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'epicenter_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'epicenter_slow_as',
+                label: '%ATTACK SLOW:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],
+        'shadow_demon_shadow_poison': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'stack_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    var stackmult = [1,2,4,8];
+                    if (v > 4) {
+                        return a * stackmult[3] + 50 * (v - 4);
+                    }
+                    else if (v <= 0) {
+                        return 0
+                    }
+                    else {
+                        return a * stackmult[v-1]
+                    }
+                }
+            }
+        ],
+        'nevermore_necromastery': [
+            {
+                label: 'Souls',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'necromastery_damage_per_soul',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusDamage'
+            }
+        ],
+        'nevermore_requiem': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'shadow_shaman_shackles': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'silencer_curse_of_the_silent': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'silencer_glaives_of_wisdom': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'skywrath_mage_mystic_flare': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'slark_essence_shift': [
+            {
+                label: 'Attacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'agi_gain',
+                label: 'Total Damage',
+                controlType: 'text',
+                display: 'ability',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusAgility'
+            },
+            {
+                attributeName: 'stat_loss',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'bonusAllStatsReduction'
+            }
+        ],
+        'sniper_shrapnel': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            },
+            {
+                attributeName: 'building_damage',
+                label: 'BUILDING DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'slow_movement_speed',
+                label: 'Enemy Movement Speed Slow',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'spectre_dispersion': [
+            {
+                label: 'Damage Taken',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_reflection_pct',
+                label: 'DAMAGE REFLECTED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                }
+            }
+        ],
+        'storm_spirit_ball_lightning': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'templar_assassin_trap': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'shredder_reactive_armor': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_armor',
+                label: 'Total Armor Bonus',
+                controlType: 'text',
+                noLevel: true,
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'armor'
+            },
+            {
+                attributeName: 'bonus_hp_regen',
+                label: 'Total HP Regen Bonus',
+                controlType: 'text',
+                noLevel: true,
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'healthregen'
+            }
+        ],
+        'shredder_chakram': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'spirit_breaker_greater_bash': [
+            {
+                label: 'Bash Proc',
+                controlType: 'checkbox'
+            },
+            {
+                attributeName: 'damage',
+                label: '%MOVESPEED AS DAMAGE',
+                controlType: 'text',
+                fn: function(v,a) {
+                    if (v) {
+                        return a;
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                returnProperty: 'bashBonusDamage'
+            },
+            {
+                attributeName: 'bonus_movespeed_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    if (v) {
+                        return a;
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                returnProperty: 'movementSpeedPct'
+            },
+            {
+                attributeName: 'chance_pct',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a
+                },
+                returnProperty: 'bash'
+            }
+        ],
+        'tinker_march_of_the_machines': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'treant_leech_seed': [
+            {
+                label: 'Pulses',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'leech_damage',
+                label: 'DAMAGE/HEAL:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'movement_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'troll_warlord_fervor': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'attack_speed',
+                label: 'ATTACK SPEED:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'attackspeed'
+            }
+        ],
+        'undying_decay': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'undying_soul_rip': [
+            {
+                label: 'Units',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_unit',
+                label: 'DAMAGE/HEAL:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'ursa_fury_swipes': [
+            {
+                label: 'Stacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_per_stack',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusDamage'
+            }
+        ],
+        'ursa_enrage': [
+            {
+                label: 'Current HP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'life_damage_bonus_percent',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                },
+                returnProperty: 'bonusDamage'
+            }
+        ],
+        'venomancer_venomous_gale': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'tick_damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'strike_damage',parent.ability().abilities()[index].level()) + Math.floor(v/3)*a;
+                }
+            },
+            {
+                attributeName: 'movement_slow',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'venomancer_poison_sting': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'movement_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'venomancer_plague_ward': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'venomancer_poison_nova': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'viper_poison_attack': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'bonus_movement_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'bonus_attack_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],
+        'viper_corrosive_skin': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'bonus_movement_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'bonus_attack_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            },
+            {
+                attributeName: 'bonus_magic_resistance',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'magicResist'
+            }
+        ],
+        'viper_viper_strike': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'bonus_movement_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            },
+            {
+                attributeName: 'bonus_attack_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeedreduction'
+            }
+        ],
+        'visage_soul_assumption': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'visage_gravekeepers_cloak': [
+            {
+                label: 'Layers',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'bonus_armor',
+                label: 'ARMOR:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'armor'
+            },
+            {
+                attributeName: 'bonus_resist',
+                label: '%RESIST:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'magicResist'
+            }
+        ],
+        'warlock_shadow_word': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'warlock_upheaval': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'slow_rate',
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'movementSpeedPctReduction'
+            }
+        ],
+        'weaver_the_swarm': [
+            {
+                label: 'Attacks',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            },
+            {
+                attributeName: 'armor_reduction',
+                label: 'DAMAGE:',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -v*a;
+                },
+                returnProperty: 'armorReduction'
+            }
+        ],
+        'windrunner_powershot': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'wisp_spirits': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'wisp_overcharge': [
+            {
+                label: 'Current HP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'drain_pct',
+                label: '%HP DRAIN:',
+                ignoreTooltip: true, 
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return v*a;
+                },
+            },
+            {
+                label: 'Current MP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'drain_pct',
+                label: '%MP DRAIN:',
+                ignoreTooltip: true, 
+                controlType: 'text',
+                fn: function(v,a,parent,index) {
+                    return v*a;
+                },
+            },
+            {
+                attributeName: 'bonus_attack_speed',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return a;
+                },
+                returnProperty: 'attackspeed'
+            }
+        ],
+        'witch_doctor_paralyzing_cask': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'witch_doctor_voodoo_restoration': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'witch_doctor_maledict': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'witch_doctor_death_ward': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage',
+                label: 'Total Damage',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                }
+            }
+        ],
+        'zuus_static_field': [
+            {
+                label: 'Enemy HP',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'damage_health_pct',
+                label: 'DAMAGE:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a/100;
+                }
+            }
+        ]
+    }
+
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
+    my.AbilityModel = function (a) {
+        var self = this;
+
+        self.abilityData = my.abilityData;
+        self.hasScepter = ko.observable(false);
+        self.isShapeShiftActive = ko.observable(false);
+        self.abilities = a;
+        for (var i=0;i<self.abilities().length;i++) {
+            self.abilities()[i].isActive = ko.observable(false);
+            self.abilities()[i].isDetail = ko.observable(false);
+            self.abilities()[i].baseDamage = ko.observable(0);
+            self.abilities()[i].bash = ko.observable(0);
+            self.abilities()[i].bashBonusDamage = ko.observable(0);
+            self.abilities()[i].bonusDamage = ko.observable(0);
+            self.abilities()[i].bonusDamageOrb = ko.observable(0);
+            self.abilities()[i].bonusDamagePct = ko.observable(0);
+            self.abilities()[i].bonusDamagePrecisionAura = ko.observable(0);
+            self.abilities()[i].bonusDamageReduction = ko.observable(0);
+            self.abilities()[i].bonusHealth = ko.observable(0);
+            self.abilities()[i].bonusStrength = ko.observable(0);
+            self.abilities()[i].bonusStrength2 = ko.observable(0);
+            self.abilities()[i].bonusAgility = ko.observable(0);
+            self.abilities()[i].bonusAgility2 = ko.observable(0);
+            self.abilities()[i].bonusInt = ko.observable(0);
+            self.abilities()[i].bonusAllStatsReduction = ko.observable(0);
+            self.abilities()[i].evasion = ko.observable(0);
+            self.abilities()[i].magicResist = ko.observable(0);
+            self.abilities()[i].manaregen = ko.observable(0);
+            self.abilities()[i].manaregenreduction = ko.observable(0);
+            self.abilities()[i].missChance = ko.observable(0);
+            self.abilities()[i].movementSpeedFlat = ko.observable(0);
+            self.abilities()[i].movementSpeedPct = ko.observable(0);
+            self.abilities()[i].movementSpeedPctReduction = ko.observable(0);
+            self.abilities()[i].turnRateReduction = ko.observable(0);
+            self.abilities()[i].attackrange = ko.observable(0);
+            self.abilities()[i].attackspeed = ko.observable(0);
+            self.abilities()[i].attackspeedreduction = ko.observable(0);
+            self.abilities()[i].armor = ko.observable(0);
+            self.abilities()[i].armorReduction = ko.observable(0);
+            self.abilities()[i].healthregen = ko.observable(0);
+            self.abilities()[i].lifesteal = ko.observable(0);
+            self.abilities()[i].visionnight = ko.observable(0);
+            self.abilities()[i].visionday = ko.observable(0);
+        }
+        self.abilityControlData = {};
+        self.abilitySettingsData = function(data,parent,index) {
+            if (self.abilityControlData[data] == undefined) {
+                return self.processAbility(data, parent, index, self.abilityData[data]);
+            }
+            else {
+                return self.abilityControlData[data];
+            }
+        }
+        
+        self.processAbility = function(data, parent, index, args) {
+            var result = {};
+            result.data = [];
+            var v;
+            var v_list = [];
+            for (var i=0;i<args.length;i++) {
+                switch (args[i].controlType) {
+                    case 'input':
+                        v = ko.observable(0);
+                        v_list.push(v);
+                        result.data.push({ labelName: args[i].label.toUpperCase() + ':', controlVal: v, controlType: args[i].controlType, display: args[i].display });
+                    break;
+                    case 'checkbox':
+                        v = ko.observable(false);
+                        v_list.push(v);
+                        result.data.push({ labelName: args[i].label.toUpperCase() + '?', controlVal: v, controlType: args[i].controlType, display: args[i].display });
+                    break;
+                    case 'text':
+                        // single input abilities
+                        if (args[i].controls == undefined) {
+                            if (args[i].noLevel) {
+                                var attributeValue = function(attributeName) {
+                                    return {fn: ko.computed(function () {
+                                        return self.getAbilityAttributeValue(self.abilities()[index].attributes(), attributeName, 0);
+                                    })};
+                                };
+                            }
+                            else {
+                                var attributeValue = function(attributeName) {
+                                    return {fn: ko.computed(function () {
+                                        return self.getAbilityAttributeValue(self.abilities()[index].attributes(), attributeName, self.abilities()[index].level());
+                                    })};
+                                };
+                            }
+                            var g = attributeValue(args[i].attributeName)
+                            var r = self.getComputedFunction(v, g.fn, args[i].fn, parent, index, self, args[i].returnProperty);
+                            var tooltip = self.getAbilityAttributeTooltip(self.abilities()[index].attributes(), args[i].attributeName);
+                            if (tooltip == '' || args[i].ignoreTooltip) {
+                                tooltip = args[i].label;
+                            }
+                            result.data.push({ labelName: tooltip, controlVal: r, controlType: args[i].controlType, display: args[i].display, clean: g.fn });
+                        }
+                        // multi input abilities
+                        else {
+                            if (args[i].noLevel) {
+                                var attributeValue = function(attributeName) {
+                                    return {fn: ko.computed(function () {
+                                        return self.getAbilityAttributeValue(self.abilities()[index].attributes(), attributeName, 0);
+                                    })};
+                                };
+                            }
+                            else {
+                                var attributeValue = function(attributeName) {
+                                    return {fn: ko.computed(function () {
+                                        return self.getAbilityAttributeValue(self.abilities()[index].attributes(), attributeName, self.abilities()[index].level());
+                                    })};
+                                };
+                            }
+                            var g = attributeValue(args[i].attributeName)
+                            var r = self.getComputedFunction(v_list, g.fn, args[i].fn, parent, index, self, args[i].returnProperty,args[i].controls);
+                            var tooltip = self.getAbilityAttributeTooltip(self.abilities()[index].attributes(), args[i].attributeName);
+                            if (tooltip == '' || args[i].ignoreTooltip) {
+                                tooltip = args[i].label;
+                            }
+                            result.data.push({ labelName: tooltip, controlVal: r, controlType: args[i].controlType, display: args[i].display, clean: g.fn });
+                        }
+                    break;
+                }
+            }
+            self.abilityControlData[data] = result;
+            return result;
+        }
+
+        self.getComputedFunction = function(v, attributeValue, fn, parent, index, abilityList, returnProperty, controls) {
+            return ko.computed(function() {
+                if (controls == undefined) {
+                    if (typeof v() == 'boolean') {
+                        var returnVal = fn(v(),attributeValue(), parent, index, abilityList);
+                    }
+                    else {
+                        var returnVal = fn(parseFloat(v()),attributeValue(), parent, index, abilityList);
+                    }
+                    if (returnProperty != undefined) {
+                        self.abilities()[index][returnProperty](returnVal);
+                    }
+                    return returnVal;
+                }
+                else {
+                    var v_list = [];
+                    for (var i=0;i<controls.length;i++) {
+                        if (typeof v[controls[i]]() == 'boolean') {
+                            v_list.push(v[controls[i]]());
+                        }
+                        else {
+                            v_list.push(parseFloat(v[controls[i]]()));
+                        }
+                    }
+                    var returnVal = fn(v_list,attributeValue(), parent, index, abilityList);
+                    if (returnProperty != undefined) {
+                        self.abilities()[index][returnProperty](returnVal);
+                    }
+                    return returnVal;
+                }
+            });
+        }
+
+        self.getAbilityAttributeValue = function(attributes, attributeName, level) {
+            for (var i=0;i<attributes.length;i++) {
+                if (attributes[i].name() == attributeName) {
+                    if (level == 0) {
+                        return parseFloat(attributes[i].value()[0]);
+                    }
+                    else if (level > attributes[i].value().length) {
+                        return parseFloat(attributes[i].value()[0]);
+                    }
+                    else {
+                        return parseFloat(attributes[i].value()[level-1]);
+                    }
+                }
+            }
+        }
+
+        self.getAbilityAttributeTooltip = function(attributes, attributeName) {
+            for (var i=0;i<attributes.length;i++) {
+                if (attributes[i].name() == attributeName) {
+                        return attributes[i].tooltip();
+                }
+            }
+            return '';
+        }
+        
+        self.getAbilityLevelByAbilityName = function(abilityName) {
+            for (var i=0;i<self.abilities().length;i++) {
+                if (self.abilities()[i].name() == abilityName) {
+                    return self.abilities()[i].level();
+                }
+            }
+            return -1;
+        }
+
+        self.getAbilityByName = function(abilityName) {
+            for (var i=0;i<self.abilities().length;i++) {
+                if (self.abilities()[i].name() == abilityName) {
+                    return self.abilities()[i];
+                }
+            }
+            return undefined;
+        }
+
+        self.getAbilityPropertyValue = function(ability, property) {
+            return parseFloat(ability[property]()[ability.level()-1]);
+        }
+        
+        self.getAttributeBonusLevel = function() {
+            for (var i=0;i<self.abilities().length;i++) {
+                if (self.abilities()[i].name() == 'attribute_bonus') {
+                    return self.abilities()[i].level();
+                }
+            }
+            return 0;        
+        }
+        
+        self.getAllStatsReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            /*switch(attribute.name()) {
+                                // invoker_quas
+                                case 'bonus_strength':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                            }*/
+                        }
+                    }
+                }
+                else if (ability.bonusAllStatsReduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // slark_essence_shift
+                        totalAttribute+=ability.bonusAllStatsReduction();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getAgility = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // drow_ranger_marksmanship
+                                case 'marksmanship_agility_bonus':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+                else {
+                    if (ability.bonusAgility != undefined) {
+                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                            // invoker_wex,morphling_morph_agi,morphling_morph_str
+                            totalAttribute+=ability.bonusAgility();
+                        }
+                    }
+                    if (ability.bonusAgility2 != undefined) {
+                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                            // invoker_wex,morphling_morph_agi,morphling_morph_str
+                            totalAttribute+=ability.bonusAgility2();
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getIntelligence = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // invoker_exort
+                            /*    case 'bonus_intelligence':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;*/
+                            }
+                        }
+                    }
+                }
+                else if (ability.bonusInt != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // invoker_exort
+                        totalAttribute+=ability.bonusInt();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getArmor = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // axe_berserkers_call,dragon_knight_dragon_blood,troll_warlord_berserkers_rage,lycan_shapeshift,enraged_wildkin_toughness_aura
+                                case 'bonus_armor':
+                                    if (ability.name() != 'templar_assassin_meld') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // sven_warcry
+                                case 'warcry_armor':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                                // lich_frost_armor,ogre_magi_frost_armor
+                                case 'armor_bonus':
+                                    if (ability.name() == 'lich_frost_armor' || ability.name() == 'ogre_magi_frost_armor') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.armor != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // shredder_reactive_armor,visage_gravekeepers_cloak
+                        totalAttribute+=ability.armor();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getArmorBaseReduction = ko.computed(function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        switch(ability.name()) {
+                            //elder_titan_natural_order
+                            case 'elder_titan_natural_order':
+                                totalAttribute *= (1-self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'armor_reduction_pct', ability.level())/100);
+                            break;
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getArmorReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        switch(ability.name()) {
+                            //templar_assassin_meld
+                            case 'templar_assassin_meld':
+                                totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'bonus_armor', ability.level());
+                            break;
+                            // tidehunter_gush
+                            case 'tidehunter_gush':
+                                totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'armor_bonus', ability.level());
+                            break;
+                            // naga_siren_rip_tide
+                            case 'naga_siren_rip_tide':
+                            // slardar_amplify_damage
+                            case 'slardar_amplify_damage':
+                            // vengefulspirit_wave_of_terror
+                            case 'vengefulspirit_wave_of_terror':
+                                totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'armor_reduction', ability.level());
+                            break;
+                            // nevermore_dark_lord
+                            case 'nevermore_dark_lord':
+                                totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'presence_armor_reduction', ability.level());
+                            break;
+                        }
+                    }
+                }
+                else if (ability.armorReduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // alchemist_acid_spray
+                        totalAttribute+=ability.armorReduction();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getHealth = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // lone_druid_true_form,lycan_shapeshift,troll_warlord_berserkers_rage
+                                case 'bonus_hp':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                                // lone_druid_synergy
+                                case 'true_form_hp_bonus':
+                                    if (self.isTrueFormActive()) {
+                                        totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                /*else if (ability.bonusHealth != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // 
+                        totalAttribute+=ability.bonusHealth();
+                    }
+                }*/
+            }
+            return totalAttribute;
+        });
+        
+        self.isTrueFormActive = function() {
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (ability.isActive() && ability.name() == 'lone_druid_true_form') {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        self.getHealthRegen = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // alchemist_chemical_rage, dragon_knight_dragon_blood
+                                case 'bonus_health_regen':
+                                // broodmother_spin_web
+                                case 'heath_regen':
+                                // omniknight_guardian_angel,treant_living_armor,satyr_hellcaller_unholy_aura
+                                case 'health_regen':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                                // legion_commander_press_the_attack
+                                case 'hp_regen':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.healthregen != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // shredder_reactive_armor,invoker_quas
+                        totalAttribute+=ability.healthregen();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getManaRegen = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // alchemist_chemical_rage
+                                case 'bonus_mana_regen':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.manaregen != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // 
+                        totalAttribute+=ability.manaregen();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getManaRegenArcaneAura = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // crystal_maiden_brilliance_aura
+                                case 'mana_regen':
+                                    if (ability.name() == 'crystal_maiden_brilliance_aura') {
+                                        totalAttribute += parseFloat(attribute.value()[ability.level()-1]);
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getManaRegenReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            /*switch(attribute.name()) {
+                                // 
+                                case '':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                            }*/
+                        }
+                    }
+                }
+                else if (ability.manaregenreduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // pugna_nether_ward
+                        totalAttribute+=ability.manaregenreduction();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getAttackRange = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // templar_assassin_psi_blades,sniper_take_aim
+                                case 'bonus_attack_range':
+                                // terrorblade_metamorphosis,troll_warlord_berserkers_rage
+                                case 'bonus_range':
+                                    if (ability.name() == 'terrorblade_metamorphosis') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                    if (ability.name() == 'troll_warlord_berserkers_rage') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // tiny_grow
+                                case 'bonus_range_scepter':
+                                    if (ability.name() == 'tiny_grow' && self.hasScepter()) {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // enchantress_impetus
+                                case 'bonus_attack_range_scepter':
+                                    if (ability.name() == 'enchantress_impetus' && self.hasScepter()) {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                            }
+                        }
+                        // lone_druid_true_form
+                        if (ability.name() == 'lone_druid_true_form') {
+                            totalAttribute -= 422;
+                        }
+                    }
+                }
+                else if (ability.attackrange != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // dragon_knight_elder_dragon_form
+                        totalAttribute+=ability.attackrange();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getAttackSpeed = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // abaddon_frostmourne,troll_warlord_battle_trance
+                                case 'attack_speed':
+                                // clinkz_strafe,ursa_overpower
+                                case 'attack_speed_bonus_pct':
+                                // visage_grave_chill
+                                case 'attackspeed_bonus':
+                                // mirana_leap
+                                case 'leap_speedbonus_as':
+                                // life_stealer
+                                case 'attack_speed_bonus':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                                // axe_culling_blade,necronomicon_archer_aoe
+                                case 'speed_bonus':
+                                    if (ability.name() == 'axe_culling_blade' || ability.name() == 'necronomicon_archer_aoe') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // ancient_apparition_chilling_touch
+                                case 'attack_speed_pct':
+                                    if (ability.name() == 'ancient_apparition_chilling_touch') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // beastmaster_inner_beast,lycan_feral_impulse,lone_druid_rabid,tiny_grow,phantom_assassin_phantom_strike,windrunner_focusfire,ogre_magi_bloodlust,centaur_khan_endurance_aura
+                                case 'bonus_attack_speed':
+                                    if (ability.name() == 'beastmaster_inner_beast' 
+                                     || ability.name() == 'lycan_feral_impulse' 
+                                     || ability.name() == 'lone_druid_rabid' 
+                                     || ability.name() == 'tiny_grow' 
+                                     || ability.name() == 'phantom_assassin_phantom_strike' 
+                                     || ability.name() == 'windrunner_focusfire' 
+                                     || ability.name() == 'ogre_magi_bloodlust'
+                                     || ability.name() == 'centaur_khan_endurance_aura') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.attackspeed != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // troll_warlord_fervor,wisp_overcharge,lina_fiery_soul,invoker_alacrity,invoker_wex
+                        totalAttribute+=ability.attackspeed();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getAttackSpeedReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // night_stalker_void,crystal_maiden_crystal_nova,ghost_frost_attack,ogre_magi_frost_armor,polar_furbolg_ursa_warrior_thunder_clap
+                                case 'attackspeed_slow':
+                                // lich_frost_armor,lich_frost_nova,enchantress_untouchable
+                                case 'slow_attack_speed':
+                                // beastmaster_primal_roar
+                                case 'slow_attack_speed_pct':
+                                // storm_spirit_overload
+                                case 'overload_attack_slow':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                                // omniknight_degen_aura
+                                case 'speed_bonus':
+                                    if (ability.name() == 'omniknight_degen_aura') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // tusk_frozen_sigil,crystal_maiden_freezing_field
+                                case 'attack_slow':
+                                    if (ability.name() == 'crystal_maiden_freezing_field') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                    else if (ability.name() == 'tusk_frozen_sigil') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // faceless_void_time_walk
+                                case 'attack_speed_pct':
+                                    if (ability.name() == 'faceless_void_time_walk') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // bounty_hunter_jinada
+                                case 'bonus_attackspeed':
+                                    if (ability.name() == 'bounty_hunter_jinada') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // brewmaster_thunder_clap
+                                case 'attack_speed_slow':
+                                    if (ability.name() == 'brewmaster_thunder_clap') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // medusa_stone_gaze
+                                case 'slow':
+                                    if (ability.name() == 'medusa_stone_gaze') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // visage_grave_chill
+                                case 'attackspeed_bonus':
+                                    totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                        if (ability.name() == 'enraged_wildkin_tornado') {
+                            totalAttribute -= 15;
+                        }
+                    }
+                }
+                else if (ability.attackspeedreduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // viper_viper_strike,viper_corrosive_skin,jakiro_liquid_fire,lich_chain_frost,sandking_epicenter,earth_spirit_rolling_boulder
+                        totalAttribute+=ability.attackspeedreduction();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        self.getBash = ko.computed(function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // slardar_bash
+                                case 'chance':
+                                // sniper_headshot
+                                case 'proc_chance':
+                                    totalAttribute *= (1 - self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.bash != undefined) {
+                    // spirit_breaker_greater_bash,faceless_void_time_lock
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        totalAttribute *= (1 - ability.bash()/100);
+                    }
+                }
+            }
+            return totalAttribute;
+        });    
+        self.getBaseDamage = ko.computed(function() {
+            var totalAttribute = 0;
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // tiny_grow
+                                case 'bonus_damage':
+                                    if (ability.name() == 'tiny_grow') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level()),
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return { sources: sources, total: totalAttribute };
+        });
+        self.getBAT = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // troll_warlord_berserkers_rage,alchemist_chemical_rage,lone_druid_true_form,lycan_shapeshift
+                                case 'base_attack_time':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        self.getBonusDamage = ko.computed(function() {
+            var totalAttribute = 0;
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // broodmother_insatiable_hunger,luna_lunar_blessing,templar_assassin_refraction,templar_assassin_meld,terrorblade_metamorphosis,troll_warlord_berserkers_rage
+                                case 'bonus_damage':
+                                    if (ability.name() == 'broodmother_insatiable_hunger' || ability.name() == 'luna_lunar_blessing'
+                                     || ability.name() == 'templar_assassin_refraction' || ability.name() == 'templar_assassin_meld'
+                                     || ability.name() == 'terrorblade_metamorphosis' || ability.name() == 'troll_warlord_berserkers_rage') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level()),
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                                // lycan_howl
+                                case 'hero_bonus_damage':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    sources[ability.name()] = {
+                                        'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level()),
+                                        'damageType': 'physical',
+                                        'displayname': ability.displayname()
+                                    }
+                                break;
+                            }
+                        }
+                        if (ability.name() == 'storm_spirit_overload') {
+                            totalAttribute += self.getAbilityPropertyValue(ability, 'damage');
+                            sources[ability.name()] = {
+                                'damage': self.getAbilityPropertyValue(ability, 'damage'),
+                                'damageType': 'magic',
+                                'displayname': ability.displayname()
+                            }                        
+                        }
+                    }
+                }
+                else if (ability.bonusDamage != undefined && ability.bonusDamage() != 0) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // nevermore_necromastery,ursa_fury_swipes,ursa_enrage,invoker_alacrity,invoker_exort,elder_titan_ancestral_spirit
+                        totalAttribute+=ability.bonusDamage();
+                        sources[ability.name()] = {
+                            'damage': ability.bonusDamage(),
+                            'damageType': 'physical',
+                            'displayname': ability.displayname()
+                        }
+                    }
+                }
+            }
+            return { sources: sources, total: totalAttribute };
+        });
+
+        self.getBonusDamagePercent = ko.computed(function() {
+            var totalAttribute = 0;
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // magnataur_empower,vengefulspirit_command_aura,alpha_wolf_command_aura
+                                case 'bonus_damage_pct':
+                                    if (ability.name() == 'magnataur_empower' || ability.name() == 'vengefulspirit_command_aura' || ability.name() == 'alpha_wolf_command_aura') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100,
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                                // sven_gods_strength
+                                case 'gods_strength_damage':
+                                    if (ability.name() == 'sven_gods_strength') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100,
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.bonusDamagePct != undefined && ability.bonusDamagePct() != 0) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // bloodseeker_bloodrage
+                        totalAttribute+=ability.bonusDamagePct()/100;
+                        sources[ability.name()] = {
+                            'damage': ability.bonusDamagePct()/100,
+                            'damageType': 'physical',
+                            'displayname': ability.displayname()
+                        }
+                    }
+                }
+            }
+            return { sources: sources, total: totalAttribute };
+        });
+
+        self.getBonusDamagePrecisionAura = ko.computed(function() {
+            var totalAttribute1 = 0;
+            var totalAttribute2 = 0;
+            var sources = [];
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (ability.name() == 'drow_ranger_trueshot') {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // drow_ranger_trueshot
+                                case 'trueshot_ranged_damage':
+                                    totalAttribute1 += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    sources.push({
+                                        'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100,
+                                        'damageType': 'physical',
+                                        'displayname': ability.displayname()
+                                    });
+                                break;
+                            }
+                        }
+                        if (ability.bonusDamagePrecisionAura != undefined) {
+                            // drow_ranger_trueshot
+                            totalAttribute2+=ability.bonusDamagePrecisionAura();
+                            sources.push({
+                                'damage': ability.bonusDamagePrecisionAura(),
+                                'damageType': 'physical',
+                                'displayname': ability.displayname()
+                            });
+                        }
+                    }
+                }
+            }
+            return { sources: sources, total: [totalAttribute1,totalAttribute2] };
+        });
+        
+        self.getBonusDamageReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // bane_enfeeble
+                                case 'enfeeble_attack_reduction':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.bonusDamageReduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // rubick_fade_bolt
+                        totalAttribute+=ability.bonusDamageReduction();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getStrength = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            /*switch(attribute.name()) {
+                                // invoker_quas
+                                case 'bonus_strength':
+                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                break;
+                            }*/
+                        }
+                    }
+                }
+                else {
+                    if (ability.bonusStrength != undefined) {
+                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                            // pudge_flesh_heap,invoker_quas,morphling_morph_str,morphling_morph_agi
+                            totalAttribute+=ability.bonusStrength();
+                        }
+                    }
+                    if (ability.bonusStrength2 != undefined) {
+                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                            // pudge_flesh_heap,invoker_quas,morphling_morph_str,morphling_morph_agi
+                            totalAttribute+=ability.bonusStrength2();
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getCritSource = ko.computed(function() {
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        switch(ability.name()) {
+                            // phantom_assassin_coup_de_grace,brewmaster_drunken_brawler,chaos_knight_chaos_strike,lycan_shapeshift,skeleton_king_mortal_strike,juggernaut_blade_dance,alpha_wolf_critical_strike,giant_wolf_critical_strike
+                            case 'phantom_assassin_coup_de_grace':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_chance', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_bonus', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            case 'brewmaster_drunken_brawler':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_chance', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_multiplier', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            case 'chaos_knight_chaos_strike':
+                            case 'lycan_shapeshift':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_chance', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_damage', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            case 'skeleton_king_mortal_strike':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_chance', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_mult', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            case 'juggernaut_blade_dance':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'blade_dance_crit_chance', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'blade_dance_crit_mult', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            case 'alpha_wolf_critical_strike':
+                            case 'giant_wolf_critical_strike':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_chance', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_mult', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                        }
+                    }
+                }
+            }
+            return sources;
+        });    
+
+        self.getCleaveSource = ko.computed(function() {
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        switch(ability.name()) {
+                            // magnataur_empower
+                            case 'magnataur_empower':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'radius': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'cleave_radius', ability.level()),
+                                        'magnitude': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'cleave_damage_pct', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            // sven_great_cleave
+                            case 'sven_great_cleave':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'radius': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'great_cleave_radius', ability.level()),
+                                        'magnitude': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'great_cleave_damage', ability.level())/100,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            // kunkka_tidebringer
+                            case 'kunkka_tidebringer':
+                                if (sources[ability.name()] == undefined) {
+                                    sources[ability.name()] = {
+                                        'radius': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'radius', ability.level()),
+                                        'magnitude': 1,
+                                        'count': 1,
+                                        'displayname': ability.displayname()
+                                    }
+                                }
+                                else {
+                                    sources[ability.name()].count += 1;
+                                }
+                            break;
+                            // tiny_grow
+                            case 'tiny_grow':
+                                if (self.hasScepter()) {
+                                    if (sources[ability.name()] == undefined) {
+                                        sources[ability.name()] = {
+                                            'radius': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'bonus_cleave_radius_scepter', ability.level()),
+                                            'magnitude': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'bonus_cleave_damage_scepter', ability.level())/100,
+                                            'count': 1,
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                    else {
+                                        sources[ability.name()].count += 1;
+                                    }
+                                }
+                            break;
+                        }
+                    }
+                }
+            }
+            return sources;
+        });    
+        
+        self.getCritChance = ko.computed(function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // phantom_assassin_coup_de_grace,brewmaster_drunken_brawler,chaos_knight_chaos_strike,lycan_shapeshift,skeleton_king_mortal_strike
+                                case 'crit_chance':
+                                    totalAttribute *= (1 - self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });            
+        
+        self.getEvasion = ko.computed(function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // phantom_assassin_blur
+                                case 'bonus_evasion':
+                                // brewmaster_drunken_brawler
+                                case 'dodge_chance':
+                                    totalAttribute *= (1 - self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                                // faceless_void_backtrack
+                                case 'dodge_chance_pct':
+                                    totalAttribute *= (1 - self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });    
+        
+        self.getMissChance = ko.computed(function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // broodmother_incapacitating_bite,brewmaster_drunken_haze
+                                case 'miss_chance':
+                                // riki_smoke_screen,keeper_of_the_light_blinding_light,tinker_laser
+                                case 'miss_rate':
+                                    totalAttribute *= (1 - self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.missChance != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // night_stalker_crippling_fear
+                        totalAttribute*=(1-ability.missChance()/100);
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getLifesteal = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // skeleton_king_vampiric_aura
+                                case 'vampiric_aura':
+                                // broodmother_insatiable_hunger
+                                case 'lifesteal_pct':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.lifesteal != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // life_stealer_open_wounds
+                        totalAttribute+=ability.lifesteal();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getMagicResist = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // antimage_spell_shield
+                                case 'spell_shield_resistance':
+                                    return self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                                // phantom_lancer_phantom_edge
+                                case 'magic_resistance_pct':
+                                    if (ability.name() == 'phantom_lancer_phantom_edge') {
+                                        return self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // rubick_null_field
+                                case 'magic_damage_reduction_pct':
+                                    if (ability.name() == 'rubick_null_field') {
+                                        return self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.magicResist != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // huskar_berserkers_blood,viper_corrosive_skin,visage_gravekeepers_cloak
+                        totalAttribute+=ability.magicResist();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getMagicResistReduction = ko.computed(function() {
+            var totalAttribute = 1;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // ancient_apparition_ice_vortex
+                                case 'spell_resist_pct':
+                                // pugna_decrepify
+                                case 'bonus_spell_damage_pct':
+                                // skywrath_mage_ancient_seal
+                                case 'resist_debuff':
+                                    totalAttribute *= (1 - self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                                // elder_titan_natural_order
+                                case 'magic_resistance_pct':
+                                    totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getMovementSpeedFlat = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // alchemist_chemical_rage
+                                case 'bonus_movespeed':
+                                    if (ability.name() == 'alchemist_chemical_rage') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // tiny_grow
+                                case 'bonus_movement_speed':
+                                    if (ability.name() == 'tiny_grow') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
+                                break;
+                                // troll_warlord_berserkers_rage
+                                case 'bonus_move_speed':
+                                    if (ability.name() == 'troll_warlord_berserkers_rage') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }                                
+                                break;
+                                // lone_druid_true_form
+                                case 'speed_loss':
+                                    totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.movementSpeedFlat != undefined) {
+                    // dragon_knight_elder_dragon_form
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        totalAttribute+=ability.movementSpeedFlat();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getMovementSpeedPercent = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // abaddon_frostmourne 
+                                case 'move_speed_pct':
+                                // bounty_hunter_track 
+                                case 'bonus_move_speed_pct':
+                                // mirana_leap 
+                                case 'leap_speedbonus':
+                                // sven_warcry 
+                                case 'warcry_movespeed':
+                                // clinkz_wind_walk
+                                case 'move_speed_bonus_pct':
+                                // windrunner_windrun
+                                case 'movespeed_bonus_pct':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                break;
+                                // broodmother_spin_web,spectre_spectral_dagger
+                                case 'bonus_movespeed':
+                                    if (ability.name() == 'broodmother_spin_web' || ability.name() == 'spectre_spectral_dagger') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // axe_culling_blade,necronomicon_archer_aoe
+                                case 'speed_bonus':
+                                    if (ability.name() == 'axe_culling_blade' || ability.name() == 'necronomicon_archer_aoe') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // nyx_assassin_vendetta 
+                                case 'movement_speed':
+                                    if (ability.name() == 'nyx_assassin_vendetta') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // spirit_breaker_empowering_haste
+                                case 'bonus_movespeed_pct':
+                                    if (ability.name() == 'spirit_breaker_empowering_haste') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // ogre_magi_bloodlust,slark_shadow_dance,death_prophet_witchcraft,kobold_taskmaster_speed_aura
+                                case 'bonus_movement_speed':
+                                    if (ability.name() == 'ogre_magi_bloodlust' || ability.name() == 'slark_shadow_dance' || ability.name() == 'death_prophet_witchcraft' || ability.name() == 'kobold_taskmaster_speed_aura') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // razor_unstable_current,phantom_lancer_doppelwalk
+                                case 'movement_speed_pct':
+                                    if (ability.name() == 'razor_unstable_current' || ability.name() == 'phantom_lancer_doppelwalk') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // treant_natures_guise,lone_druid_rabid
+                                case 'bonus_move_speed':
+                                    if (ability.name() == 'treant_natures_guise' || ability.name() == 'lone_druid_rabid') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // wisp_tether
+                                case 'movespeed':
+                                    if (ability.name() == 'wisp_tether') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // kunkka_ghostship,visage_grave_chill
+                                case 'movespeed_bonus':
+                                    if (ability.name() == 'kunkka_ghostship' || ability.name() == 'visage_grave_chill') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }                                
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.movementSpeedPct != undefined) {
+                    // axe_battle_hunger,bristleback_warpath,spirit_breaker_greater_bash,lina_fiery_soul,invoker_ghost_walk,invoker_wex,elder_titan_ancestral_spirit
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        totalAttribute+=ability.movementSpeedPct()/100;
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getMovementSpeedPercentReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // elder_titan_earth_splitter,magnataur_skewer,abaddon_frostmourne 
+                                case 'slow_pct':
+                                    totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                break;
+                                // night_stalker_void,crystal_maiden_crystal_nova,crystal_maiden_freezing_field,ghost_frost_attack,ogre_magi_frost_armor,polar_furbolg_ursa_warrior_thunder_clap
+                                case 'movespeed_slow':
+                                // lich_frost_armor,lich_frost_nova,enchantress_enchant
+                                case 'slow_movement_speed':
+                                // beastmaster_primal_roar
+                                case 'slow_movement_speed_pct':
+                                // drow_ranger_frost_arrows
+                                case 'frost_arrows_movement_speed':
+                                // skeleton_king_hellfire_blast
+                                case 'blast_slow':
+                                // slardar_slithereen_crush
+                                case 'crush_extra_slow':
+                                // storm_spirit_overload:
+                                case 'overload_move_slow':
+                                // windrunner_windrun
+                                case 'enemy_movespeed_bonus_pct':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                break;
+                                // phantom_assassin_stifling_dagger,tusk_frozen_sigil
+                                case 'move_slow':
+                                    if (ability.name() == 'phantom_assassin_stifling_dagger') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                    else if (ability.name() == 'tusk_frozen_sigil') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // invoker_ice_wall,medusa_stone_gaze,wisp_tether
+                                case 'slow':
+                                    if (ability.name() == 'medusa_stone_gaze') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                    else {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // broodmother_incapacitating_bite,bounty_hunter_jinada,spectre_spectral_dagger
+                                case 'bonus_movespeed':
+                                    if (ability.name() == 'broodmother_incapacitating_bite' || ability.name() == 'bounty_hunter_jinada') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                    else if (ability.name() == 'spectre_spectral_dagger') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // omniknight_degen_aura
+                                case 'speed_bonus':
+                                    if (ability.name() == 'omniknight_degen_aura') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // tidehunter_gush
+                                case 'movement_speed':
+                                    if (ability.name() == 'tidehunter_gush') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // pugna_decrepify,chen_penitence
+                                case 'bonus_movement_speed':
+                                    if (ability.name() == 'pugna_decrepify' || ability.name() == 'chen_penitence') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // ancient_apparition_ice_vortex,phantom_lancer_spirit_lance,skywrath_mage_concussive_shot,faceless_void_time_walk
+                                case 'movement_speed_pct':
+                                    if (ability.name() == 'ancient_apparition_ice_vortex' || ability.name() == 'phantom_lancer_spirit_lance' || ability.name() == 'faceless_void_time_walk') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                    else if (ability.name() == 'skywrath_mage_concussive_shot') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // razor_unstable_current
+                                case 'slow_amount':
+                                    if (ability.name() == 'razor_unstable_current') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // brewmaster_drunken_haze,brewmaster_thunder_clap,treant_leech_seed
+                                case 'movement_slow':
+                                    if (ability.name() == 'brewmaster_drunken_haze' || ability.name() == 'brewmaster_thunder_clap') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                    else if (ability.name() == 'ursa_earthshock' || ability.name() == 'treant_leech_seed') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // skeleton_king_reincarnation
+                                case 'movespeed':
+                                    if (ability.name() == 'skeleton_king_reincarnation') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                                // kunkka_torrent,visage_grave_chill
+                                case 'movespeed_bonus':
+                                    if (ability.name() == 'kunkka_torrent') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                    else if (ability.name() == 'visage_grave_chill') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                            }
+                        }
+                        if (ability.name() == 'satyr_trickster_purge') {
+                            totalAttribute -= 80/100;
+                        }
+                        else if (ability.name() == 'enraged_wildkin_tornado') {
+                            totalAttribute -= 15/100;
+                        }
+                    }
+                }
+                else if (ability.movementSpeedPctReduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // axe_battle_hunger,batrider_sticky_napalm,shredder_chakram,meepo_geostrike,life_stealer_open_wounds,
+                        // venomancer_poison_sting,viper_viper_strike,viper_corrosive_skin,viper_poison_attack,venomancer_venomous_gale,treant_leech_seed
+                        // lich_chain_frost,sniper_shrapnel,centaur_stampede,huskar_life_break,jakiro_dual_breath,meepo_geostrike,sandking_epicenter
+                        // earth_spirit_rolling_boulder,invoker_ghost_walk,invoker_ice_wall,elder_titan_earth_splitter
+                        totalAttribute+=ability.movementSpeedPctReduction()/100;
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getTurnRateReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // medusa_stone_gaze
+                                case 'slow':
+                                    if (ability.name() == 'medusa_stone_gaze') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.turnRateReduction != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // batrider_sticky_napalm
+                        totalAttribute+=ability.turnRateReduction()/100;
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getVisionRangeNight = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // lycan_shapeshift,luna_lunar_blessing
+                                case 'bonus_night_vision':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.visionnight != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // 
+                        totalAttribute+=ability.visionnight();
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getVisionRangePctReduction = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // night_stalker_darkness
+                                case 'blind_percentage':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.setEvasion = ko.computed(function() {
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                    if (ability.name() == 'windrunner_windrun') {
+                        return 1;
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.setMovementSpeed = ko.computed(function() {
+            var MAX_MOVESPEED = 522;
+            var MIN_MOVESPEED = 100;
+            var totalAttribute = 0;
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                    if (ability.name() == 'spirit_breaker_charge_of_darkness') {
+                        return self.getAbilityAttributeValue(ability.attributes(), 'movement_speed', ability.level());
+                    }
+                    if (ability.name() == 'dark_seer_surge') {
+                        return MAX_MOVESPEED;
+                    }
+                    if (ability.name() == 'centaur_stampede') {
+                        return MAX_MOVESPEED;
+                    }
+                    if (ability.name() == 'lycan_shapeshift') {
+                        return MAX_MOVESPEED;
+                    }
+                    if (ability.name() == 'lion_voodoo' || ability.name() == 'shadow_shaman_voodoo') {
+                        return MIN_MOVESPEED;
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+
+        self.getBashSource = function(attacktype) {
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // sniper_headshot
+                                case 'proc_chance':
+                                    if (sources[ability.name()] == undefined && ability.name() == 'sniper_headshot') {
+                                        sources[ability.name()] = {
+                                            'chance': self.getAbilityAttributeValue(ability.attributes(), attribute.name(), ability.level())/100,
+                                            'damage': self.getAbilityPropertyValue(ability, 'damage'),
+                                            'count': 1,
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                                // slardar_bash
+                                case 'chance':
+                                    if (sources[ability.name()] == undefined && ability.name() == 'slardar_bash') {
+                                        sources[ability.name()] = {
+                                            'chance': self.getAbilityAttributeValue(ability.attributes(), attribute.name(), ability.level())/100,
+                                            'damage': self.getAbilityAttributeValue(ability.attributes(), 'bonus_damage', ability.level()),
+                                            'count': 1,
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.bashBonusDamage != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // faceless_void_time_lock
+                        if (sources[ability.name()] == undefined && ability.name() == 'faceless_void_time_lock') {
+                            sources[ability.name()] = {
+                                'chance': ability.bash()/100,
+                                'damage': ability.bashBonusDamage(),
+                                'count': 1,
+                                'damageType': 'magic',
+                                'displayname': ability.displayname()
+                            }
+                        }
+                        // spirit_breaker_greater_bash
+                        if (sources[ability.name()] == undefined && ability.name() == 'spirit_breaker_greater_bash') {
+                            sources[ability.name()] = {
+                                'chance': ability.bash()/100,
+                                'damage': ability.bashBonusDamage()/100,
+                                'count': 1,
+                                'damageType': 'magic',
+                                'displayname': ability.displayname()
+                            }
+                        }
+                    }
+                }
+            }
+
+            return sources;
+        };
+        
+        self.getOrbSource = function() {
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j=0;j<self.abilities()[i].attributes().length;j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // antimage_mana_break
+                                case 'mana_per_hit':
+                                    if (sources[ability.name()] == undefined && ability.name() == 'antimage_mana_break') {
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(ability.attributes(), attribute.name(), ability.level()) 
+                                                    * self.getAbilityAttributeValue(ability.attributes(), 'damage_per_burn', ability.level()),
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                                // clinkz_searing_arrows
+                                case 'damage_bonus':
+                                    if (sources[ability.name()] == undefined && ability.name() == 'clinkz_searing_arrows') {
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(ability.attributes(), attribute.name(), ability.level()),
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (ability.bonusDamageOrb != undefined) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        // obsidian_destroyer_arcane_orb
+                        if (sources[ability.name()] == undefined && ability.name() == 'obsidian_destroyer_arcane_orb') {
+                            sources[ability.name()] = {
+                                'damage': ability.bonusDamageOrb(),
+                                'damageType': 'pure',
+                                'displayname': ability.displayname()
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return sources;
+        };
+        
+        self.toggleAbility = function (index, data, event) {
+            if (self.abilities()[index()].behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') < 0) {
+                if (self.abilities()[index()].isActive()) {
+                    self.abilities()[index()].isActive(false);
+                }
+                else {
+                    self.abilities()[index()].isActive(true);
+                }
+                
+                if (self.abilities()[index()].name() == 'lycan_shapeshift') {
+                    self.isShapeShiftActive(self.abilities()[index()].isActive());
+                }
+            }
+        }.bind(this);
+
+        self.toggleAbilityDetail = function (index, data, event) {
+            if (self.abilities()[index()].isDetail()) {
+                self.abilities()[index()].isDetail(false);
+            }
+            else {
+                self.abilities()[index()].isDetail(true);
+            }
+        }.bind(this);
+        
+        self.getAbilityTooltipData = function (hero, el) {
+            return my.getAbilityTooltipData(hero, el);
+        }
+
+        self.levelUpAbility = function(index, data, event, hero) {
+            if (self.abilities()[index()].level() < hero.getAbilityLevelMax(data) && hero.availableSkillPoints() > 0 ) {
+                switch(self.abilities()[index()].abilitytype()) {
+                    case 'DOTA_ABILITY_TYPE_ULTIMATE':
+                        if (hero.selectedHero().heroName == 'invoker') {
+                            if (
+                                (self.abilities()[index()].level() == 0) && (parseInt(hero.selectedHeroLevel()) >= 2) ||
+                                (self.abilities()[index()].level() == 1) && (parseInt(hero.selectedHeroLevel()) >= 7) ||
+                                (self.abilities()[index()].level() == 2) && (parseInt(hero.selectedHeroLevel()) >= 11) ||
+                                (self.abilities()[index()].level() == 3) && (parseInt(hero.selectedHeroLevel()) >= 17)
+                            ) {
+                                self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                                hero.skillPointHistory.push(index());
+                            }
+                        }
+                        else if (hero.selectedHero().heroName == 'meepo') {
+                            if (self.abilities()[index()].level() * 7 + 3 <= parseInt(hero.selectedHeroLevel())) {
+                                self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                                hero.skillPointHistory.push(index());
+                            }
+                        }
+                        else {
+                            if ((self.abilities()[index()].level()+1) * 5 + 1 <= parseInt(hero.selectedHeroLevel())) {
+                                self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                                hero.skillPointHistory.push(index());
+                            }
+                        }
+                    break;
+                    default:
+                        if (self.abilities()[index()].level() * 2 + 1 <= parseInt(hero.selectedHeroLevel())) {
+                            self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                            hero.skillPointHistory.push(index());
+                        }
+                    break;
+                }
+                switch (self.abilities()[index()].name()) {
+                    case 'beastmaster_call_of_the_wild':
+                    case 'chen_test_of_faith':
+                    case 'morphling_morph_agi':
+                    case 'shadow_demon_shadow_poison':
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                    break;
+                    case 'morphling_morph_str':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                    break;
+                    case 'keeper_of_the_light_spirit_form':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()-2].level(self.abilities()[index()].level());
+                    case 'nevermore_shadowraze1':
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                        self.abilities()[index()+2].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze2':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze3':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()-2].level(self.abilities()[index()].level());
+                    break;
+                    case 'ember_spirit_fire_remnant':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                    break;
+                }
+            }
+        };
+        self.levelDownAbility = function(index, data, event, hero) {
+            if (self.abilities()[index()].level()>0) {
+                self.abilities()[index()].level(self.abilities()[index()].level()-1);
+                hero.skillPointHistory.splice(hero.skillPointHistory().lastIndexOf(index()), 1);
+                switch (self.abilities()[index()].name()) {
+                    case 'beastmaster_call_of_the_wild':
+                    case 'chen_test_of_faith':
+                    case 'morphling_morph_agi':
+                    case 'shadow_demon_shadow_poison':
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                    break;
+                    case 'morphling_morph_str':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                    break;
+                    case 'keeper_of_the_light_spirit_form':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()-2].level(self.abilities()[index()].level());
+                    case 'nevermore_shadowraze1':
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                        self.abilities()[index()+2].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze2':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze3':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()-2].level(self.abilities()[index()].level());
+                    break;
+                    case 'ember_spirit_fire_remnant':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                    break;
+                }
+            }
+        };
+    }
+
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
+    my.BuffOption = function (hero, ability) {
+        this.buffName = ability;
+        if (my.heroData['npc_dota_hero_' + hero] == undefined) {
+            this.hero = hero;
+            this.abilityData = _.findWhere(my.unitData[hero].abilities, {name: ability})
+            this.buffDisplayName = my.unitData[hero].displayname + ' - ' + this.abilityData.displayname;        
+        }
+        else {
+            this.hero = 'npc_dota_hero_' + hero;
+            this.abilityData = _.findWhere(my.heroData['npc_dota_hero_' + hero].abilities, {name: ability})
+            this.buffDisplayName = my.heroData['npc_dota_hero_' + hero].displayname + ' - ' + this.abilityData.displayname;        
+        }
+
+    };
+    
+    my.BuffViewModel = function (a) {
+        var self = new my.AbilityModel(ko.observableArray([]));
+        self.availableBuffs = ko.observableArray([
+            new my.BuffOption('abaddon','abaddon_frostmourne'),
+            new my.BuffOption('axe','axe_culling_blade'),
+            new my.BuffOption('beastmaster','beastmaster_inner_beast'),
+            new my.BuffOption('bloodseeker','bloodseeker_bloodrage'),
+            new my.BuffOption('bounty_hunter','bounty_hunter_track'),
+            new my.BuffOption('centaur','centaur_stampede'),
+            new my.BuffOption('crystal_maiden','crystal_maiden_brilliance_aura'),
+            new my.BuffOption('dark_seer','dark_seer_surge'),
+            new my.BuffOption('dazzle','dazzle_weave'),
+            new my.BuffOption('drow_ranger','drow_ranger_trueshot'),
+            new my.BuffOption('invoker','invoker_alacrity'),
+            new my.BuffOption('wisp','wisp_tether'),
+            new my.BuffOption('wisp','wisp_overcharge'),
+            new my.BuffOption('kunkka','kunkka_ghostship'),
+            new my.BuffOption('lich','lich_frost_armor'),
+            new my.BuffOption('life_stealer','life_stealer_open_wounds'),
+            new my.BuffOption('luna','luna_lunar_blessing'),
+            new my.BuffOption('lycan','lycan_howl'),
+            new my.BuffOption('magnataur','magnataur_empower'),
+            new my.BuffOption('mirana','mirana_leap'),
+            new my.BuffOption('ogre_magi','ogre_magi_bloodlust'),
+            new my.BuffOption('omniknight','omniknight_guardian_angel'),
+            new my.BuffOption('rubick','rubick_null_field'),
+            new my.BuffOption('skeleton_king','skeleton_king_vampiric_aura'),
+            new my.BuffOption('spirit_breaker','spirit_breaker_empowering_haste'),
+            new my.BuffOption('sven','sven_warcry'),
+            new my.BuffOption('treant','treant_living_armor'),
+            new my.BuffOption('vengefulspirit','vengefulspirit_command_aura'),
+            new my.BuffOption('npc_dota_neutral_alpha_wolf','alpha_wolf_critical_strike'),
+            new my.BuffOption('npc_dota_neutral_alpha_wolf','alpha_wolf_command_aura'),
+            new my.BuffOption('npc_dota_neutral_centaur_khan','centaur_khan_endurance_aura'),
+            new my.BuffOption('npc_dota_neutral_giant_wolf','giant_wolf_critical_strike'),
+            new my.BuffOption('npc_dota_neutral_kobold_taskmaster','kobold_taskmaster_speed_aura'),
+            new my.BuffOption('npc_dota_neutral_ogre_magi','ogre_magi_frost_armor'),
+            new my.BuffOption('npc_dota_neutral_satyr_hellcaller','satyr_hellcaller_unholy_aura'),
+            new my.BuffOption('npc_dota_neutral_enraged_wildkin','enraged_wildkin_toughness_aura'),
+            new my.BuffOption('npc_dota_necronomicon_archer_1','necronomicon_archer_aoe')
+        ]);
+        self.availableDebuffs = ko.observableArray([
+            new my.BuffOption('alchemist','alchemist_acid_spray'),
+            new my.BuffOption('ancient_apparition','ancient_apparition_ice_vortex'),
+            new my.BuffOption('axe','axe_battle_hunger'),
+            new my.BuffOption('bane','bane_enfeeble'),
+            new my.BuffOption('batrider','batrider_sticky_napalm'),
+            new my.BuffOption('beastmaster','beastmaster_primal_roar'),
+            new my.BuffOption('bounty_hunter','bounty_hunter_jinada'),
+            new my.BuffOption('brewmaster','brewmaster_thunder_clap'),
+            new my.BuffOption('brewmaster','brewmaster_drunken_haze'),
+            new my.BuffOption('bristleback','bristleback_viscous_nasal_goo'),
+            new my.BuffOption('broodmother','broodmother_incapacitating_bite'),
+            new my.BuffOption('centaur','centaur_stampede'),
+            new my.BuffOption('chen','chen_penitence'),
+            new my.BuffOption('crystal_maiden','crystal_maiden_crystal_nova'),
+            new my.BuffOption('crystal_maiden','crystal_maiden_freezing_field'),
+            new my.BuffOption('dazzle','dazzle_weave'),
+            new my.BuffOption('drow_ranger','drow_ranger_frost_arrows'),
+            new my.BuffOption('earth_spirit','earth_spirit_rolling_boulder'),
+            new my.BuffOption('elder_titan','elder_titan_natural_order'),
+            new my.BuffOption('elder_titan','elder_titan_earth_splitter'),
+            new my.BuffOption('enchantress','enchantress_untouchable'),
+            new my.BuffOption('enchantress','enchantress_enchant'),
+            new my.BuffOption('faceless_void','faceless_void_time_walk'),
+            new my.BuffOption('huskar','huskar_life_break'),
+            new my.BuffOption('invoker','invoker_ghost_walk'),
+            new my.BuffOption('invoker','invoker_ice_wall'),
+            new my.BuffOption('wisp','wisp_tether'),
+            new my.BuffOption('jakiro','jakiro_dual_breath'),
+            new my.BuffOption('jakiro','jakiro_liquid_fire'),
+            new my.BuffOption('keeper_of_the_light','keeper_of_the_light_blinding_light'),
+            new my.BuffOption('kunkka','kunkka_torrent'),
+            new my.BuffOption('lich','lich_frost_nova'),
+            new my.BuffOption('lich','lich_frost_armor'),
+            new my.BuffOption('lich','lich_chain_frost'),
+            new my.BuffOption('life_stealer','life_stealer_open_wounds'),
+            new my.BuffOption('lion','lion_voodoo'),
+            new my.BuffOption('magnataur','magnataur_skewer'),
+            new my.BuffOption('medusa','medusa_stone_gaze'),
+            new my.BuffOption('meepo','meepo_geostrike'),
+            new my.BuffOption('naga_siren','naga_siren_rip_tide'),
+            new my.BuffOption('night_stalker','night_stalker_void'),
+            new my.BuffOption('night_stalker','night_stalker_crippling_fear'),
+            new my.BuffOption('night_stalker','night_stalker_darkness'),
+            new my.BuffOption('ogre_magi','ogre_magi_ignite'),
+            new my.BuffOption('omniknight','omniknight_degen_aura'),
+            new my.BuffOption('phantom_assassin','phantom_assassin_stifling_dagger'),
+            new my.BuffOption('phantom_lancer','phantom_lancer_spirit_lance'),
+            new my.BuffOption('pudge','pudge_rot'),
+            new my.BuffOption('pugna','pugna_decrepify'),
+            new my.BuffOption('queenofpain','queenofpain_shadow_strike'),
+            new my.BuffOption('riki','riki_smoke_screen'),
+            new my.BuffOption('rubick','rubick_fade_bolt'),
+            new my.BuffOption('sand_king','sandking_epicenter'),
+            new my.BuffOption('nevermore','nevermore_dark_lord'),
+            new my.BuffOption('shadow_shaman','shadow_shaman_voodoo'),
+            new my.BuffOption('skeleton_king','skeleton_king_hellfire_blast'),
+            new my.BuffOption('skeleton_king','skeleton_king_reincarnation'),
+            new my.BuffOption('skywrath_mage','skywrath_mage_concussive_shot'),
+            new my.BuffOption('slardar','slardar_slithereen_crush'),
+            new my.BuffOption('slardar','slardar_amplify_damage'),
+            new my.BuffOption('slark','slark_essence_shift'),
+            new my.BuffOption('sniper','sniper_shrapnel'),
+            new my.BuffOption('spectre','spectre_spectral_dagger'),
+            new my.BuffOption('storm_spirit','storm_spirit_overload'),
+            new my.BuffOption('templar_assassin','templar_assassin_meld'),
+            new my.BuffOption('tidehunter','tidehunter_gush'),
+            new my.BuffOption('tinker','tinker_laser'),
+            new my.BuffOption('treant','treant_leech_seed'),
+            new my.BuffOption('tusk','tusk_frozen_sigil'),
+            new my.BuffOption('ursa','ursa_earthshock'),
+            new my.BuffOption('vengefulspirit','vengefulspirit_wave_of_terror'),
+            new my.BuffOption('venomancer','venomancer_venomous_gale'),
+            new my.BuffOption('venomancer','venomancer_poison_sting'),
+            new my.BuffOption('viper','viper_poison_attack'),
+            new my.BuffOption('viper','viper_corrosive_skin'),
+            new my.BuffOption('viper','viper_viper_strike'),
+            new my.BuffOption('visage','visage_grave_chill'),
+            new my.BuffOption('warlock','warlock_upheaval'),
+            new my.BuffOption('weaver','weaver_the_swarm'),
+            new my.BuffOption('windrunner','windrunner_windrun'),
+            new my.BuffOption('npc_dota_neutral_ghost','ghost_frost_attack'),
+            new my.BuffOption('npc_dota_neutral_polar_furbolg_ursa_warrior','polar_furbolg_ursa_warrior_thunder_clap'),
+            new my.BuffOption('npc_dota_neutral_ogre_magi','ogre_magi_frost_armor'),
+            new my.BuffOption('npc_dota_neutral_satyr_trickster','satyr_trickster_purge'),
+            new my.BuffOption('npc_dota_neutral_enraged_wildkin','enraged_wildkin_tornado')
+        ]);
+        self.selectedBuff = ko.observable(self.availableBuffs()[0]);
+        
+        self.buffs = ko.observableArray([]);
+        
+        self.addBuff = function(data, event) {
+            if (_.findWhere(self.buffs(), { name: self.selectedBuff().buffName })  == undefined) {
+                var a = ko.mapping.fromJS(self.selectedBuff().abilityData);
+                a.isActive = ko.observable(false);
+                a.isDetail = ko.observable(false);
+                a.baseDamage = ko.observable(0);
+                a.bash = ko.observable(0);
+                a.bashBonusDamage = ko.observable(0);
+                a.bonusDamage = ko.observable(0);
+                a.bonusDamageOrb = ko.observable(0);
+                a.bonusDamagePct = ko.observable(0);
+                a.bonusDamagePrecisionAura = ko.observable(0);
+                a.bonusDamageReduction = ko.observable(0);
+                a.bonusHealth = ko.observable(0);
+                a.bonusStrength = ko.observable(0);
+                a.bonusStrength2 = ko.observable(0);
+                a.bonusAgility = ko.observable(0);
+                a.bonusAgility2 = ko.observable(0);
+                a.bonusInt = ko.observable(0);
+                a.bonusAllStatsReduction = ko.observable(0);
+                a.evasion = ko.observable(0);
+                a.magicResist = ko.observable(0);
+                a.manaregen = ko.observable(0);
+                a.manaregenreduction = ko.observable(0);
+                a.missChance = ko.observable(0);
+                a.movementSpeedFlat = ko.observable(0);
+                a.movementSpeedPct = ko.observable(0);
+                a.movementSpeedPctReduction = ko.observable(0);
+                a.turnRateReduction = ko.observable(0);
+                a.attackrange = ko.observable(0);
+                a.attackspeed = ko.observable(0);
+                a.attackspeedreduction = ko.observable(0);
+                a.armor = ko.observable(0);
+                a.armorReduction = ko.observable(0);
+                a.healthregen = ko.observable(0);
+                a.lifesteal = ko.observable(0);
+                a.visionnight = ko.observable(0);
+                a.visionday = ko.observable(0);
+                switch (a.name()) {
+                    case 'invoker_cold_snap':
+                    case 'invoker_ghost_walk':
+                    case 'invoker_tornado':
+                    case 'invoker_emp':
+                    case 'invoker_alacrity':
+                    case 'invoker_chaos_meteor':
+                    case 'invoker_sun_strike':
+                    case 'invoker_forge_spirit':
+                    case 'invoker_ice_wall':
+                    case 'invoker_deafening_blast':
+                        a.level(1);
+                    break;
+                }
+                self.abilities.push(a);
+                self.buffs.push({ name: self.selectedBuff().buffName, hero: self.selectedBuff().hero, data: a });
+            }
+        };
+        
+        self.removeBuff = function(data, event, abilityName) {
+            if (_.findWhere(self.buffs(), { name: abilityName })  != undefined) {
+                    self.buffs.remove(_.findWhere(self.buffs(), { name: abilityName }));
+                    if (self.abilityControlData[abilityName] != undefined) {
+                        for (var i=0;i<self.abilityControlData[abilityName].data.length;i++) {
+                            if (self.abilityControlData[abilityName].data[i].controlVal.dispose != undefined) {
+                                self.abilityControlData[abilityName].data[i].controlVal.dispose();
+                                self.abilityControlData[abilityName].data[i].clean.dispose();
+                            }
+                        }
+                        self.abilityControlData[abilityName] = undefined;
+                    }
+                    for (var i=0;i<self.abilities().length;i++) {
+                        if (self.abilities()[i].name() == abilityName) {
+                            self.abilities()[i].level(0);
+                            self.abilities.remove(self.abilities()[i]);
+                            break;
+                        }
+                    }
+            }
+        };
+        self.toggleBuff = function (index, data, event) {
+            if (self.buffs()[index()].data.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') < 0) {
+                if (self.buffs()[index()].data.isActive()) {
+                    self.buffs()[index()].data.isActive(false);
+                    self.abilities()[index()].isActive(false);
+                }
+                else {
+                    self.buffs()[index()].data.isActive(true);
+                    self.abilities()[index()].isActive(true);
+                }
+            }
+        }.bind(this);
+
+        self.toggleBuffDetail = function (index, data, event) {
+            if (self.buffs()[index()].data.isDetail()) {
+                self.buffs()[index()].data.isDetail(false);
+            }
+            else {
+                self.buffs()[index()].data.isDetail(true);
+            }
+        }.bind(this);
+
+        // Overrides the ability module function to remove available skill point check
+        self.levelUpAbility = function(index, data, event, hero) {
+            if (self.abilities()[index()].level() < hero.getAbilityLevelMax(data)) {
+                switch(self.abilities()[index()].abilitytype()) {
+                    case 'DOTA_ABILITY_TYPE_ULTIMATE':
+                        self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                    break;
+                    default:
+                        self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                    break;
+                }
+                switch (self.abilities()[index()].name()) {
+                    case 'beastmaster_call_of_the_wild':
+                    case 'chen_test_of_faith':
+                    case 'morphling_morph_agi':
+                    case 'shadow_demon_shadow_poison':
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                    break;
+                    case 'morphling_morph_str':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                    break;
+                    case 'keeper_of_the_light_spirit_form':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()-2].level(self.abilities()[index()].level());
+                    case 'nevermore_shadowraze1':
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                        self.abilities()[index()+2].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze2':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()+1].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze3':
+                        self.abilities()[index()-1].level(self.abilities()[index()].level());
+                        self.abilities()[index()-2].level(self.abilities()[index()].level());
+                    break;
+                }
+            }
+        };
+        
+        return self;
+    }
+
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+    
+    my.DamageAmpViewModel = function (a) {
+        var self = new my.BuffViewModel(ko.observableArray([]));
+        self.availableBuffs = ko.observableArray([
+            new my.BuffOption('slardar','slardar_sprint'),
+            new my.BuffOption('undying','undying_flesh_golem'),
+            new my.BuffOption('chen','chen_penitence'),
+            new my.BuffOption('medusa','medusa_stone_gaze'),
+            new my.BuffOption('shadow_demon','shadow_demon_soul_catcher')
+        ]);
+        self.availableDebuffs = ko.observableArray([
+            new my.BuffOption('medusa','medusa_mana_shield'),
+            new my.BuffOption('templar_assassin','templar_assassin_refraction'),
+            new my.BuffOption('faceless_void','faceless_void_backtrack'),
+            new my.BuffOption('nyx_assassin','nyx_assassin_spiked_carapace'),
+            new my.BuffOption('spectre','spectre_dispersion'),
+            new my.BuffOption('wisp','wisp_overcharge'),
+            new my.BuffOption('bristleback','bristleback_bristleback'),
+            new my.BuffOption('abaddon','abaddon_borrowed_time'),
+            new my.BuffOption('abaddon','abaddon_aphotic_shield'),
+            new my.BuffOption('kunkka','kunkka_ghostship'),
+            new my.BuffOption('treant','treant_living_armor'),
+            new my.BuffOption('dazzle','dazzle_shallow_grave')
+        ]);
+        self.selectedBuff = ko.observable(self.availableBuffs()[0]);
+        
+        self.buffs = ko.observableArray([]);
+
+        self.getAbilityDamageAmpValue = function(abilityName,attributeName) {
+            var a = _.findWhere(self.buffs(), {name: abilityName});
+            if (a == undefined) {
+                return 0;
+            }
+            else {
+                var ability = a.data;
+                return self.getAbilityAttributeValue(ability.attributes(), attributeName, ability.level());
+            }
+        }
+        
+        self.getDamageMultiplierSources = ko.computed(function() {
+            var sources = {};
+            for (var i=0; i<self.abilities().length;i++) {
+                var ability = self.abilities()[i];
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        switch (ability.name()) {
+                            case 'slardar_sprint':
+                            case 'undying_flesh_golem':
+                            case 'medusa_stone_gaze':
+                            case 'chen_penitence':
+                                sources[ability.name()] = {
+                                    'multiplier': self.getAbilityAttributeValue(ability.attributes(), 'bonus_damage_taken', ability.level())/100,
+                                    'damageType': 'physical',
+                                    'displayname': ability.displayname()
+                                }
+                            break;
+                            case 'shadow_demon_soul_catcher':
+                                sources[ability.name()] = {
+                                    'multiplier': self.getAbilityAttributeValue(ability.attributes(), 'bonus_damage_taken', ability.level())/100,
+                                    'damageType': 'pure',
+                                    'displayname': ability.displayname()
+                                }
+                            break;
+                            case 'medusa_mana_shield':
+                                sources[ability.name()] = {
+                                    'multiplier': -.5,
+                                    'damageType': 'percentreduction',
+                                    'displayname': ability.displayname()
+                                }                            
+                            break;
+                            case 'spectre_dispersion':
+                                sources[ability.name()] = {
+                                    'multiplier': -self.getAbilityAttributeValue(ability.attributes(), 'damage_reflection_pct', ability.level())/100,
+                                    'damageType': 'percentreduction',
+                                    'displayname': ability.displayname()
+                                }                                
+                            break;
+                            case 'abaddon_aphotic_shield':
+                                sources[ability.name()] = {
+                                    'multiplier': self.getAbilityAttributeValue(ability.attributes(), 'damage_absorb', ability.level()),
+                                    'damageType': 'flatreduction',
+                                    'displayname': ability.displayname()
+                                }                                
+                            break;
+                        }
+                    }
+            }
+            return sources;
+        });
+        
+        return self;
+    }
+
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
+    my.HeroOption = function(name, displayname) {
+        this.heroName = name;
+        this.heroDisplayName = displayname;
+    };
+    
+    function createHeroOptions() {
+        var options = [];
+        for (h in my.heroData) {
+            options.push(new my.HeroOption(h.replace('npc_dota_hero_',''),my.heroData[h].displayname))
+        }
+        return options;
+    };
+    
+    my.HeroCalculatorModel = function(h) {
+        var self = this;
+        self.availableHeroes = ko.observableArray(createHeroOptions());
+        self.sectionDisplay = ko.observable({
+            inventory: ko.observable(true),
+            ability: ko.observable(true),
+            buff: ko.observable(true),
+            debuff: ko.observable(true),
+            damageamp: ko.observable(false)
+        });
+        self.sectionDisplayToggle = function(section) {
+            self.sectionDisplay()[section](!self.sectionDisplay()[section]());
+        }
+        self.availableHeroes.sort(function(left, right) {
+            return left.heroDisplayName == right.heroDisplayName ? 0 : (left.heroDisplayName < right.heroDisplayName ? -1 : 1);
+        });
+        self.selectedHero = ko.observable(self.availableHeroes()[h]);
+        self.selectedHeroLevel = ko.observable(1);
+        self.inventory = new my.InventoryViewModel();
+        self.buffs = new my.BuffViewModel();
+        self.buffs.hasScepter = self.inventory.hasScepter;
+        self.debuffs = new my.BuffViewModel();
+        self.damageAmplification = new my.DamageAmpViewModel();
+        self.damageReduction = new my.DamageAmpViewModel();
+        self.hero = ko.computed(function() {
+            return ko.mapping.fromJS(my.heroData['npc_dota_hero_' + self.selectedHero().heroName]);
+        });
+        self.enemy = ko.observable(self);
+        self.unit = ko.observable(self);
+
+        self.getAbilityLevelMax = function(data) {
+            if (data.abilitytype() == 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
+                return 10;
+            }
+            else if (data.name() == 'invoker_quas' || data.name() == 'invoker_wex' || data.name() == 'invoker_exort') {
+                return 7;
+            }
+            else if (data.name() == 'invoker_invoke') {
+                return 4;
+            }
+            else if (data.name() == 'earth_spirit_stone_caller') {
+                return 1;
+            }
+            else if (data.abilitytype() == 'DOTA_ABILITY_TYPE_ULTIMATE' || data.name() == 'keeper_of_the_light_recall' || data.name() == 'keeper_of_the_light_blinding_light' || data.name() == 'ember_spirit_activate_fire_remnant') {
+                return 3;
+            }
+            else if (data.name() == 'puck_ethereal_jaunt'  || data.name() == 'shadow_demon_shadow_poison_release' || data.name() == 'templar_assassin_trap' || data.name() == 'spectre_reality') {
+                return 0;
+            }
+            else if (data.name() == 'invoker_cold_snap'  || data.name() == 'invoker_ghost_walk' || data.name() == 'invoker_tornado' || data.name() == 'invoker_emp' || data.name() == 'invoker_alacrity'
+                || data.name() == 'invoker_chaos_meteor' || data.name() == 'invoker_sun_strike' || data.name() == 'invoker_forge_spirit' || data.name() == 'invoker_ice_wall' || data.name() == 'invoker_deafening_blast') {
+                return 0;
+            }
+            else {
+                return 4;
+            }
+        };
+        
+        self.skillPointHistory = ko.observableArray();
+        
+        self.ability = ko.computed(function() {
+            var a = new my.AbilityModel(ko.mapping.fromJS(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].abilities));
+            if (self.selectedHero().heroName == 'earth_spirit') {
+                a.abilities()[3].level(1);
+            }
+            if (self.selectedHero().heroName == 'invoker') {
+                for (var i=6;i<16;i++) {
+                    a.abilities()[i].level(1);
+                }
+            }
+            self.skillPointHistory.removeAll();
+            a.hasScepter = self.inventory.hasScepter
+            return a;
+        });
+        self.showCriticalStrikeDetails = ko.observable(false);
+        self.toggleCriticalStrikeDetails = function() {
+            self.showCriticalStrikeDetails(!self.showCriticalStrikeDetails());
+        };
+        self.damageInputValue = ko.observable(0);
+        self.showDamageDetails = ko.observable(false);
+        self.toggleDamageDetails = function() {
+            self.showDamageDetails(!self.showDamageDetails());
+        };
+        self.showStatDetails = ko.observable(false);
+        self.toggleStatDetails = function() {
+            self.showStatDetails(!self.showStatDetails());
+        };
+        
+        self.availableSkillPoints = ko.computed(function() {
+            var c = self.selectedHeroLevel();
+            for (var i=0;i < self.ability().abilities().length;i++) {
+                var getIndex = function() {
+                    return i;
+                };
+                switch(self.ability().abilities()[i].abilitytype()) {
+                    case 'DOTA_ABILITY_TYPE_ULTIMATE':
+                        if (self.selectedHero().heroName == 'invoker') {
+                            while (
+                                ((self.ability().abilities()[i].level() == 1) && (parseInt(self.selectedHeroLevel()) < 2)) ||
+                                ((self.ability().abilities()[i].level() == 2) && (parseInt(self.selectedHeroLevel()) < 7)) ||
+                                ((self.ability().abilities()[i].level() == 3) && (parseInt(self.selectedHeroLevel()) < 11)) ||
+                                ((self.ability().abilities()[i].level() == 4) && (parseInt(self.selectedHeroLevel()) < 17))
+                            ) {
+                                self.ability().levelDownAbility(getIndex, null, null, self);
+                            }
+                        }
+                        else if (self.selectedHero().heroName == 'meepo') {
+                            while ((self.ability().abilities()[i].level()-1) * 7 + 3 > parseInt(self.selectedHeroLevel())) {
+                                self.ability().levelDownAbility(getIndex, null, null, self);
+                            }
+                        }
+                        else {
+                            while (self.ability().abilities()[i].level() * 5 + 1 > parseInt(self.selectedHeroLevel())) {
+                                self.ability().levelDownAbility(getIndex, null, null, self);
+                            }
+                        }
+                    break;
+                    default:
+                        while (self.ability().abilities()[i].level() * 2 - 1 > parseInt(self.selectedHeroLevel())) {
+                            self.ability().levelDownAbility(getIndex, null, null, self);
+                        }
+                    break;
+                }
+            }
+            var getIndex = function() {
+                return self.skillPointHistory()[self.skillPointHistory().length-1];
+            };
+            while (self.skillPointHistory().length > c) {
+                self.ability().levelDownAbility(getIndex, null, null, self);
+            }
+            return c-self.skillPointHistory().length;
+        }, this);
+        /*self.availableSkillPoints = ko.computed(function() {
+            var c = self.selectedHeroLevel();
+            for (var i=0;i < self.ability().abilities().length;i++) {
+                switch(self.ability().abilities()[i].abilitytype()) {
+                    case 'DOTA_ABILITY_TYPE_ULTIMATE':
+                        if ((self.ability().abilities()[i].level()+1) * 5 + 1 > parseInt(self.selectedHeroLevel())) {
+                            self.ability().abilities()[i].level(Math.floor((parseInt(self.selectedHeroLevel()) - 1) / 5));
+                        }
+                    break;
+                    default:
+                        if (self.ability().abilities()[i].level() * 2 + 1 > parseInt(self.selectedHeroLevel())) {
+                                self.ability().abilities()[i].level(Math.floor((parseInt(self.selectedHeroLevel()) + 1) / 2));
+                        }
+                    break;
+                }
+                switch(self.ability().abilities()[i].name()) {
+                    case 'beastmaster_call_of_the_wild_boar':
+                    case 'chen_test_of_faith_teleport':
+                    case 'keeper_of_the_light_recall':
+                    case 'keeper_of_the_light_blinding_light':
+                    case 'keeper_of_the_light_illuminate_end':
+                    case 'keeper_of_the_light_spirit_form_illuminate':
+                    case 'morphling_morph_str':
+                    case 'shadow_demon_shadow_poison_release':
+                    case 'nevermore_shadowraze2':
+                    case 'nevermore_shadowraze3':
+                    case 'earth_spirit_stone_caller':
+                    case 'ember_spirit_activate_fire_remnant':
+                    case 'invoker_cold_snap' :
+                    case 'invoker_ghost_walk':
+                    case 'invoker_tornado':
+                    case 'invoker_emp':
+                    case 'invoker_alacrity':
+                    case 'invoker_chaos_meteor':
+                    case 'invoker_sun_strike':
+                    case 'invoker_forge_spirit':
+                    case 'invoker_ice_wall':
+                    case 'invoker_deafening_blast':
+                    break;
+                    default:
+                        c -= self.ability().abilities()[i].level();
+                    break;
+                }
+            }
+            if (c < 0) {
+                for (var i=0;i < self.ability().abilities().length;i++) {
+                    self.ability().abilities()[i].level(0);
+                }
+                c = self.selectedHeroLevel();
+            }
+            return c;
+        }, this);*/
+        self.primaryAttribute = ko.computed(function() {
+            var v = my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributeprimary;
+            if (v == 'DOTA_ATTRIBUTE_AGILITY') {
+                return 'agi'
+            }
+            else if (v == 'DOTA_ATTRIBUTE_INTELLECT') {
+                return 'int'
+            }
+            else if (v == 'DOTA_ATTRIBUTE_STRENGTH') {
+                return 'str'
+            }
+            else {
+                return ''
+            }
+        });
+        self.totalAttribute = function(a) {
+            if (a == 'agi') {
+                return parseFloat(self.totalAgi());
+            }
+            if (a == 'int') {
+                return parseFloat(self.totalInt());
+            }
+            if (a == 'str') {
+                return parseFloat(self.totalStr());
+            }
+        };
+        self.totalAgi = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributebaseagility
+                    + my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributeagilitygain * (self.selectedHeroLevel() - 1) 
+                    + self.inventory.getAttributes('agi') 
+                    + self.ability().getAttributeBonusLevel()*2
+                    + self.ability().getAgility()
+                    + self.enemy().ability().getAllStatsReduction()
+                    + self.debuffs.getAllStatsReduction()
+                   ).toFixed(2);
+        });
+        self.totalInt = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributebaseintelligence 
+                    + my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributeintelligencegain * (self.selectedHeroLevel() - 1) 
+                    + self.inventory.getAttributes('int') 
+                    + self.ability().getAttributeBonusLevel()*2
+                    + self.ability().getIntelligence()
+                    + self.enemy().ability().getAllStatsReduction()
+                    + self.debuffs.getAllStatsReduction()
+                   ).toFixed(2);
+        });
+        self.totalStr = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributebasestrength 
+                    + my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributestrengthgain * (self.selectedHeroLevel() - 1) 
+                    + self.inventory.getAttributes('str') 
+                    + self.ability().getAttributeBonusLevel()*2
+                    + self.ability().getStrength()
+                    + self.enemy().ability().getAllStatsReduction()
+                    + self.debuffs.getAllStatsReduction()
+                   ).toFixed(2);
+        });
+        self.health = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].statushealth + Math.floor(self.totalStr())*19 
+                    + self.inventory.getHealth()
+                    + self.ability().getHealth()).toFixed(2);
+        });
+        self.healthregen = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].statushealthregen + self.totalStr()*.03 
+                    + self.inventory.getHealthRegen() 
+                    + self.ability().getHealthRegen()
+                    + self.buffs.getHealthRegen()).toFixed(2);
+        });
+        self.mana = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].statusmana + self.totalInt()*13 + self.inventory.getMana()).toFixed(2);
+        });
+        self.manaregen = ko.computed(function() {
+            return ((my.heroData['npc_dota_hero_' + self.selectedHero().heroName].statusmanaregen 
+                    + self.totalInt()*.04 
+                    + self.ability().getManaRegen()) 
+                    * (1 + self.inventory.getManaRegenPercent()) 
+                    + (self.selectedHero().heroName == 'crystal_maiden' ? self.ability().getManaRegenArcaneAura() * 2 : self.buffs.getManaRegenArcaneAura())
+                    + self.inventory.getManaRegenBloodstone()
+                    - self.enemy().ability().getManaRegenReduction()).toFixed(2);
+        });
+        self.totalArmorPhysical = ko.computed(function() {
+            return (self.enemy().ability().getArmorBaseReduction() * self.debuffs.getArmorBaseReduction() * (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].armorphysical + self.totalAgi()*.14)
+                    + self.inventory.getArmor() + self.ability().getArmor() + self.enemy().ability().getArmorReduction() + self.buffs.getArmor() + self.debuffs.getArmorReduction()).toFixed(2);
+        });
+        self.totalArmorPhysicalReduction = ko.observable();
+        self.totalMovementSpeed = ko.computed(function() {
+            var ms = (self.ability().setMovementSpeed() > 0 ? self.ability().setMovementSpeed() : self.buffs.setMovementSpeed());
+            if (ms > 0) {
+                return ms;
+            }
+            else {
+                return ((my.heroData['npc_dota_hero_' + self.selectedHero().heroName].movementspeed + self.inventory.getMovementSpeedFlat()+ self.ability().getMovementSpeedFlat()) * 
+                        (1 + self.inventory.getMovementSpeedPercent() 
+                           + self.ability().getMovementSpeedPercent() 
+                           + self.enemy().inventory.getMovementSpeedPercentReduction() 
+                           + self.enemy().ability().getMovementSpeedPercentReduction() 
+                           + self.buffs.getMovementSpeedPercent() 
+                           + self.debuffs.getMovementSpeedPercentReduction()
+                           + self.unit().ability().getMovementSpeedPercent() 
+                        )).toFixed(2);
+            }
+        });
+        self.totalTurnRate = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].movementturnrate 
+                    * (1 + self.enemy().ability().getTurnRateReduction()
+                         + self.debuffs.getTurnRateReduction())).toFixed(2);
+        });
+        self.baseDamage = ko.computed(function() {
+            return [Math.floor(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackdamagemin + self.totalAttribute(self.primaryAttribute()) + self.ability().getBaseDamage().total),
+                    Math.floor(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackdamagemax + self.totalAttribute(self.primaryAttribute()) + self.ability().getBaseDamage().total)];
+        });
+        self.bonusDamage = ko.computed(function() {
+            return self.inventory.getBonusDamage().total
+                    + self.ability().getBonusDamage().total
+                    + self.buffs.getBonusDamage().total
+                    + Math.floor((self.baseDamage()[0] + self.baseDamage()[1])/2 
+                                  * (self.inventory.getBonusDamagePercent().total
+                                     + self.ability().getBonusDamagePercent().total
+                                     + self.buffs.getBonusDamagePercent().total
+                                    )
+                                )
+                    + Math.floor(
+                        (self.hero().attacktype() == 'DOTA_UNIT_CAP_RANGED_ATTACK' 
+                            ? ((self.selectedHero().heroName == 'drow_ranger') ? self.ability().getBonusDamagePrecisionAura().total[0] * self.totalAgi() : self.buffs.getBonusDamagePrecisionAura().total[1])
+                            : 0)
+                      );
+        });
+        self.bonusDamageReduction = ko.computed(function() {
+            return Math.abs(self.enemy().ability().getBonusDamageReduction() + self.debuffs.getBonusDamageReduction());
+        });
+        self.damage = ko.computed(function() {
+            return [self.baseDamage()[0] + self.bonusDamage()[0],
+                    self.baseDamage()[1] + self.bonusDamage()[1]];
+        });
+        self.damageAgainstEnemy = ko.observable();
+        self.totalMagicResistanceProduct = ko.computed(function() {
+            return (1 - my.heroData['npc_dota_hero_' + self.selectedHero().heroName].magicalresistance / 100) 
+                       * (1 - self.inventory.getMagicResist() / 100) 
+                       * (1 - self.ability().getMagicResist() / 100) 
+                       * (1 - self.buffs.getMagicResist() / 100) 
+                       * self.enemy().inventory.getMagicResistReduction()
+                       * self.enemy().ability().getMagicResistReduction() 
+                       * self.debuffs.getMagicResistReduction();
+        });
+        self.totalMagicResistance = ko.computed(function() {
+            return (1 - self.totalMagicResistanceProduct());
+        });
+        self.bat = ko.computed(function() {
+            var abilityBAT = self.ability().getBAT();
+            if (abilityBAT > 0) {
+                return abilityBAT;
+            }
+            return my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackrate;
+        });
+        self.ias = ko.computed(function() {
+            var val = parseFloat(self.totalAgi()) 
+                    + self.inventory.getAttackSpeed() 
+                    + self.ability().getAttackSpeed() 
+                    + self.enemy().ability().getAttackSpeedReduction() 
+                    + self.buffs.getAttackSpeed() 
+                    + self.debuffs.getAttackSpeedReduction()
+                    + self.unit().ability().getAttackSpeed(); 
+            if (val < -80) {
+                return -80;
+            }
+            else if (val > 400) {
+                return 400;
+            }
+            return (val).toFixed(2);
+        });
+        self.attackTime = ko.computed(function() {
+            return (self.bat() / (1 + self.ias() / 100)).toFixed(2);
+        });
+        self.attacksPerSecond = ko.computed(function() {
+            return (1 + self.ias() / 100) / self.bat();
+        });
+        self.evasion = ko.computed(function() {
+            var e = self.ability().setEvasion();
+            if (e) {
+                return (e * 100).toFixed(2) + '%';
+            }
+            else {
+                return ((1-(self.inventory.getEvasion() * self.ability().getEvasion())) * 100).toFixed(2) + '%';
+            }
+        });
+        self.ehpPhysical = ko.computed(function() {
+            var ehp = (self.health() * (1 + .06 * self.totalArmorPhysical())) / (1-(1-(self.inventory.getEvasion() * self.ability().getEvasion())))
+            ehp *= (_.some(self.inventory.activeItems(), function(item) {return item.item == 'mask_of_madness';}) ? (1/1.3) : 1);
+            return ehp.toFixed(2);
+        });
+        self.ehpMagical = ko.computed(function() {
+            return (self.health() / self.totalMagicResistanceProduct()).toFixed(2);
+        });
+        self.bash = ko.computed(function() {
+            var attacktype = my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attacktype;
+            return ((1-(self.inventory.getBash(attacktype) * self.ability().getBash())) * 100).toFixed(2) + '%';
+        });
+
+        self.cleaveInfo = ko.computed(function() {
+            var cleaveSources = self.inventory.getCleaveSource();
+            $.extend(cleaveSources, self.ability().getCleaveSource());
+            $.extend(cleaveSources, self.buffs.getCleaveSource());
+            var cleaveSourcesArray = [];
+            for (prop in cleaveSources) {
+                var el = cleaveSources[prop];
+                el.name = prop
+                cleaveSourcesArray.push(el);
+            }
+            function compareByRadius(a,b) {
+                if (a.radius < b.radius)
+                    return 1;
+                if (a.radius > b.radius)
+                    return -1;
+                return 0;
+            }
+
+            cleaveSourcesArray.sort(compareByRadius);
+            var cleaveSourcesByRadius = {};
+            for (var i=0;i<cleaveSourcesArray.length;i++) {
+                var total = 0;
+                for (var j=0;j<cleaveSourcesArray.length;j++) {
+                    if (cleaveSourcesArray[j].radius >= cleaveSourcesArray[i].radius) {
+                        total += cleaveSourcesArray[j].magnitude * cleaveSourcesArray[j].count;
+                    }
+                }
+                cleaveSourcesByRadius[cleaveSourcesArray[i].radius] = total;
+            }
+            var result = [];
+            for (prop in cleaveSourcesByRadius) {
+                result.push({
+                    'radius':prop,
+                    'magnitude':cleaveSourcesByRadius[prop]
+                });
+            }
+            return result;
+        });
+        
+        self.critChance = ko.computed(function() {
+            return ((1-(self.inventory.getCritChance() * self.ability().getCritChance())) * 100).toFixed(2) + '%';
+        });
+
+        self.critInfo = ko.computed(function() {
+            var critSources = self.inventory.getCritSource();
+            $.extend(critSources, self.ability().getCritSource());
+            $.extend(critSources, self.buffs.getCritSource());
+            var critSourcesArray = [];
+            for (prop in critSources) {
+                var el = critSources[prop];
+                el.name = prop
+                critSourcesArray.push(el);
+            }
+            function compareByMultiplier(a,b) {
+                if (a.multiplier < b.multiplier)
+                    return 1;
+                if (a.multiplier > b.multiplier)
+                    return -1;
+                return 0;
+            }
+
+            critSourcesArray.sort(compareByMultiplier);
+            
+            var result = [];
+            var critTotal = 0;
+            for (var i=0;i<critSourcesArray.length;i++) {
+                var total = 1;
+                for (var j=0;j<i;j++) {
+                    for (var k=0;k<critSourcesArray[j].count;k++) {
+                        total *= (1-critSourcesArray[j].chance);
+                    }
+                }
+                var total2 = 1;
+                for (var k=0;k<critSourcesArray[i].count;k++) {
+                    total2 *= (1-critSourcesArray[i].chance);
+                }
+                total *= (1-total2);
+                critTotal += total;
+                if (critSourcesArray[i].count > 1) {
+                    result.push({
+                        'name':critSourcesArray[i].displayname + ' x' + critSourcesArray[i].count,
+                        'chance':critSourcesArray[i].chance,
+                        'multiplier':critSourcesArray[i].multiplier,
+                        'count':critSourcesArray[i].count,
+                        'totalchance':total
+                    });
+                }
+                else {
+                    result.push({
+                        'name':critSourcesArray[i].displayname,
+                        'chance':critSourcesArray[i].chance,
+                        'multiplier':critSourcesArray[i].multiplier,
+                        'count':critSourcesArray[i].count,
+                        'totalchance':total
+                    });
+                }
+            }
+            return { sources: result, total: critTotal };
+        });
+        
+        self.bashInfo = ko.computed(function() {
+            var attacktype = my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attacktype;
+            var bashSources = self.inventory.getBashSource(attacktype);
+            $.extend(bashSources, self.ability().getBashSource());
+            var bashSourcesArray = [];
+            for (prop in bashSources) {
+                var el = bashSources[prop];
+                el.name = prop
+                bashSourcesArray.push(el);
+            }
+            function compareByDuration(a,b) {
+                if (a.duration < b.duration)
+                    return 1;
+                if (a.duration > b.duration)
+                    return -1;
+                return 0;
+            }
+
+            //bashSourcesArray.sort(compareByDuration);
+            
+            var result = [];
+            var bashTotal = 0;
+            for (var i=0;i<bashSourcesArray.length;i++) {
+                var total = 1;
+                for (var j=0;j<i;j++) {
+                    for (var k=0;k<bashSourcesArray[j].count;k++) {
+                        total *= (1-bashSourcesArray[j].chance);
+                    }
+                }
+                var total2 = 1;
+                for (var k=0;k<bashSourcesArray[i].count;k++) {
+                    total2 *= (1-bashSourcesArray[i].chance);
+                }
+                total *= (1-total2);
+                bashTotal += total;
+                if (bashSourcesArray[i].name == 'spirit_breaker_greater_bash') {
+                    var d = bashSourcesArray[i].damage * self.totalMovementSpeed();
+                }
+                else {
+                    var d = bashSourcesArray[i].damage;
+                }
+                if (bashSourcesArray[i].count > 1) {
+                    result.push({
+                        'name':bashSourcesArray[i].displayname + ' x' + bashSourcesArray[i].count,
+                        'chance':bashSourcesArray[i].chance,
+                        'damage':d,
+                        'count':bashSourcesArray[i].count,
+                        'damageType':bashSourcesArray[i].damageType,
+                        'totalchance':total
+                    });
+                }
+                else {
+                    result.push({
+                        'name':bashSourcesArray[i].displayname,
+                        'chance':bashSourcesArray[i].chance,
+                        'damage':d,
+                        'count':bashSourcesArray[i].count,
+                        'damageType':bashSourcesArray[i].damageType,
+                        'totalchance':total
+                    });
+                }
+
+            }
+            return { sources: result, total: bashTotal };
+        });
+        
+        self.orbProcInfo = ko.computed(function() {
+            var attacktype = my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attacktype;
+            var damageSources = self.inventory.getOrbProcSource();
+            //$.extend(damageSources, self.ability().getProcSource());
+            var damageSourcesArray = [];
+            for (prop in damageSources) {
+                var el = damageSources[prop];
+                el.name = prop
+                damageSourcesArray.push(el);
+            }
+            function compareByDamage(a,b) {
+                if (a.priority > b.priority) {
+                    return 1;
+                }
+                if (a.priority < b.priority) {
+                    return -1;
+                }
+                if (a.damage < b.damage)
+                    return 1;
+                if (a.damage > b.damage)
+                    return -1;
+                return 0;
+            }
+
+            damageSourcesArray.sort(compareByDamage);
+            
+            var result = [];
+            var damageTotal = 0;
+            for (var i=0;i<damageSourcesArray.length;i++) {
+                var total = 1;
+                for (var j=0;j<i;j++) {
+                    for (var k=0;k<damageSourcesArray[j].count;k++) {
+                        total *= (1-damageSourcesArray[j].chance);
+                    }
+                }
+                var total2 = 1;
+                for (var k=0;k<damageSourcesArray[i].count;k++) {
+                    total2 *= (1-damageSourcesArray[i].chance);
+                }
+                total *= (1-total2);
+                damageTotal += total;
+                if (damageSourcesArray[i].count > 1) {
+                    result.push({
+                        'name':damageSourcesArray[i].displayname + ' x' + damageSourcesArray[i].count,
+                        'chance':damageSourcesArray[i].chance,
+                        'damage':damageSourcesArray[i].damage,
+                        'count':damageSourcesArray[i].count,
+                        'damageType':damageSourcesArray[i].damageType,
+                        'totalchance':total
+                    });
+                }
+                else {
+                    result.push({
+                        'name':damageSourcesArray[i].displayname,
+                        'chance':damageSourcesArray[i].chance,
+                        'damage':damageSourcesArray[i].damage,
+                        'count':damageSourcesArray[i].count,
+                        'damageType':damageSourcesArray[i].damageType,
+                        'totalchance':total
+                    });
+                }
+            }
+            return { sources: result, total: damageTotal };
+        });
+
+        self.getReducedDamage = function(value, type) {
+            switch(type) {
+                case 'physical':
+                    if (self.enemy().totalArmorPhysical() >= 0) {
+                        return value * (1 - (0.06 * self.enemy().totalArmorPhysical()) / (1 + 0.06 * self.enemy().totalArmorPhysical()));
+                    }
+                    else {
+                        return value * (1 + (1 - Math.pow(0.94,-self.enemy().totalArmorPhysical())));
+                    }
+                break;
+                case 'magic':
+                    return value * (1 - self.enemy().totalMagicResistance());
+                break;
+                case 'pure':
+                    return value;
+                break;
+            }
+        }
+            
+        self.damageTotalInfo = ko.computed(function() {
+            var bonusDamageArray = [
+                self.ability().getBonusDamage().sources,
+                self.buffs.getBonusDamage().sources
+            ],
+            bonusDamagePctArray = [
+                self.ability().getBonusDamagePercent().sources,
+                self.buffs.getBonusDamagePercent().sources
+            ],
+            itemBonusDamage = self.inventory.getBonusDamage().sources,
+            itemBonusDamagePct = self.inventory.getBonusDamagePercent().sources,
+            critSources = self.critInfo(),
+            abilityOrbSources = self.ability().getOrbSource(),
+            itemOrbSources = self.inventory.getOrbSource(),
+            itemProcOrbSources = self.orbProcInfo(),
+            bashSources = self.bashInfo(),
+            
+            baseDamage = (self.baseDamage()[0] + self.baseDamage()[1])/2,
+            totalDamage = baseDamage,
+            totalCritableDamage = baseDamage,
+            totalCrit = 0,
+            damage = {
+                pure: 0,
+                physical: baseDamage,
+                magic: 0
+            },
+            result = [],
+            crits = [];
+
+            // bonus damage from items
+            for (i in itemBonusDamage) {
+                var d = itemBonusDamage[i].damage*itemBonusDamage[i].count;
+                result.push({
+                    name: itemBonusDamage[i].displayname + (itemBonusDamage[i].count > 1 ? ' x' + itemBonusDamage[i].count : ''),
+                    damage: d,
+                    damageType: itemBonusDamage[i].damageType,
+                    damageReduced: self.getReducedDamage(d, itemBonusDamage[i].damageType)
+                });
+                totalDamage += d;
+                totalCritableDamage += d;
+                damage[itemBonusDamage[i].damageType] += d;
+            }
+
+            // bonus damage percent from items
+            for (i in itemBonusDamagePct) {
+                var d = baseDamage * itemBonusDamagePct[i].damage;
+                result.push({
+                    name: itemBonusDamagePct[i].displayname,
+                    damage: d,
+                    damageType: itemBonusDamagePct[i].damageType,
+                    damageReduced: self.getReducedDamage(d, itemBonusDamagePct[i].damageType)
+                });
+                totalDamage += d;
+                totalCritableDamage += d;
+                damage[itemBonusDamagePct[i].damageType] += d;
+            }
+            
+            // bonus damage from abilities and buffs
+            for (var i=0;i<bonusDamageArray.length;i++) {
+                for (j in bonusDamageArray[i]) {
+                    var d = bonusDamageArray[i][j].damage;
+                    result.push({
+                        name: bonusDamageArray[i][j].displayname,
+                        damage: d,
+                        damageType: bonusDamageArray[i][j].damageType,
+                        damageReduced: self.getReducedDamage(d, bonusDamageArray[i][j].damageType)
+                    });
+                    totalDamage += d;
+                    totalCritableDamage += d;
+                    damage[bonusDamageArray[i][j].damageType] += d;
+                }
+            }
+            
+            // bonus damage percent from abilities and buffs
+            for (var i=0;i<bonusDamagePctArray.length;i++) {
+                for (j in bonusDamagePctArray[i]) {
+                    var d = baseDamage * bonusDamagePctArray[i][j].damage;
+                    result.push({
+                        name: bonusDamagePctArray[i][j].displayname,
+                        damage: d,
+                        damageType: bonusDamagePctArray[i][j].damageType,
+                        damageReduced: self.getReducedDamage(d, bonusDamagePctArray[i][j].damageType)
+                    });
+                    totalDamage += d;
+                    totalCritableDamage += d;
+                    damage[bonusDamagePctArray[i][j].damageType] += d;
+                }
+            }
+            // drow_ranger_trueshot
+            if (self.hero().attacktype() == 'DOTA_UNIT_CAP_RANGED_ATTACK') {
+                if (self.selectedHero().heroName == 'drow_ranger') {
+                    var s = self.ability().getBonusDamagePrecisionAura().sources;
+                    var index = 0;
+                }
+                else {
+                    var s = self.buffs.getBonusDamagePrecisionAura().sources;
+                    var index = 1;
+                }
+                if (s[index] != undefined) {
+                    if (self.selectedHero().heroName == 'drow_ranger') {
+                        var d = s[index].damage * self.totalAgi();
+                    }
+                    else {
+                        var d = s[index].damage;
+                    }
+                    result.push({
+                        name: s[index].displayname,
+                        damage: d,
+                        damageType: 'physical',
+                        damageReduced: self.getReducedDamage(d, 'physical')
+                    });
+                    totalDamage += d;
+                    totalCritableDamage += d;
+                    damage.physical += d;                    
+                }
+        
+            }
+            
+            // bash damage
+            for (var i=0;i<bashSources.sources.length;i++) {
+                var d = bashSources.sources[i].damage * bashSources.sources[i].chance * bashSources.sources[i].count;
+                result.push({
+                    name: bashSources.sources[i].name,
+                    damage: d,
+                    damageType: bashSources.sources[i].damageType,
+                    damageReduced: self.getReducedDamage(d, bashSources.sources[i].damageType)
+                });
+                totalDamage += d;
+                damage[bashSources.sources[i].damageType] += d;
+            }
+            
+            // %-based orbs
+            for (var i=0;i<itemProcOrbSources.sources.length;i++) {
+                var d = itemProcOrbSources.sources[i].damage * (1-Math.pow(1-itemProcOrbSources.sources[i].chance,itemProcOrbSources.sources[i].count));
+                result.push({
+                    name: itemProcOrbSources.sources[i].name,
+                    damage: d,
+                    damageType: itemProcOrbSources.sources[i].damageType,
+                    damageReduced: self.getReducedDamage(d, itemProcOrbSources.sources[i].damageType)
+                });
+                totalDamage += d;
+                damage[itemProcOrbSources.sources[i].damageType] += d;
+            }
+            
+            // ability orbs
+            for (orb in abilityOrbSources) {
+                var d = abilityOrbSources[orb].damage * (1-itemProcOrbSources.total);
+                result.push({
+                    name: abilityOrbSources[orb].displayname,
+                    damage: d,
+                    damageType: abilityOrbSources[orb].damageType,
+                    damageReduced: self.getReducedDamage(d, abilityOrbSources[orb].damageType)
+                });
+                totalDamage += d;
+                damage[abilityOrbSources[orb].damageType] += d;
+            }
+            
+            // item orbs
+            if (_.size(abilityOrbSources) == 0) {
+                for (orb in itemOrbSources) {
+                    var d = itemOrbSources[orb].damage * (1-itemProcOrbSources.total);
+                    result.push({
+                        name: itemOrbSources[orb].displayname,
+                        damage: d,
+                        damageType: itemOrbSources[orb].damageType,
+                        damageReduced: self.getReducedDamage(d, itemOrbSources[orb].damageType)
+                    });
+                    totalDamage += d;
+                    damage[itemOrbSources[orb].damageType] += d;
+                }            
+            }
+            
+            // crit damage
+            for (var i=0;i<critSources.sources.length;i++) {
+                var d = totalCritableDamage * (critSources.sources[i].multiplier-1) * critSources.sources[i].totalchance;
+                crits.push({
+                    name: critSources.sources[i].name,
+                    damage: d,
+                    damageType: 'physical',
+                    damageReduced: self.getReducedDamage(d, 'physical')
+                });
+                totalCrit += d;
+            }
+
+            return { sources: result,
+                     sourcesCrit: crits,
+                     total: totalDamage,
+                     totalCrit: totalCrit,
+                     totalCritReduced: self.getReducedDamage(totalCrit, 'physical'),
+                     totalReduced: self.getReducedDamage(damage.pure, 'pure') 
+                                 + self.getReducedDamage(damage.physical, 'physical')
+                                 + self.getReducedDamage(damage.magic, 'magic')
+                   };
+        });
+        
+        self.getDamageTypeColor = function(damageType) {
+            switch(damageType) {
+                case 'physical':
+                    return '#979aa2';
+                break;
+                case 'pure':
+                    return 'goldenrod';
+                break;
+                case 'magic':
+                    return '#428bca';
+                break;
+                default:
+                    return '#979aa2';
+                break;
+            }
+        }
+        
+        self.critDamage = ko.computed(function() {
+            self.critInfo();
+            return 0 + '%';
+        });
+        self.missChance = ko.computed(function() {
+            return ((1-(self.enemy().ability().getMissChance() * self.debuffs.getMissChance())) * 100).toFixed(2) + '%';
+        });
+        self.totalattackrange = ko.computed(function() {
+            return my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attackrange + self.ability().getAttackRange();
+        });
+        self.visionrangeday = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].visiondaytimerange) * (1 + self.enemy().ability().getVisionRangePctReduction()
+                                                                                                          + self.debuffs.getVisionRangePctReduction());
+        });
+        self.visionrangenight = ko.computed(function() {
+            return (my.heroData['npc_dota_hero_' + self.selectedHero().heroName].visionnighttimerange + self.ability().getVisionRangeNight()) * (1 + self.enemy().ability().getVisionRangePctReduction()
+                                                                                                                                                   + self.debuffs.getVisionRangePctReduction());
+        });
+        self.lifesteal = ko.computed(function() {
+            var total = self.inventory.getLifesteal() + self.ability().getLifesteal() + self.buffs.getLifesteal();
+            if (self.hero().attacktype() == 'DOTA_UNIT_CAP_MELEE_ATTACK') {
+                total+= self.inventory.getLifestealAura();
+            }
+            return (total).toFixed(2) + '%';
+        });
+        
+        self.damageBrackets = [
+            [
+                {name: 'medusa_mana_shield', source: self.damageReduction, value: -.5},
+                {name: 'templar_assassin_refraction', source: self.damageReduction, value: -1},
+                {name: 'faceless_void_backtrack', source: self.damageReduction, value: -1},
+                {name: 'nyx_assassin_spiked_carapace', source: self.damageReduction, value: -1}
+            ],
+            [
+                {
+                    name: 'spectre_dispersion',
+                    source: self.damageReduction,
+                    value: -self.damageReduction.getAbilityDamageAmpValue('spectre_dispersion','damage_reflection_pct')
+                },
+                {
+                    name: 'wisp_overcharge',
+                    source: self.damageReduction,
+                    value: self.damageReduction.getAbilityDamageAmpValue('wisp_overcharge','bonus_damage_pct')
+                },
+                {name: 'slardar_sprint', source: self.damageAmplification, value: .5},
+                {name: 'bristleback_bristleback', source: self.damageReduction, value: -.5},
+                {name: 'undying_flesh_golem', source: self.damageAmplification, value: .5}
+            ],
+            [
+                {name: 'abaddon_borrowed_time', source: self.damageReduction, value: .5},
+                {
+                    name: 'abaddon_aphotic_shield',
+                    source: self.damageReduction,
+                    value: self.damageReduction.getAbilityDamageAmpValue('abaddon_aphotic_shield','damage_absorb'),
+                    type: 'absorb'
+                },
+                {name: 'kunkka_ghostship', source: self.damageReduction, value: .5},
+                {name: 'treant_living_armor', source: self.damageReduction, value: .5}
+            ],
+            [
+                {name: 'chen_penitence', source: self.damageAmplification, value: .5},
+                {name: 'medusa_stone_gaze', source: self.damageAmplification, value: .5},
+                {name: 'shadow_demon_soul_catcher', source: self.damageAmplification, value: .5}
+            ],
+            [
+                {name: 'dazzle_shallow_grave', source: self.damageReduction, value: .5}
+            ]
+        ];
+
+        self.damageBrackets = [
+            ['medusa_mana_shield','templar_assassin_refraction','faceless_void_backtrack','nyx_assassin_spiked_carapace'],
+            ['spectre_dispersion','wisp_overcharge','slardar_sprint','bristleback_bristleback','undying_flesh_golem'],
+            ['abaddon_borrowed_time','abaddon_aphotic_shield','kunkka_ghostship','treant_living_armor'],
+            ['chen_penitence','medusa_stone_gaze','shadow_demon_soul_catcher'],
+            ['dazzle_shallow_grave']
+        ];
+        
+        self.getDamageAfterBracket = function(initialDamage,index) {
+            var bracket = self.damageBrackets[index];
+            var multiplier = 1;
+            for (var i=0;i<bracket.length;i++) {
+                if (_.findWhere(self.damageAmplification.buffs, {name: bracket[i].name}) != undefined || _.findWhere(self.damageReduction.buffs, {name: bracket[i].name}) != undefined) {
+                    multiplier += bracket[i].value;
+                }
+            };
+            return initialDamage * multiplier;
+        };
+        
+        self.getDamageAmpReduc = function(initialDamage, skipBracket4) {
+            var damage = initialDamage;
+            var sources = self.damageAmplification.getDamageMultiplierSources();
+            $.extend(sources, self.damageReduction.getDamageMultiplierSources());
+            var result = [];
+            if (!skipBracket4) {
+                result.push({
+                    label: 'Initial Damage',
+                    damageType: 'physical',
+                    value: damage
+                });
+            }
+            // Bracket 1
+            var multiplier = 1;
+            var label = '';
+            for (var i=0;i<self.damageBrackets[1].length;i++) {
+                if (sources[self.damageBrackets[1][i]] != undefined) {
+                    multiplier += sources[self.damageBrackets[1][i]].multiplier;
+                    label += sources[self.damageBrackets[1][i]].displayname + ', ';
+                }
+                damage *= multiplier;
+                if (label != '') {
+                    result.push({
+                        label: 'After ' + label.substring(0,label.length-2) + ' Reductions',
+                        damageType: sources[self.damageBrackets[1][i]].damageType,
+                        value: damage
+                    });
+                }
+            }
+            
+            // Bracket 2
+            var multiplier = 1;
+            var label = '';
+            for (var i=0;i<self.damageBrackets[1].length;i++) {
+                if (sources[self.damageBrackets[1][i]] != undefined) {
+                    multiplier += sources[self.damageBrackets[1][i]].multiplier;
+                    label += sources[self.damageBrackets[1][i]].displayname + ', ';
+                }
+                damage *= multiplier;
+                if (label != '') {
+                    result.push({
+                        label: 'After ' + label.substring(0,label.length-2) + ' Reductions',
+                        damageType: sources[self.damageBrackets[1][i]].damageType,
+                        value: damage
+                    });
+                }
+            }
+            
+            // Bracket 3
+            var multiplier = 0;
+            var label = '';
+            if (sources['abaddon_aphotic_shield'] != undefined) {
+                multiplier += sources['abaddon_aphotic_shield'].multiplier;
+                label += sources['abaddon_aphotic_shield'].displayname + ', ';
+            }
+            damage -= multiplier;
+            if (label != '') {
+                result.push({
+                    label: 'After ' + label.substring(0,label.length-2) + ' Reductions',
+                    damageType: sources['abaddon_aphotic_shield'].damageType,
+                    value: damage
+                });
+            }
+            
+            // Bracket 4
+            var damageBracket4 = 0;
+            var damageBracket4total = 0;
+            if (!skipBracket4) {
+                damageBracket4 = damage;
+                var multiplier = 0;
+                var label = '';
+                if (sources['shadow_demon_soul_catcher'] != undefined) {
+                    multiplier += sources['shadow_demon_soul_catcher'].multiplier;
+                }
+                damageBracket4 *= multiplier;
+                
+                var resultBracket4 = self.getDamageAmpReduc(damageBracket4, true);
+                if (sources['shadow_demon_soul_catcher'] != undefined) {
+                    result.push({
+                        label: sources['shadow_demon_soul_catcher'].displayname,
+                        damageType: sources['shadow_demon_soul_catcher'].damageType,
+                        value: damageBracket4
+                    });
+                }
+                damageBracket4 = resultBracket4.value;
+                damageBracket4total += resultBracket4.value;
+                if (sources['shadow_demon_soul_catcher'] != undefined) {
+                    for (var i=0;i<resultBracket4.sources.length;i++) {
+                        result.push(resultBracket4.sources[i]);
+                    }
+                }
+                
+                damageBracket4 = damage;
+                var multiplier = 0;
+                var label = '';
+                if (sources['chen_penitence'] != undefined) {
+                    multiplier += sources['chen_penitence'].multiplier;
+                }
+                damageBracket4 *= multiplier;
+                
+                var resultBracket4 = self.getDamageAmpReduc(damageBracket4, true);
+                if (sources['chen_penitence'] != undefined) {
+                    result.push({
+                        label: sources['chen_penitence'].displayname,
+                        damageType: sources['chen_penitence'].damageType,
+                        value: damageBracket4
+                    });
+                }
+                damageBracket4 = resultBracket4.value;
+                damageBracket4total += resultBracket4.value;
+                if (sources['chen_penitence'] != undefined) {
+                    for (var i=0;i<resultBracket4.sources.length;i++) {
+                        result.push(resultBracket4.sources[i]);
+                    }
+                }            
+            }
+            
+            if (!skipBracket4) {
+                result.push({
+                    label: 'Total Damage',
+                    damageType: 'physical',
+                    value: damage + damageBracket4total
+                });
+            }
+            return { value: damage + damageBracket4total, sources: result };
+        };
+        
+        self.damageInputModified = ko.computed(function() {
+            return self.getDamageAmpReduc(self.damageInputValue(), false);
+        });
+    };
+
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
+    my.UnitOption = function (name, displayname, levels, image, level) {
+        this.heroName = ko.computed(function() {
+            return (levels > 0) ? name + (level() <= levels ? level() : 1) : name;
+        });
+        this.heroDisplayName = displayname;
+        this.image = image;
+        this.levels = levels;
+    };
+    
+    my.UnitViewModel = function (h,p) {
+        var self = new my.HeroCalculatorModel(0);
+        self.parent = p;
+        self.selectedUnitLevel = ko.observable(1);
+        self.availableUnits = ko.observableArray([
+            new my.UnitOption('npc_dota_lone_druid_bear', 'Lone Druid Spirit Bear',4,'/media/images/units/spirit_bear.png', self.selectedUnitLevel),
+            new my.UnitOption('npc_dota_brewmaster_earth_','Brewmaster Earth Warrior',3,'/media/images/units/npc_dota_brewmaster_earth.png', self.selectedUnitLevel),
+            new my.UnitOption('npc_dota_brewmaster_fire_','Brewmaster Fire Warrior',3,'/media/images/units/npc_dota_brewmaster_fire.png', self.selectedUnitLevel),
+            new my.UnitOption('npc_dota_brewmaster_storm_','Brewmaster Storm Warrior',3,'/media/images/units/npc_dota_brewmaster_storm.png', self.selectedUnitLevel),
+            new my.UnitOption('npc_dota_necronomicon_archer_','Necronomicon Archer',3,'/media/images/units/npc_dota_necronomicon_archer.png', self.selectedUnitLevel),
+            new my.UnitOption('npc_dota_necronomicon_warrior_','Necronomicon Warrior',3,'/media/images/units/npc_dota_necronomicon_warrior.png', self.selectedUnitLevel),
+            new my.UnitOption('npc_dota_lycan_wolf','Lycan Wolf',4,'/media/images/units/npc_dota_lycan_wolf.png', self.selectedUnitLevel),
+        ]);
+        self.selectedUnit = ko.observable(self.availableUnits()[h]);
+        self.selectedUnit.subscribe(function(newValue) {
+            if (newValue.heroName().indexOf('npc_dota_lone_druid_bear') != -1) {
+                self.inventory.hasInventory(true);
+                self.inventory.items.removeAll();
+                self.inventory.activeItems.removeAll();
+            }
+            else {
+                self.inventory.hasInventory(false);
+                self.inventory.items.removeAll();
+                self.inventory.activeItems.removeAll();
+            }
+        });
+        self.hero = ko.computed(function() {
+            return ko.mapping.fromJS(my.unitData[self.selectedUnit().heroName()]);
+        });
+        self.getAbilityLevelMax = function(data) {
+            if (data.abilitytype() == 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
+                return 10;
+            }
+            else if (data.name() == 'necronomicon_archer_mana_burn' || data.name() == 'necronomicon_archer_aoe'
+                || data.name() == 'necronomicon_warrior_mana_burn' || data.name() == 'necronomicon_warrior_last_will') {
+                return 3;
+            }
+            else if (data.name() == 'necronomicon_warrior_sight') {
+                return 1;
+            }
+            else {
+                return 4;
+            }
+        };
+        self.ability = ko.computed(function() {
+            var a = new my.AbilityModel(ko.mapping.fromJS(my.unitData[self.selectedUnit().heroName()].abilities));
+            a.hasScepter = self.inventory.hasScepter
+            switch (self.selectedUnit().heroName()) {
+                case 'npc_dota_necronomicon_archer_1':
+                case 'npc_dota_necronomicon_warrior_1':
+                    a.abilities()[0].level(1);
+                    a.abilities()[1].level(1);
+                break;
+                case 'npc_dota_necronomicon_archer_2':
+                case 'npc_dota_necronomicon_warrior_2':
+                    a.abilities()[0].level(2);
+                    a.abilities()[1].level(2);
+                break;
+                case 'npc_dota_necronomicon_archer_3':
+                    a.abilities()[0].level(3);
+                    a.abilities()[1].level(3);
+                break;
+                case 'npc_dota_necronomicon_warrior_3':
+                    a.abilities()[0].level(3);
+                    a.abilities()[1].level(3);
+                    a.abilities()[2].level(1);
+                break;
+            }
+            a.levelUpAbility = function(index, data, event, hero) {
+                switch (a.abilities()[index()].name()) {
+                    case 'necronomicon_archer_mana_burn':
+                    case 'necronomicon_archer_aoe':
+                    case 'necronomicon_warrior_mana_burn':
+                    case 'necronomicon_warrior_last_will':
+                    case 'necronomicon_warrior_sight':
+                    break;
+                    default:
+                        if (a.abilities()[index()].level() < hero.getAbilityLevelMax(data)) {
+                            a.abilities()[index()].level(a.abilities()[index()].level()+1);
+                        }                    
+                    break;
+                }
+
+            };
+            a.levelDownAbility = function(index, data, event, hero) {            
+                switch (a.abilities()[index()].name()) {
+                    case 'necronomicon_archer_mana_burn':
+                    case 'necronomicon_archer_aoe':
+                    case 'necronomicon_warrior_mana_burn':
+                    case 'necronomicon_warrior_last_will':
+                    case 'necronomicon_warrior_sight':
+                    break;
+                    default:
+                        if (a.abilities()[index()].level()>0) {
+                            a.abilities()[index()].level(a.abilities()[index()].level()-1);
+                        }
+                    break;
+                }
+            };
+            return a;
+        });        
+        self.primaryAttribute = ko.computed(function() {
+            //var v = my.unitData[self.selectedUnit().heroName()].attributeprimary;
+            var v = 0;
+            if (v == 'DOTA_ATTRIBUTE_AGILITY') {
+                return 'agi'
+            }
+            else if (v == 'DOTA_ATTRIBUTE_INTELLECT') {
+                return 'int'
+            }
+            else if (v == 'DOTA_ATTRIBUTE_STRENGTH') {
+                return 'str'
+            }
+            else {
+                return ''
+            }
+        });
+        self.totalAttribute = function(a) {
+            if (a == 'agi') {
+                return parseFloat(self.totalAgi());
+            }
+            if (a == 'int') {
+                return parseFloat(self.totalInt());
+            }
+            if (a == 'str') {
+                return parseFloat(self.totalStr());
+            }
+            return 0;
+        };
+        self.totalAgi = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].attributebaseagility
+                    + my.unitData[self.selectedUnit().heroName()].attributeagilitygain * (self.selectedHeroLevel() - 1) 
+                    //+ self.inventory.getAttributes('agi') 
+                    + self.ability().getAttributeBonusLevel()*2
+                    + self.ability().getAgility()
+                    + self.enemy().ability().getAllStatsReduction()
+                    + self.debuffs.getAllStatsReduction()
+                   ).toFixed(2);
+        });
+        self.totalInt = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].attributebaseintelligence 
+                    + my.unitData[self.selectedUnit().heroName()].attributeintelligencegain * (self.selectedHeroLevel() - 1) 
+                    //+ self.inventory.getAttributes('int') 
+                    + self.ability().getAttributeBonusLevel()*2
+                    + self.ability().getIntelligence()
+                    + self.enemy().ability().getAllStatsReduction()
+                    + self.debuffs.getAllStatsReduction()
+                   ).toFixed(2);
+        });
+        self.totalStr = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].attributebasestrength 
+                    + my.unitData[self.selectedUnit().heroName()].attributestrengthgain * (self.selectedHeroLevel() - 1) 
+                    //+ self.inventory.getAttributes('str') 
+                    + self.ability().getAttributeBonusLevel()*2
+                    + self.ability().getStrength()
+                    + self.enemy().ability().getAllStatsReduction()
+                    + self.debuffs.getAllStatsReduction()
+                   ).toFixed(2);
+        });
+        self.health = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].statushealth + self.totalStr()*19 
+                    + self.inventory.getHealth()
+                    + self.ability().getHealth()).toFixed(2);
+        });
+        self.healthregen = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].statushealthregen + self.totalStr()*.03 
+                    + self.inventory.getHealthRegen() 
+                    + self.ability().getHealthRegen()
+                    + self.buffs.getHealthRegen()).toFixed(2);
+        });
+        self.mana = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].statusmana + self.totalInt()*13 + self.inventory.getMana()).toFixed(2);
+        });
+        self.manaregen = ko.computed(function() {
+            return ((my.unitData[self.selectedUnit().heroName()].statusmanaregen 
+                    + self.totalInt()*.04 
+                    + self.ability().getManaRegen()) 
+                    * (1 + self.inventory.getManaRegenPercent()) 
+                    + (self.selectedHero().heroName == 'crystal_maiden' ? self.ability().getManaRegenArcaneAura() * 2 : self.buffs.getManaRegenArcaneAura())
+                    + self.inventory.getManaRegenBloodstone()
+                    - self.enemy().ability().getManaRegenReduction()).toFixed(2);
+        });
+        self.totalArmorPhysical = ko.computed(function() {
+            return (self.enemy().ability().getArmorBaseReduction() * self.debuffs.getArmorBaseReduction() * (my.unitData[self.selectedUnit().heroName()].armorphysical + self.totalAgi()*.14)
+                    + self.inventory.getArmor() + self.ability().getArmor() + self.enemy().ability().getArmorReduction() + self.buffs.getArmor() + self.debuffs.getArmorReduction()).toFixed(2);
+        });
+        self.totalArmorPhysicalReduction = ko.observable();
+        self.totalMovementSpeed = ko.computed(function() {
+            if (self.parent.ability().isShapeShiftActive()) {
+                return 522;
+            }
+            var ms = (self.ability().setMovementSpeed() > 0 ? self.ability().setMovementSpeed() : self.buffs.setMovementSpeed());
+            if (ms > 0) {
+                return ms;
+            }
+            else {
+                return ((my.unitData[self.selectedUnit().heroName()].movementspeed + self.inventory.getMovementSpeedFlat()+ self.ability().getMovementSpeedFlat()) * 
+                        (1 + self.inventory.getMovementSpeedPercent() 
+                           + self.ability().getMovementSpeedPercent() 
+                           + self.enemy().inventory.getMovementSpeedPercentReduction() 
+                           + self.enemy().ability().getMovementSpeedPercentReduction() 
+                           + self.buffs.getMovementSpeedPercent() 
+                           + self.debuffs.getMovementSpeedPercentReduction()
+                        )).toFixed(2);
+            }
+        });
+        self.totalTurnRate = ko.computed(function() {
+            return (my.unitData[self.selectedUnit().heroName()].movementturnrate 
+                    * (1 + self.enemy().ability().getTurnRateReduction()
+                         + self.debuffs.getTurnRateReduction())).toFixed(2);
+        });
+        self.baseDamage = ko.computed(function() {
+            return [Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemin + self.totalAttribute(self.primaryAttribute()) + self.ability().getBaseDamage().total),
+                    Math.floor(my.unitData[self.selectedUnit().heroName()].attackdamagemax + self.totalAttribute(self.primaryAttribute()) + self.ability().getBaseDamage().total)];
+        });
+        self.bonusDamage = ko.computed(function() {
+            return self.inventory.getBonusDamage().total
+                    + self.ability().getBonusDamage().total
+                    + self.buffs.getBonusDamage().total
+                    + Math.floor((self.baseDamage()[0] + self.baseDamage()[1])/2 
+                                  * (self.inventory.getBonusDamagePercent().total
+                                     + self.ability().getBonusDamagePercent().total
+                                     + self.buffs.getBonusDamagePercent().total
+                                    )
+                                )
+                    + Math.floor(
+                        (self.hero().attacktype() == 'DOTA_UNIT_CAP_RANGED_ATTACK' 
+                            ? ((self.selectedHero().heroName == 'drow_ranger') ? self.ability().getBonusDamagePrecisionAura().total[0] * self.totalAgi() : self.buffs.getBonusDamagePrecisionAura().total[1])
+                            : 0)
+                      );
+        });
+        self.bonusDamageReduction = ko.computed(function() {
+            return Math.abs(self.enemy().ability().getBonusDamageReduction() + self.debuffs.getBonusDamageReduction());
+        });
+        self.damage = ko.computed(function() {
+            return [self.baseDamage()[0] + self.bonusDamage()[0],
+                    self.baseDamage()[1] + self.bonusDamage()[1]];
+        });
+        self.damageAgainstEnemy = ko.observable();
+        self.totalMagicResistanceProduct = ko.computed(function() {
+            return (1 - my.unitData[self.selectedUnit().heroName()].magicalresistance / 100) 
+                       * (1 - self.inventory.getMagicResist() / 100) 
+                       * (1 - self.ability().getMagicResist() / 100) 
+                       * (1 - self.buffs.getMagicResist() / 100) 
+                       * self.enemy().inventory.getMagicResistReduction()
+                       * self.enemy().ability().getMagicResistReduction() 
+                       * self.debuffs.getMagicResistReduction();
+        });
+        self.totalMagicResistance = ko.computed(function() {
+            return (1 - self.totalMagicResistanceProduct());
+        });
+        self.bat = ko.computed(function() {
+            var abilityBAT = self.ability().getBAT();
+            if (abilityBAT > 0) {
+                return abilityBAT;
+            }
+            return my.unitData[self.selectedUnit().heroName()].attackrate;
+        });
+        self.ias = ko.computed(function() {
+            var val = parseFloat(self.totalAgi()) 
+                    + self.inventory.getAttackSpeed() 
+                    + self.ability().getAttackSpeed() 
+                    + self.enemy().ability().getAttackSpeedReduction() 
+                    + self.buffs.getAttackSpeed() 
+                    + self.debuffs.getAttackSpeedReduction();
+            if (val < -80) {
+                return -80;
+            }
+            else if (val > 400) {
+                return 400;
+            }
+            return (val).toFixed(2);
+        });
+        self.attackTime = ko.computed(function() {
+            return (self.bat() / (1 + self.ias() / 100)).toFixed(2);
+        });
+        self.attacksPerSecond = ko.computed(function() {
+            return (1 + self.ias() / 100) / self.bat();
+        });
+        self.evasion = ko.computed(function() {
+            var e = self.ability().setEvasion();
+            if (e) {
+                return (e * 100).toFixed(2) + '%';
+            }
+            else {
+                return ((1-(self.inventory.getEvasion() * self.ability().getEvasion())) * 100).toFixed(2) + '%';
+            }
+        });
+        self.ehpPhysical = ko.computed(function() {
+            return ((self.health() * (1 + .06 * self.totalArmorPhysical())) / (1-(1-(self.inventory.getEvasion() * self.ability().getEvasion())))).toFixed(2);
+        });
+        self.ehpMagical = ko.computed(function() {
+            return (self.health() / self.totalMagicResistanceProduct()).toFixed(2);
+        });
+        
+        return self;
+    }
+
+    return my;
+}(HEROCALCULATOR));

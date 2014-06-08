@@ -98,7 +98,12 @@ $(function () {
             },
             plotOptions: {
                 series: {
-                    color: '#7D26CD'
+                    color: '#7D26CD',
+                    cropThreshold: 2000,
+                    pointPadding: 0,
+                    groupPadding: 0,
+                    borderWidth: 0, 
+                    shadow: false
                 }
             },
             series: [{

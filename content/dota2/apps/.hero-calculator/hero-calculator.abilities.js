@@ -1903,13 +1903,34 @@ var HEROCALCULATOR = (function (my) {
 			if (self.abilities()[index()].level() < hero.getAbilityLevelMax(data) && hero.availableSkillPoints() > 0 ) {
 				switch(self.abilities()[index()].abilitytype()) {
 					case 'DOTA_ABILITY_TYPE_ULTIMATE':
-						if ((self.abilities()[index()].level()+1) * 5 + 1 <= parseInt(hero.selectedHeroLevel())) {
-							self.abilities()[index()].level(self.abilities()[index()].level()+1);
-						}
+                        if (hero.selectedHero().heroName == 'invoker') {
+                            if (
+                                (self.abilities()[index()].level() == 0) && (parseInt(hero.selectedHeroLevel()) >= 2) ||
+                                (self.abilities()[index()].level() == 1) && (parseInt(hero.selectedHeroLevel()) >= 7) ||
+                                (self.abilities()[index()].level() == 2) && (parseInt(hero.selectedHeroLevel()) >= 11) ||
+                                (self.abilities()[index()].level() == 3) && (parseInt(hero.selectedHeroLevel()) >= 17)
+                            ) {
+                                self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                                hero.skillPointHistory.push(index());
+                            }
+                        }
+                        else if (hero.selectedHero().heroName == 'meepo') {
+                            if (self.abilities()[index()].level() * 7 + 3 <= parseInt(hero.selectedHeroLevel())) {
+                                self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                                hero.skillPointHistory.push(index());
+                            }
+                        }
+                        else {
+                            if ((self.abilities()[index()].level()+1) * 5 + 1 <= parseInt(hero.selectedHeroLevel())) {
+                                self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                                hero.skillPointHistory.push(index());
+                            }
+                        }
 					break;
 					default:
 						if (self.abilities()[index()].level() * 2 + 1 <= parseInt(hero.selectedHeroLevel())) {
 							self.abilities()[index()].level(self.abilities()[index()].level()+1);
+                            hero.skillPointHistory.push(index());
 						}
 					break;
 				}
@@ -1947,6 +1968,7 @@ var HEROCALCULATOR = (function (my) {
 		self.levelDownAbility = function(index, data, event, hero) {
 			if (self.abilities()[index()].level()>0) {
 				self.abilities()[index()].level(self.abilities()[index()].level()-1);
+                hero.skillPointHistory.splice(hero.skillPointHistory().lastIndexOf(index()), 1);
 				switch (self.abilities()[index()].name()) {
 					case 'beastmaster_call_of_the_wild':
 					case 'chen_test_of_faith':

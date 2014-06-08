@@ -286,6 +286,9 @@ var HEROCALCULATOR = (function (my) {
 		$.getJSON(HERODATA_PATH, function (data) {
 			my.heroData = data;
 			my.heroData['npc_dota_hero_chen'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+			my.heroData['npc_dota_hero_nevermore'].abilities[1].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+			my.heroData['npc_dota_hero_nevermore'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+			my.heroData['npc_dota_hero_morphling'].abilities[3].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
 			$.getJSON(ITEMDATA_PATH, function (data) {
 				my.itemData = data;
 				$.getJSON(UNITDATA_PATH, function (data) {

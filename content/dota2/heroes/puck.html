@@ -125,25 +125,28 @@ herodata:
     !!python/unicode 'abilitytype': !!python/unicode 'DOTA_ABILITY_TYPE_ULTIMATE'
     !!python/unicode 'abilityunitdamagetype': !!python/unicode 'DAMAGE_TYPE_MAGICAL'
     !!python/unicode 'attributes':
-    - !!python/unicode 'name': !!python/unicode 'coil_stun_duration'
-      !!python/unicode 'tooltip': !!python/unicode 'BREAK STUN:'
-      !!python/unicode 'value': [1.5, 2.25, 3]
-    - !!python/unicode 'name': !!python/unicode 'coil_radius'
-      !!python/unicode 'value': [375, 375, 375]
-    - !!python/unicode 'name': !!python/unicode 'stun_duration'
-      !!python/unicode 'value': [0.5, 0.5, 0.5]
-    - !!python/unicode 'name': !!python/unicode 'coil_break_damage'
-      !!python/unicode 'tooltip': !!python/unicode 'BREAK DAMAGE:'
+    - !!python/unicode 'name': !!python/unicode 'coil_init_damage_tooltip'
+      !!python/unicode 'tooltip': !!python/unicode 'INITIAL DAMAGE:'
       !!python/unicode 'value': [100, 150, 200]
-    - !!python/unicode 'name': !!python/unicode 'coil_duration_scepter'
-      !!python/unicode 'tooltip': !!python/unicode 'SCEPTER COIL DURATION:'
-      !!python/unicode 'value': [8, 8, 8]
     - !!python/unicode 'name': !!python/unicode 'coil_break_radius'
       !!python/unicode 'tooltip': !!python/unicode 'BREAK RADIUS:'
       !!python/unicode 'value': [600, 600, 600]
     - !!python/unicode 'name': !!python/unicode 'coil_duration'
       !!python/unicode 'tooltip': !!python/unicode 'COIL DURATION:'
       !!python/unicode 'value': [6, 6, 6]
+    - !!python/unicode 'name': !!python/unicode 'coil_break_damage'
+      !!python/unicode 'tooltip': !!python/unicode 'BREAK DAMAGE:'
+      !!python/unicode 'value': [100, 150, 200]
+    - !!python/unicode 'name': !!python/unicode 'coil_radius'
+      !!python/unicode 'value': [375, 375, 375]
+    - !!python/unicode 'name': !!python/unicode 'stun_duration'
+      !!python/unicode 'value': [0.5, 0.5, 0.5]
+    - !!python/unicode 'name': !!python/unicode 'coil_stun_duration'
+      !!python/unicode 'tooltip': !!python/unicode 'BREAK STUN:'
+      !!python/unicode 'value': [1.5, 2.25, 3]
+    - !!python/unicode 'name': !!python/unicode 'coil_duration_scepter'
+      !!python/unicode 'tooltip': !!python/unicode 'SCEPTER COIL DURATION:'
+      !!python/unicode 'value': [8, 8, 8]
     - !!python/unicode 'name': !!python/unicode 'coil_break_damage_scepter'
       !!python/unicode 'tooltip': !!python/unicode 'SCEPTER BREAK DAMAGE:'
       !!python/unicode 'value': [200, 250, 300]
@@ -152,8 +155,8 @@ herodata:
     !!python/unicode 'damage': [0, 0, 0, 0]
     !!python/unicode 'description': !!python/unicode 'Creates a coil of volatile magic
       that latches onto enemy Heroes, stunning them for .5 seconds and damaging them.  If
-      the enemy hero stretches the coil by moving too far away, it snaps, deals damage
-      again and stuns.\n\nUpgradable by Aghanim''s Scepter.'
+      the enemy hero stretches the coil by moving too far away, it snaps, stunning
+      and dealing additional damage.\n\nUpgradable by Aghanim''s Scepter.'
     !!python/unicode 'displayname': !!python/unicode 'Dream Coil'
     !!python/unicode 'level': 0
     !!python/unicode 'lore': !!python/unicode 'The Faerie Dragon sows confusion by

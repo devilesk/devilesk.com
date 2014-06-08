@@ -1673,9 +1673,9 @@
       "name": "movement_speed_pct", 
       "tooltip": "%SLOW:", 
       "value": [
-       -18, 
-       -22, 
-       -26, 
+       -15, 
+       -20, 
+       -25, 
        -30
       ]
      }, 
@@ -3524,7 +3524,7 @@
      0, 
      0
     ], 
-    "description": "Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to 10 stacks.", 
+    "description": "Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to 10 stacks.  The extra damage is halved against creeps.", 
     "displayname": "Sticky Napalm", 
     "level": 0, 
     "lore": "It's not uncommon to hear the Rider cackle while he increases the flammability of his opponents.", 
@@ -3750,7 +3750,7 @@
      0, 
      0
     ], 
-    "description": "Batrider takes to the skies, laying down a flaming trail from the air.  While flying, the trail of fire destroys trees and damages enemies in its path, and Batrider gains the movement capabilities of a flying unit.", 
+    "description": "Batrider takes to the skies, laying down a flaming trail from the air.  While flying, the trail of fire destroys trees and damages enemies in its path, and Batrider gains unobstructed movement and vision.", 
     "displayname": "Firefly", 
     "level": 0, 
     "lore": "When an enemy escapes into the Yama Raskav Jungle, most would cut through the brush to find the fugitive.  Batrider just chooses to destroy the jungle along with his foes.", 
@@ -4740,7 +4740,7 @@
     "AbilityModifierSupportValue": 0, 
     "ID": 5018, 
     "abilitytype": "DOTA_ABILITY_TYPE_ULTIMATE", 
-    "abilityunitdamagetype": "DAMAGE_TYPE_HP_REMOVAL", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_PURE", 
     "attributes": [
      {
       "name": "movement_damage_pct", 
@@ -5114,10 +5114,10 @@
       "name": "duration", 
       "tooltip": "DURATION:", 
       "value": [
-       15, 
        20, 
        25, 
-       30
+       30, 
+       35
       ]
      }
     ], 
@@ -5385,7 +5385,7 @@
     "attributes": [
      {
       "name": "duration", 
-      "tooltip": "DURATION:", 
+      "tooltip": "HERO DURATION:", 
       "value": [
        4.25, 
        4.25, 
@@ -5395,6 +5395,7 @@
      }, 
      {
       "name": "duration_creeps", 
+      "tooltip": "CREEP DURATION:", 
       "value": [
        8, 
        8, 
@@ -5502,7 +5503,7 @@
     "attributes": [
      {
       "name": "duration", 
-      "tooltip": "DURATION:", 
+      "tooltip": "HERO DURATION:", 
       "value": [
        8, 
        8, 
@@ -5512,6 +5513,7 @@
      }, 
      {
       "name": "duration_creeps", 
+      "tooltip": "CREEP DURATION:", 
       "value": [
        12, 
        12, 
@@ -11012,10 +11014,7 @@
     "level": 0, 
     "lore": "Lucifer's appetite and greed are never sated.", 
     "manacost": [
-     60, 
-     50, 
-     40, 
-     30
+     60
     ], 
     "name": "doom_bringer_devour"
    }, 
@@ -12096,7 +12095,16 @@
       "name": "knockback_duration", 
       "tooltip": "KNOCKBACK DURATION:", 
       "value": [
-       0.5
+       0.6, 
+       0.7, 
+       0.8, 
+       0.9
+      ]
+     }, 
+     {
+      "name": "knockback_height", 
+      "value": [
+       0
       ]
      }, 
      {
@@ -13112,9 +13120,6 @@
     "level": 0, 
     "lore": "Raigor's gorilla strength can destroy mountains.", 
     "manacost": [
-     50, 
-     50, 
-     50, 
      50
     ], 
     "name": "earthshaker_enchant_totem"
@@ -13221,20 +13226,20 @@
      {
       "name": "echo_slam_echo_search_range", 
       "value": [
-       550
+       575
       ]
      }, 
      {
       "name": "echo_slam_echo_range", 
       "value": [
-       500
+       575
       ]
      }, 
      {
       "name": "echo_slam_damage_range", 
       "tooltip": "RADIUS:", 
       "value": [
-       525
+       575
       ]
      }, 
      {
@@ -13354,7 +13359,7 @@
   "level": 0, 
   "magicalresistance": 25, 
   "movementspeed": 310, 
-  "movementturnrate": 0.6, 
+  "movementturnrate": 0.9, 
   "name": "npc_dota_hero_earthshaker", 
   "projectilespeed": 0, 
   "statushealth": 150, 
@@ -13425,9 +13430,9 @@
       "tooltip": "STOMP DAMAGE:", 
       "value": [
        80, 
-       85, 
        90, 
-       95
+       100, 
+       110
       ]
      }, 
      {
@@ -14559,7 +14564,7 @@
      0, 
      0
     ], 
-    "description": "Enchantress beguiles her enemies, slowing their attacks when she is attacked.  Lasts 3 seconds.", 
+    "description": "Enchantress beguiles her enemies, slowing their attacks when she is attacked.  Lasts 4 seconds.", 
     "displayname": "Untouchable", 
     "level": 0, 
     "lore": "After attacking Aiushtha, most opponents are overwhelmed with guilt having attacked such a natural beauty.", 
@@ -15171,10 +15176,7 @@
       "name": "duration", 
       "tooltip": "DURATION:", 
       "value": [
-       8, 
-       8, 
-       8, 
-       8
+       11
       ]
      }, 
      {
@@ -17704,42 +17706,10 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
-      "name": "initial_freeze_damage", 
-      "tooltip": "INITIAL DAMAGE:", 
-      "value": [
-       60
-      ]
-     }, 
-     {
       "name": "freeze_duration", 
       "tooltip": "FREEZE DURATION:", 
       "value": [
        0.4
-      ]
-     }, 
-     {
-      "name": "duration", 
-      "tooltip": "DURATION:", 
-      "value": [
-       3, 
-       3.5, 
-       4, 
-       4.5, 
-       5, 
-       5.5, 
-       6
-      ]
-     }, 
-     {
-      "name": "levelkey", 
-      "value": [
-       "quaslevel"
-      ]
-     }, 
-     {
-      "name": "damage_trigger", 
-      "value": [
-       10
       ]
      }, 
      {
@@ -17762,10 +17732,47 @@
       ]
      }, 
      {
-      "name": "freeze_damage", 
-      "tooltip": "BONUS DAMAGE:", 
+      "name": "duration", 
+      "tooltip": "DURATION:", 
       "value": [
-       30
+       3, 
+       3.5, 
+       4, 
+       4.5, 
+       5, 
+       5.5, 
+       6
+      ]
+     }, 
+     {
+      "name": "levelkey", 
+      "value": [
+       "quaslevel"
+      ]
+     }, 
+     {
+      "name": "freeze_damage", 
+      "tooltip": "FREEZE DAMAGE:", 
+      "value": [
+       7, 
+       14, 
+       21, 
+       28, 
+       35, 
+       42, 
+       49
+      ]
+     }, 
+     {
+      "name": "levelkey", 
+      "value": [
+       "quaslevel"
+      ]
+     }, 
+     {
+      "name": "damage_trigger", 
+      "value": [
+       10
       ]
      }
     ], 
@@ -19747,8 +19754,8 @@
      {
       "name": "omni_slash_damage", 
       "value": [
-       175, 
-       250
+       200, 
+       225
       ]
      }, 
      {
@@ -19789,7 +19796,7 @@
      0, 
      0
     ], 
-    "description": "Juggernaut leaps towards the target enemy unit with a damaging attack, and then slashes other nearby enemy units, dealing between 175-250 damage per slash.  Juggernaut is invulnerable for the duration.\\n\\nUpgradable by Aghanim's Scepter.", 
+    "description": "Juggernaut leaps towards the target enemy unit with a damaging attack, and then slashes other nearby enemy units, dealing between 200-225 damage per slash.  Juggernaut is invulnerable for the duration.\\n\\nUpgradable by Aghanim's Scepter.", 
     "displayname": "Omnislash", 
     "level": 0, 
     "lore": "'The fruits of discipline; with practice comes strength.'", 
@@ -19867,7 +19874,7 @@
   "attackdamagemin": 24, 
   "attackpoint": 0.33, 
   "attackrange": 128, 
-  "attackrate": 1.5, 
+  "attackrate": 1.4, 
   "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK", 
   "attributeagilitygain": 2.85, 
   "attributebaseagility": 20, 
@@ -20027,7 +20034,7 @@
      0, 
      0
     ], 
-    "description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies for 75%% of its damage values.", 
+    "description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies for 75%% of its damage values during daytime.", 
     "displayname": "Illuminate", 
     "level": 0, 
     "lore": "Ezalor's hidden light reveals itself in marvelous fashion.", 
@@ -20624,7 +20631,7 @@
      0, 
      0
     ], 
-    "description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage dealt.", 
+    "description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies for 75%% of its damage values during daytime.", 
     "displayname": "Illuminate", 
     "level": 0, 
     "lore": "Ezalor's hidden light reveals itself in marvelous fashion.", 
@@ -22032,9 +22039,9 @@
       "name": "damage", 
       "tooltip": "DAMAGE:", 
       "value": [
-       66, 
-       100, 
-       144
+       80, 
+       120, 
+       160
       ]
      }, 
      {
@@ -22051,8 +22058,8 @@
       "tooltip": "SCEPTER DAMAGE:", 
       "value": [
        100, 
-       150, 
-       200
+       160, 
+       220
       ]
      }
     ], 
@@ -23221,9 +23228,9 @@
     ], 
     "AbilityDuration": [
      1.6, 
-     1.6, 
-     1.6, 
-     1.6
+     1.7, 
+     1.8, 
+     1.9
     ], 
     "AbilityModifierSupportBonus": 0, 
     "AbilityModifierSupportValue": 1, 
@@ -23242,7 +23249,10 @@
       "name": "light_strike_array_stun_duration", 
       "tooltip": "STUN DURATION:", 
       "value": [
-       1.6
+       1.6, 
+       1.7, 
+       1.8, 
+       1.9
       ]
      }, 
      {
@@ -25170,7 +25180,7 @@
      0, 
      0
     ], 
-    "AbilityDuration": 12, 
+    "AbilityDuration": 10, 
     "AbilityModifierSupportBonus": 5, 
     "AbilityModifierSupportValue": 1, 
     "ID": 5396, 
@@ -25180,9 +25190,9 @@
       "name": "hero_bonus_damage", 
       "tooltip": "HERO BONUS DAMAGE:", 
       "value": [
-       20, 
-       30, 
-       40, 
+       14, 
+       26, 
+       38, 
        50
       ]
      }, 
@@ -25200,7 +25210,7 @@
       "name": "howl_duration", 
       "tooltip": "DURATION:", 
       "value": [
-       12
+       10
       ]
      }
     ], 
@@ -27015,7 +27025,7 @@
       "name": "arrow_bonus_damage", 
       "tooltip": "MAXIMUM BONUS DAMAGE:", 
       "value": [
-       100
+       140
       ]
      }, 
      {
@@ -27028,7 +27038,7 @@
       "name": "arrow_min_stun", 
       "tooltip": "MINIMUM STUN:", 
       "value": [
-       0.5
+       0.01
       ]
      }, 
      {
@@ -27047,10 +27057,10 @@
      17
     ], 
     "damage": [
-     90, 
-     180, 
-     270, 
-     360
+     50, 
+     140, 
+     230, 
+     320
     ], 
     "description": "Fires an arrow with deadly precision, stunning and dealing damage to the first enemy unit it strikes. Stun duration increases based on distance to target, ranging from %arrow_min_stun% to %arrow_max_stun% seconds. Bonus damage up to 100 will be added based on the distance the arrow travelled to the target.", 
     "displayname": "Sacred Arrow", 
@@ -28726,6 +28736,12 @@
       "name": "respawn", 
       "value": [
        0.3
+      ]
+     }, 
+     {
+      "name": "respawn_constant", 
+      "value": [
+       0
       ]
      }, 
      {
@@ -31123,9 +31139,9 @@
       "name": "fireblast_mana_cost", 
       "tooltip": "FIREBLAST MANA INCREASE:", 
       "value": [
-       30, 
-       70, 
-       110
+       20, 
+       40, 
+       60
       ]
      }, 
      {
@@ -31471,10 +31487,10 @@
       "name": "attack_bonus_tooltip", 
       "tooltip": "ATTACK SLOW:", 
       "value": [
-       -7, 
-       -14, 
-       -21, 
-       -28
+       -10, 
+       -18, 
+       -26, 
+       -34
       ]
      }, 
      {
@@ -31488,10 +31504,10 @@
       "name": "speed_bonus", 
       "tooltip": "%MOVEMENT SLOW:", 
       "value": [
-       -7, 
-       -14, 
-       -21, 
-       -28
+       -10, 
+       -18, 
+       -26, 
+       -34
       ]
      }
     ], 
@@ -31712,7 +31728,7 @@
     "AbilityCastPoint": 0.3, 
     "AbilityCastRange": 650, 
     "AbilityCastRangeBuffer": 250, 
-    "AbilityChannelTime": 3, 
+    "AbilityChannelTime": 2.5, 
     "AbilityDuration": [
      0, 
      0, 
@@ -31745,7 +31761,7 @@
        75, 
        150, 
        225, 
-       305
+       300
       ]
      }, 
      {
@@ -31765,7 +31781,7 @@
       "name": "maximum_purge_duration", 
       "tooltip": "MAX PURGE DURATION:", 
       "value": [
-       3
+       2.5
       ]
      }
     ], 
@@ -31834,7 +31850,7 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     14
+     12
     ], 
     "damage": [
      0, 
@@ -32051,11 +32067,11 @@
   "attackrange": 620, 
   "attackrate": 1.4, 
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK", 
-  "attributeagilitygain": 2.9, 
-  "attributebaseagility": 23, 
-  "attributebaseintelligence": 15, 
+  "attributeagilitygain": 1.7, 
+  "attributebaseagility": 15, 
+  "attributebaseintelligence": 23, 
   "attributebasestrength": 18, 
-  "attributeintelligencegain": 1.7, 
+  "attributeintelligencegain": 2.9, 
   "attributeprimary": "DOTA_ATTRIBUTE_INTELLECT", 
   "attributestrengthgain": 1.9, 
   "displayname": "Oracle", 
@@ -32205,10 +32221,7 @@
       "name": "bonus_attack_speed", 
       "tooltip": "BONUS ATTACK SPEED:", 
       "value": [
-       100, 
-       100, 
-       100, 
-       100
+       130
       ]
      }
     ], 
@@ -34204,12 +34217,39 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
-      "name": "coil_stun_duration", 
-      "tooltip": "BREAK STUN:", 
+      "name": "coil_init_damage_tooltip", 
+      "tooltip": "INITIAL DAMAGE:", 
       "value": [
-       1.5, 
-       2.25, 
-       3
+       100, 
+       150, 
+       200
+      ]
+     }, 
+     {
+      "name": "coil_break_radius", 
+      "tooltip": "BREAK RADIUS:", 
+      "value": [
+       600, 
+       600, 
+       600
+      ]
+     }, 
+     {
+      "name": "coil_duration", 
+      "tooltip": "COIL DURATION:", 
+      "value": [
+       6, 
+       6, 
+       6
+      ]
+     }, 
+     {
+      "name": "coil_break_damage", 
+      "tooltip": "BREAK DAMAGE:", 
+      "value": [
+       100, 
+       150, 
+       200
       ]
      }, 
      {
@@ -34229,12 +34269,12 @@
       ]
      }, 
      {
-      "name": "coil_break_damage", 
-      "tooltip": "BREAK DAMAGE:", 
+      "name": "coil_stun_duration", 
+      "tooltip": "BREAK STUN:", 
       "value": [
-       100, 
-       150, 
-       200
+       1.5, 
+       2.25, 
+       3
       ]
      }, 
      {
@@ -34244,24 +34284,6 @@
        8, 
        8, 
        8
-      ]
-     }, 
-     {
-      "name": "coil_break_radius", 
-      "tooltip": "BREAK RADIUS:", 
-      "value": [
-       600, 
-       600, 
-       600
-      ]
-     }, 
-     {
-      "name": "coil_duration", 
-      "tooltip": "COIL DURATION:", 
-      "value": [
-       6, 
-       6, 
-       6
       ]
      }, 
      {
@@ -34289,7 +34311,7 @@
      0, 
      0
     ], 
-    "description": "Creates a coil of volatile magic that latches onto enemy Heroes, stunning them for .5 seconds and damaging them.  If the enemy hero stretches the coil by moving too far away, it snaps, deals damage again and stuns.\\n\\nUpgradable by Aghanim's Scepter.", 
+    "description": "Creates a coil of volatile magic that latches onto enemy Heroes, stunning them for .5 seconds and damaging them.  If the enemy hero stretches the coil by moving too far away, it snaps, stunning and dealing additional damage.\\n\\nUpgradable by Aghanim's Scepter.", 
     "displayname": "Dream Coil", 
     "level": 0, 
     "lore": "The Faerie Dragon sows confusion by forcing its enemies to vividly dream about their own mortality.", 
@@ -35271,7 +35293,12 @@
      0.452, 
      0.452
     ], 
-    "AbilityCastRange": 435, 
+    "AbilityCastRange": [
+     450, 
+     475, 
+     500, 
+     525
+    ], 
     "AbilityCastRangeBuffer": 250, 
     "AbilityChannelTime": [
      0, 
@@ -35331,7 +35358,10 @@
       "name": "cast_range_tooltip", 
       "tooltip": "CAST RANGE:", 
       "value": [
-       435
+       450, 
+       475, 
+       500, 
+       525
       ]
      }
     ], 
@@ -36739,12 +36769,7 @@
      0, 
      0
     ], 
-    "AbilityDuration": [
-     6, 
-     6, 
-     6, 
-     6
-    ], 
+    "AbilityDuration": 6, 
     "AbilityModifierSupportBonus": 0, 
     "AbilityModifierSupportValue": 1, 
     "ID": 5142, 
@@ -36797,10 +36822,7 @@
      "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     ], 
     "cooldown": [
-     13, 
-     13, 
-     13, 
-     13
+     11
     ], 
     "damage": [
      0, 
@@ -40569,7 +40591,7 @@
      0, 
      0
     ], 
-    "description": "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.  Upon death, enemy units in the area will be slowed by 75%%.", 
+    "description": "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.  Upon death, enemy units in a %slow_radius% radius will be slowed.", 
     "displayname": "Reincarnation", 
     "level": 0, 
     "lore": "Conspirators against the Wraith King wonder why he never stays dead.", 
@@ -40920,10 +40942,10 @@
       "name": "resist_debuff", 
       "tooltip": "%MAGIC RESISTANCE REDUCTION:", 
       "value": [
-       -18, 
-       -24, 
        -30, 
-       -36
+       -35, 
+       -40, 
+       -45
       ]
      }
     ], 
@@ -41348,10 +41370,10 @@
       "name": "bonus_damage", 
       "tooltip": "BONUS DAMAGE:", 
       "value": [
-       40, 
        60, 
        80, 
-       100
+       100, 
+       120
       ]
      }, 
      {
@@ -44441,7 +44463,7 @@
      0, 
      0
     ], 
-    "description": "Templar Assassin becomes highly elusive, avoiding damage while gaining a bonus to her damage.  These effects are separate, and have a limited number of instances", 
+    "description": "Templar Assassin becomes highly elusive, avoiding damage and gaining a bonus to her damage.  The damage and avoidance effects are separate, and have a limited number of instances.", 
     "displayname": "Refraction", 
     "level": 0, 
     "lore": "Manipulating her psionic veil, Lanaya bends nature's law to her will.", 
@@ -46788,9 +46810,9 @@
       "name": "leech_damage", 
       "tooltip": "DAMAGE PER PULSE:", 
       "value": [
-       24, 
-       36, 
-       48, 
+       15, 
+       30, 
+       45, 
        60
       ]
      }, 
@@ -47897,7 +47919,10 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     21
+     21, 
+     20, 
+     19, 
+     18
     ], 
     "damage": [
      0, 
@@ -48084,9 +48109,9 @@
      "DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     ], 
     "cooldown": [
-     30, 
-     24, 
-     18
+     25, 
+     20, 
+     15
     ], 
     "damage": [
      0, 
@@ -48743,7 +48768,7 @@
   "attributebaseagility": 10, 
   "attributebaseintelligence": 27, 
   "attributebasestrength": 22, 
-  "attributeintelligencegain": 2, 
+  "attributeintelligencegain": 2.5, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 2.1, 
   "bio": "How long has it been since he lost his name? The torn ruin of his mind no longer knows.\r\nDimly he recalls armor and banners and grim-faced kin riding at his side. He remembers a battle: pain and fear as pale hands ripped him from his saddle. He remembers terror as they threw him into the yawning pit of the Dead God alongside his brothers, to hear the Dirge and be consumed into nothingness. In the darkness below, time left them. Thought left them. Sanity left them. Hunger, however, did not. They turned on each other with split fingernails and shattered teeth. Then it came: distant at first, a fragile note at the edge of perception, joined by another, then another, inescapable and unending. The chorus grew into a living wall of sound pulsing in his mind until no other thought survived. With the Dirge consuming him, he opened his arms to the Dead God and welcomed his obliteration. Yet destruction was not what he'd been chosen for. The Dead God demanded war. In the belly of the great nothing, he was granted a new purpose: to spread the Dirge across the land, to rally the sleepless dead against the living. He was to become the Undying, the herald of the Dead God, to rise and fall and rise again whenever his body failed him. To trudge on through death unending, that the Dirge might never end.", 
@@ -52371,7 +52396,9 @@
     "level": 0, 
     "lore": "Lyralei's ability to bombard opponents with a flurry of arrows is unparalleled - even at the expense of accuracy.", 
     "manacost": [
-     150
+     75, 
+     100, 
+     125
     ], 
     "name": "windrunner_focusfire"
    }, 
@@ -53913,16 +53940,13 @@
       "name": "sight_duration", 
       "tooltip": "SIGHT DURATION:", 
       "value": [
-       3, 
-       3, 
-       3, 
-       3
+       4.5
       ]
      }, 
      {
       "name": "spread_aoe", 
       "value": [
-       250
+       325
       ]
      }
     ], 
@@ -53942,7 +53966,7 @@
      275, 
      350
     ], 
-    "description": "Calls down a bolt of lightning to strike an enemy unit, causing damage and a mini-stun. When cast, Lightning Bolt briefly provides unobstructed vision and True Sight around the target in a 750 radius. Can be cast on the ground, affecting the closest enemy hero in 250 range.", 
+    "description": "Calls down a bolt of lightning to strike an enemy unit, causing damage and a mini-stun. When cast, Lightning Bolt briefly provides unobstructed vision and True Sight around the target in a 750 radius. Can be cast on the ground, affecting the closest enemy hero in %spread_aoe% range.", 
     "displayname": "Lightning Bolt", 
     "level": 0, 
     "lore": "A shocking punishment for rebellious heathen.", 

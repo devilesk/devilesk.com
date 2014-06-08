@@ -2587,7 +2587,7 @@
   "cooldown": [
    30
   ], 
-  "description": "Active: Ghost Form - Enter ghost form and become unable to attack or be attacked, but take %extra_spell_damage_percent%%% extra magic damage. Using a Teleport Scroll dispels Ghost Form.", 
+  "description": "Active: Ghost Form - Enter ghost form and become unable to attack or be attacked, but take 40%% extra magic damage. Using a Teleport Scroll dispels Ghost Form.", 
   "displayname": "Ghost Scepter", 
   "id": 37, 
   "itemcost": 1600, 
@@ -3731,7 +3731,7 @@
   "id": 172, 
   "itemcost": 1900, 
   "level": 0, 
-  "lore": "Once this mask is worn, it's bearer becomes an uncontrollable aggressive force.", 
+  "lore": "Once this mask is worn, its bearer becomes an uncontrollable aggressive force.", 
   "manacost": [
    25
   ], 
@@ -3921,7 +3921,7 @@
     "name": "static_duration", 
     "tooltip": "STATIC DURATION:", 
     "value": [
-     20
+     15
     ]
    }, 
    {
@@ -4014,7 +4014,7 @@
   "description": "Active: Static Charge - Places a charged shield on a target unit which has a %static_chance%%% chance to release a shocking bolt at a nearby attacker and %static_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits %chain_strikes% targets, dealing damage.\\n\\nMjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
   "displayname": "Mjollnir", 
   "id": 158, 
-  "itemcost": 5300, 
+  "itemcost": 5600, 
   "level": 0, 
   "lore": "Thor\u2019s magical hammer, made for him by the dwarves Brok and Eitri.", 
   "manacost": [
@@ -6162,7 +6162,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 157, 
-  "itemcost": 600, 
+  "itemcost": 900, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 

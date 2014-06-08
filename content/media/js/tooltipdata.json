@@ -175,7 +175,7 @@
   "Lore": ""
  }, 
  "batrider_firefly": {
-  "Description": "Batrider takes to the skies, laying down a flaming trail from the air.  While flying, the trail of fire destroys trees and damages enemies in its path, and Batrider gains the movement capabilities of a flying unit.", 
+  "Description": "Batrider takes to the skies, laying down a flaming trail from the air.  While flying, the trail of fire destroys trees and damages enemies in its path, and Batrider gains unobstructed movement and vision.", 
   "DisplayName": "Firefly", 
   "Lore": "When an enemy escapes into the Yama Raskav Jungle, most would cut through the brush to find the fugitive.  Batrider just chooses to destroy the jungle along with his foes."
  }, 
@@ -190,7 +190,7 @@
   "Lore": "Few dare to ask to ride on the bat, as Batrider gives them free of charge."
  }, 
  "batrider_sticky_napalm": {
-  "Description": "Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to 10 stacks.", 
+  "Description": "Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to 10 stacks.  The extra damage is halved against creeps.", 
   "DisplayName": "Sticky Napalm", 
   "Lore": "It's not uncommon to hear the Rider cackle while he increases the flammability of his opponents."
  }, 
@@ -822,7 +822,7 @@
   "Lore": "Whimsical spirits of the woods possess a healing power that is quite subtle, but gains strength in numbers."
  }, 
  "enchantress_untouchable": {
-  "Description": "Enchantress beguiles her enemies, slowing their attacks when she is attacked.  Lasts 3 seconds.", 
+  "Description": "Enchantress beguiles her enemies, slowing their attacks when she is attacked.  Lasts 4 seconds.", 
   "DisplayName": "Untouchable", 
   "Lore": "After attacking Aiushtha, most opponents are overwhelmed with guilt having attacked such a natural beauty."
  }, 
@@ -916,7 +916,7 @@
   "Lore": "Nature's Prophet calls Verodicia's fury to strike down those who might ravage the wilderness."
  }, 
  "ghost_frost_attack": {
-  "Description": "The Ghost launches an eerie attack that chills his enemies to their bones.", 
+  "Description": "The Ghost launches an eerie attack that chills her enemies to their bones.", 
   "DisplayName": "Frost Attack"
  }, 
  "giant_wolf_critical_strike": {
@@ -1437,7 +1437,7 @@
   "DisplayName": "Gem of True Sight"
  }, 
  "item_ghost": {
-  "Description": "Active: Ghost Form - Enter ghost form and become unable to attack or be attacked, but take %extra_spell_damage_percent%%% extra magic damage. Using a Teleport Scroll dispels Ghost Form.", 
+  "Description": "Active: Ghost Form - Enter ghost form and become unable to attack or be attacked, but take 40%% extra magic damage. Using a Teleport Scroll dispels Ghost Form.", 
   "DisplayName": "Ghost Scepter", 
   "Lore": "Imbues the wielder with a ghostly presence, allowing them to evade physical damage."
  }, 
@@ -1548,7 +1548,7 @@
  "item_mask_of_madness": {
   "Description": "Active: Berserk - Gives %berserk_bonus_attack_speed% attack speed and %berserk_bonus_movement_speed%%% movement speed but causes you to take extra %berserk_extra_damage%%% damage.  Lasts 12 seconds.\\nPassive: Lifesteal - Grants lifesteal on attacks.\\n\\nMask of Madness is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "DisplayName": "Mask of Madness", 
-  "Lore": "Once this mask is worn, it's bearer becomes an uncontrollable aggressive force."
+  "Lore": "Once this mask is worn, its bearer becomes an uncontrollable aggressive force."
  }, 
  "item_medallion_of_courage": {
   "Description": "Active: Valor - Reduces the armor of you and your target. Lasts 7 seconds.", 
@@ -1953,7 +1953,7 @@
   "Lore": "Of the rituals learned at the Isle of Masks, tending wounds with a bit of voodoo magic has proven to be quite useful."
  }, 
  "juggernaut_omni_slash": {
-  "Description": "Juggernaut leaps towards the target enemy unit with a damaging attack, and then slashes other nearby enemy units, dealing between 175-250 damage per slash.  Juggernaut is invulnerable for the duration.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Juggernaut leaps towards the target enemy unit with a damaging attack, and then slashes other nearby enemy units, dealing between 200-225 damage per slash.  Juggernaut is invulnerable for the duration.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Omnislash", 
   "Lore": "'The fruits of discipline; with practice comes strength.'"
  }, 
@@ -1976,7 +1976,7 @@
   "DisplayName": "Empty"
  }, 
  "keeper_of_the_light_illuminate": {
-  "Description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies for 75%% of its damage values.", 
+  "Description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies for 75%% of its damage values during daytime.", 
   "DisplayName": "Illuminate", 
   "Lore": "Ezalor's hidden light reveals itself in marvelous fashion."
  }, 
@@ -2000,7 +2000,7 @@
   "Lore": "In a flash of light, Ezalor reveals his true nature."
  }, 
  "keeper_of_the_light_spirit_form_illuminate": {
-  "Description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage dealt.", 
+  "Description": "Channels a ball of light energy, building power the longer it's channeled.  Once released, the ball deals damage and gives vision in a line.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies for 75%% of its damage values during daytime.", 
   "DisplayName": "Illuminate", 
   "Lore": "Ezalor's hidden light reveals itself in marvelous fashion."
  }, 
@@ -3763,7 +3763,7 @@
   "DisplayName": "Thunder Clap"
  }, 
  "puck_dream_coil": {
-  "Description": "Creates a coil of volatile magic that latches onto enemy Heroes, stunning them for .5 seconds and damaging them.  If the enemy hero stretches the coil by moving too far away, it snaps, deals damage again and stuns.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Creates a coil of volatile magic that latches onto enemy Heroes, stunning them for .5 seconds and damaging them.  If the enemy hero stretches the coil by moving too far away, it snaps, stunning and dealing additional damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Dream Coil", 
   "Lore": "The Faerie Dragon sows confusion by forcing its enemies to vividly dream about their own mortality."
  }, 
@@ -4102,7 +4102,7 @@
   "Lore": "One blow to crush a foe."
  }, 
  "skeleton_king_reincarnation": {
-  "Description": "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.  Upon death, enemy units in the area will be slowed by 75%%.", 
+  "Description": "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.  Upon death, enemy units in a %slow_radius% radius will be slowed.", 
   "DisplayName": "Reincarnation", 
   "Lore": "Conspirators against the Wraith King wonder why he never stays dead."
  }, 
@@ -4292,7 +4292,7 @@
   "Lore": "Calling upon the reach of the Hidden Temple, none escape the eye of the Templar."
  }, 
  "templar_assassin_refraction": {
-  "Description": "Templar Assassin becomes highly elusive, avoiding damage while gaining a bonus to her damage.  These effects are separate, and have a limited number of instances", 
+  "Description": "Templar Assassin becomes highly elusive, avoiding damage and gaining a bonus to her damage.  The damage and avoidance effects are separate, and have a limited number of instances.", 
   "DisplayName": "Refraction", 
   "Lore": "Manipulating her psionic veil, Lanaya bends nature's law to her will."
  }, 
@@ -4711,7 +4711,7 @@
   "Lore": "Arc Lightning is Zeus' favorite spell to use against puny mortals."
  }, 
  "zuus_lightning_bolt": {
-  "Description": "Calls down a bolt of lightning to strike an enemy unit, causing damage and a mini-stun. When cast, Lightning Bolt briefly provides unobstructed vision and True Sight around the target in a 750 radius. Can be cast on the ground, affecting the closest enemy hero in 250 range.", 
+  "Description": "Calls down a bolt of lightning to strike an enemy unit, causing damage and a mini-stun. When cast, Lightning Bolt briefly provides unobstructed vision and True Sight around the target in a 750 radius. Can be cast on the ground, affecting the closest enemy hero in %spread_aoe% range.", 
   "DisplayName": "Lightning Bolt", 
   "Lore": "A shocking punishment for rebellious heathen."
  }, 

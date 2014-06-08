@@ -70,7 +70,9 @@ var HEROCALCULATOR = (function (my) {
 				return 4;
 			}
 		};
-
+        
+        self.skillPointHistory = ko.observableArray();
+        
 		self.ability = ko.computed(function() {
 			var a = new my.AbilityModel(ko.mapping.fromJS(my.heroData['npc_dota_hero_' + self.selectedHero().heroName].abilities));
 			if (self.selectedHero().heroName == 'earth_spirit') {
@@ -81,6 +83,7 @@ var HEROCALCULATOR = (function (my) {
 					a.abilities()[i].level(1);
 				}
 			}
+            self.skillPointHistory.removeAll();
 			a.hasScepter = self.inventory.hasScepter
 			return a;
 		});
@@ -97,7 +100,47 @@ var HEROCALCULATOR = (function (my) {
 		self.toggleStatDetails = function() {
 			self.showStatDetails(!self.showStatDetails());
 		};
+        
 		self.availableSkillPoints = ko.computed(function() {
+            var c = self.selectedHeroLevel();
+			for (var i=0;i < self.ability().abilities().length;i++) {
+				switch(self.ability().abilities()[i].abilitytype()) {
+					case 'DOTA_ABILITY_TYPE_ULTIMATE':
+                        if (self.selectedHero().heroName == 'invoker') {
+                            while (
+                                ((self.ability().abilities()[i].level() == 1) && (parseInt(self.selectedHeroLevel()) < 2)) ||
+                                ((self.ability().abilities()[i].level() == 2) && (parseInt(self.selectedHeroLevel()) < 7)) ||
+                                ((self.ability().abilities()[i].level() == 3) && (parseInt(self.selectedHeroLevel()) < 11)) ||
+                                ((self.ability().abilities()[i].level() == 4) && (parseInt(self.selectedHeroLevel()) < 17))
+                            ) {
+                                self.ability().levelDownAbility(function() { return i }, null, null, self);
+                            }
+                        }
+                        else if (self.selectedHero().heroName == 'meepo') {
+                            while ((self.ability().abilities()[i].level()-1) * 7 + 3 > parseInt(self.selectedHeroLevel())) {
+                                self.ability().levelDownAbility(function() { return i }, null, null, self);
+                            }
+                        }
+                        else {
+                            while (self.ability().abilities()[i].level() * 5 + 1 > parseInt(self.selectedHeroLevel())) {
+                                self.ability().levelDownAbility(function() { return i }, null, null, self);
+                            }
+                        }
+					break;
+					default:
+						while (self.ability().abilities()[i].level() * 2 - 1 > parseInt(self.selectedHeroLevel())) {
+                            self.ability().levelDownAbility(function() { return i }, null, null, self);
+						}
+					break;
+				}
+            }
+            while (self.skillPointHistory().length > c) {
+                var index = self.skillPointHistory()[self.skillPointHistory().length-1];
+                self.ability().levelDownAbility(function() { return index }, null, null, self);
+            }
+			return c-self.skillPointHistory().length;
+		}, this);
+		/*self.availableSkillPoints = ko.computed(function() {
 			var c = self.selectedHeroLevel();
 			for (var i=0;i < self.ability().abilities().length;i++) {
 				switch(self.ability().abilities()[i].abilitytype()) {
@@ -112,14 +155,13 @@ var HEROCALCULATOR = (function (my) {
 						}
 					break;
 				}
-				/*if (self.ability().abilities()[i].level() > (parseInt(self.selectedHeroLevel()) + 1) / 2 ) {
-					self.ability().abilities()[i].level((parseInt(self.selectedHeroLevel()) + 1) / 2)
-				}*/
 				switch(self.ability().abilities()[i].name()) {
 					case 'beastmaster_call_of_the_wild_boar':
 					case 'chen_test_of_faith_teleport':
 					case 'keeper_of_the_light_recall':
 					case 'keeper_of_the_light_blinding_light':
+					case 'keeper_of_the_light_illuminate_end':
+					case 'keeper_of_the_light_spirit_form_illuminate':
 					case 'morphling_morph_str':
 					case 'shadow_demon_shadow_poison_release':
 					case 'nevermore_shadowraze2':
@@ -149,7 +191,7 @@ var HEROCALCULATOR = (function (my) {
 				c = self.selectedHeroLevel();
 			}
 			return c;
-		}, this);
+		}, this);*/
 		self.primaryattribute = ko.computed(function() {
 			var v = my.heroData['npc_dota_hero_' + self.selectedHero().heroName].attributeprimary;
 			if (v == 'DOTA_ATTRIBUTE_AGILITY') {

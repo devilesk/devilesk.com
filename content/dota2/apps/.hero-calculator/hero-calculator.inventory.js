@@ -655,7 +655,8 @@ var HEROCALCULATOR = (function (my) {
 									hasBoots = true;
 								}
 							}
-							else if (!hasEuls && item == 'cyclone') {
+							//else if (!hasEuls && item == 'cyclone') {
+							else if (item == 'cyclone') {
 								total_attribute += parseInt(attribute.value[0]);
 								hasEuls = true;
 							}
