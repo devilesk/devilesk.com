@@ -40,6 +40,31 @@ def main():
         ROOT = '/srv/www/devilesk.com'
     else:
         ROOT = '/srv/www/dev.devilesk.com'
+        print 'Development index.html to production'
+        with open(ROOT + '/dota2/apps/hero-calculator/index.html','r') as f:
+            data = f.read()
+            dev_header = '<link rel="stylesheet" type="text/css" href="hero-calculator.app.css" />' \
+            '<link rel="stylesheet" type="text/css" href="hero-calculator.items.css" />' \
+            '<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom.css" />'
+            header = '    <link rel="stylesheet" type="text/css" href="hero-calculator.min.css" />'
+            data = data.replace(dev_header, header)
+            dev_footer = '<script src="jquery-ui-1.10.3.custom.js"></script>\n' \
+            '    <script src="hero-calculator.inventory.js"></script>\n' \
+            '    <script src="hero-calculator.tooltips.js"></script>\n' \
+            '    <script src="hero-calculator.abilitydata.js"></script>\n' \
+            '    <script src="hero-calculator.abilities.js"></script>\n' \
+            '    <script src="hero-calculator.buffs.js"></script>\n' \
+            '    <script src="hero-calculator.buffs.amplification.reduction.js"></script>\n' \
+            '    <script src="hero-calculator.hero.js"></script>\n' \
+            '    <script src="hero-calculator.hero.illusion.js"></script>\n' \
+            '    <script src="hero-calculator.hero.meepo.js"></script>\n' \
+            '    <script src="hero-calculator.unit.js"></script>\n' \
+            '    <script src="hero-calculator.app.js"></script>'
+            footer = '<script src="hero-calculator.min.js"></script>\r\n' \
+            '    <script src="hero-calculator.app.min.js"></script>'
+            data = data.replace(dev_footer, footer)
+            with open(ROOT + '/dota2/apps/hero-calculator/out/index.html','w') as g:
+                g.write(data)
 		
     SCRIPTS = [
         ROOT + '/dota2/apps/hero-calculator/jquery-ui-1.10.3.custom.js',
@@ -81,7 +106,19 @@ def main():
 	
     print 'Compressing CSS...'
     compress(STYLESHEETS, STYLESHEETS_OUT, 'css')
-
+	
+    FILES = [
+        'hero-calculator.min.css',
+        'hero-calculator.min.js',
+        'hero-calculator.app.min.js',
+        'changelog.txt',
+        'hero-calculator.items.png',
+        'templates.html',
+        'report.php',
+        'save.php'
+    ]
+    for f in FILES:
+        shutil.copy2(ROOT + '/dota2/apps/hero-calculator/' + f, ROOT + '/dota2/apps/hero-calculator/out/' + f)
     print 'Done'
 if __name__ == '__main__':
     main()

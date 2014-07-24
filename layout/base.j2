@@ -1,112 +1,117 @@
 <!doctype html>
 <html>
 <head>
-  {% block starthead %}{% endblock starthead %}
-  <meta charset="{{ resource.meta.charset }}">
+    {% block starthead %}{% endblock starthead %}
+    <meta charset="{{ resource.meta.charset }}">
 
-  <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
-  <meta name="description" content="{{ resource.meta.description }}">
-  <meta name="author" content="{{ resource.meta.author }}">
-  <meta name="viewport" content="{{ resource.meta.viewport }}">
+    <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+    <meta name="description" content="{{ resource.meta.description }}">
+    <meta name="author" content="{{ resource.meta.author }}">
+    <meta name="viewport" content="{{ resource.meta.viewport }}">
 
-  {% block favicons %}
-  <link rel="shortcut icon" href="{{ media_url('/favicon.png') }}">
-  {% endblock favicons %}
+    {% block favicons %}
+    <link rel="shortcut icon" href="{{ media_url('/favicon.png') }}">
+    {% endblock favicons %}
 
-  {% block css %}
-  <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ media_url('css/site.css') }}" id="theme-css">
-  <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
-  {% endblock css %}
-  {% block custom_css %}
-  {% endblock custom_css %}
+    {% block css %}
+    <link href="http://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ media_url('css/site.css') }}" id="theme-css">
+    <link rel="stylesheet" href="{{ media_url('css/syntax.css') }}">
+    {% endblock css %}
+    {% block custom_css %}
+    {% endblock custom_css %}
 
-  {% block headjs %}
-    <!--<script src="{{ media_url('js/libs/modernizr-1.7.min.js') }}"></script>!-->
-  {% endblock headjs %}
-  {% block endhead %}{% endblock endhead %}
+    {% block headjs %}{% endblock headjs %}
+    {% block endhead %}{% endblock endhead %}
 </head>
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}" class="{{ resource.meta.active_menu }}">
-<div class="wrapper">
+    <div class="wrapper">
     {% block nav %}
         {% from "macros.j2" import render_nav with context %}
         {{ render_nav(menu, 'main_nav') }}
     {% endblock %}
     {% block content %}
-        {% block content2 %}
-  <div class="container">
-    {% block container %}
-    <div id="main" role="main">
-        <header class="banner clearfix">
-            {% block header %}
-                {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
-            {% endblock header %}
-        </header>
-        <section class="content">
-            {% block main %}
-            {% endblock main %}
-        </section>
+    {% block content2 %}
+    <div class="container">
+        {% block container %}
+        <div id="main" role="main">
+            <header class="banner clearfix">
+                {% block header %}
+                    {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
+                {% endblock header %}
+            </header>
+            <section class="content">
+                {% block main %}
+                {% endblock main %}
+            </section>
+        </div>
+        {% endblock container %}
+    </div> <!--! end of #container -->
+    {% block push %}
+    <div class="push"></div>
+    {% endblock push %}
+    {% endblock content2 %}
     </div>
-    {% endblock container %}
-  </div> <!--! end of #container -->
-	{% block push %}
-	<div class="push"></div>
-	{% endblock push %}
-  {% endblock content2 %}
-</div>
 
-  {% block footer %}
-  <footer>
-	  <img src="{{ media_url('images/footer.png') }}">
-      <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
-      <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a></p>
-      <p>Theme 
-        <select id="theme-select" class="form-control" style="display: inline;width: auto;height: auto;padding: 0;font-size: inherit;">
-          <option value="dark">dark</option>
-          <option value="light">light</option>
-        </select>
-      </p>
-  </footer>
+    {% block footer %}
+    <footer>
+        <img src="{{ media_url('images/footer.png') }}">
+        <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
+        <p>Copyright &copy; 2014 <a href="http://devilesk.com">devilesk.com</a></p>
+        <p>Theme 
+            <select id="theme-select" class="form-control" style="display: inline;width: auto;height: auto;padding: 0;font-size: inherit;">
+                <option value="dark">dark</option>
+                <option value="light">light</option>
+            </select>
+        </p>
+    </footer>
     {% endblock footer%}
-  {% endblock content%}
+    {% endblock content%}
 
-  {% block js %}
+    {% block js %}
 
-  {% block jquery %}
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
-  {% endblock jquery %}
-  {% block before_scripts %}
-  {% endblock before_scripts %}
-  <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
-  <script type="text/javascript">
+    {% block jquery %}
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
+    {% endblock jquery %}
+    {% block before_scripts %}{% endblock before_scripts %}
+    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
     $('.top-nav-menu .dropdown-toggle').click(function() {
-      if ($('.mobile-only').css('display') == 'none') {
-        var location = $(this).attr('href');
-        window.location.href = location;
-        return false;
-      }
+        if ($('.mobile-only').css('display') == 'none') {
+            var location = $(this).attr('href');
+            window.location.href = location;
+            return false;
+        }
     });
     if (readCookie('theme') == 'light') {
-        $('#theme-css').attr('href','{{ media_url('css/site-light.css') }}');
+        $('#theme-css').attr('href','/media/css/site-light.css');
         $("#theme-select").val('light');
+        $("#twitter-dark").hide();
+        $("#twitter-light").show();
     }
     else {
-        $('#theme-css').attr('href','{{ media_url('css/site.css') }}');
+        $('#theme-css').attr('href','/media/css/site.css');
         $("#theme-select").val('dark');
+        $("#twitter-light").hide();
+        $("#twitter-dark").show();
     }
     $('#theme-select').change( function() {
         var expiration_date = 365*24*60*60*1000;
         if ($(this).val() == 'light') {
-            $('#theme-css').attr('href','{{ media_url('css/site-light.css') }}');
+            $('#theme-css').attr('href','/media/css/site-light.css');
+            $("#twitter-dark").hide();
+            $("#twitter-light").show();
             var d = new Date();
             d.setTime(d.getTime() + expiration_date);
             document.cookie = 'theme=light;path=/;expires='+d.toGMTString()+';max-age='+expiration_date+';';
         }
         else {
-            $('#theme-css').attr('href','{{ media_url('css/site.css') }}');
+            $('#theme-css').attr('href','/media/css/site.css');
+            $("#twitter-light").hide();
+            $("#twitter-dark").show();
             var d = new Date();
             d.setTime(d.getTime() + expiration_date);
             document.cookie = 'theme=dark;path=/;expires='+d.toGMTString()+';max-age='+expiration_date+';';
@@ -122,20 +127,19 @@
         }
         return null;
     }
-  </script>
-  {% block scripts %}
-  {% endblock scripts %}
+    </script>
+    
+    {% block scripts %}{% endblock scripts %}
 
+    <!--[if lt IE 7 ]>
+        <script src="js/libs/dd_belatedpng.js"></script>
+        <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+    <![endif]-->
 
-  <!--[if lt IE 7 ]>
-    <script src="js/libs/dd_belatedpng.js"></script>
-    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-  <![endif]-->
+    {% block analytics %}
+    {% include "analytics.j2" %}
+    {% endblock analytics %}
 
-  {% block analytics %}
-  {% include "analytics.j2" %}
-  {% endblock analytics %}
-
-  {% endblock js %}
+    {% endblock js %}
 </body>
 </html>

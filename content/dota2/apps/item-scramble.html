@@ -1,0 +1,44 @@
+---
+extends: base.j2
+title: Dota 2 Item Scramble
+description: Dota 2 Item Scramble. A puzzle game solved by dragging together all the given component items to form upgrade items.
+active_menu: page-webapps
+header: Item Scramble
+---
+
+  {% block custom_css %}
+<style type="text/css">
+.component {
+    cursor:move;
+    opacity:1;
+}
+#components-container {
+    position:relative;
+    min-height:400px;
+}
+#components-container > div {
+    float:left;
+    position:absolute;
+}
+#upgrades-container {
+    height:64px;
+    background-color:#1c1d1f;
+    margin-bottom:10px;
+}
+.combined {
+    opacity:.5;
+}
+</style>
+  {% endblock custom_css %}
+  {% block main %}
+    <div id="upgrades-container"></div>
+    <div id="components-container"></div>
+    <p class="text-center">Solve by dragging together all the component items to form upgrade items.</p>
+  {% endblock main %}
+  {% block before_scripts %}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  {% endblock before_scripts %}
+    {% block scripts %}
+	<script src="{{ media_url('js/item-scramble/item-scramble.js') }}"></script>
+  {% endblock scripts %}

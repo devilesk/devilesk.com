@@ -28,6 +28,10 @@ context:
                             name: The International
                             type: header
                         -
+                            name: Tournament Results
+                            type: page
+                            url: /dota2/international/2014
+                        -
                             name: Prize Pool Growth Chart
                             type: page
                             url: /dota2/prize-pool-international-2014
@@ -127,6 +131,10 @@ context:
                             name: Hero Selection Trainer
                             type: page
                             url: /dota2/apps/hero-selection-trainer
+                        -
+                            name: Item Scramble
+                            type: page
+                            url: /dota2/apps/item-scramble
             -
                 name: HEROES
                 description: Heroes Home

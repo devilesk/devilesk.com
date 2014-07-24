@@ -1206,6 +1206,12 @@
 img {
 	max-width: 100%;
 }
+.diffPos {
+    color: #5cb85c;
+}
+.diffNeg {
+    color: #d9534f;
+}
 .modal-content {
     background-color:#1c1d1f;
 }
@@ -1224,6 +1230,12 @@ img {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+    margin:0px 1px 1px 0px;
+    box-shadow:1px 1px black;
+}
+.hc-item:active {
+    margin:1px 0px 0px 1px;
+    box-shadow:none;
 }
 #shoptabs > li, #shoptabs > .nav-pills > li {
     float:none;

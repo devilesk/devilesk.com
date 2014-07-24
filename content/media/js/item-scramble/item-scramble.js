@@ -1,0 +1,212 @@
+$(function () {
+    var NUM_ITEMS = 5,
+        itemdata,
+        itemBasic,
+        itemUpgrade,
+        hashMapUpgrade = {},
+        items,
+        components,
+        componentsList,
+        answer;
+        
+	$.getJSON("/media/js/item-scramble/item-recipe-data.json",function(data){
+        itemdata = data.data;
+        itemBasic = data.data.basic;
+        itemUpgrade = data.data.upgrade;
+        for (var i = 0; i < itemUpgrade.length; i ++) {
+            var key = _.reduce(itemUpgrade[i].allComponents, function (memo, item) {
+                return memo + item;
+            }, '');
+            hashMapUpgrade[key] = itemUpgrade[i].name;
+        }
+        generateQuestion();
+    });
+	
+function shuffle(array) {
+    var counter = array.length, temp, index;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+};
+
+function generateQuestion() {
+    
+	items = _.sortBy(_.sample(itemUpgrade, NUM_ITEMS), function(item){ return item.name; });
+    answer = _.pluck(items, 'name');
+    components = _.reduce(items, function(memo, item) { 
+        return memo.concat(item.allComponents);
+    }, []);
+    componentsList = [];
+    shuffle(components);
+    $('#components-container').empty();
+    //$('#upgrades-container').empty();
+    for (var i = 0; i < components.length; i++) {
+        var $component = $('<img>').attr('src','http://cdn.dota2.com/apps/dota2/images/items/' + components[i] + '_lg.png').addClass('component');
+        $component.data('componentName', components[i]);
+        componentsList.push($component);
+        $component.draggable({
+            snap: true,
+            stop: function( event, ui ) {
+                var snapped = $(this).data('ui-draggable').snapElements;
+                var snappedStart = $(this).data('snap-state');
+                
+                // get difference between new snap state and old snap state
+                snapDiff = _.pluck(_.filter(snapped, function(element, index) {
+                    return !snapped[index].snapping == snappedStart[index].snapping;
+                }), 'item');
+                
+                // set snap-state to new snap state
+                $(this).data('snap-state', $(this).data('ui-draggable').snapElements);
+                
+                // update state of other components
+                _.each(snapDiff, function (element) {
+                    updateSnapped(this, element);
+                }, this);
+
+                // get list of upgrade items
+                var componentItems = _.map(componentsList, function(item) { return item[0] });
+                var completedUpgrades = [];
+                while (componentItems.length > 0) {
+                    var u = getUpgrade(componentItems[0]);
+                    if (u) {
+                        completedUpgrades.push(u);
+                    }
+                    componentItems = _.difference(componentItems, getAllSnappedTo(componentItems[0], [], []));
+                }
+
+                // update upgrades container
+                //$('#upgrades-container').empty();
+                var upgrades = $(".upgrade").map(function(){return $(this).data('upgradeName');}).get();
+                if (completedUpgrades.length > 0) {
+                    _.each(completedUpgrades, function(item) {
+                        if (upgrades.indexOf(item) == -1) {
+                            var $upgrade = $('<img>').attr('src','http://cdn.dota2.com/apps/dota2/images/items/' + item + '_lg.png').addClass('upgrade').data('upgradeName', item);
+                            $('#upgrades-container').append($upgrade.hide().fadeIn(500));
+                        }
+                        else {
+                            upgrades.splice(upgrades.indexOf(item), 1);
+                        }
+                    });
+                    $( ".upgrade" ).each(function( index ) {
+                        if (upgrades.indexOf($(this).data('upgradeName')) != -1) {
+                            $(this).remove();
+                            upgrades.splice(upgrades.indexOf($(this).data('upgradeName')), 1);
+                        }
+                    });
+                }
+                else {
+                    $('#upgrades-container').empty();
+                }
+                
+                // get list of unused components
+                var singleComponents = _.reduce(componentsList, function(memo, item) {
+                    if (!getUpgrade(item[0])) {
+                        memo.push(item);
+                    }
+                    return memo;
+                }, []);
+                
+                // update combined class
+                _.each(componentsList, function(element) {
+                    if (singleComponents.indexOf(element) == -1) {
+                        element.addClass('combined');
+                    }
+                    else {
+                        element.removeClass('combined');
+                    }
+                });
+                
+                // check if finished
+                //if (_.difference(answer, completedUpgrades).length == 0 || (singleComponents.length == 0 && _.every(completedUpgrades, function(item) {
+                if ((singleComponents.length == 0 && _.every(completedUpgrades, function(item) {
+                    return _.find(itemUpgrade, function (i) { return i.name == item; });
+                }))) {
+                    var timer = setTimeout(function() {
+                        $.when($('.upgrade').fadeOut(500)).then(function () {
+                            $(this).remove();
+                            generateQuestion();
+                        });
+                    }, 1000);
+                }
+            }
+        });
+        $('#components-container').append($component.hide().fadeIn(500));
+    }
+    
+    // init each component's snap state
+    _.each(componentsList, function($component) {
+        $component.data('snap-state', _.reduce(componentsList, function (memo, item) {
+            if ($component != item) {
+                memo.push({ 'item': item[0], 'snapping': false });
+            }
+            return memo;
+        }, []));
+    });
+    
+}
+
+function updateSnapped(src, dest) {
+    if ($(dest).data('snap-state')) {
+        var d = _.find($(dest).data('snap-state'), function(item) {
+            return item.item == src;
+        });
+        var s = _.find($(src).data('snap-state'), function(item) {
+            return item.item == dest;
+        });
+        d.snapping = s.snapping;
+    }
+}
+
+function getSnappedTo(el) {
+    var snapped = $(el).data('snap-state'); //$(el).data('ui-draggable').snapElements;
+    var snappedTo = [];
+    if (snapped) {
+        snappedTo = $.map(snapped, function(element) {
+            return element.snapping ? element.item : null;
+        });
+    }
+
+    return snappedTo;
+}
+
+function getAllSnappedTo(root, result, completed) {
+    var snappedTo = getSnappedTo(root);
+    if (completed.indexOf(root) == -1) {
+        result.push(root);
+        completed.push(root);
+    }
+    if (snappedTo) {
+        for (var i = 0; i < snappedTo.length; i++) {
+            if (completed.indexOf(snappedTo[i]) == -1) {
+                getAllSnappedTo(snappedTo[i], result, completed)
+            }
+        }
+    }
+    return result;
+}
+
+function getUpgrade(element) {
+    var items = _.map(getAllSnappedTo(element, [], []), function (item) {
+        return $(item).data('componentName');
+    });
+    items = items.sort();
+    var key = _.reduce(items, function (memo, item) {
+        return memo + item;
+    }, '');
+    return hashMapUpgrade[key];
+}
+
+});
