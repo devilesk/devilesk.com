@@ -14,6 +14,12 @@ html {
         display: none;
     }
 }
+.showColumn {
+
+}
+.hideColumn {
+
+}
 .hero {
 opacity:1;
 filter:alpha(opacity=75); /* For IE8 and earlier */
@@ -25,6 +31,15 @@ filter:alpha(opacity=100); /* For IE8 and earlier */
 .hero:active {
 opacity:1;
 filter:alpha(opacity=75); /* For IE8 and earlier */
+}
+.popover {
+    background-color:white;
+}
+.popover.bottom .arrow:after {
+    border-bottom-color:#white;
+}
+.popover.top .arrow:after {
+    border-top-color:white;
 }
 .nav-tabs>li>a:hover {
 

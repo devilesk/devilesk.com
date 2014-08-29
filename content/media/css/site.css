@@ -14,6 +14,12 @@ html {
         display: none;
     }
 }
+.showColumn {
+	background-color:#202123 !important;
+}
+.hideColumn {
+	background-color:#131415 !important;
+}
 .hero {
 opacity:0.75;
 filter:alpha(opacity=75); /* For IE8 and earlier */

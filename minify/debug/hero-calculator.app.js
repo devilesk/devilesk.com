@@ -58,6 +58,7 @@ var HEROCALCULATOR = (function (my) {
             
             options.source = mappedSource();
             
+			options.minLength = 1;
             //initialize autocomplete
             $(element).autocomplete(options);
         },
@@ -131,6 +132,10 @@ var HEROCALCULATOR = (function (my) {
         return result;
     };
     
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
     my.HeroCalculatorViewModel = function() {
         var self = this;
         self.heroes = [new my.HeroCalculatorModel(1), new my.HeroCalculatorModel(0)];
@@ -148,14 +153,12 @@ var HEROCALCULATOR = (function (my) {
         self.heroes.push(self.heroes[1].unit());
         self.heroes.push(new my.HeroCalculatorModel(0));
         self.heroes.push(new my.HeroCalculatorModel(1));
+        self.heroes[4].enemy(self.heroes[1]);
+        self.heroes[5].enemy(self.heroes[0]);
         self.heroes[0].heroCompare = ko.observable(self.heroes[4]);
         self.heroes[1].heroCompare = ko.observable(self.heroes[5]);
         self.heroes[4].heroCompare = ko.observable(self.heroes[0]);
         self.heroes[5].heroCompare = ko.observable(self.heroes[1]);
-        self.heroes[4].enemy = ko.observable(self.heroes[1]);
-        self.heroes[5].enemy = ko.observable(self.heroes[0]);
-        self.selectedTab = ko.observable(0);
-        self.selectedTabView = [ko.observable(true),ko.observable(true),ko.observable(false),ko.observable(false),ko.observable(false),ko.observable(false),ko.observable(false)];
         self.selectedItem = ko.observable();
         self.layout = ko.observable("1");
         self.displayShop = ko.observable(true);
@@ -163,10 +166,10 @@ var HEROCALCULATOR = (function (my) {
             self.displayShop(!self.displayShop());
         }
         self.allItems = ko.observableArray([
-            {name: 'Str,Agi,Int,MS,Turn,Sight', value: 'stats0'},
-            {name: 'Health,Mana,Regen,EHP', value: 'stats1'},
-            {name: 'Armor,Magic Res,Lifesteal,Evasion,Bash,Miss', value: 'stats2'},
-            {name: 'Damage,IAS,BAT,Attack', value: 'stats3'}
+            {name: 'Str, Agi, Int, MS, Turn, Sight', value: 'stats0'},
+            {name: 'Armor, Health, Mana, Regen, EHP', value: 'stats1'},
+            {name: 'Phys Res, Magic Res, Lifesteal, Evasion, Bash, Miss', value: 'stats2'},
+            {name: 'Damage, IAS, BAT, Attack', value: 'stats3'}
         ]); // Initial items
         self.selectedItems = ko.observableArray([]); 
         self.moveUp = function() {
@@ -185,60 +188,49 @@ var HEROCALCULATOR = (function (my) {
                 self.allItems.splice(start,0,e[0]);
             }    
         };
-        
+		self.selectedTabId = ko.observable('heroTab0');
+        self.selectedTab = ko.computed(function() {
+			switch (self.selectedTabId()) {
+				case 'heroTab0':
+					return 0;
+				break;
+				case 'heroTab1':
+					return 1;
+				break;
+				case 'unitTab0':
+					return 2;
+				break;
+				case 'unitTab1':
+					return 3;
+				break;
+				case 'heroTab4':
+					return 4;
+				break;
+				case 'heroTab5':
+					return 5;
+				break;
+				default:
+					return self.selectedTab();
+				break;
+			}
+		});
+        self.selectedTabs = ko.observableArray([]);
+		self.selectedTabs.push('heroTab0');
+		self.selectedTabs.push('heroTab1');
         self.clickTab = function(data, event) {
-            if (event.target.id == 'heroTab0') {
-                self.selectedTab(0);
-                self.selectedTabView[0](true);
-                self.selectedTabView[2](false);
-                self.selectedTabView[4](false);
-                self.selectedTabView[6](false);
-            }
-            else if (event.target.id == 'heroTab1') {
-                self.selectedTab(1);
-                self.selectedTabView[1](true);
-                self.selectedTabView[3](false);
-                self.selectedTabView[5](false);
-                self.selectedTabView[6](false);
-            }
-            else if (event.target.id == 'unitTab0') {
-                self.selectedTab(2);
-                self.selectedTabView[2](true);
-                self.selectedTabView[0](false);
-                self.selectedTabView[4](false);
-                self.selectedTabView[6](false);
-            }
-            else if (event.target.id == 'unitTab1') {
-                self.selectedTab(3);
-                self.selectedTabView[3](true);
-                self.selectedTabView[1](false);
-                self.selectedTabView[5](false);
-                self.selectedTabView[6](false);
-            }
-            else if (event.target.id == 'heroTab4') {
-                self.selectedTab(4);
-                self.selectedTabView[0](false);
-                self.selectedTabView[2](false);
-                self.selectedTabView[4](true);
-                self.selectedTabView[6](false);
-            }
-            else if (event.target.id == 'heroTab5') {
-                self.selectedTab(5);
-                self.selectedTabView[1](false);
-                self.selectedTabView[3](false);
-                self.selectedTabView[5](true);
-                self.selectedTabView[6](false);
-            }
-            else if (event.target.id == 'settingsTab') {
-                self.selectedTabView[6](true);
-            }
+			self.selectedTabId(event.target.id);
+			if (self.selectedTabs()[1] != event.target.id) {
+				self.selectedTabs.shift();
+				self.selectedTabs.push(event.target.id);
+			}
         };
-        
+
+		self.showSideTabId = function(id) {
+			return self.selectedTabs().indexOf(id) > -1 && self.sideView();
+		};
+		
         self.removeTab = function(index, data, event, tab) {
-            //console.log(tab);
-            //console.log(data);
             self.heroes[tab].illusions.remove(function(illusion) {
-                //console.log(illusion, data);
                 return illusion() == data;
             });
         };
@@ -246,33 +238,43 @@ var HEROCALCULATOR = (function (my) {
         self.sideView = ko.observable(false);
         self.sideView.subscribe(function(newValue) {
             if (newValue) {
-                self.displayShop(false);
-                self.layout(0);
+				if (!self.shopPopout()) {
+					self.displayShop(false);
+				}
+                self.layout("0");
             }
         });
-        self.showSideTab = [
-            ko.computed(function() {
-                return self.selectedTabView[0]() && self.sideView() && !self.selectedTabView[4]();
-            }),
-            ko.computed(function() {
-                return self.selectedTabView[1]() && self.sideView() && !self.selectedTabView[4]();
-            }),
-            ko.computed(function() {
-                return self.selectedTabView[2]() && self.sideView() && !self.selectedTabView[4]();
-            }),
-            ko.computed(function() {
-                return self.selectedTabView[3]() && self.sideView() && !self.selectedTabView[4]();
-            }),
-            ko.computed(function() {
-                return self.selectedTabView[4]() && self.sideView() && !self.selectedTabView[4]();
-            }),
-            ko.computed(function() {
-                return self.selectedTabView[5]() && self.sideView() && !self.selectedTabView[4]();
-            }),
-            ko.computed(function() {
-                return self.selectedTabView[6]() && self.sideView();
-            })
-        ];
+        self.shopPopout = ko.observable(false);
+        self.shopPopout.subscribe(function(newValue) {
+            if (newValue) {
+				self.displayShop(true);
+                $( "#shop-dialog" ).dialog({
+                    minWidth: 380,
+                    minHeight: 0,
+					closeText: "",
+					open: function( event, ui ) {
+						$(event.target.offsetParent).find('.ui-dialog-titlebar').find('button')
+							.addClass('close glyphicon glyphicon-remove shop-button btn btn-default btn-xs pull-right')
+							.removeClass('ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close close')
+							.css('margin-right','0px')
+							.parent()
+								.append($('#shop-minimize'))
+								.append($('#shop-maximize'));
+						$(event.target.offsetParent).find('.ui-dialog-titlebar').dblclick(function() {
+							self.displayShop(!self.displayShop());
+						});
+					},
+                    close: function( event, ui ) {
+                        self.shopPopout(false);
+                    }
+				});
+            }
+            else {
+				$('#shop-container').prepend($('#shop-minimize')).prepend($('#shop-maximize'));
+                $( "#shop-dialog" ).dialog("destroy");
+            }
+        });
+
         
         self.changeSelectedItem = function (data,event) {
             self.itemInputValue(1);
@@ -300,6 +302,7 @@ var HEROCALCULATOR = (function (my) {
         self.saveLink = ko.observable();
         self.save = function() {
             var data = {
+                version: "1.1.0",
                 heroes: []
             }
             var indices = [0,1,4,5];
@@ -312,7 +315,9 @@ var HEROCALCULATOR = (function (my) {
                     abilities: [],
                     skillPointHistory: hero.skillPointHistory(),
                     buffs: [],
-                    debuffs: []
+                    itemBuffs: [],
+                    debuffs: [],
+                    itemDebuffs: []
                 }
                 // items
                 for (var j = 0; j < hero.inventory.items().length; j++) {
@@ -327,29 +332,35 @@ var HEROCALCULATOR = (function (my) {
                 }
                 // buffs
                 for (var j = 0; j < hero.buffs.buffs().length; j++) {
-                    //console.log(hero.buffs.buffs()[j]);
                     d.buffs.push({
                         name: hero.buffs.buffs()[j].name,
                         level: hero.buffs.buffs()[j].data.level(),
                         isActive: hero.buffs.buffs()[j].data.isActive()
                     });
                 }
+                
                 // debuffs
                 for (var j = 0; j < hero.debuffs.buffs().length; j++) {
-                    //console.log(hero.debuffs.buffs()[j]);
                     d.debuffs.push({
                         name: hero.debuffs.buffs()[j].name,
                         level: hero.debuffs.buffs()[j].data.level(),
                         isActive: hero.debuffs.buffs()[j].data.isActive()
                     });
                 }
+
+                // item buffs
+                for (var j = 0; j < hero.buffs.itemBuffs.items().length; j++) {
+                    d.itemBuffs.push(ko.toJS(hero.buffs.itemBuffs.items()[j]));
+                }
+                
+                // item debuffs
+                for (var j = 0; j < hero.debuffs.itemBuffs.items().length; j++) {
+                    d.itemDebuffs.push(ko.toJS(hero.debuffs.itemBuffs.items()[j]));
+                }
+                
                 data.heroes.push(d);
             }
-            //var serialized = JSON.stringify(JSON.decycle(data));
             var serialized = JSON.stringify(data);
-            //var unserialized = JSON.retrocycle(JSON.parse(serialized));
-            //console.log(data, serialized, unserialized);
-            //self.load(unserialized);
             $.ajax({
                 type: "POST",
                 url: "/dota2/apps/hero-calculator/save.php",
@@ -357,14 +368,6 @@ var HEROCALCULATOR = (function (my) {
                 dataType: "json",
                 success: function(data){
                     self.saveLink("http://devilesk.com/dota2/apps/hero-calculator?id=" + data.file);
-                    /*var a = document.createElement('a');
-                    //a.style.float = 'left';
-                    a.href = "/dota2/apps/hero-calculator?id=" + data.file;
-                    a.target = "_blank";
-                    a.innerHTML = "devilesk.com/dota2/apps/hero-calculator?id=" + data.file;
-                    document.getElementById('savelink').innerHTML = "";
-                    document.getElementById('savelink').appendChild(a);
-                    */
                 },
                 failure: function(errMsg) {
                     alert("Save request failed.");
@@ -372,7 +375,6 @@ var HEROCALCULATOR = (function (my) {
             });
         }
         self.load = function(data) {
-            //console.log('load', data);
             var indices = [0,1,4,5];
             for (var i = 0; i < 4; i++) {
                 var hero = self.heroes[indices[i]];
@@ -380,6 +382,8 @@ var HEROCALCULATOR = (function (my) {
                 hero.selectedHeroLevel(hero.selectedHeroLevel);
                 hero.inventory.items.removeAll();
                 hero.inventory.activeItems.removeAll();
+                
+                // load items
                 for (var j = 0; j < data.heroes[i].items.length; j++) {
                     var item = data.heroes[i].items[j];
                     var new_item = {
@@ -390,11 +394,15 @@ var HEROCALCULATOR = (function (my) {
                     }
                     hero.inventory.items.push(new_item);
                 }
+                
+                // load abilities
                 for (var j = 0; j < data.heroes[i].abilities.length; j++) {
                     hero.ability().abilities()[j].level(data.heroes[i].abilities[j].level);
                     hero.ability().abilities()[j].isActive(data.heroes[i].abilities[j].isActive);
                 }
                 hero.skillPointHistory(data.heroes[i].skillPointHistory);
+                
+                // load buffs
                 for (var j = 0; j < data.heroes[i].buffs.length; j++) {
                     hero.buffs.selectedBuff(_.findWhere(hero.buffs.availableBuffs(), {buffName: data.heroes[i].buffs[j].name}));
                     hero.buffs.addBuff(hero, {});
@@ -402,24 +410,44 @@ var HEROCALCULATOR = (function (my) {
                     b.data.level(data.heroes[i].buffs[j].level);
                     b.data.isActive(data.heroes[i].buffs[j].isActive);
                 }
+                
+                // load debuffs
                 for (var j = 0; j < data.heroes[i].debuffs.length; j++) {
                     hero.debuffs.selectedBuff(_.findWhere(hero.debuffs.availableDebuffs(), {buffName: data.heroes[i].debuffs[j].name}));
                     hero.debuffs.addBuff(hero, {});
                     var b = _.findWhere(hero.debuffs.buffs(), { name: data.heroes[i].debuffs[j].name });
-                    //console.log('debuff b', hero.debuffs.buffs(), b);
                     b.data.level(data.heroes[i].debuffs[j].level);
                     b.data.isActive(data.heroes[i].debuffs[j].isActive);
                 }
-            }
-            /*
-            self.allItems = ko.observableArray(data.allItems);
-            for (var i=0;i<data.heroes.length;i++) {
-                self.heroes[i].selectedHero(data.heroes[i].selectedHero)
-                self.heroes[i].selectedHeroLevel(data.heroes[i].selectedHeroLevel)
-                for (var j=0;j<data.heroes[i].ability.abilities.length;j++) {
-                    self.heroes[i].ability().abilities()[j].level(data.heroes[i].ability.abilities[j].level);
+                
+                // load item buffs
+                if (data.heroes[i].itemBuffs) {
+                    for (var j = 0; j < data.heroes[i].itemBuffs.length; j++) {
+                        var item = data.heroes[i].itemBuffs[j];
+                        var new_item = {
+                            item: item.item,
+                            state: ko.observable(item.state),
+                            size: item.size,
+                            enabled: ko.observable(item.enabled)
+                        }
+                        hero.buffs.itemBuffs.items.push(new_item);
+                    }
                 }
-            }*/
+                
+                // load item debuffs
+                if (data.heroes[i].itemDebuffs) {
+                    for (var j = 0; j < data.heroes[i].itemDebuffs.length; j++) {
+                        var item = data.heroes[i].itemDebuffs[j];
+                        var new_item = {
+                            item: item.item,
+                            state: ko.observable(item.state),
+                            size: item.size,
+                            enabled: ko.observable(item.enabled)
+                        }
+                        hero.debuffs.itemBuffs.items.push(new_item);
+                    }
+                }
+            }
         }
         
         self.sendReport = function() {
@@ -446,7 +474,7 @@ var HEROCALCULATOR = (function (my) {
                 return '+' + parseFloat(value.toFixed(2));
             }
             else if (value < 0) {
-                return parseFloat(value.toFixed(2)).toString();
+                return '&minus;' + parseFloat(value.toFixed(2)*-1).toString();
             }
             else {
                 return '';
@@ -517,6 +545,8 @@ var HEROCALCULATOR = (function (my) {
             my.heroData['npc_dota_hero_nevermore'].abilities[1].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
             my.heroData['npc_dota_hero_nevermore'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
             my.heroData['npc_dota_hero_morphling'].abilities[3].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+            var index = my.heroData['npc_dota_hero_lone_druid'].abilities[3].behavior.indexOf('DOTA_ABILITY_BEHAVIOR_HIDDEN');
+            my.heroData['npc_dota_hero_lone_druid'].abilities[3].behavior.splice(index, 1);
             loadedFiles++;
             if (loadedFiles == loadedFilesMax) my.run();
         });
@@ -535,11 +565,12 @@ var HEROCALCULATOR = (function (my) {
     my.run = function() {
         my.heroCalculator = new my.HeroCalculatorViewModel();
         ko.applyBindings(my.heroCalculator);
+		$('#spinner').hide();
+		$('#hero-calc-wrapper').css('display', 'inline-block');
         $('#popHero0').popover({animation: false, html: true});
         $('#popHero1').popover({animation: false, html: true});
         $('#popHero4').popover({animation: false, html: true});
         $('#popHero5').popover({animation: false, html: true});
-        //console.log(my.heroCalculator.heroes);
         var saveId = getParameterByName('id');
         if (saveId) {
             $.get('save/' + saveId + '.json', function(data) {
