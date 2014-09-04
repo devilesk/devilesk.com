@@ -1,0 +1,2202 @@
+---
+extends: base.j2
+title: Dota 2 Items
+description: List of all Dota 2 items.
+active_menu: page-items
+---
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<link rel="stylesheet" href="{{ media_url('css/items.css') }}">
+<style type="text/css">
+.item_field {
+    display:block;
+}
+.item_name {
+    display:inline;
+}
+.item_cost {
+    margin-left:10px;
+    display:inline;
+    background-image:url("/media/images/gold.png");
+    padding:0px 0px 0px 27px;
+    background-repeat:no-repeat;
+}
+
+.item_manacost {
+    margin-right:10px;
+    display:inline;
+    background-image:url("/media/images/manacost.png");
+    padding:0px 0px 0px 20px;
+    background-repeat:no-repeat;
+}
+.item_cooldown {
+    margin-right:10px;
+    display:inline;
+    background-image:url("/media/images/cooldown.png");
+    padding:0px 0px 0px 20px;
+    background-repeat:no-repeat;
+}
+.item_cdmana {
+    padding:10px 0px 0px 0px;
+}
+
+.item_lore {
+    font-size:8pt;
+    font-style:italic;
+}
+
+a.anchor{display: block; visibility: hidden;}    
+/* sidebar */
+.bs-docs-sidebar {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* all links */
+.bs-docs-sidebar .nav>li>a {
+    color: #979aa2;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* nested links */
+.bs-docs-sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+/* all links */
+.bs-docs-sidebar .nav>li>a {
+    /*add trasnparent border */
+    border-left: 1px solid transparent;
+}
+/* active & hover links */
+.bs-docs-sidebar .nav>.active>a, 
+.bs-docs-sidebar .nav>li>a:hover, 
+.bs-docs-sidebar .nav>li>a:focus {
+    color: #2C8CE0;                 
+    text-decoration: none;          
+    background-color: transparent;  
+    border-left: 1px solid #2C8CE0;
+}
+
+/* all active links */
+.bs-docs-sidebar .nav>.active>a, 
+.bs-docs-sidebar .nav>.active:hover>a,
+.bs-docs-sidebar .nav>.active:focus>a {
+    font-weight: 700;
+    border-left: 2px solid #2C8CE0;
+    padding-left: 19px;
+}
+/* nested active links */
+.bs-docs-sidebar .nav .nav>.active>a, 
+.bs-docs-sidebar .nav .nav>.active:hover>a,
+.bs-docs-sidebar .nav .nav>.active:focus>a {
+    font-weight: 500;
+    padding-left: 29px;
+}
+
+/* hide all (inactive) nested list */
+.bs-docs-sidebar .nav ul.nav {
+    display: none;           
+}
+/* show active nested list */
+.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;           
+}
+
+.back-to-top {
+    border-left: 1px solid transparent;
+    display: block;
+    padding: 4px 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #979aa2;
+}
+.back-to-top:hover {
+    color: #2C8CE0;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 500px){
+    .bs-docs-sidebar {
+        display:none
+    }
+}
+</style>
+{% endblock custom_css %}
+
+{% block container %}
+<div class="col-md-9">
+    <div id="headercontainer">
+        <h2>Items</h2>
+    </div>
+    <div class="form-group">
+        <h2 id="abyssal_blade" class="item_field item_name">Abyssal Blade</h2><span class="item_field item_cost">6750</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-abyssal_blade"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Stun a target enemy unit for 2 seconds. Goes through Magic Immunity. Passive: Bash - Gives a chance to stun for 1.4 seconds.</div>
+        <div class="item_field item_attributes">+ 10 Strength
+            <br>MELEE CHANCE: 25%
+            <br>+ 100 Damage
+            <br>RANGED CHANCE: 10%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 60</span><span class="item_manacost item_field"> 150</span>
+        </div>
+        <div class="item_lore item_field">The lost blade of the Commander of the Abyss, this edge cuts into an enemy's soul.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="aegis" class="item_field item_name">Aegis of the Immortal</h2><span class="item_field item_cost">0</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-aegis"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Reincarnation - Brings you to life with full health and mana 5 seconds after you die, at the location where you died. Reincarnation must be used within 6 minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage).</div>
+        <div class="item_lore item_field">The Immortal was said to own a shield that protected him from death itself.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ultimate_scepter" class="item_field item_name">Aghanim's Scepter</h2><span class="item_field item_cost">4200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ultimate_scepter"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Ultimate Upgrade - Upgrades the ultimates of certain heroes.</div>
+        <div class="item_field item_attributes">+ 200 Health
+            <br>+ 150 Mana
+            <br>+ 10 All Attributes
+            <br>
+        </div>
+        <div class="item_lore item_field">The scepter of a wizard with demigod-like powers.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="courier" class="item_field item_name">Animal Courier</h2><span class="item_field item_cost">150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-courier"></div>
+        <p></p>
+        <div class="item_field item_description">Creature that carries items to and from your base.</div>
+        <div class="item_lore item_field">Losing the donkey is punishable by death.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="arcane_boots" class="item_field item_name">Arcane Boots</h2><span class="item_field item_cost">1450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-arcane_boots"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Replenish Mana - Restores mana in an area around the hero.
+            <br>
+            <br>Flat movement speed bonuses from multiple pairs of boots do not stack.</div>
+        <div class="item_field item_attributes">+ 250 Mana
+            <br>+ 55 Movement Speed
+            <br>MANA RESTORED: 135
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 55</span><span class="item_manacost item_field"> 35</span>
+        </div>
+        <div class="item_lore item_field">Magi equipped with these boots are valued in battle.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="armlet" class="item_field item_name">Armlet of Mordiggian</h2><span class="item_field item_cost">2600</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-armlet"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Unholy Strength - Gives +31 damage, +10 attack speed, and +25 strength while active, but drains 40 HP per second. You cannot die from the health loss when the bonus strength is gone, or the health drain per second.</div>
+        <div class="item_field item_attributes">+ 15 Attack Speed
+            <br>+ 5 Armor
+            <br>+ 9 Damage
+            <br>+ 7 HP Regeneration
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 0</span>
+        </div>
+        <div class="item_lore item_field">Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="assault" class="item_field item_name">Assault Cuirass</h2><span class="item_field item_cost">5250</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-assault"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Assault Aura - Grants attack speed and armor to nearby allied units, and decreases armor for nearby enemies.
+            <br>
+            <br>Multiple instances of Assault Aura do not stack.</div>
+        <div class="item_field item_attributes">+ 10 Armor
+            <br>+ 35 Attack Speed
+            <br>ARMOR REDUCTION: -5
+            <br>AURA ATTACK SPEED: 20
+            <br>AURA BONUS ARMOR: 5
+            <br>
+        </div>
+        <div class="item_lore item_field">Forged in the depths of the nether reaches, this hellish mail provides an army with increased armor and attack speed.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="boots_of_elves" class="item_field item_name">Band of Elvenskin</h2><span class="item_field item_cost">450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-boots_of_elves"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 6 Agility
+            <br>
+        </div>
+        <div class="item_lore item_field">A tensile fabric often used for its light weight and ease of movement.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="bfury" class="item_field item_name">Battle Fury</h2><span class="item_field item_cost">4350</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-bfury"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Cleave - Deals a percent of attack damage in a 250 AoE around the target. Ranged units cannot Cleave.</div>
+        <div class="item_field item_attributes">+ 6 HP Regeneration
+            <br>+ 150% Mana Regeneration
+            <br>+ 65 Damage
+            <br>CLEAVE DAMAGE: 35%
+            <br>
+        </div>
+        <div class="item_lore item_field">The bearer of this mighty axe gains the ability to cut down swaths of enemies at once.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="belt_of_strength" class="item_field item_name">Belt of Strength</h2><span class="item_field item_cost">450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-belt_of_strength"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 6 Strength
+            <br>
+        </div>
+        <div class="item_lore item_field">A valued accessory for improving vitality.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="black_king_bar" class="item_field item_name">Black King Bar</h2><span class="item_field item_cost">3975</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-black_king_bar"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Avatar - Grants magic immunity. Duration and cooldown decrease with each use. Some Ultimate abilities are able to disable through Black King Bar.</div>
+        <div class="item_field item_attributes">+ 24 Damage
+            <br>DURATION: 10 / 9 / 8 / 7 / 6 / 5 / 4
+            <br>+ 10 Strength
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 80 75 70 65 60 55 50</span>
+        </div>
+        <div class="item_lore item_field">A powerful staff imbued with the strength of giants.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="blade_mail" class="item_field item_name">Blade Mail</h2><span class="item_field item_cost">2200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-blade_mail"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Damage Return - Returns any damage you take to the unit that dealt the damage. Lasts 4.5 seconds.</div>
+        <div class="item_field item_attributes">+ 6 Armor
+            <br>+ 10 Intelligence
+            <br>+ 22 Damage
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 17</span><span class="item_manacost item_field"> 25</span>
+        </div>
+        <div class="item_lore item_field">A razor-sharp coat of mail, it is the choice of selfless martyrs in combat.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="blade_of_alacrity" class="item_field item_name">Blade of Alacrity</h2><span class="item_field item_cost">1000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-blade_of_alacrity"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 Agility
+            <br>
+        </div>
+        <div class="item_lore item_field">A long blade imbued with time magic.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="blades_of_attack" class="item_field item_name">Blades of Attack</h2><span class="item_field item_cost">450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-blades_of_attack"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 9 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">The damage of these small, concealable blades should not be underestimated.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="blink" class="item_field item_name">Blink Dagger</h2><span class="item_field item_cost">2150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-blink"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Blink - Teleport to a target point up to 1200 units away. If damage is taken, Blink Dagger cannot be used for 3 seconds.</div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 12</span>
+        </div>
+        <div class="item_lore item_field">The fabled dagger used by the fastest assassin ever to walk the lands.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="bloodstone" class="item_field item_name">Bloodstone</h2><span class="item_field item_cost">5050</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-bloodstone"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Pocket Suicide - Instantly commits suicide.
+            <br>
+            <br>Passive: Bloodpact - Starts with 8 charges. Gains 1 charge each time an enemy hero dies within 1675 range. Each charge bestows 1 mana regeneration per second, reduces gold lost from death by 25, and reduces respawn time by 4 seconds. When the bearer dies, restores 500 HP + 30 HP per charge to allied units within 1675 units, then loses a third of its charges. While dead, the bearer continues to receive experience at the death location and gives 1800 unit vision there.</div>
+        <div class="item_field item_attributes">+ 400 Mana
+            <br>+ 9 HP Regeneration
+            <br>+ 10 Damage
+            <br>+ 500 Health
+            <br>+ 200% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 300</span>
+        </div>
+        <div class="item_lore item_field">The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="boots" class="item_field item_name">Boots of Speed</h2><span class="item_field item_cost">450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-boots"></div>
+        <p></p>
+        <div class="item_field item_description">Flat movement speed bonuses from multiple pairs of boots do not stack.</div>
+        <div class="item_field item_attributes">+ 50 Movement Speed
+            <br>
+        </div>
+        <div class="item_lore item_field">Fleet footwear, increasing movement.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="travel_boots" class="item_field item_name">Boots of Travel</h2><span class="item_field item_cost">2450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-travel_boots"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Teleport - Teleports you to an allied non-hero unit or structure.
+            <br>
+            <br>Flat movement speed bonuses from multiple pairs of boots do not stack.</div>
+        <div class="item_field item_attributes">+ 100 Movement Speed
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 60</span><span class="item_manacost item_field"> 75</span>
+        </div>
+        <div class="item_lore item_field">Winged boots that grant omnipresence.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="bottle" class="item_field item_name">Bottle</h2><span class="item_field item_cost">650</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-bottle"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain. You can also store runes in the bottle, to save for later use. After 2 minutes, stored Runes will be activated. If Bottle is empty, it causes a courier to move 30% slower.
+            <br>
+            <br>Hold Control to use your Bottle on an allied hero.</div>
+        <div class="item_field item_attributes">MANA RESTORED: 70
+            <br>DURATION: 3
+            <br>HEALTH RESTORED: 135
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 0.5</span>
+        </div>
+        <div class="item_lore item_field">An old bottle that survived the ages, the contents placed inside become enchanted.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="bracer" class="item_field item_name">Bracer</h2><span class="item_field item_cost">525</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-bracer"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 3 Agility
+            <br>+ 3 Intelligence
+            <br>+ 6 Strength
+            <br>+ 3 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">The bracer is a common choice to toughen up defenses and increase longevity.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="broadsword" class="item_field item_name">Broadsword</h2><span class="item_field item_cost">1200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-broadsword"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 18 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">The classic weapon of choice for knights, this blade is sturdy and reliable for slaying enemies.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="buckler" class="item_field item_name">Buckler</h2><span class="item_field item_cost">800</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-buckler"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Armor Bonus - Gives +2 to all nearby allied units. Lasts 25 seconds on heroes, 30 seconds on units.</div>
+        <div class="item_field item_attributes">+ 2 All Attributes
+            <br>+ 5 Armor
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 25</span><span class="item_manacost item_field"> 10</span>
+        </div>
+        <div class="item_lore item_field">A powerful shield that imbues the bearer with the strength of heroes past, it is capable of protecting entire armies in battle.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="butterfly" class="item_field item_name">Butterfly</h2><span class="item_field item_cost">6000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-butterfly"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 30 Damage
+            <br>+ 35% Evasion
+            <br>+ 30 Agility
+            <br>+ 30 Attack Speed
+            <br>
+        </div>
+        <div class="item_lore item_field">Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="chainmail" class="item_field item_name">Chainmail</h2><span class="item_field item_cost">550</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-chainmail"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 5 Armor
+            <br>
+        </div>
+        <div class="item_lore item_field">A medium weave of metal chains.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="cheese" class="item_field item_name">Cheese</h2><span class="item_field item_cost">1000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-cheese"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Instantly restores health and mana.</div>
+        <div class="item_field item_attributes">MANA RESTORED: 1000
+            <br>HEALTH RESTORED: 2500
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 40</span>
+        </div>
+        <div class="item_lore item_field">Made from the milk of a long lost Furbolg vendor, it restores the vitality of those who taste it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="circlet" class="item_field item_name">Circlet</h2><span class="item_field item_cost">185</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-circlet"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 2 All Attributes
+            <br>
+        </div>
+        <div class="item_lore item_field">An elegant circlet designed for human princesses.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="clarity" class="item_field item_name">Clarity</h2><span class="item_field item_cost">50</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-clarity"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Restores mana on the target unit over time. If the unit is attacked, the effect is lost.</div>
+        <div class="item_field item_attributes">MANA RESTORED: 135
+            <br>DURATION: 40
+            <br>
+        </div>
+        <div class="item_lore item_field">Clear water that enhances the ability to meditate.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="claymore" class="item_field item_name">Claymore</h2><span class="item_field item_cost">1400</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-claymore"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 21 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A sword that can cut through armor, it's a commonly chosen first weapon for budding swordsmen.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="cloak" class="item_field item_name">Cloak</h2><span class="item_field item_cost">550</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-cloak"></div>
+        <p></p>
+        <div class="item_field item_description">Multiple instances of spell resistance from items do not stack.</div>
+        <div class="item_field item_attributes">+ 15% Spell Resistance
+            <br>
+        </div>
+        <div class="item_lore item_field">A cloak made of a magical material that works to dispel any magic cast on it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="lesser_crit" class="item_field item_name">Crystalys</h2><span class="item_field item_cost">2150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-lesser_crit"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Critical Strike - Grants a chance to deal critical damage on an attack.</div>
+        <div class="item_field item_attributes">CRITICAL CHANCE: 20%
+            <br>CRITICAL DAMAGE: 175%
+            <br>+ 30 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A blade forged from rare crystals, it seeks weak points in enemy armor.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="greater_crit" class="item_field item_name">Daedalus</h2><span class="item_field item_cost">5550</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-greater_crit"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Critical Strike - Grants a chance to deal critical damage on an attack.</div>
+        <div class="item_field item_attributes">CRITICAL CHANCE: 25%
+            <br>CRITICAL DAMAGE: 240%
+            <br>+ 81 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A weapon of incredible power that is difficult for even the strongest of warriors to control.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="dagon" class="item_field item_name">Dagon</h2><span class="item_field item_cost">2720</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-dagon"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.</div>
+        <div class="item_field item_attributes">+ 3 All Attributes
+            <br>+ 9 Damage
+            <br>+ 13 / 15 / 17 / 19 / 21 Intelligence
+            <br>BURST DAMAGE: 400 / 500 / 600 / 700 / 800
+            <br>CAST RANGE: 600 / 650 / 700 / 750 / 800
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 35 30 25 20 15</span><span class="item_manacost item_field"> 180 160 140 120 100</span>
+        </div>
+        <div class="item_lore item_field">A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="demon_edge" class="item_field item_name">Demon Edge</h2><span class="item_field item_cost">2400</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-demon_edge"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 46 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">One of the oldest weapons forged by the Demon-Smith Abzidian, it killed its maker when he tested its edge.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="desolator" class="item_field item_name">Desolator</h2><span class="item_field item_cost">4100</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-desolator"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Corruption - Your attacks reduce target's armor for 15 seconds.
+            <br>
+            <br>Desolator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.</div>
+        <div class="item_field item_attributes">ARMOR REDUCTION: -7
+            <br>+ 60 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A wicked weapon, used in torturing political criminals.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="diffusal_blade" class="item_field item_name">Diffusal Blade</h2><span class="item_field item_cost">3300</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-diffusal_blade"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Purge - Purges a target unit, removing buffs, slowing, and dealing damage if it is a summoned unit.
+            <br>Passive: Feedback - Your attacks burn 20 / 36 mana and deal the same amount in physical damage. Upgradable.
+            <br>
+            <br>Diffusal Blade is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.</div>
+        <div class="item_field item_attributes">+ 6 / 10 Intelligence
+            <br>+ 25 / 30 Agility
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 8</span>
+        </div>
+        <div class="item_lore item_field">An enchanted blade that allows the user to cut straight into the enemy&rsquo;s soul.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="rapier" class="item_field item_name">Divine Rapier</h2><span class="item_field item_cost">6200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-rapier"></div>
+        <p></p>
+        <div class="item_field item_description">Drops on death. Divine Rapier is muted to anyone but the owner, as long as he or his teammates pick it up. As soon as an enemy picks it up, Divine Rapier is unmuted, but cannot be dropped except on death.</div>
+        <div class="item_field item_attributes">+ 300 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">So powerful, it cannot have a single owner.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ancient_janggo" class="item_field item_name">Drum of Endurance</h2><span class="item_field item_cost">1850</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ancient_janggo"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Endurance - Gives bonus +10 attack speed and +10% movement speed to surrounding allies.
+            <br>Passive: Swiftness Aura - Gives bonus attack and movement speed to surrounding allies.
+            <br>
+            <br>Multiple instances of Swiftness Aura do not stack.</div>
+        <div class="item_field item_attributes">+ 3 Damage
+            <br>AURA ATTACK SPEED: 5
+            <br>+ 9 All Attributes
+            <br>AURA MOVE SPEED: 5%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span>
+        </div>
+        <div class="item_lore item_field">A relic that enchants the bodies of those around it for swifter movement in times of crisis.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="dust" class="item_field item_name">Dust of Appearance</h2><span class="item_field item_cost">180</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-dust"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Reveal - Reveals and slows invisible Heroes in a nearby area.</div>
+        <div class="item_field item_attributes">RADIUS: 1050
+            <br>SLOW: -15%
+            <br>DURATION: 12
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 60</span><span class="item_manacost item_field"> 5</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h2 id="eagle" class="item_field item_name">Eaglesong</h2><span class="item_field item_cost">3300</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-eagle"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 25 Agility
+            <br>
+        </div>
+        <div class="item_lore item_field">Capturing the majestic call of an eagle, this mystical horn brings limitless dexterity to those who hear it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="energy_booster" class="item_field item_name">Energy Booster</h2><span class="item_field item_cost">1000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-energy_booster"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 250 Mana
+            <br>
+        </div>
+        <div class="item_lore item_field">This lapis gemstone is commonly added to the collection of wizards seeking to improve their presence in combat.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ethereal_blade" class="item_field item_name">Ethereal Blade</h2><span class="item_field item_cost">4900</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ethereal_blade"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Ether Blast - Converts you and your target into ethereal form. Target unit is slowed and cannot attack or be attacked, and takes 2x of your primary attribute + 75 as damage.</div>
+        <div class="item_field item_attributes">+ 10 Strength
+            <br>+ 10 Intelligence
+            <br>+ 40 Agility
+            <br>ENEMY DURATION: 3
+            <br>ALLY/SELF DURATION: 4
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span><span class="item_manacost item_field"> 150</span>
+        </div>
+        <div class="item_lore item_field">A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="cyclone" class="item_field item_name">Eul's Scepter of Divinity</h2><span class="item_field item_cost">2700</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-cyclone"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Cyclone - A target unit is swept up in a cyclone and made invulnerable for 2.5 seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.
+            <br>
+            <br>Flat movement speed bonuses from multiple Eul's Scepters do not stack.</div>
+        <div class="item_field item_attributes">+ 150% Mana Regeneration
+            <br>+ 40 Movement Speed
+            <br>+ 10 Intelligence
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 23</span><span class="item_manacost item_field"> 75</span>
+        </div>
+        <div class="item_lore item_field">A mysterious scepter passed down through the ages, its disruptive winds can be used for good or evil.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="skadi" class="item_field item_name">Eye of Skadi</h2><span class="item_field item_cost">5675</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-skadi"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Cold Attack - Attacks slow the movement and attack speed of the target.
+            <br>
+            <br>Eye of Skadi is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers. Eye of Skadi can be combined with Lifesteal Attack Modifiers.</div>
+        <div class="item_field item_attributes">+ 250 Health
+            <br>+ 250 Mana
+            <br>+ 25 All Attributes
+            <br>MOVE SLOW: -35%
+            <br>ATTACK SLOW: -35
+            <br>
+        </div>
+        <div class="item_lore item_field">Extremely rare artifact, guarded by the azure dragons.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="flying_courier" class="item_field item_name">Flying Courier</h2><span class="item_field item_cost">220</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-flying_courier"></div>
+        <p></p>
+        <div class="item_field item_description">Fast flying creature that carries items to and from your base. Requires Animal Courier.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="force_staff" class="item_field item_name">Force Staff</h2><span class="item_field item_cost">2250</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-force_staff"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Force - Pushes any target unit 600 units in the direction it is facing. Double click to self-cast.</div>
+        <div class="item_field item_attributes">+ 3 HP Regeneration
+            <br>+ 10 Intelligence
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 20</span><span class="item_manacost item_field"> 25</span>
+        </div>
+        <div class="item_lore item_field">Allows you to manipulate others, for good or evil.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="gauntlets" class="item_field item_name">Gauntlets of Strength</h2><span class="item_field item_cost">150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-gauntlets"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 3 Strength
+            <br>
+        </div>
+        <div class="item_lore item_field">Studded leather gloves that add brute strength.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="gem" class="item_field item_name">Gem of True Sight</h2><span class="item_field item_cost">900</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-gem"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: True Sight - Gives the ability to see invisible units and wards. Drops on death, but cannot be destroyed.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ghost" class="item_field item_name">Ghost Scepter</h2><span class="item_field item_cost">1600</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ghost"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Ghost Form - Enter ghost form and become unable to attack or be attacked, but take 40% extra magic damage. Using a Teleport Scroll dispels Ghost Form.</div>
+        <div class="item_field item_attributes">GHOST DURATION: 4
+            <br>+ 7 All Attributes
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span>
+        </div>
+        <div class="item_lore item_field">Imbues the wielder with a ghostly presence, allowing them to evade physical damage.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="gloves" class="item_field item_name">Gloves of Haste</h2><span class="item_field item_cost">500</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-gloves"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 15 Attack Speed
+            <br>
+        </div>
+        <div class="item_lore item_field">A pair of magical gloves that seems to render weapons weightless.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="hand_of_midas" class="item_field item_name">Hand of Midas</h2><span class="item_field item_cost">2050</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-hand_of_midas"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Transmute - Kills a non-hero target for 190 gold and 2.5x experience. Cannot be used on Ancients.</div>
+        <div class="item_field item_attributes">+ 30 Attack Speed
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 100</span>
+        </div>
+        <div class="item_lore item_field">Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner's pockets.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="headdress" class="item_field item_name">Headdress</h2><span class="item_field item_cost">600</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-headdress"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Regeneration Aura - Restores HP to allies in a 750 unit radius.
+            <br>
+            <br>Multiple instances of Regeneration Aura do not stack.</div>
+        <div class="item_field item_attributes">BONUS REGEN: 3
+            <br>+ 2 All Attributes
+            <br>
+        </div>
+        <div class="item_lore item_field">Creates a soothing aura that restores allies in battle.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="flask" class="item_field item_name">Healing Salve</h2><span class="item_field item_cost">115</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-flask"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Regenerate - Restores HP on the target unit over time. If the unit is attacked, the effect is lost.</div>
+        <div class="item_field item_attributes">HEALTH RESTORED: 400
+            <br>DURATION: 10
+            <br>
+        </div>
+        <div class="item_lore item_field">A magical salve that can quickly mend even the deepest of wounds.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="heart" class="item_field item_name">Heart of Tarrasque</h2><span class="item_field item_cost">5500</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-heart"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Health Regeneration - Restores a percentage of max health per second.
+            <br>
+            <br>This ability is disabled if damage is taken from an enemy Hero or Roshan within the last 4 seconds if your hero is melee or 6 seconds if your hero is ranged.</div>
+        <div class="item_field item_attributes">+ 300 Health
+            <br>HEALTH RESTORED: 2%
+            <br>+ 40 Strength
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 6</span>
+        </div>
+        <div class="item_lore item_field">Preserved heart of an extinct monster, it bolsters the bearer&rsquo;s fortitude.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="heavens_halberd" class="item_field item_name">Heaven's Halberd</h2><span class="item_field item_cost">3850</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-heavens_halberd"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Disarms the target for 4.5 seconds. Lasts 3 on Melee targets.
+            <br>Passive: Lesser Maim - Gives a chance on attack to slow movement speed for 4 seconds.</div>
+        <div class="item_field item_attributes">MAIM CHANCE: 15%
+            <br>MAIM MOVEMENT SLOW: -20%
+            <br>+ 25% Evasion
+            <br>+ 20 Strength
+            <br>MAIM ATTACK SLOW: -20
+            <br>+ 25 Damage
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span><span class="item_manacost item_field"> 100</span>
+        </div>
+        <div class="item_lore item_field">This halberd moves with the speed of a smaller weapon, allowing the bearer to win duels that a heavy edge would not.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="helm_of_iron_will" class="item_field item_name">Helm of Iron Will</h2><span class="item_field item_cost">950</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-helm_of_iron_will"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 3 HP Regeneration
+            <br>+ 5 Armor
+            <br>
+        </div>
+        <div class="item_lore item_field">The helmet of a legendary warrior who fell in battle.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="helm_of_the_dominator" class="item_field item_name">Helm of the Dominator</h2><span class="item_field item_cost">1850</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-helm_of_the_dominator"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Dominate - Take control of a non-hero, non-ancient target unit.
+            <br>Passive: Lifesteal - Gives lifesteal on attacks.
+            <br>
+            <br>Helm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.</div>
+        <div class="item_field item_attributes">+ 5 Armor
+            <br>LIFESTEAL: 15%
+            <br>+ 20 Damage
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 60</span><span class="item_manacost item_field"> 75</span>
+        </div>
+        <div class="item_lore item_field">The powerful headpiece of a dead necromancer.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="hood_of_defiance" class="item_field item_name">Hood of Defiance</h2><span class="item_field item_cost">2125</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-hood_of_defiance"></div>
+        <p></p>
+        <div class="item_field item_description">Multiple instances of spell resistance from items do not stack.</div>
+        <div class="item_field item_attributes">+ 8 HP Regeneration
+            <br>+ 30% Spell Resistance
+            <br>
+        </div>
+        <div class="item_lore item_field">A furred, magic resistant headpiece that is feared by wizards.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="hyperstone" class="item_field item_name">Hyperstone</h2><span class="item_field item_cost">2000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-hyperstone"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 55 Attack Speed
+            <br>
+        </div>
+        <div class="item_lore item_field">A mystical, carved stone that boosts the fervor of the holder.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="branches" class="item_field item_name">Iron Branch</h2><span class="item_field item_cost">50</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-branches"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 1 All Attributes
+            <br>
+        </div>
+        <div class="item_lore item_field">A seemingly ordinary branch, its ironlike qualities are bestowed upon the bearer.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="javelin" class="item_field item_name">Javelin</h2><span class="item_field item_cost">1500</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-javelin"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Pierce - Grants a chance to deal bonus damage.</div>
+        <div class="item_field item_attributes">CHANCE TO PIERCE: 20%
+            <br>PIERCE DAMAGE: 40
+            <br>+ 21 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A rather typical spear that can sometimes pierce through an enemy's armor when used to attack.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="sphere" class="item_field item_name">Linken's Sphere</h2><span class="item_field item_cost">5175</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-sphere"></div>
+        <p></p>
+        <div class="item_field item_description">Spellblock - Passively blocks most targeted spells once every 17 seconds. Can be cast on an allied unit to temporarily transfer the buff.</div>
+        <div class="item_field item_attributes">+ 6 HP Regeneration
+            <br>+ 150% Mana Regeneration
+            <br>+ 15 All Attributes
+            <br>+ 10 Damage
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 17</span>
+        </div>
+        <div class="item_lore item_field">This magical sphere once protected one of the most famous heroes in history.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="maelstrom" class="item_field item_name">Maelstrom</h2><span class="item_field item_cost">2700</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-maelstrom"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits 4 targets, dealing damage.
+            <br>
+            <br>Maelstrom is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.</div>
+        <div class="item_field item_attributes">+ 25 Attack Speed
+            <br>CHANCE TO CHAIN: 25%
+            <br>+ 24 Damage
+            <br>CHAIN DAMAGE: 120
+            <br>
+        </div>
+        <div class="item_lore item_field">A hammer forged for the gods themselves, Maelstrom allows its user to harness the power of lightning.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="magic_stick" class="item_field item_name">Magic Stick</h2><span class="item_field item_cost">200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-magic_stick"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Energy Charge - Gains charges (max 10) based on enemies using abilities in a nearby area. When activated, it restores health and mana based on the number of charges stored.</div>
+        <div class="item_field item_attributes">RESTORE PER CHARGE: 15
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 13</span>
+        </div>
+        <div class="item_lore item_field">A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="magic_wand" class="item_field item_name">Magic Wand</h2><span class="item_field item_cost">500</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-magic_wand"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Energy Charge - Gains charges (max 15) based on enemies using abilities in a nearby area. When activated, it restores health and mana based on the number of charges stored.</div>
+        <div class="item_field item_attributes">+ 3 All Attributes
+            <br>RESTORE PER CHARGE: 15
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 13</span>
+        </div>
+        <div class="item_lore item_field">A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="manta" class="item_field item_name">Manta Style</h2><span class="item_field item_cost">5050</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-manta"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Mirror Image - Creates 2 illusions of your hero that last 20 seconds.
+            <br>
+            <br>Melee illusions deal 33% damage and take 250% bonus damage. Ranged illusions deal 28% damage and take 300% bonus damage.
+            <br>
+            <br>Percentage based movement speed bonuses from multiple items do not stack.</div>
+        <div class="item_field item_attributes">+ 26 Agility
+            <br>+ 10 Intelligence
+            <br>+ 10 Strength
+            <br>+ 15 Attack Speed
+            <br>+ 10% Movement Speed
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 50</span><span class="item_manacost item_field"> 165</span>
+        </div>
+        <div class="item_lore item_field">An axe made of reflective materials that causes confusion amongst enemy ranks.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="mantle" class="item_field item_name">Mantle of Intelligence</h2><span class="item_field item_cost">150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-mantle"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 3 Intelligence
+            <br>
+        </div>
+        <div class="item_lore item_field">A beautiful sapphire mantle worn by generations of queens.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="mask_of_madness" class="item_field item_name">Mask of Madness</h2><span class="item_field item_cost">1900</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-mask_of_madness"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Berserk - Gives 100 attack speed and 30% movement speed but causes you to take extra 30% damage. Lasts 12 seconds.
+            <br>Passive: Lifesteal - Grants lifesteal on attacks.
+            <br>
+            <br>Mask of Madness is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.</div>
+        <div class="item_field item_attributes">LIFESTEAL: 20%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 25</span><span class="item_manacost item_field"> 25</span>
+        </div>
+        <div class="item_lore item_field">Once this mask is worn, its bearer becomes an uncontrollable aggressive force.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="medallion_of_courage" class="item_field item_name">Medallion of Courage</h2><span class="item_field item_cost">1075</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-medallion_of_courage"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Valor - Reduces the armor of you and your target. Lasts 7 seconds.</div>
+        <div class="item_field item_attributes">+ 50% Mana Regeneration
+            <br>ARMOR REDUCTION: -6
+            <br>+ 6 Armor
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 7</span>
+        </div>
+        <div class="item_lore item_field">The bearer has no fear of combat.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="mekansm" class="item_field item_name">Mekansm</h2><span class="item_field item_cost">2300</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-mekansm"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Restore - Heals 250 HP and gives +2 armor in an area.
+            <br>Passive: Mekansm Aura - Bonus HP Regen in an area.
+            <br>
+            <br>Multiple instances of Mekansm Aura do not stack.</div>
+        <div class="item_field item_attributes">+ 5 Armor
+            <br>+ 5 All Attributes
+            <br>BONUS HP REGEN: 4
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 45</span><span class="item_manacost item_field"> 150</span>
+        </div>
+        <div class="item_lore item_field">A glowing jewel formed out of assorted parts that somehow fit together perfectly.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="mithril_hammer" class="item_field item_name">Mithril Hammer</h2><span class="item_field item_cost">1600</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-mithril_hammer"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 24 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A hammer forged of pure mithril.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="mjollnir" class="item_field item_name">Mjollnir</h2><span class="item_field item_cost">5600</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-mjollnir"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Static Charge - Places a charged shield on a target unit which has a 20% chance to release a shocking bolt at a nearby attacker and 4 additional enemies.
+            <br>Passive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits 8 targets, dealing damage.
+            <br>
+            <br>Mjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.</div>
+        <div class="item_field item_attributes">+ 80 Attack Speed
+            <br>STATIC DURATION: 15
+            <br>+ 24 Damage
+            <br>STATIC DAMAGE: 200
+            <br>STATIC CHANCE: 20%
+            <br>CHAIN DAMAGE: 150
+            <br>CHAIN CHANCE: 25%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 35</span><span class="item_manacost item_field"> 50</span>
+        </div>
+        <div class="item_lore item_field">Thor&rsquo;s magical hammer, made for him by the dwarves Brok and Eitri.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="monkey_king_bar" class="item_field item_name">Monkey King Bar</h2><span class="item_field item_cost">5400</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-monkey_king_bar"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Mini-Bash - Gives a chance to minibash and deal bonus damage.
+            <br>Passive: True Strike - Prevents your attacks from missing.</div>
+        <div class="item_field item_attributes">+ 15 Attack Speed
+            <br>CHANCE TO MINI-BASH: 35%
+            <br>+ 88 Damage
+            <br>MINI-BASH DAMAGE: 100
+            <br>
+        </div>
+        <div class="item_lore item_field">A powerful staff used by a master warrior.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="lifesteal" class="item_field item_name">Morbid Mask</h2><span class="item_field item_cost">900</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-lifesteal"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Lifesteal - Gives lifesteal on attacks.
+            <br>
+            <br>Morbid Mask is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.</div>
+        <div class="item_field item_attributes">LIFESTEAL: 15%
+            <br>
+        </div>
+        <div class="item_lore item_field">A mask that drains the energy of those caught in its gaze.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="mystic_staff" class="item_field item_name">Mystic Staff</h2><span class="item_field item_cost">2700</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-mystic_staff"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 25 Intelligence
+            <br>
+        </div>
+        <div class="item_lore item_field">Enigmatic staff made of only the most expensive crystals.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="necronomicon" class="item_field item_name">Necronomicon</h2><span class="item_field item_cost">2700</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-necronomicon"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you. Their strength and abilities increase as Necronomicon increases in level. Lasts 40 seconds.</div>
+        <div class="item_field item_attributes">+ 8 / 12 / 16 Strength
+            <br>+ 15 / 21 / 24 Intelligence
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 95</span><span class="item_manacost item_field"> 50</span>
+        </div>
+        <div class="item_lore item_field">Considered the holy grail of necromancy and demonology, a powerful malefic force is locked within its pages.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="null_talisman" class="item_field item_name">Null Talisman</h2><span class="item_field item_cost">470</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-null_talisman"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 3 Agility
+            <br>+ 6 Intelligence
+            <br>+ 3 Strength
+            <br>+ 3 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A small gemstone attached to several chains.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="oblivion_staff" class="item_field item_name">Oblivion Staff</h2><span class="item_field item_cost">1675</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-oblivion_staff"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 Attack Speed
+            <br>+ 15 Damage
+            <br>+ 6 Intelligence
+            <br>+ 75% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">Deceptively hidden as an ordinary quarterstaff, it is actually very powerful, much like the Eldritch who originally possessed it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ward_observer" class="item_field item_name">Observer Ward</h2><span class="item_field item_cost">150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ward_observer"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Places an Observer Ward to give sight of the surrounding area. Lasts 7 minutes.
+            <br>
+            <br>Hold Control to give one Observer Ward to an allied hero.</div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 1</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h2 id="ogre_axe" class="item_field item_name">Ogre Club</h2><span class="item_field item_cost">1000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ogre_axe"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 Strength
+            <br>
+        </div>
+        <div class="item_lore item_field">You grow stronger just by holding it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="orb_of_venom" class="item_field item_name">Orb of Venom</h2><span class="item_field item_cost">275</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-orb_of_venom"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Poison Attack - Poisons the target, dealing damage over time and slowing, depending on whether your hero is melee or ranged.
+            <br>
+            <br>Orb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.</div>
+        <div class="item_field item_attributes">RANGED SLOW: -4%
+            <br>DURATION: 4
+            <br>MELEE SLOW: -12%
+            <br>POISON DAMAGE: 3
+            <br>
+        </div>
+        <div class="item_lore item_field">Envenoms your veapon with the venom of a venomous viper.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="orchid" class="item_field item_name">Orchid Malevolence</h2><span class="item_field item_cost">4125</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-orchid"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Soul Burn - Silences target unit for 5 seconds and amplifies the damage it takes by 30%.</div>
+        <div class="item_field item_attributes">+ 30 Attack Speed
+            <br>+ 30 Damage
+            <br>+ 25 Intelligence
+            <br>+ 150% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 18</span><span class="item_manacost item_field"> 100</span>
+        </div>
+        <div class="item_lore item_field">A garnet rod constructed from the essence of a fire demon.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="pers" class="item_field item_name">Perseverance</h2><span class="item_field item_cost">1750</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-pers"></div>
+        <p></p>
+        <div class="item_field item_description"></div>
+        <div class="item_field item_attributes">+ 5 HP Regeneration
+            <br>+ 125% Mana Regeneration
+            <br>+ 10 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A gem that grants heart to the bearer.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="phase_boots" class="item_field item_name">Phase Boots</h2><span class="item_field item_cost">1350</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-phase_boots"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Phase - Gives increased movement speed and lets you move through units. Phase is cancelled upon using another item or ability.
+            <br>
+            <br>Flat movement speed bonuses from multiple pairs of boots do not stack.</div>
+        <div class="item_field item_attributes">PHASE MOVE BOOST: 16%
+            <br>+ 50 Movement Speed
+            <br>PHASE DURATION: 4
+            <br>+ 24 Damage
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 8</span>
+        </div>
+        <div class="item_lore item_field">Boots that allow the wearer to travel between the ether.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="pipe" class="item_field item_name">Pipe of Insight</h2><span class="item_field item_cost">3625</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-pipe"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Barrier - Gives nearby friendly units a shield that blocks 400 spell damage.
+            <br>Passive: Insight Aura - Gives nearby friendly units 4 health regeneration.
+            <br>
+            <br>Multiple instances of spell resistance from items do not stack.</div>
+        <div class="item_field item_attributes">+ 8 HP Regeneration
+            <br>+ 30% Spell Resistance
+            <br>AURA REGEN: 4
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 60</span><span class="item_manacost item_field"> 100</span>
+        </div>
+        <div class="item_lore item_field">A powerful artifact of mysterious origin, it creates barriers against magical forces.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="platemail" class="item_field item_name">Platemail</h2><span class="item_field item_cost">1400</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-platemail"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 Armor
+            <br>
+        </div>
+        <div class="item_lore item_field">Thick metal plates that protect the entire upper body. Avoid dropping on feet.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="point_booster" class="item_field item_name">Point Booster</h2><span class="item_field item_cost">1200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-point_booster"></div>
+        <p></p>
+        <div class="item_field item_description"></div>
+        <div class="item_field item_attributes">+ 200 Health
+            <br>+ 150 Mana
+            <br>
+        </div>
+        <div class="item_lore item_field">A perfectly formed amethyst that nourishes body and mind when held.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="poor_mans_shield" class="item_field item_name">Poor Man's Shield</h2><span class="item_field item_cost">550</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-poor_mans_shield"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Damage Block - Blocks physical attack damage, depending on the type of hero you are. Poor Man's Shield will always block attacks from enemy Heroes, but has a chance to block damage from creeps.</div>
+        <div class="item_field item_attributes">RANGED BLOCK: 10
+            <br>BLOCK CHANCE: 60%
+            <br>MELEE BLOCK: 20
+            <br>+ 6 Agility
+            <br>
+        </div>
+        <div class="item_lore item_field">A busted old shield that seems to block more than it should.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="power_treads" class="item_field item_name">Power Treads</h2><span class="item_field item_cost">1400</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-power_treads"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Switch Attribute - Changes selected attribute between Strength, Agility and Intelligence.
+            <br>
+            <br>Flat movement speed bonuses from multiple pairs of boots do not stack.</div>
+        <div class="item_field item_attributes">+ 8 undefined
+            <br>+ 30 Attack Speed
+            <br>+ 50 Movement Speed
+            <br>
+        </div>
+        <div class="item_lore item_field">A pair of tough-skinned boots that change to meet the demands of the wearer.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="quarterstaff" class="item_field item_name">Quarterstaff</h2><span class="item_field item_cost">900</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-quarterstaff"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 Attack Speed
+            <br>+ 10 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A basic staff that allows you to strike quickly.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="quelling_blade" class="item_field item_name">Quelling Blade</h2><span class="item_field item_cost">225</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-quelling_blade"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Destroy Tree/Ward - Destroy a target tree, or deals 100 damage to a ward.
+            <br>Passive: Quell - Gives bonus attack damage against non-hero units, depending on the type of hero you are.</div>
+        <div class="item_field item_attributes">RANGED BONUS: 12%
+            <br>MELEE BONUS: 32%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 5</span>
+        </div>
+        <div class="item_lore item_field">The axe of a fallen gnome, it allows you to effectively maneuver the forest.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="radiance" class="item_field item_name">Radiance</h2><span class="item_field item_cost">5150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-radiance"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Toggles Burn Damage on or off.
+            <br>Passive: Burn Damage - Deals damage per second in a 700 radius.</div>
+        <div class="item_field item_attributes">BURN DAMAGE: 50
+            <br>+ 65 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="reaver" class="item_field item_name">Reaver</h2><span class="item_field item_cost">3200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-reaver"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 25 Strength
+            <br>
+        </div>
+        <div class="item_lore item_field">A massive axe capable of tearing whole mountains down.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="refresher" class="item_field item_name">Refresher Orb</h2><span class="item_field item_cost">5225</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-refresher"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Reset Cooldowns - Resets the cooldowns of all your items and abilities.</div>
+        <div class="item_field item_attributes">+ 200% Mana Regeneration
+            <br>+ 40 Damage
+            <br>+ 5 HP Regeneration
+            <br>+ 6 Intelligence
+            <br>+ 10 Attack Speed
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 160</span><span class="item_manacost item_field"> 375</span>
+        </div>
+        <div class="item_lore item_field">A powerful artifact created for wizards.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ring_of_aquila" class="item_field item_name">Ring of Aquila</h2><span class="item_field item_cost">985</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ring_of_aquila"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Aquila Aura - Grants mana regeneration and armor in a 900 AoE.
+            <br>Active: Toggle whether the aura affects other non-hero units.
+            <br>
+            <br>Multiple instances of Aquila Aura do not stack.</div>
+        <div class="item_field item_attributes">+ 3 All Attributes
+            <br>+ 6 Agility
+            <br>+ 9 Damage
+            <br>AURA MANA REGEN: 0.65
+            <br>AURA BONUS ARMOR: 2
+            <br>+ 1 Armor
+            <br>
+        </div>
+        <div class="item_lore item_field">The ring of the fallen Warlord Aquila continues to support armies in battle.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ring_of_basilius" class="item_field item_name">Ring of Basilius</h2><span class="item_field item_cost">500</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ring_of_basilius"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Basilius Aura - Grants mana regeneration and armor in a 900 AoE.
+            <br>Active: Toggle whether the aura affects other non-hero units.
+            <br>
+            <br>Multiple instances of Basilius Aura do not stack.</div>
+        <div class="item_field item_attributes">AURA MANA REGEN: 0.65
+            <br>+ 6 Damage
+            <br>AURA BONUS ARMOR: 2
+            <br>+ 1 Armor
+            <br>
+        </div>
+        <div class="item_lore item_field">Ring given as a reward to the greatest mages.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ring_of_health" class="item_field item_name">Ring of Health</h2><span class="item_field item_cost">875</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ring_of_health"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 5 HP Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">A shiny ring found beneath a fat halfling&rsquo;s corpse.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ring_of_protection" class="item_field item_name">Ring of Protection</h2><span class="item_field item_cost">175</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ring_of_protection"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 2 Armor
+            <br>
+        </div>
+        <div class="item_lore item_field">A glimmering ring that defends its bearer.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ring_of_regen" class="item_field item_name">Ring of Regen</h2><span class="item_field item_cost">350</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ring_of_regen"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 2 HP Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">This ring is considered a good luck charm among the Gnomes.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="robe" class="item_field item_name">Robe of the Magi</h2><span class="item_field item_cost">450</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-robe"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 6 Intelligence
+            <br>
+        </div>
+        <div class="item_lore item_field">This robe corrupts the soul of the user, but provides wisdom in return.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="rod_of_atos" class="item_field item_name">Rod of Atos</h2><span class="item_field item_cost">3100</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-rod_of_atos"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Cripple - Slows the target's movement speed.</div>
+        <div class="item_field item_attributes">+ 350 Health
+            <br>CRIPPLE SLOW: 60%
+            <br>+ 25 Intelligence
+            <br>DURATION: 4
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 10</span><span class="item_manacost item_field"> 50</span>
+        </div>
+        <div class="item_lore item_field">Atos, the Lord of Blight, has his essence stored in this deceptively simple wand.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="relic" class="item_field item_name">Sacred Relic</h2><span class="item_field item_cost">3800</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-relic"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 60 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">An ancient weapon that often turns the tides of war.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="sobi_mask" class="item_field item_name">Sage's Mask</h2><span class="item_field item_cost">325</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-sobi_mask"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 50% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">A mask commonly used by mages and warlocks for various rituals.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="sange" class="item_field item_name">Sange</h2><span class="item_field item_cost">2050</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-sange"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Lesser Maim - Gives a chance on attack to slow movement speed for 4 seconds.</div>
+        <div class="item_field item_attributes">MAIM MOVEMENT SLOW: -20%
+            <br>MAIM ATTACK SLOW: -20
+            <br>MAIM CHANCE: 15%
+            <br>+ 16 Strength
+            <br>+ 10 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">Sange is an unusually accurate weapon, seeking weak points automatically.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="sange_and_yasha" class="item_field item_name">Sange and Yasha</h2><span class="item_field item_cost">4100</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-sange_and_yasha"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Greater Maim - Gives a chance on attack to slow movement speed for 5 seconds.
+            <br>
+            <br>Percentage based movement speed bonuses from multiple items do not stack.</div>
+        <div class="item_field item_attributes">MAIM MOVEMENT SLOW: -32%
+            <br>MAIM ATTACK SLOW: -32
+            <br>MAIM CHANCE: 16%
+            <br>+ 16 Agility
+            <br>+ 16 Attack Speed
+            <br>+ 16 Damage
+            <br>+ 16 Strength
+            <br>+ 16% Movement Speed
+            <br>
+        </div>
+        <div class="item_lore item_field">Sange and Yasha, when attuned by the moonlight and used together, become a very powerful combination.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="satanic" class="item_field item_name">Satanic</h2><span class="item_field item_cost">6150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-satanic"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Unholy Rage - Increases Lifesteal by 175% for 3.5 seconds.
+            <br>Passive: Lifesteal - Gives Lifesteal on attacks.
+            <br>
+            <br>Satanic is a Unique Attack Modifier, and does not stack with other Unique Attack Modifier.</div>
+        <div class="item_field item_attributes">+ 25 Strength
+            <br>+ 5 Armor
+            <br>+ 20 Damage
+            <br>LIFESTEAL: 25%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 35</span>
+        </div>
+        <div class="item_lore item_field">Immense power at the cost of your soul.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="sheepstick" class="item_field item_name">Scythe of Vyse</h2><span class="item_field item_cost">5675</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-sheepstick"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Hex - Turns a target unit into a harmless critter for 3.5 seconds. Destroys illusions.</div>
+        <div class="item_field item_attributes">+ 10 Agility
+            <br>+ 35 Intelligence
+            <br>+ 10 Strength
+            <br>+ 150% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 35</span><span class="item_manacost item_field"> 100</span>
+        </div>
+        <div class="item_lore item_field">The most guarded relic among the cult of Vyse, it is the most coveted weapon among magi.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ward_sentry" class="item_field item_name">Sentry Ward</h2><span class="item_field item_cost">200</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ward_sentry"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Places a Sentry Ward to give True Sight of the surrounding area. Lasts 4 minutes.
+            <br>
+            <br>Hold Control to give one Sentry Ward to an allied hero.</div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 1</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h2 id="shadow_amulet" class="item_field item_name">Shadow Amulet</h2><span class="item_field item_cost">1600</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-shadow_amulet"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Fade - Grants invisibility to you or target allied hero over 1.5 seconds. Moving breaks the invisibility. There is no cooldown when using this item on yourself.</div>
+        <div class="item_field item_attributes">+ 30 Attack Speed
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 10</span>
+        </div>
+        <div class="item_lore item_field"></div>
+    </div>
+    <div class="form-group">
+        <h2 id="invis_sword" class="item_field item_name">Shadow Blade</h2><span class="item_field item_cost">3000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-invis_sword"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell. While Shadow Walk is active, you move 20% faster and can move through units. If attacking to break the invisibility, you gain 150 bonus damage on that attack. Lasts 14 seconds.</div>
+        <div class="item_field item_attributes">+ 30 Attack Speed
+            <br>+ 22 Damage
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 28</span><span class="item_manacost item_field"> 75</span>
+        </div>
+        <div class="item_lore item_field">The blade of a fallen king, it allows you to move unseen and strike from the shadows.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="shivas_guard" class="item_field item_name">Shiva's Guard</h2><span class="item_field item_cost">4700</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-shivas_guard"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Arctic Blast - Emits a freezing wave that does 200 damage to enemies and slows their movement by -40% for 4 seconds.
+            <br>Passive: Freezing Aura - Reduces attack speed on enemies.
+            <br>
+            <br>Multiple instances of Freezing Aura do not stack.</div>
+        <div class="item_field item_attributes">+ 15 Armor
+            <br>+ 30 Intelligence
+            <br>BLAST DAMAGE: 200
+            <br>AURA ATTACK SLOW: -40
+            <br>BLAST MOVEMENT SLOW: -40%
+            <br>BLAST SLOW DURATION: 4
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span><span class="item_manacost item_field"> 100</span>
+        </div>
+        <div class="item_lore item_field">Said to have belonged to a goddess, today it retains much of its former power.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="basher" class="item_field item_name">Skull Basher</h2><span class="item_field item_cost">2950</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-basher"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Bash - Gives a chance to stun for 1.4 seconds.</div>
+        <div class="item_field item_attributes">+ 6 Strength
+            <br>MELEE CHANCE: 25%
+            <br>+ 40 Damage
+            <br>RANGED CHANCE: 10%
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 2</span>
+        </div>
+        <div class="item_lore item_field">A feared weapon in the right hands, this maul's ability to shatter the defenses of its opponents should not be underestimated.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="slippers" class="item_field item_name">Slippers of Agility</h2><span class="item_field item_cost">150</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-slippers"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 3 Agility
+            <br>
+        </div>
+        <div class="item_lore item_field">Light boots made from spider skin that tingles your senses.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="smoke_of_deceit" class="item_field item_name">Smoke of Deceit</h2><span class="item_field item_cost">100</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-smoke_of_deceit"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Upon activation, the user and all nearby allied player-controlled units gain invisiblity and bonus movement speed for a brief time. Minimap icons will also be hidden. Upon moving within 1025 range of an enemy hero or tower, the invisibility is lost.</div>
+        <div class="item_field item_attributes">BONUS SPEED: 15%
+            <br>DURATION: 35
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 90</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h2 id="soul_booster" class="item_field item_name">Soul Booster</h2><span class="item_field item_cost">3300</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-soul_booster"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 400 Mana
+            <br>+ 4 HP Regeneration
+            <br>+ 450 Health
+            <br>+ 100% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">Regain lost courage.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="soul_ring" class="item_field item_name">Soul Ring</h2><span class="item_field item_cost">800</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-soul_ring"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Sacrifice - Consume 150 HP to temporarily gain 150 Mana. Lasts 10 seconds.</div>
+        <div class="item_field item_attributes">+ 50% Mana Regeneration
+            <br>+ 3 HP Regeneration
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span>
+        </div>
+        <div class="item_lore item_field">A ring that feeds on the souls of those around it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="staff_of_wizardry" class="item_field item_name">Staff of Wizardry</h2><span class="item_field item_cost">1000</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-staff_of_wizardry"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 Intelligence
+            <br>
+        </div>
+        <div class="item_lore item_field">A staff of magical powers passed down from the eldest mages.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="stout_shield" class="item_field item_name">Stout Shield</h2><span class="item_field item_cost">250</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-stout_shield"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Damage Block - Gives a chance to block damage, depending on the type of hero you are.</div>
+        <div class="item_field item_attributes">RANGED BLOCK: 10
+            <br>BLOCK CHANCE: 60%
+            <br>MELEE BLOCK: 20
+            <br>
+        </div>
+        <div class="item_lore item_field">One man's wine barrel bottom is another man's shield.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="talisman_of_evasion" class="item_field item_name">Talisman of Evasion</h2><span class="item_field item_cost">1800</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-talisman_of_evasion"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 25% Evasion
+            <br>
+        </div>
+        <div class="item_lore item_field">A necklace that allows you to anticipate enemy attacks.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="tango" class="item_field item_name">Tango</h2><span class="item_field item_cost">125</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-tango"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Eat Tree - Consume a tree to restore HP over time. Comes with 4 charges.</div>
+        <div class="item_field item_attributes">HEALTH RESTORED: 115
+            <br>DURATION: 16
+            <br>
+        </div>
+        <div class="item_lore item_field">Forage to survive on the battlefield.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="tpscroll" class="item_field item_name">Town Portal Scroll</h2><span class="item_field item_cost">135</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-tpscroll"></div>
+        <p></p>
+        <div class="item_field item_description">Use: Teleport - Teleports you to a target friendly building.</div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 65</span><span class="item_manacost item_field"> 75</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h2 id="tranquil_boots" class="item_field item_name">Tranquil Boots</h2><span class="item_field item_cost">975</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-tranquil_boots"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Break - Whenever you attack or get attacked you lose the HP regeneration and 30 Movement Speed for 13 seconds.</div>
+        <div class="item_field item_attributes">+ 4 Armor
+            <br>+ 12 HP Regeneration
+            <br>+ 90 Movement Speed
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 13</span>
+        </div>
+        <div class="item_lore item_field">While they increase the longevity of the wearer, this boot is not particularly reliable.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="ultimate_orb" class="item_field item_name">Ultimate Orb</h2><span class="item_field item_cost">2100</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-ultimate_orb"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 10 All Attributes
+            <br>
+        </div>
+        <div class="item_lore item_field">A mystical orb containing the essence of life.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="urn_of_shadows" class="item_field item_name">Urn of Shadows</h2><span class="item_field item_cost">875</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-urn_of_shadows"></div>
+        <p></p>
+        <div class="item_field item_description">Gains charges every time an enemy hero dies within 1400 units. Only the closest Urn to the dying hero will gain a charge.
+            <br>Active: Soul Release - Heals HP over time for friendly units, but deals damage over time for enemy units. The healing effect is lost if the affected unit takes damage from an enemy hero or tower.</div>
+        <div class="item_field item_attributes">+ 6 Strength
+            <br>+ 50% Mana Regeneration
+            <br>URN HEAL: 400
+            <br>DURATION: 8
+            <br>URN DAMAGE: 150
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 7</span>
+        </div>
+        <div class="item_lore item_field">Contains the ashes of powerful demons.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="vanguard" class="item_field item_name">Vanguard</h2><span class="item_field item_cost">2225</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-vanguard"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Damage Block - Gives a chance to block damage, depending on the type of hero you are.</div>
+        <div class="item_field item_attributes">+ 6 HP Regeneration
+            <br>BLOCK CHANCE: 80%
+            <br>+ 250 Health
+            <br>RANGED BLOCK: 20
+            <br>MELEE BLOCK: 40
+            <br>
+        </div>
+        <div class="item_lore item_field">A powerful shield that defends its wielder from even the most vicious of attacks.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="veil_of_discord" class="item_field item_name">Veil of Discord</h2><span class="item_field item_cost">2670</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-veil_of_discord"></div>
+        <p></p>
+        <div class="item_field item_description">Active: Magic Weakness - Emits a weakening blast that increases the magic damage enemies take. Lasts 25 seconds.</div>
+        <div class="item_field item_attributes">BONUS MAGIC DAMAGE: -25%
+            <br>+ 6 HP Regeneration
+            <br>RADIUS: 600
+            <br>+ 6 Agility
+            <br>+ 6 Damage
+            <br>+ 6 Intelligence
+            <br>+ 6 Strength
+            <br>+ 6 Armor
+            <br>
+        </div>
+        <div class="item_cdmana"><span class="item_cooldown item_field"> 30</span><span class="item_manacost item_field"> 75</span>
+        </div>
+        <div class="item_lore item_field">The headwear of corrupt magi.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="vitality_booster" class="item_field item_name">Vitality Booster</h2><span class="item_field item_cost">1100</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-vitality_booster"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 250 Health
+            <br>
+        </div>
+        <div class="item_lore item_field">A ruby gemstone that has been passed down through generations of warrior kin.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="vladmir" class="item_field item_name">Vladmir's Offering</h2><span class="item_field item_cost">2050</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-vladmir"></div>
+        <p></p>
+        <div class="item_field item_description">Passive: Vladmir's Aura - Grants a variety of bonuses to nearby allies. Lifesteal bonuses from Vladmir's Aura only affect melee units.
+            <br>
+            <br>Multiple instances of Vladmir's Aura do not stack.</div>
+        <div class="item_field item_attributes">AURA LIFESTEAL: 16%
+            <br>AURA BONUS ARMOR: 5
+            <br>AURA BONUS DAMAGE: 15%
+            <br>AURA MANA REGEN: 0.8
+            <br>+ 2 HP Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">An eerie mask that is haunted with the malice of a fallen vampire.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="void_stone" class="item_field item_name">Void Stone</h2><span class="item_field item_cost">875</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-void_stone"></div>
+        <p></p>
+        <div class="item_field item_description"></div>
+        <div class="item_field item_attributes">+ 100% Mana Regeneration
+            <br>
+        </div>
+        <div class="item_lore item_field">Jewelry that was once used to channel nether realm magic, this ring pulses with energy.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="wraith_band" class="item_field item_name">Wraith Band</h2><span class="item_field item_cost">485</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-wraith_band"></div>
+        <p></p>
+        <div class="item_field item_attributes">+ 6 Agility
+            <br>+ 3 Intelligence
+            <br>+ 3 Strength
+            <br>+ 3 Damage
+            <br>
+        </div>
+        <div class="item_lore item_field">A circlet with faint whispers echoing about it.</div>
+    </div>
+    <div class="form-group">
+        <h2 id="yasha" class="item_field item_name">Yasha</h2><span class="item_field item_cost">2050</span>
+        <p></p>
+        <div class="img-rounded itemsprite itemsprite-yasha"></div>
+        <p></p>
+        <div class="item_field item_description">Percentage based movement speed bonuses from multiple items do not stack.</div>
+        <div class="item_field item_attributes">+ 15 Attack Speed
+            <br>+ 10% Movement Speed
+            <br>+ 16 Agility
+            <br>
+        </div>
+        <div class="item_lore item_field">Yasha is regarded as the swiftest weapon ever created.</div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary">
+        <ul class="nav bs-docs-sidenav">
+            <li class="active"> <a href="#abyssal_blade">A&ndash;B</a>
+                <ul class="nav">
+                    <li class="active"><a href="#abyssal_blade">Abyssal Blade</a>
+                    </li>
+                    <li class=""><a href="#aegis">Aegis of the Immortal</a>
+                    </li>
+                    <li class=""><a href="#ultimate_scepter">Aghanim's Scepter</a>
+                    </li>
+                    <li class=""><a href="#courier">Animal Courier</a>
+                    </li>
+                    <li class=""><a href="#arcane_boots">Arcane Boots</a>
+                    </li>
+                    <li class=""><a href="#armlet">Armlet of Mordiggian</a>
+                    </li>
+                    <li class=""><a href="#assault">Assault Cuirass</a>
+                    </li>
+                    <li class=""><a href="#boots_of_elves">Band of Elvenskin</a>
+                    </li>
+                    <li class=""><a href="#bfury">Battle Fury</a>
+                    </li>
+                    <li class=""><a href="#belt_of_strength">Belt of Strength</a>
+                    </li>
+                    <li class=""><a href="#black_king_bar">Black King Bar</a>
+                    </li>
+                    <li class=""><a href="#blade_mail">Blade Mail</a>
+                    </li>
+                    <li class=""><a href="#blade_of_alacrity">Blade of Alacrity</a>
+                    </li>
+                    <li class=""><a href="#blades_of_attack">Blades of Attack</a>
+                    </li>
+                    <li class=""><a href="#blink">Blink Dagger</a>
+                    </li>
+                    <li class=""><a href="#bloodstone">Bloodstone</a>
+                    </li>
+                    <li><a href="#boots">Boots of Speed</a>
+                    </li>
+                    <li class=""><a href="#travel_boots">Boots of Travel</a>
+                    </li>
+                    <li class=""><a href="#bottle">Bottle</a>
+                    </li>
+                    <li class=""><a href="#bracer">Bracer</a>
+                    </li>
+                    <li><a href="#broadsword">Broadsword</a>
+                    </li>
+                    <li class=""><a href="#buckler">Buckler</a>
+                    </li>
+                    <li class=""><a href="#butterfly">Butterfly</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#chainmail">C&ndash;D</a>
+                <ul class="nav">
+                    <li class=""><a href="#chainmail">Chainmail</a>
+                    </li>
+                    <li class=""><a href="#cheese">Cheese</a>
+                    </li>
+                    <li class=""><a href="#circlet">Circlet</a>
+                    </li>
+                    <li class=""><a href="#clarity">Clarity</a>
+                    </li>
+                    <li><a href="#claymore">Claymore</a>
+                    </li>
+                    <li class=""><a href="#cloak">Cloak</a>
+                    </li>
+                    <li class=""><a href="#lesser_crit">Crystalys</a>
+                    </li>
+                    <li class=""><a href="#greater_crit">Daedalus</a>
+                    </li>
+                    <li class=""><a href="#dagon">Dagon</a>
+                    </li>
+                    <li class=""><a href="#demon_edge">Demon Edge</a>
+                    </li>
+                    <li class=""><a href="#desolator">Desolator</a>
+                    </li>
+                    <li class=""><a href="#diffusal_blade">Diffusal Blade</a>
+                    </li>
+                    <li class=""><a href="#rapier">Divine Rapier</a>
+                    </li>
+                    <li class=""><a href="#ancient_janggo">Drum of Endurance</a>
+                    </li>
+                    <li class=""><a href="#dust">Dust of Appearance</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#eagle">E&ndash;G</a>
+                <ul class="nav">
+                    <li class=""><a href="#eagle">Eaglesong</a>
+                    </li>
+                    <li class=""><a href="#energy_booster">Energy Booster</a>
+                    </li>
+                    <li class=""><a href="#ethereal_blade">Ethereal Blade</a>
+                    </li>
+                    <li class=""><a href="#cyclone">Eul's Scepter of Divinity</a>
+                    </li>
+                    <li class=""><a href="#skadi">Eye of Skadi</a>
+                    </li>
+                    <li class=""><a href="#flying_courier">Flying Courier</a>
+                    </li>
+                    <li class=""><a href="#force_staff">Force Staff</a>
+                    </li>
+                    <li class=""><a href="#gauntlets">Gauntlets of Strength</a>
+                    </li>
+                    <li class=""><a href="#gem">Gem of True Sight</a>
+                    </li>
+                    <li class=""><a href="#ghost">Ghost Scepter</a>
+                    </li>
+                    <li><a href="#gloves">Gloves of Haste</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#hand_of_midas">H&ndash;I</a>
+                <ul class="nav">
+                    <li class=""><a href="#hand_of_midas">Hand of Midas</a>
+                    </li>
+                    <li class=""><a href="#headdress">Headdress</a>
+                    </li>
+                    <li class=""><a href="#flask">Healing Salve</a>
+                    </li>
+                    <li class=""><a href="#heart">Heart of Tarrasque</a>
+                    </li>
+                    <li class=""><a href="#heavens_halberd">Heaven's Halberd</a>
+                    </li>
+                    <li class=""><a href="#helm_of_iron_will">Helm of Iron Will</a>
+                    </li>
+                    <li class=""><a href="#helm_of_the_dominator">Helm of the Dominator</a>
+                    </li>
+                    <li class=""><a href="#hood_of_defiance">Hood of Defiance</a>
+                    </li>
+                    <li><a href="#hyperstone">Hyperstone</a>
+                    </li>
+                    <li><a href="#branches">Iron Branch</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#javelin">J&ndash;M</a>
+                <ul class="nav">
+                    <li class=""><a href="#javelin">Javelin</a>
+                    </li>
+                    <li><a href="#sphere">Linken's Sphere</a>
+                    </li>
+                    <li class=""><a href="#maelstrom">Maelstrom</a>
+                    </li>
+                    <li><a href="#magic_stick">Magic Stick</a>
+                    </li>
+                    <li><a href="#magic_wand">Magic Wand</a>
+                    </li>
+                    <li><a href="#manta">Manta Style</a>
+                    </li>
+                    <li class=""><a href="#mantle">Mantle of Intelligence</a>
+                    </li>
+                    <li class=""><a href="#mask_of_madness">Mask of Madness</a>
+                    </li>
+                    <li class=""><a href="#medallion_of_courage">Medallion of Courage</a>
+                    </li>
+                    <li class=""><a href="#mekansm">Mekansm</a>
+                    </li>
+                    <li class=""><a href="#mithril_hammer">Mithril Hammer</a>
+                    </li>
+                    <li class=""><a href="#mjollnir">Mjollnir</a>
+                    </li>
+                    <li class=""><a href="#monkey_king_bar">Monkey King Bar</a>
+                    </li>
+                    <li class=""><a href="#lifesteal">Morbid Mask</a>
+                    </li>
+                    <li class=""><a href="#mystic_staff">Mystic Staff</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#necronomicon">N&ndash;P</a>
+                <ul class="nav">
+                    <li class=""><a href="#necronomicon">Necronomicon</a>
+                    </li>
+                    <li class=""><a href="#null_talisman">Null Talisman</a>
+                    </li>
+                    <li><a href="#oblivion_staff">Oblivion Staff</a>
+                    </li>
+                    <li class=""><a href="#ward_observer">Observer Ward</a>
+                    </li>
+                    <li class=""><a href="#ogre_axe">Ogre Club</a>
+                    </li>
+                    <li class=""><a href="#orb_of_venom">Orb of Venom</a>
+                    </li>
+                    <li class=""><a href="#orchid">Orchid Malevolence</a>
+                    </li>
+                    <li class=""><a href="#pers">Perseverance</a>
+                    </li>
+                    <li class=""><a href="#phase_boots">Phase Boots</a>
+                    </li>
+                    <li class=""><a href="#pipe">Pipe of Insight</a>
+                    </li>
+                    <li><a href="#platemail">Platemail</a>
+                    </li>
+                    <li class=""><a href="#point_booster">Point Booster</a>
+                    </li>
+                    <li class=""><a href="#poor_mans_shield">Poor Man's Shield</a>
+                    </li>
+                    <li class=""><a href="#power_treads">Power Treads</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#quarterstaff">Q&ndash;R</a>
+                <ul class="nav">
+                    <li><a href="#quarterstaff">Quarterstaff</a>
+                    </li>
+                    <li class=""><a href="#quelling_blade">Quelling Blade</a>
+                    </li>
+                    <li class=""><a href="#radiance">Radiance</a>
+                    </li>
+                    <li class=""><a href="#reaver">Reaver</a>
+                    </li>
+                    <li class=""><a href="#refresher">Refresher Orb</a>
+                    </li>
+                    <li class=""><a href="#ring_of_aquila">Ring of Aquila</a>
+                    </li>
+                    <li class=""><a href="#ring_of_basilius">Ring of Basilius</a>
+                    </li>
+                    <li class=""><a href="#ring_of_health">Ring of Health</a>
+                    </li>
+                    <li class=""><a href="#ring_of_protection">Ring of Protection</a>
+                    </li>
+                    <li class=""><a href="#ring_of_regen">Ring of Regen</a>
+                    </li>
+                    <li class=""><a href="#robe">Robe of the Magi</a>
+                    </li>
+                    <li class=""><a href="#rod_of_atos">Rod of Atos</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#relic">S</a>
+                <ul class="nav">
+                    <li class=""><a href="#relic">Sacred Relic</a>
+                    </li>
+                    <li class=""><a href="#sobi_mask">Sage's Mask</a>
+                    </li>
+                    <li class=""><a href="#sange">Sange</a>
+                    </li>
+                    <li class=""><a href="#sange_and_yasha">Sange and Yasha</a>
+                    </li>
+                    <li class=""><a href="#satanic">Satanic</a>
+                    </li>
+                    <li class=""><a href="#sheepstick">Scythe of Vyse</a>
+                    </li>
+                    <li class=""><a href="#ward_sentry">Sentry Ward</a>
+                    </li>
+                    <li class=""><a href="#shadow_amulet">Shadow Amulet</a>
+                    </li>
+                    <li class=""><a href="#invis_sword">Shadow Blade</a>
+                    </li>
+                    <li class=""><a href="#shivas_guard">Shiva's Guard</a>
+                    </li>
+                    <li class=""><a href="#basher">Skull Basher</a>
+                    </li>
+                    <li class=""><a href="#slippers">Slippers of Agility</a>
+                    </li>
+                    <li class=""><a href="#smoke_of_deceit">Smoke of Deceit</a>
+                    </li>
+                    <li class=""><a href="#soul_booster">Soul Booster</a>
+                    </li>
+                    <li class=""><a href="#soul_ring">Soul Ring</a>
+                    </li>
+                    <li class=""><a href="#staff_of_wizardry">Staff of Wizardry</a>
+                    </li>
+                    <li class=""><a href="#stout_shield">Stout Shield</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""> <a href="#talisman_of_evasion">T&ndash;Z</a>
+                <ul class="nav">
+                    <li class=""><a href="#talisman_of_evasion">Talisman of Evasion</a>
+                    </li>
+                    <li class=""><a href="#tango">Tango</a>
+                    </li>
+                    <li class=""><a href="#tpscroll">Town Portal Scroll</a>
+                    </li>
+                    <li class=""><a href="#tranquil_boots">Tranquil Boots</a>
+                    </li>
+                    <li class=""><a href="#ultimate_orb">Ultimate Orb</a>
+                    </li>
+                    <li class=""><a href="#urn_of_shadows">Urn of Shadows</a>
+                    </li>
+                    <li class=""><a href="#vanguard">Vanguard</a>
+                    </li>
+                    <li class=""><a href="#veil_of_discord">Veil of Discord</a>
+                    </li>
+                    <li class=""><a href="#vitality_booster">Vitality Booster</a>
+                    </li>
+                    <li class=""><a href="#vladmir">Vladmir's Offering</a>
+                    </li>
+                    <li><a href="#void_stone">Void Stone</a>
+                    </li>
+                    <li><a href="#wraith_band">Wraith Band</a>
+                    </li>
+                    <li class=""><a href="#yasha">Yasha</a>
+                    </li>
+                </ul>
+            </li>
+        </ul> <a class="back-to-top" href="#top">Back to top</a>
+    </div>
+</div>
+{% endblock container %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $('body').scrollspy({
+        target: '.bs-docs-sidebar',
+        offset: 40
+    });
+</script>
+{% endblock scripts %}

@@ -5,6 +5,15 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+	color: #aaa;
+	background-color: #202126;
+	border-color: #303239;
+}
+.table>thead>tr>th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #202123;
+}
 @media only screen and (min-width : 768px) {
     /* Make Navigation Toggle on Desktop Hover */
     .top-nav-menu .dropdown:hover .dropdown-menu {
@@ -100,20 +109,6 @@ footer, .push {
 	height: 150px; /* .push must be the same height as .footer */
 	font-size:8pt;
     margin-top:30px;
-}
-footer > div {
-	font-family: 'Cinzel', serif;
-	font-size:12pt;
-	font-weight:bold;
-	margin-bottom:5px;
-}
-footer > div > a {
-	padding: 0px 5px 0px 5px;
-	font-size:10pt;
-	color:#7e2a2c;
-}
-footer  > div > a:hover {
-	color:#7e2a2c;
 }
 footer > p {
 	margin:0px;

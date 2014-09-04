@@ -1,5 +1,16 @@
 var HEROCALCULATOR = (function (my) {
-
+    
+    ko.bindingHandlers.diffStyle = {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+            var value = ko.utils.unwrapObservable(valueAccessor());
+            ko.applyBindingsToNode(element, { css: {'diffPos': value > 0, 'diffNeg': value < 0} });
+        },
+        update: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+            var value = ko.utils.unwrapObservable(valueAccessor());
+            ko.applyBindingsToNode(element, { css: {'diffPos': value > 0, 'diffNeg': value < 0} });
+        }
+    };
+    
     ko.bindingHandlers.jqAuto = {
         init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
             var options = valueAccessor() || {},
@@ -136,7 +147,7 @@ var HEROCALCULATOR = (function (my) {
 }(HEROCALCULATOR));
 var HEROCALCULATOR = (function (my) {
 
-    my.HeroCalculatorViewModel = function() {
+    my.HeroCalculatorViewModel = function () {
         var self = this;
         self.heroes = [new my.HeroCalculatorModel(1), new my.HeroCalculatorModel(0)];
         self.heroes[0].enemy = ko.observable(self.heroes[1]);
@@ -162,7 +173,7 @@ var HEROCALCULATOR = (function (my) {
         self.selectedItem = ko.observable();
         self.layout = ko.observable("1");
         self.displayShop = ko.observable(true);
-        self.toggleDisplayShop = function() {
+        self.toggleDisplayShop = function () {
             self.displayShop(!self.displayShop());
         }
         self.allItems = ko.observableArray([
@@ -172,24 +183,24 @@ var HEROCALCULATOR = (function (my) {
             {name: 'Damage, IAS, BAT, Attack', value: 'stats3'}
         ]); // Initial items
         self.selectedItems = ko.observableArray([]); 
-        self.moveUp = function() {
+        self.moveUp = function () {
             var start = self.allItems.indexOf(self.selectedItems()[0]),
-            end = self.allItems.indexOf(self.selectedItems()[self.selectedItems().length-1]);        
+            end = self.allItems.indexOf(self.selectedItems()[self.selectedItems().length - 1]);
             if (start > 0) {
-                var e = self.allItems.splice(start-1,1);
-                self.allItems.splice(end,0,e[0]);            
+                var e = self.allItems.splice(start - 1, 1);
+                self.allItems.splice(end, 0, e[0]);            
             }
         };
-        self.moveDown = function() {
+        self.moveDown = function () {
             var start = self.allItems.indexOf(self.selectedItems()[0]),
-            end = self.allItems.indexOf(self.selectedItems()[self.selectedItems().length-1]);        
-            if (end < self.allItems().length-1) {
-                var e = self.allItems.splice(end+1,1);
-                self.allItems.splice(start,0,e[0]);
+            end = self.allItems.indexOf(self.selectedItems()[self.selectedItems().length - 1]);        
+            if (end < self.allItems().length - 1) {
+                var e = self.allItems.splice(end + 1, 1);
+                self.allItems.splice(start, 0, e[0]);
             }    
         };
 		self.selectedTabId = ko.observable('heroTab0');
-        self.selectedTab = ko.computed(function() {
+        self.selectedTab = ko.computed(function () {
 			switch (self.selectedTabId()) {
 				case 'heroTab0':
 					return 0;
@@ -217,7 +228,7 @@ var HEROCALCULATOR = (function (my) {
         self.selectedTabs = ko.observableArray([]);
 		self.selectedTabs.push('heroTab0');
 		self.selectedTabs.push('heroTab1');
-        self.clickTab = function(data, event) {
+        self.clickTab = function (data, event) {
 			self.selectedTabId(event.target.id);
 			if (self.selectedTabs()[1] != event.target.id) {
 				self.selectedTabs.shift();
@@ -225,18 +236,18 @@ var HEROCALCULATOR = (function (my) {
 			}
         };
 
-		self.showSideTabId = function(id) {
+		self.showSideTabId = function (id) {
 			return self.selectedTabs().indexOf(id) > -1 && self.sideView();
 		};
 		
-        self.removeTab = function(index, data, event, tab) {
-            self.heroes[tab].illusions.remove(function(illusion) {
+        self.removeTab = function (index, data, event, tab) {
+            self.heroes[tab].illusions.remove(function (illusion) {
                 return illusion() == data;
             });
         };
         
         self.sideView = ko.observable(false);
-        self.sideView.subscribe(function(newValue) {
+        self.sideView.subscribe(function (newValue) {
             if (newValue) {
 				if (!self.shopPopout()) {
 					self.displayShop(false);
@@ -245,14 +256,14 @@ var HEROCALCULATOR = (function (my) {
             }
         });
         self.shopPopout = ko.observable(false);
-        self.shopPopout.subscribe(function(newValue) {
+        self.shopPopout.subscribe(function (newValue) {
             if (newValue) {
 				self.displayShop(true);
                 $( "#shop-dialog" ).dialog({
                     minWidth: 380,
                     minHeight: 0,
 					closeText: "",
-					open: function( event, ui ) {
+					open: function ( event, ui ) {
 						$(event.target.offsetParent).find('.ui-dialog-titlebar').find('button')
 							.addClass('close glyphicon glyphicon-remove shop-button btn btn-default btn-xs pull-right')
 							.removeClass('ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close close')
@@ -260,11 +271,11 @@ var HEROCALCULATOR = (function (my) {
 							.parent()
 								.append($('#shop-minimize'))
 								.append($('#shop-maximize'));
-						$(event.target.offsetParent).find('.ui-dialog-titlebar').dblclick(function() {
+						$(event.target.offsetParent).find('.ui-dialog-titlebar').dblclick(function () {
 							self.displayShop(!self.displayShop());
 						});
 					},
-                    close: function( event, ui ) {
+                    close: function ( event, ui ) {
                         self.shopPopout(false);
                     }
 				});
@@ -276,15 +287,15 @@ var HEROCALCULATOR = (function (my) {
         });
 
         
-        self.changeSelectedItem = function (data,event) {
+        self.changeSelectedItem = function (data, event) {
             self.itemInputValue(1);
             self.selectedItem(event.target.id);
         }
         
-        self.getItemTooltipData = ko.computed(function() {
+        self.getItemTooltipData = ko.computed(function () {
             return my.getItemTooltipData(self.selectedItem());
         }, this);
-        self.getItemInputLabel = ko.computed(function() {
+        self.getItemInputLabel = ko.computed(function () {
             if (my.stackableItems.indexOf(self.selectedItem()) != -1) {
                 return 'Stack Size'
             }
@@ -300,12 +311,12 @@ var HEROCALCULATOR = (function (my) {
         }, this);
         self.itemInputValue = ko.observable(1);
         self.saveLink = ko.observable();
-        self.save = function() {
+        self.save = function () {
             var data = {
                 version: "1.1.0",
                 heroes: []
             }
-            var indices = [0,1,4,5];
+            var indices = [0, 1, 4, 5];
             for (var i = 0; i < 4; i++) {
                 var hero = self.heroes[indices[i]];
                 d = {
@@ -364,18 +375,18 @@ var HEROCALCULATOR = (function (my) {
             $.ajax({
                 type: "POST",
                 url: "/dota2/apps/hero-calculator/save.php",
-                data: {'data':serialized},
+                data: {'data': serialized},
                 dataType: "json",
-                success: function(data){
+                success: function (data){
                     self.saveLink("http://devilesk.com/dota2/apps/hero-calculator?id=" + data.file);
                 },
-                failure: function(errMsg) {
+                failure: function (errMsg) {
                     alert("Save request failed.");
                 }
             });
         }
-        self.load = function(data) {
-            var indices = [0,1,4,5];
+        self.load = function (data) {
+            var indices = [0, 1, 4, 5];
             for (var i = 0; i < 4; i++) {
                 var hero = self.heroes[indices[i]];
                 hero.selectedHero(_.findWhere(hero.availableHeroes(), {'heroName': data.heroes[i].hero}));
@@ -450,10 +461,10 @@ var HEROCALCULATOR = (function (my) {
             }
         }
         
-        self.sendReport = function() {
+        self.sendReport = function () {
             if ($('#BugReportFormText').val()) {
                 $.post( "report.php", { name: $('#BugReportFormName').val(), email: $('#BugReportFormEmail').val(), body: $('#BugReportFormText').val() })
-                .done(function(data) {
+                .done(function (data) {
                     if (data == 'Success') {
                         alert('Report successfully sent. Thanks!');
                         $('#BugReportFormText').val('');
@@ -469,7 +480,24 @@ var HEROCALCULATOR = (function (my) {
             }
         }
         
-        self.getDiffText = function(value) {
+        self.getProperty = function (obj, properties) {
+            var result = obj;
+            for (var i = 0; i < properties.length; i++) {
+                result = result[properties[i]];
+            }
+            return result;
+        };
+        
+        self.getDiffTextWrapper = function (hero, property) {
+            return self.getDiffText(self.getDiffMagnitude(hero, property));
+        }
+        
+        self.getDiffMagnitude = function (hero, property) {
+            var properties = property.split('.');
+            return self.getProperty(hero.damageTotalInfo(), properties).toFixed(2) - self.getProperty(hero.heroCompare().damageTotalInfo(), properties).toFixed(2);
+        }
+        
+        self.getDiffText = function (value) {
             if (value > 0) {
                 return '+' + parseFloat(value.toFixed(2));
             }
@@ -480,7 +508,7 @@ var HEROCALCULATOR = (function (my) {
                 return '';
             }
         }
-        self.showPopover = function(tab) {
+        self.showPopover = function (tab) {
             if ($(window).width() < 768) return null;
             var compareText = "<strong>Compare tab</strong><br>Delta values are calculated from the difference with this tab.",
                 enemyText = "<strong>Enemy tab</strong><br>Stats from this tab are taken into account and affect calculations.";
@@ -503,7 +531,7 @@ var HEROCALCULATOR = (function (my) {
                 break;
             }
         }
-        self.hidePopover = function(tab) {
+        self.hidePopover = function (tab) {
             switch (tab) {
                 case 0:
                     $('#popHero' + 1).popover('hide');
@@ -531,10 +559,10 @@ var HEROCALCULATOR = (function (my) {
 
     my.heroCalculator = {};
 
-    my.init = function(HERODATA_PATH,ITEMDATA_PATH,UNITDATA_PATH) {
+    my.init = function (HERODATA_PATH,ITEMDATA_PATH,UNITDATA_PATH) {
         var loadedFiles = 0;
         var loadedFilesMax = 4;
-        $.get('templates.html', function(templates) {
+        $.get('templates.html', function (templates) {
             $('body').append('<div style="display:none">' + templates + '<\/div>');
             loadedFiles++;
             
@@ -562,7 +590,7 @@ var HEROCALCULATOR = (function (my) {
         });
     }
     
-    my.run = function() {
+    my.run = function () {
         my.heroCalculator = new my.HeroCalculatorViewModel();
         ko.applyBindings(my.heroCalculator);
 		$('#spinner').hide();
@@ -573,7 +601,7 @@ var HEROCALCULATOR = (function (my) {
         $('#popHero5').popover({animation: false, html: true});
         var saveId = getParameterByName('id');
         if (saveId) {
-            $.get('save/' + saveId + '.json', function(data) {
+            $.get('save/' + saveId + '.json', function (data) {
                 my.heroCalculator.load(data);
             });
         }

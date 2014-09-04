@@ -10,43 +10,20 @@ header: Patch History
   <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
   <style type="text/css">
 .hero {
-margin:1px;
-width:73px;
-display:inline-block;
-box-shadow:3px 3px #0A0A0A;
-}
-.hero:hover {
-cursor:hand;
-cursor:pointer;
-}
-
-#header-str {
-	background-image:url("{{ media_url('images/overviewicon_str.png') }}");
-	background-repeat:no-repeat;
-	padding:6px 10px 15px 40px;
-	font-size:16px;
-	/*font-family:Georgia;*/
-	font-weight:bold;
-}
-#header-agi {
-	background-image:url("{{ media_url('images/overviewicon_agi.png') }}");
-	background-repeat:no-repeat;
-	padding:6px 10px 15px 40px;
-	font-size:16px;
-	/*font-family:Georgia;*/
-	font-weight:bold;
-}
-#header-int {
-	background-image:url("{{ media_url('images/overviewicon_int.png') }}");
-	background-repeat:no-repeat;
-	padding:6px 10px 15px 40px;
-	font-size:16px;
-	/*font-family:Georgia;*/
-	font-weight:bold;
+    margin:1px;
+    width:73px;
+    display:inline-block;
+    box-shadow:3px 3px #0A0A0A;
 }
 .header-wrapper {
-	padding-top:10px;
 	text-align:center;
+}
+.header-wrapper > img {
+    width: 32px;
+}
+.header-wrapper > span {
+	font-size:16px;
+	font-weight:bold;
 }
 .lemonchiffon {
 	color:lemonchiffon;
@@ -60,9 +37,6 @@ cursor:pointer;
 .cyan {
 	color:cyan;
 }
-img {
-	display:none;
-}
 .patch_number {
 	width:50px;
 	display:inline-block;
@@ -75,7 +49,7 @@ img {
   {% endblock custom_css %}
 {% block main %}
   <div class="col-md-4">
-<div class="header-wrapper"><span id="header-str">Strength</span></div>
+<div class="header-wrapper"><img src="/media/images/pip_str.png"><span>Strength</span></div>
 <br>
 <div class="hero herosprite herosprite-earthshaker" title="Earthshaker" id="h_earthshaker"></div>
 <div class="hero herosprite herosprite-sven" title="Sven" id="h_sven"></div>
@@ -126,7 +100,7 @@ img {
   </div>
 
   <div class="col-md-4">
-<div class="header-wrapper"><span id="header-agi">Agility</span></div>
+<div class="header-wrapper"><img src="/media/images/pip_agi.png"><span>Agility</span></div>
 <br>
 <div class="hero herosprite herosprite-antimage" title="Anti-Mage" id="h_antimage"></div>
 <div class="hero herosprite herosprite-drow_ranger" title="Drow Ranger" id="h_drow_ranger"></div>
@@ -174,7 +148,7 @@ img {
   </div>
 
   <div class="col-md-4">
-<div class="header-wrapper"><span id="header-int">Intelligence</span></div>
+<div class="header-wrapper"><img src="/media/images/pip_int.png"><span>Intelligence</span></div>
 <br>
 <div class="hero herosprite herosprite-crystal_maiden" title="Crystal Maiden" id="h_crystal_maiden"></div>
 <div class="hero herosprite herosprite-puck" title="Puck" id="h_puck"></div>
