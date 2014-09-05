@@ -1,50 +1,21 @@
 {% extends "base.j2" %}
 {% from "macros.j2" import getValueString %}
 
+{% block custom_css %}
+<style type="text/css">
+.hero-bio p{
+    text-indent: 15px;
+}
+</style>
+{% endblock custom_css %}
+    
 {% block header %}
     {% if resource.meta.header %}
-    <h2>{{ resource.meta.header }}<small style="margin-left:20px">{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}Melee{%- endif %}{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}Ranged{%- endif %}{% if herodata[resource.meta.hero].role != '' %}, {{ herodata[resource.meta.hero].role.replace(',', ', ') }}{%- endif %}</small></h2>
+    <h2>{{ resource.meta.header }}<small style="margin-left:20px">{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}Melee{%- endif %}{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}Ranged{%- endif %}{% if herodata[resource.meta.hero].role and herodata[resource.meta.hero].role != '' %}, {{ herodata[resource.meta.hero].role.replace(',', ', ') }}{%- endif %}</small></h2>
     {% endif %}
 {% endblock header %}
                 
 {% block main %}
-<div class="col-md-8">
-    {% for ability in herodata[resource.meta.hero].abilities -%}
-    {% if ability.name != 'attribute_bonus' %}
-    <div class="ability panel panel-default">
-      <div class="abilityname panel-heading"><strong>{{ ability.displayname }}</strong></div>
-      <div class="panel-body">
-        <div class="col-md-2"><img class="abilityportrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
-        <div class="col-md-10">{{ ability.description }}</div>
-      </div>
-      <table class="abilitydata table">
-        <tbody>
-        {% if ability.cooldown %}
-          <tr>
-            <td>COOLDOWN:</td>
-            <td>{{ getValueString(ability.cooldown) }}</td>
-          </tr>
-        {%- endif %}
-        {% if ability.manacost %}
-          <tr>
-            <td>MANA COST:</td>
-            <td>{{ getValueString(ability.manacost) }}</td>
-          </tr>
-        {%- endif %}
-        {% for attribute in ability.attributes -%}
-        {% if attribute.tooltip %}
-          <tr>
-            <td>{{ attribute.tooltip }}</td>
-            <td>{{ getValueString(attribute.value) }}</td>
-          </tr>
-        {%- endif %}
-        {%- endfor %}
-        </tbody>
-      </table>
-    </div>
-    {%- endif %}
-    {%- endfor %}
-</div>
 <div class="col-md-4">
     <div class="row">
         <div class="col-md-12">
@@ -88,36 +59,36 @@
             <tbody>
                 <tr>
                     <td>Movement Speed</td>
-                    <td>{{ herodata[resource.meta.hero].movementspeed }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].movementspeed }}</td>
                 </tr>
                 <tr>
                     <td>Turn Rate</td>
-                    <td>{{ herodata[resource.meta.hero].movementturnrate }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].movementturnrate }}</td>
                 </tr>
                 <tr>
                     <td>Day/Night Sight Range</td>
-                    <td>{{ herodata[resource.meta.hero].visiondaytimerange }}/{{ herodata[resource.meta.hero].visionnighttimerange }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].visiondaytimerange }}/{{ herodata[resource.meta.hero].visionnighttimerange }}</td>
                 </tr>
                 <tr>
                     <td>Attack Range</td>
-                    <td>{{ herodata[resource.meta.hero].attackrange }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].attackrange }}</td>
                 </tr>
                 <tr>
                     <td>Missile Speed</td>
                     {% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}
-                    <td>&mdash;</td>
+                    <td class="text-right">&mdash;</td>
                     {%- endif %}
                     {% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}
-                    <td>{{ herodata[resource.meta.hero].projectilespeed }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].projectilespeed }}</td>
                     {%- endif %}
                 </tr>
                 <tr>
                     <td>Attack Point</td>
-                    <td>{{ herodata[resource.meta.hero].attackpoint }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].attackpoint }}</td>
                 </tr>
                 <tr>
                     <td>Base Attack Time</td>
-                    <td>{{ herodata[resource.meta.hero].attackrate }}</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].attackrate }}</td>
                 </tr>
             </tbody>
         </table>
@@ -172,5 +143,48 @@
             </tbody>
         </table>
     </div>
+    <div class="hero-bio col-md-12">
+        {% if herodata[resource.meta.hero].bio and herodata[resource.meta.hero].bio != '' %}
+            <div class="text-center"><strong>Bio</strong></div>
+            <small>{{ paragraphs(herodata[resource.meta.hero].bio.replace('--', '&mdash;')) }}</small>
+        {% endif %}
+    </div>
+</div>
+<div class="col-md-8">
+    {% for ability in herodata[resource.meta.hero].abilities -%}
+    {% if ability.name != 'attribute_bonus' %}
+    <div class="ability panel panel-default">
+      <div class="abilityname panel-heading"><strong>{{ ability.displayname }}</strong></div>
+      <div class="panel-body">
+        <div class="col-md-2"><img class="abilityportrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
+        <div class="col-md-10">{{ format_tooltip(ability.description.replace('\\n', '<br>'), ability.attributes) }}</div>
+      </div>
+      <table class="abilitydata table">
+        <tbody>
+        {% if ability.cooldown and any(ability.cooldown) %}
+          <tr>
+            <td>COOLDOWN:</td>
+            <td>{{ getValueString(ability.cooldown) }}</td>
+          </tr>
+        {%- endif %}
+        {% if ability.manacost and any(ability.manacost) %}
+          <tr>
+            <td>MANA COST:</td>
+            <td>{{ getValueString(ability.manacost) }}</td>
+          </tr>
+        {%- endif %}
+        {% for attribute in ability.attributes -%}
+        {% if attribute.tooltip %}
+          <tr>
+            <td>{{ attribute.tooltip.replace('\\n', '<br>') }}</td>
+            <td>{{ getValueString(attribute.value) }}</td>
+          </tr>
+        {%- endif %}
+        {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    {%- endif %}
+    {%- endfor %}
 </div>
 {%- endblock %}

@@ -452,10 +452,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_abaddon", 
   "projectilespeed": 900, 
+  "role": "Durable,Support,Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -966,6 +968,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -1114,7 +1117,7 @@
      }, 
      {
       "name": "radius", 
-      "tooltip": "RADIUS:", 
+      "tooltip": "EXPLOSION RADIUS:", 
       "value": [
        175
       ]
@@ -1213,6 +1216,7 @@
      }, 
      {
       "name": "bonus_gold_cap", 
+      "tooltip": "MAX BONUS GOLD:", 
       "value": [
        30
       ]
@@ -1233,7 +1237,7 @@
      0, 
      0
     ], 
-    "description": "Alchemist gets bonus gold for killing creeps; the bonus stacks if the creeps are killed within a period of time, after which the count is reset.  The bonus gold is capped at 30 gold.", 
+    "description": "Alchemist synthesizes additional gold from his enemies. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next %duration% seconds, an additional instance of Extra Bonus Gold is added to the total. The maximum total bonus gold is %bonus_gold_cap% per kill.", 
     "displayname": "Greevil's Greed", 
     "level": 0, 
     "lore": "While it is not a mountain, Razzil has mastered the conversion of smaller compounds to line his pockets.", 
@@ -1540,10 +1544,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_alchemist", 
   "projectilespeed": 900, 
+  "role": "Durable,Carry,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -1681,7 +1687,7 @@
      }, 
      {
       "name": "spell_resist_pct", 
-      "tooltip": "%DECREASE RESIST:", 
+      "tooltip": "%INCREASED MAGIC DAMAGE:", 
       "value": [
        -15, 
        -20, 
@@ -2096,10 +2102,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_ancient_apparition", 
   "projectilespeed": 1250, 
+  "role": "Support,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -2479,10 +2487,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_antimage", 
   "projectilespeed": 0, 
+  "role": "Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -2832,7 +2842,7 @@
      0, 
      0
     ], 
-    "description": "Axe spots weakness and strikes, dealing moderate damage but instantly killing an enemy unit with low health.  When an enemy hero is killed in this way, the cooldown is reset. Axe and nearby allied units gain bonus movement speed.\\n\\nUpgradable by Aghanim's Scepter.", 
+    "description": "Axe spots a weakness and strikes, instantly killing an enemy unit with low health, or dealing moderate damage otherwise. When an enemy hero is killed with Culling Blade, its cooldown is reset, and Axe and nearby allied units gain bonus movement speed. \\n\\nUpgradable by Aghanim's Scepter.", 
     "displayname": "Culling Blade", 
     "level": 0, 
     "lore": "Mogul Khan is the embodiment of battle and fury, launching into a gruesome fatality against those who dare engage the Axe in combat.", 
@@ -2929,10 +2939,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_axe", 
   "projectilespeed": 900, 
+  "role": "Durable,Initiator,Disabler,Jungler", 
   "statushealth": 150, 
   "statushealthregen": 3, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -3409,10 +3421,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_bane", 
   "projectilespeed": 900, 
+  "role": "Disabler,Nuker,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -3750,7 +3764,7 @@
      0, 
      0
     ], 
-    "description": "Batrider takes to the skies, laying down a flaming trail from the air.  While flying, the trail of fire destroys trees and damages enemies in its path, and Batrider gains unobstructed movement and vision.", 
+    "description": "Batrider takes to the skies, laying down a trail of flames from the air.  The fire damages any enemies it touches, and destroys trees below Batrider. While flying, Batrider gains unobstructed movement and vision.", 
     "displayname": "Firefly", 
     "level": 0, 
     "lore": "When an enemy escapes into the Yama Raskav Jungle, most would cut through the brush to find the fugitive.  Batrider just chooses to destroy the jungle along with his foes.", 
@@ -3923,10 +3937,12 @@
   "movementturnrate": 1, 
   "name": "npc_dota_hero_batrider", 
   "projectilespeed": 900, 
+  "role": "Initiator,Disabler,Nuker,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -4453,10 +4469,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_beastmaster", 
   "projectilespeed": 0, 
+  "role": "Initiator,Disabler,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -4883,10 +4901,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_bloodseeker", 
   "projectilespeed": 900, 
+  "role": "Carry,Jungler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -5017,7 +5037,7 @@
      }, 
      {
       "name": "crit_multiplier", 
-      "tooltip": "%BONUS DAMAGE:", 
+      "tooltip": "%CRITICAL DAMAGE:", 
       "value": [
        150, 
        175, 
@@ -5345,10 +5365,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_bounty_hunter", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1000
  }, 
@@ -5812,10 +5834,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_brewmaster", 
   "projectilespeed": 900, 
+  "role": "Carry,Durable,Initiator,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -6301,10 +6325,12 @@
   "movementturnrate": 1, 
   "name": "npc_dota_hero_bristleback", 
   "projectilespeed": 900, 
+  "role": "Durable,Initiator,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -6754,10 +6780,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_broodmother", 
   "projectilespeed": 900, 
+  "role": "Pusher,Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -7175,10 +7203,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_centaur", 
   "projectilespeed": 900, 
+  "role": "Durable,Disabler,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -7631,10 +7661,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_chaos_knight", 
   "projectilespeed": 900, 
+  "role": "Carry,Disabler,Durable,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -8125,10 +8157,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_chen", 
   "projectilespeed": 1100, 
+  "role": "Support,Jungler,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -8524,10 +8558,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_clinkz", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -8991,10 +9027,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_crystal_maiden", 
   "projectilespeed": 900, 
+  "role": "Support,Disabler,Nuker,LaneSupport", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -9458,10 +9496,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_dark_seer", 
   "projectilespeed": 900, 
+  "role": "Initiator,Nuker,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -9847,7 +9887,7 @@
      0, 
      0
     ], 
-    "description": "Applies a buff that increases allied hero armor or decreases enemy hero armor in the target area over time.\\n\\nUpgradable by Aghanim's Scepter.", 
+    "description": "Applies a buff that increases the armor of allied heroes while decreasing the armor of enemy heroes in the target area over time.\\n\\nUpgradable by Aghanim's Scepter.", 
     "displayname": "Weave", 
     "level": 0, 
     "lore": "His ethereal journey into the Nothl realm has allowed Dazzle to mend together the powers of light and dark, creating shifting waves of enchantments.", 
@@ -9944,10 +9984,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_dazzle", 
   "projectilespeed": 1200, 
+  "role": "Support,LaneSupport", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -10179,7 +10221,7 @@
      }, 
      {
       "name": "exorcism_1_extra_spirits", 
-      "tooltip": "EXORCISM SPIRITS:", 
+      "tooltip": "ADDED EXORCISM SPIRITS:", 
       "value": [
        3, 
        4, 
@@ -10462,10 +10504,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_death_prophet", 
   "projectilespeed": 1000, 
+  "role": "Pusher,Nuker,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -10930,10 +10974,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_disruptor", 
   "projectilespeed": 1200, 
+  "role": "Nuker,Support,Initiator,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -11492,10 +11538,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_doom_bringer", 
   "projectilespeed": 900, 
+  "role": "Durable,Carry,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -11869,7 +11917,7 @@
      0, 
      0
     ], 
-    "description": "Dragon Knight can take the form of three powerful elder dragons.\\nLEVEL 1 - Green Dragon: Short poison damage over time on attack.\\nLEVEL 2 - Red Dragon: Splash damage on attack.\\nLEVEL 3 - Blue Dragon: Splash damage and frost attack that slows enemy units.", 
+    "description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his damage, speed, and Dragon Tail's range, while granting him new powers.\\nLEVEL 1 Green Dragon - Corrosive Breath: attacks deal 20 poison damage over 5 seconds. Works on structures.\\nLEVEL 2 Red Dragon - Splash Attack: attacks damage all enemy units in a 250 radius, with Corrosive Breath added to the primary target.\\nLEVEL 3 Blue Dragon - Frost Breath: slows movement speed by 30%%, and attack speed by 20, of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the primary target.", 
     "displayname": "Elder Dragon Form", 
     "level": 0, 
     "lore": "The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm.", 
@@ -11966,10 +12014,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_dragon_knight", 
   "projectilespeed": 900, 
+  "role": "Carry,Durable,Disabler,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12357,10 +12407,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_drow_ranger", 
   "projectilespeed": 1250, 
+  "role": "Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12957,10 +13009,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_earth_spirit", 
   "projectilespeed": 900, 
+  "role": "Carry,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -13362,10 +13416,12 @@
   "movementturnrate": 0.9, 
   "name": "npc_dota_hero_earthshaker", 
   "projectilespeed": 0, 
+  "role": "Initiator,Disabler,Support,LaneSupport", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -13962,10 +14018,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_elder_titan", 
   "projectilespeed": 900, 
+  "role": "Initiator,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -14498,10 +14556,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_ember_spirit", 
   "projectilespeed": 900, 
+  "role": "Carry,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -14910,10 +14970,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_enchantress", 
   "projectilespeed": 900, 
+  "role": "Support,Pusher,Durable,Jungler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -15123,7 +15185,7 @@
      0, 
      0
     ], 
-    "description": "Transforms a creep into three fragments of Engima himself.  These eidolons are all under Enigma's control, and repeated successful attacks cause them to multiply.  When this happens, the eidolons have their health restored.", 
+    "description": "Transforms a creep into three fragments of Enigma himself.  These eidolons are all under Enigma's control, and repeated successful attacks cause them to multiply.  When this happens, the eidolons have their health restored.", 
     "displayname": "Demonic Conversion", 
     "level": 0, 
     "lore": "Enigma is capable of drawing aspects of himself from other dimensions - the result is a trio of dark eidolons that hunt the corporeal plane.", 
@@ -15429,10 +15491,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_enigma", 
   "projectilespeed": 900, 
+  "role": "Disabler,Initiator,Jungler,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -15876,10 +15940,12 @@
   "movementspeed": 300, 
   "movementturnrate": 1, 
   "name": "npc_dota_hero_faceless_void", 
+  "role": "Carry,Initiator,Disabler,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -16286,10 +16352,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_furion", 
   "projectilespeed": 1125, 
+  "role": "Jungler,Pusher,Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -16791,10 +16859,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_gyrocopter", 
   "projectilespeed": 3000, 
+  "role": "Disabler,Initiator,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -17245,10 +17315,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_huskar", 
   "projectilespeed": 1400, 
+  "role": "Carry,Initiator,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -17714,7 +17786,7 @@
      }, 
      {
       "name": "freeze_cooldown", 
-      "tooltip": "FREEZE COOLDOWN:", 
+      "tooltip": "FREEZE COOLDOWN (<font color='#7998b5'>QUAS</font>):", 
       "value": [
        0.77, 
        0.74, 
@@ -17733,7 +17805,7 @@
      }, 
      {
       "name": "duration", 
-      "tooltip": "DURATION:", 
+      "tooltip": "COLD SNAP DURATION (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        3, 
        3.5, 
@@ -17752,7 +17824,7 @@
      }, 
      {
       "name": "freeze_damage", 
-      "tooltip": "FREEZE DAMAGE:", 
+      "tooltip": "FREEZE DAMAGE (<font color='#7998b5'>QUAS</font>):", 
       "value": [
        7, 
        14, 
@@ -17827,8 +17899,15 @@
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
     "attributes": [
      {
+      "name": "area_of_effect", 
+      "tooltip": "RADIUS:", 
+      "value": [
+       400
+      ]
+     }, 
+     {
       "name": "enemy_slow", 
-      "tooltip": "%ENEMY SLOW:\\n", 
+      "tooltip": "%ENEMY SLOW (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        -20, 
        -25, 
@@ -17846,8 +17925,15 @@
       ]
      }, 
      {
+      "name": "duration", 
+      "tooltip": "DURATION:", 
+      "value": [
+       100
+      ]
+     }, 
+     {
       "name": "self_slow", 
-      "tooltip": "%SELF SPEED:\\n", 
+      "tooltip": "%SELF SPEED (<font color='#d671a9'>WEX</font>):\\n", 
       "value": [
        -30, 
        -20, 
@@ -17862,20 +17948,6 @@
       "name": "levelkey", 
       "value": [
        "wexlevel"
-      ]
-     }, 
-     {
-      "name": "area_of_effect", 
-      "tooltip": "RADIUS:", 
-      "value": [
-       400
-      ]
-     }, 
-     {
-      "name": "duration", 
-      "tooltip": "DURATION:", 
-      "value": [
-       100
       ]
      }, 
      {
@@ -17947,7 +18019,7 @@
      }, 
      {
       "name": "travel_distance", 
-      "tooltip": "TRAVEL DISTANCE:", 
+      "tooltip": "TRAVEL DISTANCE (<font color='#d671a9'>WEX</font>):\\n", 
       "value": [
        800, 
        1200, 
@@ -17966,7 +18038,7 @@
      }, 
      {
       "name": "lift_duration", 
-      "tooltip": "LIFT TIME:", 
+      "tooltip": "LIFT TIME (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        0.8, 
        1.1, 
@@ -17985,7 +18057,7 @@
      }, 
      {
       "name": "base_damage", 
-      "tooltip": "DAMAGE:", 
+      "tooltip": "BASE DAMAGE:", 
       "value": [
        70
       ]
@@ -18004,7 +18076,7 @@
      }, 
      {
       "name": "quas_damage", 
-      "tooltip": "QUAS BONUS DAMAGE:", 
+      "tooltip": "<font color='#7998b5'>QUAS</font> ADDED DAMAGE:", 
       "value": [
        15, 
        30, 
@@ -18023,7 +18095,7 @@
      }, 
      {
       "name": "wex_damage", 
-      "tooltip": "WEX BONUS DAMAGE:", 
+      "tooltip": "<font color='#d671a9'>WEX</font> ADDED DAMAGE:", 
       "value": [
        30, 
        60, 
@@ -18102,7 +18174,7 @@
      }, 
      {
       "name": "mana_burned", 
-      "tooltip": "MAX MANA BURNED:", 
+      "tooltip": "MAX MANA BURNED (<font color='#d671a9'>WEX</font>):\\n", 
       "value": [
        100, 
        175, 
@@ -18188,7 +18260,7 @@
      }, 
      {
       "name": "bonus_damage", 
-      "tooltip": "BONUS DAMAGE:", 
+      "tooltip": "BONUS DAMAGE (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        20, 
        30, 
@@ -18208,7 +18280,7 @@
      }, 
      {
       "name": "bonus_attack_speed", 
-      "tooltip": "BONUS ATTACK SPEED:", 
+      "tooltip": "BONUS ATTACK SPEED (<font color='#d671a9'>WEX</font>):\\n", 
       "value": [
        20, 
        30, 
@@ -18274,8 +18346,15 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
+      "name": "area_of_effect", 
+      "tooltip": "RADIUS:", 
+      "value": [
+       275
+      ]
+     }, 
+     {
       "name": "travel_distance", 
-      "tooltip": "TRAVEL DISTANCE:", 
+      "tooltip": "TRAVEL DISTANCE (<font color='#d671a9'>WEX</font>):\\n", 
       "value": [
        465, 
        615, 
@@ -18293,14 +18372,8 @@
       ]
      }, 
      {
-      "name": "travel_speed", 
-      "value": [
-       300
-      ]
-     }, 
-     {
       "name": "land_time", 
-      "tooltip": "LAND TIME:", 
+      "tooltip": "IMPACT DELAY:", 
       "value": [
        1.3
       ]
@@ -18318,22 +18391,21 @@
       ]
      }, 
      {
-      "name": "area_of_effect", 
-      "tooltip": "RADIUS:", 
+      "name": "travel_speed", 
       "value": [
-       275
+       300
       ]
      }, 
      {
       "name": "damage_interval", 
-      "tooltip": "DAMAGE TICK:", 
+      "tooltip": "CONTACT DAMAGE TICK:", 
       "value": [
        0.5
       ]
      }, 
      {
       "name": "main_damage", 
-      "tooltip": "DAMAGE:", 
+      "tooltip": "CONTACT DAMAGE (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        57.5, 
        75, 
@@ -18352,14 +18424,14 @@
      }, 
      {
       "name": "burn_duration", 
-      "tooltip": "BURN TIME:", 
+      "tooltip": "BURN DURATION:", 
       "value": [
        3
       ]
      }, 
      {
       "name": "burn_dps", 
-      "tooltip": "BURN DPS:", 
+      "tooltip": "BURN DAMAGE PER SECOND (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        11.5, 
        15, 
@@ -18424,15 +18496,15 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_PURE", 
     "attributes": [
      {
-      "name": "delay", 
-      "tooltip": "DELAY:", 
+      "name": "area_of_effect", 
+      "tooltip": "RADIUS:", 
       "value": [
-       1.7
+       175
       ]
      }, 
      {
       "name": "damage", 
-      "tooltip": "DAMAGE:", 
+      "tooltip": "DAMAGE (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        100, 
        162.5, 
@@ -18450,10 +18522,10 @@
       ]
      }, 
      {
-      "name": "area_of_effect", 
-      "tooltip": "RADIUS:", 
+      "name": "delay", 
+      "tooltip": "DELAY:", 
       "value": [
-       175
+       1.7
       ]
      }, 
      {
@@ -18485,7 +18557,7 @@
      0, 
      0
     ], 
-    "description": "Sends a catastrophic ray of fierce energy from the sun at any targeted location, incinerating all enemies standing beneath it once it reaches the Earth. Deals damage based on the level of <font color='#cabe68'>Exort</font>, however this damage is spread evenly over all enemies hit.", 
+    "description": "Sends a catastrophic ray of fierce energy from the sun at any targeted location, incinerating all enemies standing beneath it once it reaches the earth. Deals damage based on the level of <font color='#cabe68'>Exort</font>, however this damage is spread evenly over all enemies hit.", 
     "displayname": "Sun Strike", 
     "level": 0, 
     "lore": "Harlek's Incantation of Incineration.", 
@@ -18528,7 +18600,7 @@
      }, 
      {
       "name": "spirit_hp", 
-      "tooltip": "HEALTH:", 
+      "tooltip": "HEALTH (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        300, 
        400, 
@@ -18547,7 +18619,7 @@
      }, 
      {
       "name": "spirit_armor", 
-      "tooltip": "ARMOR:", 
+      "tooltip": "ARMOR (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        0, 
        1, 
@@ -18560,7 +18632,7 @@
      }, 
      {
       "name": "spirit_damage", 
-      "tooltip": "DAMAGE:", 
+      "tooltip": "DAMAGE (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        29, 
        38, 
@@ -18579,7 +18651,7 @@
      }, 
      {
       "name": "spirit_duration", 
-      "tooltip": "DURATION:", 
+      "tooltip": "DURATION (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        20, 
        30, 
@@ -18598,7 +18670,7 @@
      }, 
      {
       "name": "spirit_attack_range", 
-      "tooltip": "ATTACK RANGE:", 
+      "tooltip": "ATTACK RANGE (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        300, 
        365, 
@@ -18617,7 +18689,7 @@
      }, 
      {
       "name": "spirit_mana", 
-      "tooltip": "MANA:", 
+      "tooltip": "MANA (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        100, 
        150, 
@@ -18688,7 +18760,7 @@
     "attributes": [
      {
       "name": "slow", 
-      "tooltip": "%SLOW:", 
+      "tooltip": "%MOVEMENT SLOW (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        -20, 
        -40, 
@@ -18706,27 +18778,15 @@
       ]
      }, 
      {
-      "name": "damage_per_second", 
-      "tooltip": "DAMAGE PER SECOND:", 
+      "name": "slow_duration", 
+      "tooltip": "SLOW DURATION:", 
       "value": [
-       6, 
-       12, 
-       18, 
-       24, 
-       30, 
-       36, 
-       42
-      ]
-     }, 
-     {
-      "name": "levelkey", 
-      "value": [
-       "exortlevel"
+       2
       ]
      }, 
      {
       "name": "duration", 
-      "tooltip": "DURATION:", 
+      "tooltip": "WALL DURATION (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        3, 
        4.5, 
@@ -18744,15 +18804,34 @@
       ]
      }, 
      {
+      "name": "num_wall_elements", 
+      "value": [
+       15
+      ]
+     }, 
+     {
       "name": "wall_element_spacing", 
       "value": [
        80
       ]
      }, 
      {
-      "name": "wall_element_radius", 
+      "name": "damage_per_second", 
+      "tooltip": "DAMAGE PER SECOND (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
-       105
+       6, 
+       12, 
+       18, 
+       24, 
+       30, 
+       36, 
+       42
+      ]
+     }, 
+     {
+      "name": "levelkey", 
+      "value": [
+       "exortlevel"
       ]
      }, 
      {
@@ -18762,15 +18841,9 @@
       ]
      }, 
      {
-      "name": "num_wall_elements", 
+      "name": "wall_element_radius", 
       "value": [
-       15
-      ]
-     }, 
-     {
-      "name": "slow_duration", 
-      "value": [
-       2
+       105
       ]
      }
     ], 
@@ -18834,13 +18907,14 @@
      }, 
      {
       "name": "travel_distance", 
+      "tooltip": "TRAVEL DISTANCE:", 
       "value": [
        1000
       ]
      }, 
      {
       "name": "damage", 
-      "tooltip": "DAMAGE:", 
+      "tooltip": "DAMAGE (<font color='#cabe68'>EXORT</font>):\\n", 
       "value": [
        40, 
        80, 
@@ -18859,7 +18933,7 @@
      }, 
      {
       "name": "knockback_duration", 
-      "tooltip": "KNOCKBACK DURATION:", 
+      "tooltip": "KNOCKBACK DURATION (<font color='#7998b5'>QUAS</font>):\\n", 
       "value": [
        0.25, 
        0.5, 
@@ -18890,7 +18964,7 @@
      }, 
      {
       "name": "disarm_duration", 
-      "tooltip": "DISARM DURATION:", 
+      "tooltip": "DISARM DURATION (<font color='#d671a9'>WEX</font>):\\n", 
       "value": [
        1, 
        1.5, 
@@ -18958,10 +19032,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_invoker", 
   "projectilespeed": 900, 
+  "role": "Carry,Nuker,Initiator,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -19485,10 +19561,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_jakiro", 
   "projectilespeed": 1100, 
+  "role": "Nuker,Pusher,LaneSupport,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -19893,10 +19971,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_juggernaut", 
   "projectilespeed": 0, 
+  "role": "Carry,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -20784,10 +20864,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_keeper_of_the_light", 
   "projectilespeed": 900, 
+  "role": "Nuker,Support,LaneSupport", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -21311,10 +21393,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_kunkka", 
   "projectilespeed": 900, 
+  "role": "Disabler,Initiator,Carry,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -21758,10 +21842,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_legion_commander", 
   "projectilespeed": 900, 
+  "role": "Carry,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -22176,10 +22262,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_leshrac", 
   "projectilespeed": 900, 
+  "role": "Nuker,Pusher,Disabler,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -22669,10 +22757,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_lich", 
   "projectilespeed": 900, 
+  "role": "Support,LaneSupport,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -23119,10 +23209,12 @@
   "movementturnrate": 1, 
   "name": "npc_dota_hero_life_stealer", 
   "projectilespeed": 900, 
+  "role": "Carry,Durable,Jungler,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -23538,10 +23630,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_lina", 
   "projectilespeed": 900, 
+  "role": "Nuker,Disabler,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -23987,10 +24081,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_lion", 
   "projectilespeed": 900, 
+  "role": "Disabler,Nuker,LaneSupport,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -24601,10 +24697,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_lone_druid", 
   "projectilespeed": 900, 
+  "role": "Carry,Durable,Pusher,Jungler", 
   "statushealth": 150, 
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -25053,10 +25151,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_luna", 
   "projectilespeed": 900, 
+  "role": "Carry,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -25514,10 +25614,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_lycan", 
   "projectilespeed": 900, 
+  "role": "Carry,Jungler,Pusher,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -25997,10 +26099,12 @@
   "movementturnrate": 0.8, 
   "name": "npc_dota_hero_magnataur", 
   "projectilespeed": 900, 
+  "role": "Initiator,Disabler,Nuker,Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -26497,10 +26601,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_medusa", 
   "projectilespeed": 1200, 
+  "role": "Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -26887,10 +26993,12 @@
   "movementturnrate": 0.65, 
   "name": "npc_dota_hero_meepo", 
   "projectilespeed": 900, 
+  "role": "Carry,Disabler,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -27062,7 +27170,7 @@
      230, 
      320
     ], 
-    "description": "Fires an arrow with deadly precision, stunning and dealing damage to the first enemy unit it strikes. Stun duration increases based on distance to target, ranging from %arrow_min_stun% to %arrow_max_stun% seconds. Bonus damage up to 100 will be added based on the distance the arrow travelled to the target.", 
+    "description": "Fires an long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from 0.01 to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target.", 
     "displayname": "Sacred Arrow", 
     "level": 0, 
     "lore": "Lunar energies make the Princess of the Moon's arrows more deadly than most.", 
@@ -27230,7 +27338,7 @@
      0, 
      0
     ], 
-    "description": "Turns Mirana and all allied heroes invisible. If Invisibility is broken, it will restore after fade delay if the shadow's duration has not expired.  Silence will stop Moonlight Shadow.", 
+    "description": "Turns Mirana and all allied heroes invisible. If a hero is revealed, invisibility will restore after the fade delay as long as Moonlight Shadow's duration has not expired.  Silence will prevent revealed units from becomming invisible.", 
     "displayname": "Moonlight Shadow", 
     "level": 0, 
     "lore": "Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her allies in a cloak of shadows.", 
@@ -27325,10 +27433,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_mirana", 
   "projectilespeed": 900, 
+  "role": "Carry,Nuker,Disabler,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -27428,18 +27538,8 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
-      "name": "stun_max", 
-      "tooltip": "STUN MAX:", 
-      "value": [
-       0.75, 
-       1.5, 
-       2.25, 
-       3
-      ]
-     }, 
-     {
       "name": "damage_min", 
-      "tooltip": "DAMAGE MIN:", 
+      "tooltip": "DAMAGE MIN AGI MULTIPLIER:", 
       "value": [
        0.25, 
        0.25, 
@@ -27448,19 +27548,13 @@
       ]
      }, 
      {
-      "name": "stun_min", 
-      "tooltip": "STUN MIN:", 
+      "name": "damage_max", 
+      "tooltip": "DAMAGE MAX AGI MULTIPLIER:", 
       "value": [
-       0.25, 
-       0.25, 
-       0.25, 
-       0.25
-      ]
-     }, 
-     {
-      "name": "knockback_max", 
-      "value": [
-       300
+       0.5, 
+       1, 
+       1.5, 
+       2
       ]
      }, 
      {
@@ -27474,19 +27568,35 @@
       ]
      }, 
      {
-      "name": "damage_max", 
-      "tooltip": "DAMAGE MAX:", 
-      "value": [
-       0.5, 
-       1, 
-       1.5, 
-       2
-      ]
-     }, 
-     {
       "name": "knockback_min", 
       "value": [
        100
+      ]
+     }, 
+     {
+      "name": "knockback_max", 
+      "value": [
+       300
+      ]
+     }, 
+     {
+      "name": "stun_min", 
+      "tooltip": "STUN MIN:", 
+      "value": [
+       0.25, 
+       0.25, 
+       0.25, 
+       0.25
+      ]
+     }, 
+     {
+      "name": "stun_max", 
+      "tooltip": "STUN MAX:", 
+      "value": [
+       0.75, 
+       1.5, 
+       2.25, 
+       3
       ]
      }, 
      {
@@ -27512,7 +27622,7 @@
      0, 
      0
     ], 
-    "description": "Strikes an enemy unit with a blast of water. If Morphling's agility is 50%% higher than strength, it deals the maximum damage and the minimum stun. If strength is 50%% higher, it deals the maximum stun and minimum damage.", 
+    "description": "Strikes an enemy unit with a blast of water, stunning the target while dealing base damage plus additional damage based on Morphling's agility times a multiplier.  If Morphling's agility is 50%% higher than strength, the maximum damage and the minimum stun is dealt. If his strength is 50%% higher than his agility, the maximum stun and minimum damage are dealt.", 
     "displayname": "Adaptive Strike", 
     "level": 0, 
     "lore": "The Morphling calls upon his elements to crush his opponents with waves.", 
@@ -27940,10 +28050,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_morphling", 
   "projectilespeed": 1300, 
+  "role": "Carry,Escape,Initiator,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -28429,10 +28541,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_naga_siren", 
   "projectilespeed": 900, 
+  "role": "Carry,Disabler,Pusher,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -28526,7 +28640,7 @@
      0, 
      0
     ], 
-    "AbilityCastRange": 1000, 
+    "AbilityCastRange": 1200, 
     "AbilityCastRangeBuffer": 250, 
     "AbilityChannelTime": [
      0, 
@@ -28872,10 +28986,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_necrolyte", 
   "projectilespeed": 900, 
+  "role": "Support,Durable,Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -29464,10 +29580,12 @@
   "movementturnrate": 1, 
   "name": "npc_dota_hero_nevermore", 
   "projectilespeed": 1200, 
+  "role": "Carry,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -29889,10 +30007,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_night_stalker", 
   "projectilespeed": 900, 
+  "role": "Durable,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 1800
  }, 
@@ -30316,10 +30436,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_nyx_assassin", 
   "projectilespeed": 900, 
+  "role": "Disabler,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 2.5, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -30772,10 +30894,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_obsidian_destroyer", 
   "projectilespeed": 900, 
+  "role": "Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -31312,10 +31436,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_ogre_magi", 
   "projectilespeed": 900, 
+  "role": "Nuker,Disabler,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -31712,10 +31838,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_omniknight", 
   "projectilespeed": 900, 
+  "role": "Durable,LaneSupport,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -31798,7 +31926,7 @@
      0, 
      0
     ], 
-    "description": "Channels Nerif's power into a bolt of scouring energy for up to 2.9 seconds. When released the bolt strikes the targeted enemy, dealing damage and purging in an area around them. The purge duration is equal to the time spent channeling.", 
+    "description": "Channels Oracle's power into a bolt of scouring energy for up to 2.9 seconds. When released the bolt strikes the targeted enemy, dealing damage and purging in an area around them. The purge duration is equal to the time spent channeling.", 
     "displayname": "Fortune's End", 
     "level": 0, 
     "lore": "", 
@@ -31858,7 +31986,7 @@
      0, 
      0
     ], 
-    "description": "Nerif enraptures the target, rendering them unable to attack, granting them 100% spell resistance, and increasing the damage they take from other damage types. Can be cast on both allies and enemies.", 
+    "description": "Oracle enraptures the target, rendering them unable to attack, granting them 100% spell resistance, and increasing the damage they take from other damage types. Can be cast on both allies and enemies.", 
     "displayname": "Fate's Edict", 
     "level": 0, 
     "lore": "", 
@@ -32079,13 +32207,14 @@
   "level": 0, 
   "magicalresistance": 25, 
   "movementspeed": 305, 
-  "movementturnrate": 1, 
+  "movementturnrate": 0.4, 
   "name": "npc_dota_hero_oracle", 
   "projectilespeed": 900, 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -32487,10 +32616,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_phantom_assassin", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -33005,10 +33136,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_phantom_lancer", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -33032,6 +33165,7 @@
     "AbilityModifierSupportValue": 1, 
     "ID": 5623, 
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
       "name": "dash_length", 
@@ -33103,7 +33237,7 @@
      0, 
      0
     ], 
-    "description": "Phoenix dives forward in an arc with a fixed distance in the targeted direction, dealing damage over time and slowing the movement speed of any units he comes into contact with, and then orbiting back to his original position. If Phoenix casts Supernova, the dive ends.", 
+    "description": "Phoenix dives forward in an arc with a fixed distance in the targeted direction, dealing damage over time and slowing the movement speed of any units it comes into contact with, and then orbiting back to its original position. If Phoenix casts Supernova, the dive ends.", 
     "displayname": "Icarus Dive", 
     "level": 0, 
     "lore": "Though no stranger to travelling the cosmic void, soaring within an atmosphere offers unique pleasures.", 
@@ -33137,6 +33271,7 @@
     "AbilityModifierSupportValue": 1, 
     "ID": 5625, 
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
       "name": "spirit_duration", 
@@ -33230,7 +33365,7 @@
      0, 
      0
     ], 
-    "description": "Summons 4 fire spirits that circle around you. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
+    "description": "Summons 4 fire spirits that circle around Phoenix. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
     "displayname": "Fire Spirits", 
     "level": 0, 
     "lore": "The ever-collapsing core of Phoenix often emits short-lived bursts of conscious light.", 
@@ -33257,6 +33392,7 @@
     "AbilityModifierSupportValue": 1, 
     "ID": 5626, 
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_PURE", 
     "attributes": [
      {
       "name": "base_dmg", 
@@ -33349,7 +33485,7 @@
      0, 
      0
     ], 
-    "description": "Drawing from its own inner fire, Phoenix expels a huge beam of light at the cost of its own life energy. The beam damages enemies for a percentage of their life and heals allies for half the amount. Damage scales up to twice the initial damage as the beam fires.", 
+    "description": "Drawing from its own inner fire, Phoenix expels a huge beam of light at the cost of its own life energy. The beam damages enemies for a percentage of their life and heals allies for half that amount. Damage scales up to twice the initial damage as the beam fires.", 
     "displayname": "Sun Ray", 
     "level": 0, 
     "lore": "The vent through which such stellar energy flows is mere atoms wide.", 
@@ -33548,7 +33684,7 @@
       "name": "hp_cost_perc", 
       "tooltip": "%HP COST:", 
       "value": [
-       15
+       20
       ]
      }, 
      {
@@ -33565,10 +33701,10 @@
       "name": "dps", 
       "tooltip": "DAMAGE PER SECOND:", 
       "value": [
-       15, 
-       35, 
-       55, 
-       75
+       10, 
+       30, 
+       50, 
+       70
       ]
      }, 
      {
@@ -33619,7 +33755,7 @@
      0, 
      0
     ], 
-    "description": "Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
+    "description": "Each fire spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
     "displayname": "Launch Fire Spirit", 
     "level": 0, 
     "lore": "PKAWW! BOOM", 
@@ -33886,10 +34022,12 @@
   "movementturnrate": 1, 
   "name": "npc_dota_hero_phoenix", 
   "projectilespeed": 1100, 
+  "role": "Initiator,Disabler,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -34408,10 +34546,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_puck", 
   "projectilespeed": 900, 
+  "role": "Initiator,Nuker,Disabler,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -34509,7 +34649,7 @@
      270, 
      360
     ], 
-    "description": "Launches a bloody hook at a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.", 
+    "description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.", 
     "displayname": "Meat Hook", 
     "level": 0, 
     "lore": "The Butcher's hook is a symbolic nightmare, its curved blade a frightening reminder of his slaughterous intent.", 
@@ -34835,10 +34975,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_pudge", 
   "projectilespeed": 0, 
+  "role": "Durable,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -34970,7 +35112,7 @@
      }, 
      {
       "name": "bonus_movement_speed", 
-      "tooltip": "%SLOW:", 
+      "tooltip": "%MOVEMENT SLOW:", 
       "value": [
        -50, 
        -50, 
@@ -35044,18 +35186,8 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
-      "name": "mana_regen", 
-      "tooltip": "MANA REGEN:", 
-      "value": [
-       -1.5, 
-       -3, 
-       -4.5, 
-       -6
-      ]
-     }, 
-     {
       "name": "mana_multiplier", 
-      "tooltip": "DAMAGE MULT:", 
+      "tooltip": "DAMAGE PER MANA:", 
       "value": [
        1, 
        1.25, 
@@ -35064,8 +35196,18 @@
       ]
      }, 
      {
+      "name": "mana_regen", 
+      "tooltip": "MANA LEAK:", 
+      "value": [
+       -1.5, 
+       -3, 
+       -4.5, 
+       -6
+      ]
+     }, 
+     {
       "name": "radius", 
-      "tooltip": "RADIUS:", 
+      "tooltip": "WARD ATTACK RADIUS:", 
       "value": [
        1600
       ]
@@ -35086,7 +35228,7 @@
      0, 
      0
     ], 
-    "description": "Pugna places a nether ward that fires mana flares at enemy heroes who dare to cast spells, while also preventing them from regenerating mana.  Nether Ward deals damage equal to the damage multiplier times the mana spent by the enemy hero.  Lasts 30 seconds.", 
+    "description": "Pugna places a nether ward that fires mana flares at enemy heroes who dare to cast spells, while also causing them to lose mana.  Nether Ward deals damage equal to the damage multiplier times the mana spent by the enemy hero.  Lasts 30 seconds.", 
     "displayname": "Nether Ward", 
     "level": 0, 
     "lore": "While at the lamasery for the Arts of Oblivion, Pugna learned to dominate his classmates with a simple ward charged with Nether magic.", 
@@ -35120,20 +35262,17 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
-      "name": "health_drain_scepter", 
-      "tooltip": "SCEPTER DRAIN PER SECOND:", 
+      "name": "cast_range_tooltip", 
+      "tooltip": "CAST RANGE:", 
       "value": [
-       180, 
-       240, 
-       300
+       850
       ]
      }, 
      {
-      "name": "scepter_cooldown", 
+      "name": "duration_tooltip", 
+      "tooltip": "MAX DURATION:", 
       "value": [
-       0, 
-       0, 
-       0
+       10
       ]
      }, 
      {
@@ -35155,9 +35294,32 @@
      }, 
      {
       "name": "bonus_range_scepter", 
-      "tooltip": "SCEPTER BONUS CAST RANGE:", 
       "value": [
        50
+      ]
+     }, 
+     {
+      "name": "health_drain_scepter", 
+      "tooltip": "SCEPTER DRAIN PER SECOND:", 
+      "value": [
+       180, 
+       240, 
+       300
+      ]
+     }, 
+     {
+      "name": "scepter_cooldown", 
+      "value": [
+       0, 
+       0, 
+       0
+      ]
+     }, 
+     {
+      "name": "cast_range_scepter_tooltip", 
+      "tooltip": "SCEPTER CAST RANGE:", 
+      "value": [
+       900
       ]
      }
     ], 
@@ -35274,10 +35436,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_pugna", 
   "projectilespeed": 900, 
+  "role": "Nuker,Pusher,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -35718,10 +35882,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_queenofpain", 
   "projectilespeed": 1500, 
+  "role": "Nuker,Escape,Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -36222,10 +36388,12 @@
   "movementspeed": 315, 
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_rattletrap", 
+  "role": "Initiator,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -36742,10 +36910,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_razor", 
   "projectilespeed": 2000, 
+  "role": "Carry,Durable,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -37136,10 +37306,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_riki", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -37180,16 +37352,6 @@
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
     "attributes": [
      {
-      "name": "lift_duration", 
-      "tooltip": "LIFT DURATION:", 
-      "value": [
-       1.5, 
-       1.75, 
-       2, 
-       2.25
-      ]
-     }, 
-     {
       "name": "stun_duration", 
       "tooltip": "STUN DURATION:", 
       "value": [
@@ -37201,12 +37363,22 @@
      }, 
      {
       "name": "radius", 
-      "tooltip": "RADIUS:", 
+      "tooltip": "IMPACT RADIUS:", 
       "value": [
        325, 
        325, 
        325, 
        325
+      ]
+     }, 
+     {
+      "name": "lift_duration", 
+      "tooltip": "LIFT DURATION:", 
+      "value": [
+       1.5, 
+       1.75, 
+       2, 
+       2.25
       ]
      }, 
      {
@@ -37360,28 +37532,13 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
-      "name": "duration", 
-      "tooltip": "DEBUFF DURATION:", 
+      "name": "jump_damage_reduction_pct", 
+      "tooltip": "%JUMP REDUCTION:", 
       "value": [
-       10, 
-       10, 
-       10, 
-       10
-      ]
-     }, 
-     {
-      "name": "jump_delay", 
-      "value": [
-       0.25, 
-       0.25, 
-       0.25, 
-       0.25
-      ]
-     }, 
-     {
-      "name": "radius", 
-      "value": [
-       440
+       4, 
+       4, 
+       4, 
+       4
       ]
      }, 
      {
@@ -37395,16 +37552,6 @@
       ]
      }, 
      {
-      "name": "creep_attack_damage_reduction", 
-      "tooltip": "CREEP DAMAGE REDUCTION:", 
-      "value": [
-       7, 
-       10, 
-       13, 
-       16
-      ]
-     }, 
-     {
       "name": "damage", 
       "tooltip": "DAMAGE:", 
       "value": [
@@ -37415,13 +37562,38 @@
       ]
      }, 
      {
-      "name": "jump_damage_reduction_pct", 
-      "tooltip": "%JUMP REDUCTION:", 
+      "name": "radius", 
       "value": [
-       4, 
-       4, 
-       4, 
-       4
+       440
+      ]
+     }, 
+     {
+      "name": "jump_delay", 
+      "value": [
+       0.25, 
+       0.25, 
+       0.25, 
+       0.25
+      ]
+     }, 
+     {
+      "name": "creep_attack_damage_reduction", 
+      "tooltip": "CREEP DAMAGE REDUCTION:", 
+      "value": [
+       7, 
+       10, 
+       13, 
+       16
+      ]
+     }, 
+     {
+      "name": "duration", 
+      "tooltip": "DEBUFF DURATION:", 
+      "value": [
+       10, 
+       10, 
+       10, 
+       10
       ]
      }
     ], 
@@ -37480,6 +37652,7 @@
     "attributes": [
      {
       "name": "radius", 
+      "tooltip": "RADIUS:", 
       "value": [
        900, 
        900, 
@@ -37513,7 +37686,7 @@
      0, 
      0
     ], 
-    "description": "Rubick's mastery of the arcane protects allied heroes against weaker magics, granting them magic resistance.", 
+    "description": "Rubick's mastery of the arcane protects nearby allied heroes against weaker magics, granting them magic resistance.", 
     "displayname": "Null Field", 
     "level": 0, 
     "lore": "Not every magus can be a Grand Magus...", 
@@ -37800,10 +37973,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_rubick", 
   "projectilespeed": 1125, 
+  "role": "Disabler,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -38284,10 +38459,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_sand_king", 
   "projectilespeed": 900, 
+  "role": "Initiator,Disabler,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -38812,10 +38989,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_shadow_demon", 
   "projectilespeed": 900, 
+  "role": "Support,Disabler,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -39285,10 +39464,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_shadow_shaman", 
   "projectilespeed": 900, 
+  "role": "Pusher,Disabler,Nuker,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -39854,10 +40035,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_shredder", 
   "projectilespeed": 900, 
+  "role": "Durable,Nuker,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -40253,10 +40436,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_silencer", 
   "projectilespeed": 1000, 
+  "role": "Support,Carry,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -40686,10 +40871,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_skeleton_king", 
   "projectilespeed": 0, 
+  "role": "Durable,Carry,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -40776,10 +40963,10 @@
      0, 
      0
     ], 
-    "description": "Skywrath launches a slow-moving bolt of arcane magic, dealing damage to an enemy unit based on Skywrath's intelligence.", 
+    "description": "Skywrath Mage launches a slow-moving bolt of arcane magic, dealing damage to an enemy unit based on Skywrath Mage's intelligence.", 
     "displayname": "Arcane Bolt", 
     "level": 0, 
-    "lore": "", 
+    "lore": "Within the Ghastly Eyrie's endless intrigue, only the clever and calm can hope to survive.", 
     "manacost": [
      70, 
      70, 
@@ -40890,10 +41077,10 @@
      0, 
      0
     ], 
-    "description": "Skywrath sets off a long range shot that hits the closest hero within a long range.  Upon impact, it deals damage and slows in an area of effect.", 
+    "description": "Skywrath Mage sets off a long range shot that hits the closest hero within a long range.  Upon impact, it deals damage and slows in an area of effect.", 
     "displayname": "Concussive Shot", 
     "level": 0, 
-    "lore": "", 
+    "lore": "Those who serve the court of the Ghastly Eyrie are ever locked in covert war. One must always know where danger lurks nearest.", 
     "manacost": [
      110, 
      110, 
@@ -40940,7 +41127,7 @@
      }, 
      {
       "name": "resist_debuff", 
-      "tooltip": "%MAGIC RESISTANCE REDUCTION:", 
+      "tooltip": "%INCREASED MAGIC DAMAGE:", 
       "value": [
        -30, 
        -35, 
@@ -40964,10 +41151,10 @@
      0, 
      0
     ], 
-    "description": "Skywrath seals the targeted unit with an ancient rune, silencing it and causing it to take additional damage from spells.", 
+    "description": "Skywrath Mage seals the targeted unit with an ancient rune, silencing it and causing it to take additional damage from spells.", 
     "displayname": "Ancient Seal", 
     "level": 0, 
-    "lore": "", 
+    "lore": "A holy incantation, whosoever finds themselves touched by Avilliva's sigil must suffer in penitent silence.", 
     "manacost": [
      80, 
      90, 
@@ -41058,10 +41245,10 @@
      0, 
      0
     ], 
-    "description": "Skywrath uses his ultimate magical ability to conjure a precise and violent mystical field that lays waste to his adversaries. Deals massive damage distributed evenly among any Heroes in the area over 2 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
+    "description": "Skywrath Mage uses his ultimate magical ability to conjure a precise and violent mystical field that lays waste to his adversaries. Deals massive damage distributed evenly among any Heroes in the area over 2 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
     "displayname": "Mystic Flare", 
     "level": 0, 
-    "lore": "", 
+    "lore": "Only the most practiced of Skywrath sorcerers could hope to shape the skies into such a storm.", 
     "manacost": [
      350, 
      575, 
@@ -41154,10 +41341,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_skywrath_mage", 
   "projectilespeed": 1000, 
+  "role": "Nuker,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -41582,10 +41771,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_slardar", 
   "projectilespeed": 0, 
+  "role": "Carry,Durable,Disabler,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -41680,7 +41871,7 @@
      0, 
      0
     ], 
-    "description": "After a short delay, Slark sacrifices some of his life blood, purging negative debuffs and dealing damage to enemy units around him and to himself.  Slark only takes 50%% of the damage.", 
+    "description": "After a short delay, Slark sacrifices some of his life blood, purging most negative debuffs and dealing damage to enemy units around him and to himself.  Slark only takes 50%% of the damage.", 
     "displayname": "Dark Pact", 
     "level": 0, 
     "lore": "Slithereen are capable of quickly regrowing appendages, in case of critical injury, to save their own lives.", 
@@ -41964,7 +42155,7 @@
      0, 
      0
     ], 
-    "description": "When used, Slark hides himself in a cloud of shadows, becoming immune to detection (attacking, casting spells, and using items do not reveal Slark).  Passively, when not visible to the enemy team, Slark gains bonus movement speed and health regeneration.", 
+    "description": "When used, Slark hides himself in a cloud of shadows, becoming immune to detection. Attacking, casting spells, and using items will not reveal Slark.  Passively, when not visible to the enemy team, Slark gains bonus movement speed and health regeneration.", 
     "displayname": "Shadow Dance", 
     "level": 0, 
     "lore": "The hidden Thirteenth is a slippery foe.", 
@@ -42060,10 +42251,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_slark", 
   "projectilespeed": 0, 
+  "role": "Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -42471,10 +42664,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_sniper", 
   "projectilespeed": 3000, 
+  "role": "Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1000
  }, 
@@ -43017,10 +43212,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_spectre", 
   "projectilespeed": 900, 
+  "role": "Carry,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -43530,10 +43727,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_spirit_breaker", 
   "projectilespeed": 900, 
+  "role": "Durable,Carry,Initiator,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.75, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -43985,10 +44184,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_storm_spirit", 
   "projectilespeed": 1100, 
+  "role": "Carry,Initiator,Escape,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -44368,10 +44569,679 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_sven", 
   "projectilespeed": 0, 
+  "role": "Disabler,Initiator,Carry,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
+  "visiondaytimerange": 1800, 
+  "visionnighttimerange": 800
+ }, 
+ "npc_dota_hero_techies": {
+  "AttackAcquisitionRange": 800, 
+  "AttackDamageType": "DAMAGE_TYPE_ArmorPhysical", 
+  "HeroID": 105, 
+  "abilities": [
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 100, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5599, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_COMPOSITE", 
+    "attributes": [
+     {
+      "name": "small_radius", 
+      "tooltip": "FULL DAMAGE RADIUS:", 
+      "value": [
+       200
+      ]
+     }, 
+     {
+      "name": "big_radius", 
+      "tooltip": "HALF DAMAGE RADIUS:", 
+      "value": [
+       500
+      ]
+     }, 
+     {
+      "name": "damage", 
+      "tooltip": "DAMAGE:", 
+      "value": [
+       300, 
+       400, 
+       500, 
+       600
+      ]
+     }, 
+     {
+      "name": "explode_delay", 
+      "value": [
+       0.3
+      ]
+     }, 
+     {
+      "name": "max_mines", 
+      "tooltip": "MINE LIMIT:", 
+      "value": [
+       20
+      ]
+     }, 
+     {
+      "name": "activation_time", 
+      "tooltip": "MINE ACTIVATION TIME:", 
+      "value": [
+       1.75
+      ]
+     }, 
+     {
+      "name": "fade_time", 
+      "tooltip": "MINE FADE TIME:", 
+      "value": [
+       2
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_POINT", 
+     "DOTA_ABILITY_BEHAVIOR_AOE"
+    ], 
+    "cooldown": [
+     25, 
+     20, 
+     15, 
+     10
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Plant an invisible mine that explodes when an enemy steps near.  The explosion will deal less damage if the enemy is farther away from the mine when it explodes.  Mines explode %explode_delay% seconds after being triggered.  If the number of mines planted exceeds the mine limit, the oldest mine will explode.  Damages buildings.", 
+    "displayname": "Land Mines", 
+    "level": 0, 
+    "lore": "The bane of Toterin!", 
+    "manacost": [
+     125, 
+     150, 
+     175, 
+     205
+    ], 
+    "name": "techies_land_mines"
+   }, 
+   {
+    "AbilityCastPoint": 1, 
+    "AbilityCastRange": 150, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5600, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "attributes": [
+     {
+      "name": "explode_delay", 
+      "tooltip": "TRIGGER DELAY:", 
+      "value": [
+       2
+      ]
+     }, 
+     {
+      "name": "stun_radius", 
+      "tooltip": "STUN RADIUS:", 
+      "value": [
+       450
+      ]
+     }, 
+     {
+      "name": "activation_radius", 
+      "tooltip": "TRIGGER RADIUS:", 
+      "value": [
+       200
+      ]
+     }, 
+     {
+      "name": "fade_time", 
+      "tooltip": "TRAP FADE TIME:", 
+      "value": [
+       2
+      ]
+     }, 
+     {
+      "name": "duration", 
+      "tooltip": "TRAP DURATION:", 
+      "value": [
+       270, 
+       300, 
+       330, 
+       360
+      ]
+     }, 
+     {
+      "name": "stun_duration", 
+      "tooltip": "STUN DURATION:", 
+      "value": [
+       3, 
+       4, 
+       5, 
+       6
+      ]
+     }, 
+     {
+      "name": "activation_time", 
+      "tooltip": "TRAP ACTIVATION TIME:", 
+      "value": [
+       2
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_POINT", 
+     "DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN", 
+     "DOTA_ABILITY_BEHAVIOR_AOE"
+    ], 
+    "cooldown": [
+     20, 
+     16, 
+     13, 
+     10
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Plant an invisible trap that stuns nearby enemy units when triggered.", 
+    "displayname": "Stasis Trap", 
+    "level": 0, 
+    "lore": "The scourge of Trapper Town!", 
+    "manacost": [
+     80, 
+     110, 
+     140, 
+     160
+    ], 
+    "name": "techies_stasis_trap"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 100, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5601, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_COMPOSITE", 
+    "attributes": [
+     {
+      "name": "small_radius", 
+      "tooltip": "FULL DAMAGE RADIUS:", 
+      "value": [
+       200
+      ]
+     }, 
+     {
+      "name": "partial_damage", 
+      "tooltip": "PARTIAL DAMAGE:", 
+      "value": [
+       350, 
+       400, 
+       450, 
+       500
+      ]
+     }, 
+     {
+      "name": "damage", 
+      "tooltip": "FULL DAMAGE:", 
+      "value": [
+       650, 
+       850, 
+       1150, 
+       1550
+      ]
+     }, 
+     {
+      "name": "respawn_time_percentage_tooltip", 
+      "value": [
+       50
+      ]
+     }, 
+     {
+      "name": "big_radius", 
+      "tooltip": "PARTIAL DAMAGE RADIUS:", 
+      "value": [
+       500
+      ]
+     }, 
+     {
+      "name": "respawn_time_percentage", 
+      "value": [
+       0.5
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+     "DOTA_ABILITY_BEHAVIOR_POINT"
+    ], 
+    "cooldown": [
+     180, 
+     170, 
+     160, 
+     150
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Techies sacrifice themselves for the greater good, dealing massive area of effect damage.  More damage is dealt to units closer to Techies when they explode.  Techies' respawn time is reduced by %respawn_time_percentage_tooltip%%% when killed by this ability.", 
+    "displayname": "Suicide Squad, Attack!", 
+    "level": 0, 
+    "lore": "What's this button do?", 
+    "manacost": [
+     100, 
+     125, 
+     150, 
+     175
+    ], 
+    "name": "techies_suicide"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 0, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5635, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+    "attributes": [
+     {
+      "name": "radius", 
+      "tooltip": "RADIUS:", 
+      "value": [
+       700
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_POINT", 
+     "DOTA_ABILITY_BEHAVIOR_AOE", 
+     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    ], 
+    "cooldown": [
+     1, 
+     1, 
+     1
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Detonate all remote mines in the target area.", 
+    "displayname": "Focused Detonate", 
+    "level": 0, 
+    "lore": "Why light one fuse when you can light them all?", 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "techies_focused_detonate"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 500, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5644, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_NONE", 
+    "attributes": [], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_POINT"
+    ], 
+    "cooldown": [
+     120
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Plant a warning sign to remind enemies to step lightly. Only one sign can exist at a time.", 
+    "displayname": "Minefield Sign", 
+    "level": 0, 
+    "lore": "Watch your step!", 
+    "manacost": [
+     0
+    ], 
+    "name": "techies_minefield_sign"
+   }, 
+   {
+    "AbilityCastPoint": [
+     1.5, 
+     1.5, 
+     1.5
+    ], 
+    "AbilityCastRange": 500, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5602, 
+    "abilitytype": "DOTA_ABILITY_TYPE_ULTIMATE", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+    "attributes": [
+     {
+      "name": "damage", 
+      "tooltip": "DAMAGE:", 
+      "value": [
+       300, 
+       450, 
+       600
+      ]
+     }, 
+     {
+      "name": "radius", 
+      "tooltip": "EXPLOSION RADIUS:", 
+      "value": [
+       400, 
+       410, 
+       425
+      ]
+     }, 
+     {
+      "name": "max_mines", 
+      "value": [
+       21
+      ]
+     }, 
+     {
+      "name": "cast_range_tooltip", 
+      "tooltip": "CAST RANGE:", 
+      "value": [
+       500
+      ]
+     }, 
+     {
+      "name": "damage_scepter", 
+      "tooltip": "SCEPTER DAMAGE:", 
+      "value": [
+       450, 
+       600, 
+       750
+      ]
+     }, 
+     {
+      "name": "activation_time", 
+      "tooltip": "FADE TIME:", 
+      "value": [
+       2
+      ]
+     }, 
+     {
+      "name": "duration", 
+      "tooltip": "MINE DURATION:", 
+      "value": [
+       480
+      ]
+     }, 
+     {
+      "name": "radius_scepter", 
+      "tooltip": "SCEPTER EXPLOSION RADIUS:", 
+      "value": [
+       410, 
+       425, 
+       425
+      ]
+     }, 
+     {
+      "name": "cast_range_scepter", 
+      "tooltip": "SCEPTER CAST RANGE:", 
+      "value": [
+       700
+      ]
+     }, 
+     {
+      "name": "model_scale", 
+      "value": [
+       0, 
+       10, 
+       20
+      ]
+     }, 
+     {
+      "name": "vision_duration", 
+      "value": [
+       3
+      ]
+     }, 
+     {
+      "name": "vision_radius", 
+      "value": [
+       500
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_POINT", 
+     "DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    ], 
+    "cooldown": [
+     10, 
+     10, 
+     10
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Plant an invisible explosive that will only detonate when triggered.  Does not damage buildings.\\n\\nUpgradable by Aghanim's Scepter.", 
+    "displayname": "Remote Mines", 
+    "level": 0, 
+    "lore": "The downfall of Dredger's Bight!", 
+    "manacost": [
+     200, 
+     240, 
+     300
+    ], 
+    "name": "techies_remote_mines"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 0, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5002, 
+    "abilitytype": "DOTA_ABILITY_TYPE_ATTRIBUTES", 
+    "attributes": [
+     {
+      "name": "attribute_bonus_per_level", 
+      "tooltip": "BONUS:", 
+      "value": [
+       2
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    ], 
+    "cooldown": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Improves all attributes per point spent", 
+    "displayname": "Attribute Bonus", 
+    "level": 0, 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "attribute_bonus"
+   }
+  ], 
+  "abilitylayout": 6, 
+  "armorphysical": 5, 
+  "attackdamagemax": 9, 
+  "attackdamagemin": 7, 
+  "attackpoint": 0.5, 
+  "attackrange": 700, 
+  "attackrate": 1.7, 
+  "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK", 
+  "attributeagilitygain": 1.3, 
+  "attributebaseagility": 14, 
+  "attributebaseintelligence": 22, 
+  "attributebasestrength": 17, 
+  "attributeintelligencegain": 2.9, 
+  "attributeprimary": "DOTA_ATTRIBUTE_INTELLECT", 
+  "attributestrengthgain": 2, 
+  "bio": "In the storied saga of Dredger's Bight, no business has ever been more reviled than Techies Demolitions. Then again, Dredger's Bight no longer exists. Nor does Toterin. Or even Trapper Town. In fact, if one were to track the history of Techies Demolitions they might notice that shortly after Techies appear, towns tend to disappear.\r\nLike every inevitable disaster surrounding Techies, the obliteration of Dredger's Bight began with an invention. Tasked with designing a safer way of detonating explosives in the mines beneath the city, pyrotechnic prodigies Squee, Spleen, and Spoon developed their most outlandish creation yet: a button which, when pressed, would trigger a distant device to spark a fuse.\r\nOvereager to test their invention, the trio stuffed barrel after barrel with flamesalt explosives, piling every corner of their tiny workshop high with the newly developed remote bombs. From this stockpile they plucked a single payload, burying it in a far away field. As they cowered in a ditch, Spleen pressed the detonator button. Yet after a moment, nothing happened. Confused, he stood up, pressing his button again and again until, finally, an explosion tore a hole in the field. Elated, Squee and Spleen turned toward home just as a massive wave of sound and force arrived to knock them over.\r\nBewildered, their ears ringing from the unexpected blast, they gathered in the dingy miasma to see a smoking ruin where their workshop once stood. Chunks of wood and stone continued to fall as the yawning crater before them slowly deepened into an expanding pit. The whole of Dredger's Bight shuddered, and then gradually started to slide into the mines below as its panicked residents fled.\r\nSitting at the edge of their sinking home they grinned and giggled, as giddy at the possibilities as they were oblivious to the scorn of their former neighbors. They wondered only one thing: how could they trigger an even bigger blast?", 
+  "displayname": "Techies", 
+  "items": [], 
+  "level": 0, 
+  "magicalresistance": 25, 
+  "movementspeed": 270, 
+  "movementturnrate": 0.5, 
+  "name": "npc_dota_hero_techies", 
+  "projectilespeed": 900, 
+  "statushealth": 150, 
+  "statushealthregen": 0.25, 
+  "statusmana": 0, 
+  "statusmanaregen": 0.02, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -44510,6 +45380,13 @@
       ]
      }, 
      {
+      "name": "armor_reduction_duration_tooltip", 
+      "tooltip": "ARMOR REDUCTION DURATION:", 
+      "value": [
+       10
+      ]
+     }, 
+     {
       "name": "bonus_damage", 
       "tooltip": "BONUS DAMAGE:", 
       "value": [
@@ -44537,7 +45414,7 @@
      0, 
      0
     ], 
-    "description": "Templar Assassin conceals herself, gaining invisibility while remaining still.  On the next attacked enemy unit, Lanaya will reduce its armor and deal bonus damage to it.", 
+    "description": "Templar Assassin conceals herself, becoming invisible as long as she remains still.  If Meld's invisibility is broken by attacking an enemy, Lanaya will deal bonus damage to the enemy and reduce their armor for %armor_reduction_duration_tooltip% seconds.", 
     "displayname": "Meld", 
     "level": 0, 
     "lore": "Lanaya is as elusive as her covenant with the Hidden Temple.", 
@@ -44737,12 +45614,33 @@
       ]
      }, 
      {
+      "name": "movement_speed_min_tooltip", 
+      "tooltip": "%MIN MOVEMENT SLOW:", 
+      "value": [
+       30
+      ]
+     }, 
+     {
       "name": "max_traps", 
       "tooltip": "MAX TRAPS:", 
       "value": [
        5, 
        8, 
        11
+      ]
+     }, 
+     {
+      "name": "movement_speed_max_tooltip", 
+      "tooltip": "%MAX MOVEMENT SLOW:", 
+      "value": [
+       50
+      ]
+     }, 
+     {
+      "name": "trap_duration_tooltip", 
+      "tooltip": "SLOW DURATION:", 
+      "value": [
+       5
       ]
      }
     ], 
@@ -44858,10 +45756,12 @@
   "movementturnrate": 0.7, 
   "name": "npc_dota_hero_templar_assassin", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -45269,10 +46169,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_terrorblade", 
   "projectilespeed": 900, 
+  "role": "Carry", 
   "statushealth": 150, 
   "statushealthregen": 2, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -45689,10 +46591,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_tidehunter", 
   "projectilespeed": 900, 
+  "role": "Initiator,Durable,Disabler,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -46135,10 +47039,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_tinker", 
   "projectilespeed": 900, 
+  "role": "Nuker,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -46668,10 +47574,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_tiny", 
   "projectilespeed": 900, 
+  "role": "Disabler,Nuker,Initiator,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -47116,10 +48024,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_treant", 
   "projectilespeed": 900, 
+  "role": "Durable,Initiator,LaneSupport,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -47246,7 +48156,7 @@
     "description": "Allows the Warlord to use his throwing axes as melee weapons, gaining bonus damage, attack speed, movement speed, hitpoints, armor, and a chance to bash targets on attack.  Berserker's Rage also changes the functionality of Whirling Axes.", 
     "displayname": "Berserker's Rage", 
     "level": 0, 
-    "lore": "", 
+    "lore": "Like his anger, Troll Warlord's supply of axes is infinite.", 
     "manacost": [
      0, 
      0, 
@@ -47357,7 +48267,7 @@
     "description": "Troll hurls a fistful of five axes in a cone shape over 900 range, slowing and damaging enemy units.", 
     "displayname": "Whirling Axes (Ranged)", 
     "level": 0, 
-    "lore": "", 
+    "lore": "Only axes fueled by hate whirl with such a deadly spin.", 
     "manacost": [
      50, 
      50, 
@@ -47535,7 +48445,7 @@
     "description": "With each continuous blow on the same target, Troll gains increased attack speed.  If Troll changes targets, the stacks drop to zero.", 
     "displayname": "Fervor", 
     "level": 0, 
-    "lore": "", 
+    "lore": "If at first you don't succeed, strike, strike again.", 
     "manacost": [
      0, 
      0, 
@@ -47602,7 +48512,7 @@
     "description": "Troll's presence on the battlefield increases the attack speed of himself and all allied heroes. ", 
     "displayname": "Battle Trance", 
     "level": 0, 
-    "lore": "", 
+    "lore": "An adrenaline rush of pure hatred quickens your blades.", 
     "manacost": [
      75, 
      75, 
@@ -47695,10 +48605,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_troll_warlord", 
   "projectilespeed": 1200, 
+  "role": "Carry", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -48272,10 +49184,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_tusk", 
   "projectilespeed": 900, 
+  "role": "Initiator,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -48780,10 +49694,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_undying", 
   "projectilespeed": 900, 
+  "role": "Durable,Pusher,Disabler,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -49172,10 +50088,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_ursa", 
   "projectilespeed": 900, 
+  "role": "Carry,Jungler,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -49213,7 +50131,7 @@
     "attributes": [
      {
       "name": "magic_missile_stun", 
-      "tooltip": "DURATION:", 
+      "tooltip": "STUN DURATION:", 
       "value": [
        1.45, 
        1.55, 
@@ -49305,6 +50223,16 @@
       ]
      }, 
      {
+      "name": "vision_duration", 
+      "tooltip": "VISION DURATION:", 
+      "value": [
+       3, 
+       3, 
+       3, 
+       3
+      ]
+     }, 
+     {
       "name": "tooltip_duration", 
       "tooltip": "DEBUFF DURATION:", 
       "value": [
@@ -49321,16 +50249,6 @@
        500, 
        500, 
        500
-      ]
-     }, 
-     {
-      "name": "vision_duration", 
-      "tooltip": "VISION DURATION:", 
-      "value": [
-       3, 
-       3, 
-       3, 
-       3
       ]
      }
     ], 
@@ -49349,7 +50267,7 @@
      70, 
      90
     ], 
-    "description": "Vengeful Spirit lets loose a wicked cry, weakening the armor of enemies and giving vision of the path.", 
+    "description": "Vengeful Spirit lets loose a wicked cry, weakening the armor of enemies and giving vision of the path ahead.", 
     "displayname": "Wave of Terror", 
     "level": 0, 
     "lore": "Shendel's haunting voice hints at her approaching vindication.", 
@@ -49388,6 +50306,13 @@
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
     "attributes": [
      {
+      "name": "aura_radius", 
+      "tooltip": "RADIUS:", 
+      "value": [
+       900
+      ]
+     }, 
+     {
       "name": "bonus_damage_pct", 
       "tooltip": "%DAMAGE BONUS:", 
       "value": [
@@ -49395,13 +50320,6 @@
        20, 
        28, 
        36
-      ]
-     }, 
-     {
-      "name": "aura_radius", 
-      "tooltip": "RADIUS:", 
-      "value": [
-       900
       ]
      }
     ], 
@@ -49421,7 +50339,7 @@
      0, 
      0
     ], 
-    "description": "Vengeful Spirit's presence increases nearby friendly units' physical damage. If Vengeful Spirit is slain, her killer will be possessed with a negative Vengeance Aura, reducing the damage of her killer and its nearby allies until Vengeful Spirit revives.", 
+    "description": "Vengeful Spirit's presence increases the physical damage of nearby friendly units. If Vengeful Spirit is slain, her killer will be possessed with a negative Vengeance Aura, reducing the damage of her killer and its nearby allies until Vengeful Spirit revives.", 
     "displayname": "Vengeance Aura", 
     "level": 0, 
     "lore": "Although they may not share her undying passion for revenge, allies do draw on her fanaticism in combat.", 
@@ -49588,10 +50506,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_vengefulspirit", 
   "projectilespeed": 1500, 
+  "role": "Support,Disabler,LaneSupport,Initiator", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -50095,10 +51015,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_venomancer", 
   "projectilespeed": 900, 
+  "role": "Support,Nuker,Initiator,Pusher", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -50593,10 +51515,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_viper", 
   "projectilespeed": 1200, 
+  "role": "Carry,Durable", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -51098,10 +52022,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_visage", 
   "projectilespeed": 900, 
+  "role": "Nuker,Durable,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -51551,10 +52477,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_warlock", 
   "projectilespeed": 1200, 
+  "role": "Initiator,Support,LaneSupport,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -51995,10 +52923,12 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_hero_weaver", 
   "projectilespeed": 900, 
+  "role": "Carry,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -52488,10 +53418,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_windrunner", 
   "projectilespeed": 1250, 
+  "role": "Disabler,Nuker,Support,Escape", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -52539,23 +53471,44 @@
       ]
      }, 
      {
-      "name": "stun_duration", 
-      "tooltip": "SLOW DURATION:", 
+      "name": "latch_distance", 
       "value": [
-       0.75, 
-       1.25, 
-       1.75, 
-       2.25
+       700, 
+       700, 
+       700, 
+       700
       ]
      }, 
      {
       "name": "radius", 
-      "tooltip": "MAX DISTANCE:", 
+      "tooltip": "MAX TETHER DISTANCE:", 
       "value": [
        900, 
        900, 
        900, 
        900
+      ]
+     }, 
+     {
+      "name": "tether_heal_amp", 
+      "value": [
+       1.5
+      ]
+     }, 
+     {
+      "name": "slow", 
+      "tooltip": "%ENEMY MOVEMENT SLOW:", 
+      "value": [
+       -100
+      ]
+     }, 
+     {
+      "name": "latch_speed", 
+      "value": [
+       1000, 
+       1000, 
+       1000, 
+       1000
       ]
      }, 
      {
@@ -52569,41 +53522,20 @@
       ]
      }, 
      {
-      "name": "tether_heal_amp", 
-      "value": [
-       1.5
-      ]
-     }, 
-     {
-      "name": "latch_distance", 
-      "value": [
-       700, 
-       700, 
-       700, 
-       700
-      ]
-     }, 
-     {
-      "name": "latch_speed", 
-      "value": [
-       1000, 
-       1000, 
-       1000, 
-       1000
-      ]
-     }, 
-     {
-      "name": "slow", 
-      "tooltip": "%MOVEMENT SLOW:", 
-      "value": [
-       -100
-      ]
-     }, 
-     {
       "name": "attackslow_tooltip", 
-      "tooltip": "ATTACK SLOW:", 
+      "tooltip": "ENEMY ATTACK SLOW:", 
       "value": [
        -100
+      ]
+     }, 
+     {
+      "name": "stun_duration", 
+      "tooltip": "ENEMY SLOW DURATION:", 
+      "value": [
+       0.75, 
+       1.25, 
+       1.75, 
+       2.25
       ]
      }
     ], 
@@ -52622,7 +53554,7 @@
      0, 
      0
     ], 
-    "description": "Tether yourself to an allied hero, granting both of you bonus movement speed. When you restore health or mana, your target gains 1.5x the amount. Any enemy unit that crosses the tether is slowed. The tether breaks when the allied unit moves too far away, or Io cancels the tether.", 
+    "description": "Tether yourself to an allied unit, granting both of you bonus movement speed. When you restore health or mana, your target gains 1.5x the amount. Any enemy unit that crosses the tether is slowed. The tether breaks when the allied unit moves too far away, or Io cancels the tether.", 
     "displayname": "Tether", 
     "level": 0, 
     "lore": "The benevolent touch of Io brings strength from between the planes.", 
@@ -53306,10 +54238,12 @@
   "movementturnrate": 0.7, 
   "name": "npc_dota_hero_wisp", 
   "projectilespeed": 1200, 
+  "role": "Support,LaneSupport,Nuker", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -53800,10 +54734,12 @@
   "movementturnrate": 0.4, 
   "name": "npc_dota_hero_witch_doctor", 
   "projectilespeed": 1200, 
+  "role": "Support,Disabler", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Bad", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -54245,10 +55181,12 @@
   "movementturnrate": 0.6, 
   "name": "npc_dota_hero_zuus", 
   "projectilespeed": 1100, 
+  "role": "Nuker,Support", 
   "statushealth": 150, 
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0.01, 
+  "team": "Good", 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }

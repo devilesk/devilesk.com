@@ -1,6 +1,23 @@
 import math
+import re
 from hyde.plugin import Plugin
- 
+
+def paragraphs(text):
+    paras = re.split(r'[\r\n]+', text)
+    paras = ['<p>%s</p>' % p.strip() for p in paras]
+    return '\n'.join(paras)
+
+def format_tooltip(text, attributes):
+    mapping = {}
+    for x in attributes:
+        a = x.to_dict()
+        mapping['%' + a['name'] + '%'] = ', '.join([str(v) for v in a['value']])
+
+    for k, v in mapping.iteritems():
+        text = text.replace(k, v)
+    text = text.replace('%%', '%')
+    return text
+
 def quoted(var):
     return '"%s"' % var
 
@@ -72,3 +89,6 @@ class MyJinjaLoader(Plugin):
         template.env.globals['get_damage_max'] = get_damage_max
         template.env.globals['get_armor'] = get_armor
         template.env.globals['get_attacks_per_second'] = get_attacks_per_second
+        template.env.globals['any'] = any
+        template.env.globals['format_tooltip'] = format_tooltip
+        template.env.globals['paragraphs'] = paragraphs

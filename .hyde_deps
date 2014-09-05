@@ -726,6 +726,8 @@
 !!python/unicode 'dota2/international/2014/knockout-sortable.min.js': []
 !!python/unicode 'dota2/international/2014/phase2.html': []
 !!python/unicode 'dota2/international/2014/phase2.json': []
+!!python/unicode 'dota2/international/2014/prizepool/index.html': [base.j2, macros.j2,
+  analytics.j2]
 !!python/unicode 'dota2/international/2014/save.php': []
 !!python/unicode 'dota2/international/2014/test.json': []
 !!python/unicode 'dota2/international/2014/ti4data.json': []
@@ -1038,6 +1040,7 @@
 !!python/unicode 'media/js/libs/knockout-2.3.0.js': []
 !!python/unicode 'media/js/libs/knockout.mapping-latest.js': []
 !!python/unicode 'media/js/libs/modernizr-1.7.min.js': []
+!!python/unicode 'media/js/style-switcher.js': []
 !!python/unicode 'media/js/tooltipdata.json': []
 !!python/unicode 'media/js/unitdata.json': []
 !!python/unicode 'media/jscolor/demo.html': []

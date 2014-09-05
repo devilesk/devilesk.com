@@ -211,6 +211,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -314,6 +315,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -417,6 +419,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -520,6 +523,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -623,6 +627,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -726,6 +731,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -829,6 +835,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -932,6 +939,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1269,6 +1277,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1378,6 +1387,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1487,6 +1497,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1590,6 +1601,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1693,6 +1705,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1796,6 +1809,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -1899,6 +1913,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -5759,6 +5774,57 @@
      0
     ], 
     "name": "courier_burst"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 99999, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5642, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "attributes": [], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_HIDDEN", 
+     "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
+     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+     "DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT", 
+     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    ], 
+    "cooldown": [
+     5
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "level": 0, 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "courier_morph"
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
@@ -7324,6 +7390,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -7427,6 +7494,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -7530,6 +7598,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -7633,6 +7702,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -7736,6 +7806,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -7839,6 +7910,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -7942,6 +8014,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8045,6 +8118,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8382,6 +8456,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8491,6 +8566,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8600,6 +8676,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8703,6 +8780,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8806,6 +8884,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -8909,6 +8988,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -9012,6 +9092,7 @@
      0, 
      0
     ], 
+    "description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
     "displayname": "Backdoor Protection", 
     "level": 0, 
     "manacost": [
@@ -17797,6 +17878,8 @@
      0, 
      0
     ], 
+    "description": "Roshan will block one targeted spell every 15 seconds.", 
+    "displayname": "Spell Block", 
     "level": 0, 
     "manacost": [
      0, 
@@ -17867,6 +17950,8 @@
      0, 
      0
     ], 
+    "description": "Roshan has a chance to stun on attack.", 
+    "displayname": "Bash", 
     "level": 0, 
     "manacost": [
      0, 
@@ -17946,6 +18031,8 @@
      0, 
      0
     ], 
+    "description": "Roshan slams the ground, damaging and slowing all nearby enemies.", 
+    "displayname": "Slam", 
     "level": 0, 
     "manacost": [
      0
@@ -18052,6 +18139,8 @@
      0, 
      0
     ], 
+    "description": "Roshan possesses numerous protective abilities, including 75%% magic resistance, the ability to instantly purge attacking illusions, and a scaling armor bonus that increases as time goes on.", 
+    "displayname": "Strength of the Immortal", 
     "level": 0, 
     "manacost": [
      0, 
@@ -19297,6 +19386,223 @@
   "statusmanaregen": 0, 
   "visiondaytimerange": 1, 
   "visionnighttimerange": 1
+ }, 
+ "npc_dota_techies_land_mine": {
+  "AttackAcquisitionRange": 0, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 0, 
+  "attackdamagemin": 0, 
+  "attackpoint": 0, 
+  "attackrange": 0, 
+  "attackrate": 1, 
+  "attacktype": "DOTA_UNIT_CAP_NO_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 14, 
+  "displayname": "Land Mine", 
+  "level": 0, 
+  "magicalresistance": 0, 
+  "movementspeed": 0, 
+  "movementturnrate": 0, 
+  "name": "npc_dota_techies_land_mine", 
+  "projectilespeed": 0, 
+  "statushealth": 100, 
+  "statushealthregen": 0, 
+  "statusmana": 0, 
+  "statusmanaregen": 0, 
+  "visiondaytimerange": 64, 
+  "visionnighttimerange": 64
+ }, 
+ "npc_dota_techies_minefield_sign": {
+  "AttackAcquisitionRange": 0, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 0, 
+  "attackdamagemin": 0, 
+  "attackpoint": 0, 
+  "attackrange": 0, 
+  "attackrate": 1, 
+  "attacktype": "DOTA_UNIT_CAP_NO_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
+  "displayname": "Minefield Sign", 
+  "level": 0, 
+  "magicalresistance": 0, 
+  "movementspeed": 0, 
+  "movementturnrate": 0, 
+  "name": "npc_dota_techies_minefield_sign", 
+  "projectilespeed": 0, 
+  "statushealth": 1, 
+  "statushealthregen": 0.25, 
+  "statusmana": 0, 
+  "statusmanaregen": 0, 
+  "visiondaytimerange": 0, 
+  "visionnighttimerange": 0
+ }, 
+ "npc_dota_techies_remote_mine": {
+  "AttackAcquisitionRange": 0, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 0, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5636, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+    "attributes": [
+     {
+      "name": "radius", 
+      "value": [
+       400, 
+       410, 
+       425
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
+     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    ], 
+    "cooldown": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Detonate all selected remote mines.", 
+    "displayname": "PINPOINT DETONATE", 
+    "level": 0, 
+    "lore": "Kablooey!", 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "techies_remote_mines_self_detonate"
+   }
+  ], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 0, 
+  "attackdamagemin": 0, 
+  "attackpoint": 0, 
+  "attackrange": 0, 
+  "attackrate": 1, 
+  "attacktype": "DOTA_UNIT_CAP_NO_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 6, 
+  "displayname": "Remote Mine", 
+  "level": 0, 
+  "magicalresistance": 0, 
+  "movementspeed": 0, 
+  "movementturnrate": 0, 
+  "name": "npc_dota_techies_remote_mine", 
+  "projectilespeed": 0, 
+  "statushealth": 200, 
+  "statushealthregen": 0, 
+  "statusmana": 0, 
+  "statusmanaregen": 0, 
+  "visiondaytimerange": 900, 
+  "visionnighttimerange": 900
+ }, 
+ "npc_dota_techies_stasis_trap": {
+  "AttackAcquisitionRange": 0, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 0, 
+  "attackdamagemin": 0, 
+  "attackpoint": 0, 
+  "attackrange": 0, 
+  "attackrate": 1, 
+  "attacktype": "DOTA_UNIT_CAP_NO_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 6, 
+  "displayname": "Stasis Trap", 
+  "level": 0, 
+  "magicalresistance": 0, 
+  "movementspeed": 0, 
+  "movementturnrate": 0, 
+  "name": "npc_dota_techies_stasis_trap", 
+  "projectilespeed": 0, 
+  "statushealth": 100, 
+  "statushealthregen": 0, 
+  "statusmana": 0, 
+  "statusmanaregen": 0, 
+  "visiondaytimerange": 600, 
+  "visionnighttimerange": 600
  }, 
  "npc_dota_templar_assassin_psionic_trap": {
   "AttackAcquisitionRange": 0, 
@@ -21161,6 +21467,8 @@
      0, 
      0
     ], 
+    "description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+    "displayname": "Flaming Fists", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21229,6 +21537,8 @@
      0, 
      0
     ], 
+    "description": "Burns the Golem's nearby enemy units, with damage per second.", 
+    "displayname": "Permanent Immolation", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21344,6 +21654,8 @@
      0, 
      0
     ], 
+    "description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+    "displayname": "Flaming Fists", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21412,6 +21724,8 @@
      0, 
      0
     ], 
+    "description": "Burns the Golem's nearby enemy units, with damage per second.", 
+    "displayname": "Permanent Immolation", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21527,6 +21841,8 @@
      0, 
      0
     ], 
+    "description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+    "displayname": "Flaming Fists", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21595,6 +21911,8 @@
      0, 
      0
     ], 
+    "description": "Burns the Golem's nearby enemy units, with damage per second.", 
+    "displayname": "Permanent Immolation", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21710,6 +22028,8 @@
      0, 
      0
     ], 
+    "description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+    "displayname": "Flaming Fists", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21778,6 +22098,8 @@
      0, 
      0
     ], 
+    "description": "Burns the Golem's nearby enemy units, with damage per second.", 
+    "displayname": "Permanent Immolation", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21893,6 +22215,8 @@
      0, 
      0
     ], 
+    "description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+    "displayname": "Flaming Fists", 
     "level": 0, 
     "manacost": [
      0, 
@@ -21961,6 +22285,8 @@
      0, 
      0
     ], 
+    "description": "Burns the Golem's nearby enemy units, with damage per second.", 
+    "displayname": "Permanent Immolation", 
     "level": 0, 
     "manacost": [
      0, 
@@ -22076,6 +22402,8 @@
      0, 
      0
     ], 
+    "description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+    "displayname": "Flaming Fists", 
     "level": 0, 
     "manacost": [
      0, 
@@ -22144,6 +22472,8 @@
      0, 
      0
     ], 
+    "description": "Burns the Golem's nearby enemy units, with damage per second.", 
+    "displayname": "Permanent Immolation", 
     "level": 0, 
     "manacost": [
      0, 

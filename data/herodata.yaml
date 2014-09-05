@@ -479,7 +479,7 @@ npc_dota_hero_alchemist:
       tooltip: 'MAX DAMAGE:'
       value: [150, 220, 290, 360]
     - name: radius
-      tooltip: 'RADIUS:'
+      tooltip: 'EXPLOSION RADIUS:'
       value: [175]
     - name: max_stun
       tooltip: 'MAX STUN:'
@@ -520,13 +520,16 @@ npc_dota_hero_alchemist:
       tooltip: 'RECENT KILL WINDOW:'
       value: [25]
     - name: bonus_gold_cap
+      tooltip: 'MAX BONUS GOLD:'
       value: [30]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: Alchemist gets bonus gold for killing creeps; the bonus stacks if
-      the creeps are killed within a period of time, after which the count is reset.  The
-      bonus gold is capped at 30 gold.
+    description: Alchemist synthesizes additional gold from his enemies. With each
+      kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills
+      another unit which yields gold within the next %duration% seconds, an additional
+      instance of Extra Bonus Gold is added to the total. The maximum total bonus
+      gold is %bonus_gold_cap% per kill.
     displayname: Greevil's Greed
     level: 0
     lore: While it is not a mountain, Razzil has mastered the conversion of smaller
@@ -1536,9 +1539,9 @@ npc_dota_hero_batrider:
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
     cooldown: [40, 40, 40, 40]
     damage: [0, 0, 0, 0]
-    description: Batrider takes to the skies, laying down a flaming trail from the
-      air.  While flying, the trail of fire destroys trees and damages enemies in
-      its path, and Batrider gains unobstructed movement and vision.
+    description: Batrider takes to the skies, laying down a trail of flames from the
+      air.  The fire damages any enemies it touches, and destroys trees below Batrider.
+      While flying, Batrider gains unobstructed movement and vision.
     displayname: Firefly
     level: 0
     lore: When an enemy escapes into the Yama Raskav Jungle, most would cut through
@@ -2075,7 +2078,7 @@ npc_dota_hero_bounty_hunter:
       tooltip: 'ATTACK SLOW:'
       value: [-25, -25, -25, -25]
     - name: crit_multiplier
-      tooltip: '%BONUS DAMAGE:'
+      tooltip: '%CRITICAL DAMAGE:'
       value: [150, 175, 200, 225]
     - name: duration
       tooltip: 'DURATION:'
@@ -4045,8 +4048,9 @@ npc_dota_hero_dazzle:
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE]
     cooldown: [40, 40, 40]
     damage: [0, 0, 0, 0]
-    description: Applies a buff that increases allied hero armor or decreases enemy
-      hero armor in the target area over time.\n\nUpgradable by Aghanim's Scepter.
+    description: Applies a buff that increases the armor of allied heroes while decreasing
+      the armor of enemy heroes in the target area over time.\n\nUpgradable by Aghanim's
+      Scepter.
     displayname: Weave
     level: 0
     lore: His ethereal journey into the Nothl realm has allowed Dazzle to mend together
@@ -4182,7 +4186,7 @@ npc_dota_hero_death_prophet:
       tooltip: '%MOVEMENT SPEED:'
       value: [5, 10, 15, 20]
     - name: exorcism_1_extra_spirits
-      tooltip: 'EXORCISM SPIRITS:'
+      tooltip: 'ADDED EXORCISM SPIRITS:'
       value: [3, 4, 5, 6]
     - name: exorcism_2_extra_spirits
       value: [3, 4, 5, 6]
@@ -4823,10 +4827,14 @@ npc_dota_hero_dragon_knight:
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
     cooldown: [115, 115, 115]
     damage: [0, 0, 0, 0]
-    description: 'Dragon Knight can take the form of three powerful elder dragons.\nLEVEL
-      1 - Green Dragon: Short poison damage over time on attack.\nLEVEL 2 - Red Dragon:
-      Splash damage on attack.\nLEVEL 3 - Blue Dragon: Splash damage and frost attack
-      that slows enemy units.'
+    description: 'Dragon Knight takes the form of one of three powerful elder dragons,
+      increasing his damage, speed, and Dragon Tail''s range, while granting him new
+      powers.\nLEVEL 1 Green Dragon - Corrosive Breath: attacks deal 20 poison damage
+      over 5 seconds. Works on structures.\nLEVEL 2 Red Dragon - Splash Attack: attacks
+      damage all enemy units in a 250 radius, with Corrosive Breath added to the primary
+      target.\nLEVEL 3 Blue Dragon - Frost Breath: slows movement speed by 30%%, and
+      attack speed by 20, of enemy units in Splash Attack range for 3 seconds, with
+      Corrosive Breath added to the primary target.'
     displayname: Elder Dragon Form
     level: 0
     lore: The dormant dragon power springs forth from within Davion, combining the
@@ -6223,7 +6231,7 @@ npc_dota_hero_enigma:
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
     cooldown: [35, 35, 35, 35]
     damage: [0, 0, 0, 0]
-    description: Transforms a creep into three fragments of Engima himself.  These
+    description: Transforms a creep into three fragments of Enigma himself.  These
       eidolons are all under Enigma's control, and repeated successful attacks cause
       them to multiply.  When this happens, the eidolons have their health restored.
     displayname: Demonic Conversion
@@ -11093,11 +11101,10 @@ npc_dota_hero_mirana:
     behavior: [DOTA_ABILITY_BEHAVIOR_DIRECTIONAL, DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [17]
     damage: [50, 140, 230, 320]
-    description: Fires an arrow with deadly precision, stunning and dealing damage
-      to the first enemy unit it strikes. Stun duration increases based on distance
-      to target, ranging from %arrow_min_stun% to %arrow_max_stun% seconds. Bonus
-      damage up to 100 will be added based on the distance the arrow travelled to
-      the target.
+    description: Fires an long-range arrow with deadly precision, which stuns and
+      damages the first enemy unit it strikes. The stun duration ranges from 0.01
+      to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added,
+      based on the distance the arrow travels to its target.
     displayname: Sacred Arrow
     level: 0
     lore: Lunar energies make the Princess of the Moon's arrows more deadly than most.
@@ -11160,9 +11167,10 @@ npc_dota_hero_mirana:
       DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [140, 120, 100]
     damage: [0, 0, 0, 0]
-    description: Turns Mirana and all allied heroes invisible. If Invisibility is
-      broken, it will restore after fade delay if the shadow's duration has not expired.  Silence
-      will stop Moonlight Shadow.
+    description: Turns Mirana and all allied heroes invisible. If a hero is revealed,
+      invisibility will restore after the fade delay as long as Moonlight Shadow's
+      duration has not expired.  Silence will prevent revealed units from becomming
+      invisible.
     displayname: Moonlight Shadow
     level: 0
     lore: Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her
@@ -11254,34 +11262,36 @@ npc_dota_hero_morphling:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
-    - name: stun_max
-      tooltip: 'STUN MAX:'
-      value: [0.75, 1.5, 2.25, 3]
     - name: damage_min
-      tooltip: 'DAMAGE MIN:'
+      tooltip: 'DAMAGE MIN AGI MULTIPLIER:'
       value: [0.25, 0.25, 0.25, 0.25]
-    - name: stun_min
-      tooltip: 'STUN MIN:'
-      value: [0.25, 0.25, 0.25, 0.25]
-    - name: knockback_max
-      value: [300]
+    - name: damage_max
+      tooltip: 'DAMAGE MAX AGI MULTIPLIER:'
+      value: [0.5, 1, 1.5, 2]
     - name: damage_base
       tooltip: 'BASE DAMAGE:'
       value: [20, 40, 60, 80]
-    - name: damage_max
-      tooltip: 'DAMAGE MAX:'
-      value: [0.5, 1, 1.5, 2]
     - name: knockback_min
       value: [100]
+    - name: knockback_max
+      value: [300]
+    - name: stun_min
+      tooltip: 'STUN MIN:'
+      value: [0.25, 0.25, 0.25, 0.25]
+    - name: stun_max
+      tooltip: 'STUN MAX:'
+      value: [0.75, 1.5, 2.25, 3]
     - name: range_tooltip
       tooltip: 'CAST RANGE:'
       value: [600, 700, 800, 900]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [10]
     damage: [0, 0, 0, 0]
-    description: Strikes an enemy unit with a blast of water. If Morphling's agility
-      is 50%% higher than strength, it deals the maximum damage and the minimum stun.
-      If strength is 50%% higher, it deals the maximum stun and minimum damage.
+    description: Strikes an enemy unit with a blast of water, stunning the target
+      while dealing base damage plus additional damage based on Morphling's agility
+      times a multiplier.  If Morphling's agility is 50%% higher than strength, the
+      maximum damage and the minimum stun is dealt. If his strength is 50%% higher
+      than his agility, the maximum stun and minimum damage are dealt.
     displayname: Adaptive Strike
     level: 0
     lore: The Morphling calls upon his elements to crush his opponents with waves.
@@ -11687,7 +11697,7 @@ npc_dota_hero_necrolyte:
     manacost: [125, 145, 165, 185]
     name: necrolyte_death_pulse
   - AbilityCastPoint: [0, 0, 0, 0]
-    AbilityCastRange: 1000
+    AbilityCastRange: 1200
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -13063,10 +13073,10 @@ npc_dota_hero_oracle:
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_CHANNELLED]
     cooldown: [12]
     damage: [0, 0, 0, 0]
-    description: Channels Nerif's power into a bolt of scouring energy for up to 2.9
-      seconds. When released the bolt strikes the targeted enemy, dealing damage and
-      purging in an area around them. The purge duration is equal to the time spent
-      channeling.
+    description: Channels Oracle's power into a bolt of scouring energy for up to
+      2.9 seconds. When released the bolt strikes the targeted enemy, dealing damage
+      and purging in an area around them. The purge duration is equal to the time
+      spent channeling.
     displayname: Fortune's End
     level: 0
     lore: ''
@@ -13091,7 +13101,7 @@ npc_dota_hero_oracle:
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [12]
     damage: [0, 0, 0, 0]
-    description: Nerif enraptures the target, rendering them unable to attack, granting
+    description: Oracle enraptures the target, rendering them unable to attack, granting
       them 100% spell resistance, and increasing the damage they take from other damage
       types. Can be cast on both allies and enemies.
     displayname: Fate's Edict
@@ -13177,7 +13187,7 @@ npc_dota_hero_oracle:
   level: 0
   magicalresistance: 25
   movementspeed: 305
-  movementturnrate: 1
+  movementturnrate: 0.4
   name: npc_dota_hero_oracle
   projectilespeed: 900
   statushealth: 150
@@ -13604,7 +13614,7 @@ npc_dota_hero_phoenix:
     damage: [0, 0, 0, 0]
     description: Phoenix dives forward in an arc with a fixed distance in the targeted
       direction, dealing damage over time and slowing the movement speed of any units
-      he comes into contact with, and then orbiting back to his original position.
+      it comes into contact with, and then orbiting back to its original position.
       If Phoenix casts Supernova, the dive ends.
     displayname: Icarus Dive
     level: 0
@@ -13650,9 +13660,9 @@ npc_dota_hero_phoenix:
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
     cooldown: [45, 40, 35, 30]
     damage: [0, 0, 0, 0]
-    description: Summons 4 fire spirits that circle around you. Each spirit can be
-      launched independently at a targeted area of effect. Affected enemy units take
-      damage over time and have their attack speed greatly reduced.
+    description: Summons 4 fire spirits that circle around Phoenix. Each spirit can
+      be launched independently at a targeted area of effect. Affected enemy units
+      take damage over time and have their attack speed greatly reduced.
     displayname: Fire Spirits
     level: 0
     lore: The ever-collapsing core of Phoenix often emits short-lived bursts of conscious
@@ -13703,7 +13713,7 @@ npc_dota_hero_phoenix:
     damage: [0, 0, 0, 0]
     description: Drawing from its own inner fire, Phoenix expels a huge beam of light
       at the cost of its own life energy. The beam damages enemies for a percentage
-      of their life and heals allies for half the amount. Damage scales up to twice
+      of their life and heals allies for half that amount. Damage scales up to twice
       the initial damage as the beam fires.
     displayname: Sun Ray
     level: 0
@@ -13807,9 +13817,9 @@ npc_dota_hero_phoenix:
       DOTA_ABILITY_BEHAVIOR_HIDDEN]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: Each spirit can be launched independently at a targeted area of effect.
-      Affected enemy units take damage over time and have their attack speed greatly
-      reduced.
+    description: Each fire spirit can be launched independently at a targeted area
+      of effect. Affected enemy units take damage over time and have their attack
+      speed greatly reduced.
     displayname: Launch Fire Spirit
     level: 0
     lore: PKAWW! BOOM
@@ -14355,7 +14365,7 @@ npc_dota_hero_pugna:
       tooltip: '%ENEMY INCREASED MAGIC DAMAGE:'
       value: [-50]
     - name: bonus_movement_speed
-      tooltip: '%SLOW:'
+      tooltip: '%MOVEMENT SLOW:'
       value: [-50, -50, -50, -50]
     - name: bonus_spell_damage_pct_allies
       tooltip: '%ALLY INCREASED MAGIC DAMAGE:'
@@ -14385,22 +14395,22 @@ npc_dota_hero_pugna:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
-    - name: mana_regen
-      tooltip: 'MANA REGEN:'
-      value: [-1.5, -3, -4.5, -6]
     - name: mana_multiplier
-      tooltip: 'DAMAGE MULT:'
+      tooltip: 'DAMAGE PER MANA:'
       value: [1, 1.25, 1.5, 1.75]
+    - name: mana_regen
+      tooltip: 'MANA LEAK:'
+      value: [-1.5, -3, -4.5, -6]
     - name: radius
-      tooltip: 'RADIUS:'
+      tooltip: 'WARD ATTACK RADIUS:'
       value: [1600]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
     cooldown: [35, 35, 35, 35]
     damage: [0, 0, 0, 0]
     description: Pugna places a nether ward that fires mana flares at enemy heroes
-      who dare to cast spells, while also preventing them from regenerating mana.  Nether
-      Ward deals damage equal to the damage multiplier times the mana spent by the
-      enemy hero.  Lasts 30 seconds.
+      who dare to cast spells, while also causing them to lose mana.  Nether Ward
+      deals damage equal to the damage multiplier times the mana spent by the enemy
+      hero.  Lasts 30 seconds.
     displayname: Nether Ward
     level: 0
     lore: While at the lamasery for the Arts of Oblivion, Pugna learned to dominate
@@ -14418,19 +14428,27 @@ npc_dota_hero_pugna:
     abilitytype: DOTA_ABILITY_TYPE_ULTIMATE
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
-    - name: health_drain_scepter
-      tooltip: 'SCEPTER DRAIN PER SECOND:'
-      value: [180, 240, 300]
-    - name: scepter_cooldown
-      value: [0, 0, 0]
+    - name: cast_range_tooltip
+      tooltip: 'CAST RANGE:'
+      value: [850]
+    - name: duration_tooltip
+      tooltip: 'MAX DURATION:'
+      value: [10]
     - name: health_drain
       tooltip: 'DRAIN PER SECOND:'
       value: [120, 160, 200]
     - name: tick_rate
       value: [0.25, 0.25, 0.25]
     - name: bonus_range_scepter
-      tooltip: 'SCEPTER BONUS CAST RANGE:'
       value: [50]
+    - name: health_drain_scepter
+      tooltip: 'SCEPTER DRAIN PER SECOND:'
+      value: [180, 240, 300]
+    - name: scepter_cooldown
+      value: [0, 0, 0]
+    - name: cast_range_scepter_tooltip
+      tooltip: 'SCEPTER CAST RANGE:'
+      value: [900]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_CHANNELLED,
       DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [22, 22, 22]
@@ -15247,15 +15265,15 @@ npc_dota_hero_rubick:
     ID: 5448
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
-    - name: lift_duration
-      tooltip: 'LIFT DURATION:'
-      value: [1.5, 1.75, 2, 2.25]
     - name: stun_duration
       tooltip: 'STUN DURATION:'
       value: [1, 1.25, 1.5, 1.75]
     - name: radius
-      tooltip: 'RADIUS:'
+      tooltip: 'IMPACT RADIUS:'
       value: [325, 325, 325, 325]
+    - name: lift_duration
+      tooltip: 'LIFT DURATION:'
+      value: [1.5, 1.75, 2, 2.25]
     - name: cast_range_tooltip
       tooltip: 'CAST RANGE:'
       value: [550, 575, 600, 625]
@@ -15306,25 +15324,25 @@ npc_dota_hero_rubick:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
-    - name: duration
-      tooltip: 'DEBUFF DURATION:'
-      value: [10, 10, 10, 10]
-    - name: jump_delay
-      value: [0.25, 0.25, 0.25, 0.25]
-    - name: radius
-      value: [440]
-    - name: hero_attack_damage_reduction
-      tooltip: 'HERO DAMAGE REDUCTION:'
-      value: [14, 20, 26, 32]
-    - name: creep_attack_damage_reduction
-      tooltip: 'CREEP DAMAGE REDUCTION:'
-      value: [7, 10, 13, 16]
-    - name: damage
-      tooltip: 'DAMAGE:'
-      value: [70, 140, 210, 280]
     - name: jump_damage_reduction_pct
       tooltip: '%JUMP REDUCTION:'
       value: [4, 4, 4, 4]
+    - name: hero_attack_damage_reduction
+      tooltip: 'HERO DAMAGE REDUCTION:'
+      value: [14, 20, 26, 32]
+    - name: damage
+      tooltip: 'DAMAGE:'
+      value: [70, 140, 210, 280]
+    - name: radius
+      value: [440]
+    - name: jump_delay
+      value: [0.25, 0.25, 0.25, 0.25]
+    - name: creep_attack_damage_reduction
+      tooltip: 'CREEP DAMAGE REDUCTION:'
+      value: [7, 10, 13, 16]
+    - name: duration
+      tooltip: 'DEBUFF DURATION:'
+      value: [10, 10, 10, 10]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [16, 14, 12, 10]
     damage: [0, 0, 0, 0]
@@ -15348,6 +15366,7 @@ npc_dota_hero_rubick:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
     - name: radius
+      tooltip: 'RADIUS:'
       value: [900, 900, 900, 900]
     - name: magic_damage_reduction_pct
       tooltip: '%MAGIC RESISTANCE:'
@@ -15355,8 +15374,8 @@ npc_dota_hero_rubick:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: Rubick's mastery of the arcane protects allied heroes against weaker
-      magics, granting them magic resistance.
+    description: Rubick's mastery of the arcane protects nearby allied heroes against
+      weaker magics, granting them magic resistance.
     displayname: Null Field
     level: 0
     lore: Not every magus can be a Grand Magus...
@@ -16716,11 +16735,12 @@ npc_dota_hero_skywrath_mage:
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [5, 4, 3, 2]
     damage: [0, 0, 0, 0]
-    description: Skywrath launches a slow-moving bolt of arcane magic, dealing damage
-      to an enemy unit based on Skywrath's intelligence.
+    description: Skywrath Mage launches a slow-moving bolt of arcane magic, dealing
+      damage to an enemy unit based on Skywrath Mage's intelligence.
     displayname: Arcane Bolt
     level: 0
-    lore: ''
+    lore: Within the Ghastly Eyrie's endless intrigue, only the clever and calm can
+      hope to survive.
     manacost: [70, 70, 70, 70]
     name: skywrath_mage_arcane_bolt
   - AbilityCastPoint: [0, 0, 0, 0]
@@ -16758,11 +16778,12 @@ npc_dota_hero_skywrath_mage:
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
     cooldown: [20, 18, 16, 14]
     damage: [0, 0, 0, 0]
-    description: Skywrath sets off a long range shot that hits the closest hero within
-      a long range.  Upon impact, it deals damage and slows in an area of effect.
+    description: Skywrath Mage sets off a long range shot that hits the closest hero
+      within a long range.  Upon impact, it deals damage and slows in an area of effect.
     displayname: Concussive Shot
     level: 0
-    lore: ''
+    lore: Those who serve the court of the Ghastly Eyrie are ever locked in covert
+      war. One must always know where danger lurks nearest.
     manacost: [110, 110, 110, 110]
     name: skywrath_mage_concussive_shot
   - AbilityCastPoint: [0.1, 0.1, 0.1, 0.1]
@@ -16784,11 +16805,12 @@ npc_dota_hero_skywrath_mage:
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [11, 11, 11, 11]
     damage: [0, 0, 0, 0]
-    description: Skywrath seals the targeted unit with an ancient rune, silencing
+    description: Skywrath Mage seals the targeted unit with an ancient rune, silencing
       it and causing it to take additional damage from spells.
     displayname: Ancient Seal
     level: 0
-    lore: ''
+    lore: A holy incantation, whosoever finds themselves touched by Avilliva's sigil
+      must suffer in penitent silence.
     manacost: [80, 90, 100, 110]
     name: skywrath_mage_ancient_seal
   - AbilityCastPoint: [0.1, 0.1, 0.1, 0.1]
@@ -16819,13 +16841,14 @@ npc_dota_hero_skywrath_mage:
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [60, 40, 20]
     damage: [0, 0, 0, 0]
-    description: Skywrath uses his ultimate magical ability to conjure a precise and
-      violent mystical field that lays waste to his adversaries. Deals massive damage
-      distributed evenly among any Heroes in the area over 2 seconds.\n\nUpgradable
+    description: Skywrath Mage uses his ultimate magical ability to conjure a precise
+      and violent mystical field that lays waste to his adversaries. Deals massive
+      damage distributed evenly among any Heroes in the area over 2 seconds.\n\nUpgradable
       by Aghanim's Scepter.
     displayname: Mystic Flare
     level: 0
-    lore: ''
+    lore: Only the most practiced of Skywrath sorcerers could hope to shape the skies
+      into such a storm.
     manacost: [350, 575, 800]
     name: skywrath_mage_mystic_flare
   - *id001
@@ -17093,7 +17116,7 @@ npc_dota_hero_slark:
     cooldown: [9, 8, 7, 6]
     damage: [0, 0, 0, 0]
     description: After a short delay, Slark sacrifices some of his life blood, purging
-      negative debuffs and dealing damage to enemy units around him and to himself.  Slark
+      most negative debuffs and dealing damage to enemy units around him and to himself.  Slark
       only takes 50%% of the damage.
     displayname: Dark Pact
     level: 0
@@ -18200,35 +18223,41 @@ npc_dota_hero_techies:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_COMPOSITE
     attributes:
-    - name: full_damage_radius
+    - name: small_radius
+      tooltip: 'FULL DAMAGE RADIUS:'
       value: [200]
-    - name: half_damage_radius
+    - name: big_radius
+      tooltip: 'HALF DAMAGE RADIUS:'
       value: [500]
-    - name: max_mines
-      tooltip: 'MAX MINES:'
-      value: [21]
-    - name: explode_delay
-      value: [0.3]
-    - name: fade_time
-      value: [2]
     - name: damage
       tooltip: 'DAMAGE:'
       value: [300, 400, 500, 600]
+    - name: explode_delay
+      value: [0.3]
+    - name: max_mines
+      tooltip: 'MINE LIMIT:'
+      value: [20]
     - name: activation_time
-      tooltip: 'ACTIVATION DELAY:'
+      tooltip: 'MINE ACTIVATION TIME:'
       value: [1.75]
-    behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
+    - name: fade_time
+      tooltip: 'MINE FADE TIME:'
+      value: [2]
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE]
     cooldown: [25, 20, 15, 10]
     damage: [0, 0, 0, 0]
-    description: Plants an invisible mine that explodes when an enemy nears.  The
-      explosion deals less damage if the target is farther away.  When a new mine
-      planted exceeds the mine limit, the oldest mine will explode.
+    description: Plant an invisible mine that explodes when an enemy steps near.  The
+      explosion will deal less damage if the enemy is farther away from the mine when
+      it explodes.  Mines explode %explode_delay% seconds after being triggered.  If
+      the number of mines planted exceeds the mine limit, the oldest mine will explode.  Damages
+      buildings.
     displayname: Land Mines
     level: 0
+    lore: The bane of Toterin!
     manacost: [125, 150, 175, 205]
     name: techies_land_mines
   - AbilityCastPoint: 1
-    AbilityCastRange: 100
+    AbilityCastRange: 150
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -18237,30 +18266,35 @@ npc_dota_hero_techies:
     ID: 5600
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
-    - name: activation_delay
-      tooltip: 'DETONATION DELAY:'
+    - name: explode_delay
+      tooltip: 'TRIGGER DELAY:'
       value: [2]
-    - name: stun_duration
-      tooltip: 'STUN DURATION:'
-      value: [3, 4, 5, 6]
-    - name: activation_time
-      tooltip: 'ACTIVATION DELAY:'
+    - name: stun_radius
+      tooltip: 'STUN RADIUS:'
+      value: [450]
+    - name: activation_radius
+      tooltip: 'TRIGGER RADIUS:'
+      value: [200]
+    - name: fade_time
+      tooltip: 'TRAP FADE TIME:'
       value: [2]
     - name: duration
       tooltip: 'TRAP DURATION:'
       value: [270, 300, 330, 360]
-    - name: activation_radius
-      tooltip: 'TRIGGER RADIUS:'
-      value: [200]
-    - name: stun_radius
-      tooltip: 'STUN RADIUS:'
-      value: [450]
-    behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
+    - name: stun_duration
+      tooltip: 'STUN DURATION:'
+      value: [3, 4, 5, 6]
+    - name: activation_time
+      tooltip: 'TRAP ACTIVATION TIME:'
+      value: [2]
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN,
+      DOTA_ABILITY_BEHAVIOR_AOE]
     cooldown: [20, 16, 13, 10]
     damage: [0, 0, 0, 0]
-    description: Plants an invisible trap that stuns nearby enemy units when detonated.
+    description: Plant an invisible trap that stuns nearby enemy units when triggered.
     displayname: Stasis Trap
     level: 0
+    lore: The scourge of Trapper Town!
     manacost: [80, 110, 140, 160]
     name: techies_stasis_trap
   - AbilityCastPoint: [0, 0, 0, 0]
@@ -18274,25 +18308,32 @@ npc_dota_hero_techies:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_COMPOSITE
     attributes:
-    - name: half_damage_radius
-      value: [500]
-    - name: damage
-      tooltip: 'FULL DAMAGE:'
-      value: [650, 850, 1150, 1550]
-    - name: full_damage_radius
+    - name: small_radius
+      tooltip: 'FULL DAMAGE RADIUS:'
       value: [200]
     - name: partial_damage
       tooltip: 'PARTIAL DAMAGE:'
       value: [350, 400, 450, 500]
+    - name: damage
+      tooltip: 'FULL DAMAGE:'
+      value: [650, 850, 1150, 1550]
+    - name: respawn_time_percentage_tooltip
+      value: [50]
+    - name: big_radius
+      tooltip: 'PARTIAL DAMAGE RADIUS:'
+      value: [500]
     - name: respawn_time_percentage
       value: [0.5]
-    behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_ATTACK, DOTA_ABILITY_BEHAVIOR_POINT]
+    behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_POINT]
     cooldown: [180, 170, 160, 150]
     damage: [0, 0, 0, 0]
-    description: Sacrifice yourself for the greater good.  Deals massive area of effect
-      damage.
+    description: Techies sacrifice themselves for the greater good, dealing massive
+      area of effect damage.  More damage is dealt to units closer to Techies when
+      they explode.  Techies' respawn time is reduced by %respawn_time_percentage_tooltip%%%
+      when killed by this ability.
     displayname: Suicide Squad, Attack!
     level: 0
+    lore: What's this button do?
     manacost: [100, 125, 150, 175]
     name: techies_suicide
   - AbilityCastPoint: [0, 0, 0, 0]
@@ -18310,13 +18351,31 @@ npc_dota_hero_techies:
       tooltip: 'RADIUS:'
       value: [700]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
-    cooldown: [0, 0, 0, 0]
+    cooldown: [1, 1, 1]
     damage: [0, 0, 0, 0]
-    description: Detonates all remote mines in the target area.
+    description: Detonate all remote mines in the target area.
     displayname: Focused Detonate
     level: 0
+    lore: Why light one fuse when you can light them all?
     manacost: [0, 0, 0, 0]
     name: techies_focused_detonate
+  - AbilityCastPoint: [0, 0, 0, 0]
+    AbilityCastRange: 500
+    AbilityCastRangeBuffer: 250
+    AbilityChannelTime: [0, 0, 0, 0]
+    AbilityDuration: [0, 0, 0, 0]
+    AbilityModifierSupportBonus: 0
+    AbilityModifierSupportValue: 1
+    ID: 5644
+    abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_NONE
+    attributes: []
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
+    cooldown: [120]
+    damage: [0, 0, 0, 0]
+    level: 0
+    manacost: [0]
+    name: techies_minefield_sign
   - AbilityCastPoint: [1.5, 1.5, 1.5]
     AbilityCastRange: 500
     AbilityCastRangeBuffer: 250
@@ -18328,46 +18387,50 @@ npc_dota_hero_techies:
     abilitytype: DOTA_ABILITY_TYPE_ULTIMATE
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
-    - name: radius
-      tooltip: 'EXPLOSION RADIUS:'
-      value: [400, 410, 425]
     - name: damage
       tooltip: 'DAMAGE:'
       value: [300, 450, 600]
+    - name: radius
+      tooltip: 'EXPLOSION RADIUS:'
+      value: [400, 410, 425]
     - name: max_mines
-      tooltip: 'MAX MINES:'
       value: [21]
-    - name: cast_range_scepter
-      tooltip: 'SCEPTER CAST RANGE:'
-      value: [700]
-    - name: radius_scepter
-      tooltip: 'SCEPTER EXPLOSION RADIUS:'
-      value: [410, 425, 425]
+    - name: cast_range_tooltip
+      tooltip: 'CAST RANGE:'
+      value: [500]
+    - name: damage_scepter
+      tooltip: 'SCEPTER DAMAGE:'
+      value: [450, 600, 750]
     - name: activation_time
-      tooltip: 'ACTIVATION DELAY:'
+      tooltip: 'FADE TIME:'
       value: [2]
     - name: duration
       tooltip: 'MINE DURATION:'
       value: [480]
-    - name: damage_scepter
-      tooltip: 'SCEPTER DAMAGE:'
-      value: [450, 600, 750]
-    - name: vision_radius
-      value: [500]
+    - name: radius_scepter
+      tooltip: 'SCEPTER EXPLOSION RADIUS:'
+      value: [410, 425, 425]
+    - name: cast_range_scepter
+      tooltip: 'SCEPTER CAST RANGE:'
+      value: [700]
+    - name: model_scale
+      value: [0, 10, 20]
     - name: vision_duration
       value: [3]
-    behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
+    - name: vision_radius
+      value: [500]
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN]
     cooldown: [10, 10, 10]
     damage: [0, 0, 0, 0]
-    description: Plants an invisible mine that will only activate when triggered.  Does
-      not damage buildings.
+    description: Plant an invisible explosive that will only detonate when triggered.  Does
+      not damage buildings.\n\nUpgradable by Aghanim's Scepter.
     displayname: Remote Mines
     level: 0
-    lore: ''
+    lore: The downfall of Dredger's Bight!
     manacost: [200, 240, 300]
     name: techies_remote_mines
   - *id001
-  abilitylayout: 5
+  abilitylayout: 6
   armorphysical: 5
   attackdamagemax: 9
   attackdamagemin: 7
@@ -18382,7 +18445,31 @@ npc_dota_hero_techies:
   attributeintelligencegain: 2.9
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
   attributestrengthgain: 2
-  bio: Techies Demolitions! We put the tech in tech-nically we meant to do that.
+  bio: "In the storied saga of Dredger's Bight, no business has ever been more reviled\
+    \ than Techies Demolitions. Then again, Dredger's Bight no longer exists. Nor\
+    \ does Toterin. Or even Trapper Town. In fact, if one were to track the history\
+    \ of Techies Demolitions they might notice that shortly after Techies appear,\
+    \ towns tend to disappear.\r\nLike every inevitable disaster surrounding Techies,\
+    \ the obliteration of Dredger's Bight began with an invention. Tasked with designing\
+    \ a safer way of detonating explosives in the mines beneath the city, pyrotechnic\
+    \ prodigies Squee, Spleen, and Spoon developed their most outlandish creation\
+    \ yet: a button which, when pressed, would trigger a distant device to spark a\
+    \ fuse.\r\nOvereager to test their invention, the trio stuffed barrel after barrel\
+    \ with flamesalt explosives, piling every corner of their tiny workshop high with\
+    \ the newly developed remote bombs. From this stockpile they plucked a single\
+    \ payload, burying it in a far away field. As they cowered in a ditch, Spleen\
+    \ pressed the detonator button. Yet after a moment, nothing happened. Confused,\
+    \ he stood up, pressing his button again and again until, finally, an explosion\
+    \ tore a hole in the field. Elated, Squee and Spleen turned toward home just as\
+    \ a massive wave of sound and force arrived to knock them over.\r\nBewildered,\
+    \ their ears ringing from the unexpected blast, they gathered in the dingy miasma\
+    \ to see a smoking ruin where their workshop once stood. Chunks of wood and stone\
+    \ continued to fall as the yawning crater before them slowly deepened into an\
+    \ expanding pit. The whole of Dredger's Bight shuddered, and then gradually started\
+    \ to slide into the mines below as its panicked residents fled.\r\nSitting at\
+    \ the edge of their sinking home they grinned and giggled, as giddy at the possibilities\
+    \ as they were oblivious to the scorn of their former neighbors. They wondered\
+    \ only one thing: how could they trigger an even bigger blast?"
   displayname: Techies
   items: []
   level: 0
@@ -18394,8 +18481,8 @@ npc_dota_hero_techies:
   statushealth: 150
   statushealthregen: 0.25
   statusmana: 0
-  statusmanaregen: 0.01
-  team: Bad
+  statusmanaregen: 0.02
+  team: Good
   visiondaytimerange: 1800
   visionnighttimerange: 800
 npc_dota_hero_templar_assassin:
@@ -18460,7 +18547,7 @@ npc_dota_hero_templar_assassin:
       DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
     cooldown: [7, 7, 7, 7]
     damage: [0, 0, 0, 0]
-    description: Templar Assassin conceals herself, becomming invisible as long as
+    description: Templar Assassin conceals herself, becoming invisible as long as
       she remains still.  If Meld's invisibility is broken by attacking an enemy,
       Lanaya will deal bonus damage to the enemy and reduce their armor for %armor_reduction_duration_tooltip%
       seconds.
@@ -18538,9 +18625,18 @@ npc_dota_hero_templar_assassin:
     attributes:
     - name: trap_fade_time
       value: [2, 2, 2]
+    - name: movement_speed_min_tooltip
+      tooltip: '%MIN MOVEMENT SLOW:'
+      value: [30]
     - name: max_traps
       tooltip: 'MAX TRAPS:'
       value: [5, 8, 11]
+    - name: movement_speed_max_tooltip
+      tooltip: '%MAX MOVEMENT SLOW:'
+      value: [50]
+    - name: trap_duration_tooltip
+      tooltip: 'SLOW DURATION:'
+      value: [5]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING,
       DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL]
     cooldown: [11, 9, 7]
@@ -19574,7 +19670,7 @@ npc_dota_hero_troll_warlord:
       Whirling Axes.
     displayname: Berserker's Rage
     level: 0
-    lore: ''
+    lore: Like his anger, Troll Warlord's supply of axes is infinite.
     manacost: [0, 0, 0, 0]
     name: troll_warlord_berserkers_rage
   - AbilityCastPoint: [0.2, 0.2, 0.2, 0.2]
@@ -19614,7 +19710,7 @@ npc_dota_hero_troll_warlord:
       slowing and damaging enemy units.
     displayname: Whirling Axes (Ranged)
     level: 0
-    lore: ''
+    lore: Only axes fueled by hate whirl with such a deadly spin.
     manacost: [50, 50, 50, 50]
     name: troll_warlord_whirling_axes_ranged
   - AbilityCastPoint: 0
@@ -19679,7 +19775,7 @@ npc_dota_hero_troll_warlord:
       attack speed.  If Troll changes targets, the stacks drop to zero.
     displayname: Fervor
     level: 0
-    lore: ''
+    lore: If at first you don't succeed, strike, strike again.
     manacost: [0, 0, 0, 0]
     name: troll_warlord_fervor
   - AbilityCastPoint: [0, 0, 0]
@@ -19705,7 +19801,7 @@ npc_dota_hero_troll_warlord:
       of himself and all allied heroes. '
     displayname: Battle Trance
     level: 0
-    lore: ''
+    lore: An adrenaline rush of pure hatred quickens your blades.
     manacost: [75, 75, 75]
     name: troll_warlord_battle_trance
   - *id001
@@ -20381,7 +20477,7 @@ npc_dota_hero_vengefulspirit:
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: magic_missile_stun
-      tooltip: 'DURATION:'
+      tooltip: 'STUN DURATION:'
       value: [1.45, 1.55, 1.65, 1.75]
     - name: magic_missile_speed
       value: [1250]
@@ -20413,19 +20509,19 @@ npc_dota_hero_vengefulspirit:
       value: [-3, -4, -5, -6]
     - name: wave_speed
       value: [2000]
+    - name: vision_duration
+      tooltip: 'VISION DURATION:'
+      value: [3, 3, 3, 3]
     - name: tooltip_duration
       tooltip: 'DEBUFF DURATION:'
       value: [20, 20, 20, 20]
     - name: vision_aoe
       value: [500, 500, 500, 500]
-    - name: vision_duration
-      tooltip: 'VISION DURATION:'
-      value: [3, 3, 3, 3]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
     cooldown: [15, 15, 15, 15]
     damage: [30, 50, 70, 90]
     description: Vengeful Spirit lets loose a wicked cry, weakening the armor of enemies
-      and giving vision of the path.
+      and giving vision of the path ahead.
     displayname: Wave of Terror
     level: 0
     lore: Shendel's haunting voice hints at her approaching vindication.
@@ -20441,19 +20537,19 @@ npc_dota_hero_vengefulspirit:
     ID: 5123
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
-    - name: bonus_damage_pct
-      tooltip: '%DAMAGE BONUS:'
-      value: [12, 20, 28, 36]
     - name: aura_radius
       tooltip: 'RADIUS:'
       value: [900]
+    - name: bonus_damage_pct
+      tooltip: '%DAMAGE BONUS:'
+      value: [12, 20, 28, 36]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_AURA]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: Vengeful Spirit's presence increases nearby friendly units' physical
-      damage. If Vengeful Spirit is slain, her killer will be possessed with a negative
-      Vengeance Aura, reducing the damage of her killer and its nearby allies until
-      Vengeful Spirit revives.
+    description: Vengeful Spirit's presence increases the physical damage of nearby
+      friendly units. If Vengeful Spirit is slain, her killer will be possessed with
+      a negative Vengeance Aura, reducing the damage of her killer and its nearby
+      allies until Vengeful Spirit revives.
     displayname: Vengeance Aura
     level: 0
     lore: Although they may not share her undying passion for revenge, allies do draw

@@ -2339,29 +2339,30 @@
    }, 
    {
     "name": "duration", 
-    "tooltip": "ENEMY DURATION:", 
+    "tooltip": "BLAST ENEMY DURATION:", 
     "value": [
      3
     ]
    }, 
    {
-    "name": "ethereal_damage_bonus", 
+    "name": "duration_ally", 
+    "tooltip": "BLAST ALLY/SELF DURATION:", 
     "value": [
-     -40
+     4
     ]
    }, 
    {
-    "name": "duration_ally", 
-    "tooltip": "ALLY/SELF DURATION:", 
+    "name": "ethereal_damage_bonus", 
+    "tooltip": "%INCREASED MAGIC DAMAGE:", 
     "value": [
-     4
+     -40
     ]
    }
   ], 
   "cooldown": [
    30
   ], 
-  "description": "Active: Ether Blast - Converts you and your target into ethereal form. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
+  "description": "Active: Ether Blast - Converts you and your target into ethereal form, increasing incoming magic damage. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
   "displayname": "Ethereal Blade", 
   "id": 176, 
   "itemcost": 4900, 
@@ -2564,16 +2565,17 @@
   "ItemShopTags": "int;agi;str;hard_to_tag", 
   "attributes": [
    {
-    "name": "extra_spell_damage_percent", 
-    "value": [
-     -40
-    ]
-   }, 
-   {
     "name": "duration", 
     "tooltip": "GHOST DURATION:", 
     "value": [
      4
+    ]
+   }, 
+   {
+    "name": "extra_spell_damage_percent", 
+    "tooltip": "%INCREASED MAGIC DAMAGE:", 
+    "value": [
+     -40
     ]
    }, 
    {
@@ -2838,7 +2840,7 @@
   "cooldown": [
    100
   ], 
-  "description": "Active: Transmute - Kills a non-hero target for 190 gold and 2.5x experience.  Cannot be used on Ancients.", 
+  "description": "Active: Transmute - Kills a non-hero target for 190 gold and 2.5x experience.  Cannot be used on Ancient Creeps.", 
   "displayname": "Hand of Midas", 
   "id": 65, 
   "itemcost": 2050, 
@@ -3244,7 +3246,7 @@
   "cooldown": [
    28
   ], 
-  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 14 seconds.", 
+  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 17 seconds.", 
   "displayname": "Shadow Blade", 
   "id": 152, 
   "itemcost": 3000, 
@@ -3638,7 +3640,7 @@
   "cooldown": [
    50
   ], 
-  "description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage.  Ranged illusions deal %tooltip_outgoing_range%%% damage and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nPercentage based movement speed bonuses from multiple items do not stack.", 
+  "description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage.  Ranged illusions deal %tooltip_outgoing_range%%% damage and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "displayname": "Manta Style", 
   "id": 147, 
   "itemcost": 5050, 
@@ -4872,7 +4874,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing, depending on whether your hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing, depending on whether your hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Orb of Venom can be combined with Lifesteal Attack Modifiers.", 
   "displayname": "Orb of Venom", 
   "id": 181, 
   "itemcost": 275, 
@@ -5233,7 +5235,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Damage Block - Blocks physical attack damage, depending on the type of hero you are.  Poor Man's Shield will always block attacks from enemy Heroes, but has a chance to block damage from creeps.", 
+  "description": "Passive: Damage Block - Blocks physical attack damage based on whether the equipped hero is ranged or melee.  Poor Man's Shield will always block attacks from enemy Heroes, but has a chance to block damage from creeps.", 
   "displayname": "Poor Man's Shield", 
   "id": 71, 
   "itemcost": 550, 
@@ -5277,7 +5279,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Active: Switch Attribute - Changes selected attribute between Strength, Agility and Intelligence.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "description": "Active: Switch Attribute - Changes selected attribute between Strength, Agility and Intelligence.\\n\\nPower Treads can be built using a Belt of Strength, Band of Elvenskin, or a Robe of the Magi.  Flat movement speed bonuses from multiple pairs of boots do not stack, nor does the attack speed bonus from multiple Power Treads.", 
   "displayname": "Power Treads", 
   "id": 63, 
   "itemcost": 1400, 
@@ -5375,7 +5377,7 @@
   "cooldown": [
    5
   ], 
-  "description": "Active:  Destroy Tree/Ward - Destroy a target tree, or deals 100 damage to a ward.\\nPassive: Quell - Gives bonus attack damage against non-hero units, depending on the type of hero you are.", 
+  "description": "Active:  Destroy Tree/Ward - Destroy a target tree, or deals 100 damage to a ward.\\nPassive: Quell - Gives bonus attack damage against non-hero units, based on whether the equipped hero is ranged or melee.", 
   "displayname": "Quelling Blade", 
   "id": 11, 
   "itemcost": 225, 
@@ -5403,7 +5405,7 @@
    }, 
    {
     "name": "aura_damage", 
-    "tooltip": "BURN DAMAGE:", 
+    "tooltip": "BURN DAMAGE PER SECOND:", 
     "value": [
      50
     ]
@@ -6902,8 +6904,8 @@
   "ItemQuality": "rare", 
   "attributes": [
    {
-    "name": "bonus_all_stats", 
-    "tooltip": "+$all", 
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
     "value": [
      3
     ]
@@ -6912,7 +6914,7 @@
     "name": "bonus_agility", 
     "tooltip": "+$agi", 
     "value": [
-     6
+     9
     ]
    }, 
    {
@@ -6923,6 +6925,12 @@
     ]
    }, 
    {
+    "name": "aura_radius", 
+    "value": [
+     900
+    ]
+   }, 
+   {
     "name": "aura_mana_regen", 
     "tooltip": "AURA MANA REGEN:", 
     "value": [
@@ -6930,10 +6938,10 @@
     ]
    }, 
    {
-    "name": "aura_bonus_armor", 
-    "tooltip": "AURA BONUS ARMOR:", 
+    "name": "bonus_intellect", 
+    "tooltip": "+$int", 
     "value": [
-     2
+     3
     ]
    }, 
    {
@@ -6944,9 +6952,10 @@
     ]
    }, 
    {
-    "name": "aura_radius", 
+    "name": "aura_bonus_armor", 
+    "tooltip": "AURA BONUS ARMOR:", 
     "value": [
-     900
+     2
     ]
    }
   ], 
@@ -6975,16 +6984,16 @@
   "ItemShopTags": "damage;regen_mana;armor", 
   "attributes": [
    {
-    "name": "aura_radius", 
+    "name": "bonus_armor", 
+    "tooltip": "+$armor", 
     "value": [
-     900
+     1
     ]
    }, 
    {
-    "name": "aura_mana_regen", 
-    "tooltip": "AURA MANA REGEN:", 
+    "name": "aura_radius", 
     "value": [
-     0.65
+     900
     ]
    }, 
    {
@@ -6995,17 +7004,17 @@
     ]
    }, 
    {
+    "name": "aura_mana_regen", 
+    "tooltip": "AURA MANA REGEN:", 
+    "value": [
+     0.65
+    ]
+   }, 
+   {
     "name": "aura_bonus_armor", 
     "tooltip": "AURA BONUS ARMOR:", 
     "value": [
      2
-    ]
-   }, 
-   {
-    "name": "bonus_armor", 
-    "tooltip": "+$armor", 
-    "value": [
-     1
     ]
    }
   ], 
@@ -7320,7 +7329,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Greater Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nPercentage based movement speed bonuses from multiple items do not stack.", 
+  "description": "Passive: Greater Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "displayname": "Sange and Yasha", 
   "id": 154, 
   "itemcost": 4100, 
@@ -8000,7 +8009,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Damage Block - Gives a chance to block damage, depending on the type of hero you are.", 
+  "description": "Passive: Damage Block - Gives a chance to block damage based on whether the equipped hero is melee or ranged.", 
   "displayname": "Stout Shield", 
   "id": 182, 
   "itemcost": 250, 
@@ -8511,7 +8520,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Damage Block - Gives a chance to block damage, depending on the type of hero you are.", 
+  "description": "Passive: Damage Block - Gives a chance to block damage based on whether the equipped hero is melee or ranged.", 
   "displayname": "Vanguard", 
   "id": 125, 
   "itemcost": 2225, 
@@ -8536,29 +8545,8 @@
   "ItemShopTags": "int;armor;regen_health;hard_to_tag", 
   "attributes": [
    {
-    "name": "resist_debuff", 
-    "tooltip": "%BONUS MAGIC DAMAGE:", 
-    "value": [
-     -25
-    ]
-   }, 
-   {
-    "name": "bonus_health_regen", 
-    "tooltip": "+$hp_regen", 
-    "value": [
-     6
-    ]
-   }, 
-   {
-    "name": "debuff_radius", 
-    "tooltip": "RADIUS:", 
-    "value": [
-     600
-    ]
-   }, 
-   {
-    "name": "bonus_agility", 
-    "tooltip": "+$agi", 
+    "name": "bonus_stats", 
+    "tooltip": "+$all", 
     "value": [
      6
     ]
@@ -8571,17 +8559,24 @@
     ]
    }, 
    {
-    "name": "bonus_intellect", 
-    "tooltip": "+$int", 
+    "name": "bonus_health_regen", 
+    "tooltip": "+$hp_regen", 
     "value": [
      6
     ]
    }, 
    {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
+    "name": "resist_debuff_duration", 
+    "tooltip": "MAGIC WEAKNESS DURATION:", 
     "value": [
-     6
+     25
+    ]
+   }, 
+   {
+    "name": "resist_debuff", 
+    "tooltip": "%INCREASED MAGIC DAMAGE:", 
+    "value": [
+     -25
     ]
    }, 
    {
@@ -8592,9 +8587,10 @@
     ]
    }, 
    {
-    "name": "resist_debuff_duration", 
+    "name": "debuff_radius", 
+    "tooltip": "MAGIC WEAKNESS RADIUS:", 
     "value": [
-     25
+     600
     ]
    }
   ], 
@@ -9299,7 +9295,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Percentage based movement speed bonuses from multiple items do not stack.", 
+  "description": "Yasha-based movement speed bonuses from multiple items do not stack.", 
   "displayname": "Yasha", 
   "id": 170, 
   "itemcost": 2050, 

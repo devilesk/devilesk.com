@@ -54,7 +54,7 @@
   "Lore": "The brew Razzil gave to the Ogre during their prison bust has become a useful potion in the midst of combat."
  }, 
  "alchemist_goblins_greed": {
-  "Description": "Alchemist gets bonus gold for killing creeps; the bonus stacks if the creeps are killed within a period of time, after which the count is reset.  The bonus gold is capped at 30 gold.", 
+  "Description": "Alchemist synthesizes additional gold from his enemies. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next %duration% seconds, an additional instance of Extra Bonus Gold is added to the total. The maximum total bonus gold is %bonus_gold_cap% per kill.", 
   "DisplayName": "Greevil's Greed", 
   "Lore": "While it is not a mountain, Razzil has mastered the conversion of smaller compounds to line his pockets."
  }, 
@@ -139,14 +139,16 @@
   "Lore": "Axe is the only reinforcement this army needs."
  }, 
  "axe_culling_blade": {
-  "Description": "Axe spots weakness and strikes, dealing moderate damage but instantly killing an enemy unit with low health.  When an enemy hero is killed in this way, the cooldown is reset. Axe and nearby allied units gain bonus movement speed.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Axe spots a weakness and strikes, instantly killing an enemy unit with low health, or dealing moderate damage otherwise. When an enemy hero is killed with Culling Blade, its cooldown is reset, and Axe and nearby allied units gain bonus movement speed. \\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Culling Blade", 
   "Lore": "Mogul Khan is the embodiment of battle and fury, launching into a gruesome fatality against those who dare engage the Axe in combat."
  }, 
  "backdoor_protection": {
+  "Description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
   "DisplayName": "Backdoor Protection"
  }, 
  "backdoor_protection_in_base": {
+  "Description": "Structure takes reduced damage, and quickly regenerates any damage taken while no enemy creeps are nearby.", 
   "DisplayName": "Backdoor Protection"
  }, 
  "bane_brain_sap": {
@@ -175,7 +177,7 @@
   "Lore": ""
  }, 
  "batrider_firefly": {
-  "Description": "Batrider takes to the skies, laying down a flaming trail from the air.  While flying, the trail of fire destroys trees and damages enemies in its path, and Batrider gains unobstructed movement and vision.", 
+  "Description": "Batrider takes to the skies, laying down a trail of flames from the air.  The fire damages any enemies it touches, and destroys trees below Batrider. While flying, Batrider gains unobstructed movement and vision.", 
   "DisplayName": "Firefly", 
   "Lore": "When an enemy escapes into the Yama Raskav Jungle, most would cut through the brush to find the fugitive.  Batrider just chooses to destroy the jungle along with his foes."
  }, 
@@ -583,7 +585,7 @@
   "Lore": "Only a seasoned acolyte of the Shadow can properly perform the rite of preventing death."
  }, 
  "dazzle_weave": {
-  "Description": "Applies a buff that increases allied hero armor or decreases enemy hero armor in the target area over time.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Applies a buff that increases the armor of allied heroes while decreasing the armor of enemy heroes in the target area over time.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Weave", 
   "Lore": "His ethereal journey into the Nothl realm has allowed Dazzle to mend together the powers of light and dark, creating shifting waves of enchantments."
  }, 
@@ -678,7 +680,7 @@
   "Lore": "Davion's combination of dragon talents and knightly skills makes him a vicious opponent in melee combat."
  }, 
  "dragon_knight_elder_dragon_form": {
-  "Description": "Dragon Knight can take the form of three powerful elder dragons.\\nLEVEL 1 - Green Dragon: Short poison damage over time on attack.\\nLEVEL 2 - Red Dragon: Splash damage on attack.\\nLEVEL 3 - Blue Dragon: Splash damage and frost attack that slows enemy units.", 
+  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his damage, speed, and Dragon Tail's range, while granting him new powers.\\nLEVEL 1 Green Dragon - Corrosive Breath: attacks deal 20 poison damage over 5 seconds. Works on structures.\\nLEVEL 2 Red Dragon - Splash Attack: attacks damage all enemy units in a 250 radius, with Corrosive Breath added to the primary target.\\nLEVEL 3 Blue Dragon - Frost Breath: slows movement speed by 30%%, and attack speed by 20, of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the primary target.", 
   "DisplayName": "Elder Dragon Form", 
   "Lore": "The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm."
  }, 
@@ -832,7 +834,7 @@
   "Lore": "The ground trembles as Enigma channels his ultimate vortex of destruction, a singularity with the power to end worlds."
  }, 
  "enigma_demonic_conversion": {
-  "Description": "Transforms a creep into three fragments of Engima himself.  These eidolons are all under Enigma's control, and repeated successful attacks cause them to multiply.  When this happens, the eidolons have their health restored.", 
+  "Description": "Transforms a creep into three fragments of Enigma himself.  These eidolons are all under Enigma's control, and repeated successful attacks cause them to multiply.  When this happens, the eidolons have their health restored.", 
   "DisplayName": "Demonic Conversion", 
   "Lore": "Enigma is capable of drawing aspects of himself from other dimensions - the result is a trio of dark eidolons that hunt the corporeal plane."
  }, 
@@ -1195,7 +1197,7 @@
   "Lore": ""
  }, 
  "invoker_sun_strike": {
-  "Description": "Sends a catastrophic ray of fierce energy from the sun at any targeted location, incinerating all enemies standing beneath it once it reaches the Earth. Deals damage based on the level of <font color='#cabe68'>Exort</font>, however this damage is spread evenly over all enemies hit.", 
+  "Description": "Sends a catastrophic ray of fierce energy from the sun at any targeted location, incinerating all enemies standing beneath it once it reaches the earth. Deals damage based on the level of <font color='#cabe68'>Exort</font>, however this damage is spread evenly over all enemies hit.", 
   "DisplayName": "Sun Strike", 
   "Lore": "Harlek's Incantation of Incineration."
  }, 
@@ -1410,7 +1412,7 @@
   "Lore": "This lapis gemstone is commonly added to the collection of wizards seeking to improve their presence in combat."
  }, 
  "item_ethereal_blade": {
-  "Description": "Active: Ether Blast - Converts you and your target into ethereal form. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
+  "Description": "Active: Ether Blast - Converts you and your target into ethereal form, increasing incoming magic damage. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
   "DisplayName": "Ethereal Blade", 
   "Lore": "A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes."
  }, 
@@ -1464,7 +1466,7 @@
   "Lore": "A strange looking candy, made out of Greevil cream and gummy vitamins."
  }, 
  "item_hand_of_midas": {
-  "Description": "Active: Transmute - Kills a non-hero target for 190 gold and 2.5x experience.  Cannot be used on Ancients.", 
+  "Description": "Active: Transmute - Kills a non-hero target for 190 gold and 2.5x experience.  Cannot be used on Ancient Creeps.", 
   "DisplayName": "Hand of Midas", 
   "Lore": "Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner's pockets."
  }, 
@@ -1502,7 +1504,7 @@
   "Lore": "A mystical, carved stone that boosts the fervor of the holder."
  }, 
  "item_invis_sword": {
-  "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 14 seconds.", 
+  "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 17 seconds.", 
   "DisplayName": "Shadow Blade", 
   "Lore": "The blade of a fallen king, it allows you to move unseen and strike from the shadows."
  }, 
@@ -1537,7 +1539,7 @@
   "Lore": "A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike."
  }, 
  "item_manta": {
-  "Description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage.  Ranged illusions deal %tooltip_outgoing_range%%% damage and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nPercentage based movement speed bonuses from multiple items do not stack.", 
+  "Description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage.  Ranged illusions deal %tooltip_outgoing_range%%% damage and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "DisplayName": "Manta Style", 
   "Lore": "An axe made of reflective materials that causes confusion amongst enemy ranks."
  }, 
@@ -1606,7 +1608,7 @@
   "Lore": "You grow stronger just by holding it."
  }, 
  "item_orb_of_venom": {
-  "Description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing, depending on whether your hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "Description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing, depending on whether your hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Orb of Venom can be combined with Lifesteal Attack Modifiers.", 
   "DisplayName": "Orb of Venom", 
   "Lore": "Envenoms your veapon with the venom of a venomous viper."
  }, 
@@ -1640,12 +1642,12 @@
   "Lore": "A perfectly formed amethyst that nourishes body and mind when held."
  }, 
  "item_poor_mans_shield": {
-  "Description": "Passive: Damage Block - Blocks physical attack damage, depending on the type of hero you are.  Poor Man's Shield will always block attacks from enemy Heroes, but has a chance to block damage from creeps.", 
+  "Description": "Passive: Damage Block - Blocks physical attack damage based on whether the equipped hero is ranged or melee.  Poor Man's Shield will always block attacks from enemy Heroes, but has a chance to block damage from creeps.", 
   "DisplayName": "Poor Man's Shield", 
   "Lore": "A busted old shield that seems to block more than it should."
  }, 
  "item_power_treads": {
-  "Description": "Active: Switch Attribute - Changes selected attribute between Strength, Agility and Intelligence.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "Description": "Active: Switch Attribute - Changes selected attribute between Strength, Agility and Intelligence.\\n\\nPower Treads can be built using a Belt of Strength, Band of Elvenskin, or a Robe of the Magi.  Flat movement speed bonuses from multiple pairs of boots do not stack, nor does the attack speed bonus from multiple Power Treads.", 
   "DisplayName": "Power Treads", 
   "Lore": "A pair of tough-skinned boots that change to meet the demands of the wearer."
  }, 
@@ -1657,7 +1659,7 @@
   "Lore": "A basic staff that allows you to strike quickly."
  }, 
  "item_quelling_blade": {
-  "Description": "Active:  Destroy Tree/Ward - Destroy a target tree, or deals 100 damage to a ward.\\nPassive: Quell - Gives bonus attack damage against non-hero units, depending on the type of hero you are.", 
+  "Description": "Active:  Destroy Tree/Ward - Destroy a target tree, or deals 100 damage to a ward.\\nPassive: Quell - Gives bonus attack damage against non-hero units, based on whether the equipped hero is ranged or melee.", 
   "DisplayName": "Quelling Blade", 
   "Lore": "The axe of a fallen gnome, it allows you to effectively maneuver the forest."
  }, 
@@ -1727,7 +1729,7 @@
   "Lore": "Sange is an unusually accurate weapon, seeking weak points automatically."
  }, 
  "item_sange_and_yasha": {
-  "Description": "Passive: Greater Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nPercentage based movement speed bonuses from multiple items do not stack.", 
+  "Description": "Passive: Greater Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "DisplayName": "Sange and Yasha", 
   "Lore": "Sange and Yasha, when attuned by the moonlight and used together, become a very powerful combination."
  }, 
@@ -1787,7 +1789,7 @@
   "Lore": "A staff of magical powers passed down from the eldest mages."
  }, 
  "item_stout_shield": {
-  "Description": "Passive: Damage Block - Gives a chance to block damage, depending on the type of hero you are.", 
+  "Description": "Passive: Damage Block - Gives a chance to block damage based on whether the equipped hero is melee or ranged.", 
   "DisplayName": "Stout Shield", 
   "Lore": "One man's wine barrel bottom is another man's shield."
  }, 
@@ -1832,7 +1834,7 @@
   "Lore": "Contains the ashes of powerful demons."
  }, 
  "item_vanguard": {
-  "Description": "Passive: Damage Block - Gives a chance to block damage, depending on the type of hero you are.", 
+  "Description": "Passive: Damage Block - Gives a chance to block damage based on whether the equipped hero is melee or ranged.", 
   "DisplayName": "Vanguard", 
   "Lore": "A powerful shield that defends its wielder from even the most vicious of attacks."
  }, 
@@ -1913,7 +1915,7 @@
   "Lore": "A circlet with faint whispers echoing about it."
  }, 
  "item_yasha": {
-  "Description": "Percentage based movement speed bonuses from multiple items do not stack.", 
+  "Description": "Yasha-based movement speed bonuses from multiple items do not stack.", 
   "DisplayName": "Yasha", 
   "Lore": "Yasha is regarded as the swiftest weapon ever created."
  }, 
@@ -2310,12 +2312,12 @@
   "Lore": "Sometimes breaking one of the Riftshadow Crystals can be just the trick for getting yourself out of a bind.  Or your other self."
  }, 
  "mirana_arrow": {
-  "Description": "Fires an arrow with deadly precision, stunning and dealing damage to the first enemy unit it strikes. Stun duration increases based on distance to target, ranging from %arrow_min_stun% to %arrow_max_stun% seconds. Bonus damage up to 100 will be added based on the distance the arrow travelled to the target.", 
+  "Description": "Fires an long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from 0.01 to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target.", 
   "DisplayName": "Sacred Arrow", 
   "Lore": "Lunar energies make the Princess of the Moon's arrows more deadly than most."
  }, 
  "mirana_invis": {
-  "Description": "Turns Mirana and all allied heroes invisible. If Invisibility is broken, it will restore after fade delay if the shadow's duration has not expired.  Silence will stop Moonlight Shadow.", 
+  "Description": "Turns Mirana and all allied heroes invisible. If a hero is revealed, invisibility will restore after the fade delay as long as Moonlight Shadow's duration has not expired.  Silence will prevent revealed units from becomming invisible.", 
   "DisplayName": "Moonlight Shadow", 
   "Lore": "Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her allies in a cloak of shadows."
  }, 
@@ -2330,7 +2332,7 @@
   "Lore": "The Goddess breaks the strata to empower her Princess in the time of need."
  }, 
  "morphling_adaptive_strike": {
-  "Description": "Strikes an enemy unit with a blast of water. If Morphling's agility is 50%% higher than strength, it deals the maximum damage and the minimum stun. If strength is 50%% higher, it deals the maximum stun and minimum damage.", 
+  "Description": "Strikes an enemy unit with a blast of water, stunning the target while dealing base damage plus additional damage based on Morphling's agility times a multiplier.  If Morphling's agility is 50%% higher than strength, the maximum damage and the minimum stun is dealt. If his strength is 50%% higher than his agility, the maximum stun and minimum damage are dealt.", 
   "DisplayName": "Adaptive Strike", 
   "Lore": "The Morphling calls upon his elements to crush his opponents with waves."
  }, 
@@ -3186,6 +3188,10 @@
   "DisplayName": "Sven", 
   "Hype": "Destroy enemies with a stunning storm bolt!\\n\\nStrike with such force that all nearby enemies take damage!\\n\\nHearten your allies with a mighty warcry and bring down divinely-powered blows upon your enemies!"
  }, 
+ "npc_dota_hero_techies": {
+  "Bio": "In the storied saga of Dredger's Bight, no business has ever been more reviled than Techies Demolitions. Then again, Dredger's Bight no longer exists. Nor does Toterin. Or even Trapper Town. In fact, if one were to track the history of Techies Demolitions they might notice that shortly after Techies appear, towns tend to disappear.\r\nLike every inevitable disaster surrounding Techies, the obliteration of Dredger's Bight began with an invention. Tasked with designing a safer way of detonating explosives in the mines beneath the city, pyrotechnic prodigies Squee, Spleen, and Spoon developed their most outlandish creation yet: a button which, when pressed, would trigger a distant device to spark a fuse.\r\nOvereager to test their invention, the trio stuffed barrel after barrel with flamesalt explosives, piling every corner of their tiny workshop high with the newly developed remote bombs. From this stockpile they plucked a single payload, burying it in a far away field. As they cowered in a ditch, Spleen pressed the detonator button. Yet after a moment, nothing happened. Confused, he stood up, pressing his button again and again until, finally, an explosion tore a hole in the field. Elated, Squee and Spleen turned toward home just as a massive wave of sound and force arrived to knock them over.\r\nBewildered, their ears ringing from the unexpected blast, they gathered in the dingy miasma to see a smoking ruin where their workshop once stood. Chunks of wood and stone continued to fall as the yawning crater before them slowly deepened into an expanding pit. The whole of Dredger's Bight shuddered, and then gradually started to slide into the mines below as its panicked residents fled.\r\nSitting at the edge of their sinking home they grinned and giggled, as giddy at the possibilities as they were oblivious to the scorn of their former neighbors. They wondered only one thing: how could they trigger an even bigger blast?", 
+  "DisplayName": "Techies"
+ }, 
  "npc_dota_hero_templar_assassin": {
   "Bio": "Lanaya, the Templar Assassin, came to her calling by a path of curious inquiry. Possessed of a scientific bent, she spent her early years engaged in meticulous study of nature's laws--peering into grimoires of magic and alchemy, recreating experiments from charred fragments of the Violet Archives, and memorizing observations of the Keen recordkeepers. Already quiet and secretive by nature, the difficulty of acquiring these objects further reinforced her skills of stealth. Had she been less retiring, she might have become notorious among the guilds as a thief-scholar. Instead her investigations led her into far more obscure corners. As she devoted her furtive talents to unlocking the secrets of the universe, she instead unlocked a secret door that exists in nature itself: the entryway to the most Hidden Temple. The intelligences that waited beyond that portal, proved to be expecting her, and whatever mysteries they revealed in the moment of their discovery was nothing compared to the answers they held out to Lanaya should she continue in their service. She swore to protect the mysteries, but more to the point, in service to the Hidden Temple she satisfies her endless craving for understanding. In the eyes of each foe she expunges, a bit more of the mystery is revealed.", 
   "DisplayName": "Templar Assassin"
@@ -3487,6 +3493,18 @@
  "npc_dota_shadow_shaman_ward_3": {
   "DisplayName": "Serpent Ward"
  }, 
+ "npc_dota_techies_land_mine": {
+  "DisplayName": "Land Mine"
+ }, 
+ "npc_dota_techies_minefield_sign": {
+  "DisplayName": "Minefield Sign"
+ }, 
+ "npc_dota_techies_remote_mine": {
+  "DisplayName": "Remote Mine"
+ }, 
+ "npc_dota_techies_stasis_trap": {
+  "DisplayName": "Stasis Trap"
+ }, 
  "npc_dota_templar_assassin_psionic_trap": {
   "DisplayName": "Psionic Trap"
  }, 
@@ -3660,12 +3678,12 @@
   "Lore": ""
  }, 
  "oracle_fates_edict": {
-  "Description": "Nerif enraptures the target, rendering them unable to attack, granting them 100% spell resistance, and increasing the damage they take from other damage types. Can be cast on both allies and enemies.", 
+  "Description": "Oracle enraptures the target, rendering them unable to attack, granting them 100% spell resistance, and increasing the damage they take from other damage types. Can be cast on both allies and enemies.", 
   "DisplayName": "Fate's Edict", 
   "Lore": ""
  }, 
  "oracle_fortunes_end": {
-  "Description": "Channels Nerif's power into a bolt of scouring energy for up to 2.9 seconds. When released the bolt strikes the targeted enemy, dealing damage and purging in an area around them. The purge duration is equal to the time spent channeling.", 
+  "Description": "Channels Oracle's power into a bolt of scouring energy for up to 2.9 seconds. When released the bolt strikes the targeted enemy, dealing damage and purging in an area around them. The purge duration is equal to the time spent channeling.", 
   "DisplayName": "Fortune's End", 
   "Lore": ""
  }, 
@@ -3715,12 +3733,12 @@
   "Lore": "Azwraith's proficiency at spearing his family's meal of fish is proving quite useful in the battlefield."
  }, 
  "phoenix_fire_spirits": {
-  "Description": "Summons 4 fire spirits that circle around you. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
+  "Description": "Summons 4 fire spirits that circle around Phoenix. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
   "DisplayName": "Fire Spirits", 
   "Lore": "The ever-collapsing core of Phoenix often emits short-lived bursts of conscious light."
  }, 
  "phoenix_icarus_dive": {
-  "Description": "Phoenix dives forward in an arc with a fixed distance in the targeted direction, dealing damage over time and slowing the movement speed of any units he comes into contact with, and then orbiting back to his original position. If Phoenix casts Supernova, the dive ends.", 
+  "Description": "Phoenix dives forward in an arc with a fixed distance in the targeted direction, dealing damage over time and slowing the movement speed of any units it comes into contact with, and then orbiting back to its original position. If Phoenix casts Supernova, the dive ends.", 
   "DisplayName": "Icarus Dive", 
   "Lore": "Though no stranger to travelling the cosmic void, soaring within an atmosphere offers unique pleasures."
  }, 
@@ -3730,12 +3748,12 @@
   "Lore": "SCREE!"
  }, 
  "phoenix_launch_fire_spirit": {
-  "Description": "Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
+  "Description": "Each fire spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced.", 
   "DisplayName": "Launch Fire Spirit", 
   "Lore": "PKAWW! BOOM"
  }, 
  "phoenix_sun_ray": {
-  "Description": "Drawing from its own inner fire, Phoenix expels a huge beam of light at the cost of its own life energy. The beam damages enemies for a percentage of their life and heals allies for half the amount. Damage scales up to twice the initial damage as the beam fires.", 
+  "Description": "Drawing from its own inner fire, Phoenix expels a huge beam of light at the cost of its own life energy. The beam damages enemies for a percentage of their life and heals allies for half that amount. Damage scales up to twice the initial damage as the beam fires.", 
   "DisplayName": "Sun Ray", 
   "Lore": "The vent through which such stellar energy flows is mere atoms wide."
  }, 
@@ -3797,7 +3815,7 @@
   "Lore": "The Butcher gives new meaning to the words 'meat shield.'"
  }, 
  "pudge_meat_hook": {
-  "Description": "Launches a bloody hook at a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.", 
+  "Description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.", 
   "DisplayName": "Meat Hook", 
   "Lore": "The Butcher's hook is a symbolic nightmare, its curved blade a frightening reminder of his slaughterous intent."
  }, 
@@ -3822,7 +3840,7 @@
   "Lore": "The Arts of Oblivion include a deafening blast of emerald flames from the Nether Reaches."
  }, 
  "pugna_nether_ward": {
-  "Description": "Pugna places a nether ward that fires mana flares at enemy heroes who dare to cast spells, while also preventing them from regenerating mana.  Nether Ward deals damage equal to the damage multiplier times the mana spent by the enemy hero.  Lasts 30 seconds.", 
+  "Description": "Pugna places a nether ward that fires mana flares at enemy heroes who dare to cast spells, while also causing them to lose mana.  Nether Ward deals damage equal to the damage multiplier times the mana spent by the enemy hero.  Lasts 30 seconds.", 
   "DisplayName": "Nether Ward", 
   "Lore": "While at the lamasery for the Arts of Oblivion, Pugna learned to dominate his classmates with a simple ward charged with Nether magic."
  }, 
@@ -3906,6 +3924,14 @@
   "DisplayName": "Smoke Screen", 
   "Lore": "Since his escape during the night of his betrayal, Riki has valued the use of a simple smoke screen to confuse his opponents."
  }, 
+ "roshan_bash": {
+  "Description": "Roshan has a chance to stun on attack.", 
+  "DisplayName": "Bash"
+ }, 
+ "roshan_devotion": {
+  "Description": "Roshan possesses numerous protective abilities, including 75%% magic resistance, the ability to instantly purge attacking illusions, and a scaling armor bonus that increases as time goes on.", 
+  "DisplayName": "Strength of the Immortal"
+ }, 
  "roshan_halloween_apocalypse": {
   "Description": "Roshan launches devastating beams of incineration from the sky at all enemy heroes outside of 400 range, but within 1200 range.", 
   "DisplayName": "Apocalypse"
@@ -3934,6 +3960,14 @@
   "Description": "After a delay, Roshan smashes the ground, causing massive radial damage in an area around him, knocking back all enemies.  The closer to Roshan the enemy is, the more damage it takes.", 
   "DisplayName": "Wave of Force"
  }, 
+ "roshan_slam": {
+  "Description": "Roshan slams the ground, damaging and slowing all nearby enemies.", 
+  "DisplayName": "Slam"
+ }, 
+ "roshan_spell_block": {
+  "Description": "Roshan will block one targeted spell every 15 seconds.", 
+  "DisplayName": "Spell Block"
+ }, 
  "rubick_empty1": {
   "Description": "", 
   "DisplayName": ""
@@ -3948,7 +3982,7 @@
   "Lore": "Rubick's favorite spell for dispatching would-be assassins is a rather simple conjuration."
  }, 
  "rubick_null_field": {
-  "Description": "Rubick's mastery of the arcane protects allied heroes against weaker magics, granting them magic resistance.", 
+  "Description": "Rubick's mastery of the arcane protects nearby allied heroes against weaker magics, granting them magic resistance.", 
   "DisplayName": "Null Field", 
   "Lore": "Not every magus can be a Grand Magus..."
  }, 
@@ -4112,24 +4146,24 @@
   "Lore": "Wraith King's blade drains his enemy's essence to feed his aura."
  }, 
  "skywrath_mage_ancient_seal": {
-  "Description": "Skywrath seals the targeted unit with an ancient rune, silencing it and causing it to take additional damage from spells.", 
+  "Description": "Skywrath Mage seals the targeted unit with an ancient rune, silencing it and causing it to take additional damage from spells.", 
   "DisplayName": "Ancient Seal", 
-  "Lore": ""
+  "Lore": "A holy incantation, whosoever finds themselves touched by Avilliva's sigil must suffer in penitent silence."
  }, 
  "skywrath_mage_arcane_bolt": {
-  "Description": "Skywrath launches a slow-moving bolt of arcane magic, dealing damage to an enemy unit based on Skywrath's intelligence.", 
+  "Description": "Skywrath Mage launches a slow-moving bolt of arcane magic, dealing damage to an enemy unit based on Skywrath Mage's intelligence.", 
   "DisplayName": "Arcane Bolt", 
-  "Lore": ""
+  "Lore": "Within the Ghastly Eyrie's endless intrigue, only the clever and calm can hope to survive."
  }, 
  "skywrath_mage_concussive_shot": {
-  "Description": "Skywrath sets off a long range shot that hits the closest hero within a long range.  Upon impact, it deals damage and slows in an area of effect.", 
+  "Description": "Skywrath Mage sets off a long range shot that hits the closest hero within a long range.  Upon impact, it deals damage and slows in an area of effect.", 
   "DisplayName": "Concussive Shot", 
-  "Lore": ""
+  "Lore": "Those who serve the court of the Ghastly Eyrie are ever locked in covert war. One must always know where danger lurks nearest."
  }, 
  "skywrath_mage_mystic_flare": {
-  "Description": "Skywrath uses his ultimate magical ability to conjure a precise and violent mystical field that lays waste to his adversaries. Deals massive damage distributed evenly among any Heroes in the area over 2 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Skywrath Mage uses his ultimate magical ability to conjure a precise and violent mystical field that lays waste to his adversaries. Deals massive damage distributed evenly among any Heroes in the area over 2 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Mystic Flare", 
-  "Lore": ""
+  "Lore": "Only the most practiced of Skywrath sorcerers could hope to shape the skies into such a storm."
  }, 
  "slardar_amplify_damage": {
   "Description": "Reduces enemy armor to amplify physical damage and provides True Sight of the targeted unit, revealing invisibility.", 
@@ -4152,7 +4186,7 @@
   "Lore": "As Slardar has made the transition from the Deeps, it has been necessary to use his powerful tail for sprinting instead of swimming."
  }, 
  "slark_dark_pact": {
-  "Description": "After a short delay, Slark sacrifices some of his life blood, purging negative debuffs and dealing damage to enemy units around him and to himself.  Slark only takes 50%% of the damage.", 
+  "Description": "After a short delay, Slark sacrifices some of his life blood, purging most negative debuffs and dealing damage to enemy units around him and to himself.  Slark only takes 50%% of the damage.", 
   "DisplayName": "Dark Pact", 
   "Lore": "Slithereen are capable of quickly regrowing appendages, in case of critical injury, to save their own lives."
  }, 
@@ -4167,7 +4201,7 @@
   "Lore": "Time in the Dark Reef made Slark a dangerous assassin; aggressive and fearless."
  }, 
  "slark_shadow_dance": {
-  "Description": "When used, Slark hides himself in a cloud of shadows, becoming immune to detection (attacking, casting spells, and using items do not reveal Slark).  Passively, when not visible to the enemy team, Slark gains bonus movement speed and health regeneration.", 
+  "Description": "When used, Slark hides himself in a cloud of shadows, becoming immune to detection. Attacking, casting spells, and using items will not reveal Slark.  Passively, when not visible to the enemy team, Slark gains bonus movement speed and health regeneration.", 
   "DisplayName": "Shadow Dance", 
   "Lore": "The hidden Thirteenth is a slippery foe."
  }, 
@@ -4276,8 +4310,43 @@
   "DisplayName": "Warcry", 
   "Lore": "Calling a few lines from the Vigil Codex fortifies Sven's obedience to his rogue code. So poetic!"
  }, 
+ "techies_focused_detonate": {
+  "Description": "Detonate all remote mines in the target area.", 
+  "DisplayName": "Focused Detonate", 
+  "Lore": "Why light one fuse when you can light them all?"
+ }, 
+ "techies_land_mines": {
+  "Description": "Plant an invisible mine that explodes when an enemy steps near.  The explosion will deal less damage if the enemy is farther away from the mine when it explodes.  Mines explode %explode_delay% seconds after being triggered.  If the number of mines planted exceeds the mine limit, the oldest mine will explode.  Damages buildings.", 
+  "DisplayName": "Land Mines", 
+  "Lore": "The bane of Toterin!"
+ }, 
+ "techies_minefield_sign": {
+  "Description": "Plant a warning sign to remind enemies to step lightly. Only one sign can exist at a time.", 
+  "DisplayName": "Minefield Sign", 
+  "Lore": "Watch your step!"
+ }, 
+ "techies_remote_mines": {
+  "Description": "Plant an invisible explosive that will only detonate when triggered.  Does not damage buildings.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "DisplayName": "Remote Mines", 
+  "Lore": "The downfall of Dredger's Bight!"
+ }, 
+ "techies_remote_mines_self_detonate": {
+  "Description": "Detonate all selected remote mines.", 
+  "DisplayName": "PINPOINT DETONATE", 
+  "Lore": "Kablooey!"
+ }, 
+ "techies_stasis_trap": {
+  "Description": "Plant an invisible trap that stuns nearby enemy units when triggered.", 
+  "DisplayName": "Stasis Trap", 
+  "Lore": "The scourge of Trapper Town!"
+ }, 
+ "techies_suicide": {
+  "Description": "Techies sacrifice themselves for the greater good, dealing massive area of effect damage.  More damage is dealt to units closer to Techies when they explode.  Techies' respawn time is reduced by %respawn_time_percentage_tooltip%%% when killed by this ability.", 
+  "DisplayName": "Suicide Squad, Attack!", 
+  "Lore": "What's this button do?"
+ }, 
  "templar_assassin_meld": {
-  "Description": "Templar Assassin conceals herself, gaining invisibility while remaining still.  On the next attacked enemy unit, Lanaya will reduce its armor and deal bonus damage to it.", 
+  "Description": "Templar Assassin conceals herself, becoming invisible as long as she remains still.  If Meld's invisibility is broken by attacking an enemy, Lanaya will deal bonus damage to the enemy and reduce their armor for %armor_reduction_duration_tooltip% seconds.", 
   "DisplayName": "Meld", 
   "Lore": "Lanaya is as elusive as her covenant with the Hidden Temple."
  }, 
@@ -4411,17 +4480,17 @@
  "troll_warlord_battle_trance": {
   "Description": "Troll's presence on the battlefield increases the attack speed of himself and all allied heroes. ", 
   "DisplayName": "Battle Trance", 
-  "Lore": ""
+  "Lore": "An adrenaline rush of pure hatred quickens your blades."
  }, 
  "troll_warlord_berserkers_rage": {
   "Description": "Allows the Warlord to use his throwing axes as melee weapons, gaining bonus damage, attack speed, movement speed, hitpoints, armor, and a chance to bash targets on attack.  Berserker's Rage also changes the functionality of Whirling Axes.", 
   "DisplayName": "Berserker's Rage", 
-  "Lore": ""
+  "Lore": "Like his anger, Troll Warlord's supply of axes is infinite."
  }, 
  "troll_warlord_fervor": {
   "Description": "With each continuous blow on the same target, Troll gains increased attack speed.  If Troll changes targets, the stacks drop to zero.", 
   "DisplayName": "Fervor", 
-  "Lore": ""
+  "Lore": "If at first you don't succeed, strike, strike again."
  }, 
  "troll_warlord_whirling_axes_melee": {
   "Description": "Troll hurls two axes around him in a close range area of effect, damaging enemy units and causing them to miss some attacks.", 
@@ -4430,7 +4499,7 @@
  "troll_warlord_whirling_axes_ranged": {
   "Description": "Troll hurls a fistful of five axes in a cone shape over 900 range, slowing and damaging enemy units.", 
   "DisplayName": "Whirling Axes (Ranged)", 
-  "Lore": ""
+  "Lore": "Only axes fueled by hate whirl with such a deadly spin."
  }, 
  "tusk_frozen_sigil": {
   "Description": "Tusk summons a Frozen Sigil by calling upon the deepest cold of winter. The Sigil creates a snowstorm which slows all enemy units within 600 range.", 
@@ -4502,7 +4571,7 @@
   "Lore": "For a behemoth of his size, Ursa is deceptively nimble."
  }, 
  "vengefulspirit_command_aura": {
-  "Description": "Vengeful Spirit's presence increases nearby friendly units' physical damage. If Vengeful Spirit is slain, her killer will be possessed with a negative Vengeance Aura, reducing the damage of her killer and its nearby allies until Vengeful Spirit revives.", 
+  "Description": "Vengeful Spirit's presence increases the physical damage of nearby friendly units. If Vengeful Spirit is slain, her killer will be possessed with a negative Vengeance Aura, reducing the damage of her killer and its nearby allies until Vengeful Spirit revives.", 
   "DisplayName": "Vengeance Aura", 
   "Lore": "Although they may not share her undying passion for revenge, allies do draw on her fanaticism in combat."
  }, 
@@ -4517,7 +4586,7 @@
   "Lore": "Martyrdom is a small price to pay for vengeance."
  }, 
  "vengefulspirit_wave_of_terror": {
-  "Description": "Vengeful Spirit lets loose a wicked cry, weakening the armor of enemies and giving vision of the path.", 
+  "Description": "Vengeful Spirit lets loose a wicked cry, weakening the armor of enemies and giving vision of the path ahead.", 
   "DisplayName": "Wave of Terror", 
   "Lore": "Shendel's haunting voice hints at her approaching vindication."
  }, 
@@ -4589,6 +4658,14 @@
   "Description": "Binds several enemy units together, causing %damage_share_percentage%%% of the damage dealt to one of them to be felt by the others.", 
   "DisplayName": "Fatal Bonds", 
   "Lore": "An ancient incantation that links the vital energies of multiple lifeforms into one collective body."
+ }, 
+ "warlock_golem_flaming_fists": {
+  "Description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+  "DisplayName": "Flaming Fists"
+ }, 
+ "warlock_golem_permanent_immolation": {
+  "Description": "Burns the Golem's nearby enemy units, with damage per second.", 
+  "DisplayName": "Permanent Immolation"
  }, 
  "warlock_rain_of_chaos": {
   "Description": "Summons a Golem from the depths, stunning enemies for one second. The Golem lives 60 seconds, takes reduced damage from spells, has Permanent Immolation and Flaming Fists on attack.\\n\\nUpgradable by Aghanim's Scepter.", 
@@ -4677,7 +4754,7 @@
   "DisplayName": "Spirits Out"
  }, 
  "wisp_tether": {
-  "Description": "Tether yourself to an allied hero, granting both of you bonus movement speed. When you restore health or mana, your target gains 1.5x the amount. Any enemy unit that crosses the tether is slowed. The tether breaks when the allied unit moves too far away, or Io cancels the tether.", 
+  "Description": "Tether yourself to an allied unit, granting both of you bonus movement speed. When you restore health or mana, your target gains 1.5x the amount. Any enemy unit that crosses the tether is slowed. The tether breaks when the allied unit moves too far away, or Io cancels the tether.", 
   "DisplayName": "Tether", 
   "Lore": "The benevolent touch of Io brings strength from between the planes."
  }, 

@@ -1,2177 +1,1830 @@
 .herosprite {
-    background-image: url("{{ media_url('images/herospritesheet.jpg') }}");
-    background-repeat: no-repeat;
-    display: block;
+background-image: url("/media/images/herospritesheet.jpg");
+background-repeat: no-repeat;
+display: block;
 }
-
 .herosprite-abaddon {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px 0px;
 }
-
 .herosprite-alchemist {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -42px;
 }
-
 .herosprite-ancient_apparition {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -84px;
 }
-
 .herosprite-antimage {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -126px;
 }
-
 .herosprite-axe {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -168px;
 }
-
 .herosprite-bane {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -210px;
 }
-
 .herosprite-batrider {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -252px;
 }
-
 .herosprite-beastmaster {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -5px;
+width: 73px;
+height: 41px;
+background-position: 0px -294px;
 }
-
 .herosprite-bloodseeker {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -56px;
+width: 73px;
+height: 41px;
+background-position: 0px -336px;
 }
-
 .herosprite-bounty_hunter {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -56px;
+width: 73px;
+height: 41px;
+background-position: 0px -378px;
 }
-
 .herosprite-brewmaster {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -56px;
+width: 73px;
+height: 41px;
+background-position: 0px -420px;
 }
-
 .herosprite-bristleback {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -56px;
+width: 73px;
+height: 41px;
+background-position: -74px 0px;
 }
-
 .herosprite-broodmother {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -56px;
+width: 73px;
+height: 41px;
+background-position: -74px -42px;
 }
-
 .herosprite-centaur {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -56px;
+width: 73px;
+height: 41px;
+background-position: -74px -84px;
 }
-
 .herosprite-chaos_knight {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -56px;
+width: 73px;
+height: 41px;
+background-position: -74px -126px;
 }
-
 .herosprite-chen {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -56px;
+width: 73px;
+height: 41px;
+background-position: -74px -168px;
 }
-
 .herosprite-clinkz {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -107px;
+width: 73px;
+height: 41px;
+background-position: -74px -210px;
 }
-
 .herosprite-creep_dire {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -107px;
+width: 73px;
+height: 41px;
+background-position: -74px -252px;
 }
-
 .herosprite-creep_radiant {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -107px;
+width: 73px;
+height: 41px;
+background-position: -74px -294px;
 }
-
 .herosprite-crystal_maiden {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -107px;
+width: 73px;
+height: 41px;
+background-position: -74px -336px;
 }
-
 .herosprite-dark_seer {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -107px;
+width: 73px;
+height: 41px;
+background-position: -74px -378px;
 }
-
 .herosprite-dazzle {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -107px;
+width: 73px;
+height: 41px;
+background-position: -74px -420px;
 }
-
 .herosprite-death_prophet {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -107px;
+width: 73px;
+height: 41px;
+background-position: -148px 0px;
 }
-
 .herosprite-default {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -107px;
+width: 73px;
+height: 41px;
+background-position: -148px -42px;
 }
-
 .herosprite-disruptor {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -84px;
 }
-
 .herosprite-doom_bringer {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -126px;
 }
-
 .herosprite-dragon_knight {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -168px;
 }
-
 .herosprite-drow_ranger {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -210px;
 }
-
-.herosprite-earth_spirit {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -158px;
-}
-
 .herosprite-earthshaker {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -252px;
 }
-
+.herosprite-earth_spirit {
+width: 73px;
+height: 41px;
+background-position: -148px -294px;
+}
 .herosprite-elder_titan {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -336px;
 }
-
 .herosprite-ember_spirit {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -158px;
+width: 73px;
+height: 41px;
+background-position: -148px -378px;
 }
-
 .herosprite-enchantress {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -209px;
+width: 73px;
+height: 41px;
+background-position: -148px -420px;
 }
-
 .herosprite-enigma {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -209px;
+width: 73px;
+height: 41px;
+background-position: -222px 0px;
 }
-
-.herosprite-faceless {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -209px;
-}
-
 .herosprite-faceless_void {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -209px;
+width: 73px;
+height: 41px;
+background-position: -222px -42px;
 }
-
 .herosprite-furion {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -209px;
+width: 73px;
+height: 41px;
+background-position: -222px -84px;
 }
-
 .herosprite-greevil {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -209px;
+width: 73px;
+height: 41px;
+background-position: -222px -126px;
 }
-
 .herosprite-gyrocopter {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -209px;
+width: 73px;
+height: 41px;
+background-position: -222px -168px;
 }
-
 .herosprite-huskar {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -209px;
+width: 73px;
+height: 41px;
+background-position: -222px -210px;
 }
-
 .herosprite-invoker {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -260px;
+width: 73px;
+height: 41px;
+background-position: -222px -252px;
 }
-
 .herosprite-jakiro {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -260px;
+width: 73px;
+height: 41px;
+background-position: -222px -294px;
 }
-
 .herosprite-juggernaut {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -260px;
+width: 73px;
+height: 41px;
+background-position: -222px -336px;
 }
-
 .herosprite-keeper_of_the_light {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -260px;
+width: 73px;
+height: 41px;
+background-position: -222px -378px;
 }
-
 .herosprite-kunkka {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -260px;
+width: 73px;
+height: 41px;
+background-position: -222px -420px;
 }
-
 .herosprite-legion_commander {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -260px;
+width: 73px;
+height: 41px;
+background-position: -296px 0px;
 }
-
 .herosprite-legion_commander_alt1 {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -260px;
+width: 73px;
+height: 41px;
+background-position: -296px -42px;
 }
-
 .herosprite-leshrac {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -260px;
+width: 73px;
+height: 41px;
+background-position: -296px -84px;
 }
-
 .herosprite-lich {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -126px;
 }
-
 .herosprite-life_stealer {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -168px;
 }
-
 .herosprite-lina {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -210px;
 }
-
 .herosprite-lina_alt1 {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -252px;
 }
-
 .herosprite-lion {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -294px;
 }
-
 .herosprite-lone_druid {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -336px;
 }
-
 .herosprite-luna {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -378px;
 }
-
 .herosprite-lycan {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -311px;
+width: 73px;
+height: 41px;
+background-position: -296px -420px;
 }
-
 .herosprite-magnataur {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px 0px;
 }
-
 .herosprite-medusa {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -42px;
 }
-
 .herosprite-meepo {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -84px;
 }
-
 .herosprite-mirana {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -126px;
 }
-
 .herosprite-morphling {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -168px;
 }
-
 .herosprite-naga_siren {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -210px;
 }
-
 .herosprite-necrolyte {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -252px;
 }
-
 .herosprite-neutrals {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -362px;
+width: 73px;
+height: 41px;
+background-position: -370px -294px;
 }
-
 .herosprite-nevermore {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -413px;
+width: 73px;
+height: 41px;
+background-position: -370px -336px;
 }
-
 .herosprite-night_stalker {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -413px;
+width: 73px;
+height: 41px;
+background-position: -370px -378px;
 }
-
 .herosprite-nyx_assassin {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -413px;
+width: 73px;
+height: 41px;
+background-position: -370px -420px;
 }
-
 .herosprite-obsidian_destroyer {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -413px;
+width: 73px;
+height: 41px;
+background-position: -444px 0px;
 }
-
 .herosprite-ogre_magi {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -413px;
+width: 73px;
+height: 41px;
+background-position: -444px -42px;
 }
-
 .herosprite-omniknight {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -413px;
+width: 73px;
+height: 41px;
+background-position: -444px -84px;
 }
-
 .herosprite-phantom_assassin {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -413px;
+width: 73px;
+height: 41px;
+background-position: -444px -126px;
 }
-
 .herosprite-phantom_lancer {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -413px;
+width: 73px;
+height: 41px;
+background-position: -444px -168px;
 }
-
 .herosprite-phoenix {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -464px;
+width: 73px;
+height: 41px;
+background-position: -444px -210px;
 }
-
 .herosprite-puck {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -464px;
+width: 73px;
+height: 41px;
+background-position: -444px -252px;
 }
-
 .herosprite-pudge {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -464px;
+width: 73px;
+height: 41px;
+background-position: -444px -294px;
 }
-
 .herosprite-pugna {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -464px;
+width: 73px;
+height: 41px;
+background-position: -444px -336px;
 }
-
 .herosprite-queenofpain {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -464px;
+width: 73px;
+height: 41px;
+background-position: -444px -378px;
 }
-
 .herosprite-rattletrap {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -464px;
+width: 73px;
+height: 41px;
+background-position: -444px -420px;
 }
-
 .herosprite-razor {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -464px;
+width: 73px;
+height: 41px;
+background-position: -518px 0px;
 }
-
 .herosprite-riki {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -464px;
+width: 73px;
+height: 41px;
+background-position: -518px -42px;
 }
-
 .herosprite-roshan {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -84px;
 }
-
 .herosprite-rubick {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -126px;
 }
-
 .herosprite-sand_king {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -168px;
 }
-
 .herosprite-shadow_demon {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -210px;
 }
-
 .herosprite-shadow_shaman {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -252px;
 }
-
 .herosprite-shredder {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -294px;
 }
-
 .herosprite-silencer {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -336px;
 }
-
 .herosprite-skeleton_king {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -515px;
+width: 73px;
+height: 41px;
+background-position: -518px -378px;
 }
-
 .herosprite-skywrath_mage {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -566px;
+width: 73px;
+height: 41px;
+background-position: -518px -420px;
 }
-
 .herosprite-slardar {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px 0px;
 }
-
 .herosprite-slark {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px -42px;
 }
-
 .herosprite-sniper {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px -84px;
 }
-
 .herosprite-spectre {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px -126px;
 }
-
 .herosprite-spirit_bear {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px -168px;
 }
-
 .herosprite-spirit_breaker {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px -210px;
 }
-
 .herosprite-storm_spirit {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -566px;
+width: 73px;
+height: 41px;
+background-position: -592px -252px;
 }
-
 .herosprite-sven {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -617px;
+width: 73px;
+height: 41px;
+background-position: -592px -294px;
 }
-
+.herosprite-techies {
+width: 73px;
+height: 41px;
+background-position: -592px -336px;
+}
+.herosprite-techies_alt1 {
+width: 73px;
+height: 41px;
+background-position: -592px -378px;
+}
 .herosprite-templar_assassin {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -617px;
+width: 73px;
+height: 41px;
+background-position: -592px -420px;
 }
-
 .herosprite-terrorblade {
-    width: 73px;
-    height: 41px;
-    background-position: -171px -617px;
+width: 73px;
+height: 41px;
+background-position: -666px 0px;
 }
-
+.herosprite-terrorblade_alt1 {
+width: 73px;
+height: 41px;
+background-position: -666px -42px;
+}
 .herosprite-tidehunter {
-    width: 73px;
-    height: 41px;
-    background-position: -254px -617px;
+width: 73px;
+height: 41px;
+background-position: -666px -84px;
 }
-
 .herosprite-tinker {
-    width: 73px;
-    height: 41px;
-    background-position: -337px -617px;
+width: 73px;
+height: 41px;
+background-position: -666px -126px;
 }
-
 .herosprite-tiny {
-    width: 73px;
-    height: 41px;
-    background-position: -420px -617px;
+width: 73px;
+height: 41px;
+background-position: -666px -168px;
 }
-
 .herosprite-tower_dire {
-    width: 73px;
-    height: 41px;
-    background-position: -503px -617px;
+width: 73px;
+height: 41px;
+background-position: -666px -210px;
 }
-
 .herosprite-tower_radiant {
-    width: 73px;
-    height: 41px;
-    background-position: -586px -617px;
+width: 73px;
+height: 41px;
+background-position: -666px -252px;
 }
-
 .herosprite-treant {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -5px;
+width: 73px;
+height: 41px;
+background-position: -666px -294px;
 }
-
 .herosprite-troll_warlord {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -56px;
+width: 73px;
+height: 41px;
+background-position: -666px -336px;
 }
-
 .herosprite-tusk {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -107px;
+width: 73px;
+height: 41px;
+background-position: -666px -378px;
 }
-
 .herosprite-undying {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -158px;
+width: 73px;
+height: 41px;
+background-position: -666px -420px;
 }
-
 .herosprite-ursa {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -209px;
+width: 73px;
+height: 41px;
+background-position: -740px 0px;
 }
-
 .herosprite-vengefulspirit {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -260px;
+width: 73px;
+height: 41px;
+background-position: -740px -42px;
 }
-
 .herosprite-venomancer {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -311px;
+width: 73px;
+height: 41px;
+background-position: -740px -84px;
 }
-
 .herosprite-viper {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -362px;
+width: 73px;
+height: 41px;
+background-position: -740px -126px;
 }
-
 .herosprite-visage {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -413px;
+width: 73px;
+height: 41px;
+background-position: -740px -168px;
 }
-
 .herosprite-warlock {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -464px;
+width: 73px;
+height: 41px;
+background-position: -740px -210px;
 }
-
 .herosprite-weaver {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -515px;
+width: 73px;
+height: 41px;
+background-position: -740px -252px;
 }
-
 .herosprite-windrunner {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -566px;
+width: 73px;
+height: 41px;
+background-position: -740px -294px;
 }
-
 .herosprite-wisp {
-    width: 73px;
-    height: 41px;
-    background-position: -669px -617px;
+width: 73px;
+height: 41px;
+background-position: -740px -336px;
 }
-
 .herosprite-witch_doctor {
-    width: 73px;
-    height: 41px;
-    background-position: -5px -668px;
+width: 73px;
+height: 41px;
+background-position: -740px -378px;
 }
-
 .herosprite-zuus {
-    width: 73px;
-    height: 41px;
-    background-position: -88px -668px;
+width: 73px;
+height: 41px;
+background-position: -740px -420px;
 }
-
 .portraitsprite {
-    background-image: url("{{ media_url('images/portraitspritesheet.png') }}");
-    background-repeat: no-repeat;
-    display: block;
+background-image: url("/media/images/portraitspritesheet.png");
+background-repeat: no-repeat;
+display: block;
 }
-
 .portraitsprite-abaddon {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px 0px;
 }
-
 .portraitsprite-alchemist {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -19px;
 }
-
 .portraitsprite-ancient_apparition {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -38px;
 }
-
 .portraitsprite-antimage {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -57px;
 }
-
 .portraitsprite-axe {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -76px;
 }
-
 .portraitsprite-bane {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -95px;
 }
-
 .portraitsprite-batrider {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -114px;
 }
-
 .portraitsprite-beastmaster {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -5px;
+width: 32px;
+height: 18px;
+background-position: 0px -133px;
 }
-
 .portraitsprite-bloodseeker {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -33px;
+width: 32px;
+height: 18px;
+background-position: 0px -152px;
 }
-
 .portraitsprite-bounty_hunter {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -33px;
+width: 32px;
+height: 18px;
+background-position: 0px -171px;
 }
-
 .portraitsprite-brewmaster {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -33px;
+width: 32px;
+height: 18px;
+background-position: 0px -190px;
 }
-
 .portraitsprite-bristleback {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -33px;
+width: 32px;
+height: 18px;
+background-position: -33px 0px;
 }
-
 .portraitsprite-broodmother {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -33px;
+width: 32px;
+height: 18px;
+background-position: -33px -19px;
 }
-
 .portraitsprite-centaur {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -33px;
+width: 32px;
+height: 18px;
+background-position: -33px -38px;
 }
-
 .portraitsprite-chaos_knight {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -33px;
+width: 32px;
+height: 18px;
+background-position: -33px -57px;
 }
-
 .portraitsprite-chen {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -33px;
+width: 32px;
+height: 18px;
+background-position: -33px -76px;
 }
-
 .portraitsprite-clinkz {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -61px;
+width: 32px;
+height: 18px;
+background-position: -33px -95px;
 }
-
 .portraitsprite-creep_dire {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -61px;
+width: 32px;
+height: 18px;
+background-position: -33px -114px;
 }
-
 .portraitsprite-creep_radiant {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -61px;
+width: 32px;
+height: 18px;
+background-position: -33px -133px;
 }
-
 .portraitsprite-crystal_maiden {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -61px;
+width: 32px;
+height: 18px;
+background-position: -33px -152px;
 }
-
 .portraitsprite-dark_seer {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -61px;
+width: 32px;
+height: 18px;
+background-position: -33px -171px;
 }
-
 .portraitsprite-dazzle {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -61px;
+width: 32px;
+height: 18px;
+background-position: -33px -190px;
 }
-
 .portraitsprite-death_prophet {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -61px;
+width: 32px;
+height: 18px;
+background-position: -66px 0px;
 }
-
 .portraitsprite-default {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -61px;
+width: 32px;
+height: 18px;
+background-position: -66px -19px;
 }
-
 .portraitsprite-disruptor {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -38px;
 }
-
 .portraitsprite-doom_bringer {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -57px;
 }
-
 .portraitsprite-dragon_knight {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -76px;
 }
-
 .portraitsprite-drow_ranger {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -95px;
 }
-
-.portraitsprite-earth_spirit {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -89px;
-}
-
 .portraitsprite-earthshaker {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -114px;
 }
-
+.portraitsprite-earth_spirit {
+width: 32px;
+height: 18px;
+background-position: -66px -133px;
+}
 .portraitsprite-elder_titan {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -152px;
 }
-
 .portraitsprite-ember_spirit {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -89px;
+width: 32px;
+height: 18px;
+background-position: -66px -171px;
 }
-
 .portraitsprite-enchantress {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -117px;
+width: 32px;
+height: 18px;
+background-position: -66px -190px;
 }
-
 .portraitsprite-enigma {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -117px;
+width: 32px;
+height: 18px;
+background-position: -99px 0px;
 }
-
-.portraitsprite-faceless {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -117px;
-}
-
 .portraitsprite-faceless_void {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -117px;
+width: 32px;
+height: 18px;
+background-position: -99px -19px;
 }
-
 .portraitsprite-furion {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -117px;
+width: 32px;
+height: 18px;
+background-position: -99px -38px;
 }
-
 .portraitsprite-greevil {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -117px;
+width: 32px;
+height: 18px;
+background-position: -99px -57px;
 }
-
 .portraitsprite-gyrocopter {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -117px;
+width: 32px;
+height: 18px;
+background-position: -99px -76px;
 }
-
 .portraitsprite-huskar {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -117px;
+width: 32px;
+height: 18px;
+background-position: -99px -95px;
 }
-
 .portraitsprite-invoker {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -145px;
+width: 32px;
+height: 18px;
+background-position: -99px -114px;
 }
-
 .portraitsprite-jakiro {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -145px;
+width: 32px;
+height: 18px;
+background-position: -99px -133px;
 }
-
 .portraitsprite-juggernaut {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -145px;
+width: 32px;
+height: 18px;
+background-position: -99px -152px;
 }
-
 .portraitsprite-keeper_of_the_light {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -145px;
+width: 32px;
+height: 18px;
+background-position: -99px -171px;
 }
-
 .portraitsprite-kunkka {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -145px;
+width: 32px;
+height: 18px;
+background-position: -99px -190px;
 }
-
 .portraitsprite-legion_commander {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -145px;
+width: 32px;
+height: 18px;
+background-position: -132px 0px;
 }
-
 .portraitsprite-legion_commander_alt1 {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -145px;
+width: 32px;
+height: 18px;
+background-position: -132px -19px;
 }
-
 .portraitsprite-leshrac {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -145px;
+width: 32px;
+height: 18px;
+background-position: -132px -38px;
 }
-
 .portraitsprite-lich {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -57px;
 }
-
 .portraitsprite-life_stealer {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -76px;
 }
-
 .portraitsprite-lina {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -95px;
 }
-
 .portraitsprite-lina_alt1 {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -114px;
 }
-
 .portraitsprite-lion {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -133px;
 }
-
 .portraitsprite-lone_druid {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -152px;
 }
-
 .portraitsprite-luna {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -171px;
 }
-
 .portraitsprite-lycan {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -173px;
+width: 32px;
+height: 18px;
+background-position: -132px -190px;
 }
-
 .portraitsprite-magnataur {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px 0px;
 }
-
 .portraitsprite-medusa {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -19px;
 }
-
 .portraitsprite-meepo {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -38px;
 }
-
 .portraitsprite-mirana {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -57px;
 }
-
 .portraitsprite-morphling {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -76px;
 }
-
 .portraitsprite-naga_siren {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -95px;
 }
-
 .portraitsprite-necrolyte {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -114px;
 }
-
 .portraitsprite-neutrals {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -201px;
+width: 32px;
+height: 18px;
+background-position: -165px -133px;
 }
-
 .portraitsprite-nevermore {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -229px;
+width: 32px;
+height: 18px;
+background-position: -165px -152px;
 }
-
 .portraitsprite-night_stalker {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -229px;
+width: 32px;
+height: 18px;
+background-position: -165px -171px;
 }
-
 .portraitsprite-nyx_assassin {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -229px;
+width: 32px;
+height: 18px;
+background-position: -165px -190px;
 }
-
 .portraitsprite-obsidian_destroyer {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -229px;
+width: 32px;
+height: 18px;
+background-position: -198px 0px;
 }
-
 .portraitsprite-ogre_magi {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -229px;
+width: 32px;
+height: 18px;
+background-position: -198px -19px;
 }
-
 .portraitsprite-omniknight {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -229px;
+width: 32px;
+height: 18px;
+background-position: -198px -38px;
 }
-
 .portraitsprite-phantom_assassin {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -229px;
+width: 32px;
+height: 18px;
+background-position: -198px -57px;
 }
-
 .portraitsprite-phantom_lancer {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -229px;
+width: 32px;
+height: 18px;
+background-position: -198px -76px;
 }
-
 .portraitsprite-phoenix {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -257px;
+width: 32px;
+height: 18px;
+background-position: -198px -95px;
 }
-
 .portraitsprite-puck {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -257px;
+width: 32px;
+height: 18px;
+background-position: -198px -114px;
 }
-
 .portraitsprite-pudge {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -257px;
+width: 32px;
+height: 18px;
+background-position: -198px -133px;
 }
-
 .portraitsprite-pugna {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -257px;
+width: 32px;
+height: 18px;
+background-position: -198px -152px;
 }
-
 .portraitsprite-queenofpain {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -257px;
+width: 32px;
+height: 18px;
+background-position: -198px -171px;
 }
-
 .portraitsprite-rattletrap {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -257px;
+width: 32px;
+height: 18px;
+background-position: -198px -190px;
 }
-
 .portraitsprite-razor {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -257px;
+width: 32px;
+height: 18px;
+background-position: -231px 0px;
 }
-
 .portraitsprite-riki {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -257px;
+width: 32px;
+height: 18px;
+background-position: -231px -19px;
 }
-
 .portraitsprite-roshan {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -38px;
 }
-
 .portraitsprite-rubick {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -57px;
 }
-
 .portraitsprite-sand_king {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -76px;
 }
-
 .portraitsprite-shadow_demon {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -95px;
 }
-
 .portraitsprite-shadow_shaman {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -114px;
 }
-
 .portraitsprite-shredder {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -133px;
 }
-
 .portraitsprite-silencer {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -152px;
 }
-
 .portraitsprite-skeleton_king {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -285px;
+width: 32px;
+height: 18px;
+background-position: -231px -171px;
 }
-
 .portraitsprite-skywrath_mage {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -313px;
+width: 32px;
+height: 18px;
+background-position: -231px -190px;
 }
-
 .portraitsprite-slardar {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px 0px;
 }
-
 .portraitsprite-slark {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px -19px;
 }
-
 .portraitsprite-sniper {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px -38px;
 }
-
 .portraitsprite-spectre {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px -57px;
 }
-
 .portraitsprite-spirit_bear {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px -76px;
 }
-
 .portraitsprite-spirit_breaker {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px -95px;
 }
-
 .portraitsprite-storm_spirit {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -313px;
+width: 32px;
+height: 18px;
+background-position: -264px -114px;
 }
-
 .portraitsprite-sven {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -341px;
+width: 32px;
+height: 18px;
+background-position: -264px -133px;
 }
-
+.portraitsprite-techies {
+width: 32px;
+height: 18px;
+background-position: -264px -152px;
+}
+.portraitsprite-techies_alt1 {
+width: 32px;
+height: 18px;
+background-position: -264px -171px;
+}
 .portraitsprite-templar_assassin {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -341px;
+width: 32px;
+height: 18px;
+background-position: -264px -190px;
 }
-
 .portraitsprite-terrorblade {
-    width: 32px;
-    height: 18px;
-    background-position: -89px -341px;
+width: 32px;
+height: 18px;
+background-position: -297px 0px;
 }
-
+.portraitsprite-terrorblade_alt1 {
+width: 32px;
+height: 18px;
+background-position: -297px -19px;
+}
 .portraitsprite-tidehunter {
-    width: 32px;
-    height: 18px;
-    background-position: -131px -341px;
+width: 32px;
+height: 18px;
+background-position: -297px -38px;
 }
-
 .portraitsprite-tinker {
-    width: 32px;
-    height: 18px;
-    background-position: -173px -341px;
+width: 32px;
+height: 18px;
+background-position: -297px -57px;
 }
-
 .portraitsprite-tiny {
-    width: 32px;
-    height: 18px;
-    background-position: -215px -341px;
+width: 32px;
+height: 18px;
+background-position: -297px -76px;
 }
-
 .portraitsprite-tower_dire {
-    width: 32px;
-    height: 18px;
-    background-position: -257px -341px;
+width: 32px;
+height: 18px;
+background-position: -297px -95px;
 }
-
 .portraitsprite-tower_radiant {
-    width: 32px;
-    height: 18px;
-    background-position: -299px -341px;
+width: 32px;
+height: 18px;
+background-position: -297px -114px;
 }
-
 .portraitsprite-treant {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -5px;
+width: 32px;
+height: 18px;
+background-position: -297px -133px;
 }
-
 .portraitsprite-troll_warlord {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -33px;
+width: 32px;
+height: 18px;
+background-position: -297px -152px;
 }
-
 .portraitsprite-tusk {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -61px;
+width: 32px;
+height: 18px;
+background-position: -297px -171px;
 }
-
 .portraitsprite-undying {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -89px;
+width: 32px;
+height: 18px;
+background-position: -297px -190px;
 }
-
 .portraitsprite-ursa {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -117px;
+width: 32px;
+height: 18px;
+background-position: -330px 0px;
 }
-
 .portraitsprite-vengefulspirit {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -145px;
+width: 32px;
+height: 18px;
+background-position: -330px -19px;
 }
-
 .portraitsprite-venomancer {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -173px;
+width: 32px;
+height: 18px;
+background-position: -330px -38px;
 }
-
 .portraitsprite-viper {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -201px;
+width: 32px;
+height: 18px;
+background-position: -330px -57px;
 }
-
 .portraitsprite-visage {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -229px;
+width: 32px;
+height: 18px;
+background-position: -330px -76px;
 }
-
 .portraitsprite-warlock {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -257px;
+width: 32px;
+height: 18px;
+background-position: -330px -95px;
 }
-
 .portraitsprite-weaver {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -285px;
+width: 32px;
+height: 18px;
+background-position: -330px -114px;
 }
-
 .portraitsprite-windrunner {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -313px;
+width: 32px;
+height: 18px;
+background-position: -330px -133px;
 }
-
 .portraitsprite-wisp {
-    width: 32px;
-    height: 18px;
-    background-position: -341px -341px;
+width: 32px;
+height: 18px;
+background-position: -330px -152px;
 }
-
 .portraitsprite-witch_doctor {
-    width: 32px;
-    height: 18px;
-    background-position: -5px -369px;
+width: 32px;
+height: 18px;
+background-position: -330px -171px;
 }
-
 .portraitsprite-zuus {
-    width: 32px;
-    height: 18px;
-    background-position: -47px -369px;
+width: 32px;
+height: 18px;
+background-position: -330px -190px;
 }
-
 .miniherosprite {
-    background-image: url("{{ media_url('images/miniherospritesheet.png') }}");
-    background-repeat: no-repeat;
-    display: block;
+background-image: url("/media/images/miniherospritesheet.png");
+background-repeat: no-repeat;
+display: block;
 }
-
 .miniherosprite-abaddon {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px 0px;
 }
-
 .miniherosprite-alchemist {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -33px;
 }
-
 .miniherosprite-ancient_apparition {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -66px;
 }
-
 .miniherosprite-antimage {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -99px;
 }
-
 .miniherosprite-axe {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -132px;
 }
-
 .miniherosprite-bane {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -165px;
 }
-
 .miniherosprite-batrider {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -198px;
 }
-
 .miniherosprite-beastmaster {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -231px;
 }
-
 .miniherosprite-bloodseeker {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -264px;
 }
-
 .miniherosprite-bm_earth {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -297px;
 }
-
 .miniherosprite-bm_fire {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -5px;
+width: 32px;
+height: 32px;
+background-position: 0px -330px;
 }
-
 .miniherosprite-bm_storm {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px 0px;
 }
-
 .miniherosprite-bounty_hunter {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -33px;
 }
-
 .miniherosprite-brewmaster {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -66px;
 }
-
 .miniherosprite-bristleback {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -99px;
 }
-
 .miniherosprite-broodmother {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -132px;
 }
-
 .miniherosprite-centaur {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -165px;
 }
-
 .miniherosprite-chaos_knight {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -198px;
 }
-
 .miniherosprite-chen {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -231px;
 }
-
 .miniherosprite-clinkz {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -264px;
 }
-
 .miniherosprite-crystal_maiden {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -297px;
 }
-
 .miniherosprite-dark_seer {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -47px;
+width: 32px;
+height: 32px;
+background-position: -33px -330px;
 }
-
 .miniherosprite-dazzle {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px 0px;
 }
-
 .miniherosprite-death_prophet {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -33px;
 }
-
 .miniherosprite-disruptor {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -66px;
 }
-
 .miniherosprite-doom {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -99px;
 }
-
 .miniherosprite-doom_bringer {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -132px;
 }
-
 .miniherosprite-dragon_knight {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -165px;
 }
-
 .miniherosprite-drow {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -198px;
 }
-
 .miniherosprite-drow_ranger {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -231px;
 }
-
-.miniherosprite-earth_spirit {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -89px;
-}
-
 .miniherosprite-earthshaker {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -264px;
 }
-
+.miniherosprite-earth_spirit {
+width: 32px;
+height: 32px;
+background-position: -66px -297px;
+}
 .miniherosprite-elder_titan {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -89px;
+width: 32px;
+height: 32px;
+background-position: -66px -330px;
 }
-
 .miniherosprite-ember_spirit {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px 0px;
 }
-
 .miniherosprite-enchantress {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -33px;
 }
-
 .miniherosprite-enigma {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -66px;
 }
-
 .miniherosprite-faceless_void {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -99px;
 }
-
 .miniherosprite-furion {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -132px;
 }
-
 .miniherosprite-gyrocopter {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -165px;
 }
-
 .miniherosprite-huskar {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -198px;
 }
-
 .miniherosprite-invoker {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -231px;
 }
-
 .miniherosprite-jakiro {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -264px;
 }
-
 .miniherosprite-juggernaut {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -297px;
 }
-
 .miniherosprite-keeper_of_the_light {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -131px;
+width: 32px;
+height: 32px;
+background-position: -99px -330px;
 }
-
 .miniherosprite-kunkka {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px 0px;
 }
-
 .miniherosprite-lanaya {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -33px;
 }
-
 .miniherosprite-legion_commander {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -66px;
 }
-
 .miniherosprite-legion_commander_alt1 {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -99px;
 }
-
 .miniherosprite-leshrac {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -132px;
 }
-
 .miniherosprite-lich {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -165px;
 }
-
 .miniherosprite-life_stealer {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -198px;
 }
-
 .miniherosprite-lina {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -231px;
 }
-
 .miniherosprite-lina_alt1 {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -264px;
 }
-
 .miniherosprite-lion {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -297px;
 }
-
 .miniherosprite-lone_druid {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -173px;
+width: 32px;
+height: 32px;
+background-position: -132px -330px;
 }
-
 .miniherosprite-luna {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px 0px;
 }
-
 .miniherosprite-lycan {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -33px;
 }
-
 .miniherosprite-magnataur {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -66px;
 }
-
 .miniherosprite-medusa {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -99px;
 }
-
 .miniherosprite-meepo {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -132px;
 }
-
 .miniherosprite-mirana {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -165px;
 }
-
 .miniherosprite-morphling {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -198px;
 }
-
 .miniherosprite-naga_siren {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -231px;
 }
-
 .miniherosprite-necrolyte {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -264px;
 }
-
 .miniherosprite-nevermore {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -297px;
 }
-
 .miniherosprite-night_stalker {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -215px;
+width: 32px;
+height: 32px;
+background-position: -165px -330px;
 }
-
 .miniherosprite-nyx_assassin {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px 0px;
 }
-
 .miniherosprite-obsidian_destroyer {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -33px;
 }
-
 .miniherosprite-ogre_magi {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -66px;
 }
-
 .miniherosprite-omniknight {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -99px;
 }
-
 .miniherosprite-phantom_assassin {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -132px;
 }
-
 .miniherosprite-phantom_lancer {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -165px;
 }
-
 .miniherosprite-phoenix {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -198px;
 }
-
 .miniherosprite-puck {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -231px;
 }
-
 .miniherosprite-pudge {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -264px;
 }
-
 .miniherosprite-pugna {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -297px;
 }
-
 .miniherosprite-queenofpain {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -257px;
+width: 32px;
+height: 32px;
+background-position: -198px -330px;
 }
-
 .miniherosprite-rattletrap {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px 0px;
 }
-
 .miniherosprite-razor {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -33px;
 }
-
 .miniherosprite-riki {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -66px;
 }
-
 .miniherosprite-rikimaru {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -99px;
 }
-
-.miniherosprite-roshan {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -299px;
-}
-
 .miniherosprite-rubick {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -132px;
 }
-
-.miniherosprite-sand_king {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -299px;
-}
-
 .miniherosprite-sandking {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -165px;
 }
-
+.miniherosprite-sand_king {
+width: 32px;
+height: 32px;
+background-position: -231px -198px;
+}
 .miniherosprite-shadow_demon {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -231px;
 }
-
 .miniherosprite-shadow_shaman {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -264px;
 }
-
 .miniherosprite-shredder {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -299px;
+width: 32px;
+height: 32px;
+background-position: -231px -297px;
 }
-
 .miniherosprite-silencer {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -341px;
+width: 32px;
+height: 32px;
+background-position: -231px -330px;
 }
-
 .miniherosprite-skeleton_king {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px 0px;
 }
-
 .miniherosprite-skywrath_mage {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -33px;
 }
-
 .miniherosprite-slardar {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -66px;
 }
-
 .miniherosprite-slark {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -99px;
 }
-
 .miniherosprite-sniper {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -132px;
 }
-
 .miniherosprite-spectre {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -165px;
 }
-
 .miniherosprite-spirit_break {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -198px;
 }
-
 .miniherosprite-spirit_breaker {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -231px;
 }
-
 .miniherosprite-storm_spirit {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -264px;
 }
-
 .miniherosprite-sven {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -341px;
+width: 32px;
+height: 32px;
+background-position: -264px -297px;
 }
-
+.miniherosprite-techies {
+width: 32px;
+height: 32px;
+background-position: -264px -330px;
+}
+.miniherosprite-techies_alt1 {
+width: 32px;
+height: 32px;
+background-position: -297px 0px;
+}
 .miniherosprite-templar_assassin {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -33px;
 }
-
 .miniherosprite-terrorblade {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -66px;
 }
-
 .miniherosprite-terrorblade_alt1 {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -99px;
 }
-
 .miniherosprite-tidehunter {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -132px;
 }
-
 .miniherosprite-tinker {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -165px;
 }
-
 .miniherosprite-tiny {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -198px;
 }
-
 .miniherosprite-treant {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -231px;
 }
-
 .miniherosprite-troll_warlord {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -264px;
 }
-
 .miniherosprite-tusk {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -297px;
 }
-
 .miniherosprite-undying {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -383px;
+width: 32px;
+height: 32px;
+background-position: -297px -330px;
 }
-
 .miniherosprite-ursa {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -383px;
+width: 32px;
+height: 32px;
+background-position: -330px 0px;
 }
-
 .miniherosprite-vengefulspirit {
-    width: 32px;
-    height: 32px;
-    background-position: -5px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -33px;
 }
-
 .miniherosprite-venomancer {
-    width: 32px;
-    height: 32px;
-    background-position: -47px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -66px;
 }
-
 .miniherosprite-viper {
-    width: 32px;
-    height: 32px;
-    background-position: -89px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -99px;
 }
-
 .miniherosprite-visage {
-    width: 32px;
-    height: 32px;
-    background-position: -131px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -132px;
 }
-
-.miniherosprite-ward_observer {
-    width: 32px;
-    height: 32px;
-    background-position: -173px -425px;
-}
-
-.miniherosprite-ward_sentry {
-    width: 32px;
-    height: 32px;
-    background-position: -215px -425px;
-}
-
 .miniherosprite-warlock {
-    width: 32px;
-    height: 32px;
-    background-position: -257px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -165px;
 }
-
 .miniherosprite-weaver {
-    width: 32px;
-    height: 32px;
-    background-position: -299px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -198px;
 }
-
 .miniherosprite-windrunner {
-    width: 32px;
-    height: 32px;
-    background-position: -341px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -231px;
 }
-
 .miniherosprite-wisp {
-    width: 32px;
-    height: 32px;
-    background-position: -383px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -264px;
 }
-
 .miniherosprite-witch_doctor {
-    width: 32px;
-    height: 32px;
-    background-position: -425px -425px;
+width: 32px;
+height: 32px;
+background-position: -330px -297px;
 }
-
 .miniherosprite-zuus {
-    width: 32px;
-    height: 32px;
-    background-position: -467px -5px;
+width: 32px;
+height: 32px;
+background-position: -330px -330px;
 }
