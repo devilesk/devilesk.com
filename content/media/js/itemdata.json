@@ -84,7 +84,13 @@
    {
     "name": "disappear_time", 
     "value": [
-     360
+     300
+    ]
+   }, 
+   {
+    "name": "disappear_time_minutes_tooltip", 
+    "value": [
+     5
     ]
    }, 
    {
@@ -95,7 +101,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Reincarnation - Brings you to life with full health and mana %reincarnate_time% seconds after you die, at the location where you died. Reincarnation must be used within 6 minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage).", 
+  "description": "Passive: Reincarnation - Brings you to life with full health and mana %reincarnate_time% seconds after you die, at the location where you died. Reincarnation must be used within %disappear_time_minutes_tooltip% minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage).", 
   "displayname": "Aegis of the Immortal", 
   "id": 117, 
   "itemcost": 0, 
@@ -317,7 +323,7 @@
   "description": "Active: Unholy Strength - Gives +31 damage, +10 attack speed, and +25 strength while active, but drains 40 HP per second.  You cannot die from the health loss when the bonus strength is gone, or the health drain per second.", 
   "displayname": "Armlet of Mordiggian", 
   "id": 151, 
-  "itemcost": 2600, 
+  "itemcost": 2500, 
   "level": 0, 
   "lore": "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power.", 
   "manacost": [], 
@@ -354,7 +360,7 @@
    }, 
    {
     "name": "aura_negative_armor", 
-    "tooltip": "ARMOR REDUCTION:", 
+    "tooltip": "AURA ARMOR REDUCTION:", 
     "value": [
      -5
     ]
@@ -505,6 +511,18 @@
     ]
    }, 
    {
+    "name": "bonus_health", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "block_chance", 
+    "value": [
+     0
+    ]
+   }, 
+   {
     "name": "cleave_damage_percent", 
     "tooltip": "%CLEAVE DAMAGE:", 
     "value": [
@@ -515,6 +533,18 @@
     "name": "cleave_radius", 
     "value": [
      250
+    ]
+   }, 
+   {
+    "name": "block_damage_ranged", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "block_damage_melee", 
+    "value": [
+     0
     ]
    }
   ], 
@@ -557,8 +587,7 @@
      8, 
      7, 
      6, 
-     5, 
-     4
+     5
     ]
    }, 
    {
@@ -587,10 +616,9 @@
    70, 
    65, 
    60, 
-   55, 
-   50
+   55
   ], 
-  "description": "Active: Avatar - Grants magic immunity.  Duration and cooldown decrease with each use.  Some Ultimate abilities are able to disable through Black King Bar.", 
+  "description": "Active: Avatar - Grants Spell Immunity and 100% Magic Damage Resistance.  Duration and cooldown decrease with each use.  Some Ultimate abilities are able to disable through Black King Bar.", 
   "displayname": "Black King Bar", 
   "id": 116, 
   "itemcost": 3975, 
@@ -749,7 +777,7 @@
   "description": "Active: Blink - Teleport to a target point up to %blink_range% units away.  If damage is taken, Blink Dagger cannot be used for 3 seconds.", 
   "displayname": "Blink Dagger", 
   "id": 1, 
-  "itemcost": 2150, 
+  "itemcost": 2250, 
   "level": 0, 
   "lore": "The fabled dagger used by the fastest assassin ever to walk the lands.", 
   "manacost": [
@@ -783,9 +811,8 @@
    }, 
    {
     "name": "bonus_damage", 
-    "tooltip": "+$damage", 
     "value": [
-     10
+     0
     ]
    }, 
    {
@@ -857,7 +884,7 @@
   "description": "Active: Pocket Suicide - Instantly commits suicide.\\n\\nPassive: Bloodpact - Starts with 8 charges. Gains 1 charge each time an enemy hero dies within 1675 range. Each charge bestows 1 mana regeneration per second, reduces gold lost from death by 25, and reduces respawn time by 4 seconds. When the bearer dies, restores 500 HP + 30 HP per charge to allied units within 1675 units, then loses a third of its charges. While dead, the bearer continues to receive experience at the death location and gives 1800 unit vision there.", 
   "displayname": "Bloodstone", 
   "id": 121, 
-  "itemcost": 5050, 
+  "itemcost": 4900, 
   "level": 0, 
   "lore": "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit.", 
   "manacost": [], 
@@ -970,7 +997,7 @@
   "description": "Use:  Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain.  You can also store runes in the bottle, to save for later use.  After 2 minutes, stored Runes will be activated.  If Bottle is empty, it causes a courier to move 30%% slower.\\n\\nHold Control to use your Bottle on an allied hero.", 
   "displayname": "Bottle", 
   "id": 41, 
-  "itemcost": 650, 
+  "itemcost": 700, 
   "level": 0, 
   "lore": "An old bottle that survived the ages, the contents placed inside become enchanted.", 
   "manacost": [], 
@@ -1136,7 +1163,10 @@
   "name": "item_buckler"
  }, 
  "item_butterfly": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  ], 
   "ItemAliases": "bfly;butterfly", 
   "ItemQuality": "epic", 
   "ItemShopTags": "agi;damage;evasion;attack_speed", 
@@ -1163,15 +1193,31 @@
     ]
    }, 
    {
+    "name": "bonus_move_speed", 
+    "tooltip": "%FLUTTER BONUS MOVE SPEED:", 
+    "value": [
+     20
+    ]
+   }, 
+   {
     "name": "bonus_attack_speed", 
     "tooltip": "+$attack", 
     "value": [
      30
     ]
+   }, 
+   {
+    "name": "duration", 
+    "tooltip": "FLUTTER DURATION:", 
+    "value": [
+     8
+    ]
    }
   ], 
-  "cooldown": [], 
-  "description": null, 
+  "cooldown": [
+   35
+  ], 
+  "description": "Active: Flutter - Trade evasion for %bonus_move_speed%%% additional movement speed for %duration% seconds.", 
   "displayname": "Butterfly", 
   "id": 139, 
   "itemcost": 6000, 
@@ -1350,7 +1396,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Multiple instances of spell resistance from items do not stack.", 
+  "description": null, 
   "displayname": "Cloak", 
   "id": 31, 
   "itemcost": 550, 
@@ -1379,6 +1425,116 @@
   "lore": "Losing the donkey is punishable by death.", 
   "manacost": [], 
   "name": "item_courier"
+ }, 
+ "item_crimson_guard": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  ], 
+  "ItemQuality": "epic", 
+  "ItemShopTags": "armor;boost_armor;regen_health;block;health_pool", 
+  "attributes": [
+   {
+    "name": "bonus_health_regen", 
+    "tooltip": "+$hp_regen", 
+    "value": [
+     6
+    ]
+   }, 
+   {
+    "name": "bonus_all_stats", 
+    "tooltip": "+$all", 
+    "value": [
+     2
+    ]
+   }, 
+   {
+    "name": "block_chance_active", 
+    "value": [
+     100
+    ]
+   }, 
+   {
+    "name": "bonus_health", 
+    "tooltip": "+$health", 
+    "value": [
+     250
+    ]
+   }, 
+   {
+    "name": "block_damage_melee", 
+    "tooltip": "BLOCK DAMAGE MELEE:", 
+    "value": [
+     40
+    ]
+   }, 
+   {
+    "name": "block_damage_ranged", 
+    "tooltip": "BLOCK DAMAGE RANGED:", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "bonus_armor", 
+    "tooltip": "+$armor", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "block_chance", 
+    "tooltip": "%BLOCK CHANCE:", 
+    "value": [
+     80
+    ]
+   }, 
+   {
+    "name": "bonus_aoe_armor", 
+    "tooltip": "GUARD ARMOR:", 
+    "value": [
+     2
+    ]
+   }, 
+   {
+    "name": "duration", 
+    "tooltip": "GUARD DURATION:", 
+    "value": [
+     9
+    ]
+   }, 
+   {
+    "name": "block_damage_ranged_active", 
+    "value": [
+     50
+    ]
+   }, 
+   {
+    "name": "block_damage_melee_active", 
+    "tooltip": "GUARD DAMAGE BLOCK :", 
+    "value": [
+     50
+    ]
+   }, 
+   {
+    "name": "bonus_aoe_radius", 
+    "tooltip": "GUARD RADIUS:", 
+    "value": [
+     750
+    ]
+   }
+  ], 
+  "cooldown": [
+   70
+  ], 
+  "description": "Active: Guard - Grant nearby allied heroes a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\\nPassive: Damage Block - Gives the wearer a chance to block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
+  "displayname": "Crimson Guard", 
+  "id": 242, 
+  "itemcost": 3850, 
+  "level": 0, 
+  "lore": "A cuirass originally built to protect against the dreaded Year Beast.", 
+  "manacost": [], 
+  "name": "item_crimson_guard"
  }, 
  "item_cyclone": {
   "AbilityBehavior": [
@@ -1430,7 +1586,7 @@
   "cooldown": [
    23
   ], 
-  "description": "Active: Cyclone - A target unit is swept up in a cyclone and made invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.\\n\\nFlat movement speed bonuses from multiple Eul's Scepters do not stack.", 
+  "description": "Active: Cyclone - A target unit is swept up in a cyclone and made invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.", 
   "displayname": "Eul's Scepter of Divinity", 
   "id": 100, 
   "itemcost": 2700, 
@@ -1487,10 +1643,10 @@
     "tooltip": "+$int", 
     "value": [
      13, 
-     15, 
-     17, 
+     16, 
      19, 
-     21
+     22, 
+     25
     ]
    }, 
    {
@@ -1530,11 +1686,7 @@
   "level": 0, 
   "lore": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.", 
   "manacost": [
-   180, 
-   160, 
-   140, 
-   120, 
-   100
+   180
   ], 
   "name": "item_dagon"
  }, 
@@ -1584,10 +1736,10 @@
     "tooltip": "+$int", 
     "value": [
      13, 
-     15, 
-     17, 
+     16, 
      19, 
-     21
+     22, 
+     25
     ]
    }, 
    {
@@ -1623,15 +1775,11 @@
   "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 201, 
-  "itemcost": 2850, 
+  "itemcost": 3970, 
   "level": 0, 
   "lore": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.", 
   "manacost": [
-   180, 
-   160, 
-   140, 
-   120, 
-   100
+   180
   ], 
   "name": "item_dagon_2"
  }, 
@@ -1681,10 +1829,10 @@
     "tooltip": "+$int", 
     "value": [
      13, 
-     15, 
-     17, 
+     16, 
      19, 
-     21
+     22, 
+     25
     ]
    }, 
    {
@@ -1720,15 +1868,11 @@
   "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 202, 
-  "itemcost": 2850, 
+  "itemcost": 5220, 
   "level": 0, 
   "lore": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.", 
   "manacost": [
-   180, 
-   160, 
-   140, 
-   120, 
-   100
+   180
   ], 
   "name": "item_dagon_3"
  }, 
@@ -1778,10 +1922,10 @@
     "tooltip": "+$int", 
     "value": [
      13, 
-     15, 
-     17, 
+     16, 
      19, 
-     21
+     22, 
+     25
     ]
    }, 
    {
@@ -1817,15 +1961,11 @@
   "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 203, 
-  "itemcost": 2850, 
+  "itemcost": 6470, 
   "level": 0, 
   "lore": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.", 
   "manacost": [
-   180, 
-   160, 
-   140, 
-   120, 
-   100
+   180
   ], 
   "name": "item_dagon_4"
  }, 
@@ -1873,10 +2013,10 @@
     "tooltip": "+$int", 
     "value": [
      13, 
-     15, 
-     17, 
+     16, 
      19, 
-     21
+     22, 
+     25
     ]
    }, 
    {
@@ -1912,15 +2052,11 @@
   "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 204, 
-  "itemcost": 2850, 
+  "itemcost": 7720, 
   "level": 0, 
   "lore": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.", 
   "manacost": [
-   180, 
-   160, 
-   140, 
-   120, 
-   100
+   180
   ], 
   "name": "item_dagon_5"
  }, 
@@ -2031,27 +2167,8 @@
     "name": "bonus_agility", 
     "tooltip": "+$agi", 
     "value": [
-     25, 
-     30
-    ]
-   }, 
-   {
-    "name": "purge_rate", 
-    "value": [
-     5
-    ]
-   }, 
-   {
-    "name": "purge_root_duration", 
-    "value": [
-     3
-    ]
-   }, 
-   {
-    "name": "feedback_mana_burn", 
-    "value": [
      20, 
-     36
+     35
     ]
    }, 
    {
@@ -2061,21 +2178,51 @@
     ]
    }, 
    {
+    "name": "purge_rate", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "feedback_mana_burn", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "feedback_mana_burn_ranged", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "purge_root_duration", 
+    "value": [
+     3
+    ]
+   }, 
+   {
     "name": "purge_slow_duration", 
     "value": [
      4
+    ]
+   }, 
+   {
+    "name": "damage_per_burn", 
+    "value": [
+     1
     ]
    }
   ], 
   "cooldown": [
    8
   ], 
-  "description": "Active: Purge - Purges a target unit, removing buffs, slowing, and dealing damage if it is a summoned unit.\\nPassive: Feedback - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Upgradable.\\n\\nDiffusal Blade is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "description": "Active: Purge - Purges a target unit, removing buffs, slowing, and dealing damage if it is a summoned unit.\\nPassive: Feedback - Your attacks burn %feedback_mana_burn% mana from melee heroes, and %feedback_mana_burn_ranged% from ranged heroes, while dealing the same amount in physical damage. Upgradable.\\n\\nDiffusal Blade is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Diffusal Blade", 
   "id": 174, 
-  "itemcost": 3300, 
+  "itemcost": 3150, 
   "level": 0, 
-  "lore": "An enchanted blade that allows the user to cut straight into the enemy\u2019s soul.", 
+  "lore": "An enchanted blade that allows the user to cut straight into the enemy's soul.", 
   "manacost": [
    0
   ], 
@@ -2122,27 +2269,8 @@
     "name": "bonus_agility", 
     "tooltip": "+$agi", 
     "value": [
-     25, 
-     30
-    ]
-   }, 
-   {
-    "name": "purge_rate", 
-    "value": [
-     5
-    ]
-   }, 
-   {
-    "name": "purge_root_duration", 
-    "value": [
-     3
-    ]
-   }, 
-   {
-    "name": "feedback_mana_burn", 
-    "value": [
      20, 
-     36
+     35
     ]
    }, 
    {
@@ -2152,9 +2280,39 @@
     ]
    }, 
    {
+    "name": "purge_rate", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "feedback_mana_burn", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "feedback_mana_burn_ranged", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "purge_root_duration", 
+    "value": [
+     3
+    ]
+   }, 
+   {
     "name": "purge_slow_duration", 
     "value": [
      4
+    ]
+   }, 
+   {
+    "name": "damage_per_burn", 
+    "value": [
+     1
     ]
    }
   ], 
@@ -2164,9 +2322,9 @@
   "description": "Active: Purge - Purges a target unit, removing buffs, slowing, and dealing damage if it is a summoned unit.\\nPassive: Feedback - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Upgradable.\\n\\nDiffusal Blade is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Diffusal Blade", 
   "id": 196, 
-  "itemcost": 3300, 
+  "itemcost": 3850, 
   "level": 0, 
-  "lore": "An enchanted blade that allows the user to cut straight into the enemy\u2019s soul.", 
+  "lore": "An enchanted blade that allows the user to cut straight into the enemy's soul.", 
   "manacost": [
    0
   ], 
@@ -2357,12 +2515,18 @@
     "value": [
      -40
     ]
+   }, 
+   {
+    "name": "projectile_speed", 
+    "value": [
+     1100
+    ]
    }
   ], 
   "cooldown": [
    30
   ], 
-  "description": "Active: Ether Blast - Converts you and your target into ethereal form, increasing incoming magic damage. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
+  "description": "Active: Ether Blast - Launches a projectile which converts your target into ethereal form, increasing incoming magic damage. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
   "displayname": "Ethereal Blade", 
   "id": 176, 
   "itemcost": 4900, 
@@ -2934,7 +3098,7 @@
   "id": 114, 
   "itemcost": 5500, 
   "level": 0, 
-  "lore": "Preserved heart of an extinct monster, it bolsters the bearer\u2019s fortitude.", 
+  "lore": "Preserved heart of an extinct monster, it bolsters the bearer's fortitude.", 
   "manacost": [], 
   "name": "item_heart"
  }, 
@@ -3092,10 +3256,10 @@
     ]
    }, 
    {
-    "name": "lifesteal_percent", 
-    "tooltip": "%LIFESTEAL:", 
+    "name": "bonus_regen", 
+    "tooltip": "+$hp_regen", 
     "value": [
-     15
+     3
     ]
    }, 
    {
@@ -3103,6 +3267,19 @@
     "tooltip": "+$damage", 
     "value": [
      20
+    ]
+   }, 
+   {
+    "name": "health_bonus", 
+    "value": [
+     250
+    ]
+   }, 
+   {
+    "name": "lifesteal_percent", 
+    "tooltip": "%LIFESTEAL:", 
+    "value": [
+     15
     ]
    }, 
    {
@@ -3115,7 +3292,7 @@
   "cooldown": [
    60
   ], 
-  "description": "Active: Dominate - Take control of a non-hero, non-ancient target unit.\\nPassive: Lifesteal - Gives lifesteal on attacks.\\n\\nHelm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "description": "Active: Dominate - Take control of a non-hero, non-ancient target unit. Dominated units gain %health_bonus% bonus health.\\nPassive: Lifesteal - Gives lifesteal on attacks.\\n\\nHelm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Helm of the Dominator", 
   "id": 164, 
   "itemcost": 1850, 
@@ -3140,7 +3317,7 @@
     "name": "bonus_health_regen", 
     "tooltip": "+$hp_regen", 
     "value": [
-     8
+     9
     ]
    }, 
    {
@@ -3158,7 +3335,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Multiple instances of spell resistance from items do not stack.", 
+  "description": null, 
   "displayname": "Hood of Defiance", 
   "id": 131, 
   "itemcost": 2125, 
@@ -3213,6 +3390,7 @@
    }, 
    {
     "name": "windwalk_duration", 
+    "tooltip": "SHADOW WALK DURATION:", 
     "value": [
      14
     ]
@@ -3226,8 +3404,9 @@
    }, 
    {
     "name": "windwalk_bonus_damage", 
+    "tooltip": "SHADOW WALK DAMAGE:", 
     "value": [
-     150
+     175
     ]
    }, 
    {
@@ -3246,7 +3425,7 @@
   "cooldown": [
    28
   ], 
-  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain 150 bonus damage on that attack.  Lasts 17 seconds.", 
+  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain %windwalk_bonus_damage% bonus damage on that attack.  Lasts %windwalk_duration% seconds.", 
   "displayname": "Shadow Blade", 
   "id": 152, 
   "itemcost": 3000, 
@@ -3417,7 +3596,7 @@
   "description": "Passive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits %chain_strikes% targets, dealing damage.\\n\\nMaelstrom is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
   "displayname": "Maelstrom", 
   "id": 166, 
-  "itemcost": 2700, 
+  "itemcost": 2800, 
   "level": 0, 
   "lore": "A hammer forged for the gods themselves, Maelstrom allows its user to harness the power of lightning.", 
   "manacost": [], 
@@ -3550,9 +3729,9 @@
     ]
    }, 
    {
-    "name": "invuln_duration", 
+    "name": "vision_radius", 
     "value": [
-     0.1
+     1000
     ]
    }, 
    {
@@ -3601,21 +3780,15 @@
     ]
    }, 
    {
-    "name": "tooltip_outgoing_range", 
+    "name": "invuln_duration", 
     "value": [
-     28
+     0.1
     ]
    }, 
    {
-    "name": "cooldown_melee", 
+    "name": "tooltip_outgoing_melee", 
     "value": [
-     50
-    ]
-   }, 
-   {
-    "name": "vision_radius", 
-    "value": [
-     1000
+     33
     ]
    }, 
    {
@@ -3625,9 +3798,9 @@
     ]
    }, 
    {
-    "name": "tooltip_outgoing_melee", 
+    "name": "tooltip_outgoing_range", 
     "value": [
-     33
+     28
     ]
    }, 
    {
@@ -3640,10 +3813,10 @@
   "cooldown": [
    50
   ], 
-  "description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage.  Ranged illusions deal %tooltip_outgoing_range%%% damage and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
+  "description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage, while Ranged illusions deal %tooltip_outgoing_range%%% and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "displayname": "Manta Style", 
   "id": 147, 
-  "itemcost": 5050, 
+  "itemcost": 4950, 
   "level": 0, 
   "lore": "An axe made of reflective materials that causes confusion amongst enemy ranks.", 
   "manacost": [
@@ -3731,7 +3904,7 @@
   "description": "Active: Berserk - Gives %berserk_bonus_attack_speed% attack speed and %berserk_bonus_movement_speed%%% movement speed but causes you to take extra %berserk_extra_damage%%% damage.  Lasts 12 seconds.\\nPassive: Lifesteal - Grants lifesteal on attacks.\\n\\nMask of Madness is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Mask of Madness", 
   "id": 172, 
-  "itemcost": 1900, 
+  "itemcost": 1800, 
   "level": 0, 
   "lore": "Once this mask is worn, its bearer becomes an uncontrollable aggressive force.", 
   "manacost": [
@@ -3868,7 +4041,7 @@
   "level": 0, 
   "lore": "A glowing jewel formed out of assorted parts that somehow fit together perfectly.", 
   "manacost": [
-   150
+   225
   ], 
   "name": "item_mekansm"
  }, 
@@ -4016,9 +4189,9 @@
   "description": "Active: Static Charge - Places a charged shield on a target unit which has a %static_chance%%% chance to release a shocking bolt at a nearby attacker and %static_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits %chain_strikes% targets, dealing damage.\\n\\nMjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
   "displayname": "Mjollnir", 
   "id": 158, 
-  "itemcost": 5600, 
+  "itemcost": 5700, 
   "level": 0, 
-  "lore": "Thor\u2019s magical hammer, made for him by the dwarves Brok and Eitri.", 
+  "lore": "Thor's magical hammer, made for him by the dwarves Brok and Eitri.", 
   "manacost": [
    50
   ], 
@@ -4516,7 +4689,7 @@
   "cooldown": [
    95
   ], 
-  "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds.", 
+  "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds. Upgradable.", 
   "displayname": "Necronomicon", 
   "id": 106, 
   "itemcost": 2700, 
@@ -4612,7 +4785,7 @@
   "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds.", 
   "displayname": "Necronomicon", 
   "id": 193, 
-  "itemcost": 2700, 
+  "itemcost": 3950, 
   "level": 0, 
   "lore": "Considered the holy grail of necromancy and demonology, a powerful malefic force is locked within its pages.", 
   "manacost": [
@@ -4703,7 +4876,7 @@
   "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds.", 
   "displayname": "Necronomicon", 
   "id": 194, 
-  "itemcost": 2700, 
+  "itemcost": 5200, 
   "level": 0, 
   "lore": "Considered the holy grail of necromancy and demonology, a powerful malefic force is locked within its pages.", 
   "manacost": [
@@ -5075,7 +5248,7 @@
     "name": "health_regen", 
     "tooltip": "+$hp_regen", 
     "value": [
-     8
+     9
     ]
    }, 
    {
@@ -5120,7 +5293,7 @@
   "cooldown": [
    60
   ], 
-  "description": "Active: Barrier - Gives nearby friendly units a shield that blocks %barrier_block% spell damage.\\nPassive: Insight Aura - Gives nearby friendly units %aura_health_regen% health regeneration.\\n\\nMultiple instances of spell resistance from items do not stack.", 
+  "description": "Active: Barrier - Gives nearby friendly units a shield that blocks %barrier_block% spell damage.\\nPassive: Insight Aura - Gives nearby friendly units %aura_health_regen% health regeneration.", 
   "displayname": "Pipe of Insight", 
   "id": 90, 
   "itemcost": 3625, 
@@ -5500,7 +5673,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_bracer", 
-   "item_robe"
+   "item_robe", 
+   "item_recipe_ancient_janggo"
   ], 
   "ItemResult": "item_ancient_janggo", 
   "attributes": [], 
@@ -5535,14 +5709,15 @@
   "ItemRequirements": [
    "item_helm_of_iron_will", 
    "item_gloves", 
-   "item_blades_of_attack"
+   "item_blades_of_attack", 
+   "item_recipe_armlet"
   ], 
   "ItemResult": "item_armlet", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 150, 
-  "itemcost": 700, 
+  "itemcost": 600, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -5553,7 +5728,8 @@
   "ItemRequirements": [
    "item_platemail", 
    "item_hyperstone", 
-   "item_chainmail"
+   "item_chainmail", 
+   "item_recipe_assault"
   ], 
   "ItemResult": "item_assault", 
   "attributes": [], 
@@ -5571,7 +5747,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_belt_of_strength", 
-   "item_javelin"
+   "item_javelin", 
+   "item_recipe_basher"
   ], 
   "ItemResult": "item_basher", 
   "attributes": [], 
@@ -5606,7 +5783,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_ogre_axe", 
-   "item_mithril_hammer"
+   "item_mithril_hammer", 
+   "item_recipe_black_king_bar"
   ], 
   "ItemResult": "item_black_king_bar", 
   "attributes": [], 
@@ -5640,15 +5818,16 @@
  "item_recipe_bloodstone": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_pers", 
-   "item_soul_booster"
+   "item_soul_ring", 
+   "item_soul_booster", 
+   "item_recipe_bloodstone"
   ], 
   "ItemResult": "item_bloodstone", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 120, 
-  "itemcost": 0, 
+  "itemcost": 800, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -5658,7 +5837,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_circlet", 
-   "item_gauntlets"
+   "item_gauntlets", 
+   "item_recipe_bracer"
   ], 
   "ItemResult": "item_bracer", 
   "attributes": [], 
@@ -5675,7 +5855,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_chainmail", 
-   "item_branches"
+   "item_branches", 
+   "item_recipe_buckler"
   ], 
   "ItemResult": "item_buckler", 
   "attributes": [], 
@@ -5706,12 +5887,31 @@
   "manacost": [], 
   "name": "item_recipe_butterfly"
  }, 
+ "item_recipe_crimson_guard": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_vanguard", 
+   "item_buckler", 
+   "item_recipe_crimson_guard"
+  ], 
+  "ItemResult": "item_crimson_guard", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 243, 
+  "itemcost": 825, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_crimson_guard"
+ }, 
  "item_recipe_cyclone": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_staff_of_wizardry", 
    "item_sobi_mask", 
-   "item_void_stone"
+   "item_staff_of_wizardry", 
+   "item_void_stone", 
+   "item_recipe_cyclone"
   ], 
   "ItemResult": "item_cyclone", 
   "attributes": [], 
@@ -5728,7 +5928,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_staff_of_wizardry", 
-   "item_null_talisman"
+   "item_null_talisman", 
+   "item_recipe_dagon"
   ], 
   "ItemResult": "item_dagon", 
   "attributes": [], 
@@ -5813,7 +6014,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_mithril_hammer", 
-   "item_mithril_hammer"
+   "item_mithril_hammer", 
+   "item_recipe_desolator"
   ], 
   "ItemResult": "item_desolator", 
   "attributes": [], 
@@ -5831,14 +6033,15 @@
   "ItemRequirements": [
    "item_blade_of_alacrity", 
    "item_blade_of_alacrity", 
-   "item_robe"
+   "item_robe", 
+   "item_recipe_diffusal_blade"
   ], 
   "ItemResult": "item_diffusal_blade", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 173, 
-  "itemcost": 850, 
+  "itemcost": 700, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -5882,7 +6085,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_staff_of_wizardry", 
-   "item_ring_of_regen"
+   "item_ring_of_regen", 
+   "item_recipe_force_staff"
   ], 
   "ItemResult": "item_force_staff", 
   "attributes": [], 
@@ -5899,7 +6103,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_lesser_crit", 
-   "item_demon_edge"
+   "item_demon_edge", 
+   "item_recipe_greater_crit"
   ], 
   "ItemResult": "item_greater_crit", 
   "attributes": [], 
@@ -5916,7 +6121,8 @@
   "ItemAliases": "hom", 
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_gloves"
+   "item_gloves", 
+   "item_recipe_hand_of_midas"
   ], 
   "ItemResult": "item_hand_of_midas", 
   "attributes": [], 
@@ -5933,7 +6139,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_ring_of_regen", 
-   "item_branches"
+   "item_branches", 
+   "item_recipe_headdress"
   ], 
   "ItemResult": "item_headdress", 
   "attributes": [], 
@@ -5950,7 +6157,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_reaver", 
-   "item_vitality_booster"
+   "item_vitality_booster", 
+   "item_recipe_heart"
   ], 
   "ItemResult": "item_heart", 
   "attributes": [], 
@@ -6037,7 +6245,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_broadsword", 
-   "item_blades_of_attack"
+   "item_blades_of_attack", 
+   "item_recipe_lesser_crit"
   ], 
   "ItemResult": "item_lesser_crit", 
   "attributes": [], 
@@ -6054,14 +6263,15 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_gloves", 
-   "item_mithril_hammer"
+   "item_mithril_hammer", 
+   "item_recipe_maelstrom"
   ], 
   "ItemResult": "item_maelstrom", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 165, 
-  "itemcost": 600, 
+  "itemcost": 700, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6073,7 +6283,8 @@
    "item_branches", 
    "item_branches", 
    "item_branches", 
-   "item_magic_stick"
+   "item_magic_stick", 
+   "item_recipe_magic_wand"
   ], 
   "ItemResult": "item_magic_wand", 
   "attributes": [], 
@@ -6090,14 +6301,15 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_yasha", 
-   "item_ultimate_orb"
+   "item_ultimate_orb", 
+   "item_recipe_manta"
   ], 
   "ItemResult": "item_manta", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 146, 
-  "itemcost": 900, 
+  "itemcost": 800, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6106,14 +6318,15 @@
  "item_recipe_mask_of_madness": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_lifesteal"
+   "item_lifesteal", 
+   "item_recipe_mask_of_madness"
   ], 
   "ItemResult": "item_mask_of_madness", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 171, 
-  "itemcost": 1000, 
+  "itemcost": 900, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6123,7 +6336,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_chainmail", 
-   "item_sobi_mask"
+   "item_sobi_mask", 
+   "item_recipe_medallion_of_courage"
   ], 
   "ItemResult": "item_medallion_of_courage", 
   "attributes": [], 
@@ -6140,7 +6354,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_headdress", 
-   "item_buckler"
+   "item_buckler", 
+   "item_recipe_mekansm"
   ], 
   "ItemResult": "item_mekansm", 
   "attributes": [], 
@@ -6157,7 +6372,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_hyperstone", 
-   "item_maelstrom"
+   "item_maelstrom", 
+   "item_recipe_mjollnir"
   ], 
   "ItemResult": "item_mjollnir", 
   "attributes": [], 
@@ -6192,7 +6408,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_staff_of_wizardry", 
-   "item_belt_of_strength"
+   "item_belt_of_strength", 
+   "item_recipe_necronomicon"
   ], 
   "ItemResult": "item_necronomicon", 
   "attributes": [], 
@@ -6245,7 +6462,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_circlet", 
-   "item_mantle"
+   "item_mantle", 
+   "item_recipe_null_talisman"
   ], 
   "ItemResult": "item_null_talisman", 
   "attributes": [], 
@@ -6280,7 +6498,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_oblivion_staff", 
-   "item_oblivion_staff"
+   "item_oblivion_staff", 
+   "item_recipe_orchid"
   ], 
   "ItemResult": "item_orchid", 
   "attributes": [], 
@@ -6332,7 +6551,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_hood_of_defiance", 
-   "item_headdress"
+   "item_headdress", 
+   "item_recipe_pipe"
   ], 
   "ItemResult": "item_pipe", 
   "attributes": [], 
@@ -6384,7 +6604,8 @@
  "item_recipe_radiance": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_relic"
+   "item_relic", 
+   "item_recipe_radiance"
   ], 
   "ItemResult": "item_radiance", 
   "attributes": [], 
@@ -6418,7 +6639,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_oblivion_staff", 
-   "item_pers"
+   "item_pers", 
+   "item_recipe_refresher"
   ], 
   "ItemResult": "item_refresher", 
   "attributes": [], 
@@ -6487,7 +6709,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_ogre_axe", 
-   "item_belt_of_strength"
+   "item_belt_of_strength", 
+   "item_recipe_sange"
   ], 
   "ItemResult": "item_sange", 
   "attributes": [], 
@@ -6521,7 +6744,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_reaver", 
-   "item_helm_of_the_dominator"
+   "item_helm_of_the_dominator", 
+   "item_recipe_satanic"
   ], 
   "ItemResult": "item_satanic", 
   "attributes": [], 
@@ -6556,7 +6780,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_platemail", 
-   "item_mystic_staff"
+   "item_mystic_staff", 
+   "item_recipe_shivas_guard"
   ], 
   "ItemResult": "item_shivas_guard", 
   "attributes": [], 
@@ -6610,7 +6835,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_ring_of_regen", 
-   "item_sobi_mask"
+   "item_sobi_mask", 
+   "item_recipe_soul_ring"
   ], 
   "ItemResult": "item_soul_ring", 
   "attributes": [], 
@@ -6627,7 +6853,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_ultimate_orb", 
-   "item_pers"
+   "item_pers", 
+   "item_recipe_sphere"
   ], 
   "ItemResult": "item_sphere", 
   "attributes": [], 
@@ -6662,7 +6889,8 @@
  "item_recipe_travel_boots": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_boots"
+   "item_boots", 
+   "item_recipe_travel_boots"
   ], 
   "ItemResult": "item_travel_boots", 
   "attributes": [], 
@@ -6699,7 +6927,8 @@
   "ItemRequirements": [
    "item_sobi_mask", 
    "item_gauntlets", 
-   "item_gauntlets"
+   "item_gauntlets", 
+   "item_recipe_urn_of_shadows"
   ], 
   "ItemResult": "item_urn_of_shadows", 
   "attributes": [], 
@@ -6735,7 +6964,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_helm_of_iron_will", 
-   "item_null_talisman"
+   "item_null_talisman", 
+   "item_recipe_veil_of_discord"
   ], 
   "ItemResult": "item_veil_of_discord", 
   "attributes": [], 
@@ -6753,7 +6983,8 @@
   "ItemRequirements": [
    "item_ring_of_regen", 
    "item_ring_of_basilius", 
-   "item_lifesteal"
+   "item_lifesteal", 
+   "item_recipe_vladmir"
   ], 
   "ItemResult": "item_vladmir", 
   "attributes": [], 
@@ -6770,7 +7001,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_circlet", 
-   "item_slippers"
+   "item_slippers", 
+   "item_recipe_wraith_band"
   ], 
   "ItemResult": "item_wraith_band", 
   "attributes": [], 
@@ -6787,7 +7019,8 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_blade_of_alacrity", 
-   "item_boots_of_elves"
+   "item_boots_of_elves", 
+   "item_recipe_yasha"
   ], 
   "ItemResult": "item_yasha", 
   "attributes": [], 
@@ -6850,7 +7083,7 @@
    }
   ], 
   "cooldown": [
-   160
+   185
   ], 
   "description": "Active: Reset Cooldowns - Resets the cooldowns of all your items and abilities.", 
   "displayname": "Refresher Orb", 
@@ -6963,7 +7196,7 @@
   "description": "Passive: Aquila Aura - Grants mana regeneration and armor in a %aura_radius% AoE.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Aquila Aura do not stack.", 
   "displayname": "Ring of Aquila", 
   "id": 212, 
-  "itemcost": 985, 
+  "itemcost": 1010, 
   "level": 0, 
   "lore": "The ring of the fallen Warlord Aquila continues to support armies in battle.", 
   "manacost": [], 
@@ -7022,7 +7255,7 @@
   "description": "Passive: Basilius Aura - Grants mana regeneration and armor in a %aura_radius% AoE.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Basilius Aura do not stack.", 
   "displayname": "Ring of Basilius", 
   "id": 88, 
-  "itemcost": 500, 
+  "itemcost": 525, 
   "level": 0, 
   "lore": "Ring given as a reward to the greatest mages.", 
   "manacost": [], 
@@ -7052,7 +7285,7 @@
   "id": 56, 
   "itemcost": 875, 
   "level": 0, 
-  "lore": "A shiny ring found beneath a fat halfling\u2019s corpse.", 
+  "lore": "A shiny ring found beneath a fat halfling's corpse.", 
   "manacost": [], 
   "name": "item_ring_of_health"
  }, 
@@ -7070,7 +7303,7 @@
     "name": "bonus_armor", 
     "tooltip": "+$armor", 
     "value": [
-     2
+     3
     ]
    }
   ], 
@@ -7078,7 +7311,7 @@
   "description": null, 
   "displayname": "Ring of Protection", 
   "id": 12, 
-  "itemcost": 175, 
+  "itemcost": 200, 
   "level": 0, 
   "lore": "A glimmering ring that defends its bearer.", 
   "manacost": [], 
@@ -7657,7 +7890,7 @@
     "name": "cold_attack_speed", 
     "tooltip": "ATTACK SLOW:", 
     "value": [
-     -35
+     -45
     ]
    }
   ], 
@@ -8172,7 +8405,7 @@
   "description": "Use: Teleport - Teleports you to a target friendly building.", 
   "displayname": "Town Portal Scroll", 
   "id": 46, 
-  "itemcost": 135, 
+  "itemcost": 100, 
   "level": 0, 
   "lore": null, 
   "manacost": [
@@ -8259,7 +8492,7 @@
   "description": "Passive: Break - Whenever you attack or get attacked you lose the HP regeneration and 30 Movement Speed for 13 seconds.", 
   "displayname": "Tranquil Boots", 
   "id": 214, 
-  "itemcost": 975, 
+  "itemcost": 1000, 
   "level": 0, 
   "lore": "While they increase the longevity of the wearer, this boot is not particularly reliable.", 
   "manacost": [
@@ -8302,7 +8535,7 @@
    }
   ], 
   "cooldown": [
-   60
+   50
   ], 
   "description": "Active: Teleport - Teleports you to an allied non-hero unit or structure.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
   "displayname": "Boots of Travel", 
@@ -8374,7 +8607,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Ultimate Upgrade - Upgrades the ultimates of certain heroes.", 
+  "description": "Passive: Ultimate Upgrade - Upgrades the ultimate, and some abilities, of certain heroes.", 
   "displayname": "Aghanim's Scepter", 
   "id": 108, 
   "itemcost": 4200, 
@@ -8421,7 +8654,7 @@
    }, 
    {
     "name": "soul_heal_amount", 
-    "tooltip": "URN HEAL:", 
+    "tooltip": "URN ALLY HEAL:", 
     "value": [
      400
     ]
@@ -8447,7 +8680,7 @@
    }, 
    {
     "name": "soul_damage_amount", 
-    "tooltip": "URN DAMAGE:", 
+    "tooltip": "URN ENEMY DAMAGE:", 
     "value": [
      150
     ]
@@ -8468,7 +8701,7 @@
   "cooldown": [
    7
   ], 
-  "description": "Gains charges every time an enemy hero dies within %soul_radius% units.  Only the closest Urn to the dying hero will gain a charge.\\nActive: Soul Release - Heals HP over time for friendly units, but deals damage over time for enemy units.  The healing effect is lost if the affected unit takes damage from an enemy hero or tower.", 
+  "description": "Gains charges every time an enemy hero dies within %soul_radius% units.  Only the closest Urn to the dying hero will gain a charge.\\nActive: Soul Release - Heals HP over time to friendly units, but deals pure damage over time to enemy units.  The healing effect is lost if the affected unit takes damage from an enemy hero or tower.", 
   "displayname": "Urn of Shadows", 
   "id": 92, 
   "itemcost": 875, 
@@ -8505,22 +8738,22 @@
     ]
    }, 
    {
-    "name": "block_damage_ranged", 
-    "tooltip": "RANGED BLOCK:", 
+    "name": "block_damage_melee", 
+    "tooltip": "BLOCK DAMAGE MELEE:", 
     "value": [
-     20
+     40
     ]
    }, 
    {
-    "name": "block_damage_melee", 
-    "tooltip": "MELEE BLOCK:", 
+    "name": "block_damage_ranged", 
+    "tooltip": "BLOCK DAMAGE RANGED:", 
     "value": [
-     40
+     20
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Damage Block - Gives a chance to block damage based on whether the equipped hero is melee or ranged.", 
+  "description": "Passive: Damage Block - Gives the wielder a chance to block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "displayname": "Vanguard", 
   "id": 125, 
   "itemcost": 2225, 
@@ -8690,7 +8923,7 @@
   "description": "Passive: Vladmir's Aura - Grants a variety of bonuses to nearby allies.  Lifesteal bonuses from Vladmir's Aura only affect melee units.  \\n\\nMultiple instances of Vladmir's Aura do not stack.", 
   "displayname": "Vladmir's Offering", 
   "id": 81, 
-  "itemcost": 2050, 
+  "itemcost": 2075, 
   "level": 0, 
   "lore": "An eerie mask that is haunted with the malice of a fallen vampire.", 
   "manacost": [], 
@@ -8804,7 +9037,7 @@
    {
     "name": "true_sight_range", 
     "value": [
-     800
+     850
     ]
    }, 
    {

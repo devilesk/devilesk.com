@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import sys, os, os.path, shutil, datetime, time, requests
+sys.path.append('/home/sites/devilesk.com/minify')
+from minify2 import compress, purge_cache
 
 def main():
     ROOT = '/srv/www/dev.devilesk.com'

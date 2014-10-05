@@ -19,10 +19,10 @@
 <div class="col-md-4">
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <img class="img-rounded" src="http://media.steampowered.com/apps/dota2/images/heroes/{{ resource.meta.hero.replace('npc_dota_hero_', '') }}_lg.png">
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-lg-4 text-center">
                 {% if herodata[resource.meta.hero].team == 'Good' %}
                 <img src="{{ media_url('/images/pip_radiant.png') }}">
                 <span>Radiant</span>
@@ -35,20 +35,20 @@
         </div>
     </div>
     <div class="col-md-12 form-group">
-        <div class="pull-left">
-            <img style="display:block;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_STRENGTH' %}opacity:.5;{%- endif %}" src="{{ media_url('/images/pip_str.png') }}">
+        <div class="col-xs-4">
+            <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_STRENGTH' %}opacity:.33;{%- endif %}" src="{{ media_url('/images/pip_str.png') }}">
             <div class="text-center">
                 <span>{{ herodata[resource.meta.hero].attributebasestrength }}</span> + <span>{{ herodata[resource.meta.hero].attributestrengthgain }}</span>
             </div>
         </div>
-        <div class="pull-left">
-            <img style="display:block;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_AGILITY' %}opacity:.5;{%- endif %}" src="{{ media_url('/images/pip_agi.png') }}">
+        <div class="col-xs-4">
+            <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_AGILITY' %}opacity:.33;{%- endif %}" src="{{ media_url('/images/pip_agi.png') }}">
             <div class="text-center">
                 <span>{{ herodata[resource.meta.hero].attributebaseagility }}</span> + <span>{{ herodata[resource.meta.hero].attributeagilitygain }}</span>
             </div>
         </div>
-        <div class="pull-left">
-            <img style="display:block;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_INTELLECT' %}opacity:.5;{%- endif %}" src="{{ media_url('/images/pip_int.png') }}">
+        <div class="col-xs-4">
+            <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_INTELLECT' %}opacity:.33;{%- endif %}" src="{{ media_url('/images/pip_int.png') }}">
             <div class="text-center">
                 <span>{{ herodata[resource.meta.hero].attributebaseintelligence }}</span> + <span>{{ herodata[resource.meta.hero].attributeintelligencegain }}</span>
             </div>
@@ -155,6 +155,10 @@
     {% if ability.name != 'attribute_bonus' %}
     <div class="ability panel panel-default">
       <div class="abilityname panel-heading"><strong>{{ ability.displayname }}</strong></div>
+      <div class="panel-body">
+        {% if ability.behavior %}<span class="col-md-6"><strong>Ability: </strong>{{ get_ability_behavior(ability.behavior) }}</span>{% endif %}
+        {% if ability.abilityunitdamagetype %}<span class="col-md-6"><strong>Damage: </strong>{{ get_damage_type(ability.name, ability.abilityunitdamagetype) }}</span>{% endif %}
+      </div>
       <div class="panel-body">
         <div class="col-md-2"><img class="abilityportrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
         <div class="col-md-10">{{ format_tooltip(ability.description.replace('\\n', '<br>'), ability.attributes) }}</div>

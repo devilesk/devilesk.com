@@ -2,6 +2,42 @@ import math
 import re
 from hyde.plugin import Plugin
 
+def get_damage_type(ability, ability_type):
+    if ability == 'elder_titan_echo_stomp' or ability == 'elder_titan_earth_splitter':
+        return 'Physical/Magical'
+    if ability_type == 'DAMAGE_TYPE_MAGICAL':
+        return 'Magical'
+    if ability_type == 'DAMAGE_TYPE_PURE':
+        return 'Pure'
+    if ability_type == 'DAMAGE_TYPE_PHYSICAL':
+        return 'Physical'
+    if ability_type == 'DAMAGE_TYPE_COMPOSITE':
+        return 'Composite'
+    if ability_type == 'DAMAGE_TYPE_HP_REMOVAL':
+        return 'HP Removal'
+
+def get_behavior(ability_type):
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_NO_TARGET':
+        return 'No Target'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_PASSIVE':
+        return 'Passive'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_POINT':
+        return 'Target Point'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET':
+        return 'Target Unit'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_AURA':
+        return 'Aura'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_AUTOCAST':
+        return 'Auto-cast'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_TOGGLE':
+        return 'Toggle'
+    if ability_type == 'DOTA_ABILITY_BEHAVIOR_CHANNELLED':
+        return 'Channeled'
+    return ''
+
+def get_ability_behavior(behaviors):
+    return ', '.join([y for y in [get_behavior(x) for x in behaviors] if y != ''])
+
 def paragraphs(text):
     paras = re.split(r'[\r\n]+', text)
     paras = ['<p>%s</p>' % p.strip() for p in paras]
@@ -92,3 +128,5 @@ class MyJinjaLoader(Plugin):
         template.env.globals['any'] = any
         template.env.globals['format_tooltip'] = format_tooltip
         template.env.globals['paragraphs'] = paragraphs
+        template.env.globals['get_damage_type'] = get_damage_type
+        template.env.globals['get_ability_behavior'] = get_ability_behavior
