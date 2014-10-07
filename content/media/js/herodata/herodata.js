@@ -42,33 +42,40 @@ $(function () {
 
 	function TableViewModel() {
 		var self = this;
+        self.filterVisible = ko.observable(false);
+        self.toggleFilterVisibility = function () {
+            self.filterVisible(!self.filterVisible());
+        }
+        self.filterTemplateToUse = function (item) {
+            return item.filterType + '-filter';
+        }
 		self.headers = ko.observableArray([
-			{name: 'Icon', display: ko.observable(true), align: 'center'},
-			{name: 'Name', display: ko.observable(true), align: ''},
-			{name: 'Primary Stat', display: ko.observable(true), align: 'center'},
-			{name: '<abbr title=\"Agility\">Agi</abbr>', display: ko.observable(true), align: 'right'},
-			{name: '<abbr title=\"Intelligence\">Int</abbr>', display: ko.observable(true), align: 'right'},
-			{name: '<abbr title=\"Strength\">Str</abbr>', display: ko.observable(true), align: 'right'},
-			{name: 'Agi Gain', display: ko.observable(false), align: 'right'},
-			{name: 'Int Gain', display: ko.observable(false), align: 'right'},
-			{name: 'Str Gain', display: ko.observable(false), align: 'right'},
-			{name: 'Min Dmg', display: ko.observable(false), align: 'right'},
-			{name: 'Max Dmg', display: ko.observable(false), align: 'right'},
-			{name: 'Avg Dmg', display: ko.observable(true), align: 'right'},
-			{name: 'Armor', display: ko.observable(true), align: 'right'},
-			{name: 'HP', display: ko.observable(true), align: 'right'},
-			{name: 'HP Regen', display: ko.observable(false), align: 'right'},
-			{name: 'Mana', display: ko.observable(true), align: 'right'},
-			{name: 'Mana Regen', display: ko.observable(false), align: 'right'},
-			{name: 'Atk Type', display: ko.observable(true), align: 'center'},
-			{name: 'Atk Range', display: ko.observable(true), align: 'right'},
-			{name: 'Atk Rate', display: ko.observable(false), align: 'right'},
-			{name: 'Atk Point', display: ko.observable(false), align: 'right'},
-			{name: 'Projectile Speed', display: ko.observable(false), align: 'right'},
-			{name: 'Day Vision Range', display: ko.observable(false), align: 'right'},
-			{name: 'Night Vision Range', display: ko.observable(false), align: 'right'},
-			{name: '<abbr title=\"Movement Speed\">MS</abbr>', display: ko.observable(true), align: 'right'},
-			{name: 'Turn Rate', display: ko.observable(false), align: 'right'}
+			{name: 'Icon', display: ko.observable(true), align: 'center', filter: false},
+			{name: 'Name', display: ko.observable(true), align: '', filter: true, filterType: 'string', filterValue: ko.observable()},
+			{name: 'Primary Stat', display: ko.observable(true), align: 'center', filter: true, filterType: 'select', filterOptions: [{text: 'Agility', value: 'Agi'}, {text: 'Strength', value: 'Str'}, {text: 'Intelligence', value: 'Int'}], filterValue: ko.observable()},
+			{name: '<abbr title=\"Agility\">Agi</abbr>', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: '<abbr title=\"Intelligence\">Int</abbr>', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: '<abbr title=\"Strength\">Str</abbr>', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Agi Gain', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Int Gain', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Str Gain', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Min Dmg', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Max Dmg', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Avg Dmg', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Armor', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'HP', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'HP Regen', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Mana', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Mana Regen', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Atk Type', display: ko.observable(true), align: 'center', filter: true, filterType: 'select', filterOptions: [{text: 'Ranged', value: 'Ranged'}, {text: 'Melee', value: 'Melee'}], filterValue: ko.observable()},
+			{name: 'Atk Range', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Atk Rate', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Atk Point', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Projectile Speed', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Day Vision Range', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Night Vision Range', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: '<abbr title=\"Movement Speed\">MS</abbr>', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'Turn Rate', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()}
 		]);
 		self.headerHTML = function(index, data) {
 			if (self.sortDirections()[index()]() == -1) {
@@ -181,7 +188,35 @@ $(function () {
 				}
 				return 0;
 			});
-			return d();
+            var filtered = _.filter(d(), function(row) {
+                return _.every(row, function(item, i) {
+                    if (!self.headers()[i].filter) return true;
+                    if (!self.headers()[i].filterValue()) return true;
+                    switch (self.headers()[i].filterType) {
+                        case 'numeric':
+                            switch (self.headers()[i].filterComparison()) {
+                                case 'gt':
+                                    return parseFloat(item) > parseFloat(self.headers()[i].filterValue());
+                                break;
+                                case 'lt':
+                                    return parseFloat(item) < parseFloat(self.headers()[i].filterValue());
+                                break;
+                                case 'eq':
+                                    return parseFloat(item) == parseFloat(self.headers()[i].filterValue());
+                                break;
+                            }
+                        break;
+                        case 'string':
+                            return item.toLowerCase().indexOf(self.headers()[i].filterValue().toLowerCase()) != -1;
+                        break;
+                        case 'select':
+                            return item == self.headers()[i].filterValue();
+                        break;
+                    }
+                    return self.headers()[i].filter;
+                });
+            });
+			return filtered;
 		}, this);
 		
 		self.toggleColumn = function(index,data,event) {
@@ -190,7 +225,7 @@ $(function () {
 	}
 
 	var heroData = {};
-	$.getJSON("{{ media_url('js/herodata.json') }}", function (data) {
+	$.getJSON("/media/js/herodata.json", function (data) {
 		heroData = data;
 		var tableViewModel = new TableViewModel();
 		ko.applyBindings(tableViewModel);

@@ -1,18 +1,60 @@
 $(function () {
     var NUM_ITEMS = 5,
-        itemdata,
-        itemBasic,
-        itemUpgrade,
+        itemBasic = [],
+        itemUpgrade = [],
         hashMapUpgrade = {},
         items,
         components,
         componentsList,
         answer;
+    
+    $.getJSON("/media/js/itemdata.json",function(itemdata){
+        var upgrades = [],
+            recipes = {};
         
-	$.getJSON("/media/js/item-scramble/item-recipe-data.json",function(data){
-        itemdata = data.data;
-        itemBasic = data.data.basic;
-        itemUpgrade = data.data.upgrade;
+        function getAllComponents(i) {
+            var result = [];
+            if (upgrades.indexOf(i) == -1) {
+                if (i.indexOf('item_recipe_') == -1) {
+                    result.push(i.replace('item_', ''));
+                }
+                else {
+                    result.push('recipe');
+                }
+            }
+            else {
+                result = result.concat(_.reduce(_.map(itemdata[recipes[i]].ItemRequirements, getAllComponents), function (memo, l) { return memo.concat(l); }, []));
+            }
+            return result;
+        }
+        
+        for (var i in itemdata) {
+            if (itemdata[i].ItemRecipe) {
+                upgrades.push(itemdata[i].ItemResult);
+                recipes[itemdata[i].ItemResult] = i;
+            }
+        }
+        
+        for (var i in itemdata) {
+            if (itemdata[i].ItemRecipe) {
+                itemUpgrade.push({
+                    "name": itemdata[i].ItemResult.replace('item_', ''),
+                    "components": _.map(itemdata[i].ItemRequirements, function (item) {
+                        return item.indexOf('item_recipe_') == -1 ? item.replace('item_', '') : 'recipe';
+                    }),
+                    "cost": itemdata[itemdata[i].ItemResult].itemcost,
+                    "allComponents": getAllComponents(itemdata[i].ItemResult)
+                });
+            }
+            else if (upgrades.indexOf(i) == -1 && i.indexOf('winter_') == -1 && i.indexOf('greevil_') == -1 && i.indexOf('halloween_') == -1 && i.indexOf('mystery_') == -1) {
+                itemBasic.push({
+                    "name": itemdata[i].name.replace('item_', ''),
+                    "components": null,
+                    "cost": itemdata[i].itemcost
+                });
+            }
+        }
+        
         for (var i = 0; i < itemUpgrade.length; i ++) {
             var key = _.reduce(itemUpgrade[i].allComponents, function (memo, item) {
                 return memo + item;

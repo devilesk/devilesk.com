@@ -5,6 +5,10 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+.well {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+}
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
 	color: #333;
 	background-color: #ebebeb;

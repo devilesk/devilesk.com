@@ -15,6 +15,16 @@ margin: auto;
 .form-inline .form-control {
 width: 100%;
 }
+@media (min-width: 768px) {
+.form-inline .form-group {
+width: 45%;
+}
+}
+.well {
+padding: 5px;
+margin: 3px;
+margin-bottom: 6px;
+}
 </style>
   {% endblock custom_css %}
 {% block main %}
@@ -64,6 +74,19 @@ width: 100%;
 </div>
 </div>
 
+<div class="form-group">
+    <input class="form-control" type="button" data-bind="click: toggleFilterVisibility, value: filterVisible() ? 'Hide Filter' : 'Show Filter'" />
+</div>
+
+<div data-bind="visible: filterVisible, foreach: headers">
+<!-- ko if: filter -->
+<div class="col-md-2 well">
+    <label data-bind="html: name"></label>
+    <div class="form-inline" data-bind="template: { name: $root.filterTemplateToUse, data: $data }"></div>
+</div>
+<!-- /ko -->
+</div>
+
 <div class="table-responsive">
 <table class="table">
 <thead>
@@ -79,10 +102,35 @@ width: 100%;
 </table>
 </div>
 
+Row count: <span data-bind="text: data().length"></span>
+
 </div>
 </div>
 {% endblock main %}
   {% block scripts %}
+    <script id="string-filter" type="text/html">
+        <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
+    </script>
+    <script id="select-filter" type="text/html">
+        <select class="form-control" data-bind="options: filterOptions,
+                           optionsText: 'text',
+                           optionsValue: 'value',
+                           value: filterValue,
+                           optionsCaption: ''"></select>
+    </script>
+    <script id="numeric-filter" type="text/html">
+        <div class="form-group">
+            <select class="form-control" data-bind="value: filterComparison">
+                <option value="gt">&gt;</option>
+                <option value="lt">&lt;</option>
+                <option value="eq">=</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
+        </div>
+    </script>
 	<script src="{{ media_url('js/libs/knockout-2.3.0.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 	<script src="{{ media_url('js/herodata/herodata.js') }}"></script>
   {% endblock scripts %}
