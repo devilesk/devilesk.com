@@ -6,14 +6,38 @@ active_menu: page-heroes
 header: Patch History
 ---
 
-  {% block custom_css %}
-  <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
-  <style type="text/css">
+{% block custom_css %}
+<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<style type="text/css">
+.attribute-section {
+	text-align: center;
+}
+.hero-block {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+@media (min-width: 1600px) {
+	.hero-block {
+		width: 504px;
+	}
+}
+.hero:hover {
+	cursor: pointer;
+}
 .hero {
-    margin:1px;
-    width:73px;
-    display:inline-block;
-    box-shadow:3px 3px #0A0A0A;
+    width:68px;
+    float: left;
+	margin: 2px;
+	text-decoration: none;
+}
+.hero-overlay {
+	width: 68px;
+	height: 67px;
+	position:absolute;
+}
+.hero div {
+	box-shadow: inset 0 0 10px #000000;
 }
 .header-wrapper {
 	text-align:center;
@@ -25,192 +49,582 @@ header: Patch History
 	font-size:16px;
 	font-weight:bold;
 }
-.lemonchiffon {
-	color:lemonchiffon;
+span.patch-note:before {
+    content: " - ";
 }
-.lime {
-	color:lime;
+ul#patch-notes {
+	list-style: none;
 }
-.magenta {
-	color:magenta;
+.patch-neutral {
+	color: #f0ad4e;
 }
-.cyan {
-	color:cyan;
+.patch-nerf {
+	color: #d9534f;
 }
-.patch_number {
-	width:50px;
-	display:inline-block;
+.patch-buff {
+	color: #5cb85c;
 }
-#hero_hero_container {
-	clear:both;
-	padding-top:10px;
+.patch-break {
+	margin-top: 10px;
 }
   </style>
   {% endblock custom_css %}
-{% block main %}
-  <div class="col-md-4">
-<div class="header-wrapper"><img src="/media/images/pip_str.png"><span>Strength</span></div>
-<br>
-<div class="hero herosprite herosprite-earthshaker" title="Earthshaker" id="h_earthshaker"></div>
-<div class="hero herosprite herosprite-sven" title="Sven" id="h_sven"></div>
-<div class="hero herosprite herosprite-tiny" title="Tiny" id="h_tiny"></div>
-<div class="hero herosprite herosprite-kunkka" title="Kunkka" id="h_kunkka"></div>
-<br>
-<div class="hero herosprite herosprite-beastmaster" title="Beastmaster" id="h_beastmaster"></div>
-<div class="hero herosprite herosprite-dragon_knight" title="Dragon Knight" id="h_dragon_knight"></div>
-<div class="hero herosprite herosprite-rattletrap" title="Clockwerk" id="h_rattletrap"></div>
-<div class="hero herosprite herosprite-omniknight" title="Omniknight" id="h_omniknight"></div>
-<br>
-<div class="hero herosprite herosprite-huskar" title="Huskar" id="h_huskar"></div>
-<div class="hero herosprite herosprite-alchemist" title="Alchemist" id="h_alchemist"></div>
-<div class="hero herosprite herosprite-brewmaster" title="Brewmaster" id="h_brewmaster"></div>
-<div class="hero herosprite herosprite-treant" title="Treant Protector" id="h_treant"></div>
-<br>
-<div class="hero herosprite herosprite-wisp" title="Io" id="h_wisp"></div>
-<div class="hero herosprite herosprite-centaur" title="Centaur Warrunner" id="h_centaur"></div>
-<div class="hero herosprite herosprite-shredder" title="Timbersaw" id="h_shredder"></div>
-<div class="hero herosprite herosprite-bristleback" title="Bristleback" id="h_bristleback"></div>
-<br>
-<div class="hero herosprite herosprite-tusk" title="Tusk" id="h_tusk"></div>
-<div class="hero herosprite herosprite-elder_titan" title="Elder Titan" id="h_elder_titan"></div>
-<div class="hero herosprite herosprite-legion_commander" title="Legion Commander" id="h_legion_commander"></div>
-<div class="hero herosprite herosprite-earth_spirit" title="Earth Spirit" id="h_earth_spirit"></div>
-<br>
-<div class="hero herosprite herosprite-phoenix" title="Phoenix" id="h_phoenix"></div>
-<br>
-<div class="hero herosprite herosprite-axe" title="Axe" id="h_axe"></div>
-<div class="hero herosprite herosprite-pudge" title="Pudge" id="h_pudge"></div>
-<div class="hero herosprite herosprite-sand_king" title="Sand King" id="h_sand_king"></div>
-<div class="hero herosprite herosprite-slardar" title="Slardar" id="h_slardar"></div>
-<br>
-<div class="hero herosprite herosprite-tidehunter" title="Tidehunter" id="h_tidehunter"></div>
-<div class="hero herosprite herosprite-skeleton_king" title="Wraith King" id="h_skeleton_king"></div>
-<div class="hero herosprite herosprite-life_stealer" title="Lifestealer" id="h_life_stealer"></div>
-<div class="hero herosprite herosprite-night_stalker" title="Night Stalker" id="h_night_stalker"></div>
-<br>
-<div class="hero herosprite herosprite-doom_bringer" title="Doom" id="h_doom_bringer"></div>
-<div class="hero herosprite herosprite-spirit_breaker" title="Spirit Breaker" id="h_spirit_breaker"></div>
-<div class="hero herosprite herosprite-lycan" title="Lycan" id="h_lycan"></div>
-<div class="hero herosprite herosprite-chaos_knight" title="Chaos Knight" id="h_chaos_knight"></div>
-<br>
-<div class="hero herosprite herosprite-undying" title="Undying" id="h_undying"></div>
-<div class="hero herosprite herosprite-magnataur" title="Magnus" id="h_magnataur"></div>
-<div class="hero herosprite herosprite-abaddon" title="Abaddon" id="h_abaddon"></div>
+{% block content2 %}
+<div class="col-md-12">
+	{% block container %}
+	<div id="main" role="main">
+		<header class="banner clearfix">
+			{% block header %}
+				{% if resource.meta.header %}<h2 class="text-center">{{ resource.meta.header }}</h2>{% endif %}
+			{% endblock header %}
+		</header>
+		<section class="content">
+			<div class="col-md-4 attribute-section">
+				<div class="header-wrapper"><img width="32" height="32" src="/media/images/pip_str.png"><span>Strength</span>
+				</div>
+				
+				<div class="hero-block">
+					<div class="hero" id="h_earthshaker">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-earthshaker" title="Earthshaker"></div>
+					</div>
+					<div class="hero" id="h_sven">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-sven" title="Sven"></div>
+					</div>
+					<div class="hero" id="h_tiny">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-tiny" title="Tiny"></div>
+					</div>
+					<div class="hero" id="h_kunkka">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-kunkka" title="Kunkka"></div>
+					</div>
+					<div class="hero" id="h_beastmaster">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-beastmaster" title="Beastmaster"></div>
+					</div>
+					<div class="hero" id="h_dragon_knight">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-dragon_knight" title="Dragon Knight"></div>
+					</div>
+					<div class="hero" id="h_rattletrap">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-rattletrap" title="Clockwerk"></div>
+					</div>
+					
+					<div class="hero" id="h_omniknight">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-omniknight" title="Omniknight"></div>
+					</div>
+					<div class="hero" id="h_huskar">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-huskar" title="Huskar"></div>
+					</div>
+					<div class="hero" id="h_alchemist">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-alchemist" title="Alchemist"></div>
+					</div>
+					<div class="hero" id="h_brewmaster">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-brewmaster" title="Brewmaster"></div>
+					</div>
+					<div class="hero" id="h_treant">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-treant" title="Treant Protector"></div>
+					</div>
+					<div class="hero" id="h_wisp">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-wisp" title="Io"></div>
+					</div>
+					<div class="hero" id="h_centaur">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-centaur" title="Centaur Warrunner"></div>
+					</div>
+					
+					<div class="hero" id="h_shredder">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-shredder" title="Timbersaw"></div>
+					</div>
+					<div class="hero" id="h_bristleback">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-bristleback" title="Bristleback"></div>
+					</div>
+					<div class="hero" id="h_tusk">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-tusk" title="Tusk"></div>
+					</div>
+					<div class="hero" id="h_elder_titan">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-elder_titan" title="Elder Titan"></div>
+					</div>
+					<div class="hero" id="h_legion_commander">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-legion_commander" title="Legion Commander"></div>
+					</div>
+					<div class="hero" id="h_earth_spirit">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-earth_spirit" title="Earth Spirit"></div>
+					</div>
+					<div class="hero" id="h_phoenix">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-phoenix" title="Phoenix"></div>
+					</div>
+				</div>
+				<div class="hero-block">
+					<div class="hero" id="h_axe">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-axe" title="Axe"></div>
+					</div>
+					<div class="hero" id="h_pudge">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-pudge" title="Pudge"></div>
+					</div>
+					<div class="hero" id="h_sand_king">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-sand_king" title="Sand King"></div>
+					</div>
+					<div class="hero" id="h_slardar">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-slardar" title="Slardar"></div>
+					</div>
+					
+					<div class="hero" id="h_tidehunter">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-tidehunter" title="Tidehunter"></div>
+					</div>
+					<div class="hero" id="h_skeleton_king">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-skeleton_king" title="Wraith King"></div>
+					</div>
+					<div class="hero" id="h_life_stealer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-life_stealer" title="Lifestealer"></div>
+					</div>
+					<div class="hero" id="h_night_stalker">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-night_stalker" title="Night Stalker"></div>
+					</div>
+					
+					<div class="hero" id="h_doom_bringer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-doom_bringer" title="Doom"></div>
+					</div>
+					<div class="hero" id="h_spirit_breaker">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-spirit_breaker" title="Spirit Breaker"></div>
+					</div>
+					<div class="hero" id="h_lycan">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-lycan" title="Lycan"></div>
+					</div>
+					<div class="hero" id="h_chaos_knight">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-chaos_knight" title="Chaos Knight"></div>
+					</div>
+					
+					<div class="hero" id="h_undying">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-undying" title="Undying"></div>
+					</div>
+					<div class="hero" id="h_magnataur">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-magnataur" title="Magnus"></div>
+					</div>
+					<div class="hero" id="h_abaddon">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-abaddon" title="Abaddon"></div>
+					</div>
 
-  </div>
+				</div>
+			</div>
 
-  <div class="col-md-4">
-<div class="header-wrapper"><img src="/media/images/pip_agi.png"><span>Agility</span></div>
-<br>
-<div class="hero herosprite herosprite-antimage" title="Anti-Mage" id="h_antimage"></div>
-<div class="hero herosprite herosprite-drow_ranger" title="Drow Ranger" id="h_drow_ranger"></div>
-<div class="hero herosprite herosprite-juggernaut" title="Juggernaut" id="h_juggernaut"></div>
-<div class="hero herosprite herosprite-mirana" title="Mirana" id="h_mirana"></div>
-<br>
-<div class="hero herosprite herosprite-morphling" title="Morphling" id="h_morphling"></div>
-<div class="hero herosprite herosprite-phantom_lancer" title="Phantom Lancer" id="h_phantom_lancer"></div>
-<div class="hero herosprite herosprite-vengefulspirit" title="Vengeful Spirit" id="h_vengefulspirit"></div>
-<div class="hero herosprite herosprite-riki" title="Riki" id="h_riki"></div>
-<br>
-<div class="hero herosprite herosprite-sniper" title="Sniper" id="h_sniper"></div>
-<div class="hero herosprite herosprite-templar_assassin" title="Templar Assassin" id="h_templar_assassin"></div>
-<div class="hero herosprite herosprite-luna" title="Luna" id="h_luna"></div>
-<div class="hero herosprite herosprite-bounty_hunter" title="Bounty Hunter" id="h_bounty_hunter"></div>
-<br>
-<div class="hero herosprite herosprite-ursa" title="Ursa" id="h_ursa"></div>
-<div class="hero herosprite herosprite-gyrocopter" title="Gyrocopter" id="h_gyrocopter"></div>
-<div class="hero herosprite herosprite-lone_druid" title="Lone Druid" id="h_lone_druid"></div>
-<div class="hero herosprite herosprite-naga_siren" title="Naga Siren" id="h_naga_siren"></div>
-<br>
-<div class="hero herosprite herosprite-troll_warlord" title="Troll Warlord" id="h_troll_warlord"></div>
-<div class="hero herosprite herosprite-ember_spirit" title="Ember Spirit" id="h_ember_spirit"></div>
-<br>
-<div class="hero herosprite herosprite-bloodseeker" title="Bloodseeker" id="h_bloodseeker"></div>
-<div class="hero herosprite herosprite-nevermore" title="Shadow Fiend" id="h_nevermore"></div>
-<div class="hero herosprite herosprite-razor" title="Razor" id="h_razor"></div>
-<div class="hero herosprite herosprite-venomancer" title="Venomancer" id="h_venomancer"></div>
-<br>
-<div class="hero herosprite herosprite-faceless_void" title="Faceless Void" id="h_faceless_void"></div>
-<div class="hero herosprite herosprite-phantom_assassin" title="Phantom Assassin" id="h_phantom_assassin"></div>
-<div class="hero herosprite herosprite-viper" title="Viper" id="h_viper"></div>
-<div class="hero herosprite herosprite-clinkz" title="Clinkz" id="h_clinkz"></div>
-<br>
-<div class="hero herosprite herosprite-broodmother" title="Broodmother" id="h_broodmother"></div>
-<div class="hero herosprite herosprite-weaver" title="Weaver" id="h_weaver"></div>
-<div class="hero herosprite herosprite-spectre" title="Spectre" id="h_spectre"></div>
-<div class="hero herosprite herosprite-meepo" title="Meepo" id="h_meepo"></div>
-<br>
-<div class="hero herosprite herosprite-nyx_assassin" title="Nyx Assassin" id="h_nyx_assassin"></div>
-<div class="hero herosprite herosprite-slark" title="Slark" id="h_slark"></div>
-<div class="hero herosprite herosprite-medusa" title="Medusa" id="h_medusa"></div>
-<div class="hero herosprite herosprite-terrorblade" title="Terrorblade" id="h_terrorblade"></div>
+			<div class="col-md-4 attribute-section">
+				<div class="header-wrapper"><img width="32" height="32" src="/media/images/pip_agi.png"><span>Agility</span>
+				</div>
+					<div class="hero-block">
+					<div class="hero" id="h_antimage">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-antimage" title="Anti-Mage"></div>
+					</div>
+					<div class="hero" id="h_drow_ranger">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-drow_ranger" title="Drow Ranger"></div>
+					</div>
+					<div class="hero" id="h_juggernaut">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-juggernaut" title="Juggernaut"></div>
+					</div>
+					<div class="hero" id="h_mirana">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-mirana" title="Mirana"></div>
+					</div>
+					
+					<div class="hero" id="h_morphling">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-morphling" title="Morphling"></div>
+					</div>
+					<div class="hero" id="h_phantom_lancer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-phantom_lancer" title="Phantom Lancer"></div>
+					</div>
+					<div class="hero" id="h_vengefulspirit">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-vengefulspirit" title="Vengeful Spirit"></div>
+					</div>
+					<div class="hero" id="h_riki">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-riki" title="Riki"></div>
+					</div>
+					
+					<div class="hero" id="h_sniper">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-sniper" title="Sniper"></div>
+					</div>
+					<div class="hero" id="h_templar_assassin">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-templar_assassin" title="Templar Assassin"></div>
+					</div>
+					<div class="hero" id="h_luna">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-luna" title="Luna"></div>
+					</div>
+					<div class="hero" id="h_bounty_hunter">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-bounty_hunter" title="Bounty Hunter"></div>
+					</div>
+					
+					<div class="hero" id="h_ursa">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-ursa" title="Ursa"></div>
+					</div>
+					<div class="hero" id="h_gyrocopter">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-gyrocopter" title="Gyrocopter"></div>
+					</div>
+					<div class="hero" id="h_lone_druid">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-lone_druid" title="Lone Druid"></div>
+					</div>
+					<div class="hero" id="h_naga_siren">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-naga_siren" title="Naga Siren"></div>
+					</div>
+					
+					<div class="hero" id="h_troll_warlord">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-troll_warlord" title="Troll Warlord"></div>
+					</div>
+					<div class="hero" id="h_ember_spirit">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-ember_spirit" title="Ember Spirit"></div>
+					</div>
+				</div>
+				<div class="hero-block">
+					<div class="hero" id="h_bloodseeker">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-bloodseeker" title="Bloodseeker"></div>
+					</div>
+					<div class="hero" id="h_nevermore">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-nevermore" title="Shadow Fiend"></div>
+					</div>
+					<div class="hero" id="h_razor">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-razor" title="Razor"></div>
+					</div>
+					<div class="hero" id="h_venomancer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-venomancer" title="Venomancer"></div>
+					</div>
+					
+					<div class="hero" id="h_faceless_void">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-faceless_void" title="Faceless Void"></div>
+					</div>
+					<div class="hero" id="h_phantom_assassin">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-phantom_assassin" title="Phantom Assassin"></div>
+					</div>
+					<div class="hero" id="h_viper">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-viper" title="Viper"></div>
+					</div>
+					<div class="hero" id="h_clinkz">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-clinkz" title="Clinkz"></div>
+					</div>
+					
+					<div class="hero" id="h_broodmother">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-broodmother" title="Broodmother"></div>
+					</div>
+					<div class="hero" id="h_weaver">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-weaver" title="Weaver"></div>
+					</div>
+					<div class="hero" id="h_spectre">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-spectre" title="Spectre"></div>
+					</div>
+					<div class="hero" id="h_meepo">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-meepo" title="Meepo"></div>
+					</div>
+					
+					<div class="hero" id="h_nyx_assassin">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-nyx_assassin" title="Nyx Assassin"></div>
+					</div>
+					<div class="hero" id="h_slark">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-slark" title="Slark"></div>
+					</div>
+					<div class="hero" id="h_medusa">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-medusa" title="Medusa"></div>
+					</div>
+					<div class="hero" id="h_terrorblade">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-terrorblade" title="Terrorblade"></div>
+					</div>
 
-  </div>
+				</div>
+			</div>
 
-  <div class="col-md-4">
-<div class="header-wrapper"><img src="/media/images/pip_int.png"><span>Intelligence</span></div>
-<br>
-<div class="hero herosprite herosprite-crystal_maiden" title="Crystal Maiden" id="h_crystal_maiden"></div>
-<div class="hero herosprite herosprite-puck" title="Puck" id="h_puck"></div>
-<div class="hero herosprite herosprite-storm_spirit" title="Storm Spirit" id="h_storm_spirit"></div>
-<div class="hero herosprite herosprite-windrunner" title="Windranger" id="h_windrunner"></div>
-<br>
-<div class="hero herosprite herosprite-zuus" title="Zeus" id="h_zuus"></div>
-<div class="hero herosprite herosprite-lina" title="Lina" id="h_lina"></div>
-<div class="hero herosprite herosprite-shadow_shaman" title="Shadow Shaman" id="h_shadow_shaman"></div>
-<div class="hero herosprite herosprite-tinker" title="Tinker" id="h_tinker"></div>
-<br>
-<div class="hero herosprite herosprite-furion" title="Nature's Prophet" id="h_furion"></div>
-<div class="hero herosprite herosprite-enchantress" title="Enchantress" id="h_enchantress"></div>
-<div class="hero herosprite herosprite-jakiro" title="Jakiro" id="h_jakiro"></div>
-<div class="hero herosprite herosprite-chen" title="Chen" id="h_chen"></div>
-<br>
-<div class="hero herosprite herosprite-silencer" title="Silencer" id="h_silencer"></div>
-<div class="hero herosprite herosprite-ogre_magi" title="Ogre Magi" id="h_ogre_magi"></div>
-<div class="hero herosprite herosprite-rubick" title="Rubick" id="h_rubick"></div>
-<div class="hero herosprite herosprite-disruptor" title="Disruptor" id="h_disruptor"></div>
-<br>
-<div class="hero herosprite herosprite-keeper_of_the_light" title="Keeper of the Light" id="h_keeper_of_the_light"></div>
-<div class="hero herosprite herosprite-skywrath_mage" title="Skywrath Mage" id="h_skywrath_mage"></div>
-<div class="hero herosprite herosprite-techies" title="Techies" id="h_techies"></div>
-<br>
-<div class="hero herosprite herosprite-bane" title="Bane" id="h_bane"></div>
-<div class="hero herosprite herosprite-lich" title="Lich" id="h_lich"></div>
-<div class="hero herosprite herosprite-lion" title="Lion" id="h_lion"></div>
-<div class="hero herosprite herosprite-witch_doctor" title="Witch Doctor" id="h_witch_doctor"></div>
-<br>
-<div class="hero herosprite herosprite-enigma" title="Enigma" id="h_enigma"></div>
-<div class="hero herosprite herosprite-necrolyte" title="Necrophos" id="h_necrolyte"></div>
-<div class="hero herosprite herosprite-warlock" title="Warlock" id="h_warlock"></div>
-<div class="hero herosprite herosprite-queenofpain" title="Queen of Pain" id="h_queenofpain"></div>
-<br>
-<div class="hero herosprite herosprite-death_prophet" title="Death Prophet" id="h_death_prophet"></div>
-<div class="hero herosprite herosprite-pugna" title="Pugna" id="h_pugna"></div>
-<div class="hero herosprite herosprite-dazzle" title="Dazzle" id="h_dazzle"></div>
-<div class="hero herosprite herosprite-leshrac" title="Leshrac" id="h_leshrac"></div>
-<br>
-<div class="hero herosprite herosprite-batrider" title="Batrider" id="h_batrider"></div>
-<div class="hero herosprite herosprite-dark_seer" title="Dark Seer" id="h_dark_seer"></div>
-<div class="hero herosprite herosprite-ancient_apparition" title="Ancient Apparition" id="h_ancient_apparition"></div>
-<div class="hero herosprite herosprite-invoker" title="Invoker" id="h_invoker"></div>
-<br>
-<div class="hero herosprite herosprite-obsidian_destroyer" title="Outworld Devourer" id="h_obsidian_destroyer"></div>
-<div class="hero herosprite herosprite-shadow_demon" title="Shadow Demon" id="h_shadow_demon"></div>
-<div class="hero herosprite herosprite-visage" title="Visage" id="h_visage"></div>
-</div>
+			<div class="col-md-4 attribute-section">
+				<div class="header-wrapper"><img width="32" height="32" src="/media/images/pip_int.png"><span>Intelligence</span>
+				</div>
+					<div class="hero-block">
+					<div class="hero" id="h_crystal_maiden">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-crystal_maiden" title="Crystal Maiden"></div>
+					</div>
+					<div class="hero" id="h_puck">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-puck" title="Puck"></div>
+					</div>
+					<div class="hero" id="h_storm_spirit">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-storm_spirit" title="Storm Spirit"></div>
+					</div>
+					<div class="hero" id="h_windrunner">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-windrunner" title="Windranger"></div>
+					</div>
+					
+					<div class="hero" id="h_zuus">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-zuus" title="Zeus"></div>
+					</div>
+					<div class="hero" id="h_lina">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-lina" title="Lina"></div>
+					</div>
+					<div class="hero" id="h_shadow_shaman">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-shadow_shaman" title="Shadow Shaman"></div>
+					</div>
+					<div class="hero" id="h_tinker">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-tinker" title="Tinker"></div>
+					</div>
+					
+					<div class="hero" id="h_furion">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-furion" title="Nature's Prophet"></div>
+					</div>
+					<div class="hero" id="h_enchantress">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-enchantress" title="Enchantress"></div>
+					</div>
+					<div class="hero" id="h_jakiro">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-jakiro" title="Jakiro"></div>
+					</div>
+					<div class="hero" id="h_chen">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-chen" title="Chen"></div>
+					</div>
+					
+					<div class="hero" id="h_silencer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-silencer" title="Silencer"></div>
+					</div>
+					<div class="hero" id="h_ogre_magi">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-ogre_magi" title="Ogre Magi"></div>
+					</div>
+					<div class="hero" id="h_rubick">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-rubick" title="Rubick"></div>
+					</div>
+					<div class="hero" id="h_disruptor">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-disruptor" title="Disruptor"></div>
+					</div>
+					
+					<div class="hero" id="h_keeper_of_the_light">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-keeper_of_the_light" title="Keeper of the Light"></div>
+					</div>
+					<div class="hero" id="h_skywrath_mage">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-skywrath_mage" title="Skywrath Mage"></div>
+					</div>
+					<div class="hero" id="h_oracle">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-oracle" title="Oracle"></div>
+					</div>
+					<div class="hero" id="h_techies">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-techies" title="Techies"></div>
+					</div>
+				</div>
+					<div class="hero-block">
+					<div class="hero" id="h_bane">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-bane" title="Bane"></div>
+					</div>
+					<div class="hero" id="h_lich">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-lich" title="Lich"></div>
+					</div>
+					<div class="hero" id="h_lion">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-lion" title="Lion"></div>
+					</div>
+					<div class="hero" id="h_witch_doctor">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-witch_doctor" title="Witch Doctor"></div>
+					</div>
+					
+					<div class="hero" id="h_enigma">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-enigma" title="Enigma"></div>
+					</div>
+					<div class="hero" id="h_necrolyte">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-necrolyte" title="Necrophos"></div>
+					</div>
+					<div class="hero" id="h_warlock">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-warlock" title="Warlock"></div>
+					</div>
+					<div class="hero" id="h_queenofpain">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-queenofpain" title="Queen of Pain"></div>
+					</div>
+					
+					<div class="hero" id="h_death_prophet">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-death_prophet" title="Death Prophet"></div>
+					</div>
+					<div class="hero" id="h_pugna">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-pugna" title="Pugna"></div>
+					</div>
+					<div class="hero" id="h_dazzle">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-dazzle" title="Dazzle"></div>
+					</div>
+					<div class="hero" id="h_leshrac">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-leshrac" title="Leshrac"></div>
+					</div>
+					
+					<div class="hero" id="h_batrider">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-batrider" title="Batrider"></div>
+					</div>
+					<div class="hero" id="h_dark_seer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-dark_seer" title="Dark Seer"></div>
+					</div>
+					<div class="hero" id="h_ancient_apparition">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-ancient_apparition" title="Ancient Apparition"></div>
+					</div>
+					<div class="hero" id="h_invoker">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-invoker" title="Invoker"></div>
+					</div>
+					
+					<div class="hero" id="h_obsidian_destroyer">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-obsidian_destroyer" title="Outworld Devourer"></div>
+					</div>
+					<div class="hero" id="h_shadow_demon">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-shadow_demon" title="Shadow Demon"></div>
+					</div>
+					<div class="hero" id="h_visage">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-visage" title="Visage"></div>
+					</div>
+					<div class="hero" id="h_winter_wyvern">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-winter_wyvern" title="Winter Wyvern"></div>
+					</div>
+				</div>
+			</div>
 
-<div id="hero_hero_container"></div>
-Source: <a href="http://www.playdota.com/forums/showthread.php?t=1349921">PlayDotA.com thread</a>
-{% endblock main %}
+			<div class="col-md-4 col-md-offset-4" id="patch-notes-container">
+				<h2 id="hero-name"></h2>
+				<ul id="patch-notes">
+				</ul>
+			</div>
+			<div class="col-md-4 col-md-offset-4">
+			Source: <a href="http://www.playdota.com/forums/showthread.php?t=1349921">PlayDotA.com thread</a>
+			</div>
+		</section>
+	</div>
+	{% endblock container %}
+</div> <!--! end of #container -->
+{% block push %}
+<div class="push"></div>
+{% endblock push %}
+{% endblock content2 %}
 {% block scripts %}
-    <script type="text/javascript">
-	$( "#hero_hero_container" ).load( "{{ media_url('patchhistory.shtml') }}", function() {
-		$('.hero_patch_notes').hide();
+<script type="text/javascript">
+$(function () {
+	$.getJSON("/media/js/patchdata.json", function (data) {
 		$('.hero').click(function() {
-			$('.hero_patch_notes').hide().filter('#npc_dota_hero_' + $(this).attr('id').substring(2)).show();
+			var hero = $(this).attr('id').substring(2);
+			patchdata = data[hero];
+			displayname = $(this).find('.cropped-vert-portrait').attr('title');
+			$('#hero-name').html(displayname);
+			$('#patch-notes').empty();
+			var current_patchnumber = patchdata[0][0];
+			for (var i = 0; i < patchdata.length; i++) {
+				var patchnotedata = patchdata[i];
+				var note = $('<li></li>').addClass('patch-note');
+				var patchnumber = $('<span></span>').addClass('patch-number').html(patchnotedata[0]);
+				var patchnote = $('<span></span>').addClass('patch-note').html(patchnotedata[2]);
+				switch (patchnotedata[1]) {
+					case 'nerf':
+						patchnumber.addClass('patch-nerf');
+					break;
+					case 'buff':
+						patchnumber.addClass('patch-buff');
+					break;
+					case 'neutral':
+						patchnumber.addClass('patch-neutral');
+					break;
+				}
+				note.append(patchnumber);
+				note.append(patchnote);
+				$('#patch-notes').append(note);
+				
+				if (current_patchnumber != patchnotedata[0]) {
+					current_patchnumber = patchnotedata[0];
+					note.addClass('patch-break');
+				}
+			}
 		});	
 	});
 
-	</script>
+});
+</script>
 
 {% endblock scripts %}

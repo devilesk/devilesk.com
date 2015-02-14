@@ -1,0 +1,16 @@
+{% extends "base.j2" %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<link rel="stylesheet" href="{{ media_url('css/items.css') }}">
+<link rel="stylesheet" href="{{ media_url('css/patch.css') }}">
+{% endblock custom_css %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$('body').scrollspy({
+		target: '.bs-docs-sidebar',
+		offset: 40
+	});
+</script>
+{% endblock scripts %}

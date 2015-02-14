@@ -20,7 +20,9 @@
     {% block custom_css %}
     {% endblock custom_css %}
 
-    {% block headjs %}{% endblock headjs %}
+    {% block headjs %}
+	<script src="{{ media_url('js/style-switcher-head.js') }}"></script>
+	{% endblock headjs %}
     {% block endhead %}{% endblock endhead %}
 </head>
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}" class="{{ resource.meta.active_menu }}">

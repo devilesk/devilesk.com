@@ -5,6 +5,38 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+body {
+	background-color:#131415;
+	color:#979aa2;
+	letter-spacing:.2px;
+	line-height:1.5em;
+}
+table.highlight-row tbody tr:hover {
+    background-color: #1c1d1f;
+}
+.column-item-info {
+    padding-left: 10px;
+	overflow: hidden;
+}
+a.column-item {
+    display: inline-block;
+    color: #979aa2;
+	margin-bottom: 20px;
+	width: 100%;
+}
+a.column-item:hover, a.column-item:focus {
+    color: #2a6496;
+}
+a.column-item img {
+    width: 90px;
+}
+.overlay-hover:hover {
+	opacity: .15;
+}
+.overlay-hover {
+	background: linear-gradient(to bottom, white, black);
+	opacity: 0;
+}
 .well {
     background-color: #131415;
     border: 1px solid #303239;
@@ -32,18 +64,6 @@ html {
 }
 .hideColumn {
 	background-color:#131415 !important;
-}
-.hero {
-opacity:0.75;
-filter:alpha(opacity=75); /* For IE8 and earlier */
-}
-.hero:hover {
-opacity:1;
-filter:alpha(opacity=100); /* For IE8 and earlier */
-}
-.hero:active {
-opacity:0.75;
-filter:alpha(opacity=75); /* For IE8 and earlier */
 }
 .nav-tabs>li>a:hover {
 border-color: #303236;
@@ -129,15 +149,10 @@ footer > img {
 	background:url("/media/images/header.png");
 	background-repeat:no-repeat;
 }
-body {
-	background-color:#131415;
-	color:#979aa2;
-	letter-spacing:.2px;
-	line-height:1.5em;
-}
 .navbar-default {
 	background-color:#202124;
 	border-color:#202124;
+	background: linear-gradient(to bottom, #202124, #1c1d1f);
 }
 .jumbotron {
 	background-color:#1c1d1f;

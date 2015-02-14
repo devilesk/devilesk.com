@@ -1,6 +1,6 @@
-/*! jQuery UI - v1.11.0 - 2014-07-26
+/*! jQuery UI - v1.11.2 - 2014-10-23
 * http://jqueryui.com
-* Includes: core.js, widget.js, mouse.js, position.js, draggable.js, resizable.js, autocomplete.js, button.js, dialog.js, menu.js
+* Includes: core.js, widget.js, mouse.js, position.js, draggable.js, resizable.js, autocomplete.js, button.js, dialog.js, menu.js, spinner.js
 * Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
 
 (function( factory ) {
@@ -15,7 +15,7 @@
 	}
 }(function( $ ) {
 /*!
- * jQuery UI Core 1.11.0
+ * jQuery UI Core 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -30,7 +30,7 @@
 $.ui = $.ui || {};
 
 $.extend( $.ui, {
-	version: "1.11.0",
+	version: "1.11.2",
 
 	keyCode: {
 		BACKSPACE: 8,
@@ -54,15 +54,16 @@ $.extend( $.ui, {
 
 // plugins
 $.fn.extend({
-	scrollParent: function() {
+	scrollParent: function( includeHidden ) {
 		var position = this.css( "position" ),
 			excludeStaticParent = position === "absolute",
+			overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/,
 			scrollParent = this.parents().filter( function() {
 				var parent = $( this );
 				if ( excludeStaticParent && parent.css( "position" ) === "static" ) {
 					return false;
 				}
-				return (/(auto|scroll)/).test( parent.css( "overflow" ) + parent.css( "overflow-y" ) + parent.css( "overflow-x" ) );
+				return overflowRegex.test( parent.css( "overflow" ) + parent.css( "overflow-y" ) + parent.css( "overflow-x" ) );
 			}).eq( 0 );
 
 		return position === "fixed" || !scrollParent.length ? $( this[ 0 ].ownerDocument || document ) : scrollParent;
@@ -99,7 +100,7 @@ function focusable( element, isTabIndexNotNaN ) {
 		if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
 			return false;
 		}
-		img = $( "img[usemap=#" + mapName + "]" )[0];
+		img = $( "img[usemap='#" + mapName + "']" )[ 0 ];
 		return !!img && visible( img );
 	}
 	return ( /input|select|textarea|button|object/.test( nodeName ) ?
@@ -308,7 +309,7 @@ $.ui.plugin = {
 
 
 /*!
- * jQuery UI Widget 1.11.0
+ * jQuery UI Widget 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -324,11 +325,18 @@ var widget_uuid = 0,
 
 $.cleanData = (function( orig ) {
 	return function( elems ) {
-		for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
+		var events, elem, i;
+		for ( i = 0; (elem = elems[i]) != null; i++ ) {
 			try {
-				$( elem ).triggerHandler( "remove" );
+
+				// Only trigger remove when necessary to save time
+				events = $._data( elem, "events" );
+				if ( events && events.remove ) {
+					$( elem ).triggerHandler( "remove" );
+				}
+
 			// http://bugs.jquery.com/ticket/8235
-			} catch( e ) {}
+			} catch ( e ) {}
 		}
 		orig( elems );
 	};
@@ -546,10 +554,6 @@ $.Widget.prototype = {
 		this.element = $( element );
 		this.uuid = widget_uuid++;
 		this.eventNamespace = "." + this.widgetName + this.uuid;
-		this.options = $.widget.extend( {},
-			this.options,
-			this._getCreateOptions(),
-			options );
 
 		this.bindings = $();
 		this.hoverable = $();
@@ -571,6 +575,11 @@ $.Widget.prototype = {
 				element.document || element );
 			this.window = $( this.document[0].defaultView || this.document[0].parentWindow );
 		}
+
+		this.options = $.widget.extend( {},
+			this.options,
+			this._getCreateOptions(),
+			options );
 
 		this._create();
 		this._trigger( "create", null, this._getCreateEventData() );
@@ -734,8 +743,14 @@ $.Widget.prototype = {
 	},
 
 	_off: function( element, eventName ) {
-		eventName = (eventName || "").split( " " ).join( this.eventNamespace + " " ) + this.eventNamespace;
+		eventName = (eventName || "").split( " " ).join( this.eventNamespace + " " ) +
+			this.eventNamespace;
 		element.unbind( eventName ).undelegate( eventName );
+
+		// Clear the stack to avoid memory leaks (#10056)
+		this.bindings = $( this.bindings.not( element ).get() );
+		this.focusable = $( this.focusable.not( element ).get() );
+		this.hoverable = $( this.hoverable.not( element ).get() );
 	},
 
 	_delay: function( handler, delay ) {
@@ -841,7 +856,7 @@ var widget = $.widget;
 
 
 /*!
- * jQuery UI Mouse 1.11.0
+ * jQuery UI Mouse 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -858,7 +873,7 @@ $( document ).mouseup( function() {
 });
 
 var mouse = $.widget("ui.mouse", {
-	version: "1.11.0",
+	version: "1.11.2",
 	options: {
 		cancel: "input,textarea,button,select,option",
 		distance: 1,
@@ -898,6 +913,8 @@ var mouse = $.widget("ui.mouse", {
 		if ( mouseHandled ) {
 			return;
 		}
+
+		this._mouseMoved = false;
 
 		// we may have missed mouseup (out of window)
 		(this._mouseStarted && this._mouseUp(event));
@@ -952,13 +969,23 @@ var mouse = $.widget("ui.mouse", {
 	},
 
 	_mouseMove: function(event) {
-		// IE mouseup check - mouseup happened when mouse was out of window
-		if ($.ui.ie && ( !document.documentMode || document.documentMode < 9 ) && !event.button) {
-			return this._mouseUp(event);
+		// Only check for mouseups outside the document if you've moved inside the document
+		// at least once. This prevents the firing of mouseup in the case of IE<9, which will
+		// fire a mousemove event if content is placed under the cursor. See #7778
+		// Support: IE <9
+		if ( this._mouseMoved ) {
+			// IE mouseup check - mouseup happened when mouse was out of window
+			if ($.ui.ie && ( !document.documentMode || document.documentMode < 9 ) && !event.button) {
+				return this._mouseUp(event);
 
-		// Iframe mouseup check - mouseup occurred in another document
-		} else if ( !event.which ) {
-			return this._mouseUp( event );
+			// Iframe mouseup check - mouseup occurred in another document
+			} else if ( !event.which ) {
+				return this._mouseUp( event );
+			}
+		}
+
+		if ( event.which || event.button ) {
+			this._mouseMoved = true;
 		}
 
 		if (this._mouseStarted) {
@@ -1015,7 +1042,7 @@ var mouse = $.widget("ui.mouse", {
 
 
 /*!
- * jQuery UI Position 1.11.0
+ * jQuery UI Position 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -1129,8 +1156,11 @@ $.position = {
 			offset: withinElement.offset() || { left: 0, top: 0 },
 			scrollLeft: withinElement.scrollLeft(),
 			scrollTop: withinElement.scrollTop(),
-			width: isWindow ? withinElement.width() : withinElement.outerWidth(),
-			height: isWindow ? withinElement.height() : withinElement.outerHeight()
+
+			// support: jQuery 1.6.x
+			// jQuery 1.6 doesn't support .outerWidth/Height() on documents or windows
+			width: isWindow || isDocument ? withinElement.width() : withinElement.outerWidth(),
+			height: isWindow || isDocument ? withinElement.height() : withinElement.outerHeight()
 		};
 	}
 };
@@ -1519,7 +1549,7 @@ var position = $.ui.position;
 
 
 /*!
- * jQuery UI Draggable 1.11.0
+ * jQuery UI Draggable 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -1531,7 +1561,7 @@ var position = $.ui.position;
 
 
 $.widget("ui.draggable", $.ui.mouse, {
-	version: "1.11.0",
+	version: "1.11.2",
 	widgetEventPrefix: "drag",
 	options: {
 		addClasses: true,
@@ -1566,8 +1596,8 @@ $.widget("ui.draggable", $.ui.mouse, {
 	},
 	_create: function() {
 
-		if (this.options.helper === "original" && !(/^(?:r|a|f)/).test(this.element.css("position"))) {
-			this.element[0].style.position = "relative";
+		if ( this.options.helper === "original" ) {
+			this._setPositionRelative();
 		}
 		if (this.options.addClasses){
 			this.element.addClass("ui-draggable");
@@ -1583,6 +1613,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 	_setOption: function( key, value ) {
 		this._super( key, value );
 		if ( key === "handle" ) {
+			this._removeHandleClassName();
 			this._setHandleClassName();
 		}
 	},
@@ -1598,20 +1629,9 @@ $.widget("ui.draggable", $.ui.mouse, {
 	},
 
 	_mouseCapture: function(event) {
+		var o = this.options;
 
-		var document = this.document[ 0 ],
-			o = this.options;
-
-		// support: IE9
-		// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
-		try {
-			// Support: IE9+
-			// If the <body> is blurred, IE will switch windows, see #9520
-			if ( document.activeElement && document.activeElement.nodeName.toLowerCase() !== "body" ) {
-				// Blur any element that currently has focus, see #4261
-				$( document.activeElement ).blur();
-			}
-		} catch ( error ) {}
+		this._blurActiveElement( event );
 
 		// among others, prevent a drag on a resizable-handle
 		if (this.helper || o.disabled || $(event.target).closest(".ui-resizable-handle").length > 0) {
@@ -1624,18 +1644,52 @@ $.widget("ui.draggable", $.ui.mouse, {
 			return false;
 		}
 
-		$(o.iframeFix === true ? "iframe" : o.iframeFix).each(function() {
-			$("<div class='ui-draggable-iframeFix' style='background: #fff;'></div>")
-			.css({
-				width: this.offsetWidth + "px", height: this.offsetHeight + "px",
-				position: "absolute", opacity: "0.001", zIndex: 1000
-			})
-			.css($(this).offset())
-			.appendTo("body");
-		});
+		this._blockFrames( o.iframeFix === true ? "iframe" : o.iframeFix );
 
 		return true;
 
+	},
+
+	_blockFrames: function( selector ) {
+		this.iframeBlocks = this.document.find( selector ).map(function() {
+			var iframe = $( this );
+
+			return $( "<div>" )
+				.css( "position", "absolute" )
+				.appendTo( iframe.parent() )
+				.outerWidth( iframe.outerWidth() )
+				.outerHeight( iframe.outerHeight() )
+				.offset( iframe.offset() )[ 0 ];
+		});
+	},
+
+	_unblockFrames: function() {
+		if ( this.iframeBlocks ) {
+			this.iframeBlocks.remove();
+			delete this.iframeBlocks;
+		}
+	},
+
+	_blurActiveElement: function( event ) {
+		var document = this.document[ 0 ];
+
+		// Only need to blur if the event occurred on the draggable itself, see #10527
+		if ( !this.handleElement.is( event.target ) ) {
+			return;
+		}
+
+		// support: IE9
+		// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
+		try {
+
+			// Support: IE9, IE10
+			// If the <body> is blurred, IE will switch windows, see #9520
+			if ( document.activeElement && document.activeElement.nodeName.toLowerCase() !== "body" ) {
+
+				// Blur any element that currently has focus, see #4261
+				$( document.activeElement ).blur();
+			}
+		} catch ( error ) {}
 	},
 
 	_mouseStart: function(event) {
@@ -1665,28 +1719,15 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		//Store the helper's css position
 		this.cssPosition = this.helper.css( "position" );
-		this.scrollParent = this.helper.scrollParent();
+		this.scrollParent = this.helper.scrollParent( true );
 		this.offsetParent = this.helper.offsetParent();
-		this.offsetParentCssPosition = this.offsetParent.css( "position" );
+		this.hasFixedAncestor = this.helper.parents().filter(function() {
+				return $( this ).css( "position" ) === "fixed";
+			}).length > 0;
 
 		//The element's absolute position on the page minus margins
-		this.offset = this.positionAbs = this.element.offset();
-		this.offset = {
-			top: this.offset.top - this.margins.top,
-			left: this.offset.left - this.margins.left
-		};
-
-		//Reset scroll cache
-		this.offset.scroll = false;
-
-		$.extend(this.offset, {
-			click: { //Where the click happened, relative to the element
-				left: event.pageX - this.offset.left,
-				top: event.pageY - this.offset.top
-			},
-			parent: this._getParentOffset(),
-			relative: this._getRelativeOffset() //This is a relative to absolute position minus the actual position calculation - only used for relative positioned helper
-		});
+		this.positionAbs = this.element.offset();
+		this._refreshOffsets( event );
 
 		//Generate the original position
 		this.originalPosition = this.position = this._generatePosition( event, false );
@@ -1713,6 +1754,10 @@ $.widget("ui.draggable", $.ui.mouse, {
 			$.ui.ddmanager.prepareOffsets(this, event);
 		}
 
+		// Reset helper's right/bottom css if they're set and set explicit width/height instead
+		// as this prevents resizing of elements with right/bottom set (see #7772)
+		this._normalizeRightBottom();
+
 		this._mouseDrag(event, true); //Execute the drag once - this causes the helper not to be visible before getting its correct position
 
 		//If the ddmanager is used for droppables, inform the manager that dragging has started (see #5003)
@@ -1723,9 +1768,24 @@ $.widget("ui.draggable", $.ui.mouse, {
 		return true;
 	},
 
+	_refreshOffsets: function( event ) {
+		this.offset = {
+			top: this.positionAbs.top - this.margins.top,
+			left: this.positionAbs.left - this.margins.left,
+			scroll: false,
+			parent: this._getParentOffset(),
+			relative: this._getRelativeOffset()
+		};
+
+		this.offset.click = {
+			left: event.pageX - this.offset.left,
+			top: event.pageY - this.offset.top
+		};
+	},
+
 	_mouseDrag: function(event, noPropagation) {
 		// reset any necessary cached properties (see #5009)
-		if ( this.offsetParentCssPosition === "fixed" ) {
+		if ( this.hasFixedAncestor ) {
 			this.offset.parent = this._getParentOffset();
 		}
 
@@ -1783,19 +1843,19 @@ $.widget("ui.draggable", $.ui.mouse, {
 		return false;
 	},
 
-	_mouseUp: function(event) {
-		//Remove frame helpers
-		$("div.ui-draggable-iframeFix").each(function() {
-			this.parentNode.removeChild(this);
-		});
+	_mouseUp: function( event ) {
+		this._unblockFrames();
 
 		//If the ddmanager is used for droppables, inform the manager that dragging has stopped (see #5003)
 		if ( $.ui.ddmanager ) {
 			$.ui.ddmanager.dragStop(this, event);
 		}
 
-		// The interaction is over; whether or not the click resulted in a drag, focus the element
-		this.element.focus();
+		// Only need to focus if the event occurred on the draggable itself, see #10527
+		if ( this.handleElement.is( event.target ) ) {
+			// The interaction is over; whether or not the click resulted in a drag, focus the element
+			this.element.focus();
+		}
 
 		return $.ui.mouse.prototype._mouseUp.call(this, event);
 	},
@@ -1819,23 +1879,34 @@ $.widget("ui.draggable", $.ui.mouse, {
 	},
 
 	_setHandleClassName: function() {
-		this._removeHandleClassName();
-		$( this.options.handle || this.element ).addClass( "ui-draggable-handle" );
+		this.handleElement = this.options.handle ?
+			this.element.find( this.options.handle ) : this.element;
+		this.handleElement.addClass( "ui-draggable-handle" );
 	},
 
 	_removeHandleClassName: function() {
-		this.element.find( ".ui-draggable-handle" )
-			.addBack()
-			.removeClass( "ui-draggable-handle" );
+		this.handleElement.removeClass( "ui-draggable-handle" );
 	},
 
 	_createHelper: function(event) {
 
 		var o = this.options,
-			helper = $.isFunction(o.helper) ? $(o.helper.apply(this.element[ 0 ], [ event ])) : (o.helper === "clone" ? this.element.clone().removeAttr("id") : this.element);
+			helperIsFunction = $.isFunction( o.helper ),
+			helper = helperIsFunction ?
+				$( o.helper.apply( this.element[ 0 ], [ event ] ) ) :
+				( o.helper === "clone" ?
+					this.element.clone().removeAttr( "id" ) :
+					this.element );
 
 		if (!helper.parents("body").length) {
 			helper.appendTo((o.appendTo === "parent" ? this.element[0].parentNode : o.appendTo));
+		}
+
+		// http://bugs.jqueryui.com/ticket/9446
+		// a helper function can return the original element
+		// which wouldn't have been set to relative in _create
+		if ( helperIsFunction && helper[ 0 ] === this.element[ 0 ] ) {
+			this._setPositionRelative();
 		}
 
 		if (helper[0] !== this.element[0] && !(/(fixed|absolute)/).test(helper.css("position"))) {
@@ -1844,6 +1915,12 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		return helper;
 
+	},
+
+	_setPositionRelative: function() {
+		if ( !( /^(?:r|a|f)/ ).test( this.element.css( "position" ) ) ) {
+			this.element[ 0 ].style.position = "relative";
+		}
 	},
 
 	_adjustOffsetFromHelper: function(obj) {
@@ -1891,8 +1968,8 @@ $.widget("ui.draggable", $.ui.mouse, {
 		}
 
 		return {
-			top: po.top + (parseInt(this.offsetParent.css("borderTopWidth"),10) || 0),
-			left: po.left + (parseInt(this.offsetParent.css("borderLeftWidth"),10) || 0)
+			top: po.top + (parseInt(this.offsetParent.css("borderTopWidth"), 10) || 0),
+			left: po.left + (parseInt(this.offsetParent.css("borderLeftWidth"), 10) || 0)
 		};
 
 	},
@@ -1914,10 +1991,10 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 	_cacheMargins: function() {
 		this.margins = {
-			left: (parseInt(this.element.css("marginLeft"),10) || 0),
-			top: (parseInt(this.element.css("marginTop"),10) || 0),
-			right: (parseInt(this.element.css("marginRight"),10) || 0),
-			bottom: (parseInt(this.element.css("marginBottom"),10) || 0)
+			left: (parseInt(this.element.css("marginLeft"), 10) || 0),
+			top: (parseInt(this.element.css("marginTop"), 10) || 0),
+			right: (parseInt(this.element.css("marginRight"), 10) || 0),
+			bottom: (parseInt(this.element.css("marginBottom"), 10) || 0)
 		};
 	},
 
@@ -1930,11 +2007,11 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 	_setContainment: function() {
 
-		var over, c, ce,
+		var isUserScrollable, c, ce,
 			o = this.options,
 			document = this.document[ 0 ];
 
-		this.relative_container = null;
+		this.relativeContainer = null;
 
 		if ( !o.containment ) {
 			this.containment = null;
@@ -1977,15 +2054,25 @@ $.widget("ui.draggable", $.ui.mouse, {
 			return;
 		}
 
-		over = c.css( "overflow" ) !== "hidden";
+		isUserScrollable = /(scroll|auto)/.test( c.css( "overflow" ) );
 
 		this.containment = [
 			( parseInt( c.css( "borderLeftWidth" ), 10 ) || 0 ) + ( parseInt( c.css( "paddingLeft" ), 10 ) || 0 ),
 			( parseInt( c.css( "borderTopWidth" ), 10 ) || 0 ) + ( parseInt( c.css( "paddingTop" ), 10 ) || 0 ),
-			( over ? Math.max( ce.scrollWidth, ce.offsetWidth ) : ce.offsetWidth ) - ( parseInt( c.css( "borderRightWidth" ), 10 ) || 0 ) - ( parseInt( c.css( "paddingRight" ), 10 ) || 0 ) - this.helperProportions.width - this.margins.left - this.margins.right,
-			( over ? Math.max( ce.scrollHeight, ce.offsetHeight ) : ce.offsetHeight ) - ( parseInt( c.css( "borderBottomWidth" ), 10 ) || 0 ) - ( parseInt( c.css( "paddingBottom" ), 10 ) || 0 ) - this.helperProportions.height - this.margins.top  - this.margins.bottom
+			( isUserScrollable ? Math.max( ce.scrollWidth, ce.offsetWidth ) : ce.offsetWidth ) -
+				( parseInt( c.css( "borderRightWidth" ), 10 ) || 0 ) -
+				( parseInt( c.css( "paddingRight" ), 10 ) || 0 ) -
+				this.helperProportions.width -
+				this.margins.left -
+				this.margins.right,
+			( isUserScrollable ? Math.max( ce.scrollHeight, ce.offsetHeight ) : ce.offsetHeight ) -
+				( parseInt( c.css( "borderBottomWidth" ), 10 ) || 0 ) -
+				( parseInt( c.css( "paddingBottom" ), 10 ) || 0 ) -
+				this.helperProportions.height -
+				this.margins.top -
+				this.margins.bottom
 		];
-		this.relative_container = c;
+		this.relativeContainer = c;
 	},
 
 	_convertPositionTo: function(d, pos) {
@@ -2038,8 +2125,8 @@ $.widget("ui.draggable", $.ui.mouse, {
 		// If we are not dragging yet, we won't check for options
 		if ( constrainPosition ) {
 			if ( this.containment ) {
-				if ( this.relative_container ){
-					co = this.relative_container.offset();
+				if ( this.relativeContainer ){
+					co = this.relativeContainer.offset();
 					containment = [
 						this.containment[ 0 ] + co.left,
 						this.containment[ 1 ] + co.top,
@@ -2113,16 +2200,29 @@ $.widget("ui.draggable", $.ui.mouse, {
 		}
 	},
 
+	_normalizeRightBottom: function() {
+		if ( this.options.axis !== "y" && this.helper.css( "right" ) !== "auto" ) {
+			this.helper.width( this.helper.width() );
+			this.helper.css( "right", "auto" );
+		}
+		if ( this.options.axis !== "x" && this.helper.css( "bottom" ) !== "auto" ) {
+			this.helper.height( this.helper.height() );
+			this.helper.css( "bottom", "auto" );
+		}
+	},
+
 	// From now on bulk stuff - mainly helpers
 
-	_trigger: function(type, event, ui) {
+	_trigger: function( type, event, ui ) {
 		ui = ui || this._uiHash();
 		$.ui.plugin.call( this, type, [ event, ui, this ], true );
-		//The absolute position has to be recalculated after plugins
-		if (type === "drag") {
-			this.positionAbs = this._convertPositionTo("absolute");
+
+		// Absolute position and offset (see #6884 ) have to be recalculated after plugins
+		if ( /^(drag|start|stop)/.test( type ) ) {
+			this.positionAbs = this._convertPositionTo( "absolute" );
+			ui.offset = this.positionAbs;
 		}
-		return $.Widget.prototype._trigger.call(this, type, event, ui);
+		return $.Widget.prototype._trigger.call( this, type, event, ui );
 	},
 
 	plugins: {},
@@ -2138,160 +2238,197 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 });
 
-$.ui.plugin.add("draggable", "connectToSortable", {
-	start: function( event, ui, inst ) {
+$.ui.plugin.add( "draggable", "connectToSortable", {
+	start: function( event, ui, draggable ) {
+		var uiSortable = $.extend( {}, ui, {
+			item: draggable.element
+		});
 
-		var o = inst.options,
-			uiSortable = $.extend({}, ui, { item: inst.element });
-		inst.sortables = [];
-		$(o.connectToSortable).each(function() {
+		draggable.sortables = [];
+		$( draggable.options.connectToSortable ).each(function() {
 			var sortable = $( this ).sortable( "instance" );
-			if (sortable && !sortable.options.disabled) {
-				inst.sortables.push({
-					instance: sortable,
-					shouldRevert: sortable.options.revert
-				});
-				sortable.refreshPositions();	// Call the sortable's refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
+
+			if ( sortable && !sortable.options.disabled ) {
+				draggable.sortables.push( sortable );
+
+				// refreshPositions is called at drag start to refresh the containerCache
+				// which is used in drag. This ensures it's initialized and synchronized
+				// with any changes that might have happened on the page since initialization.
+				sortable.refreshPositions();
 				sortable._trigger("activate", event, uiSortable);
 			}
 		});
-
 	},
-	stop: function( event, ui, inst ) {
-
-		//If we are still over the sortable, we fake the stop event of the sortable, but also remove helper
+	stop: function( event, ui, draggable ) {
 		var uiSortable = $.extend( {}, ui, {
-			item: inst.element
+			item: draggable.element
 		});
 
-		$.each(inst.sortables, function() {
-			if (this.instance.isOver) {
+		draggable.cancelHelperRemoval = false;
 
-				this.instance.isOver = 0;
+		$.each( draggable.sortables, function() {
+			var sortable = this;
 
-				inst.cancelHelperRemoval = true; //Don't remove the helper in the draggable instance
-				this.instance.cancelHelperRemoval = false; //Remove it in the sortable instance (so sortable plugins like revert still work)
+			if ( sortable.isOver ) {
+				sortable.isOver = 0;
 
-				//The sortable revert is supported, and we have to set a temporary dropped variable on the draggable to support revert: "valid/invalid"
-				if (this.shouldRevert) {
-					this.instance.options.revert = this.shouldRevert;
-				}
+				// Allow this sortable to handle removing the helper
+				draggable.cancelHelperRemoval = true;
+				sortable.cancelHelperRemoval = false;
 
-				//Trigger the stop of the sortable
-				this.instance._mouseStop(event);
+				// Use _storedCSS To restore properties in the sortable,
+				// as this also handles revert (#9675) since the draggable
+				// may have modified them in unexpected ways (#8809)
+				sortable._storedCSS = {
+					position: sortable.placeholder.css( "position" ),
+					top: sortable.placeholder.css( "top" ),
+					left: sortable.placeholder.css( "left" )
+				};
 
-				this.instance.options.helper = this.instance.options._helper;
+				sortable._mouseStop(event);
 
-				//If the helper has been the original item, restore properties in the sortable
-				if (inst.options.helper === "original") {
-					this.instance.currentItem.css({ top: "auto", left: "auto" });
-				}
-
+				// Once drag has ended, the sortable should return to using
+				// its original helper, not the shared helper from draggable
+				sortable.options.helper = sortable.options._helper;
 			} else {
-				this.instance.cancelHelperRemoval = false; //Remove the helper in the sortable instance
-				this.instance._trigger("deactivate", event, uiSortable);
+				// Prevent this Sortable from removing the helper.
+				// However, don't set the draggable to remove the helper
+				// either as another connected Sortable may yet handle the removal.
+				sortable.cancelHelperRemoval = true;
+
+				sortable._trigger( "deactivate", event, uiSortable );
 			}
-
 		});
-
 	},
-	drag: function( event, ui, inst ) {
-
-		var that = this;
-
-		$.each(inst.sortables, function() {
-
+	drag: function( event, ui, draggable ) {
+		$.each( draggable.sortables, function() {
 			var innermostIntersecting = false,
-				thisSortable = this;
+				sortable = this;
 
-			//Copy over some variables to allow calling the sortable's native _intersectsWith
-			this.instance.positionAbs = inst.positionAbs;
-			this.instance.helperProportions = inst.helperProportions;
-			this.instance.offset.click = inst.offset.click;
+			// Copy over variables that sortable's _intersectsWith uses
+			sortable.positionAbs = draggable.positionAbs;
+			sortable.helperProportions = draggable.helperProportions;
+			sortable.offset.click = draggable.offset.click;
 
-			if (this.instance._intersectsWith(this.instance.containerCache)) {
+			if ( sortable._intersectsWith( sortable.containerCache ) ) {
 				innermostIntersecting = true;
-				$.each(inst.sortables, function() {
-					this.instance.positionAbs = inst.positionAbs;
-					this.instance.helperProportions = inst.helperProportions;
-					this.instance.offset.click = inst.offset.click;
-					if (this !== thisSortable &&
-						this.instance._intersectsWith(this.instance.containerCache) &&
-						$.contains(thisSortable.instance.element[0], this.instance.element[0])
-					) {
+
+				$.each( draggable.sortables, function() {
+					// Copy over variables that sortable's _intersectsWith uses
+					this.positionAbs = draggable.positionAbs;
+					this.helperProportions = draggable.helperProportions;
+					this.offset.click = draggable.offset.click;
+
+					if ( this !== sortable &&
+							this._intersectsWith( this.containerCache ) &&
+							$.contains( sortable.element[ 0 ], this.element[ 0 ] ) ) {
 						innermostIntersecting = false;
 					}
+
 					return innermostIntersecting;
 				});
 			}
 
-			if (innermostIntersecting) {
-				//If it intersects, we use a little isOver variable and set it once, so our move-in stuff gets fired only once
-				if (!this.instance.isOver) {
+			if ( innermostIntersecting ) {
+				// If it intersects, we use a little isOver variable and set it once,
+				// so that the move-in stuff gets fired only once.
+				if ( !sortable.isOver ) {
+					sortable.isOver = 1;
 
-					this.instance.isOver = 1;
-					//Now we fake the start of dragging for the sortable instance,
-					//by cloning the list group item, appending it to the sortable and using it as inst.currentItem
-					//We can then fire the start event of the sortable with our passed browser event, and our own helper (so it doesn't create a new one)
-					this.instance.currentItem = $(that).clone().removeAttr("id").appendTo(this.instance.element).data("ui-sortable-item", true);
-					this.instance.options._helper = this.instance.options.helper; //Store helper option to later restore it
-					this.instance.options.helper = function() { return ui.helper[0]; };
+					sortable.currentItem = ui.helper
+						.appendTo( sortable.element )
+						.data( "ui-sortable-item", true );
 
-					event.target = this.instance.currentItem[0];
-					this.instance._mouseCapture(event, true);
-					this.instance._mouseStart(event, true, true);
+					// Store helper option to later restore it
+					sortable.options._helper = sortable.options.helper;
 
-					//Because the browser event is way off the new appended portlet, we modify a couple of variables to reflect the changes
-					this.instance.offset.click.top = inst.offset.click.top;
-					this.instance.offset.click.left = inst.offset.click.left;
-					this.instance.offset.parent.left -= inst.offset.parent.left - this.instance.offset.parent.left;
-					this.instance.offset.parent.top -= inst.offset.parent.top - this.instance.offset.parent.top;
+					sortable.options.helper = function() {
+						return ui.helper[ 0 ];
+					};
 
-					inst._trigger("toSortable", event);
-					inst.dropped = this.instance.element; //draggable revert needs that
-					//hack so receive/update callbacks work (mostly)
-					inst.currentItem = inst.element;
-					this.instance.fromOutside = inst;
+					// Fire the start events of the sortable with our passed browser event,
+					// and our own helper (so it doesn't create a new one)
+					event.target = sortable.currentItem[ 0 ];
+					sortable._mouseCapture( event, true );
+					sortable._mouseStart( event, true, true );
 
+					// Because the browser event is way off the new appended portlet,
+					// modify necessary variables to reflect the changes
+					sortable.offset.click.top = draggable.offset.click.top;
+					sortable.offset.click.left = draggable.offset.click.left;
+					sortable.offset.parent.left -= draggable.offset.parent.left -
+						sortable.offset.parent.left;
+					sortable.offset.parent.top -= draggable.offset.parent.top -
+						sortable.offset.parent.top;
+
+					draggable._trigger( "toSortable", event );
+
+					// Inform draggable that the helper is in a valid drop zone,
+					// used solely in the revert option to handle "valid/invalid".
+					draggable.dropped = sortable.element;
+
+					// Need to refreshPositions of all sortables in the case that
+					// adding to one sortable changes the location of the other sortables (#9675)
+					$.each( draggable.sortables, function() {
+						this.refreshPositions();
+					});
+
+					// hack so receive/update callbacks work (mostly)
+					draggable.currentItem = draggable.element;
+					sortable.fromOutside = draggable;
 				}
 
-				//Provided we did all the previous steps, we can fire the drag event of the sortable on every draggable drag, when it intersects with the sortable
-				if (this.instance.currentItem) {
-					this.instance._mouseDrag(event);
+				if ( sortable.currentItem ) {
+					sortable._mouseDrag( event );
+					// Copy the sortable's position because the draggable's can potentially reflect
+					// a relative position, while sortable is always absolute, which the dragged
+					// element has now become. (#8809)
+					ui.position = sortable.position;
 				}
-
 			} else {
+				// If it doesn't intersect with the sortable, and it intersected before,
+				// we fake the drag stop of the sortable, but make sure it doesn't remove
+				// the helper by using cancelHelperRemoval.
+				if ( sortable.isOver ) {
 
-				//If it doesn't intersect with the sortable, and it intersected before,
-				//we fake the drag stop of the sortable, but make sure it doesn't remove the helper by using cancelHelperRemoval
-				if (this.instance.isOver) {
+					sortable.isOver = 0;
+					sortable.cancelHelperRemoval = true;
 
-					this.instance.isOver = 0;
-					this.instance.cancelHelperRemoval = true;
+					// Calling sortable's mouseStop would trigger a revert,
+					// so revert must be temporarily false until after mouseStop is called.
+					sortable.options._revert = sortable.options.revert;
+					sortable.options.revert = false;
 
-					//Prevent reverting on this forced stop
-					this.instance.options.revert = false;
+					sortable._trigger( "out", event, sortable._uiHash( sortable ) );
+					sortable._mouseStop( event, true );
 
-					// The out event needs to be triggered independently
-					this.instance._trigger("out", event, this.instance._uiHash(this.instance));
+					// restore sortable behaviors that were modfied
+					// when the draggable entered the sortable area (#9481)
+					sortable.options.revert = sortable.options._revert;
+					sortable.options.helper = sortable.options._helper;
 
-					this.instance._mouseStop(event, true);
-					this.instance.options.helper = this.instance.options._helper;
-
-					//Now we remove our currentItem, the list group clone again, and the placeholder, and animate the helper back to it's original size
-					this.instance.currentItem.remove();
-					if (this.instance.placeholder) {
-						this.instance.placeholder.remove();
+					if ( sortable.placeholder ) {
+						sortable.placeholder.remove();
 					}
 
-					inst._trigger("fromSortable", event);
-					inst.dropped = false; //draggable revert needs that
+					// Recalculate the draggable's offset considering the sortable
+					// may have modified them in unexpected ways (#8809)
+					draggable._refreshOffsets( event );
+					ui.position = draggable._generatePosition( event, true );
+
+					draggable._trigger( "fromSortable", event );
+
+					// Inform draggable that the helper is no longer in a valid drop zone
+					draggable.dropped = false;
+
+					// Need to refreshPositions of all sortables just in case removing
+					// from one sortable changes the location of other sortables (#9675)
+					$.each( draggable.sortables, function() {
+						this.refreshPositions();
+					});
 				}
-
 			}
-
 		});
-
 	}
 });
 
@@ -2332,30 +2469,35 @@ $.ui.plugin.add("draggable", "opacity", {
 
 $.ui.plugin.add("draggable", "scroll", {
 	start: function( event, ui, i ) {
-		if ( i.scrollParent[ 0 ] !== i.document[ 0 ] && i.scrollParent[ 0 ].tagName !== "HTML" ) {
-			i.overflowOffset = i.scrollParent.offset();
+		if ( !i.scrollParentNotHidden ) {
+			i.scrollParentNotHidden = i.helper.scrollParent( false );
+		}
+
+		if ( i.scrollParentNotHidden[ 0 ] !== i.document[ 0 ] && i.scrollParentNotHidden[ 0 ].tagName !== "HTML" ) {
+			i.overflowOffset = i.scrollParentNotHidden.offset();
 		}
 	},
 	drag: function( event, ui, i  ) {
 
 		var o = i.options,
 			scrolled = false,
+			scrollParent = i.scrollParentNotHidden[ 0 ],
 			document = i.document[ 0 ];
 
-		if ( i.scrollParent[ 0 ] !== document && i.scrollParent[ 0 ].tagName !== "HTML" ) {
-			if (!o.axis || o.axis !== "x") {
-				if ((i.overflowOffset.top + i.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity) {
-					i.scrollParent[0].scrollTop = scrolled = i.scrollParent[0].scrollTop + o.scrollSpeed;
-				} else if (event.pageY - i.overflowOffset.top < o.scrollSensitivity) {
-					i.scrollParent[0].scrollTop = scrolled = i.scrollParent[0].scrollTop - o.scrollSpeed;
+		if ( scrollParent !== document && scrollParent.tagName !== "HTML" ) {
+			if ( !o.axis || o.axis !== "x" ) {
+				if ( ( i.overflowOffset.top + scrollParent.offsetHeight ) - event.pageY < o.scrollSensitivity ) {
+					scrollParent.scrollTop = scrolled = scrollParent.scrollTop + o.scrollSpeed;
+				} else if ( event.pageY - i.overflowOffset.top < o.scrollSensitivity ) {
+					scrollParent.scrollTop = scrolled = scrollParent.scrollTop - o.scrollSpeed;
 				}
 			}
 
-			if (!o.axis || o.axis !== "y") {
-				if ((i.overflowOffset.left + i.scrollParent[0].offsetWidth) - event.pageX < o.scrollSensitivity) {
-					i.scrollParent[0].scrollLeft = scrolled = i.scrollParent[0].scrollLeft + o.scrollSpeed;
-				} else if (event.pageX - i.overflowOffset.left < o.scrollSensitivity) {
-					i.scrollParent[0].scrollLeft = scrolled = i.scrollParent[0].scrollLeft - o.scrollSpeed;
+			if ( !o.axis || o.axis !== "y" ) {
+				if ( ( i.overflowOffset.left + scrollParent.offsetWidth ) - event.pageX < o.scrollSensitivity ) {
+					scrollParent.scrollLeft = scrolled = scrollParent.scrollLeft + o.scrollSpeed;
+				} else if ( event.pageX - i.overflowOffset.left < o.scrollSensitivity ) {
+					scrollParent.scrollLeft = scrolled = scrollParent.scrollLeft - o.scrollSpeed;
 				}
 			}
 
@@ -2416,9 +2558,9 @@ $.ui.plugin.add("draggable", "snap", {
 
 		for (i = inst.snapElements.length - 1; i >= 0; i--){
 
-			l = inst.snapElements[i].left;
+			l = inst.snapElements[i].left - inst.margins.left;
 			r = l + inst.snapElements[i].width;
-			t = inst.snapElements[i].top;
+			t = inst.snapElements[i].top - inst.margins.top;
 			b = t + inst.snapElements[i].height;
 
 			if ( x2 < l - d || x1 > r + d || y2 < t - d || y1 > b + d || !$.contains( inst.snapElements[ i ].item.ownerDocument, inst.snapElements[ i ].item ) ) {
@@ -2435,16 +2577,16 @@ $.ui.plugin.add("draggable", "snap", {
 				ls = Math.abs(l - x2) <= d;
 				rs = Math.abs(r - x1) <= d;
 				if (ts) {
-					ui.position.top = inst._convertPositionTo("relative", { top: t - inst.helperProportions.height, left: 0 }).top - inst.margins.top;
+					ui.position.top = inst._convertPositionTo("relative", { top: t - inst.helperProportions.height, left: 0 }).top;
 				}
 				if (bs) {
-					ui.position.top = inst._convertPositionTo("relative", { top: b, left: 0 }).top - inst.margins.top;
+					ui.position.top = inst._convertPositionTo("relative", { top: b, left: 0 }).top;
 				}
 				if (ls) {
-					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: l - inst.helperProportions.width }).left - inst.margins.left;
+					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: l - inst.helperProportions.width }).left;
 				}
 				if (rs) {
-					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: r }).left - inst.margins.left;
+					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: r }).left;
 				}
 			}
 
@@ -2456,16 +2598,16 @@ $.ui.plugin.add("draggable", "snap", {
 				ls = Math.abs(l - x1) <= d;
 				rs = Math.abs(r - x2) <= d;
 				if (ts) {
-					ui.position.top = inst._convertPositionTo("relative", { top: t, left: 0 }).top - inst.margins.top;
+					ui.position.top = inst._convertPositionTo("relative", { top: t, left: 0 }).top;
 				}
 				if (bs) {
-					ui.position.top = inst._convertPositionTo("relative", { top: b - inst.helperProportions.height, left: 0 }).top - inst.margins.top;
+					ui.position.top = inst._convertPositionTo("relative", { top: b - inst.helperProportions.height, left: 0 }).top;
 				}
 				if (ls) {
-					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: l }).left - inst.margins.left;
+					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: l }).left;
 				}
 				if (rs) {
-					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: r - inst.helperProportions.width }).left - inst.margins.left;
+					ui.position.left = inst._convertPositionTo("relative", { top: 0, left: r - inst.helperProportions.width }).left;
 				}
 			}
 
@@ -2483,8 +2625,8 @@ $.ui.plugin.add("draggable", "stack", {
 	start: function( event, ui, instance ) {
 		var min,
 			o = instance.options,
-			group = $.makeArray($(o.stack)).sort(function(a,b) {
-				return (parseInt($(a).css("zIndex"),10) || 0) - (parseInt($(b).css("zIndex"),10) || 0);
+			group = $.makeArray($(o.stack)).sort(function(a, b) {
+				return (parseInt($(a).css("zIndex"), 10) || 0) - (parseInt($(b).css("zIndex"), 10) || 0);
 			});
 
 		if (!group.length) { return; }
@@ -2520,7 +2662,7 @@ var draggable = $.ui.draggable;
 
 
 /*!
- * jQuery UI Resizable 1.11.0
+ * jQuery UI Resizable 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -2532,7 +2674,7 @@ var draggable = $.ui.draggable;
 
 
 $.widget("ui.resizable", $.ui.mouse, {
-	version: "1.11.0",
+	version: "1.11.2",
 	widgetEventPrefix: "resize",
 	options: {
 		alsoResize: false,
@@ -2564,7 +2706,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 	},
 
 	_isNumber: function( value ) {
-		return !isNaN( parseInt( value , 10 ) );
+		return !isNaN( parseInt( value, 10 ) );
 	},
 
 	_hasScroll: function( el, a ) {
@@ -2605,7 +2747,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		});
 
 		// Wrap the element if it cannot hold child nodes
-		if(this.element[0].nodeName.match(/canvas|textarea|input|select|button|img/i)) {
+		if (this.element[0].nodeName.match(/canvas|textarea|input|select|button|img/i)) {
 
 			this.element.wrap(
 				$("<div class='ui-wrapper' style='overflow: hidden;'></div>").css({
@@ -2623,14 +2765,28 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 			this.elementIsWrapper = true;
 
-			this.element.css({ marginLeft: this.originalElement.css("marginLeft"), marginTop: this.originalElement.css("marginTop"), marginRight: this.originalElement.css("marginRight"), marginBottom: this.originalElement.css("marginBottom") });
-			this.originalElement.css({ marginLeft: 0, marginTop: 0, marginRight: 0, marginBottom: 0});
+			this.element.css({
+				marginLeft: this.originalElement.css("marginLeft"),
+				marginTop: this.originalElement.css("marginTop"),
+				marginRight: this.originalElement.css("marginRight"),
+				marginBottom: this.originalElement.css("marginBottom")
+			});
+			this.originalElement.css({
+				marginLeft: 0,
+				marginTop: 0,
+				marginRight: 0,
+				marginBottom: 0
+			});
 			// support: Safari
 			// Prevent Safari textarea resize
 			this.originalResizeStyle = this.originalElement.css("resize");
 			this.originalElement.css("resize", "none");
 
-			this._proportionallyResizeElements.push(this.originalElement.css({ position: "static", zoom: 1, display: "block" }));
+			this._proportionallyResizeElements.push( this.originalElement.css({
+				position: "static",
+				zoom: 1,
+				display: "block"
+			}) );
 
 			// support: IE9
 			// avoid IE jump (hard set the margin)
@@ -2639,8 +2795,20 @@ $.widget("ui.resizable", $.ui.mouse, {
 			this._proportionallyResize();
 		}
 
-		this.handles = o.handles || (!$(".ui-resizable-handle", this.element).length ? "e,s,se" : { n: ".ui-resizable-n", e: ".ui-resizable-e", s: ".ui-resizable-s", w: ".ui-resizable-w", se: ".ui-resizable-se", sw: ".ui-resizable-sw", ne: ".ui-resizable-ne", nw: ".ui-resizable-nw" });
-		if(this.handles.constructor === String) {
+		this.handles = o.handles ||
+			( !$(".ui-resizable-handle", this.element).length ?
+				"e,s,se" : {
+					n: ".ui-resizable-n",
+					e: ".ui-resizable-e",
+					s: ".ui-resizable-s",
+					w: ".ui-resizable-w",
+					se: ".ui-resizable-se",
+					sw: ".ui-resizable-sw",
+					ne: ".ui-resizable-ne",
+					nw: ".ui-resizable-nw"
+				} );
+
+		if (this.handles.constructor === String) {
 
 			if ( this.handles === "all") {
 				this.handles = "n,e,s,w,se,sw,ne,nw";
@@ -2649,10 +2817,10 @@ $.widget("ui.resizable", $.ui.mouse, {
 			n = this.handles.split(",");
 			this.handles = {};
 
-			for(i = 0; i < n.length; i++) {
+			for (i = 0; i < n.length; i++) {
 
 				handle = $.trim(n[i]);
-				hname = "ui-resizable-"+handle;
+				hname = "ui-resizable-" + handle;
 				axis = $("<div class='ui-resizable-handle " + hname + "'></div>");
 
 				axis.css({ zIndex: o.zIndex });
@@ -2662,7 +2830,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 					axis.addClass("ui-icon ui-icon-gripsmall-diagonal-se");
 				}
 
-				this.handles[handle] = ".ui-resizable-"+handle;
+				this.handles[handle] = ".ui-resizable-" + handle;
 				this.element.append(axis);
 			}
 
@@ -2674,9 +2842,9 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 			target = target || this.element;
 
-			for(i in this.handles) {
+			for (i in this.handles) {
 
-				if(this.handles[i].constructor === String) {
+				if (this.handles[i].constructor === String) {
 					this.handles[i] = this.element.children( this.handles[ i ] ).first().show();
 				}
 
@@ -2698,7 +2866,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 				}
 
 				// TODO: What's that good for? There's not anything to be executed left
-				if(!$(this.handles[i]).length) {
+				if (!$(this.handles[i]).length) {
 					continue;
 				}
 			}
@@ -2730,7 +2898,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 					$(this).removeClass("ui-resizable-autohide");
 					that._handles.show();
 				})
-				.mouseleave(function(){
+				.mouseleave(function() {
 					if (o.disabled) {
 						return;
 					}
@@ -2751,8 +2919,13 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		var wrapper,
 			_destroy = function(exp) {
-				$(exp).removeClass("ui-resizable ui-resizable-disabled ui-resizable-resizing")
-					.removeData("resizable").removeData("ui-resizable").unbind(".resizable").find(".ui-resizable-handle").remove();
+				$(exp)
+					.removeClass("ui-resizable ui-resizable-disabled ui-resizable-resizing")
+					.removeData("resizable")
+					.removeData("ui-resizable")
+					.unbind(".resizable")
+					.find(".ui-resizable-handle")
+						.remove();
 			};
 
 		// TODO: Unwrap at same DOM position
@@ -2809,13 +2982,34 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		this.offset = this.helper.offset();
 		this.position = { left: curleft, top: curtop };
-		this.size = this._helper ? { width: this.helper.width(), height: this.helper.height() } : { width: el.width(), height: el.height() };
-		this.originalSize = this._helper ? { width: el.outerWidth(), height: el.outerHeight() } : { width: el.width(), height: el.height() };
+
+		this.size = this._helper ? {
+				width: this.helper.width(),
+				height: this.helper.height()
+			} : {
+				width: el.width(),
+				height: el.height()
+			};
+
+		this.originalSize = this._helper ? {
+				width: el.outerWidth(),
+				height: el.outerHeight()
+			} : {
+				width: el.width(),
+				height: el.height()
+			};
+
+		this.sizeDiff = {
+			width: el.outerWidth() - el.width(),
+			height: el.outerHeight() - el.height()
+		};
+
 		this.originalPosition = { left: curleft, top: curtop };
-		this.sizeDiff = { width: el.outerWidth() - el.width(), height: el.outerHeight() - el.height() };
 		this.originalMousePosition = { left: event.pageX, top: event.pageY };
 
-		this.aspectRatio = (typeof o.aspectRatio === "number") ? o.aspectRatio : ((this.originalSize.width / this.originalSize.height) || 1);
+		this.aspectRatio = (typeof o.aspectRatio === "number") ?
+			o.aspectRatio :
+			((this.originalSize.width / this.originalSize.height) || 1);
 
 		cursor = $(".ui-resizable-" + this.axis).css("cursor");
 		$("body").css("cursor", cursor === "auto" ? this.axis + "-resize" : cursor);
@@ -2827,28 +3021,20 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 	_mouseDrag: function(event) {
 
-		var data,
-			el = this.helper, props = {},
+		var data, props,
 			smp = this.originalMousePosition,
 			a = this.axis,
-			dx = (event.pageX-smp.left)||0,
-			dy = (event.pageY-smp.top)||0,
+			dx = (event.pageX - smp.left) || 0,
+			dy = (event.pageY - smp.top) || 0,
 			trigger = this._change[a];
 
-		this.prevPosition = {
-			top: this.position.top,
-			left: this.position.left
-		};
-		this.prevSize = {
-			width: this.size.width,
-			height: this.size.height
-		};
+		this._updatePrevProperties();
 
 		if (!trigger) {
 			return false;
 		}
 
-		data = trigger.apply(this, [event, dx, dy]);
+		data = trigger.apply(this, [ event, dx, dy ]);
 
 		this._updateVirtualBoundaries(event.shiftKey);
 		if (this._aspectRatio || event.shiftKey) {
@@ -2861,26 +3047,16 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		this._propagate("resize", event);
 
-		if ( this.position.top !== this.prevPosition.top ) {
-			props.top = this.position.top + "px";
-		}
-		if ( this.position.left !== this.prevPosition.left ) {
-			props.left = this.position.left + "px";
-		}
-		if ( this.size.width !== this.prevSize.width ) {
-			props.width = this.size.width + "px";
-		}
-		if ( this.size.height !== this.prevSize.height ) {
-			props.height = this.size.height + "px";
-		}
-		el.css( props );
+		props = this._applyChanges();
 
 		if ( !this._helper && this._proportionallyResizeElements.length ) {
 			this._proportionallyResize();
 		}
 
 		if ( !$.isEmptyObject( props ) ) {
+			this._updatePrevProperties();
 			this._trigger( "resize", event, this.ui() );
+			this._applyChanges();
 		}
 
 		return false;
@@ -2892,16 +3068,21 @@ $.widget("ui.resizable", $.ui.mouse, {
 		var pr, ista, soffseth, soffsetw, s, left, top,
 			o = this.options, that = this;
 
-		if(this._helper) {
+		if (this._helper) {
 
 			pr = this._proportionallyResizeElements;
 			ista = pr.length && (/textarea/i).test(pr[0].nodeName);
-			soffseth = ista && this._hasScroll(pr[0], "left") /* TODO - jump height */ ? 0 : that.sizeDiff.height;
+			soffseth = ista && this._hasScroll(pr[0], "left") ? 0 : that.sizeDiff.height;
 			soffsetw = ista ? 0 : that.sizeDiff.width;
 
-			s = { width: (that.helper.width()  - soffsetw), height: (that.helper.height() - soffseth) };
-			left = (parseInt(that.element.css("left"), 10) + (that.position.left - that.originalPosition.left)) || null;
-			top = (parseInt(that.element.css("top"), 10) + (that.position.top - that.originalPosition.top)) || null;
+			s = {
+				width: (that.helper.width()  - soffsetw),
+				height: (that.helper.height() - soffseth)
+			};
+			left = (parseInt(that.element.css("left"), 10) +
+				(that.position.left - that.originalPosition.left)) || null;
+			top = (parseInt(that.element.css("top"), 10) +
+				(that.position.top - that.originalPosition.top)) || null;
 
 			if (!o.animate) {
 				this.element.css($.extend(s, { top: top, left: left }));
@@ -2929,6 +3110,38 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 	},
 
+	_updatePrevProperties: function() {
+		this.prevPosition = {
+			top: this.position.top,
+			left: this.position.left
+		};
+		this.prevSize = {
+			width: this.size.width,
+			height: this.size.height
+		};
+	},
+
+	_applyChanges: function() {
+		var props = {};
+
+		if ( this.position.top !== this.prevPosition.top ) {
+			props.top = this.position.top + "px";
+		}
+		if ( this.position.left !== this.prevPosition.left ) {
+			props.left = this.position.left + "px";
+		}
+		if ( this.size.width !== this.prevSize.width ) {
+			props.width = this.size.width + "px";
+		}
+		if ( this.size.height !== this.prevSize.height ) {
+			props.height = this.size.height + "px";
+		}
+
+		this.helper.css( props );
+
+		return props;
+	},
+
 	_updateVirtualBoundaries: function(forceAspectRatio) {
 		var pMinWidth, pMaxWidth, pMinHeight, pMaxHeight, b,
 			o = this.options;
@@ -2940,22 +3153,22 @@ $.widget("ui.resizable", $.ui.mouse, {
 			maxHeight: this._isNumber(o.maxHeight) ? o.maxHeight : Infinity
 		};
 
-		if(this._aspectRatio || forceAspectRatio) {
+		if (this._aspectRatio || forceAspectRatio) {
 			pMinWidth = b.minHeight * this.aspectRatio;
 			pMinHeight = b.minWidth / this.aspectRatio;
 			pMaxWidth = b.maxHeight * this.aspectRatio;
 			pMaxHeight = b.maxWidth / this.aspectRatio;
 
-			if(pMinWidth > b.minWidth) {
+			if (pMinWidth > b.minWidth) {
 				b.minWidth = pMinWidth;
 			}
-			if(pMinHeight > b.minHeight) {
+			if (pMinHeight > b.minHeight) {
 				b.minHeight = pMinHeight;
 			}
-			if(pMaxWidth < b.maxWidth) {
+			if (pMaxWidth < b.maxWidth) {
 				b.maxWidth = pMaxWidth;
 			}
-			if(pMaxHeight < b.maxHeight) {
+			if (pMaxHeight < b.maxHeight) {
 				b.maxHeight = pMaxHeight;
 			}
 		}
@@ -3006,8 +3219,10 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		var o = this._vBoundaries,
 			a = this.axis,
-			ismaxw = this._isNumber(data.width) && o.maxWidth && (o.maxWidth < data.width), ismaxh = this._isNumber(data.height) && o.maxHeight && (o.maxHeight < data.height),
-			isminw = this._isNumber(data.width) && o.minWidth && (o.minWidth > data.width), isminh = this._isNumber(data.height) && o.minHeight && (o.minHeight > data.height),
+			ismaxw = this._isNumber(data.width) && o.maxWidth && (o.maxWidth < data.width),
+			ismaxh = this._isNumber(data.height) && o.maxHeight && (o.maxHeight < data.height),
+			isminw = this._isNumber(data.width) && o.minWidth && (o.minWidth > data.width),
+			isminh = this._isNumber(data.height) && o.minHeight && (o.minHeight > data.height),
 			dw = this.originalPosition.left + this.originalSize.width,
 			dh = this.position.top + this.size.height,
 			cw = /sw|nw|w/.test(a), ch = /nw|ne|n/.test(a);
@@ -3047,32 +3262,56 @@ $.widget("ui.resizable", $.ui.mouse, {
 		return data;
 	},
 
+	_getPaddingPlusBorderDimensions: function( element ) {
+		var i = 0,
+			widths = [],
+			borders = [
+				element.css( "borderTopWidth" ),
+				element.css( "borderRightWidth" ),
+				element.css( "borderBottomWidth" ),
+				element.css( "borderLeftWidth" )
+			],
+			paddings = [
+				element.css( "paddingTop" ),
+				element.css( "paddingRight" ),
+				element.css( "paddingBottom" ),
+				element.css( "paddingLeft" )
+			];
+
+		for ( ; i < 4; i++ ) {
+			widths[ i ] = ( parseInt( borders[ i ], 10 ) || 0 );
+			widths[ i ] += ( parseInt( paddings[ i ], 10 ) || 0 );
+		}
+
+		return {
+			height: widths[ 0 ] + widths[ 2 ],
+			width: widths[ 1 ] + widths[ 3 ]
+		};
+	},
+
 	_proportionallyResize: function() {
 
 		if (!this._proportionallyResizeElements.length) {
 			return;
 		}
 
-		var i, j, borders, paddings, prel,
+		var prel,
+			i = 0,
 			element = this.helper || this.element;
 
-		for ( i=0; i < this._proportionallyResizeElements.length; i++) {
+		for ( ; i < this._proportionallyResizeElements.length; i++) {
 
 			prel = this._proportionallyResizeElements[i];
 
-			if (!this.borderDif) {
-				this.borderDif = [];
-				borders = [prel.css("borderTopWidth"), prel.css("borderRightWidth"), prel.css("borderBottomWidth"), prel.css("borderLeftWidth")];
-				paddings = [prel.css("paddingTop"), prel.css("paddingRight"), prel.css("paddingBottom"), prel.css("paddingLeft")];
-
-				for ( j = 0; j < borders.length; j++ ) {
-					this.borderDif[ j ] = ( parseInt( borders[ j ], 10 ) || 0 ) + ( parseInt( paddings[ j ], 10 ) || 0 );
-				}
+			// TODO: Seems like a bug to cache this.outerDimensions
+			// considering that we are in a loop.
+			if (!this.outerDimensions) {
+				this.outerDimensions = this._getPaddingPlusBorderDimensions( prel );
 			}
 
 			prel.css({
-				height: (element.height() - this.borderDif[0] - this.borderDif[2]) || 0,
-				width: (element.width() - this.borderDif[1] - this.borderDif[3]) || 0
+				height: (element.height() - this.outerDimensions.height) || 0,
+				width: (element.width() - this.outerDimensions.width) || 0
 			});
 
 		}
@@ -3084,7 +3323,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		var el = this.element, o = this.options;
 		this.elementOffset = el.offset();
 
-		if(this._helper) {
+		if (this._helper) {
 
 			this.helper = this.helper || $("<div style='overflow:hidden;'></div>");
 
@@ -3092,8 +3331,8 @@ $.widget("ui.resizable", $.ui.mouse, {
 				width: this.element.outerWidth() - 1,
 				height: this.element.outerHeight() - 1,
 				position: "absolute",
-				left: this.elementOffset.left +"px",
-				top: this.elementOffset.top +"px",
+				left: this.elementOffset.left + "px",
+				top: this.elementOffset.top + "px",
 				zIndex: ++o.zIndex //TODO: Don't modify option
 			});
 
@@ -3123,21 +3362,25 @@ $.widget("ui.resizable", $.ui.mouse, {
 			return { height: this.originalSize.height + dy };
 		},
 		se: function(event, dx, dy) {
-			return $.extend(this._change.s.apply(this, arguments), this._change.e.apply(this, [event, dx, dy]));
+			return $.extend(this._change.s.apply(this, arguments),
+				this._change.e.apply(this, [ event, dx, dy ]));
 		},
 		sw: function(event, dx, dy) {
-			return $.extend(this._change.s.apply(this, arguments), this._change.w.apply(this, [event, dx, dy]));
+			return $.extend(this._change.s.apply(this, arguments),
+				this._change.w.apply(this, [ event, dx, dy ]));
 		},
 		ne: function(event, dx, dy) {
-			return $.extend(this._change.n.apply(this, arguments), this._change.e.apply(this, [event, dx, dy]));
+			return $.extend(this._change.n.apply(this, arguments),
+				this._change.e.apply(this, [ event, dx, dy ]));
 		},
 		nw: function(event, dx, dy) {
-			return $.extend(this._change.n.apply(this, arguments), this._change.w.apply(this, [event, dx, dy]));
+			return $.extend(this._change.n.apply(this, arguments),
+				this._change.w.apply(this, [ event, dx, dy ]));
 		}
 	},
 
 	_propagate: function(n, event) {
-		$.ui.plugin.call(this, n, [event, this.ui()]);
+		$.ui.plugin.call(this, n, [ event, this.ui() ]);
 		(n !== "resize" && this._trigger(n, event, this.ui()));
 	},
 
@@ -3151,9 +3394,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			position: this.position,
 			size: this.size,
 			originalSize: this.originalSize,
-			originalPosition: this.originalPosition,
-			prevSize: this.prevSize,
-			prevPosition: this.prevPosition
+			originalPosition: this.originalPosition
 		};
 	}
 
@@ -3170,11 +3411,13 @@ $.ui.plugin.add("resizable", "animate", {
 			o = that.options,
 			pr = that._proportionallyResizeElements,
 			ista = pr.length && (/textarea/i).test(pr[0].nodeName),
-			soffseth = ista && that._hasScroll(pr[0], "left") /* TODO - jump height */ ? 0 : that.sizeDiff.height,
+			soffseth = ista && that._hasScroll(pr[0], "left") ? 0 : that.sizeDiff.height,
 			soffsetw = ista ? 0 : that.sizeDiff.width,
 			style = { width: (that.size.width - soffsetw), height: (that.size.height - soffseth) },
-			left = (parseInt(that.element.css("left"), 10) + (that.position.left - that.originalPosition.left)) || null,
-			top = (parseInt(that.element.css("top"), 10) + (that.position.top - that.originalPosition.top)) || null;
+			left = (parseInt(that.element.css("left"), 10) +
+				(that.position.left - that.originalPosition.left)) || null,
+			top = (parseInt(that.element.css("top"), 10) +
+				(that.position.top - that.originalPosition.top)) || null;
 
 		that.element.animate(
 			$.extend(style, top && left ? { top: top, left: left } : {}), {
@@ -3267,7 +3510,7 @@ $.ui.plugin.add( "resizable", "containment", {
 		}
 	},
 
-	resize: function( event, ui ) {
+	resize: function( event ) {
 		var woset, hoset, isParent, isOffsetRelative,
 			that = $( this ).resizable( "instance" ),
 			o = that.options,
@@ -3286,7 +3529,11 @@ $.ui.plugin.add( "resizable", "containment", {
 		}
 
 		if ( cp.left < ( that._helper ? co.left : 0 ) ) {
-			that.size.width = that.size.width + ( that._helper ? ( that.position.left - co.left ) : ( that.position.left - cop.left ) );
+			that.size.width = that.size.width +
+				( that._helper ?
+					( that.position.left - co.left ) :
+					( that.position.left - cop.left ) );
+
 			if ( pRatio ) {
 				that.size.height = that.size.width / that.aspectRatio;
 				continueResize = false;
@@ -3295,7 +3542,11 @@ $.ui.plugin.add( "resizable", "containment", {
 		}
 
 		if ( cp.top < ( that._helper ? co.top : 0 ) ) {
-			that.size.height = that.size.height + ( that._helper ? ( that.position.top - co.top ) : that.position.top );
+			that.size.height = that.size.height +
+				( that._helper ?
+					( that.position.top - co.top ) :
+					that.position.top );
+
 			if ( pRatio ) {
 				that.size.width = that.size.height * that.aspectRatio;
 				continueResize = false;
@@ -3303,18 +3554,26 @@ $.ui.plugin.add( "resizable", "containment", {
 			that.position.top = that._helper ? co.top : 0;
 		}
 
-		that.offset.left = that.parentData.left + that.position.left;
-		that.offset.top = that.parentData.top + that.position.top;
-
-		woset = Math.abs( ( that._helper ? that.offset.left - cop.left : ( that.offset.left - co.left ) ) + that.sizeDiff.width );
-		hoset = Math.abs( ( that._helper ? that.offset.top - cop.top : ( that.offset.top - co.top ) ) + that.sizeDiff.height );
-
 		isParent = that.containerElement.get( 0 ) === that.element.parent().get( 0 );
 		isOffsetRelative = /relative|absolute/.test( that.containerElement.css( "position" ) );
 
 		if ( isParent && isOffsetRelative ) {
-			woset -= Math.abs( that.parentData.left );
+			that.offset.left = that.parentData.left + that.position.left;
+			that.offset.top = that.parentData.top + that.position.top;
+		} else {
+			that.offset.left = that.element.offset().left;
+			that.offset.top = that.element.offset().top;
 		}
+
+		woset = Math.abs( that.sizeDiff.width +
+			(that._helper ?
+				that.offset.left - cop.left :
+				(that.offset.left - co.left)) );
+
+		hoset = Math.abs( that.sizeDiff.height +
+			(that._helper ?
+				that.offset.top - cop.top :
+				(that.offset.top - co.top)) );
 
 		if ( woset + that.size.width >= that.parentData.width ) {
 			that.size.width = that.parentData.width - woset;
@@ -3333,14 +3592,14 @@ $.ui.plugin.add( "resizable", "containment", {
 		}
 
 		if ( !continueResize ){
-			that.position.left = ui.prevPosition.left;
-			that.position.top = ui.prevPosition.top;
-			that.size.width = ui.prevSize.width;
-			that.size.height = ui.prevSize.height;
+			that.position.left = that.prevPosition.left;
+			that.position.top = that.prevPosition.top;
+			that.size.width = that.prevSize.width;
+			that.size.height = that.prevSize.height;
 		}
 	},
 
-	stop: function(){
+	stop: function() {
 		var that = $( this ).resizable( "instance" ),
 			o = that.options,
 			co = that.containerOffset,
@@ -3371,10 +3630,10 @@ $.ui.plugin.add( "resizable", "containment", {
 
 $.ui.plugin.add("resizable", "alsoResize", {
 
-	start: function () {
+	start: function() {
 		var that = $(this).resizable( "instance" ),
 			o = that.options,
-			_store = function (exp) {
+			_store = function(exp) {
 				$(exp).each(function() {
 					var el = $(this);
 					el.data("ui-resizable-alsoresize", {
@@ -3385,30 +3644,42 @@ $.ui.plugin.add("resizable", "alsoResize", {
 			};
 
 		if (typeof(o.alsoResize) === "object" && !o.alsoResize.parentNode) {
-			if (o.alsoResize.length) { o.alsoResize = o.alsoResize[0]; _store(o.alsoResize); }
-			else { $.each(o.alsoResize, function (exp) { _store(exp); }); }
-		}else{
+			if (o.alsoResize.length) {
+				o.alsoResize = o.alsoResize[0];
+				_store(o.alsoResize);
+			} else {
+				$.each(o.alsoResize, function(exp) {
+					_store(exp);
+				});
+			}
+		} else {
 			_store(o.alsoResize);
 		}
 	},
 
-	resize: function (event, ui) {
+	resize: function(event, ui) {
 		var that = $(this).resizable( "instance" ),
 			o = that.options,
 			os = that.originalSize,
 			op = that.originalPosition,
 			delta = {
-				height: (that.size.height - os.height) || 0, width: (that.size.width - os.width) || 0,
-				top: (that.position.top - op.top) || 0, left: (that.position.left - op.left) || 0
+				height: (that.size.height - os.height) || 0,
+				width: (that.size.width - os.width) || 0,
+				top: (that.position.top - op.top) || 0,
+				left: (that.position.left - op.left) || 0
 			},
 
-			_alsoResize = function (exp, c) {
+			_alsoResize = function(exp, c) {
 				$(exp).each(function() {
 					var el = $(this), start = $(this).data("ui-resizable-alsoresize"), style = {},
-						css = c && c.length ? c : el.parents(ui.originalElement[0]).length ? ["width", "height"] : ["width", "height", "top", "left"];
+						css = c && c.length ?
+							c :
+							el.parents(ui.originalElement[0]).length ?
+								[ "width", "height" ] :
+								[ "width", "height", "top", "left" ];
 
-					$.each(css, function (i, prop) {
-						var sum = (start[prop]||0) + (delta[prop]||0);
+					$.each(css, function(i, prop) {
+						var sum = (start[prop] || 0) + (delta[prop] || 0);
 						if (sum && sum >= 0) {
 							style[prop] = sum || null;
 						}
@@ -3419,13 +3690,15 @@ $.ui.plugin.add("resizable", "alsoResize", {
 			};
 
 		if (typeof(o.alsoResize) === "object" && !o.alsoResize.nodeType) {
-			$.each(o.alsoResize, function (exp, c) { _alsoResize(exp, c); });
-		}else{
+			$.each(o.alsoResize, function(exp, c) {
+				_alsoResize(exp, c);
+			});
+		} else {
 			_alsoResize(o.alsoResize);
 		}
 	},
 
-	stop: function () {
+	stop: function() {
 		$(this).removeData("resizable-alsoresize");
 	}
 });
@@ -3438,7 +3711,16 @@ $.ui.plugin.add("resizable", "ghost", {
 
 		that.ghost = that.originalElement.clone();
 		that.ghost
-			.css({ opacity: 0.25, display: "block", position: "relative", height: cs.height, width: cs.width, margin: 0, left: 0, top: 0 })
+			.css({
+				opacity: 0.25,
+				display: "block",
+				position: "relative",
+				height: cs.height,
+				width: cs.width,
+				margin: 0,
+				left: 0,
+				top: 0
+			})
 			.addClass("ui-resizable-ghost")
 			.addClass(typeof o.ghost === "string" ? o.ghost : "");
 
@@ -3446,10 +3728,14 @@ $.ui.plugin.add("resizable", "ghost", {
 
 	},
 
-	resize: function(){
+	resize: function() {
 		var that = $(this).resizable( "instance" );
 		if (that.ghost) {
-			that.ghost.css({ position: "relative", height: that.size.height, width: that.size.width });
+			that.ghost.css({
+				position: "relative",
+				height: that.size.height,
+				width: that.size.width
+			});
 		}
 	},
 
@@ -3465,15 +3751,16 @@ $.ui.plugin.add("resizable", "ghost", {
 $.ui.plugin.add("resizable", "grid", {
 
 	resize: function() {
-		var that = $(this).resizable( "instance" ),
+		var outerDimensions,
+			that = $(this).resizable( "instance" ),
 			o = that.options,
 			cs = that.size,
 			os = that.originalSize,
 			op = that.originalPosition,
 			a = that.axis,
-			grid = typeof o.grid === "number" ? [o.grid, o.grid] : o.grid,
-			gridX = (grid[0]||1),
-			gridY = (grid[1]||1),
+			grid = typeof o.grid === "number" ? [ o.grid, o.grid ] : o.grid,
+			gridX = (grid[0] || 1),
+			gridY = (grid[1] || 1),
 			ox = Math.round((cs.width - os.width) / gridX) * gridX,
 			oy = Math.round((cs.height - os.height) / gridY) * gridY,
 			newWidth = os.width + ox,
@@ -3486,16 +3773,16 @@ $.ui.plugin.add("resizable", "grid", {
 		o.grid = grid;
 
 		if (isMinWidth) {
-			newWidth = newWidth + gridX;
+			newWidth += gridX;
 		}
 		if (isMinHeight) {
-			newHeight = newHeight + gridY;
+			newHeight += gridY;
 		}
 		if (isMaxWidth) {
-			newWidth = newWidth - gridX;
+			newWidth -= gridX;
 		}
 		if (isMaxHeight) {
-			newHeight = newHeight - gridY;
+			newHeight -= gridY;
 		}
 
 		if (/^(se|s|e)$/.test(a)) {
@@ -3510,19 +3797,25 @@ $.ui.plugin.add("resizable", "grid", {
 			that.size.height = newHeight;
 			that.position.left = op.left - ox;
 		} else {
+			if ( newHeight - gridY <= 0 || newWidth - gridX <= 0) {
+				outerDimensions = that._getPaddingPlusBorderDimensions( this );
+			}
+
 			if ( newHeight - gridY > 0 ) {
 				that.size.height = newHeight;
 				that.position.top = op.top - oy;
 			} else {
-				that.size.height = gridY;
-				that.position.top = op.top + os.height - gridY;
+				newHeight = gridY - outerDimensions.height;
+				that.size.height = newHeight;
+				that.position.top = op.top + os.height - newHeight;
 			}
 			if ( newWidth - gridX > 0 ) {
 				that.size.width = newWidth;
 				that.position.left = op.left - ox;
 			} else {
-				that.size.width = gridX;
-				that.position.left = op.left + os.width - gridX;
+				newWidth = gridY - outerDimensions.height;
+				that.size.width = newWidth;
+				that.position.left = op.left + os.width - newWidth;
 			}
 		}
 	}
@@ -3533,7 +3826,7 @@ var resizable = $.ui.resizable;
 
 
 /*!
- * jQuery UI Menu 1.11.0
+ * jQuery UI Menu 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -3545,7 +3838,7 @@ var resizable = $.ui.resizable;
 
 
 var menu = $.widget( "ui.menu", {
-	version: "1.11.0",
+	version: "1.11.2",
 	defaultElement: "<ul>",
 	delay: 300,
 	options: {
@@ -3620,6 +3913,12 @@ var menu = $.widget( "ui.menu", {
 				}
 			},
 			"mouseenter .ui-menu-item": function( event ) {
+				// Ignore mouse events while typeahead is active, see #10458.
+				// Prevents focusing the wrong item when typeahead causes a scroll while the mouse
+				// is over an item in the menu
+				if ( this.previousFilter ) {
+					return;
+				}
 				var target = $( event.currentTarget );
 				// Remove ui-state-active class from siblings of the newly focused menu item
 				// to avoid a jump caused by adjacent elements both having a class with a border
@@ -3699,12 +3998,8 @@ var menu = $.widget( "ui.menu", {
 	},
 
 	_keydown: function( event ) {
-		var match, prev, character, skip, regex,
+		var match, prev, character, skip,
 			preventDefault = true;
-
-		function escape( value ) {
-			return value.replace( /[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&" );
-		}
 
 		switch ( event.keyCode ) {
 		case $.ui.keyCode.PAGE_UP:
@@ -3754,10 +4049,7 @@ var menu = $.widget( "ui.menu", {
 				character = prev + character;
 			}
 
-			regex = new RegExp( "^" + escape( character ), "i" );
-			match = this.activeMenu.find( this.options.items ).filter(function() {
-				return regex.test( $( this ).text() );
-			});
+			match = this._filterMenuItems( character );
 			match = skip && match.index( this.active.next() ) !== -1 ?
 				this.active.nextAll( ".ui-menu-item" ) :
 				match;
@@ -3766,22 +4058,15 @@ var menu = $.widget( "ui.menu", {
 			// to move down the menu to the first item that starts with that character
 			if ( !match.length ) {
 				character = String.fromCharCode( event.keyCode );
-				regex = new RegExp( "^" + escape( character ), "i" );
-				match = this.activeMenu.find( this.options.items ).filter(function() {
-					return regex.test( $( this ).text() );
-				});
+				match = this._filterMenuItems( character );
 			}
 
 			if ( match.length ) {
 				this.focus( event, match );
-				if ( match.length > 1 ) {
-					this.previousFilter = character;
-					this.filterTimer = this._delay(function() {
-						delete this.previousFilter;
-					}, 1000 );
-				} else {
+				this.previousFilter = character;
+				this.filterTimer = this._delay(function() {
 					delete this.previousFilter;
-				}
+				}, 1000 );
 			} else {
 				delete this.previousFilter;
 			}
@@ -4153,12 +4438,26 @@ var menu = $.widget( "ui.menu", {
 			this.collapseAll( event, true );
 		}
 		this._trigger( "select", event, ui );
+	},
+
+	_filterMenuItems: function(character) {
+		var escapedCharacter = character.replace( /[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&" ),
+			regex = new RegExp( "^" + escapedCharacter, "i" );
+
+		return this.activeMenu
+			.find( this.options.items )
+
+			// Only match on items, not dividers or other content (#10571)
+			.filter( ".ui-menu-item" )
+			.filter(function() {
+				return regex.test( $.trim( $( this ).text() ) );
+			});
 	}
 });
 
 
 /*!
- * jQuery UI Autocomplete 1.11.0
+ * jQuery UI Autocomplete 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -4170,7 +4469,7 @@ var menu = $.widget( "ui.menu", {
 
 
 $.widget( "ui.autocomplete", {
-	version: "1.11.0",
+	version: "1.11.2",
 	defaultElement: "<input>",
 	options: {
 		appendTo: null,
@@ -4273,7 +4572,9 @@ $.widget( "ui.autocomplete", {
 					break;
 				case keyCode.ESCAPE:
 					if ( this.menu.element.is( ":visible" ) ) {
-						this._value( this.term );
+						if ( !this.isMultiLine ) {
+							this._value( this.term );
+						}
 						this.close( event );
 						// Different browsers have different default behavior for escape
 						// Single press can mean undo or clear
@@ -4409,7 +4710,7 @@ $.widget( "ui.autocomplete", {
 
 				// Announce the value in the liveRegion
 				label = ui.item.attr( "aria-label" ) || item.value;
-				if ( label && jQuery.trim( label ).length ) {
+				if ( label && $.trim( label ).length ) {
 					this.liveRegion.children().hide();
 					$( "<div>" ).text( label ).appendTo( this.liveRegion );
 				}
@@ -4768,7 +5069,7 @@ var autocomplete = $.ui.autocomplete;
 
 
 /*!
- * jQuery UI Button 1.11.0
+ * jQuery UI Button 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -4807,7 +5108,7 @@ var lastActive,
 	};
 
 $.widget( "ui.button", {
-	version: "1.11.0",
+	version: "1.11.2",
 	defaultElement: "<button>",
 	options: {
 		disabled: null,
@@ -5103,7 +5404,7 @@ $.widget( "ui.button", {
 });
 
 $.widget( "ui.buttonset", {
-	version: "1.11.0",
+	version: "1.11.2",
 	options: {
 		items: "button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(ui-button)"
 	},
@@ -5165,7 +5466,7 @@ var button = $.ui.button;
 
 
 /*!
- * jQuery UI Dialog 1.11.0
+ * jQuery UI Dialog 1.11.2
  * http://jqueryui.com
  *
  * Copyright 2014 jQuery Foundation and other contributors
@@ -5177,7 +5478,7 @@ var button = $.ui.button;
 
 
 var dialog = $.widget( "ui.dialog", {
-	version: "1.11.0",
+	version: "1.11.2",
 	options: {
 		appendTo: "body",
 		autoOpen: true,
@@ -5407,10 +5708,23 @@ var dialog = $.widget( "ui.dialog", {
 		this._position();
 		this._createOverlay();
 		this._moveToTop( null, true );
+
+		// Ensure the overlay is moved to the top with the dialog, but only when
+		// opening. The overlay shouldn't move after the dialog is open so that
+		// modeless dialogs opened after the modal dialog stack properly.
+		if ( this.overlay ) {
+			this.overlay.css( "z-index", this.uiDialog.css( "z-index" ) - 1 );
+		}
+
 		this._show( this.uiDialog, this.options.show, function() {
 			that._focusTabbable();
 			that._trigger( "focus" );
 		});
+
+		// Track the dialog immediately upon openening in case a focus event
+		// somehow occurs outside of the dialog before an element inside the
+		// dialog is focused (#10152)
+		this._makeFocusTarget();
 
 		this._trigger( "open" );
 	},
@@ -5723,12 +6037,16 @@ var dialog = $.widget( "ui.dialog", {
 
 	_trackFocus: function() {
 		this._on( this.widget(), {
-			"focusin": function( event ) {
-				this._untrackInstance();
-				this._trackingInstances().unshift( this );
+			focusin: function( event ) {
+				this._makeFocusTarget();
 				this._focusedElement = $( event.target );
 			}
 		});
+	},
+
+	_makeFocusTarget: function() {
+		this._untrackInstance();
+		this._trackingInstances().unshift( this );
 	},
 
 	_untrackInstance: function() {
@@ -6003,16 +6321,606 @@ var dialog = $.widget( "ui.dialog", {
 });
 
 
+/*!
+ * jQuery UI Spinner 1.11.2
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/spinner/
+ */
+
+
+function spinner_modifier( fn ) {
+	return function() {
+		var previous = this.element.val();
+		fn.apply( this, arguments );
+		this._refresh();
+		if ( previous !== this.element.val() ) {
+			this._trigger( "change" );
+		}
+	};
+}
+
+var spinner = $.widget( "ui.spinner", {
+	version: "1.11.2",
+	defaultElement: "<input>",
+	widgetEventPrefix: "spin",
+	options: {
+		culture: null,
+		icons: {
+			down: "ui-icon-triangle-1-s",
+			up: "ui-icon-triangle-1-n"
+		},
+		incremental: true,
+		max: null,
+		min: null,
+		numberFormat: null,
+		page: 10,
+		step: 1,
+
+		change: null,
+		spin: null,
+		start: null,
+		stop: null
+	},
+
+	_create: function() {
+		// handle string values that need to be parsed
+		this._setOption( "max", this.options.max );
+		this._setOption( "min", this.options.min );
+		this._setOption( "step", this.options.step );
+
+		// Only format if there is a value, prevents the field from being marked
+		// as invalid in Firefox, see #9573.
+		if ( this.value() !== "" ) {
+			// Format the value, but don't constrain.
+			this._value( this.element.val(), true );
+		}
+
+		this._draw();
+		this._on( this._events );
+		this._refresh();
+
+		// turning off autocomplete prevents the browser from remembering the
+		// value when navigating through history, so we re-enable autocomplete
+		// if the page is unloaded before the widget is destroyed. #7790
+		this._on( this.window, {
+			beforeunload: function() {
+				this.element.removeAttr( "autocomplete" );
+			}
+		});
+	},
+
+	_getCreateOptions: function() {
+		var options = {},
+			element = this.element;
+
+		$.each( [ "min", "max", "step" ], function( i, option ) {
+			var value = element.attr( option );
+			if ( value !== undefined && value.length ) {
+				options[ option ] = value;
+			}
+		});
+
+		return options;
+	},
+
+	_events: {
+		keydown: function( event ) {
+			if ( this._start( event ) && this._keydown( event ) ) {
+				event.preventDefault();
+			}
+		},
+		keyup: "_stop",
+		focus: function() {
+			this.previous = this.element.val();
+		},
+		blur: function( event ) {
+			if ( this.cancelBlur ) {
+				delete this.cancelBlur;
+				return;
+			}
+
+			this._stop();
+			this._refresh();
+			if ( this.previous !== this.element.val() ) {
+				this._trigger( "change", event );
+			}
+		},
+		mousewheel: function( event, delta ) {
+			if ( !delta ) {
+				return;
+			}
+			if ( !this.spinning && !this._start( event ) ) {
+				return false;
+			}
+
+			this._spin( (delta > 0 ? 1 : -1) * this.options.step, event );
+			clearTimeout( this.mousewheelTimer );
+			this.mousewheelTimer = this._delay(function() {
+				if ( this.spinning ) {
+					this._stop( event );
+				}
+			}, 100 );
+			event.preventDefault();
+		},
+		"mousedown .ui-spinner-button": function( event ) {
+			var previous;
+
+			// We never want the buttons to have focus; whenever the user is
+			// interacting with the spinner, the focus should be on the input.
+			// If the input is focused then this.previous is properly set from
+			// when the input first received focus. If the input is not focused
+			// then we need to set this.previous based on the value before spinning.
+			previous = this.element[0] === this.document[0].activeElement ?
+				this.previous : this.element.val();
+			function checkFocus() {
+				var isActive = this.element[0] === this.document[0].activeElement;
+				if ( !isActive ) {
+					this.element.focus();
+					this.previous = previous;
+					// support: IE
+					// IE sets focus asynchronously, so we need to check if focus
+					// moved off of the input because the user clicked on the button.
+					this._delay(function() {
+						this.previous = previous;
+					});
+				}
+			}
+
+			// ensure focus is on (or stays on) the text field
+			event.preventDefault();
+			checkFocus.call( this );
+
+			// support: IE
+			// IE doesn't prevent moving focus even with event.preventDefault()
+			// so we set a flag to know when we should ignore the blur event
+			// and check (again) if focus moved off of the input.
+			this.cancelBlur = true;
+			this._delay(function() {
+				delete this.cancelBlur;
+				checkFocus.call( this );
+			});
+
+			if ( this._start( event ) === false ) {
+				return;
+			}
+
+			this._repeat( null, $( event.currentTarget ).hasClass( "ui-spinner-up" ) ? 1 : -1, event );
+		},
+		"mouseup .ui-spinner-button": "_stop",
+		"mouseenter .ui-spinner-button": function( event ) {
+			// button will add ui-state-active if mouse was down while mouseleave and kept down
+			if ( !$( event.currentTarget ).hasClass( "ui-state-active" ) ) {
+				return;
+			}
+
+			if ( this._start( event ) === false ) {
+				return false;
+			}
+			this._repeat( null, $( event.currentTarget ).hasClass( "ui-spinner-up" ) ? 1 : -1, event );
+		},
+		// TODO: do we really want to consider this a stop?
+		// shouldn't we just stop the repeater and wait until mouseup before
+		// we trigger the stop event?
+		"mouseleave .ui-spinner-button": "_stop"
+	},
+
+	_draw: function() {
+		var uiSpinner = this.uiSpinner = this.element
+			.addClass( "ui-spinner-input" )
+			.attr( "autocomplete", "off" )
+			.wrap( this._uiSpinnerHtml() )
+			.parent()
+				// add buttons
+				.append( this._buttonHtml() );
+
+		this.element.attr( "role", "spinbutton" );
+
+		// button bindings
+		this.buttons = uiSpinner.find( ".ui-spinner-button" )
+			.attr( "tabIndex", -1 )
+			.button()
+			.removeClass( "ui-corner-all" );
+
+		// IE 6 doesn't understand height: 50% for the buttons
+		// unless the wrapper has an explicit height
+		if ( this.buttons.height() > Math.ceil( uiSpinner.height() * 0.5 ) &&
+				uiSpinner.height() > 0 ) {
+			uiSpinner.height( uiSpinner.height() );
+		}
+
+		// disable spinner if element was already disabled
+		if ( this.options.disabled ) {
+			this.disable();
+		}
+	},
+
+	_keydown: function( event ) {
+		var options = this.options,
+			keyCode = $.ui.keyCode;
+
+		switch ( event.keyCode ) {
+		case keyCode.UP:
+			this._repeat( null, 1, event );
+			return true;
+		case keyCode.DOWN:
+			this._repeat( null, -1, event );
+			return true;
+		case keyCode.PAGE_UP:
+			this._repeat( null, options.page, event );
+			return true;
+		case keyCode.PAGE_DOWN:
+			this._repeat( null, -options.page, event );
+			return true;
+		}
+
+		return false;
+	},
+
+	_uiSpinnerHtml: function() {
+		return "<span class='ui-spinner ui-widget ui-widget-content ui-corner-all'></span>";
+	},
+
+	_buttonHtml: function() {
+		return "" +
+			"<a class='ui-spinner-button ui-spinner-up ui-corner-tr'>" +
+				"<span class='ui-icon " + this.options.icons.up + "'>&#9650;</span>" +
+			"</a>" +
+			"<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
+				"<span class='ui-icon " + this.options.icons.down + "'>&#9660;</span>" +
+			"</a>";
+	},
+
+	_start: function( event ) {
+		if ( !this.spinning && this._trigger( "start", event ) === false ) {
+			return false;
+		}
+
+		if ( !this.counter ) {
+			this.counter = 1;
+		}
+		this.spinning = true;
+		return true;
+	},
+
+	_repeat: function( i, steps, event ) {
+		i = i || 500;
+
+		clearTimeout( this.timer );
+		this.timer = this._delay(function() {
+			this._repeat( 40, steps, event );
+		}, i );
+
+		this._spin( steps * this.options.step, event );
+	},
+
+	_spin: function( step, event ) {
+		var value = this.value() || 0;
+
+		if ( !this.counter ) {
+			this.counter = 1;
+		}
+
+		value = this._adjustValue( value + step * this._increment( this.counter ) );
+
+		if ( !this.spinning || this._trigger( "spin", event, { value: value } ) !== false) {
+			this._value( value );
+			this.counter++;
+		}
+	},
+
+	_increment: function( i ) {
+		var incremental = this.options.incremental;
+
+		if ( incremental ) {
+			return $.isFunction( incremental ) ?
+				incremental( i ) :
+				Math.floor( i * i * i / 50000 - i * i / 500 + 17 * i / 200 + 1 );
+		}
+
+		return 1;
+	},
+
+	_precision: function() {
+		var precision = this._precisionOf( this.options.step );
+		if ( this.options.min !== null ) {
+			precision = Math.max( precision, this._precisionOf( this.options.min ) );
+		}
+		return precision;
+	},
+
+	_precisionOf: function( num ) {
+		var str = num.toString(),
+			decimal = str.indexOf( "." );
+		return decimal === -1 ? 0 : str.length - decimal - 1;
+	},
+
+	_adjustValue: function( value ) {
+		var base, aboveMin,
+			options = this.options;
+
+		// make sure we're at a valid step
+		// - find out where we are relative to the base (min or 0)
+		base = options.min !== null ? options.min : 0;
+		aboveMin = value - base;
+		// - round to the nearest step
+		aboveMin = Math.round(aboveMin / options.step) * options.step;
+		// - rounding is based on 0, so adjust back to our base
+		value = base + aboveMin;
+
+		// fix precision from bad JS floating point math
+		value = parseFloat( value.toFixed( this._precision() ) );
+
+		// clamp the value
+		if ( options.max !== null && value > options.max) {
+			return options.max;
+		}
+		if ( options.min !== null && value < options.min ) {
+			return options.min;
+		}
+
+		return value;
+	},
+
+	_stop: function( event ) {
+		if ( !this.spinning ) {
+			return;
+		}
+
+		clearTimeout( this.timer );
+		clearTimeout( this.mousewheelTimer );
+		this.counter = 0;
+		this.spinning = false;
+		this._trigger( "stop", event );
+	},
+
+	_setOption: function( key, value ) {
+		if ( key === "culture" || key === "numberFormat" ) {
+			var prevValue = this._parse( this.element.val() );
+			this.options[ key ] = value;
+			this.element.val( this._format( prevValue ) );
+			return;
+		}
+
+		if ( key === "max" || key === "min" || key === "step" ) {
+			if ( typeof value === "string" ) {
+				value = this._parse( value );
+			}
+		}
+		if ( key === "icons" ) {
+			this.buttons.first().find( ".ui-icon" )
+				.removeClass( this.options.icons.up )
+				.addClass( value.up );
+			this.buttons.last().find( ".ui-icon" )
+				.removeClass( this.options.icons.down )
+				.addClass( value.down );
+		}
+
+		this._super( key, value );
+
+		if ( key === "disabled" ) {
+			this.widget().toggleClass( "ui-state-disabled", !!value );
+			this.element.prop( "disabled", !!value );
+			this.buttons.button( value ? "disable" : "enable" );
+		}
+	},
+
+	_setOptions: spinner_modifier(function( options ) {
+		this._super( options );
+	}),
+
+	_parse: function( val ) {
+		if ( typeof val === "string" && val !== "" ) {
+			val = window.Globalize && this.options.numberFormat ?
+				Globalize.parseFloat( val, 10, this.options.culture ) : +val;
+		}
+		return val === "" || isNaN( val ) ? null : val;
+	},
+
+	_format: function( value ) {
+		if ( value === "" ) {
+			return "";
+		}
+		return window.Globalize && this.options.numberFormat ?
+			Globalize.format( value, this.options.numberFormat, this.options.culture ) :
+			value;
+	},
+
+	_refresh: function() {
+		this.element.attr({
+			"aria-valuemin": this.options.min,
+			"aria-valuemax": this.options.max,
+			// TODO: what should we do with values that can't be parsed?
+			"aria-valuenow": this._parse( this.element.val() )
+		});
+	},
+
+	isValid: function() {
+		var value = this.value();
+
+		// null is invalid
+		if ( value === null ) {
+			return false;
+		}
+
+		// if value gets adjusted, it's invalid
+		return value === this._adjustValue( value );
+	},
+
+	// update the value without triggering change
+	_value: function( value, allowAny ) {
+		var parsed;
+		if ( value !== "" ) {
+			parsed = this._parse( value );
+			if ( parsed !== null ) {
+				if ( !allowAny ) {
+					parsed = this._adjustValue( parsed );
+				}
+				value = this._format( parsed );
+			}
+		}
+		this.element.val( value );
+		this._refresh();
+	},
+
+	_destroy: function() {
+		this.element
+			.removeClass( "ui-spinner-input" )
+			.prop( "disabled", false )
+			.removeAttr( "autocomplete" )
+			.removeAttr( "role" )
+			.removeAttr( "aria-valuemin" )
+			.removeAttr( "aria-valuemax" )
+			.removeAttr( "aria-valuenow" );
+		this.uiSpinner.replaceWith( this.element );
+	},
+
+	stepUp: spinner_modifier(function( steps ) {
+		this._stepUp( steps );
+	}),
+	_stepUp: function( steps ) {
+		if ( this._start() ) {
+			this._spin( (steps || 1) * this.options.step );
+			this._stop();
+		}
+	},
+
+	stepDown: spinner_modifier(function( steps ) {
+		this._stepDown( steps );
+	}),
+	_stepDown: function( steps ) {
+		if ( this._start() ) {
+			this._spin( (steps || 1) * -this.options.step );
+			this._stop();
+		}
+	},
+
+	pageUp: spinner_modifier(function( pages ) {
+		this._stepUp( (pages || 1) * this.options.page );
+	}),
+
+	pageDown: spinner_modifier(function( pages ) {
+		this._stepDown( (pages || 1) * this.options.page );
+	}),
+
+	value: function( newVal ) {
+		if ( !arguments.length ) {
+			return this._parse( this.element.val() );
+		}
+		spinner_modifier( this._value ).call( this, newVal );
+	},
+
+	widget: function() {
+		return this.uiSpinner;
+	}
+});
+
+
 
 }));
+Chart.types.Line.extend({
+    // Passing in a name registers this chart in the Chart namespace in the same way
+    name: "Scatter",
+    draw : function(ease){
+			var easingDecimal = ease || 1;
+			this.clear();
+
+			var ctx = this.chart.ctx;
+
+			// Some helper methods for getting the next/prev points
+			var hasValue = function(item){
+				return item.value !== null;
+			},
+			nextPoint = function(point, collection, index){
+				return Chart.helpers.findNextWhere(collection, hasValue, index) || point;
+			},
+			previousPoint = function(point, collection, index){
+				return Chart.helpers.findPreviousWhere(collection, hasValue, index) || point;
+			};
+
+			this.scale.draw(easingDecimal);
+
+
+			Chart.helpers.each(this.datasets,function(dataset){
+				var pointsWithValues = Chart.helpers.where(dataset.points, hasValue);
+
+				//Transition each point first so that the line and point drawing isn't out of sync
+				//We can use this extra loop to calculate the control points of this dataset also in this loop
+
+				Chart.helpers.each(dataset.points, function(point, index){
+					if (point.hasValue()){
+						point.transition({
+							y : this.scale.calculateY(point.value),
+							x : this.scale.calculateX(index)
+						}, easingDecimal);
+					}
+				},this);
+
+
+				// Control points need to be calculated in a seperate loop, because we need to know the current x/y of the point
+				// This would cause issues when there is no animation, because the y of the next point would be 0, so beziers would be skewed
+				if (this.options.bezierCurve){
+					Chart.helpers.each(pointsWithValues, function(point, index){
+						var tension = (index > 0 && index < pointsWithValues.length - 1) ? this.options.bezierCurveTension : 0;
+						point.controlPoints = Chart.helpers.splineCurve(
+							previousPoint(point, pointsWithValues, index),
+							point,
+							nextPoint(point, pointsWithValues, index),
+							tension
+						);
+
+						// Prevent the bezier going outside of the bounds of the graph
+
+						// Cap puter bezier handles to the upper/lower scale bounds
+						if (point.controlPoints.outer.y > this.scale.endPoint){
+							point.controlPoints.outer.y = this.scale.endPoint;
+						}
+						else if (point.controlPoints.outer.y < this.scale.startPoint){
+							point.controlPoints.outer.y = this.scale.startPoint;
+						}
+
+						// Cap inner bezier handles to the upper/lower scale bounds
+						if (point.controlPoints.inner.y > this.scale.endPoint){
+							point.controlPoints.inner.y = this.scale.endPoint;
+						}
+						else if (point.controlPoints.inner.y < this.scale.startPoint){
+							point.controlPoints.inner.y = this.scale.startPoint;
+						}
+					},this);
+				}
+
+				if (this.options.datasetFill && pointsWithValues.length > 0){
+					//Round off the line by going to the base of the chart, back to the start, then fill.
+					ctx.lineTo(pointsWithValues[pointsWithValues.length - 1].x, this.scale.endPoint);
+					ctx.lineTo(pointsWithValues[0].x, this.scale.endPoint);
+					ctx.fillStyle = dataset.fillColor;
+					ctx.closePath();
+					ctx.fill();
+				}
+
+				//Now draw the points over the line
+				//A little inefficient double looping, but better than the line
+				//lagging behind the point positions
+				Chart.helpers.each(pointsWithValues,function(point){
+					point.draw();
+				});
+			},this);
+		}
+});
 var HEROCALCULATOR = (function (my) {
     var my = {};
-    my.heroData = {};
-    my.itemData = {};
-    my.unitData = {};
-    my.abilityData = {};
-    my.stackableItems = ['clarity','flask','dust','ward_observer','ward_sentry','tango','tpscroll','smoke_of_deceit']
-    my.levelitems = ['necronomicon','dagon','diffusal_blade']
+		my.heroData = {},
+		my.itemData = {},
+		my.unitData = {},
+		my.abilityData = {},
+		my.stackableItems = ['clarity','flask','dust','ward_observer','ward_sentry','tango','tpscroll','smoke_of_deceit'],
+		my.levelitems = ['necronomicon','dagon','diffusal_blade'],
+		my.validItems = ["abyssal_blade","ultimate_scepter","courier","arcane_boots","armlet","assault","boots_of_elves","bfury","belt_of_strength","black_king_bar","blade_mail","blade_of_alacrity","blades_of_attack","blink","bloodstone","boots","travel_boots","bottle","bracer","broadsword","buckler","butterfly","chainmail","circlet","clarity","claymore","cloak","lesser_crit","greater_crit","dagon","demon_edge","desolator","diffusal_blade","rapier","ancient_janggo","dust","eagle","energy_booster","ethereal_blade","cyclone","skadi","flying_courier","force_staff","gauntlets","gem","ghost","gloves","hand_of_midas","headdress","flask","heart","heavens_halberd","helm_of_iron_will","helm_of_the_dominator","hood_of_defiance","hyperstone","branches","javelin","sphere","maelstrom","magic_stick","magic_wand","manta","mantle","mask_of_madness","medallion_of_courage","mekansm","mithril_hammer","mjollnir","monkey_king_bar","lifesteal","mystic_staff","necronomicon","null_talisman","oblivion_staff","ward_observer","ogre_axe","orb_of_venom","orchid","pers","phase_boots","pipe","platemail","point_booster","poor_mans_shield","power_treads","quarterstaff","quelling_blade","radiance","reaver","refresher","ring_of_aquila","ring_of_basilius","ring_of_health","ring_of_protection","ring_of_regen","robe","rod_of_atos","relic","sobi_mask","sange","sange_and_yasha","satanic","sheepstick","ward_sentry","shadow_amulet","invis_sword","shivas_guard","basher","slippers","smoke_of_deceit","soul_booster","soul_ring","staff_of_wizardry","stout_shield","talisman_of_evasion","tango","tpscroll","tranquil_boots","ultimate_orb","urn_of_shadows","vanguard","veil_of_discord","vitality_booster","vladmir","void_stone","wraith_band","yasha","crimson_guard"],
+        my.itemsWithActive = ['heart','smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila'];
     
     my.ItemInput = function (value, name) {
         if (my.itemData['item_' + value].ItemAliases instanceof Array) {
@@ -6025,14 +6933,154 @@ var HEROCALCULATOR = (function (my) {
         this.name = ko.observable(name);
         this.displayname = ko.observable(name + ' <span style="display:none">' + ';' + itemAlias + '</span>');
     };
+	
+	my.BasicInventoryViewModel = function (h) {
+        var self = this;
+		self.items = ko.observableArray([]);
+		self.activeItems = ko.observableArray([]);
+        self.addItem = function (data, event) {
+            if (data.selectedItem() != undefined) {
+                var new_item = {
+                    item: data.selectedItem(),
+                    state: ko.observable(0),
+                    size: data.itemInputValue(),
+                    enabled: ko.observable(true)
+                }
+                self.items.push(new_item);
+                if (data.selectedItem() === 'ring_of_aquila' || data.selectedItem() === 'ring_of_basilius' || data.selectedItem() === 'heart') {
+                    self.toggleItem(undefined, new_item, undefined);
+                }
+            }
+        };
+        self.toggleItem = function (index, data, event) {
+            if (my.itemsWithActive.indexOf(data.item) >= 0) {
+                if (self.activeItems.indexOf(data) < 0) {
+                    self.activeItems.push(data);
+                }
+                else {
+                    self.activeItems.remove(data);
+                }
+                switch (data.item) {
+                    case 'power_treads':
+                        if (data.state() < 2) {
+                            data.state(data.state() + 1);
+                        }
+                        else {
+                            data.state(0);
+                        }                
+                    break;
+                    default:
+                        if (data.state() == 0) {
+                            data.state(1);
+                        }
+                        else {
+                            data.state(0);
+                        }                
+                    break;
+                }
+            }
+        }.bind(this);
+        self.removeItem = function (item) {
+            self.activeItems.remove(item);
+            self.items.remove(item);
+        }.bind(this);
+        self.toggleMuteItem = function (item) {
+            item.enabled(!item.enabled());
+        }.bind(this);      
+
+        self.getItemImage = function (data) {
+            var state = ko.utils.unwrapObservable(data.state);
+            switch (data.item) {
+                case 'power_treads':
+                    if (state == 0) {
+                        return '/media/images/items/' + data.item + '_str.png';
+                    }
+                    else if (state == 1) {
+                        return '/media/images/items/' + data.item + '_int.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '_agi.png';
+                    }
+                break;
+                case 'tranquil_boots':
+                case 'ring_of_basilius':
+                    if (state == 0) {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '_active.png';
+                    }
+                break;
+                case 'armlet':
+                    if (state == 0) {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '_active.png';
+                    }
+                break;
+                case 'ring_of_aquila':
+                    if (state == 0) {
+                        return '/media/images/items/' + data.item + '_active.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                break;
+                case 'dagon':
+                case 'diffusal_blade':
+                case 'necronomicon':
+                    if (data.size > 1) {
+                        return '/media/images/items/' + data.item + '_' + data.size + '.png';
+                    }
+                    else {
+                        return '/media/images/items/' + data.item + '.png';
+                    }
+                break;
+                default:
+                    return '/media/images/items/' + data.item + '.png';            
+                break;
+            }
+        };
+        self.getItemSizeLabel = function (data) {
+            if (my.stackableItems.indexOf(data.item) != -1) {
+                return '<span style="font-size:10px">Qty: </span>' + data.size;
+            }
+            else if (my.levelitems.indexOf(data.item) != -1) {
+                return '<span style="font-size:10px">Lvl: </span>' + data.size;
+            }
+            else if (data.item == 'bloodstone') {
+                return '<span style="font-size:10px">Charges: </span>' + data.size;
+            }
+            else {
+                return '';
+            }
+        };
+        self.getActiveBorder = function (data) {
+            switch (data.item) {
+                case 'power_treads':
+                case 'tranquil_boots':
+                case 'ring_of_basilius':
+                case 'ring_of_aquila':
+                case 'armlet':
+                    return 0;
+                break;
+                default:
+                    return ko.utils.unwrapObservable(data.state);    
+                break;
+            }
+        }
+        self.removeAll = function () {
+            self.activeItems.removeAll();
+            self.items.removeAll();
+        }.bind(this);
+	}
     
     my.InventoryViewModel = function (h) {
-        var self = this,
-        validItems = ["abyssal_blade","ultimate_scepter","courier","arcane_boots","armlet","assault","boots_of_elves","bfury","belt_of_strength","black_king_bar","blade_mail","blade_of_alacrity","blades_of_attack","blink","bloodstone","boots","travel_boots","bottle","bracer","broadsword","buckler","butterfly","chainmail","circlet","clarity","claymore","cloak","lesser_crit","greater_crit","dagon","demon_edge","desolator","diffusal_blade","rapier","ancient_janggo","dust","eagle","energy_booster","ethereal_blade","cyclone","skadi","flying_courier","force_staff","gauntlets","gem","ghost","gloves","hand_of_midas","headdress","flask","heart","heavens_halberd","helm_of_iron_will","helm_of_the_dominator","hood_of_defiance","hyperstone","branches","javelin","sphere","maelstrom","magic_stick","magic_wand","manta","mantle","mask_of_madness","medallion_of_courage","mekansm","mithril_hammer","mjollnir","monkey_king_bar","lifesteal","mystic_staff","necronomicon","null_talisman","oblivion_staff","ward_observer","ogre_axe","orb_of_venom","orchid","pers","phase_boots","pipe","platemail","point_booster","poor_mans_shield","power_treads","quarterstaff","quelling_blade","radiance","reaver","refresher","ring_of_aquila","ring_of_basilius","ring_of_health","ring_of_protection","ring_of_regen","robe","rod_of_atos","relic","sobi_mask","sange","sange_and_yasha","satanic","sheepstick","ward_sentry","shadow_amulet","invis_sword","shivas_guard","basher","slippers","smoke_of_deceit","soul_booster","soul_ring","staff_of_wizardry","stout_shield","talisman_of_evasion","tango","tpscroll","tranquil_boots","ultimate_orb","urn_of_shadows","vanguard","veil_of_discord","vitality_booster","vladmir","void_stone","wraith_band","yasha","crimson_guard"];
-        itemsWithActive = ['heart','smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila'];
+        var self = new my.BasicInventoryViewModel();
         self.hero = h;
         self.hasInventory = ko.observable(true);
-        self.items = ko.observableArray();
+        self.items = ko.observableArray([]);
         self.activeItems = ko.observableArray([]);
         self.hasScepter = ko.computed(function () {
             for (var i = 0; i < self.items().length; i++) {
@@ -6093,7 +7141,7 @@ var HEROCALCULATOR = (function (my) {
             }
             return c;
         }, this);
-        self.addItem = function (data, event) {
+        /*self.addItem = function (data, event) {
             if (self.hasInventory() && data.selectedItem() != undefined) {
                 var new_item = {
                     item: data.selectedItem(),
@@ -6106,7 +7154,7 @@ var HEROCALCULATOR = (function (my) {
                     self.toggleItem(undefined, new_item, undefined);
                 }
             }
-        };
+        };*/
         self.addItemBuff = function (data, event) {
             if (self.hasInventory() && self.selectedItemBuff() != undefined) {
                 var new_item = {
@@ -6135,8 +7183,8 @@ var HEROCALCULATOR = (function (my) {
                 }
             }
         };
-        self.toggleItem = function (index, data, event) {
-            if (itemsWithActive.indexOf(data.item) >= 0) {
+        /*self.toggleItem = function (index, data, event) {
+            if (my.itemsWithActive.indexOf(data.item) >= 0) {
                 if (self.activeItems.indexOf(data) < 0) {
                     self.activeItems.push(data);
                 }
@@ -6169,7 +7217,7 @@ var HEROCALCULATOR = (function (my) {
         }.bind(this);
         self.toggleMuteItem = function (item) {
             item.enabled(!item.enabled());
-        }.bind(this);        
+        }.bind(this);
         self.getItemImage = function (data) {
             switch (data.item) {
                 case 'power_treads':
@@ -6247,11 +7295,11 @@ var HEROCALCULATOR = (function (my) {
                     return 0;
                 break;
                 default:
-                    return data.state();    
+                    return ko.utils.unwrapObservable(data.state);    
                 break;
             }
             
-        }
+        }*/
 
         self.getItemAttributeValue = function (attributes, attributeName, level) {
             for (var i = 0; i < attributes.length; i++) {
@@ -7032,6 +8080,7 @@ var HEROCALCULATOR = (function (my) {
         };
         self.getAttackSpeed = function (e) {
             var totalAttribute = 0,
+                hasPowerTreads = false,
                 excludeList = e || [];
             for (var i = 0; i < self.items().length; i++) {
                 var item = self.items()[i].item;
@@ -7042,7 +8091,15 @@ var HEROCALCULATOR = (function (my) {
                     if (excludeList.indexOf(attribute.name) > -1) continue;
                     switch(attribute.name) {
                         case 'bonus_attack_speed':
-                            totalAttribute += parseInt(attribute.value[0]);
+                            if (item == 'power_treads') {
+                                if (!hasPowerTreads) {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                    hasPowerTreads = true;
+                                }
+                            }
+                            else {
+                                totalAttribute += parseInt(attribute.value[0]);
+                            }
                         break;
                         case 'bonus_speed':
                             totalAttribute += parseInt(attribute.value[0]);
@@ -7147,7 +8204,7 @@ var HEROCALCULATOR = (function (my) {
             return {value: totalAttribute, excludeList: excludeList};
         };
         self.getMagicResist = function () {
-            var totalAttribute = 0;
+            var totalAttribute = 1;
             for (var i = 0; i < self.items().length; i++) {
                 var item = self.items()[i].item;
                 var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
@@ -7156,21 +8213,18 @@ var HEROCALCULATOR = (function (my) {
                     var attribute = my.itemData['item_' + item].attributes[j];
                     switch(attribute.name) {
                         case 'bonus_magical_armor':
-                            var d = parseInt(attribute.value[0]) / 100;
-                            if (d > totalAttribute) { totalAttribute = d; };
+                            totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
                         break;
                         case 'bonus_spell_resist':
-                            var d = parseInt(attribute.value[0]) / 100;
-                            if (d > totalAttribute) { totalAttribute = d; };
+                            totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
                         break;
                         case 'magic_resistance':
-                            var d = parseInt(attribute.value[0]) / 100;
-                            if (d > totalAttribute) { totalAttribute = d; };
+                            totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
                         break;
                     }
                 }
             }
-            return 1 - totalAttribute;
+            return totalAttribute;
         };
         self.getMagicResistReductionSelf = function () {
             var totalAttribute = 1;
@@ -7215,25 +8269,27 @@ var HEROCALCULATOR = (function (my) {
         };        
 
         self.itemOptions = ko.observableArray([]);
-        for (var i = 0; i < validItems.length; i++) {
-            self.itemOptions.push(new my.ItemInput(validItems[i], my.itemData['item_' + validItems[i]].displayname));
+        var itemOptionsArr = [];
+        for (var i = 0; i < my.validItems.length; i++) {
+            itemOptionsArr.push(new my.ItemInput(my.validItems[i], my.itemData['item_' + my.validItems[i]].displayname));
         }
+        self.itemOptions.push.apply(self.itemOptions, itemOptionsArr);
         /*for (i in my.itemData) {
             self.itemOptions.push(new my.ItemInput(i.replace('item_',''),my.itemData[i].displayname));
         }*/
-    
-        self.itemBuffOptions = ko.observableArray([]);        
+        
         var itemBuffs = ['assault', 'ancient_janggo', 'headdress', 'mekansm', 'pipe', 'ring_of_aquila', 'vladmir', 'ring_of_basilius','buckler'];
-        for (i in itemBuffs) {
+        self.itemBuffOptions = ko.observableArray(_.map(itemBuffs, function(item) { return new my.ItemInput(item, my.itemData['item_' + item].displayname); }));
+        /*for (i in itemBuffs) {
             self.itemBuffOptions.push(new my.ItemInput(itemBuffs[i], my.itemData['item_' + itemBuffs[i]].displayname));
-        }
+        }*/
         self.selectedItemBuff = ko.observable('assault');
 
-        self.itemDebuffOptions = ko.observableArray([]);        
         var itemDebuffs = ['assault', 'shivas_guard', 'desolator', 'medallion_of_courage', 'sheepstick'];
-        for (i in itemDebuffs) {
+        self.itemDebuffOptions = ko.observableArray(_.map(itemDebuffs, function(item) { return new my.ItemInput(item, my.itemData['item_' + item].displayname); }));        
+        /*for (i in itemDebuffs) {
             self.itemDebuffOptions.push(new my.ItemInput(itemDebuffs[i], my.itemData['item_' + itemDebuffs[i]].displayname));
-        }
+        }*/
         self.selectedItemDebuff = ko.observable('assault');
         
         return self;
@@ -9851,6 +10907,15 @@ var HEROCALCULATOR = (function (my) {
             {
                 attributeName: 'damage_reflection_pct',
                 label: 'DAMAGE REFLECTED:',
+                controlType: 'text',
+                fn: function(v,a) {
+                    return -a;
+                },
+                returnProperty: 'damageReduction'
+            },
+            {
+                attributeName: 'damage_reflection_pct',
+                label: 'DAMAGE REFLECTED:',
                 ignoreTooltip: true,
                 controlType: 'text',
                 fn: function(v,a) {
@@ -10489,6 +11554,27 @@ var HEROCALCULATOR = (function (my) {
                 controlType: 'text',
                 fn: function(v,a,parent,index) {
                     return parent.ability().getAbilityPropertyValue(parent.ability().abilities()[index], 'damage')*v;
+                }
+            }
+        ],
+        'winter_wyvern_cold_embrace': [
+            {
+                label: 'Duration',
+                controlType: 'input'
+            },
+            {
+                label: 'Ally Max Health',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'heal_percentage',
+                label: 'TOTAL HEAL:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                controls: [0,1],
+                fn: function(v,a,parent,index) {
+                    var base_heal = parent.ability().getAbilityAttributeValue(parent.ability().abilities()[index].attributes(), 'heal_additive',parent.ability().abilities()[index].level());
+                    return (base_heal + v[1] * a/100) * v[0];
                 }
             }
         ],
@@ -11145,12 +12231,12 @@ var HEROCALCULATOR = (function (my) {
                             switch(attribute.name()) {
                                 // lone_druid_true_form,lycan_shapeshift,troll_warlord_berserkers_rage
                                 case 'bonus_hp':
-                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+									totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
                                 break;
                                 // lone_druid_synergy
                                 case 'true_form_hp_bonus':
                                     if (self.isTrueFormActive()) {
-                                        totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+										totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
                                     }
                                 break;
                             }
@@ -11269,11 +12355,11 @@ var HEROCALCULATOR = (function (my) {
                                 case 'heath_regen':
                                 // omniknight_guardian_angel,treant_living_armor,satyr_hellcaller_unholy_aura
                                 case 'health_regen':
-                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+									totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
                                 break;
                                 // legion_commander_press_the_attack
                                 case 'hp_regen':
-                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+									totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
                                 break;
                             }
                         }
@@ -11300,7 +12386,7 @@ var HEROCALCULATOR = (function (my) {
                             switch(attribute.name()) {
                                 // alchemist_chemical_rage
                                 case 'bonus_mana_regen':
-                                    totalAttribute += parseInt(attribute.value()[ability.level()-1]);
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
                                 break;
                             }
                         }
@@ -11328,7 +12414,7 @@ var HEROCALCULATOR = (function (my) {
                                 // crystal_maiden_brilliance_aura
                                 case 'mana_regen':
                                     if (ability.name() == 'crystal_maiden_brilliance_aura') {
-                                        totalAttribute += parseFloat(attribute.value()[ability.level()-1]);
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
                                     }
                                 break;
                             }
@@ -11375,6 +12461,10 @@ var HEROCALCULATOR = (function (my) {
                         for (var j = 0; j < self.abilities()[i].attributes().length; j++) {
                             var attribute = self.abilities()[i].attributes()[j];
                             switch(attribute.name()) {
+                                // winter_wyvern_arctic_burn
+                                case 'attack_range_bonus':
+                                    totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
                                 // templar_assassin_psi_blades,sniper_take_aim
                                 case 'bonus_attack_range':
                                 // terrorblade_metamorphosis,troll_warlord_berserkers_rage
@@ -11427,8 +12517,6 @@ var HEROCALCULATOR = (function (my) {
                             switch(attribute.name()) {
                                 // abaddon_frostmourne,troll_warlord_battle_trance
                                 case 'attack_speed':
-                                // clinkz_strafe,ursa_overpower
-                                case 'attack_speed_bonus_pct':
                                 // visage_grave_chill
                                 case 'attackspeed_bonus':
                                 // mirana_leap
@@ -11436,6 +12524,12 @@ var HEROCALCULATOR = (function (my) {
                                 // life_stealer
                                 case 'attack_speed_bonus':
                                     totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                                // clinkz_strafe,ursa_overpower
+                                case 'attack_speed_bonus_pct':
+                                    if (ability.name() == 'clinkz_strafe' || ability.name() == 'ursa_overpower') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
                                 break;
                                 // axe_culling_blade,necronomicon_archer_aoe
                                 case 'speed_bonus':
@@ -11542,6 +12636,12 @@ var HEROCALCULATOR = (function (my) {
                                 // visage_grave_chill
                                 case 'attackspeed_bonus':
                                     totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                                // abaddon_frostmourne
+                                case 'attack_slow_tooltip':
+                                    if (ability.name() == 'abaddon_frostmourne') {
+                                        totalAttribute -= self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    }
                                 break;
                             }
                         }
@@ -11653,6 +12753,17 @@ var HEROCALCULATOR = (function (my) {
                                 case 'damage_modifier':
                                     totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
                                 break;
+                                // windrunner_focusfire
+                                case 'focusfire_damage_reduction':
+                                    if (!self.hasScepter()) {
+                                        totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                    }
+                                break;
+                                case 'focusfire_damage_reduction_scepter':
+                                    if (self.hasScepter()) {
+                                        totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                    }
+                                break;
                             }
                         }
                     }
@@ -11763,7 +12874,17 @@ var HEROCALCULATOR = (function (my) {
                                 break;
                                 // sven_gods_strength
                                 case 'gods_strength_damage':
-                                    if (ability.name() == 'sven_gods_strength') {
+                                    if (ability.name() == 'sven_gods_strength' && self.hero != undefined && self.hero.selectedHero().heroName == 'sven') {
+                                        totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
+                                        sources[ability.name()] = {
+                                            'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100,
+                                            'damageType': 'physical',
+                                            'displayname': ability.displayname()
+                                        }
+                                    }
+                                break;
+                                case 'gods_strength_damage_scepter':
+                                    if (ability.name() == 'sven_gods_strength' && self.hero == undefined) {
                                         totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
                                         sources[ability.name()] = {
                                             'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100,
@@ -11791,6 +12912,45 @@ var HEROCALCULATOR = (function (my) {
             return { sources: sources, total: totalAttribute };
         });
 
+        self.getBonusDamageBackstab = ko.computed(function () {
+            var totalAttribute1 = 0;
+            var totalAttribute2 = 0;
+            var sources = [];
+            for (var i = 0; i < self.abilities().length; i++) {
+                var ability = self.abilities()[i];
+                if (ability.name() == 'riki_backstab') {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j = 0; j < self.abilities()[i].attributes().length; j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // riki_backstab
+                                case 'damage_multiplier':
+                                    totalAttribute1 += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                    sources.push({
+                                        'damage': self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level()),
+                                        'damageType': 'physical',
+                                        'displayname': ability.displayname()
+                                    });
+                                break;
+                            }
+                        }/*
+                        if (ability.bonusDamageBackstab != undefined) {
+                            console.log('bonusDamageBackstab');
+                            // damage_multiplier
+                            totalAttribute2+=ability.bonusDamageBackstab();
+                            sources.push({
+                                'damage': ability.bonusDamageBackstab(),
+                                'damageType': 'physical',
+                                'displayname': ability.displayname()
+                            });
+                        }
+                        */
+                    }
+                }
+            }
+            return { sources: sources, total: [totalAttribute1,totalAttribute2] };
+        });
+        
         self.getBonusDamagePrecisionAura = ko.computed(function () {
             var totalAttribute1 = 0;
             var totalAttribute2 = 0;
@@ -11868,6 +13028,17 @@ var HEROCALCULATOR = (function (my) {
                                 case 'damage_modifier':
                                     totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
                                 break;
+                                // windrunner_focusfire
+                                case 'focusfire_damage_reduction':
+                                    if (!self.hasScepter()) {
+                                        totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                    }
+                                break;
+                                case 'focusfire_damage_reduction_scepter':
+                                    if (self.hasScepter()) {
+                                        totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
+                                    }
+                                break;
                             }
                         }
                     }
@@ -11917,7 +13088,7 @@ var HEROCALCULATOR = (function (my) {
                 }
                 else if (ability.damageReduction != undefined) {
                     if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
-                        // wisp_overcharge,bristleback_bristleback
+                        // wisp_overcharge,bristleback_bristleback,spectre_dispersion
                         totalAttribute *= (1 + ability.damageReduction()/100);
                     }
                 }
@@ -12483,9 +13654,9 @@ var HEROCALCULATOR = (function (my) {
                                         totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
                                     }
                                 break;
-                                // broodmother_incapacitating_bite,bounty_hunter_jinada,spectre_spectral_dagger
+                                // broodmother_incapacitating_bite,bounty_hunter_jinada,spectre_spectral_dagger,winter_wyvern_arctic_burn
                                 case 'bonus_movespeed':
-                                    if (ability.name() == 'broodmother_incapacitating_bite' || ability.name() == 'bounty_hunter_jinada') {
+                                    if (ability.name() == 'broodmother_incapacitating_bite' || ability.name() == 'bounty_hunter_jinada' || ability.name() == 'winter_wyvern_arctic_burn' || ability.name() == 'winter_wyvern_splinter_blast') {
                                         totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100;
                                     }
                                     else if (ability.name() == 'spectre_spectral_dagger') {
@@ -12611,6 +13782,8 @@ var HEROCALCULATOR = (function (my) {
                         for (var j = 0; j < self.abilities()[i].attributes().length; j++) {
                             var attribute = self.abilities()[i].attributes()[j];
                             switch(attribute.name()) {
+                                // winter_wyvern_arctic_burn
+                                case 'night_vision_bonus':
                                 // lycan_shapeshift,luna_lunar_blessing
                                 case 'bonus_night_vision':
                                     totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
@@ -12951,6 +14124,10 @@ var HEROCALCULATOR = (function (my) {
                 }
             }
         };
+		
+		self.isQWER = function (ability) {
+			return (ability.displayname() != 'Empty' &&  (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_HIDDEN') == -1 || ability.name().indexOf('invoker_') != -1) && ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE') == -1)
+		}
     }
 
     return my;
@@ -13016,7 +14193,9 @@ var HEROCALCULATOR = (function (my) {
             new my.BuffOption('skeleton_king', 'skeleton_king_vampiric_aura'),
             new my.BuffOption('spirit_breaker', 'spirit_breaker_empowering_haste'),
             new my.BuffOption('sven', 'sven_warcry'),
+            new my.BuffOption('sven', 'sven_gods_strength'),
             new my.BuffOption('treant', 'treant_living_armor'),
+            new my.BuffOption('troll_warlord', 'troll_warlord_battle_trance'),
             new my.BuffOption('vengefulspirit', 'vengefulspirit_command_aura'),
             new my.BuffOption('npc_dota_neutral_alpha_wolf', 'alpha_wolf_critical_strike'),
             new my.BuffOption('npc_dota_neutral_alpha_wolf', 'alpha_wolf_command_aura'),
@@ -13029,6 +14208,7 @@ var HEROCALCULATOR = (function (my) {
             new my.BuffOption('npc_dota_necronomicon_archer_1', 'necronomicon_archer_aoe')
         ]);
         self.availableDebuffs = ko.observableArray([
+            new my.BuffOption('abaddon', 'abaddon_frostmourne'),
             new my.BuffOption('alchemist', 'alchemist_acid_spray'),
             new my.BuffOption('ancient_apparition', 'ancient_apparition_ice_vortex'),
             new my.BuffOption('axe', 'axe_battle_hunger'),
@@ -13111,6 +14291,8 @@ var HEROCALCULATOR = (function (my) {
             new my.BuffOption('warlock', 'warlock_upheaval'),
             new my.BuffOption('weaver', 'weaver_the_swarm'),
             new my.BuffOption('windrunner', 'windrunner_windrun'),
+            new my.BuffOption('winter_wyvern', 'winter_wyvern_arctic_burn'),
+            new my.BuffOption('winter_wyvern', 'winter_wyvern_splinter_blast'),
             new my.BuffOption('npc_dota_neutral_ghost', 'ghost_frost_attack'),
             new my.BuffOption('npc_dota_neutral_polar_furbolg_ursa_warrior', 'polar_furbolg_ursa_warrior_thunder_clap'),
             new my.BuffOption('npc_dota_neutral_ogre_magi', 'ogre_magi_frost_armor'),
@@ -13265,6 +14447,43 @@ var HEROCALCULATOR = (function (my) {
                 }
             }
         };
+        self.levelDownAbility = function (index, data, event, hero) {
+            if (self.abilities()[index()].level() > 0) {
+                self.abilities()[index()].level(self.abilities()[index()].level() - 1);
+                switch (self.abilities()[index()].name()) {
+                    case 'beastmaster_call_of_the_wild':
+                    case 'chen_test_of_faith':
+                    case 'morphling_morph_agi':
+                    case 'shadow_demon_shadow_poison':
+                        self.abilities()[index() + 1].level(self.abilities()[index()].level());
+                    break;
+                    case 'morphling_morph_str':
+                        self.abilities()[index() - 1].level(self.abilities()[index()].level());
+                    break;
+                    case 'keeper_of_the_light_spirit_form':
+                        self.abilities()[index() - 1].level(self.abilities()[index()].level());
+                        self.abilities()[index() - 2].level(self.abilities()[index()].level());
+                    case 'nevermore_shadowraze1':
+                        self.abilities()[index() + 1].level(self.abilities()[index()].level());
+                        self.abilities()[index() + 2].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze2':
+                        self.abilities()[index() - 1].level(self.abilities()[index()].level());
+                        self.abilities()[index() + 1].level(self.abilities()[index()].level());
+                    break;
+                    case 'nevermore_shadowraze3':
+                        self.abilities()[index() - 1].level(self.abilities()[index()].level());
+                        self.abilities()[index() - 2].level(self.abilities()[index()].level());
+                    break;
+                    case 'ember_spirit_fire_remnant':
+                        self.abilities()[index() - 1].level(self.abilities()[index()].level());
+                    break;
+                    case 'lone_druid_true_form':
+                        self.abilities()[index() - 1].level(self.abilities()[index()].level());
+                    break;
+                }
+            }
+        };
         
         return self;
     }
@@ -13414,6 +14633,384 @@ var HEROCALCULATOR = (function (my) {
 }(HEROCALCULATOR));
 var HEROCALCULATOR = (function (my) {
 
+    my.GraphPropertyOption = function (id, label) {
+		this.id = id;
+        this.label = label;
+    };
+    
+	my.BuildExplorerViewModel = function (h) {
+        var self = this;
+		self.parent = h;
+
+		self.itemBuild = ko.observableArray([]);
+		self.skillBuild = ko.observableArray([]);
+		self.graphDataItemRows = [];
+		for (var i = 0; i < 25; i++) {
+			self.itemBuild.push(new my.BasicInventoryViewModel());
+			self.itemBuild()[i].carryOver = ko.observable(true);
+			self.skillBuild.push(ko.observable(-1));
+			self.graphDataItemRows.push(ko.observable(false));
+		}
+		self.toggleItemBuildCarryOver = function (index) {
+			self.itemBuild()[index].carryOver(!self.itemBuild()[index].carryOver());
+		}
+		
+		self.abilityMapData = [0,1,2,3,4];
+		self.abilityMapHero = self.parent.selectedHero().heroName;
+        self.abilityMap = ko.computed(function () {
+			if (self.abilityMapHero == self.parent.selectedHero().heroName) return;
+			self.abilityMapHero = self.parent.selectedHero().heroName;
+			var newMap =_.filter(_.map(self.parent.ability().abilities(), function(ability, index) {
+				if (self.parent.ability().isQWER(ability)) {
+					return index;
+				}
+				else {
+					return -1;
+				}
+			}), function(element) { return element != -1; });
+			for (var i = 0; i < 25; i++) {
+				var abilityValue = self.skillBuild()[i]();
+				if (abilityValue == -1) continue;
+				
+				var abilityIndex = self.abilityMapData.indexOf(abilityValue);
+				var newValue = newMap[abilityIndex];
+				if (newValue != abilityValue) {
+					self.skillBuild()[i](newValue);
+				}
+			}
+			self.abilityMapData = newMap;
+		});
+		
+		self.availableSkillBuildPoints = ko.computed(function () {
+            return _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == -1); }, 0);
+        });
+        self.getSkillBuildAbilityLevel = function (index) {
+            return _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == index); }, 0);
+        };
+        self.toggleAbilitySkillBuild = function (index, abilityIndex, data, event) {
+			if (self.skillBuild()[index]() != abilityIndex) {
+				var ability = self.parent.ability().abilities()[abilityIndex],
+					abilityType = ability.abilitytype(),
+					skillBuildSlice = self.skillBuild().slice(0, index),
+					currentAbilityLevel = _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == abilityIndex); }, 0),
+					n = _.reduce(skillBuildSlice, function(memo, num){ return memo + (num() == abilityIndex); }, 0);
+				
+				if (self.IsValidAbilityLevel(ability, self.parent.selectedHero().heroName, index + 1, n)) {
+					self.skillBuild()[index](abilityIndex);
+					for (var i = index + 1; i < 25; i++) {
+						if (self.skillBuild()[i]() == abilityIndex) {
+							n++;
+							if (!self.IsValidAbilityLevel(ability, self.parent.selectedHero().heroName, i + 1, n)) {
+								self.skillBuild()[i](-1);
+								n--;
+							}
+						}
+					}
+				}
+				else if (n > 0 && self.IsValidAbilityLevel(ability, self.parent.selectedHero().heroName, index + 1, n - 1)) {
+					for (var i = skillBuildSlice.length - 1; i >= 0; i--) {
+						if (skillBuildSlice[i]() == abilityIndex) {
+							self.skillBuild()[i](-1);
+							self.skillBuild()[index](abilityIndex);
+							break;
+						}
+					}
+				}
+			}
+			else {
+				self.skillBuild()[index](-1);
+			}
+        };
+		self.IsValidAbilityLevel = function (ability, heroName, heroLevel, abilityLevel) {
+			var a = 1, b = 2, m = 4;
+			if (ability.name() == 'attribute_bonus') {
+				m = 10;
+			}
+			else {
+				if (ability.abilitytype() == 'DOTA_ABILITY_TYPE_ULTIMATE') {
+					if (heroName == 'invoker') {
+						a = 2;
+						b = 5;
+					}
+					else if (heroName == 'meepo') {
+						a = 3;
+						b = 7;
+						m = 3;
+					}
+					else {
+						a = 6;
+						b = 5;
+						m = 3;
+					}
+				}
+				else {
+					if (heroName == 'invoker') {
+						m = 7;
+					}
+				}				
+			}
+			
+			return heroLevel >= a + b * abilityLevel && abilityLevel < m;
+		}
+		
+        self.resetItemBuild = function (index) {
+            self.itemBuild()[index].removeAll();
+        };		
+        self.resetAllItemBuilds = function () {
+            for (var i = 0; i < 25; i++) {
+                self.itemBuild()[i].removeAll();
+                self.itemBuild()[i].carryOver(true);
+            }
+        };
+        self.resetSkillBuild = function () {
+            for (var i = 0; i < 25; i++) {
+                self.skillBuild()[i](-1);
+            }
+        };
+        self.graphData = ko.observableArray([]);
+        self.graphDataHeader = ko.observable('');
+		self.parent.selectedHero.subscribe(function (newValue) {
+			self.graphDataHeader(self.parent.selectedHero().heroDisplayName);
+		});
+        self.graphDataDescription = ko.observable('');
+		self.graphProperties = ko.observableArray([
+			new my.GraphPropertyOption('totalArmorPhysical', 'Armor'),
+			new my.GraphPropertyOption('totalArmorPhysicalReduction', 'Physical Damage Reduction'),
+			new my.GraphPropertyOption('totalMagicResistance', 'Magical Resistance'),
+			new my.GraphPropertyOption('health', 'Health'),
+			new my.GraphPropertyOption('healthregen', 'Health Regeneration'),
+			new my.GraphPropertyOption('mana', 'Mana'),
+			new my.GraphPropertyOption('manaregen', 'Mana Regeneration'),
+			new my.GraphPropertyOption('ehpPhysical', 'EHP Physical'),
+			new my.GraphPropertyOption('ehpMagical', 'EHP Magical'),
+			new my.GraphPropertyOption('damage', 'Damage per attack'),
+			new my.GraphPropertyOption('dps', 'Damage per second'),
+			new my.GraphPropertyOption('attacksPerSecond', 'Attacks per second'),
+			new my.GraphPropertyOption('attackTime', 'Time per attack')
+		]);
+        self.graph = function () {
+            var savedAbilityLevels = [],
+                savedLevel = self.parent.selectedHeroLevel(),
+				savedItems = self.parent.inventory.items();
+				savedActiveItems = self.parent.inventory.activeItems(),
+                s = ko.toJS(self.skillBuild),
+				carryOverItems = [],
+				carryOverActiveItems = [],
+                dataset = [];
+            for (var i = 0; i < self.parent.ability().abilities().length; i++) {
+                savedAbilityLevels.push(self.parent.ability().abilities()[i].level());
+            }
+            for (var i = 1; i < 26; i++) {
+                self.parent.selectedHeroLevel(i);
+                var skillBuildSubset = s.slice(0, i);
+                for (var j = 0; j < self.parent.ability().abilities().length; j++) {
+                    var a = self.parent.ability().abilities()[j],
+                        count = _.reduce(skillBuildSubset, function(memo, num){ return memo + (num == j); }, 0);
+                    a.level(count);
+                }
+				
+				if (!self.itemBuild()[i-1].carryOver()) {
+					carryOverItems = [];
+					carryOverActiveItems = [];
+				}
+				carryOverItems = carryOverItems.concat(self.itemBuild()[i-1].items());
+				carryOverActiveItems = carryOverActiveItems.concat(self.itemBuild()[i-1].activeItems());
+				
+				self.parent.inventory.items(carryOverItems);
+				self.parent.inventory.activeItems(carryOverActiveItems);
+				dataObj = {};
+				for (var j = 0; j < self.graphProperties().length; j++) {
+					var prop = self.graphProperties()[j];
+                    switch (prop.id) {
+                        case 'dps':
+                            dataObj[prop.id] = self.parent['damageTotalInfo']().dps.total.toFixed(2);
+                        break;
+                        case 'damage':
+                            dataObj[prop.id] = self.parent['damageTotalInfo']().total.toFixed(2);
+                        break;
+                        default :
+                            dataObj[prop.id] = self.parent[prop.id]();
+                        break;
+                    }
+				}
+				
+				dataObj.items = _.map(carryOverItems, function(item) {
+                    return ko.toJS(item);
+                });
+                dataset.push(dataObj);
+				if (carryOverItems > 0) {
+					self.graphDataItemRows[i-1](true);
+				}
+            }
+			var data = {
+                header: self.graphDataHeader(),
+				description: self.graphDataDescription(),
+                items: _.map(self.parent.inventory.items(), function(item) {
+                    return ko.toJS(item);
+                }),
+                skillBuild: ko.toJS(self.skillBuild),
+                data: dataset,
+				abilityMap : self.abilityMapData.slice(0),
+				cumulativeSkillBuild: [],
+				visible: ko.observable(true)
+            }
+			for (var i = 0; i < 25; i++) {
+				var skillBuildAtLevel = [],
+					skillBuildSlice = data.skillBuild.slice(0, i + 1);
+				for (var j = 0; j < data.abilityMap.length; j++) {
+					var abilityIndex = data.abilityMap[j];
+					skillBuildAtLevel.push(_.reduce(skillBuildSlice, function(memo, num){ return memo + (num == abilityIndex); }, 0));
+				}
+				data.cumulativeSkillBuild.push(skillBuildAtLevel);
+			}
+				
+            self.graphData.push(data);
+            self.parent.selectedHeroLevel(savedLevel);
+            for (var i = 0; i < self.parent.ability().abilities().length; i++) {
+                self.parent.ability().abilities()[i].level(savedAbilityLevels[i]);
+            }
+			self.parent.inventory.items(savedItems);
+			self.parent.inventory.activeItems(savedActiveItems);
+        };
+		self.removeGraphDataSet = function (data) {
+			self.graphData.remove(data);
+		}
+		self.selectedGraphProperty = ko.observable(self.graphProperties()[0].id);
+		
+		self.graphChartOptions = ko.computed(function () {
+			var color = my.theme() == 'dark' ? 'rgb(151, 154, 162)' : 'rgb(51, 51, 51)';
+			return {
+				responsive: true,
+				datasetStroke: false,
+				datasetStrokeWidth: -1,
+				datasetFill: false,
+				pointHitDetectionRadius : 10,
+				scaleFontColor: color,
+				scaleLineColor: color.replace('rgb', 'rgba').replace(')', ', .1)'),
+				scaleGridLineColor: color.replace('rgb', 'rgba').replace(')', ', .1)')
+			}
+		});
+		self.graphChartData = ko.computed(function () {
+			var data = {
+				labels: [],
+				datasets: []
+			}
+			for (var i = 0; i < 25; i++) {
+				data.labels.push((i+1).toString());
+			}
+			for (var i = 0; i < self.graphData().length; i++) {
+				var dataObj = self.graphData()[i],
+					dataset = {
+						label: dataObj.header,
+						fillColor: self.graphDistinctColor(self.graphData().length, i, .1),
+						strokeColor: self.graphDistinctColor(self.graphData().length, i, 1),
+						pointColor: self.graphDistinctColor(self.graphData().length, i, 1),
+						pointStrokeColor: self.graphDistinctColor(self.graphData().length, i, 1),
+						pointHighlightFill: self.graphDistinctColor(self.graphData().length, i, .1),
+						pointHighlightStroke: self.graphDistinctColor(self.graphData().length, i, .5),
+						data: _.pluck(dataObj.data, self.selectedGraphProperty())
+					};
+				data.datasets.push(dataset);
+			}
+			return data;
+		});
+        self.graphDistinctColor = function (max, index, alpha) {
+            var alpha = alpha || 1;
+            rgba = self.hslToRgb((1 / max) * index % 1, 1, .5);
+            rgba.push(alpha);
+            return "rgba(" + rgba.join() + ")";
+        }
+        self.getDistinctColor = function (max, index, alpha) {
+            var alpha = alpha || 1;
+            rgba = self.hslToRgb((1 / max) * index % 1, 1, .5);
+            rgba.push(alpha);
+            return rgba;
+        }
+        self.hslToRgb = function (h, s, l) {
+            var r, g, b;
+            if(s == 0){
+                r = g = b = l; // achromatic
+            }else{
+                var hue2rgb = function hue2rgb(p, q, t){
+                    if(t < 0) t += 1;
+                    if(t > 1) t -= 1;
+                    if(t < 1/6) return p + (q - p) * 6 * t;
+                    if(t < 1/2) return q;
+                    if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                }
+
+                var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                var p = 2 * l - q;
+                r = hue2rgb(p, q, h + 1/3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1/3);
+            }
+
+            return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+        }
+		
+		self.showGraphItemBuildRows = ko.observable(false);
+		self.showGraphSkillBuildColumns = ko.observable(false);
+		self.graphRowHasItems = function (index) {
+			return _.some(self.graphData(), function (dataset) {
+				return dataset.visible() && dataset.data[index].items.length > 0;
+			});
+		}
+
+		self.selectInventory = function (index) {
+			self.parent.selectedInventory(self.parent.selectedInventory() == index ? -1 : index);
+		}
+		self.getSelectedInventory = ko.pureComputed(function () {
+			if (self.parent.selectedInventory() == -1) {
+				return self.parent.inventory;
+			}
+			else {
+				return self.itemBuild()[self.parent.selectedInventory()];
+			}
+		});
+		self.copyInventory = function (index) {
+			if (self.parent.selectedInventory() != -1 && self.parent.selectedInventory() != index) {
+				self.itemBuild()[self.parent.selectedInventory()].items(self.itemBuild()[self.parent.selectedInventory()].items().concat(self.itemBuild()[index].items()));
+				self.itemBuild()[self.parent.selectedInventory()].activeItems(_.union(self.itemBuild()[self.parent.selectedInventory()].activeItems(), self.itemBuild()[index].activeItems()));
+			}
+		}
+		self.copyInventoryToClipBoard = function (index) {
+			if (index == -1) {
+				my.inventoryClipBoard.items = self.parent.inventory.items.slice(0);
+				my.inventoryClipBoard.activeItems = self.parent.inventory.activeItems.slice(0);			
+			}
+			else {
+				my.inventoryClipBoard.items = self.itemBuild()[index].items.slice(0);
+				my.inventoryClipBoard.activeItems = self.itemBuild()[index].activeItems.slice(0);
+			}
+		}
+		self.pasteInventoryFromClipBoard = function (index) {
+            if (my.inventoryClipBoard.items.length > 0) {
+				if (index == -1) {
+					self.parent.inventory.items(self.parent.inventory.items().concat(my.inventoryClipBoard.items));
+					self.parent.inventory.activeItems(_.union(self.parent.inventory.activeItems(), my.inventoryClipBoard.activeItems));	
+				}
+				else {
+					self.itemBuild()[index].items(self.itemBuild()[index].items().concat(my.inventoryClipBoard.items));
+					self.itemBuild()[index].activeItems(_.union(self.itemBuild()[index].activeItems(), my.inventoryClipBoard.activeItems));
+				}
+            }
+		}
+        self.loadGraphData = function (data) {
+			self.parent.sectionDisplay()['skillbuild'](true);
+            for (var i = 0; i < data.length; i++) {
+                data[i].visible = ko.observable(data[i].visible);
+            }
+            self.graphData(data);
+        }
+
+        return self;
+	}
+    return my;
+}(HEROCALCULATOR));
+var HEROCALCULATOR = (function (my) {
+
     my.IllusionOption = function (name, displayname, baseHero) {
         this.illusionName = name;
         this.illusionDisplayName = displayname;
@@ -13424,7 +15021,7 @@ var HEROCALCULATOR = (function (my) {
         this.heroName = name;
         this.heroDisplayName = displayname;
     };
-    
+	
     my.DamageInstance = function (label, damageType, value, data, total) {
         this.label = label || '';
         this.damageType = damageType || '';
@@ -13432,7 +15029,7 @@ var HEROCALCULATOR = (function (my) {
         this.data = data || [];
         this.total = parseFloat(total) || 0;
     }
-    
+        
     function createHeroOptions() {
         var options = [];
         for (h in my.heroData) {
@@ -13456,12 +15053,15 @@ var HEROCALCULATOR = (function (my) {
         var self = this;
         self.availableHeroes = ko.observableArray(createHeroOptions());
         self.sectionDisplay = ko.observable({
-            inventory: ko.observable(true),
-            ability: ko.observable(true),
-            buff: ko.observable(true),
-            debuff: ko.observable(true),
-            damageamp: ko.observable(false),
-            illusion: ko.observable(false)
+            'inventory': ko.observable(true),
+            'ability': ko.observable(true),
+            'buff': ko.observable(true),
+            'debuff': ko.observable(true),
+            'damageamp': ko.observable(false),
+            'illusion': ko.observable(false),
+            'skillbuild': ko.observable(false),
+            'skillbuild-skills': ko.observable(true),
+            'skillbuild-items': ko.observable(true)
         });
         self.sectionDisplayToggle = function (section) {
             self.sectionDisplay()[section](!self.sectionDisplay()[section]());
@@ -13473,6 +15073,7 @@ var HEROCALCULATOR = (function (my) {
         self.selectedHero = ko.observable(self.availableHeroes()[h]);
         self.selectedHeroLevel = ko.observable(1);
         self.inventory = new my.InventoryViewModel(self);
+        self.selectedInventory = ko.observable(-1);
         self.buffs = new my.BuffViewModel();
         self.buffs.hasScepter = self.inventory.hasScepter;
         self.debuffs = new my.BuffViewModel();
@@ -13506,7 +15107,7 @@ var HEROCALCULATOR = (function (my) {
             else if (data.name() === 'invoker_invoke') {
                 return 4;
             }
-            else if (data.name() === 'earth_spirit_stone_caller') {
+            else if (data.name() === 'earth_spirit_stone_caller' || data.name() === 'ogre_magi_unrefined_fireblast') {
                 return 1;
             }
             else if (data.abilitytype() === 'DOTA_ABILITY_TYPE_ULTIMATE' || data.name() === 'keeper_of_the_light_recall' ||
@@ -13536,7 +15137,7 @@ var HEROCALCULATOR = (function (my) {
         
         self.ability = ko.computed(function () {
             var a = new my.AbilityModel(ko.mapping.fromJS(self.heroData().abilities), self);
-            if (self.selectedHero().heroName === 'earth_spirit') {
+            if (self.selectedHero().heroName === 'earth_spirit' || self.selectedHero().heroName === 'ogre_magi') {
                 a.abilities()[3].level(1);
             }
             else if (self.selectedHero().heroName === 'invoker') {
@@ -13548,24 +15149,13 @@ var HEROCALCULATOR = (function (my) {
             a.hasScepter = self.inventory.hasScepter
             return a;
         });
+		
         self.showCriticalStrikeDetails = ko.observable(false);
-        self.toggleCriticalStrikeDetails = function () {
-            self.showCriticalStrikeDetails(!self.showCriticalStrikeDetails());
-        };
         self.damageInputValue = ko.observable(0);
         self.showDamageDetails = ko.observable(false);
-        self.toggleDamageDetails = function () {
-            self.showDamageDetails(!self.showDamageDetails());
-        };
         self.showStatDetails = ko.observable(false);
-        self.toggleStatDetails = function () {
-            self.showStatDetails(!self.showStatDetails());
-        };
         self.showDamageAmpCalcDetails = ko.observable(false);
-        self.toggleDamageAmpCalcDetails = function () {
-            self.showDamageAmpCalcDetails(!self.showDamageAmpCalcDetails());
-        };
-        
+
         self.availableSkillPoints = ko.computed(function () {
             var c = self.selectedHeroLevel();
             for (var i = 0; i < self.ability().abilities().length; i++) {
@@ -13610,24 +15200,24 @@ var HEROCALCULATOR = (function (my) {
             }
             return c-self.skillPointHistory().length;
         }, this);
-        self.primaryAttribute = ko.computed(function () {
+        self.primaryAttribute = ko.pureComputed(function () {
             var v = self.heroData().attributeprimary;
             if (v === 'DOTA_ATTRIBUTE_AGILITY') return 'agi';
             if (v === 'DOTA_ATTRIBUTE_INTELLECT') return 'int';
             if (v === 'DOTA_ATTRIBUTE_STRENGTH') return 'str';
             return '';
         });
-        self.totalExp = ko.computed(function () {
+        self.totalExp = ko.pureComputed(function () {
             return my.totalExp[self.selectedHeroLevel() - 1];
         });
-        self.nextLevelExp = ko.computed(function () {
+        self.nextLevelExp = ko.pureComputed(function () {
             return my.nextLevelExp[self.selectedHeroLevel() - 1];
         });
-        self.startingArmor = ko.computed(function () {
+        self.startingArmor = ko.pureComputed(function () {
             return (self.heroData().attributebaseagility * .14 + self.heroData().armorphysical).toFixed(2);
         });
-        self.respawnTime = ko.computed(function () {
-            return self.selectedHeroLevel() * 4;
+        self.respawnTime = ko.pureComputed(function () {
+            return 5 + 3.8 * self.selectedHeroLevel();
         });
         self.totalAttribute = function (a) {
             if (a === 'agi') return parseFloat(self.totalAgi());
@@ -13635,7 +15225,7 @@ var HEROCALCULATOR = (function (my) {
             if (a === 'str') return parseFloat(self.totalStr());
             return 0;
         };
-        self.totalAgi = ko.computed(function () {
+        self.totalAgi = ko.pureComputed(function () {
             return (self.heroData().attributebaseagility
                     + self.heroData().attributeagilitygain * (self.selectedHeroLevel() - 1) 
                     + self.inventory.getAttributes('agi') 
@@ -13646,7 +15236,7 @@ var HEROCALCULATOR = (function (my) {
                    ).toFixed(2);
         });
         self.intStolen = ko.observable(0).extend({ numeric: 0 });
-        self.totalInt = ko.computed(function () {
+        self.totalInt = ko.pureComputed(function () {
             return (self.heroData().attributebaseintelligence 
                     + self.heroData().attributeintelligencegain * (self.selectedHeroLevel() - 1) 
                     + self.inventory.getAttributes('int') 
@@ -13656,7 +15246,7 @@ var HEROCALCULATOR = (function (my) {
                     + self.debuffs.getAllStatsReduction() + self.intStolen()
                    ).toFixed(2);
         });
-        self.totalStr = ko.computed(function () {
+        self.totalStr = ko.pureComputed(function () {
             return (self.heroData().attributebasestrength 
                     + self.heroData().attributestrengthgain * (self.selectedHeroLevel() - 1) 
                     + self.inventory.getAttributes('str') 
@@ -13667,12 +15257,12 @@ var HEROCALCULATOR = (function (my) {
                     + self.debuffs.getAllStatsReduction()
                    ).toFixed(2);
         });
-        self.health = ko.computed(function () {
+        self.health = ko.pureComputed(function () {
             return (self.heroData().statushealth + Math.floor(self.totalStr()) * 19 
                     + self.inventory.getHealth()
                     + self.ability().getHealth()).toFixed(2);
         });
-        self.healthregen = ko.computed(function () {
+        self.healthregen = ko.pureComputed(function () {
             var healthRegenAura = _.reduce([self.inventory.getHealthRegenAura, self.buffs.itemBuffs.getHealthRegenAura], function (memo, fn) {
                 var obj = fn(memo.excludeList);
                 obj.value += memo.value;
@@ -13685,10 +15275,10 @@ var HEROCALCULATOR = (function (my) {
                     + healthRegenAura.value
                     ).toFixed(2);
         });
-        self.mana = ko.computed(function () {
+        self.mana = ko.pureComputed(function () {
             return (self.heroData().statusmana + self.totalInt() * 13 + self.inventory.getMana()).toFixed(2);
         });
-        self.manaregen = ko.computed(function () {
+        self.manaregen = ko.pureComputed(function () {
             return ((self.heroData().statusmanaregen 
                     + self.totalInt() * .04 
                     + self.ability().getManaRegen()) 
@@ -13698,7 +15288,7 @@ var HEROCALCULATOR = (function (my) {
 					+ self.inventory.getManaRegen()
                     - self.enemy().ability().getManaRegenReduction()).toFixed(2);
         });
-        self.totalArmorPhysical = ko.computed(function () {
+        self.totalArmorPhysical = ko.pureComputed(function () {
             var armorAura = _.reduce([self.inventory.getArmorAura, self.buffs.itemBuffs.getArmorAura], function (memo, fn) {
                 var obj = fn(memo.attributes);
                 return obj;
@@ -13722,7 +15312,7 @@ var HEROCALCULATOR = (function (my) {
                     //+ self.debuffs.getArmorReduction()
                     ).toFixed(2);
         });
-        self.totalArmorPhysicalReduction = ko.computed(function () {
+        self.totalArmorPhysicalReduction = ko.pureComputed(function () {
 			var totalArmor = self.totalArmorPhysical();
 			if (totalArmor >= 0) {
 				return ((0.06 * self.totalArmorPhysical()) / (1 + 0.06 * self.totalArmorPhysical()) * 100).toFixed(2);
@@ -13731,7 +15321,7 @@ var HEROCALCULATOR = (function (my) {
 				return -((0.06 * -self.totalArmorPhysical()) / (1 + 0.06 * -self.totalArmorPhysical()) * 100).toFixed(2);
 			}
 		});
-        self.totalMovementSpeed = ko.computed(function () {
+        self.totalMovementSpeed = ko.pureComputed(function () {
             var MIN_MOVESPEED = 100;
             var ms = (self.ability().setMovementSpeed() > 0 ? self.ability().setMovementSpeed() : self.buffs.setMovementSpeed());
             if (ms > 0) {
@@ -13764,12 +15354,12 @@ var HEROCALCULATOR = (function (my) {
                 , MIN_MOVESPEED).toFixed(2);
             }
         });
-        self.totalTurnRate = ko.computed(function () {
+        self.totalTurnRate = ko.pureComputed(function () {
             return (self.heroData().movementturnrate 
                     * (1 + self.enemy().ability().getTurnRateReduction()
                          + self.debuffs.getTurnRateReduction())).toFixed(2);
         });
-        self.baseDamage = ko.computed(function () {
+        self.baseDamage = ko.pureComputed(function () {
             var totalAttribute = self.totalAttribute(self.primaryAttribute()),
                 abilityBaseDamage = self.ability().getBaseDamage(),
                 minDamage = self.heroData().attackdamagemin,
@@ -13777,7 +15367,7 @@ var HEROCALCULATOR = (function (my) {
             return [Math.floor((minDamage + totalAttribute + abilityBaseDamage.total) * self.ability().getBaseDamageReductionPct() * abilityBaseDamage.multiplier),
                     Math.floor((maxDamage + totalAttribute + abilityBaseDamage.total) * self.ability().getBaseDamageReductionPct() * abilityBaseDamage.multiplier)];
         });
-        self.bonusDamage = ko.computed(function () {
+        self.bonusDamage = ko.pureComputed(function () {
             return ((self.inventory.getBonusDamage().total
                     + self.ability().getBonusDamage().total
                     + self.buffs.getBonusDamage().total
@@ -13792,16 +15382,19 @@ var HEROCALCULATOR = (function (my) {
                             ? ((self.selectedHero().heroName == 'drow_ranger') ? self.ability().getBonusDamagePrecisionAura().total[0] * self.totalAgi() : self.buffs.getBonusDamagePrecisionAura().total[1])
                             : 0)
                       )
+                    + Math.floor(
+                        ((self.selectedHero().heroName == 'riki') ? self.ability().getBonusDamageBackstab().total[0] * self.totalAgi() : 0)
+                      )
                     ) * self.ability().getBaseDamageReductionPct());
         });
-        self.bonusDamageReduction = ko.computed(function () {
+        self.bonusDamageReduction = ko.pureComputed(function () {
             return Math.abs(self.enemy().ability().getBonusDamageReduction() + self.debuffs.getBonusDamageReduction());
         });
-        self.damage = ko.computed(function () {
+        self.damage = ko.pureComputed(function () {
             return [self.baseDamage()[0] + self.bonusDamage()[0],
                     self.baseDamage()[1] + self.bonusDamage()[1]];
         });
-        self.totalMagicResistanceProduct = ko.computed(function () {
+        self.totalMagicResistanceProduct = ko.pureComputed(function () {
             return (1 - self.heroData().magicalresistance / 100) 
                     * self.inventory.getMagicResist()
                     * self.ability().getMagicResist()
@@ -13811,17 +15404,17 @@ var HEROCALCULATOR = (function (my) {
 					* self.enemy().ability().getMagicResistReduction()
 					* self.debuffs.getMagicResistReduction();
         });
-        self.totalMagicResistance = ko.computed(function () {
+        self.totalMagicResistance = ko.pureComputed(function () {
             return ((1 - self.totalMagicResistanceProduct()) * 100).toFixed(2);
         });
-        self.bat = ko.computed(function () {
+        self.bat = ko.pureComputed(function () {
             var abilityBAT = self.ability().getBAT();
             if (abilityBAT > 0) {
                 return abilityBAT;
             }
             return self.heroData().attackrate;
         });
-        self.ias = ko.computed(function () {
+        self.ias = ko.pureComputed(function () {
             var attackSpeed = _.reduce([self.inventory.getAttackSpeed, self.buffs.itemBuffs.getAttackSpeed], function (memo, fn) {
                 var obj = fn(memo.excludeList);
                 obj.value += memo.value;
@@ -13845,18 +15438,18 @@ var HEROCALCULATOR = (function (my) {
             if (val < -80) {
                 return -80;
             }
-            else if (val > 400) {
-                return 400;
+            else if (val > 500) {
+                return 500;
             }
             return val.toFixed(2);
         });
-        self.attackTime = ko.computed(function () {
+        self.attackTime = ko.pureComputed(function () {
             return (self.bat() / (1 + self.ias() / 100)).toFixed(2);
         });
-        self.attacksPerSecond = ko.computed(function () {
+        self.attacksPerSecond = ko.pureComputed(function () {
             return ((1 + self.ias() / 100) / self.bat()).toFixed(2);
         });
-        self.evasion = ko.computed(function () {
+        self.evasion = ko.pureComputed(function () {
             if (self.enemy().inventory.isSheeped() || self.debuffs.itemBuffs.isSheeped()) return 0;
             var e = self.ability().setEvasion();
             if (e) {
@@ -13866,9 +15459,15 @@ var HEROCALCULATOR = (function (my) {
                 return ((1-(self.inventory.getEvasion() * self.ability().getEvasion() * self.ability().getEvasionBacktrack())) * 100).toFixed(2);
             }
         });
-        self.ehpPhysical = ko.computed(function () {
+        self.ehpPhysical = ko.pureComputed(function () {
             var evasion = self.enemy().inventory.isSheeped() || self.debuffs.itemBuffs.isSheeped() ? 1 : self.inventory.getEvasion() * self.ability().getEvasion();
-            var ehp = (self.health() * (1 + .06 * self.totalArmorPhysical())) / (1 - (1 - (evasion * self.ability().getEvasionBacktrack())))
+            if (self.totalArmorPhysical() >= 0) {
+                var ehp = self.health() * (1 + .06 * self.totalArmorPhysical());
+            }
+            else {
+                var ehp = self.health() / (2 - Math.pow(0.94, -self.totalArmorPhysical()));
+            }
+            ehp /= (1 - (1 - (evasion * self.ability().getEvasionBacktrack())))
             ehp *= (_.some(self.inventory.activeItems(), function (item) {return item.item == 'mask_of_madness';}) ? (1 / 1.3) : 1);
 			ehp *= (1 / self.ability().getDamageReduction());
 			ehp *= (1 / self.buffs.getDamageReduction());
@@ -13876,7 +15475,7 @@ var HEROCALCULATOR = (function (my) {
 			ehp *= (1 / self.debuffs.getDamageAmplification());
             return ehp.toFixed(2);
         });
-        self.ehpMagical = ko.computed(function () {
+        self.ehpMagical = ko.pureComputed(function () {
             var ehp = self.health() / self.totalMagicResistanceProduct();
             ehp *= (_.some(self.inventory.activeItems(), function (item) {return item.item == 'mask_of_madness';}) ? (1 / 1.3) : 1);
 			ehp *= (1 / self.ability().getDamageReduction());
@@ -13886,12 +15485,12 @@ var HEROCALCULATOR = (function (my) {
             ehp *= (1 / self.debuffs.getDamageAmplification());
             return ehp.toFixed(2);
         });
-        self.bash = ko.computed(function () {
+        self.bash = ko.pureComputed(function () {
             var attacktype = self.heroData().attacktype;
             return ((1 - (self.inventory.getBash(attacktype) * self.ability().getBash())) * 100).toFixed(2);
         });
 
-        self.cleaveInfo = ko.computed(function () {
+        self.cleaveInfo = ko.pureComputed(function () {
             var cleaveSources = self.inventory.getCleaveSource();
             $.extend(cleaveSources, self.ability().getCleaveSource());
             $.extend(cleaveSources, self.buffs.getCleaveSource());
@@ -13930,11 +15529,11 @@ var HEROCALCULATOR = (function (my) {
             return result;
         });
         
-        self.critChance = ko.computed(function () {
+        self.critChance = ko.pureComputed(function () {
             return ((1 - (self.inventory.getCritChance() * self.ability().getCritChance())) * 100).toFixed(2);
         });
 
-        self.critInfo = ko.computed(function () {
+        self.critInfo = ko.pureComputed(function () {
             var critSources = self.inventory.getCritSource();
             $.extend(critSources, self.ability().getCritSource());
             $.extend(critSources, self.buffs.getCritSource());
@@ -13991,7 +15590,7 @@ var HEROCALCULATOR = (function (my) {
             return { sources: result, total: critTotal };
         });
         
-        self.bashInfo = ko.computed(function () {
+        self.bashInfo = ko.pureComputed(function () {
             var attacktype = self.heroData().attacktype;
             var bashSources = self.inventory.getBashSource(attacktype);
             $.extend(bashSources, self.ability().getBashSource());
@@ -14057,7 +15656,7 @@ var HEROCALCULATOR = (function (my) {
             return { sources: result, total: bashTotal };
         });
         
-        self.orbProcInfo = ko.computed(function () {
+        self.orbProcInfo = ko.pureComputed(function () {
             var attacktype = self.heroData().attacktype;
             var damageSources = self.inventory.getOrbProcSource();
             var damageSourcesArray = [];
@@ -14153,7 +15752,7 @@ var HEROCALCULATOR = (function (my) {
 			return result;
         }
             
-        self.damageTotalInfo = ko.computed(function () {
+        self.damageTotalInfo = ko.pureComputed(function () {
             var bonusDamageArray = [
                 self.ability().getBonusDamage().sources,
                 self.buffs.getBonusDamage().sources
@@ -14269,6 +15868,33 @@ var HEROCALCULATOR = (function (my) {
                     totalCritableDamage += d;
                     damage.physical += d;                    
                 }
+            }
+            
+            // riki_backstab
+            if (self.selectedHero().heroName === 'riki') {
+                var s = self.ability().getBonusDamageBackstab().sources;
+                var index = 0;
+            }
+            else {
+                var s = self.buffs.getBonusDamageBackstab().sources;
+                var index = 1;
+            }
+            if (s[index] != undefined) {
+                if (self.selectedHero().heroName === 'riki') {
+                    var d = s[index].damage * self.totalAgi();
+                }
+                else {
+                    var d = s[index].damage;
+                }
+                result.push({
+                    name: s[index].displayname,
+                    damage: d,
+                    damageType: 'physical',
+                    damageReduced: self.getReducedDamage(d, 'physical')
+                });
+                totalDamage += d;
+                //totalCritableDamage += d;
+                damage.physical += d;                    
             }
 			
 			// weaver_geminate_attack
@@ -14423,19 +16049,19 @@ var HEROCALCULATOR = (function (my) {
             self.critInfo();
             return 0;
         });
-        self.missChance = ko.computed(function () {
+        self.missChance = ko.pureComputed(function () {
             return ((1 - (self.enemy().ability().getMissChance() * self.debuffs.getMissChance())) * 100).toFixed(2);
         });
-        self.totalattackrange = ko.computed(function () {
+        self.totalattackrange = ko.pureComputed(function () {
             return self.heroData().attackrange + self.ability().getAttackRange();
         });
-        self.visionrangeday = ko.computed(function () {
+        self.visionrangeday = ko.pureComputed(function () {
             return (self.heroData().visiondaytimerange) * (1 + self.enemy().ability().getVisionRangePctReduction() + self.debuffs.getVisionRangePctReduction());
         });
-        self.visionrangenight = ko.computed(function () {
+        self.visionrangenight = ko.pureComputed(function () {
             return (self.heroData().visionnighttimerange + self.ability().getVisionRangeNight()) * (1 + self.enemy().ability().getVisionRangePctReduction() + self.debuffs.getVisionRangePctReduction());
         });
-        self.lifesteal = ko.computed(function () {
+        self.lifesteal = ko.pureComputed(function () {
             var total = self.inventory.getLifesteal() + self.ability().getLifesteal() + self.buffs.getLifesteal();
             if (self.hero().attacktype() == 'DOTA_UNIT_CAP_MELEE_ATTACK') {
 				var lifestealAura = _.reduce([self.inventory.getLifestealAura, self.buffs.itemBuffs.getLifestealAura], function (memo, fn) {
@@ -14588,7 +16214,8 @@ var HEROCALCULATOR = (function (my) {
             var index = i;
             self.diff[self.diffProperties[index]] = self.getDiffFunction(self.diffProperties[index]);
         }
-
+        
+        self.buildExplorer = new my.BuildExplorerViewModel(self);
     };
 
     return my;

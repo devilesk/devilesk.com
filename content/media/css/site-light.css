@@ -5,6 +5,38 @@ html, body {
 html {
     overflow-y: scroll; 
 }
+body {
+
+
+	letter-spacing:.2px;
+	line-height:1.5em;
+}
+table.highlight-row tbody tr:hover {
+    background-color: #ddd;
+}
+.column-item-info {
+    padding-left: 10px;
+	overflow: hidden;
+}
+a.column-item {
+    display: inline-block;
+    color: #333;
+	margin-bottom: 20px;
+	width: 100%;
+}
+a.column-item:hover, a.column-item:focus {
+    color: #2a6496;
+}
+a.column-item img {
+    width: 90px;
+}
+.overlay-hover:hover {
+	opacity: .15;
+}
+.overlay-hover {
+	background: linear-gradient(to bottom, white, black);
+	opacity: 0;
+}
 .well {
     background-color: #f5f5f5;
     border: 1px solid #e3e3e3;
@@ -33,18 +65,6 @@ html {
 }
 .hideColumn {
 	background-color: #fff !important;
-}
-.hero {
-opacity:1;
-filter:alpha(opacity=75); /* For IE8 and earlier */
-}
-.hero:hover {
-opacity:0.75;
-filter:alpha(opacity=100); /* For IE8 and earlier */
-}
-.hero:active {
-opacity:1;
-filter:alpha(opacity=75); /* For IE8 and earlier */
 }
 .popover {
     background-color:white;
@@ -139,15 +159,10 @@ footer > img {
 	background:url("/media/images/header.png");
 	background-repeat:no-repeat;
 }
-body {
-
-
-	letter-spacing:.2px;
-	line-height:1.5em;
-}
 .navbar-default {
 
 
+	linear-gradient(to bottom, #f8f8f8, #e7e7e7);
 }
 .jumbotron {
 

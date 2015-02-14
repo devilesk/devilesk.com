@@ -8,22 +8,29 @@ header: Ability Matching
 
   {% block custom_css %}
 <style type="text/css">
-.abilitybox, .abilitybox_end {
+.ability-wrapper, .abilitybox, .abilitybox_end {
 	width:105px;
 	background-color:#1c1d1f;
 	height:105px;
 	display:inline-block;
-	margin:5px;
-	border-radius:10px;
 	text-shadow: 0 0 0.4em #000, 0 0 0.4em #000, 0 0 0.4em #000,
         0 0 0.4em #000;
 	color:white;
 	font-weight:bold;
 	vertical-align:middle;
 	position:relative;
+	box-shadow: inset 0 0 10px #000000;
+	border-radius: 10px;
 }
-.abilitybox {
-	border:1px solid black;
+.overlay-hover {
+	position: absolute;
+	width: 105px;
+	height: 105px;
+	z-index: 1000;
+	border-radius: 10px;
+}
+.ability-wrapper, .abilitybox_end {
+	margin:5px;
 }
 .abilitytextcontainer {
 	width:105px;
@@ -35,7 +42,7 @@ header: Ability Matching
 	vertical-align:middle; 
 	text-align:center; 
 }
-.abilitybox:hover {
+.overlay-hover, .abilitybox:hover {
 	cursor:pointer;
 }
 
@@ -43,23 +50,33 @@ header: Ability Matching
 	display:inline-block;
 	width:100%;
 }
-#heroportrait {
-	display:inline-block;
-	width:128px;
-	height:72px;
+#portrait-wrapper {
+	display: inline-block;
 	margin:5px;
-	border-radius:10px;
-	border:1px solid black;
+	border-radius: 10px;
+}
+#heroportrait {
+	border-radius: 10px;
+}
+#portrait-overlay {
+	position: absolute;
+	width: 205px;
+	height: 115px;
+	box-shadow: inset 0 0 10px #000000;
+	border-radius: 10px;
 }
 </style>
   {% endblock custom_css %}
 {% block main %}
-		<div id='contentcontainer' class='text-center'>
-			<h3 id='heroname'></h3>
-			<div id='heroportrait'></div>
-			<div id='abilitybox_end'></div>
-			<div id='abilitybox_start'></div>
-		</div>
+<div id='contentcontainer' class='text-center' style="display: none">
+	<h3 id='heroname'></h3>
+	<div id="portrait-wrapper">
+		<div id="portrait-overlay"></div>
+		<img id='heroportrait' src="">
+	</div>
+	<div id='abilitybox_end'></div>
+	<div id='abilitybox_start'></div>
+</div>
 {% endblock main %}
   {% block scripts %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>

@@ -8,38 +8,333 @@
  */
 (function( $ ) {
 
-var proto = $.ui.autocomplete.prototype,
-	initSource = proto._initSource;
+    var proto = $.ui.autocomplete.prototype,
+        initSource = proto._initSource;
 
-function filter( array, term ) {
-	var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
-	return $.grep( array, function(value) {
-		return matcher.test( $( "<div>" ).html( value.label || value.value || value ).text() );
-	});
-}
+    function filter( array, term ) {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
+        return $.grep( array, function(value) {
+            return matcher.test( $( "<div>" ).html( value.label || value.value || value ).text() );
+        });
+    }
 
-$.extend( proto, {
-	_initSource: function() {
-		if ( this.options.html && $.isArray(this.options.source) ) {
-			this.source = function( request, response ) {
-				response( filter( this.options.source, request.term ) );
-			};
-		} else {
-			initSource.call( this );
-		}
-	},
+    $.extend( proto, {
+        _initSource: function() {
+            if ( this.options.html && $.isArray(this.options.source) ) {
+                this.source = function( request, response ) {
+                    response( filter( this.options.source, request.term ) );
+                };
+            } else {
+                initSource.call( this );
+            }
+        },
 
-	_renderItem: function( ul, item) {
-		return $( "<li></li>" )
-			.data( "item.autocomplete", item )
-			.append( $( "<a></a>" )[ this.options.html ? "html" : "text" ]( item.label ) )
-			.appendTo( ul );
-	}
-});
+        _renderItem: function( ul, item) {
+            return $( "<li></li>" )
+                .data( "item.autocomplete", item )
+                .append( $( "<a></a>" )[ this.options.html ? "html" : "text" ]( item.label ) )
+                .appendTo( ul );
+        }
+    });
 
 })( jQuery );
 
 var HEROCALCULATOR = (function (my) {
+
+    ko.bindingHandlers.itemBuildTable = {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var buildExplorer = ko.unwrap(valueAccessor()),
+                $el = $(element);
+
+            var pressedKeys = {};
+            ko.utils.domData.set(element, 'pressedKeys', pressedKeys);
+            
+            var keyDownHandler = function(e) {
+                var pressedKeys = ko.utils.domData.get(element, 'pressedKeys');
+                pressedKeys[e.which] = true;
+                ko.utils.domData.set(element, 'pressedKeys', pressedKeys);
+            }
+            ko.utils.domData.set(element, 'keyDownHandler', keyDownHandler);
+            
+            var keyUpHandler = function(e) {
+                var pressedKeys = ko.utils.domData.get(element, 'pressedKeys');
+                if ((pressedKeys[17] && pressedKeys[67]) || (pressedKeys[17] && pressedKeys[86])) { // ctrl + c
+                    $hoveredRows = $(element).find('.hover-cursor:hover');
+                    if ($hoveredRows.length == 1) {
+                        if (pressedKeys[67]) {
+                            buildExplorer.copyInventoryToClipBoard($("tr", $(element)).index($hoveredRows[0]));
+                        }
+                        else {
+                            buildExplorer.pasteInventoryFromClipBoard($("tr", $(element)).index($hoveredRows[0]));
+                        }
+						$hoveredRows.fadeOut(50).fadeIn(50);
+                    }
+                }
+                delete pressedKeys[e.which];
+                ko.utils.domData.set(element, 'pressedKeys', pressedKeys);
+            }
+            ko.utils.domData.set(element, 'keyUpHandler', keyUpHandler);
+            
+            $(document).bind( "keydown", keyDownHandler );
+            $(document).bind( "keyup", keyUpHandler );
+
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+                var keyDownHandler = ko.utils.domData.get(element, 'keyDownHandler');
+                var keyUpHandler = ko.utils.domData.get(element, 'keyUpHandler');
+                $(document).unbind( "keydown", keyDownHandler );
+                $(document).unbind( "keyup", keyUpHandler );
+            });
+        }
+    };
+
+	ko.bindingHandlers.preventBubble = {
+		init: function(element, valueAccessor) {
+			var eventName = ko.utils.unwrapObservable(valueAccessor());
+			ko.utils.registerEventHandler(element, eventName, function(event) {
+			   event.cancelBubble = true;
+			   if (event.stopPropagation) {
+					event.stopPropagation();
+			   }                
+			});
+		}        
+	};
+
+	ko.bindingHandlers.toggle = {
+		init: function (element, valueAccessor) {
+			var value = valueAccessor();
+			ko.applyBindingsToNode(element, {
+				click: function () {
+					value(!value());
+				}
+			});
+		}
+	};
+
+    ko.bindingHandlers.shopDockStyle = {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var value = ko.utils.unwrapObservable(valueAccessor());
+			if (bindingContext.$data.shopDock() && !bindingContext.$data.shopPopout()) {
+				ko.applyBindingsToNode(element, { style: { height: (bindingContext.$data.windowHeight() - 52) + 'px', position: 'fixed', right: 0, top: '52px', 'overflow-y': 'auto' } });
+			}
+			else {
+				ko.applyBindingsToNode(element, { style: { height: 'auto', position: 'relative', right: 'initial', top: 'initial', 'overflow-y': 'initial' } });
+			}
+        },
+        update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var value = ko.utils.unwrapObservable(valueAccessor());
+			if (bindingContext.$data.shopDock() && !bindingContext.$data.shopPopout()) {
+				ko.applyBindingsToNode(element, { style: { height: (bindingContext.$data.windowHeight() - 52) + 'px', position: 'fixed', right: 0, top: '52px', 'overflow-y': 'auto' } });
+			}
+			else {
+				ko.applyBindingsToNode(element, { style: { height: 'auto', position: 'relative', right: 'initial', top: 'initial', 'overflow-y': 'initial' } });
+			}
+        }
+    };
+	
+    ko.bindingHandlers.logger = {
+        update: function(element, valueAccessor, allBindings) {
+            //store a counter with this element
+            var count = ko.utils.domData.get(element, "_ko_logger") || 0,
+                data = ko.toJS(valueAccessor() || allBindings());
+
+            ko.utils.domData.set(element, "_ko_logger", ++count);
+
+            if (window.console && console.log) {
+                console.log(count, element, data);
+            }
+        }
+    };
+    
+    ko.bindingHandlers.tooltip = {
+        update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var $element, options, tooltip;
+            options = ko.utils.unwrapObservable(valueAccessor());
+            $element = $(element);
+
+            // If the title is an observable, make it auto-updating.
+            if (ko.isObservable(options.title)) {
+                var isToolTipVisible = false;
+
+                $element.on('show.bs.tooltip', function () {
+                    isToolTipVisible = true;
+                });
+                $element.on('hide.bs.tooltip', function () {
+                    isToolTipVisible = false;
+                });
+
+                // "true" is the bootstrap default.
+                var origAnimation = options.animation || true;
+                options.title.subscribe(function () {
+                    if (isToolTipVisible) {
+                        $element.data('bs.tooltip').options.animation = false; // temporarily disable animation to avoid flickering of the tooltip
+                        $element.tooltip('fixTitle') // call this method to update the title
+                            .tooltip('show');
+                        $element.data('bs.tooltip').options.animation = origAnimation;
+                    }
+                });
+            }
+
+            tooltip = $element.data('bs.tooltip');
+            if (tooltip) {
+                $.extend(tooltip.options, options);
+            } else {
+                $element.tooltip(options);
+            }
+        }
+    };
+	
+    ko.bindingHandlers.popover = {
+        init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var $element = $(element);
+            var popoverBindingValues = ko.utils.unwrapObservable(valueAccessor());
+            var template = popoverBindingValues.template || false;
+            var options = popoverBindingValues.options || {title: 'popover'};
+            var data = popoverBindingValues.data || false;
+            if (template !== false) {
+                if (data) {
+                    options.content = "<!-- ko template: { name: template, if: data, data: data } --><!-- /ko -->";
+                }
+                else {
+                    options.content = $('#' + template).html();
+                }
+                options.html = true;
+            }
+            $element.on('shown.bs.popover', function(event) {
+
+                var popoverData = $(event.target).data();
+                var popoverEl = popoverData['bs.popover'].$tip;
+                var options = popoverData['bs.popover'].options || {};
+                var button = $(event.target);
+                var buttonPosition = button.position();
+                var buttonDimensions = {
+                    x: button.outerWidth(),
+                    y: button.outerHeight()
+                };
+
+                if (data) {
+                    ko.applyBindingsToNode(popoverEl[0], { template: { name: template, data: data } }, bindingContext);
+                    //ko.applyBindings({template: template, data: data}, popoverEl[0]);
+                    //ko.renderTemplate(template, data, {}, popoverEl[0], 'replaceChildren');
+                }
+                else {
+                    //ko.renderTemplate(template, data, {}, popoverEl[0], 'replaceChildren');
+                    //ko.applyBindings(viewModel, popoverEl[0]);
+                }
+
+                var popoverDimensions = {
+                    x: popoverEl.outerWidth(),
+                    y: popoverEl.outerHeight()
+                };
+
+                popoverEl.find('button[data-dismiss="popover"]').click(function() {
+                    button.popover('hide');
+                });
+
+                switch (options.placement) {
+                    case 'right':
+                        popoverEl.css({
+                            left: buttonDimensions.x + buttonPosition.left,
+                            top: (buttonDimensions.y / 2 + buttonPosition.top) - popoverDimensions.y / 2
+                        });
+                        break;
+                    case 'left':
+                        popoverEl.css({
+                            left: buttonPosition.left - popoverDimensions.x,
+                            top: (buttonDimensions.y / 2 + buttonPosition.top) - popoverDimensions.y / 2
+                        });
+                        break;
+                    case 'top':
+                        popoverEl.css({
+                            left: buttonPosition.left + (buttonDimensions.x / 2 - popoverDimensions.x / 2),
+                            top: buttonPosition.top - popoverDimensions.y
+                        });
+                        break;
+                    case 'bottom':
+                        popoverEl.css({
+                            left: buttonPosition.left + (buttonDimensions.x / 2 - popoverDimensions.x / 2),
+                            top: buttonPosition.top + buttonDimensions.y
+                        });
+                        break;
+                }
+            });
+
+            $element.popover(options);
+
+            return { controlsDescendantBindings: true };
+
+        }
+    };
+    
+	ko.bindingHandlers.chart = {
+		init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+			var newCanvas = $('<canvas/>'),
+				data = ko.utils.unwrapObservable(valueAccessor()),
+				ctx = newCanvas[0].getContext("2d"),
+				chartType = allBindingsAccessor().chartType,
+				options = allBindingsAccessor().chartOptions || {};
+				
+			$(element).append(newCanvas);
+			var myChart = new Chart(ctx)[chartType](data, options);
+			ko.utils.domData.set(element, 'myChart', myChart);
+			
+            //handle disposal (if KO removes by the template binding)
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+                var myChart = ko.utils.domData.get(element, 'myChart');
+                myChart.clear();
+				myChart.destroy();
+            });
+		},
+		update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+			var newCanvas = $('<canvas/>').width(730).height(365),
+				data = ko.utils.unwrapObservable(valueAccessor()),
+				ctx = newCanvas[0].getContext("2d"),
+				chartType = allBindingsAccessor().chartType,
+				options = allBindingsAccessor().chartOptions || {},
+				myChart = ko.utils.domData.get(element, 'myChart');
+			
+            if (myChart) {
+                myChart.clear();
+                myChart.destroy();
+            }
+			bindingContext.$root.displayShop();
+			bindingContext.$root.sideView();
+			bindingContext.$root.shopDock();
+			$(element).empty();
+			$(element).append(newCanvas);
+            if (data.datasets.length > 0) {
+				myChart = new Chart(ctx)[chartType](data, options);
+				ko.utils.domData.set(element, 'myChart', myChart);
+            }
+		}
+	};
+
+    ko.bindingHandlers.spinner = {
+        init: function(element, valueAccessor, allBindingsAccessor) {
+            //initialize datepicker with some optional options
+            var options = allBindingsAccessor().spinnerOptions || {};
+            $(element).spinner(options);
+
+            //handle the field changing
+            ko.utils.registerEventHandler(element, "spinchange", function () {
+                var observable = valueAccessor();
+                observable($(element).spinner("value"));
+            });
+
+            //handle disposal (if KO removes by the template binding)
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+                $(element).spinner("destroy");
+            });
+
+        },
+        update: function(element, valueAccessor) {
+            var value = ko.utils.unwrapObservable(valueAccessor()),
+                current = $(element).spinner("value");
+
+            if (value !== current) {
+                $(element).spinner("value", value);
+            }
+        }
+    };
 
     ko.bindingHandlers.secondTab = {
         update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
@@ -297,6 +592,7 @@ var HEROCALCULATOR = (function (my) {
         }
         self.heroes[0].showUnitTab(true);
         self.tabs = ko.observableArray([]);
+        var tabsArr = [];
         for (var i = 0; i < 4; i++) {
             var color = i < 2 ? '#5cb85c' : '#d9534f';
             var tabGroup = new my.TabGroup(
@@ -304,15 +600,15 @@ var HEROCALCULATOR = (function (my) {
                 new my.Tab('unitTab' + i, 'unitPane' + i, self.heroes[i].unit(), 'Unit ' + i, color, 'unit-pane-template'),
                 new my.Tab('cloneTab' + i, 'clonePane' + i, self.heroes[i].clone(), 'Meepo Clone ' + i, color, 'clone-pane-template')
             );
-            self.tabs.push(tabGroup);
+            //self.tabs.push(tabGroup);
+            tabsArr.push(tabGroup);
         }
+        self.tabs.push.apply(self.tabs, tabsArr);
 
         self.selectedItem = ko.observable();
         self.layout = ko.observable("1");
         self.displayShop = ko.observable(true);
-        self.toggleDisplayShop = function () {
-            self.displayShop(!self.displayShop());
-        }
+        self.displayShopItemTooltip = ko.observable(true);
         self.allItems = ko.observableArray([
             {name: 'Str, Agi, Int, MS, Turn, Sight', value: 'stats0'},
             {name: 'Armor, Health, Mana, Regen, EHP', value: 'stats1'},
@@ -359,9 +655,9 @@ var HEROCALCULATOR = (function (my) {
                 return self.tabs()[0].hero;
             }
 		});
-        self.selectedTabs = ko.observableArray([]);
-		self.selectedTabs.push('heroTab0');
-		self.selectedTabs.push('heroTab1');
+        self.selectedTabs = ko.observableArray(['heroTab0', 'heroTab1']);
+		//self.selectedTabs.push('heroTab0');
+		//self.selectedTabs.push('heroTab1');
         self.clickTab = function (data, event, index) {
             /*if (event.target.id != 'settingsTab') {
                 self.selectedTabId(event.target.id);
@@ -403,6 +699,25 @@ var HEROCALCULATOR = (function (my) {
                 self.layout("0");
             }
         });
+		var $window = $(window);
+		self.windowWidth = ko.observable($window.width());
+		self.windowHeight = ko.observable($window.height());
+		$window.resize(function () { 
+			self.windowWidth($window.width());
+			self.windowHeight($window.height());
+		});
+        self.shopDock = ko.observable(false);
+        self.shopDock.subscribe(function (newValue) {
+            if (newValue) {
+
+            }
+            else {
+            }
+        });
+		self.shopDockTrigger = ko.computed(function () {
+			self.windowWidth();
+			self.shopDock();
+		});
         self.shopPopout = ko.observable(false);
         self.shopPopout.subscribe(function (newValue) {
             if (newValue) {
@@ -461,7 +776,7 @@ var HEROCALCULATOR = (function (my) {
         self.saveLink = ko.observable();
         self.save = function () {
             var data = {
-                version: "1.1.0",
+                version: "1.2.0",
                 heroes: []
             }
             for (var i = 0; i < 4; i++) {
@@ -475,7 +790,8 @@ var HEROCALCULATOR = (function (my) {
                     buffs: [],
                     itemBuffs: [],
                     debuffs: [],
-                    itemDebuffs: []
+                    itemDebuffs: [],
+                    graphData: []
                 }
                 // items
                 for (var j = 0; j < hero.inventory.items().length; j++) {
@@ -515,6 +831,9 @@ var HEROCALCULATOR = (function (my) {
                 for (var j = 0; j < hero.debuffs.itemBuffs.items().length; j++) {
                     d.itemDebuffs.push(ko.toJS(hero.debuffs.itemBuffs.items()[j]));
                 }
+                
+                // graph data
+                d.graphData = ko.toJS(hero.buildExplorer.graphData);
                 
                 data.heroes.push(d);
             }
@@ -603,6 +922,11 @@ var HEROCALCULATOR = (function (my) {
                         }
                         hero.debuffs.itemBuffs.items.push(new_item);
                     }
+                }
+                
+                // load graph data
+                if (data.heroes[i].graphData) {
+                    hero.buildExplorer.loadGraphData(data.heroes[i].graphData);
                 }
             }
         }
@@ -715,41 +1039,50 @@ var HEROCALCULATOR = (function (my) {
     }
 
     my.heroCalculator = {};
-
+	my.theme = ko.observable($('#theme-select').val());
+	
     my.init = function (HERODATA_PATH,ITEMDATA_PATH,UNITDATA_PATH) {
         var loadedFiles = 0;
         var loadedFilesMax = 4;
-        $.get('templates.html', function (templates) {
-            $('body').append('<div style="display:none">' + templates + '<\/div>');
-            loadedFiles++;
-        });
-        $.getJSON(HERODATA_PATH, function (data) {
-            my.heroData = data;
-            my.heroData['npc_dota_hero_chen'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
-            my.heroData['npc_dota_hero_nevermore'].abilities[1].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
-            my.heroData['npc_dota_hero_nevermore'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
-            my.heroData['npc_dota_hero_morphling'].abilities[3].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
-            my.heroData['npc_dota_hero_techies'].abilities[4].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
-            var index = my.heroData['npc_dota_hero_lone_druid'].abilities[3].behavior.indexOf('DOTA_ABILITY_BEHAVIOR_HIDDEN');
-            my.heroData['npc_dota_hero_lone_druid'].abilities[3].behavior.splice(index, 1);
-            loadedFiles++;
-            if (loadedFiles == loadedFilesMax) my.run();
-        });
-        $.getJSON(ITEMDATA_PATH, function (data) {
-            my.itemData = data;
-            loadedFiles++;
-            if (loadedFiles == loadedFilesMax) my.run();
-        });
-        $.getJSON(UNITDATA_PATH, function (data) {
-            my.unitData = data;
-            loadedFiles++;
-            if (loadedFiles == loadedFilesMax) my.run();
+        $.when(
+            $.get('templates.html', function (templates) {
+                $('body').append('<div style="display:none">' + templates + '<\/div>');
+            }),
+            $.getJSON(HERODATA_PATH, function (data) {
+                my.heroData = data;
+                my.heroData['npc_dota_hero_chen'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                my.heroData['npc_dota_hero_nevermore'].abilities[1].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                my.heroData['npc_dota_hero_nevermore'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                my.heroData['npc_dota_hero_morphling'].abilities[3].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                my.heroData['npc_dota_hero_ogre_magi'].abilities[3].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                my.heroData['npc_dota_hero_techies'].abilities[4].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                my.heroData['npc_dota_hero_beastmaster'].abilities[2].behavior.push('DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE');
+                var index = my.heroData['npc_dota_hero_lone_druid'].abilities[3].behavior.indexOf('DOTA_ABILITY_BEHAVIOR_HIDDEN');
+                my.heroData['npc_dota_hero_lone_druid'].abilities[3].behavior.splice(index, 1);
+                
+                index = my.heroData['npc_dota_hero_abaddon'].abilities[2].behavior.indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE');
+                my.heroData['npc_dota_hero_abaddon'].abilities[2].behavior.splice(index, 1);
+                
+                index = my.heroData['npc_dota_hero_riki'].abilities[2].behavior.indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE');
+                my.heroData['npc_dota_hero_riki'].abilities[2].behavior.splice(index, 1);
+            }),
+            $.getJSON(ITEMDATA_PATH, function (data) {
+                my.itemData = data;
+            }),
+            $.getJSON(UNITDATA_PATH, function (data) {
+                my.unitData = data;
+            })
+        ).done(function(a1, a2, a3, a4){
+            my.run();
         });
     }
     
     my.run = function () {
         my.heroCalculator = new my.HeroCalculatorViewModel();
         ko.applyBindings(my.heroCalculator);
+		$('#theme-select').change(function () {
+			my.theme($(this).val());
+		});
 		$('#spinner').hide();
 		$('#hero-calc-wrapper').css('display', 'inline-block');
         $('#popHero0').addClass('active');
@@ -758,6 +1091,7 @@ var HEROCALCULATOR = (function (my) {
         $('#popHero1').popover({animation: false, html: true});
         $('#popHero4').popover({animation: false, html: true});
         $('#popHero5').popover({animation: false, html: true});
+        $('[data-toggle="tooltip"]').tooltip();
         var saveId = getParameterByName('id');
         if (saveId) {
             $.get('save/' + saveId + '.json', function (data) {
@@ -766,6 +1100,11 @@ var HEROCALCULATOR = (function (my) {
         }
     }
     
+    my.inventoryClipBoard = {
+        items: [],
+        activeItems: []
+    };
+
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),

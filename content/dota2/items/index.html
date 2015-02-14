@@ -9,42 +9,30 @@ header: Items
   {% block custom_css %}
   <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
   <style type="text/css">
-.item {
-margin:1px;
-display:inline-block;
-opacity:0.75;
-filter:alpha(opacity=75); /* For IE8 and earlier */
-box-shadow:3px 3px #0A0A0A;
-border-radius:10px;
+.item-overlay {
+	width: 70px;
+	height: 50px;
+	position:absolute;
 }
-.item:hover,.shop:hover {
+.shop-section {
+	float: left;
+}
+.shop-column {
+	float: left;
+	width: 80px;
+}	
+.shop-item {
+	display: inline-block;
+}
+.shop-item div {
+box-shadow: inset 0 0 5px #000000;
+}
+.shop:hover {
 cursor:pointer;
 cursor:hand;
 }
-.item-placeholder {
-margin:1px;
-width:73px;
-display:inline;
-opacity:0.75;
-filter:alpha(opacity=75); /* For IE8 and earlier */
-box-shadow:3px 3px #000000;
-}
 .shop {
-/*opacity:1;
-filter:alpha(opacity=100); /* For IE8 and earlier
-box-shadow:3px 3px #000000;*/
-margin-top:10px;
-margin-bottom:10px;
 border-radius:10px;
-box-shadow:3px 3px #0A0A0A;
-}
-.item:hover {
-opacity:1;
-filter:alpha(opacity=100); /* For IE8 and earlier */
-}
-.item:active {
-opacity:0.75;
-filter:alpha(opacity=75); /* For IE8 and earlier */
 }
 .header-wrapper {
 	padding:0px 0px 10px 5px;
@@ -61,7 +49,7 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 #item_cost {
 	margin-left:10px;
 	display:inline;
-	background-image:url("{{ media_url('images/gold.png') }}");
+	background-image:url("/media/images/gold.png");
 	padding:0px 0px 0px 27px;
 	background-repeat:no-repeat;
 }
@@ -69,14 +57,14 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 #item_manacost {
 	margin-right:10px;
 	display:inline;
-	background-image:url("{{ media_url('images/manacost.png') }}");
+	background-image:url("/media/images/manacost.png");
 	padding:0px 0px 0px 20px;
 	background-repeat:no-repeat;
 }
 #item_cooldown {
 	margin-right:10px;
 	display:inline;
-	background-image:url("{{ media_url('images/cooldown.png') }}");
+	background-image:url("/media/images/cooldown.png");
 	padding:0px 0px 0px 20px;
 	background-repeat:no-repeat;
 }
@@ -96,199 +84,458 @@ filter:alpha(opacity=75); /* For IE8 and earlier */
 .tooltip-inner {
 	color:white;
 }
+hr {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
   </style>
   {% endblock custom_css %}
 {% block main %}
-<div style="display:inline-block">
-
-
-<div class="col-md-4">
+<div class="shop-section">
 <div class="header-wrapper"><h3>Basics</h3></div>
-<div class="col-md-3 text-center">
-<div class="shop itemsprite itemsprite-consumables" id="consumables"></div><br>
-<a href="/dota2/items/all.html#clarity"><div class="item itemsprite itemsprite-clarity" id="clarity"></div></a>
-<a href="/dota2/items/all.html#tango"><div class="item itemsprite itemsprite-tango" id="tango"></div></a>
-<a href="/dota2/items/all.html#flask"><div class="item itemsprite itemsprite-flask" id="flask"></div></a>
-<a href="/dota2/items/all.html#smoke_of_deceit"><div class="item itemsprite itemsprite-smoke_of_deceit" id="smoke_of_deceit"></div></a>
-<a href="/dota2/items/all.html#tpscroll"><div class="item itemsprite itemsprite-tpscroll" id="tpscroll"></div></a>
-<a href="/dota2/items/all.html#dust"><div class="item itemsprite itemsprite-dust" id="dust"></div></a>
-<a href="/dota2/items/all.html#courier"><div class="item itemsprite itemsprite-courier" id="courier"></div></a>
-<a href="/dota2/items/all.html#flying_courier"><div class="item itemsprite itemsprite-flying_courier" id="flying_courier"></div></a>
-<a href="/dota2/items/all.html#ward_observer"><div class="item itemsprite itemsprite-ward_observer" id="ward_observer"></div></a>
-<a href="/dota2/items/all.html#ward_sentry"><div class="item itemsprite itemsprite-ward_sentry" id="ward_sentry"></div></a>
-<a href="/dota2/items/all.html#bottle"><div class="item itemsprite itemsprite-bottle" id="bottle"></div></a>
-<div class="item itemsprite" id="emptyitembg"></div>
+<div class="shop-column">
+<div class="shop shop-consumables" id="consumables"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#clarity">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-clarity" id="clarity"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#tango">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-tango" id="tango"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#flask">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-flask" id="flask"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#smoke_of_deceit">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-smoke_of_deceit" id="smoke_of_deceit"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#tpscroll">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-tpscroll" id="tpscroll"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#dust">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-dust" id="dust"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#courier">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-courier" id="courier"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#flying_courier">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-flying_courier" id="flying_courier"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ward_observer">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ward_observer" id="ward_observer"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ward_sentry">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ward_sentry" id="ward_sentry"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#bottle">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-bottle" id="bottle"></div></a>
+<div class="item item" id="emptyitembg"></div>
 </div>
-<div class="col-md-3 text-center">
-<div class="shop itemsprite itemsprite-attributes" id="attributes"></div><br>
-<a href="/dota2/items/all.html#branches"><div class="item itemsprite itemsprite-branches" id="branches"></div></a>
-<a href="/dota2/items/all.html#gauntlets"><div class="item itemsprite itemsprite-gauntlets" id="gauntlets"></div></a>
-<a href="/dota2/items/all.html#slippers"><div class="item itemsprite itemsprite-slippers" id="slippers"></div></a>
-<a href="/dota2/items/all.html#mantle"><div class="item itemsprite itemsprite-mantle" id="mantle"></div></a>
-<a href="/dota2/items/all.html#circlet"><div class="item itemsprite itemsprite-circlet" id="circlet"></div></a>
-<a href="/dota2/items/all.html#belt_of_strength"><div class="item itemsprite itemsprite-belt_of_strength" id="belt_of_strength"></div></a>
-<a href="/dota2/items/all.html#boots_of_elves"><div class="item itemsprite itemsprite-boots_of_elves" id="boots_of_elves"></div></a>
-<a href="/dota2/items/all.html#robe"><div class="item itemsprite itemsprite-robe" id="robe"></div></a>
-<a href="/dota2/items/all.html#blade_of_alacrity"><div class="item itemsprite itemsprite-blade_of_alacrity" id="blade_of_alacrity"></div></a>
-<a href="/dota2/items/all.html#ogre_axe"><div class="item itemsprite itemsprite-ogre_axe" id="ogre_axe"></div></a>
-<a href="/dota2/items/all.html#staff_of_wizardry"><div class="item itemsprite itemsprite-staff_of_wizardry" id="staff_of_wizardry"></div></a>
-<a href="/dota2/items/all.html#ultimate_orb"><div class="item itemsprite itemsprite-ultimate_orb" id="ultimate_orb"></div></a>
+<div class="shop-column">
+<div class="shop shop-attributes" id="attributes"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#branches">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-branches" id="branches"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#gauntlets">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-gauntlets" id="gauntlets"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#slippers">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-slippers" id="slippers"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#mantle">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-mantle" id="mantle"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#circlet">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-circlet" id="circlet"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#belt_of_strength">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-belt_of_strength" id="belt_of_strength"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#boots_of_elves">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-boots_of_elves" id="boots_of_elves"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#robe">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-robe" id="robe"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#blade_of_alacrity">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-blade_of_alacrity" id="blade_of_alacrity"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ogre_axe">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ogre_axe" id="ogre_axe"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#staff_of_wizardry">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-staff_of_wizardry" id="staff_of_wizardry"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ultimate_orb">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ultimate_orb" id="ultimate_orb"></div></a>
 </div>
-<div class="col-md-3 text-center">
-<div class="shop itemsprite itemsprite-armaments" id="armaments"></div><br>
-<a href="/dota2/items/all.html#ring_of_protection"><div class="item itemsprite itemsprite-ring_of_protection" id="ring_of_protection"></div></a>
-<a href="/dota2/items/all.html#quelling_blade"><div class="item itemsprite itemsprite-quelling_blade" id="quelling_blade"></div></a>
-<a href="/dota2/items/all.html#stout_shield"><div class="item itemsprite itemsprite-stout_shield" id="stout_shield"></div></a>
-<a href="/dota2/items/all.html#blades_of_attack"><div class="item itemsprite itemsprite-blades_of_attack" id="blades_of_attack"></div></a>
-<a href="/dota2/items/all.html#chainmail"><div class="item itemsprite itemsprite-chainmail" id="chainmail"></div></a>
-<a href="/dota2/items/all.html#helm_of_iron_will"><div class="item itemsprite itemsprite-helm_of_iron_will" id="helm_of_iron_will"></div></a>
-<a href="/dota2/items/all.html#broadsword"><div class="item itemsprite itemsprite-broadsword" id="broadsword"></div></a>
-<a href="/dota2/items/all.html#quarterstaff"><div class="item itemsprite itemsprite-quarterstaff" id="quarterstaff"></div></a>
-<a href="/dota2/items/all.html#javelin"><div class="item itemsprite itemsprite-javelin" id="javelin"></div></a>
-<a href="/dota2/items/all.html#claymore"><div class="item itemsprite itemsprite-claymore" id="claymore"></div></a>
-<a href="/dota2/items/all.html#platemail"><div class="item itemsprite itemsprite-platemail" id="platemail"></div></a>
-<a href="/dota2/items/all.html#mithril_hammer"><div class="item itemsprite itemsprite-mithril_hammer" id="mithril_hammer"></div></a>
+<div class="shop-column">
+<div class="shop shop-armaments" id="armaments"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#ring_of_protection">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ring_of_protection" id="ring_of_protection"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#quelling_blade">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-quelling_blade" id="quelling_blade"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#stout_shield">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-stout_shield" id="stout_shield"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#blades_of_attack">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-blades_of_attack" id="blades_of_attack"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#chainmail">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-chainmail" id="chainmail"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#helm_of_iron_will">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-helm_of_iron_will" id="helm_of_iron_will"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#broadsword">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-broadsword" id="broadsword"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#quarterstaff">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-quarterstaff" id="quarterstaff"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#javelin">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-javelin" id="javelin"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#claymore">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-claymore" id="claymore"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#platemail">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-platemail" id="platemail"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#mithril_hammer">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-mithril_hammer" id="mithril_hammer"></div></a>
 </div>
-<div class="col-md-3 text-center">
-<div class="shop itemsprite itemsprite-arcane" id="arcane"></div><br>
-<a href="/dota2/items/all.html#magic_stick"><div class="item itemsprite itemsprite-magic_stick" id="magic_stick"></div></a>
-<a href="/dota2/items/all.html#sobi_mask"><div class="item itemsprite itemsprite-sobi_mask" id="sobi_mask"></div></a>
-<a href="/dota2/items/all.html#ring_of_regen"><div class="item itemsprite itemsprite-ring_of_regen" id="ring_of_regen"></div></a>
-<a href="/dota2/items/all.html#boots"><div class="item itemsprite itemsprite-boots" id="boots"></div></a>
-<a href="/dota2/items/all.html#gloves"><div class="item itemsprite itemsprite-gloves" id="gloves"></div></a>
-<a href="/dota2/items/all.html#cloak"><div class="item itemsprite itemsprite-cloak" id="cloak"></div></a>
-<a href="/dota2/items/all.html#gem"><div class="item itemsprite itemsprite-gem" id="gem"></div></a>
-<a href="/dota2/items/all.html#lifesteal"><div class="item itemsprite itemsprite-lifesteal" id="lifesteal"></div></a>
-<a href="/dota2/items/all.html#talisman_of_evasion"><div class="item itemsprite itemsprite-talisman_of_evasion" id="talisman_of_evasion"></div></a>
-<a href="/dota2/items/all.html#ghost"><div class="item itemsprite itemsprite-ghost" id="ghost"></div></a>
-<a href="/dota2/items/all.html#blink"><div class="item itemsprite itemsprite-blink" id="blink"></div></a>
-<a href="/dota2/items/all.html#shadow_amulet"><div class="item itemsprite itemsprite-shadow_amulet" id="shadow_amulet"></div></a>
+<div class="shop-column">
+<div class="shop shop-arcane" id="arcane"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#magic_stick">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-magic_stick" id="magic_stick"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#sobi_mask">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-sobi_mask" id="sobi_mask"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ring_of_regen">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ring_of_regen" id="ring_of_regen"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#boots">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-boots" id="boots"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#gloves">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-gloves" id="gloves"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#cloak">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-cloak" id="cloak"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#gem">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-gem" id="gem"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#lifesteal">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-lifesteal" id="lifesteal"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#talisman_of_evasion">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-talisman_of_evasion" id="talisman_of_evasion"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ghost">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ghost" id="ghost"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#blink">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-blink" id="blink"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#shadow_amulet">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-shadow_amulet" id="shadow_amulet"></div></a>
 </div>
 </div>
 
-<div class="col-md-6">
+<div class="shop-section">
 <div class="header-wrapper"><h3>Upgrades</h3></div>
-<div class="col-md-2 text-center">
-<div class="shop itemsprite itemsprite-common" id="common"></div><br>
-<a href="/dota2/items/all.html#wraith_band"><div class="item itemsprite itemsprite-wraith_band" id="wraith_band"></div></a>
-<a href="/dota2/items/all.html#null_talisman"><div class="item itemsprite itemsprite-null_talisman" id="null_talisman"></div></a>
-<a href="/dota2/items/all.html#magic_wand"><div class="item itemsprite itemsprite-magic_wand" id="magic_wand"></div></a>
-<a href="/dota2/items/all.html#bracer"><div class="item itemsprite itemsprite-bracer" id="bracer"></div></a>
-<a href="/dota2/items/all.html#poor_mans_shield"><div class="item itemsprite itemsprite-poor_mans_shield" id="poor_mans_shield"></div></a>
-<a href="/dota2/items/all.html#soul_ring"><div class="item itemsprite itemsprite-soul_ring" id="soul_ring"></div></a>
-<a href="/dota2/items/all.html#phase_boots"><div class="item itemsprite itemsprite-phase_boots" id="phase_boots"></div></a>
-<a href="/dota2/items/all.html#power_treads"><div class="item itemsprite itemsprite-power_treads" id="power_treads"></div></a>
-<a href="/dota2/items/all.html#oblivion_staff"><div class="item itemsprite itemsprite-oblivion_staff" id="oblivion_staff"></div></a>
-<a href="/dota2/items/all.html#pers"><div class="item itemsprite itemsprite-pers" id="pers"></div></a>
-<a href="/dota2/items/all.html#hand_of_midas"><div class="item itemsprite itemsprite-hand_of_midas" id="hand_of_midas"></div></a>
-<a href="/dota2/items/all.html#travel_boots"><div class="item itemsprite itemsprite-travel_boots" id="travel_boots"></div></a>
+<div class="shop-column">
+<div class="shop shop-common" id="common"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#wraith_band">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-wraith_band" id="wraith_band"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#null_talisman">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-null_talisman" id="null_talisman"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#magic_wand">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-magic_wand" id="magic_wand"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#bracer">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-bracer" id="bracer"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#poor_mans_shield">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-poor_mans_shield" id="poor_mans_shield"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#soul_ring">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-soul_ring" id="soul_ring"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#phase_boots">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-phase_boots" id="phase_boots"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#power_treads">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-power_treads" id="power_treads"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#oblivion_staff">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-oblivion_staff" id="oblivion_staff"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#pers">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-pers" id="pers"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#hand_of_midas">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-hand_of_midas" id="hand_of_midas"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#travel_boots">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-travel_boots" id="travel_boots"></div></a>
 </div>
 
-<div class="col-md-2 text-center">
-<div class="shop itemsprite itemsprite-support" id="support"></div><br>
-<a href="/dota2/items/all.html#ring_of_basilius"><div class="item itemsprite itemsprite-ring_of_basilius" id="ring_of_basilius"></div></a>
-<a href="/dota2/items/all.html#headdress"><div class="item itemsprite itemsprite-headdress" id="headdress"></div></a>
-<a href="/dota2/items/all.html#buckler"><div class="item itemsprite itemsprite-buckler" id="buckler"></div></a>
-<a href="/dota2/items/all.html#urn_of_shadows"><div class="item itemsprite itemsprite-urn_of_shadows" id="urn_of_shadows"></div></a>
-<a href="/dota2/items/all.html#ring_of_aquila"><div class="item itemsprite itemsprite-ring_of_aquila" id="ring_of_aquila"></div></a>
-<a href="/dota2/items/all.html#tranquil_boots"><div class="item itemsprite itemsprite-tranquil_boots" id="tranquil_boots"></div></a>
-<a href="/dota2/items/all.html#medallion_of_courage"><div class="item itemsprite itemsprite-medallion_of_courage" id="medallion_of_courage"></div></a>
-<a href="/dota2/items/all.html#arcane_boots"><div class="item itemsprite itemsprite-arcane_boots" id="arcane_boots"></div></a>
-<a href="/dota2/items/all.html#ancient_janggo"><div class="item itemsprite itemsprite-ancient_janggo" id="ancient_janggo"></div></a>
-<a href="/dota2/items/all.html#vladmir"><div class="item itemsprite itemsprite-vladmir" id="vladmir"></div></a>
-<a href="/dota2/items/all.html#mekansm"><div class="item itemsprite itemsprite-mekansm" id="mekansm"></div></a>
-<a href="/dota2/items/all.html#pipe"><div class="item itemsprite itemsprite-pipe" id="pipe"></div></a>
+<div class="shop-column">
+<div class="shop shop-support" id="support"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#ring_of_basilius">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ring_of_basilius" id="ring_of_basilius"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#headdress">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-headdress" id="headdress"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#buckler">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-buckler" id="buckler"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#urn_of_shadows">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-urn_of_shadows" id="urn_of_shadows"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ring_of_aquila">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ring_of_aquila" id="ring_of_aquila"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#tranquil_boots">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-tranquil_boots" id="tranquil_boots"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#medallion_of_courage">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-medallion_of_courage" id="medallion_of_courage"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#arcane_boots">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-arcane_boots" id="arcane_boots"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ancient_janggo">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ancient_janggo" id="ancient_janggo"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#vladmir">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-vladmir" id="vladmir"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#mekansm">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-mekansm" id="mekansm"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#pipe">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-pipe" id="pipe"></div></a>
 </div>
 
-<div class="col-md-2 text-center">
-<div class="shop itemsprite itemsprite-caster" id="caster"></div><br>
-<a href="/dota2/items/all.html#force_staff"><div class="item itemsprite itemsprite-force_staff" id="force_staff"></div></a>
-<a href="/dota2/items/all.html#necronomicon"><div class="item itemsprite itemsprite-necronomicon" id="necronomicon"></div></a>
-<a href="/dota2/items/all.html#cyclone"><div class="item itemsprite itemsprite-cyclone" id="cyclone"></div></a>
-<a href="/dota2/items/all.html#dagon"><div class="item itemsprite itemsprite-dagon" id="dagon"></div></a>
-<a href="/dota2/items/all.html#veil_of_discord"><div class="item itemsprite itemsprite-veil_of_discord" id="veil_of_discord"></div></a>
-<a href="/dota2/items/all.html#rod_of_atos"><div class="item itemsprite itemsprite-rod_of_atos" id="rod_of_atos"></div></a>
-<a href="/dota2/items/all.html#ultimate_scepter"><div class="item itemsprite itemsprite-ultimate_scepter" id="ultimate_scepter"></div></a>
-<a href="/dota2/items/all.html#orchid"><div class="item itemsprite itemsprite-orchid" id="orchid"></div></a>
-<a href="/dota2/items/all.html#refresher"><div class="item itemsprite itemsprite-refresher" id="refresher"></div></a>
-<a href="/dota2/items/all.html#sheepstick"><div class="item itemsprite itemsprite-sheepstick" id="sheepstick"></div></a>
-<div class="item itemsprite" id="emptyitembg"></div>
-<div class="item itemsprite" id="emptyitembg"></div>
+<div class="shop-column">
+<div class="shop shop-caster" id="caster"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#force_staff">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-force_staff" id="force_staff"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#necronomicon">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-necronomicon" id="necronomicon"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#cyclone">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-cyclone" id="cyclone"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#dagon">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-dagon" id="dagon"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#veil_of_discord">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-veil_of_discord" id="veil_of_discord"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#rod_of_atos">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-rod_of_atos" id="rod_of_atos"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ultimate_scepter">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ultimate_scepter" id="ultimate_scepter"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#orchid">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-orchid" id="orchid"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#refresher">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-refresher" id="refresher"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#sheepstick">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-sheepstick" id="sheepstick"></div></a>
+<div class="item item" id="emptyitembg"></div>
+<div class="item item" id="emptyitembg"></div>
 </div>
 
-<div class="col-md-2 text-center">
-<div class="shop itemsprite itemsprite-weapons" id="weapons"></div><br>
-<a href="/dota2/items/all.html#lesser_crit"><div class="item itemsprite itemsprite-lesser_crit" id="lesser_crit"></div></a>
-<a href="/dota2/items/all.html#armlet"><div class="item itemsprite itemsprite-armlet" id="armlet"></div></a>
-<a href="/dota2/items/all.html#basher"><div class="item itemsprite itemsprite-basher" id="basher"></div></a>
-<a href="/dota2/items/all.html#invis_sword"><div class="item itemsprite itemsprite-invis_sword" id="invis_sword"></div></a>
-<a href="/dota2/items/all.html#bfury"><div class="item itemsprite itemsprite-bfury" id="bfury"></div></a>
-<a href="/dota2/items/all.html#ethereal_blade"><div class="item itemsprite itemsprite-ethereal_blade" id="ethereal_blade"></div></a>
-<a href="/dota2/items/all.html#radiance"><div class="item itemsprite itemsprite-radiance" id="radiance"></div></a>
-<a href="/dota2/items/all.html#monkey_king_bar"><div class="item itemsprite itemsprite-monkey_king_bar" id="monkey_king_bar"></div></a>
-<a href="/dota2/items/all.html#greater_crit"><div class="item itemsprite itemsprite-greater_crit" id="greater_crit"></div></a>
-<a href="/dota2/items/all.html#butterfly"><div class="item itemsprite itemsprite-butterfly" id="butterfly"></div></a>
-<a href="/dota2/items/all.html#rapier"><div class="item itemsprite itemsprite-rapier" id="rapier"></div></a>
-<a href="/dota2/items/all.html#abyssal_blade"><div class="item itemsprite itemsprite-abyssal_blade" id="abyssal_blade"></div></a>
+<div class="shop-column">
+<div class="shop shop-weapons" id="weapons"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#lesser_crit">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-lesser_crit" id="lesser_crit"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#armlet">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-armlet" id="armlet"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#basher">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-basher" id="basher"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#invis_sword">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-invis_sword" id="invis_sword"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#bfury">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-bfury" id="bfury"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ethereal_blade">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ethereal_blade" id="ethereal_blade"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#radiance">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-radiance" id="radiance"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#monkey_king_bar">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-monkey_king_bar" id="monkey_king_bar"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#greater_crit">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-greater_crit" id="greater_crit"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#butterfly">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-butterfly" id="butterfly"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#rapier">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-rapier" id="rapier"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#abyssal_blade">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-abyssal_blade" id="abyssal_blade"></div></a>
 </div>
 
-<div class="col-md-2 text-center">
-<div class="shop itemsprite itemsprite-armor" id="armor"></div><br>
-<a href="/dota2/items/all.html#hood_of_defiance"><div class="item itemsprite itemsprite-hood_of_defiance" id="hood_of_defiance"></div></a>
-<a href="/dota2/items/all.html#blade_mail"><div class="item itemsprite itemsprite-blade_mail" id="blade_mail"></div></a>
-<a href="/dota2/items/all.html#vanguard"><div class="item itemsprite itemsprite-vanguard" id="vanguard"></div></a>
-<a href="/dota2/items/all.html#soul_booster"><div class="item itemsprite itemsprite-soul_booster" id="soul_booster"></div></a>
-<a href="/dota2/items/all.html#black_king_bar"><div class="item itemsprite itemsprite-black_king_bar" id="black_king_bar"></div></a>
-<a href="/dota2/items/all.html#shivas_guard"><div class="item itemsprite itemsprite-shivas_guard" id="shivas_guard"></div></a>
-<a href="/dota2/items/all.html#manta"><div class="item itemsprite itemsprite-manta" id="manta"></div></a>
-<a href="/dota2/items/all.html#bloodstone"><div class="item itemsprite itemsprite-bloodstone" id="bloodstone"></div></a>
-<a href="/dota2/items/all.html#sphere"><div class="item itemsprite itemsprite-sphere" id="sphere"></div></a>
-<a href="/dota2/items/all.html#assault"><div class="item itemsprite itemsprite-assault" id="assault"></div></a>
-<a href="/dota2/items/all.html#heart"><div class="item itemsprite itemsprite-heart" id="heart"></div></a>
-<div class="item itemsprite" id="emptyitembg"></div>
+<div class="shop-column">
+<div class="shop shop-armor" id="armor"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#hood_of_defiance">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-hood_of_defiance" id="hood_of_defiance"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#blade_mail">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-blade_mail" id="blade_mail"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#vanguard">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-vanguard" id="vanguard"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#soul_booster">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-soul_booster" id="soul_booster"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#black_king_bar">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-black_king_bar" id="black_king_bar"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#shivas_guard">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-shivas_guard" id="shivas_guard"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#manta">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-manta" id="manta"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#bloodstone">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-bloodstone" id="bloodstone"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#sphere">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-sphere" id="sphere"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#assault">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-assault" id="assault"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#heart">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-heart" id="heart"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#crimson_guard">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-crimson_guard" id="crimson_guard"></div></a>
+<div class="item item" id="emptyitembg"></div>
 </div>
 
-<div class="col-md-2 text-center">
-<div class="shop itemsprite itemsprite-artifacts" id="artifacts"></div><br>
-<a href="/dota2/items/all.html#helm_of_the_dominator"><div class="item itemsprite itemsprite-helm_of_the_dominator" id="helm_of_the_dominator"></div></a>
-<a href="/dota2/items/all.html#mask_of_madness"><div class="item itemsprite itemsprite-mask_of_madness" id="mask_of_madness"></div></a>
-<a href="/dota2/items/all.html#sange"><div class="item itemsprite itemsprite-sange" id="sange"></div></a>
-<a href="/dota2/items/all.html#yasha"><div class="item itemsprite itemsprite-yasha" id="yasha"></div></a>
-<a href="/dota2/items/all.html#maelstrom"><div class="item itemsprite itemsprite-maelstrom" id="maelstrom"></div></a>
-<a href="/dota2/items/all.html#diffusal_blade"><div class="item itemsprite itemsprite-diffusal_blade" id="diffusal_blade"></div></a>
-<a href="/dota2/items/all.html#desolator"><div class="item itemsprite itemsprite-desolator" id="desolator"></div></a>
-<a href="/dota2/items/all.html#heavens_halberd"><div class="item itemsprite itemsprite-heavens_halberd" id="heavens_halberd"></div></a>
-<a href="/dota2/items/all.html#sange_and_yasha"><div class="item itemsprite itemsprite-sange_and_yasha" id="sange_and_yasha"></div></a>
-<a href="/dota2/items/all.html#mjollnir"><div class="item itemsprite itemsprite-mjollnir" id="mjollnir"></div></a>
-<a href="/dota2/items/all.html#skadi"><div class="item itemsprite itemsprite-skadi" id="skadi"></div></a>
-<a href="/dota2/items/all.html#satanic"><div class="item itemsprite itemsprite-satanic" id="satanic"></div></a>
+<div class="shop-column">
+<div class="shop shop-artifacts" id="artifacts"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#helm_of_the_dominator">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-helm_of_the_dominator" id="helm_of_the_dominator"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#mask_of_madness">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-mask_of_madness" id="mask_of_madness"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#sange">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-sange" id="sange"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#yasha">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-yasha" id="yasha"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#maelstrom">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-maelstrom" id="maelstrom"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#diffusal_blade">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-diffusal_blade" id="diffusal_blade"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#desolator">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-desolator" id="desolator"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#heavens_halberd">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-heavens_halberd" id="heavens_halberd"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#sange_and_yasha">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-sange_and_yasha" id="sange_and_yasha"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#mjollnir">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-mjollnir" id="mjollnir"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#skadi">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-skadi" id="skadi"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#satanic">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-satanic" id="satanic"></div></a>
 </div>
 </div>
 
-<div class="col-md-1">
+<div class="shop-section">
 <div class="header-wrapper"><h3>Secret</h3></div>
-<div class="col-md-12 text-center">
-<div class="shop itemsprite itemsprite-secret" id="secret" style="opacity:.5"></div><br>
-<a href="/dota2/items/all.html#orb_of_venom"><div class="item itemsprite itemsprite-orb_of_venom" id="orb_of_venom"></div></a>
-<a href="/dota2/items/all.html#ring_of_health"><div class="item itemsprite itemsprite-ring_of_health" id="ring_of_health"></div></a>
-<a href="/dota2/items/all.html#void_stone"><div class="item itemsprite itemsprite-void_stone" id="void_stone"></div></a>
-<a href="/dota2/items/all.html#energy_booster"><div class="item itemsprite itemsprite-energy_booster" id="energy_booster"></div></a>
-<a href="/dota2/items/all.html#vitality_booster"><div class="item itemsprite itemsprite-vitality_booster" id="vitality_booster"></div></a>
-<a href="/dota2/items/all.html#point_booster"><div class="item itemsprite itemsprite-point_booster" id="point_booster"></div></a>
-<a href="/dota2/items/all.html#hyperstone"><div class="item itemsprite itemsprite-hyperstone" id="hyperstone"></div></a>
-<a href="/dota2/items/all.html#demon_edge"><div class="item itemsprite itemsprite-demon_edge" id="demon_edge"></div></a>
-<a href="/dota2/items/all.html#mystic_staff"><div class="item itemsprite itemsprite-mystic_staff" id="mystic_staff"></div></a>
-<a href="/dota2/items/all.html#eagle"><div class="item itemsprite itemsprite-eagle" id="eagle"></div></a>
-<a href="/dota2/items/all.html#reaver"><div class="item itemsprite itemsprite-reaver" id="reaver"></div></a>
-<a href="/dota2/items/all.html#relic"><div class="item itemsprite itemsprite-relic" id="relic"></div></a>
+<div class="shop-column">
+<div class="shop shop-secret" id="secret" style="opacity:.5"></div><br>
+<a class="shop-item" href="/dota2/items/all.html#orb_of_venom">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-orb_of_venom" id="orb_of_venom"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#ring_of_health">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-ring_of_health" id="ring_of_health"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#void_stone">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-void_stone" id="void_stone"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#energy_booster">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-energy_booster" id="energy_booster"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#vitality_booster">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-vitality_booster" id="vitality_booster"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#point_booster">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-point_booster" id="point_booster"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#hyperstone">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-hyperstone" id="hyperstone"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#demon_edge">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-demon_edge" id="demon_edge"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#mystic_staff">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-mystic_staff" id="mystic_staff"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#eagle">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-eagle" id="eagle"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#reaver">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-reaver" id="reaver"></div></a>
+<a class="shop-item" href="/dota2/items/all.html#relic">
+<div class="item-overlay overlay-hover"></div>
+<div class="itemsprite itemsprite-relic" id="relic"></div></a>
 </div>
 </div>
 
-</div>
 {% endblock main %}
   {% block scripts %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-    <script>
+    <script type="text/javascript">
 $(function () {
 	$('#consumables').tooltip({
 		title: 'Consumables'
@@ -328,27 +575,24 @@ $(function () {
 
 	get_data_for_popover_and_display = function () {
 		var el = $(this);
-		if (el.attr('id') in item_data) {
-			el.attr('data-content', item_data[el.attr('id')]);
+		if (el.find('.itemsprite').attr('id') in item_data) {
+			el.attr('data-content', item_data[el.find('.itemsprite').attr('id')]);
 			if (el.is(':hover')) {
 				el.popover('show');
 			}
-		} else {
-			getTooltipDataThrottled(el);
 		}
 	}
-
-	var getTooltipDataThrottled = _.debounce(getItemTooltipData, 250);
 
 	hide_popover = function () {
 		var el = $(this);
 		el.popover('hide')
 	}
-	$('.item').popover({
+	$('.shop-item').popover({
 		"trigger": "hover",
-		"html": "true"
+		"html": true,
+		"animation": false
 	});
-	$('.item').hover(get_data_for_popover_and_display, hide_popover);
+	$('.shop-item').hover(get_data_for_popover_and_display, hide_popover);
 	
 	var itemtooltipdata = {}
 
@@ -435,47 +679,40 @@ $(function () {
 	}
 	
 	var itemData;
-	$.getJSON("{{ media_url('js/itemdata.json') }}", function (data) {
+	$.getJSON("/media/js/itemdata.json", function (data) {
 		itemData = data;
+		for (i in itemData) {
+			var item = itemData[i];
+			var data = $('<div>');
+			data.append($('<span>').html(item.displayname).attr('id','item_name').addClass('item_field'));
+			data.append($('<span>').html(item.itemcost).attr('id','item_cost').addClass('item_field'));
+			data.append($('<hr>'));
+			if (item.description != null) {
+				data.append($('<div>').html(getTooltipItemDescription(item)).attr('id','item_description').addClass('item_field'));
+			}
+			var attributedata = getTooltipItemAttributes(item);
+			if (attributedata != '') {
+				data.append($('<div>').html(attributedata).attr('id','item_attributes').addClass('item_field'));
+			}
+			var cd = getTooltipItemCooldown(item);
+			var mana = getTooltipItemManaCost(item);
+			if (cd != '' || mana != '') {
+				var cdmanacost = $('<div>').attr('id','item_cdmana');
+				if (cd != '') {
+					cdmanacost.append($('<span>').html(cd).attr('id','item_cooldown').addClass('item_field'));
+				}
+				if (mana != '') {
+					cdmanacost.append($('<span>').html(mana).attr('id','item_manacost').addClass('item_field'));
+				}
+				data.append(cdmanacost);
+			}
+			if (item.lore != null) {
+				data.append($('<div>').html(item.lore).attr('id','item_lore').addClass('item_field'));
+			}
+			item_data[i.replace('item_', '')] = data.html();
+		}
+		
 	});
-			
-	function getItemTooltipData(el) {
-		if (itemData['item_' + el.attr('id')] == undefined) {
-			return undefined;
-		}
-		var item = itemData['item_' + el.attr('id')];
-		var data = $('<div>');
-		data.append($('<span>').html(item.displayname).attr('id','item_name').addClass('item_field'));
-		data.append($('<span>').html(item.itemcost).attr('id','item_cost').addClass('item_field'));
-		data.append($('<hr>'));
-		if (item.description != null) {
-			data.append($('<div>').html(getTooltipItemDescription(item)).attr('id','item_description').addClass('item_field'));
-		}
-		var attributedata = getTooltipItemAttributes(item);
-		if (attributedata != '') {
-			data.append($('<div>').html(attributedata).attr('id','item_attributes').addClass('item_field'));
-		}
-		var cd = getTooltipItemCooldown(item);
-		var mana = getTooltipItemManaCost(item);
-		if (cd != '' || mana != '') {
-			var cdmanacost = $('<div>').attr('id','item_cdmana');
-			if (cd != '') {
-				cdmanacost.append($('<span>').html(cd).attr('id','item_cooldown').addClass('item_field'));
-			}
-			if (mana != '') {
-				cdmanacost.append($('<span>').html(mana).attr('id','item_manacost').addClass('item_field'));
-			}
-			data.append(cdmanacost);
-		}
-		if (item.lore != null) {
-			data.append($('<div>').html(item.lore).attr('id','item_lore').addClass('item_field'));
-		}
-		el.attr('data-content', data.html());
-		if (el.is(':hover')) {
-			el.popover('show');
-		}
-		item_data[el.attr('id')] = data.html();
-	}
 });
     </script>
   {% endblock scripts %}

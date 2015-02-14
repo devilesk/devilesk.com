@@ -44,7 +44,7 @@
   "Lore": ""
  }, 
  "alchemist_acid_spray": {
-  "Description": "Sprays high-pressure acid across a target area. Enemy units who step across the contaminated terrain take mixed damage per second and have their armor reduced.", 
+  "Description": "Sprays high-pressure acid across a target area. Enemy units who step across the contaminated terrain take damage per second and have their armor reduced.", 
   "DisplayName": "Acid Spray", 
   "Lore": "Using traditional Alchemy from the Darkbrew family, Razzil concocts an acid that dissolves even the toughest metals."
  }, 
@@ -54,7 +54,7 @@
   "Lore": "The brew Razzil gave to the Ogre during their prison bust has become a useful potion in the midst of combat."
  }, 
  "alchemist_goblins_greed": {
-  "Description": "Alchemist synthesizes additional gold from his enemies. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next %duration% seconds, an additional instance of Extra Bonus Gold is added to the total. The maximum total bonus gold is %bonus_gold_cap% per kill.", 
+  "Description": "Alchemist synthesizes additional gold from his enemies. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next %duration% seconds, an additional instance of Extra Bonus Gold is added to the total.", 
   "DisplayName": "Greevil's Greed", 
   "Lore": "While it is not a mountain, Razzil has mastered the conversion of smaller compounds to line his pockets."
  }, 
@@ -91,7 +91,7 @@
   "Lore": "Ice storms from ages past flow through Kaldr's frosty limbs, crashing into the world and turning its inhabitants into monuments to his eternal power."
  }, 
  "ancient_apparition_ice_blast_release": {
-  "Description": "Releases the ice blast early at its current location.", 
+  "Description": "Releases the ice blast to explode at the tracer's current location.", 
   "DisplayName": "Release"
  }, 
  "ancient_apparition_ice_vortex": {
@@ -152,7 +152,7 @@
   "DisplayName": "Backdoor Protection"
  }, 
  "bane_brain_sap": {
-  "Description": "Feasts on the vital energies of an enemy unit, dealing damage and gaining health equal to the damage dealt.", 
+  "Description": "Feasts on the vital energies of an enemy unit, healing Bane and dealing damage.", 
   "DisplayName": "Brain Sap", 
   "Lore": "Atropos finds no greater pleasure than to harvest the fear he creates."
  }, 
@@ -201,13 +201,13 @@
   "DisplayName": "Poison"
  }, 
  "beastmaster_call_of_the_wild": {
-  "Description": "Beastmaster calls a watchful Hawk. \\n\\nLevel 1: Summons a Scout Hawk.\\nLevel 2: Summons a Scout Hawk.\\nLevel 3: Summons a Greater Hawk.\\nLevel 4: Summons a Greater Hawk.", 
-  "DisplayName": "Call of the Wild", 
+  "Description": "Beastmaster calls forth a watchful Hawk to scout the battlefield. At level 3 and beyond, the hawk can become invisible after being still for 4 seconds.", 
+  "DisplayName": "Call of the Wild: Hawk", 
   "Lore": "After befriending the strange beast of his childhood, Beastmaster has learned to call to animals in times of need."
  }, 
  "beastmaster_call_of_the_wild_boar": {
-  "Description": "Beastmaster calls a powerful Boar. \\n\\nLevel 1: Not Available.\\nLevel 2: Summons a Lesser Boar.\\nLevel 3: Summons a Lesser Boar.\\nLevel 4: Summons a Greater Boar.", 
-  "DisplayName": "Call of the Wild", 
+  "Description": "Beastmaster calls a powerful Boar to stalk the battlefield, capable of spitting poison at enemies to slow their movement and attack speed.", 
+  "DisplayName": "Call of the Wild: Boar", 
   "Lore": "After befriending the strange beast of his childhood, Beastmaster has learned to call to animals in times of need."
  }, 
  "beastmaster_greater_boar_poison": {
@@ -215,7 +215,7 @@
   "DisplayName": "Poison"
  }, 
  "beastmaster_hawk_invisibility": {
-  "Description": "If motionless for 4 seconds, the Greater Hawk becomes invisible.", 
+  "Description": "If motionless for some time, the Greater Hawk becomes invisible.", 
   "DisplayName": "Invisibility"
  }, 
  "beastmaster_inner_beast": {
@@ -251,7 +251,7 @@
   "Lore": "The Flayed Twins are ever willing to aid those who spill blood upon the field of battle."
  }, 
  "bloodseeker_bloodrage": {
-  "Description": "Drives a unit into a bloodthirsty rage during which a unit deals, and takes, increased damage. Heroes affected by Bloodrage will be healed for 25%% of the max health of any units they kill. Heroes affected by Bloodrage when killed will heal 25%% of their max health to their killer.", 
+  "Description": "Drives a unit into a bloodthirsty rage during which a unit deals, and takes, increased damage. Units affected by Bloodrage will be healed for 25%% of the max health of any units they kill. Units affected by Bloodrage when killed will heal 25%% of their max health to their killer.", 
   "DisplayName": "Bloodrage", 
   "Lore": "Strygwyr shares his animalistic thirst for bloodshed."
  }, 
@@ -298,7 +298,7 @@
   "Lore": "The court jesters present during King Goff's assassination can recount no other image than a dancing shadow."
  }, 
  "brewmaster_drunken_brawler": {
-  "Description": "Gives a chance to avoid attacks and to deal critical damage. Drunken Brawler will always trigger if you have not attacked, or have not been attacked, in the last several seconds.", 
+  "Description": "Gives a chance to avoid attacks and to deal critical damage. Drunken Brawler will always trigger if you have not attacked, or have not been attacked, in the last several seconds.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "DisplayName": "Drunken Brawler", 
   "Lore": "When Mangix won his title as the Brewmaster of the Order of Oyo, he also claimed his place in the mastery of inebriation."
  }, 
@@ -396,7 +396,7 @@
   "Lore": "Black Arachnia continues to raise her young, even amidst the field of combat.  The brood quickly learns how to support their mother."
  }, 
  "broodmother_spin_web": {
-  "Description": "Spins a large web that renders Broodmother invisible, grants a passive movement speed increase, gives free movement, and boosts regeneration while in its vicinity. When invisible in a web, the movement speed bonus doubles. Spin Web charges restore every %charge_restore_time% seconds. Free movement is disabled for %damage_time% seconds if damage is taken. Spin Web can be cast from anywhere as long as the new web touches an existing web. Webs never expire, and can be manually destroyed. When the maximum limit of webs is exceeded, the oldest web disappears.", 
+  "Description": "Spins a large web that renders Broodmother invisible, grants a passive movement speed increase, gives free movement, and boosts regeneration while in its vicinity. Spin Web charges restore every %charge_restore_time% seconds. If damage is taken, free movement is disabled and the movement speed increase is halved for %damage_time% seconds. Spin Web can be cast from anywhere as long as the new web touches an existing web. Webs never expire, and can be manually destroyed. When the maximum limit of webs is exceeded, the oldest web disappears.", 
   "DisplayName": "Spin Web", 
   "Lore": "Weaving a bed of silken fibers, Arachnia's web both protects her and her offspring, as well as giving advancing opponents a sense of forboding."
  }, 
@@ -473,7 +473,7 @@
   "Lore": "Knights of the Fold possess a fanatical form of magic that is considered quite unwieldy by most other users of arcane arts."
  }, 
  "chen_test_of_faith_teleport": {
-  "Description": "Teleports a friendly unit back to the base.  Creeps are teleported instantly, Heroes have a delay before teleporting.", 
+  "Description": "Teleports an allied unit back to the base.  Creeps are teleported instantly, while Heroes have a delay before teleporting. If cast on Chen, all units controlled by Chen through Holy Persuasion will be teleported to him after a delay.", 
   "DisplayName": "Test of Faith", 
   "Lore": ""
  }, 
@@ -496,6 +496,18 @@
   "Description": "Clinkz moves invisibly through units until the moment he attacks or uses an ability.", 
   "DisplayName": "Skeleton Walk", 
   "Lore": "With a burst of fire and puff of smoke, the Bone Fletcher was nowhere to be seen."
+ }, 
+ "cny2015_black_hole": {
+  "Description": "CHANNELED - Summons a vortex that sucks in nearby enemy units.  Enemies affected by Black Hole cannot move, attack, or cast spells.  The closer units get to the center, the more damage is dealt.", 
+  "DisplayName": "Black Hole"
+ }, 
+ "cny2015_chronosphere": {
+  "Description": "Creates a blister in spacetime, trapping all units caught in its sphere of influence and causes you to move very quickly inside it.  Only a Year Beast and Faceless Void are unaffected.  Invisible units in the sphere will be revealed.", 
+  "DisplayName": "Chronosphere"
+ }, 
+ "cny2015_sonic_wave": {
+  "Description": "Creates a gigantic wave of sound in front of Year Beast, dealing heavy damage to all enemy units in its wake.", 
+  "DisplayName": "Sonic Wave"
  }, 
  "courier_burst": {
   "Description": "The courier gains a burst of speed for %duration% seconds", 
@@ -536,7 +548,7 @@
   "Lore": "The air temperature around Rylai drops rapidly, chilling all around her to the core."
  }, 
  "crystal_maiden_freezing_field": {
-  "Description": "CHANNELED - Surrounds Crystal Maiden with random icy explosions that slow enemies and deal massive damage.  Lasts 7 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "CHANNELED - Surrounds Crystal Maiden with random icy explosions that slow enemies and deal massive damage.  Lasts %duration_tooltip% seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Freezing Field", 
   "Lore": "Once the place of her exile, Icewrack has become an anchor for Rylai's frigid onslaught."
  }, 
@@ -561,7 +573,7 @@
   "Lore": "Ish'Kafel modifies the center of gravity to a place of his choosing."
  }, 
  "dark_seer_wall_of_replica": {
-  "Description": "Raises a wall of warping light that damages and creates replicas of any enemy hero who crosses it. Enemy replicas serve at the Dark Seer's will.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Raises a wall of warping light that damages and creates replicas of any enemy hero who crosses it. Enemy replicas serve at the Dark Seer's will. Replicas last until they are destroyed, or until the wall's duration ends.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Wall of Replica", 
   "Lore": "The Dark Seer, while unable to return to his natural realm, can channel part of the prismatic wall with powerful strength of mind, sowing confusion amongst enemy ranks."
  }, 
@@ -574,12 +586,12 @@
   "DisplayName": "Raise Dead"
  }, 
  "dazzle_poison_touch": {
-  "Description": "Casts a poisonous spell on an enemy unit, causing damage and slowness over time, and eventual paralysis. Slow increases per level.\\n\\nLevel 1 slows the target by 33%% during the set time.\\n\\nLevel 2 slows the target by 33%% for 2 seconds, then by 66%% for 1 second.\\n\\nLevel 3 slows the target by 33%%, 66%%, and 100%%, for one second respectively.\\n\\nLevel 4 slows the target by 33%%, then slows the target by 66%% for 1 second, then stuns the target for 1 second.", 
+  "Description": "Casts a poisonous spell on an enemy unit, gradually slowing movement, and causing damage over time.\\n<font color=\\\"#ffb2ff\\\">LEVEL 1</font> - Slows the target by 33%% for 3 seconds.\\n<font color=\\\"#ff99ff\\\">LEVEL 2</font> - Slows the target by 33%% for 2 seconds, then by 66%% for 1 second.\\n<font color=\\\"#ff66ff\\\">LEVEL 3</font> - Slows the target by 33%%, 66%%, and 100%%, for 1 second each.\\n<font color=\\\"#ff33ff\\\">LEVEL 4</font> - Slows the target by 33%% for 1 second, then 66%% for 1 second, then stuns for 1 second.", 
   "DisplayName": "Poison Touch", 
   "Lore": "One of the few Dezun rites used for offensive purposes, the paralytic enchantment often proves useful."
  }, 
  "dazzle_shadow_wave": {
-  "Description": "Shadow Wave heals several allies, which in turn cause damage equal to their healing in a small area around them.  Dazzle is always healed by Shadow Wave, and it does not count toward the number of targets.", 
+  "Description": "Sends out a bolt of power that arcs between allies, healing them while damaging any units standing nearby.  Dazzle is always healed by Shadow Wave.", 
   "DisplayName": "Shadow Wave", 
   "Lore": "While it is a simplistic and routine rite among Shadow Priests, the Shadow Wave is also the most critical for success."
  }, 
@@ -656,7 +668,7 @@
   "DisplayName": "Empty"
  }, 
  "doom_bringer_lvl_death": {
-  "Description": "Dissipates a piece of an enemy Hero's soul, mini-stunning and dealing bonus damage equal to 20%% of the target's maximum health when the enemy's level is a multiple of a specific number or 25.", 
+  "Description": "Ignites an enemy hero's soul, dealing base damage and a mini-stun. If the target hero's level is a multiple of the Hero Level Multiplier, or they are level 25, they will be dealt additional damage equal to 20%% of their maximum health.", 
   "DisplayName": "LVL? Death", 
   "Lore": "Lucifer shares the fire branding bestowed upon him at the time of his exile."
  }, 
@@ -684,9 +696,13 @@
   "Lore": "Davion's combination of dragon talents and knightly skills makes him a vicious opponent in melee combat."
  }, 
  "dragon_knight_elder_dragon_form": {
-  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his damage, speed, and Dragon Tail's range, while granting him new powers.\\nLEVEL 1 Green Dragon - Corrosive Breath: attacks deal 20 poison damage over 5 seconds. Works on structures.\\nLEVEL 2 Red Dragon - Splash Attack: attacks damage all enemy units in a 250 radius, with Corrosive Breath added to the primary target.\\nLEVEL 3 Blue Dragon - Frost Breath: slows movement speed by 30%%, and attack speed by 20, of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the primary target.", 
+  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his damage, speed, and Dragon Tail's range, while granting him new powers.\\n<font color=\\\"#9acd32\\\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal 20 poison damage over 5 seconds. Works on structures.\\n<font color=\\\"#ff0000\\\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a 250 radius, with Corrosive Breath added to the primary target.\\n<font color=\\\"#87ceeb\\\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by 30%% and attack speed by 20 of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the primary target.", 
   "DisplayName": "Elder Dragon Form", 
   "Lore": "The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm."
+ }, 
+ "dragon_knight_frost_breath": {
+  "Description": "Applies Slow on attack.", 
+  "DisplayName": "Frost Breath"
  }, 
  "drow_ranger_frost_arrows": {
   "Description": "Adds a freezing effect to Drow's attacks, slowing enemy movement.  Lasts %frost_arrows_hero_duration_tooltip% seconds on Heroes, and %frost_arrows_creep_duration% seconds on creeps.\\n\\nFrost Arrows is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
@@ -694,7 +710,7 @@
   "Lore": "Ice-encased arrows pierce the silence, chilling their victims to the core."
  }, 
  "drow_ranger_marksmanship": {
-  "Description": "Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within a 400 AoE.", 
+  "Description": "Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within 400 range.", 
   "DisplayName": "Marksmanship", 
   "Lore": "The Drow Ranger is the epitome of archery prowess."
  }, 
@@ -734,7 +750,7 @@
   "Lore": "Kaolin uses the elemental power of the Earth to temporarily petrify living beings, so that they might be conscripted into his stone funerary army."
  }, 
  "earth_spirit_rolling_boulder": {
-  "Description": "After a %delay%s delay, Earth Spirit gathers himself into a boulder and rolls toward the target location, damaging enemy units. He will stop if he collides with a hero or is stunned. If he rolls over a Stone Remnant, he will travel further and faster, and enemies hit by the boulder will take more damage and have their movement and attack speed slowed.", 
+  "Description": "Earth Spirit gathers himself into a boulder and, after a %delay%s delay, rolls toward the target location, damaging enemy units. He will stop if he collides with a hero or is stunned. If he rolls over a Stone Remnant, he will travel further and faster, and enemies hit by the boulder will have their movement speed slowed.", 
   "DisplayName": "Rolling Boulder", 
   "Lore": "Calling upon his connection to the land, the Earth Spirit draws loose stone to him, which forms a protective ball that he can use to roll short distances."
  }, 
@@ -774,7 +790,7 @@
   "Lore": "That which he created, the titan tears asunder."
  }, 
  "elder_titan_echo_stomp": {
-  "Description": "Elder Titan and his Astral Spirit both stomp the ground, damaging and knocking nearby enemy units unconscious around their locations.  The Elder Titan stomp deals physical damage, while the Spirit stomp deals magical damage.  Unconscious enemies will wake if they take more than 20 damage.", 
+  "Description": "Elder Titan and his Astral Spirit both stomp the ground, damaging and knocking nearby enemy units unconscious around their locations.  The Elder Titan stomp deals physical damage, while the Spirit stomp deals magical damage.", 
   "DisplayName": "Echo Stomp", 
   "Lore": "The force of creation still echoes in the stomp of the Titan."
  }, 
@@ -875,7 +891,7 @@
   "DisplayName": "Radiant Candy Bucket"
  }, 
  "faceless_void_backtrack": {
-  "Description": "Faceless Void dodges damage by jumping backward in time, eluding both physical and magical attacks.", 
+  "Description": "Faceless Void dodges damage by jumping backward in time, eluding both physical and magical attacks.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "DisplayName": "Backtrack", 
   "Lore": "Darkterror sees what has yet to be seen."
  }, 
@@ -890,7 +906,7 @@
   "Lore": "The strike of the Faceless Void lands with dimension shifting force."
  }, 
  "faceless_void_time_walk": {
-  "Description": "Rushes to a target location while slowing the movement and attack speed of all enemies along its path for 3 seconds.", 
+  "Description": "Rushes to a target location while slowing the movement of all enemies along its path for 3 seconds.", 
   "DisplayName": "Time Walk", 
   "Lore": "Darkterror tears a hole in time, passing through Claszureme, and appearing back in an instant."
  }, 
@@ -937,6 +953,10 @@
  "gnoll_assassin_envenomed_weapon": {
   "Description": "The Vhoul Assassin has soaked his weapons in his own blend of painful predator venoms. Heroes recover from the poison more quickly.", 
   "DisplayName": "Envenomed Weapon"
+ }, 
+ "granite_golem_hp_aura": {
+  "Description": "Increases the health capacity of nearby units.", 
+  "DisplayName": "Granite Aura"
  }, 
  "greevil_black_hole": {
   "Description": "BLUE EGG\\nCHANNELED - Summons a vortex that sucks in nearby enemy units.  Enemies affected by Greevil Hole cannot move, attack, or cast spells.  The closer units get to the center, the more damage is dealt.", 
@@ -1099,7 +1119,7 @@
   "DisplayName": "Greevil Lock"
  }, 
  "gyrocopter_call_down": {
-  "Description": "Call down an aerial missile strike on enemy units in a target area.  Two missiles arrive in succession, the first dealing major damage and major slow; the second dealing minor damage and minor slow.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Call down an aerial missile strike on enemy units in a target area.  Two missiles arrive in succession, the first dealing major damage and minor slow for %slow_duration_first% seconds; the second dealing minor damage and major slow for %slow_duration_second% seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Call Down", 
   "Lore": "'Bombs Away!'"
  }, 
@@ -1221,7 +1241,7 @@
   "Lore": ""
  }, 
  "item_abyssal_blade": {
-  "Description": "Active: Stun a target enemy unit for %stun_duration% seconds. Goes through Magic Immunity. Passive: Bash - Gives a chance to stun for 1.4 seconds.", 
+  "Description": "Active: Stun a target enemy unit for %stun_duration% seconds. Goes through Spell Immunity. Passive: Bash - Gives a chance to stun for 1.4 seconds.", 
   "DisplayName": "Abyssal Blade", 
   "Lore": "The lost blade of the Commander of the Abyss, this edge cuts into an enemy's soul."
  }, 
@@ -1260,7 +1280,7 @@
   "Lore": "A valued accessory for improving vitality."
  }, 
  "item_bfury": {
-  "Description": "Passive: Cleave - Deals a percent of attack damage in a 250 AoE around the target. Ranged units cannot Cleave.", 
+  "Description": "Passive: Cleave - Deals a percent of attack damage in a %cleave_radius% area around the target. Ranged units cannot Cleave.", 
   "DisplayName": "Battle Fury", 
   "Lore": "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
  }, 
@@ -1288,7 +1308,7 @@
   "Lore": "The fabled dagger used by the fastest assassin ever to walk the lands."
  }, 
  "item_bloodstone": {
-  "Description": "Active: Pocket Suicide - Instantly commits suicide.\\n\\nPassive: Bloodpact - Starts with 8 charges. Gains 1 charge each time an enemy hero dies within 1675 range. Each charge bestows 1 mana regeneration per second, reduces gold lost from death by 25, and reduces respawn time by 4 seconds. When the bearer dies, restores 500 HP + 30 HP per charge to allied units within 1675 units, then loses a third of its charges. While dead, the bearer continues to receive experience at the death location and gives 1800 unit vision there.", 
+  "Description": "Active: Pocket Deny - Instantly causes you to die.\\n\\nPassive: Bloodpact - Begins with 8 charges, and gains a charge each time an enemy hero dies within 1675 range. Each charge grants 1 mana regeneration per second, reduces the gold lost from death by 25, and reduces respawn time by 4 seconds. If the bearer dies, 500 + 30 health per charge is restored to all allies within a 1675 radius, while the Bloodstone loses a third of its charges. A bloodmark is then placed where the bearer died, granting vision over a 1800 radius and allowing the bearer to gain nearby experience while dead.", 
   "DisplayName": "Bloodstone", 
   "Lore": "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
  }, 
@@ -1302,7 +1322,7 @@
   "Lore": "A tensile fabric often used for its light weight and ease of movement."
  }, 
  "item_bottle": {
-  "Description": "Use:  Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain.  You can also store runes in the bottle, to save for later use.  After 2 minutes, stored Runes will be activated.  If Bottle is empty, it causes a courier to move 30%% slower.\\n\\nHold Control to use your Bottle on an allied hero.", 
+  "Description": "Use:  Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain.  You can also store runes in the bottle, to save for later use.  After 2 minutes, stored Runes will be activated automatically.  If Bottle does not have full charges and is placed on a courier, the courier will move 30%% slower.\\n\\nHold Control to use your Bottle on an allied hero.", 
   "DisplayName": "Bottle", 
   "Lore": "An old bottle that survived the ages, the contents placed inside become enchanted."
  }, 
@@ -1324,7 +1344,7 @@
   "Lore": "A powerful shield that imbues the bearer with the strength of heroes past, it is capable of protecting entire armies in battle."
  }, 
  "item_butterfly": {
-  "Description": "Active: Flutter - Trade evasion for %bonus_move_speed%%% additional movement speed for %duration% seconds.", 
+  "Description": "Active: Flutter - Trade evasion for %bonus_move_speed%%% additional movement speed for %duration% seconds.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "DisplayName": "Butterfly", 
   "Lore": "Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat."
  }, 
@@ -1404,12 +1424,12 @@
   "Lore": "A wicked weapon, used in torturing political criminals."
  }, 
  "item_diffusal_blade": {
-  "Description": "Active: Purge - Purges a target unit, removing buffs, slowing, and dealing damage if it is a summoned unit.\\nPassive: Feedback - Your attacks burn %feedback_mana_burn% mana from melee heroes, and %feedback_mana_burn_ranged% from ranged heroes, while dealing the same amount in physical damage. Upgradable.\\n\\nDiffusal Blade is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "Description": "Active: Purge - Purges a target unit, removing its buffs, and slowing it. Instantly kills summoned units.\\nPassive: Manabreak - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Does not stack with other manabreak abilities.\\n\\nUpgradable.", 
   "DisplayName": "Diffusal Blade", 
   "Lore": "An enchanted blade that allows the user to cut straight into the enemy's soul."
  }, 
  "item_diffusal_blade_2": {
-  "Description": "Active: Purge - Purges a target unit, removing buffs, slowing, and dealing damage if it is a summoned unit.\\nPassive: Feedback - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Upgradable.\\n\\nDiffusal Blade is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "Description": "Active: Purge - Purges a target unit, removing its buffs, and slowing it. Instantly kills summoned units.\\nPassive: Manabreak - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Does not stack with other manabreak abilities.", 
   "DisplayName": "Diffusal Blade", 
   "Lore": "An enchanted blade that allows the user to cut straight into the enemy's soul."
  }, 
@@ -1495,7 +1515,7 @@
   "Lore": "Preserved heart of an extinct monster, it bolsters the bearer's fortitude."
  }, 
  "item_heavens_halberd": {
-  "Description": "Active: Disarms the target for %disarm_range% seconds. Lasts %disarm_melee% on Melee targets. \\nPassive: Lesser Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.", 
+  "Description": "Active: Disarms the target for %disarm_range% seconds. Lasts %disarm_melee% on Melee targets. \\nPassive: Lesser Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "DisplayName": "Heaven's Halberd", 
   "Lore": "This halberd moves with the speed of a smaller weapon, allowing the bearer to win duels that a heavy edge would not."
  }, 
@@ -1552,7 +1572,7 @@
   "Lore": "A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike."
  }, 
  "item_manta": {
-  "Description": "Active: Mirror Image - Creates %images_count% illusions of your hero that last 20 seconds.\\n\\nMelee illusions deal %tooltip_outgoing_melee%%% damage and take %images_take_damage_percent_melee%%% bonus damage, while Ranged illusions deal %tooltip_outgoing_range%%% and take %images_take_damage_percent_ranged%%% bonus damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
+  "Description": "Active: Mirror Image - Creates %images_count% images of your hero that last 20 seconds.\\n\\nMelee images deal %tooltip_damage_outgoing_melee%%% damage and take %tooltip_damage_incoming_melee_total_pct%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%% and take %tooltip_damage_incoming_ranged_total_pct%%% damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "DisplayName": "Manta Style", 
   "Lore": "An axe made of reflective materials that causes confusion amongst enemy ranks."
  }, 
@@ -1566,7 +1586,7 @@
   "Lore": "Once this mask is worn, its bearer becomes an uncontrollable aggressive force."
  }, 
  "item_medallion_of_courage": {
-  "Description": "Active: Valor - Reduces the armor of you and your target. Lasts 7 seconds.", 
+  "Description": "Active: Valor - If cast on an ally, increases their armor while reducing the caster's. If cast on an enemy, reduces the armor of both the enemy and the caster.  Lasts 7 seconds.", 
   "DisplayName": "Medallion of Courage", 
   "Lore": "The bearer has no fear of combat."
  }, 
@@ -1585,7 +1605,7 @@
   "Lore": "Thor's magical hammer, made for him by the dwarves Brok and Eitri."
  }, 
  "item_monkey_king_bar": {
-  "Description": "Passive: Mini-Bash - Gives a chance to minibash and deal bonus damage.\\nPassive: True Strike - Prevents your attacks from missing.", 
+  "Description": "Passive: Mini-Bash - Gives a chance to minibash and deal bonus damage.\\nPassive: True Strike - Prevents your attacks from missing. True Strike does not work when attacking enemy structures.", 
   "DisplayName": "Monkey King Bar", 
   "Lore": "A powerful staff used by a master warrior."
  }, 
@@ -1706,12 +1726,12 @@
   "Lore": "An ancient weapon that often turns the tides of war."
  }, 
  "item_ring_of_aquila": {
-  "Description": "Passive: Aquila Aura - Grants mana regeneration and armor in a %aura_radius% AoE.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Aquila Aura do not stack.", 
+  "Description": "Passive: Aquila Aura - Grants mana regeneration and armor in a %aura_radius% area of effect.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Aquila Aura do not stack.", 
   "DisplayName": "Ring of Aquila", 
   "Lore": "The ring of the fallen Warlord Aquila continues to support armies in battle."
  }, 
  "item_ring_of_basilius": {
-  "Description": "Passive: Basilius Aura - Grants mana regeneration and armor in a %aura_radius% AoE.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Basilius Aura do not stack.", 
+  "Description": "Passive: Basilius Aura - Grants mana regeneration and armor in a %aura_radius% area of effect.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Basilius Aura do not stack.", 
   "DisplayName": "Ring of Basilius", 
   "Lore": "Ring given as a reward to the greatest mages."
  }, 
@@ -1807,23 +1827,26 @@
   "Lore": "One man's wine barrel bottom is another man's shield."
  }, 
  "item_talisman_of_evasion": {
+  "Description": "Stacks diminishingly with other sources of Evasion.", 
   "DisplayName": "Talisman of Evasion", 
   "Lore": "A necklace that allows you to anticipate enemy attacks."
  }, 
  "item_tango": {
-  "Description": "Use: Eat Tree - Consume a tree to restore HP over time. Comes with 4 charges.", 
+  "Description": "Use: Eat Tree - Consume a tree to restore health over time. Comes with 4 charges.\\n\\nUse on an allied hero to give them one Tango.", 
   "DisplayName": "Tango", 
   "Lore": "Forage to survive on the battlefield."
  }, 
  "item_tango_single": {
-  "DisplayName": "Tango (Shared)"
+  "Description": "Use: Eat Tree - Consume a tree to restore health over time.", 
+  "DisplayName": "Tango (Shared)", 
+  "Lore": ""
  }, 
  "item_tpscroll": {
   "Description": "Use: Teleport - Teleports you to a target friendly building.", 
   "DisplayName": "Town Portal Scroll"
  }, 
  "item_tranquil_boots": {
-  "Description": "Passive: Break - Whenever you attack or get attacked you lose the HP regeneration and 30 Movement Speed for 13 seconds.", 
+  "Description": "Passive: Break - Whenever you attack or are attacked, the health regeneration and 30 Movement Speed are lost for 13 seconds.", 
   "DisplayName": "Tranquil Boots", 
   "Lore": "While they increase the longevity of the wearer, this boot is not particularly reliable."
  }, 
@@ -1948,7 +1971,7 @@
   "Lore": "The left maw of Jakiro opens, laying waste to any in its path."
  }, 
  "jakiro_macropyre": {
-  "Description": "Jakiro lays down a line of flame in front of him, each dealing damage per second to enemy units in a wide area of effect.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Jakiro exhales a wide line of lasting flames, which deals damage per second to any enemy units caught in the fire.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Macropyre", 
   "Lore": "Ice and fire combine to rip the battlefield to shreds with extreme temperatures."
  }, 
@@ -2028,7 +2051,7 @@
   "DisplayName": "Speed Aura"
  }, 
  "kunkka_ghostship": {
-  "Description": "Summons a ghostship to cut a swath through battle, causing damage and stunning enemy units as it crashes through. Allies touched by the ship are doused in Kunkka's Rum, receiving bonus movement speed and a delayed reaction to damage.", 
+  "Description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.", 
   "DisplayName": "Ghostship", 
   "Lore": "The final ship of the Claddish Navy is nothing but a phantom, but it is all too real to the enemies of the Admiral."
  }, 
@@ -2072,12 +2095,12 @@
   "Lore": "The rallying horn of the Bronze Legion is able to inspire any heart."
  }, 
  "leshrac_diabolic_edict": {
-  "Description": "Saturates the area around Leshrac with magical explosions that deal mixed damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Lasts 8 seconds.", 
+  "Description": "Saturates the area around Leshrac with magical explosions that deal physical damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Deals %tower_bonus%%% more damage to towers.  Lasts %duration_tooltip% seconds.", 
   "DisplayName": "Diabolic Edict", 
   "Lore": "Chronoptic energy bursts from one plane to the other, evaporating anything it touches."
  }, 
  "leshrac_lightning_storm": {
-  "Description": "Summons a lightning storm that blasts the target enemy unit, then jumps to nearby enemy units. Struck enemies are slowed by 75%% for 0.5 seconds.", 
+  "Description": "Summons a lightning storm that blasts the target enemy unit, then jumps to nearby enemy units. Struck enemies are slowed by 75%% for 0.75 seconds.", 
   "DisplayName": "Lightning Storm", 
   "Lore": "The Tormented Soul's mastery of the elements is evident in the massive storms that strike down armies before him."
  }, 
@@ -2112,8 +2135,28 @@
   "Lore": "Frost-mage Ethreain has not forgotten even the simplest of ice manipulation."
  }, 
  "life_stealer_consume": {
-  "Description": "Lifestealer eats the host body from the inside out.", 
+  "Description": "Lifestealer eats the host body from the inside out, exploding from within.", 
   "DisplayName": "Consume"
+ }, 
+ "life_stealer_control": {
+  "Description": "Lifestealer seizes control of the host body's nervous system, allowing him to issue movement and attack orders from within.  Controlled units share Lifestealer's movement speed.  Cannot be used on heroes.", 
+  "DisplayName": "Control"
+ }, 
+ "life_stealer_empty_1": {
+  "Description": "", 
+  "DisplayName": ""
+ }, 
+ "life_stealer_empty_2": {
+  "Description": "", 
+  "DisplayName": ""
+ }, 
+ "life_stealer_empty_3": {
+  "Description": "", 
+  "DisplayName": ""
+ }, 
+ "life_stealer_empty_4": {
+  "Description": "", 
+  "DisplayName": ""
  }, 
  "life_stealer_feast": {
   "Description": "Regenerates a portion of the attacked enemy's current HP and deals the same portion of damage per attack.", 
@@ -2121,7 +2164,7 @@
   "Lore": "After escaping from his cell in Devarque, N'aix subsisted on flesh and bones of those unfortunate to cross his path."
  }, 
  "life_stealer_infest": {
-  "Description": "Lifestealer will infest the body of the target unit, lying dormant and undetectable inside. When he reveals himself, he deals damage to all nearby enemy units. If the unit is a creep, he will devour it first, gaining health equal to the unit's current HP.  Does not work on enemy Heroes.", 
+  "Description": "Lifestealer infests the body of a target unit, becoming undetectable inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and when consumed the creep will heal Lifestealer's health equal to the creep's current health.  Does not work on enemy Heroes.", 
   "DisplayName": "Infest", 
   "Lore": "With this infestation, N'aix consumes the life blood of the host, restoring him back to full unholy power."
  }, 
@@ -2141,7 +2184,7 @@
   "Lore": "In the scorched barren of Misrule, Lina learned to manipulate the fiery breath of the Desert Wyrm as a form of entertainment."
  }, 
  "lina_fiery_soul": {
-  "Description": "Grants bonus attack and movement speed each time Lina casts a spell. Stacks with itself. Lasts 9 seconds.", 
+  "Description": "Grants bonus attack and movement speed each time Lina casts a spell. Stacks with itself. Lasts %duration_tooltip% seconds.", 
   "DisplayName": "Fiery Soul", 
   "Lore": "Dancing flames embody Lina's playful nature, bringing out her true blazing self."
  }, 
@@ -2208,9 +2251,9 @@
   "Lore": "The mighty bear is the king of the forest, possessing the throne through raw power."
  }, 
  "lone_druid_true_form_battle_cry": {
-  "Description": "Adds damage and armor to the Lone Druid and his Spirit Bear.", 
+  "Description": "Adds attack damage and armor to the Lone Druid as well as any nearby units under his control.", 
   "DisplayName": "Battle Cry", 
-  "Lore": "When Syllabear cries in the forest, the reverberations are felt for a great distance."
+  "Lore": "When Sylla cries in the forest, the reverberations are felt for a great distance."
  }, 
  "lone_druid_true_form_druid": {
   "Description": "Return to Druid form.", 
@@ -2247,7 +2290,7 @@
   "Lore": "Blood-curdling wolf cries signal to opponents that Banehallow is among them."
  }, 
  "lycan_shapeshift": {
-  "Description": "Lycan assumes his true form, granting him critical strikes and added vision at night.  During Shapeshift, Lycan and all units under his control move at increased speed and cannot be slowed.", 
+  "Description": "Lycan assumes his lupine form, granting him critical strikes and added vision at night.  During Shapeshift, Lycan and all units under his control move at increased speed and cannot be slowed.", 
   "DisplayName": "Shapeshift", 
   "Lore": "Forever a slave to his lycanthropy, Banehallow has come to accept his curse, and embrace his own savagery."
  }, 
@@ -2290,7 +2333,7 @@
   "Lore": "While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
  }, 
  "medusa_mystic_snake": {
-  "Description": "A mystic snake made of energy jumps from target to target dealing damage and stealing mana. After it reaches its last target, it returns to Medusa to replenish her with mana. The snake deals more damage and steals more mana per jump.", 
+  "Description": "A mystic snake made of energy jumps from target to target dealing damage and stealing mana. After it reaches its last target, it returns to Medusa to replenish her with mana. The snake deals more damage and steals more mana per jump. Deals Pure damage to units petrified by Stone Gaze.", 
   "DisplayName": "Mystic Snake", 
   "Lore": "The Gorgon's curse is her greatest strength."
  }, 
@@ -2330,7 +2373,7 @@
   "Lore": "Lunar energies make the Princess of the Moon's arrows more deadly than most."
  }, 
  "mirana_invis": {
-  "Description": "Turns Mirana and all allied heroes invisible. If a hero is revealed, invisibility will restore after the fade delay as long as Moonlight Shadow's duration has not expired.  Silence will prevent revealed units from becomming invisible.", 
+  "Description": "Turns Mirana and all allied heroes invisible. If a hero is revealed, invisibility will restore after the fade delay as long as Moonlight Shadow's duration has not expired.  Silence will prevent revealed units from becoming invisible.", 
   "DisplayName": "Moonlight Shadow", 
   "Lore": "Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her allies in a cloak of shadows."
  }, 
@@ -2349,6 +2392,10 @@
   "DisplayName": "Adaptive Strike", 
   "Lore": "The Morphling calls upon his elements to crush his opponents with waves."
  }, 
+ "morphling_morph": {
+  "Description": "STR: %-dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%\\nAGI: %-dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%", 
+  "DisplayName": "Morph"
+ }, 
  "morphling_morph_agi": {
   "Description": "Morphling shifts its form, pulling points from Strength and pouring them into Agility. The process is reversible.  Additional points in Morph increase the rate of stat change.  Passively grants bonus Agility.", 
   "DisplayName": "Morph (Agility Gain)", 
@@ -2364,7 +2411,7 @@
   "Lore": "Shifting water makes it difficult to discern the nature of Morphling."
  }, 
  "morphling_replicate": {
-  "Description": "Morphling replicates any hero, friend or foe, dealing 50%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana.", 
+  "Description": "Morphling replicates any hero, friend or foe, dealing 50%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.", 
   "DisplayName": "Replicate", 
   "Lore": "Staring into Morphling produces a reflection that mimics the beholder."
  }, 
@@ -2452,7 +2499,7 @@
   "Lore": "Harvested souls swirl in and out of the Abysm, empowering the Shadow Fiend to increase the size of his collection."
  }, 
  "nevermore_requiem": {
-  "Description": "Captured souls are used to deal massive damage, as well as slowing and reducing the attack damage of nearby enemy units. Requiem of Souls creates one wave of damage for every 2 souls stored by Necromastery.  The closest enemy units are hit the hardest.  Requiem of Souls has a 1.67 second cast time before it is activated.  Requiem of Souls is automatically cast when Shadow Fiend dies, independent of its cooldown.", 
+  "Description": "Shadow Fiend gathers his captured souls to release them as lines of demonic energy. Units near Shadow Fiend when the souls are released can be damaged by several lines of energy. Any unit damaged by Requiem of Souls will have its movement speed and attack damage reduced. Lines of energy are created for every 2 souls captured through Necromastery. Requiem of Souls is automatically cast whenever Shadow Fiend dies, regardless of its cooldown.", 
   "DisplayName": "Requiem of Souls", 
   "Lore": "The captured souls of those past slain are released to ravage their former allies."
  }, 
@@ -2477,7 +2524,7 @@
   "Lore": "A vision of the twisted maw of Balanar etches itself into the minds of the poor souls unlucky enough to cross his path."
  }, 
  "night_stalker_darkness": {
-  "Description": "Night Stalker smothers the sun and summons instant darkness, so that he might use his powers at their fullest. While Darkness is in effect, enemy units and buildings have their vision range reduced. When used at night, it extends night time by Darkness' duration.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Night Stalker smothers the sun and summons instant darkness, so that he might use his powers at their fullest. While Darkness is in effect, enemy heroes, units, wards and buildings have their vision range reduced to %fixed_vision%. \\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Darkness", 
   "Lore": "It is a humbling sight to see when the mightiest of warriors become afraid of the dark."
  }, 
@@ -2490,6 +2537,9 @@
   "Description": "Creates a damaging void that slows an enemy unit and deals damage.  Void also mini-stuns, interrupting channeling abilities. The slowing effect lasts longer at night.", 
   "DisplayName": "Void", 
   "Lore": "Balanar creates a vortex of infinite night, tearing opponents violently into the eternal darkness that once was."
+ }, 
+ "npc_dota_badguys_cny_beast": {
+  "DisplayName": "Dire Year Beast"
  }, 
  "npc_dota_badguys_fillers": {
   "DisplayName": "Building"
@@ -2522,6 +2572,9 @@
   "DisplayName": "Roshling"
  }, 
  "npc_dota_badguys_siege_upgraded": {
+  "DisplayName": "Super Siege Creep"
+ }, 
+ "npc_dota_badguys_siege_upgraded_mega": {
   "DisplayName": "Mega Siege Creep"
  }, 
  "npc_dota_badguys_tower1_bot": {
@@ -2557,8 +2610,32 @@
  "npc_dota_beastmaster_boar": {
   "DisplayName": "Boar"
  }, 
+ "npc_dota_beastmaster_boar_1": {
+  "DisplayName": "Boar"
+ }, 
+ "npc_dota_beastmaster_boar_2": {
+  "DisplayName": "Boar"
+ }, 
+ "npc_dota_beastmaster_boar_3": {
+  "DisplayName": "Boar"
+ }, 
+ "npc_dota_beastmaster_boar_4": {
+  "DisplayName": "Boar"
+ }, 
  "npc_dota_beastmaster_greater_boar": {
   "DisplayName": "Greater Boar"
+ }, 
+ "npc_dota_beastmaster_hawk_1": {
+  "DisplayName": "Hawk"
+ }, 
+ "npc_dota_beastmaster_hawk_2": {
+  "DisplayName": "Hawk"
+ }, 
+ "npc_dota_beastmaster_hawk_3": {
+  "DisplayName": "Hawk"
+ }, 
+ "npc_dota_beastmaster_hawk_4": {
+  "DisplayName": "Hawk"
  }, 
  "npc_dota_brewmaster_earth_1": {
   "DisplayName": "Earth"
@@ -2606,6 +2683,9 @@
   "DisplayName": "Diretide Zombie"
  }, 
  "npc_dota_creep_badguys_melee_upgraded": {
+  "DisplayName": "Super Melee Creep"
+ }, 
+ "npc_dota_creep_badguys_melee_upgraded_mega": {
   "DisplayName": "Mega Melee Creep"
  }, 
  "npc_dota_creep_badguys_ranged": {
@@ -2615,6 +2695,9 @@
   "DisplayName": "Diretide Crawler"
  }, 
  "npc_dota_creep_badguys_ranged_upgraded": {
+  "DisplayName": "Super Ranged Creep"
+ }, 
+ "npc_dota_creep_badguys_ranged_upgraded_mega": {
   "DisplayName": "Mega Ranged Creep"
  }, 
  "npc_dota_creep_goodguys_melee": {
@@ -2624,6 +2707,9 @@
   "DisplayName": "Diretide Ghoul"
  }, 
  "npc_dota_creep_goodguys_melee_upgraded": {
+  "DisplayName": "Super Melee Creep"
+ }, 
+ "npc_dota_creep_goodguys_melee_upgraded_mega": {
   "DisplayName": "Mega Melee Creep"
  }, 
  "npc_dota_creep_goodguys_ranged": {
@@ -2633,6 +2719,9 @@
   "DisplayName": "Diretide Witch"
  }, 
  "npc_dota_creep_goodguys_ranged_upgraded": {
+  "DisplayName": "Super Ranged Creep"
+ }, 
+ "npc_dota_creep_goodguys_ranged_upgraded_mega": {
   "DisplayName": "Mega Ranged Creep"
  }, 
  "npc_dota_dark_troll_warlord_skeleton_warrior": {
@@ -2655,6 +2744,9 @@
  }, 
  "npc_dota_furion_treant": {
   "DisplayName": "Treant"
+ }, 
+ "npc_dota_goodguys_cny_beast": {
+  "DisplayName": "Radiant Year Beast"
  }, 
  "npc_dota_goodguys_fillers": {
   "DisplayName": "Building"
@@ -2687,6 +2779,9 @@
   "DisplayName": "Roshling"
  }, 
  "npc_dota_goodguys_siege_upgraded": {
+  "DisplayName": "Super Siege Creep"
+ }, 
+ "npc_dota_goodguys_siege_upgraded_mega": {
   "DisplayName": "Mega Siege Creep"
  }, 
  "npc_dota_goodguys_tower1_bot": {
@@ -2783,7 +2878,7 @@
   "DisplayName": "Healing Campfire"
  }, 
  "npc_dota_hero_abaddon": {
-  "Bio": "The Font of Avernus is the source of a family's strength, a crack in primal stones from which vapors of prophetic power have issued for generations. Each newborn of the cavernous House Avernus is bathed in the black mist, and by this baptism they are given an innate connection to the mystic energies of the land. They grow up believing themselves fierce protectors of their lineal traditions, the customs of the realm--but what they really are protecting is the Font itself. And the motives of the mist are unclear.\n\t\tWhen the infant Abaddon was bathed in the Font, they say something went awry. In the child's eyes there flared a light of comprehension that startled all present and set the sacerdotes to whispering. He was raised with every expectation of following the path all scions of Avernus took--to train in war, that in times of need he might lead the family's army in defense of the ancestral lands. But Abaddon was always one apart. Where others trained with weapons, he bent himself to meditation in the presence of the mist. He drank deep from the vapors that welled from the Font, learning to blend his spirit with the potency that flowed from far beneath the House; he became a creature of the black mist.\n\t\tThere was bitterness within the House Avernus--elders and young alike accusing him of neglecting his responsibilities. But all such accusations stopped when Abaddon rode into battle, and they saw how the powers of the mist had given him mastery over life and death beyond those of any lord the House had ever known.", 
+  "Bio": "The Font of Avernus is the source of a family's strength, a crack in primal stones from which vapors of prophetic power have issued for generations. Each newborn of the cavernous House Avernus is bathed in the black mist, and by this baptism they are given an innate connection to the mystic energies of the land. They grow up believing themselves fierce protectors of their lineal traditions, the customs of the realm--but what they really are protecting is the Font itself. And the motives of the mist are unclear.\r\n\t\tWhen the infant Abaddon was bathed in the Font, they say something went awry. In the child's eyes there flared a light of comprehension that startled all present and set the sacerdotes to whispering. He was raised with every expectation of following the path all scions of Avernus took--to train in war, that in times of need he might lead the family's army in defense of the ancestral lands. But Abaddon was always one apart. Where others trained with weapons, he bent himself to meditation in the presence of the mist. He drank deep from the vapors that welled from the Font, learning to blend his spirit with the potency that flowed from far beneath the House; he became a creature of the black mist.\r\n\t\tThere was bitterness within the House Avernus--elders and young alike accusing him of neglecting his responsibilities. But all such accusations stopped when Abaddon rode into battle, and they saw how the powers of the mist had given him mastery over life and death beyond those of any lord the House had ever known.", 
   "DisplayName": "Abaddon"
  }, 
  "npc_dota_hero_abyssal_underlord": {
@@ -2820,7 +2915,7 @@
   "Hype": ""
  }, 
  "npc_dota_hero_beastmaster": {
-  "Bio": "Karroch was born a child of the stocks. His mother died in childbirth; his father, a farrier for the Last King of Slom, was trampled to death when he was five. Afterward Karroch was indentured to the king's menagerie, where he grew up among all the beasts of the royal court: lions, apes, fell-deer, and things less known, things barely believed in. When the lad was seven, an explorer brought in a beast like none before seen. Dragged before the King in chains, the beast spoke, though its mouth moved not. Its words: a plea for freedom. The King only laughed and ordered the beast perform for his amusement; and when it refused, struck it with the Mad Scepter and ordered it dragged to the stocks. \nOver the coming months, the boy Karroch sneaked food and medicinal draughts to the wounded creature, but only managed to slow its deterioration. Wordlessly, the beast spoke to the boy, and over time their bond strengthened until the boy found he could hold up his end of a conversation.  He could, in fact, speak now to all the creatures of the King's menagerie. On the night the beast died, a rage came over the boy.  He incited the animals of the court to rebel and threw open their cages to set them amok on the palace grounds.  The Last King was mauled in the mayhem. In the chaos, one regal stag bowed to the boy who had freed him; and with Beastmaster astride him, leapt the high walls of the estate, and escaped. Now a man, Karroch the Beastmaster has not lost his ability to converse with wild creatures. He has grown into a warrior at one with nature's savagery.", 
+  "Bio": "Karroch was born a child of the stocks. His mother died in childbirth; his father, a farrier for the Last King of Slom, was trampled to death when he was five. Afterward Karroch was indentured to the king's menagerie, where he grew up among all the beasts of the royal court: lions, apes, fell-deer, and things less known, things barely believed in. When the lad was seven, an explorer brought in a beast like none before seen. Dragged before the King in chains, the beast spoke, though its mouth moved not. Its words: a plea for freedom. The King only laughed and ordered the beast perform for his amusement; and when it refused, struck it with the Mad Scepter and ordered it dragged to the stocks. \r\nOver the coming months, the boy Karroch sneaked food and medicinal draughts to the wounded creature, but only managed to slow its deterioration. Wordlessly, the beast spoke to the boy, and over time their bond strengthened until the boy found he could hold up his end of a conversation.  He could, in fact, speak now to all the creatures of the King's menagerie. On the night the beast died, a rage came over the boy.  He incited the animals of the court to rebel and threw open their cages to set them amok on the palace grounds.  The Last King was mauled in the mayhem. In the chaos, one regal stag bowed to the boy who had freed him; and with Beastmaster astride him, leapt the high walls of the estate, and escaped. Now a man, Karroch the Beastmaster has not lost his ability to converse with wild creatures. He has grown into a warrior at one with nature's savagery.", 
   "DisplayName": "Beastmaster", 
   "Hype": "Hurl deadly boomerang axes!\\n\\nSummon the power of wild beasts to join you in battle!\\n\\nLet loose a stunning roar that tears through your assailants!"
  }, 
@@ -2835,12 +2930,12 @@
   "Hype": ""
  }, 
  "npc_dota_hero_brewmaster": {
-  "Bio": "Deep in the Wailing Mountains, in a valley beneath the Ruined City, the ancient Order of the Oyo has for centuries practiced its rites of holy reverie, communing with the spirit realm in grand festivals of drink.  Born to a mother's flesh by a Celestial father, the youth known as Mangix was the first to grow up with the talents of both lineages.  He trained with the greatest aesthetes of the Order, eventually earning, through diligent drunkenness, the right to challenge for the title of Brewmaster, that appellation most honored among the contemplative malt-brewing sect.   \nAs much drinking competition as mortal combat, Mangix for nine days drank and fought the elder master.  For nine nights they stumbled and whirled, chugged and struck, until at last the elder warrior collapsed into a drunken stupor, and a new Brewmaster was named.  Now the new, young Brewmaster calls upon the strength of his Oyo forebears to speed his staff.  When using magic, it is to his spirit ancestors that he turns.  Like all Brewmasters before him, he was sent out from his people with a single mission.  He wanders the land, striving toward enlightenment through drink, searching for the answer to the ancient spiritual schism.  Hoping to think the single thought that will unite the spirit and physical planes again.", 
+  "Bio": "Deep in the Wailing Mountains, in a valley beneath the Ruined City, the ancient Order of the Oyo has for centuries practiced its rites of holy reverie, communing with the spirit realm in grand festivals of drink.  Born to a mother's flesh by a Celestial father, the youth known as Mangix was the first to grow up with the talents of both lineages.  He trained with the greatest aesthetes of the Order, eventually earning, through diligent drunkenness, the right to challenge for the title of Brewmaster, that appellation most honored among the contemplative malt-brewing sect.   \r\nAs much drinking competition as mortal combat, Mangix for nine days drank and fought the elder master.  For nine nights they stumbled and whirled, chugged and struck, until at last the elder warrior collapsed into a drunken stupor, and a new Brewmaster was named.  Now the new, young Brewmaster calls upon the strength of his Oyo forebears to speed his staff.  When using magic, it is to his spirit ancestors that he turns.  Like all Brewmasters before him, he was sent out from his people with a single mission.  He wanders the land, striving toward enlightenment through drink, searching for the answer to the ancient spiritual schism.  Hoping to think the single thought that will unite the spirit and physical planes again.", 
   "DisplayName": "Brewmaster", 
   "Hype": ""
  }, 
  "npc_dota_hero_bristleback": {
-  "Bio": "Never one to turn his back on a fight, Rigwarl was known for battling the biggest, meanest scrappers he could get his hands on. Christened Bristleback by the drunken crowds, he waded into backroom brawls in every road tavern between Slom and Elze, until his exploits finally caught the eye of a barkeep in need of an enforcer. For a bit of brew, Bristleback was hired to collect tabs, keep the peace, and break the occasional leg or two (or five, in the case of one unfortunate web-hund).\nAfter indulging in a night of merriment during which bodily harm was meted out in equal parts upon both delinquent patrons and his own liver, Bristleback finally met his match. \\\"Your tusks offend me, sir,\\\" he was heard to drunkenly slur to one particularly large fellow from the northern wastes whose bill had come due. What followed was a fight for the ages. A dozen fighters jumped in. No stool was left unbroken, and in the end, the impossible happened: the tab went unpaid. Over the weeks that followed, Bristleback's wounds healed, and his quills grew back; but an enforcer's honor can be a prickly thing. He paid the tab from his own coin, vowing to track down this northerner and extract redemption. And then he did something he'd never done before: he actually trained, and in so doing made a startling discovery about himself. A smile peeled back from his teeth as he flexed his quills. Turning his back to a fight might be just the thing.", 
+  "Bio": "Never one to turn his back on a fight, Rigwarl was known for battling the biggest, meanest scrappers he could get his hands on. Christened Bristleback by the drunken crowds, he waded into backroom brawls in every road tavern between Slom and Elze, until his exploits finally caught the eye of a barkeep in need of an enforcer. For a bit of brew, Bristleback was hired to collect tabs, keep the peace, and break the occasional leg or two (or five, in the case of one unfortunate web-hund).\r\nAfter indulging in a night of merriment during which bodily harm was meted out in equal parts upon both delinquent patrons and his own liver, Bristleback finally met his match. \\\"Your tusks offend me, sir,\\\" he was heard to drunkenly slur to one particularly large fellow from the northern wastes whose bill had come due. What followed was a fight for the ages. A dozen fighters jumped in. No stool was left unbroken, and in the end, the impossible happened: the tab went unpaid. Over the weeks that followed, Bristleback's wounds healed, and his quills grew back; but an enforcer's honor can be a prickly thing. He paid the tab from his own coin, vowing to track down this northerner and extract redemption. And then he did something he'd never done before: he actually trained, and in so doing made a startling discovery about himself. A smile peeled back from his teeth as he flexed his quills. Turning his back to a fight might be just the thing.", 
   "DisplayName": "Bristleback"
  }, 
  "npc_dota_hero_broodmother": {
@@ -2849,21 +2944,21 @@
   "Hype": ""
  }, 
  "npc_dota_hero_centaur": {
-  "Bio": "It's said that a centaur's road is paved with the corpses of the fallen.  For the one called Warrunner, it has been a long road indeed.  To outsiders, the four-legged clans of Druud are often mistaken for simple, brutish creatures.  Their language has no written form; their culture lacks pictographic traditions, structured music, formalized religion.  For centaurs, combat is the perfect articulation of thought, the highest expression of self.  If killing is an art among centaurs, then Bradwarden the Warrunner is their greatest artist.  He rose to dominance on the proving grounds of Omexe, an ancient arena where centaur clans have for millennia gathered to perform their gladiatorial rites.  As his fame spread, spectators came from far and wide to see the great centaur in action.  Always the first to step into the arena, and the last to leave, he composes a masterpiece in each guttering spray, each thrust of blood-slickened blade-length.  It is the poetry of blood on steel, flung in complex patterns across the pale sands of the killing floor.\nWarrunner defeated warrior after warrior, until the arena boomed with the cheering of his name, and he found himself alone, the uncontested champion of his kind.  The great belt of Omexe was bestowed, wrapped around his broad torso, but in his victory, the death-artist found only emptiness.  For what is a warrior without a challenge?  The great centaur galloped out of Omexe that day with a new goal.  To his people, Warrunner is the greatest warrior to ever step into the arena.  Now he has set out to prove he is the greatest fighter who has ever lived.", 
+  "Bio": "It's said that a centaur's road is paved with the corpses of the fallen.  For the one called Warrunner, it has been a long road indeed.  To outsiders, the four-legged clans of Druud are often mistaken for simple, brutish creatures.  Their language has no written form; their culture lacks pictographic traditions, structured music, formalized religion.  For centaurs, combat is the perfect articulation of thought, the highest expression of self.  If killing is an art among centaurs, then Bradwarden the Warrunner is their greatest artist.  He rose to dominance on the proving grounds of Omexe, an ancient arena where centaur clans have for millennia gathered to perform their gladiatorial rites.  As his fame spread, spectators came from far and wide to see the great centaur in action.  Always the first to step into the arena, and the last to leave, he composes a masterpiece in each guttering spray, each thrust of blood-slickened blade-length.  It is the poetry of blood on steel, flung in complex patterns across the pale sands of the killing floor.\r\nWarrunner defeated warrior after warrior, until the arena boomed with the cheering of his name, and he found himself alone, the uncontested champion of his kind.  The great belt of Omexe was bestowed, wrapped around his broad torso, but in his victory, the death-artist found only emptiness.  For what is a warrior without a challenge?  The great centaur galloped out of Omexe that day with a new goal.  To his people, Warrunner is the greatest warrior to ever step into the arena.  Now he has set out to prove he is the greatest fighter who has ever lived.", 
   "DisplayName": "Centaur Warrunner"
  }, 
  "npc_dota_hero_chaos_knight": {
-  "Bio": "The veteran of countless battles on a thousand worlds, Chaos Knight hails from a far upstream plane where the fundamental laws of the universe have found sentient expression.  Of all the ancient Fundamentals, he is the oldest and most tireless, endlessly searching out a being he knows only as \\\"The Light.\\\"  Long ago the Light ventured out from the progenitor realm, in defiance of the first covenant.  Now Chaos Knight shifts from plane to plane, always on the hunt to extinguish the Light wherever he finds it.  A thousand times he has snuffed out the source, and always he slides into another plane to continue his search anew.  \nUpon his steed Armageddon he rides, wading into battle with maniacal frenzy, drawing strength from the disorder of the universe.  A physical manifestation of chaos itself, in times of need he calls upon other versions of himself from other planes, and together these dark horsemen ride into battle, as unstoppable as any force of nature.  Only when the last Light of the world is scoured from existence will the search be ended.  Where rides the Chaos Knight, death soon follows.", 
+  "Bio": "The veteran of countless battles on a thousand worlds, Chaos Knight hails from a far upstream plane where the fundamental laws of the universe have found sentient expression.  Of all the ancient Fundamentals, he is the oldest and most tireless, endlessly searching out a being he knows only as \\\"The Light.\\\"  Long ago the Light ventured out from the progenitor realm, in defiance of the first covenant.  Now Chaos Knight shifts from plane to plane, always on the hunt to extinguish the Light wherever he finds it.  A thousand times he has snuffed out the source, and always he slides into another plane to continue his search anew.  \r\nUpon his steed Armageddon he rides, wading into battle with maniacal frenzy, drawing strength from the disorder of the universe.  A physical manifestation of chaos itself, in times of need he calls upon other versions of himself from other planes, and together these dark horsemen ride into battle, as unstoppable as any force of nature.  Only when the last Light of the world is scoured from existence will the search be ended.  Where rides the Chaos Knight, death soon follows.", 
   "DisplayName": "Chaos Knight", 
   "Hype": ""
  }, 
  "npc_dota_hero_chen": {
-  "Bio": "Born in the godless Hazhadal Barrens, Chen came of age among the outlaw tribes who eked out an existence in the shimmering heat of the desert.  Using an ancient form of animal enthrallment, Chen's people husbanded the hardy desert locuthi, a stunted species of burrowing dragon that melted desert sands into tubes of glass where twice-a-year rains collected.  Always on the edge of starvation and thirst, fighting amongst their neighbors and each other, Chen's clan made the mistake, one fateful day, of ambushing the wrong caravan. \nIn the vicious battle that followed, Chen's clan was outmatched.  The armored Knights of the Fold made short work of the enthralled locuthi, who attacked and died in waves.  With their dragons dead, the tribesmen followed. Chen struggled, and slashed, and clawed, and perished--or would have. Defeated, on his knees, he faced his execution with humility, offering his neck to the blade. Moved by Chen's obvious courage, the executioner halted his sword. Instead of the blade, Chen was given a choice: death or conversion. Chen took to the faith with a ferocity. He joined the Fold and earned his armor one bloody conversion at a time. Now, with the fanaticism of a convert, and with his powers of animal enthrallment at their peak, he seeks out unbelievers and introduces them to their final reward.", 
+  "Bio": "Born in the godless Hazhadal Barrens, Chen came of age among the outlaw tribes who eked out an existence in the shimmering heat of the desert.  Using an ancient form of animal enthrallment, Chen's people husbanded the hardy desert locuthi, a stunted species of burrowing dragon that melted desert sands into tubes of glass where twice-a-year rains collected.  Always on the edge of starvation and thirst, fighting amongst their neighbors and each other, Chen's clan made the mistake, one fateful day, of ambushing the wrong caravan. \r\nIn the vicious battle that followed, Chen's clan was outmatched.  The armored Knights of the Fold made short work of the enthralled locuthi, who attacked and died in waves.  With their dragons dead, the tribesmen followed. Chen struggled, and slashed, and clawed, and perished--or would have. Defeated, on his knees, he faced his execution with humility, offering his neck to the blade. Moved by Chen's obvious courage, the executioner halted his sword. Instead of the blade, Chen was given a choice: death or conversion. Chen took to the faith with a ferocity. He joined the Fold and earned his armor one bloody conversion at a time. Now, with the fanaticism of a convert, and with his powers of animal enthrallment at their peak, he seeks out unbelievers and introduces them to their final reward.", 
   "DisplayName": "Chen", 
   "Hype": ""
  }, 
  "npc_dota_hero_clinkz": {
-  "Bio": "At the base of the Bleeding Hills stretches a thousand-league wood, a place called The Hoven, where black pools gather the tarry blood of the uplands, and the king-mage Sutherex sits in benevolent rule. Once a sworn protector of the Hoven lands, Clinkz earned a reputation for his skill with a bow. In the three-hundredth year of the king-mage, the demon Maraxiform rose from sixth hell to lay claim to the forest. In response, the king-mage decreed an unbreakable spell: to any who slew the demon would be granted Life Without End.\nUnaware of the spell, Clinkz waded into battle, defending his lands against the demon's fiery onslaught. Clinkz drove Maraxiform back to the gates of sixth-hell itself, where on that fiery threshold the two locked in a mortal conflict. Grievously wounded, the demon let out a blast of hellfire as Clinkz loosed his final arrow. The arrow struck the demon true as hellfire poured out across the land, lighting the black pools and burning Clinkz alive at the instant of the demon's death. Thus, the mage's spell took effect at the very moment of the archer's conflagration, preserving him in this unholy state, leaving him a being of bones and rage, caught in the very act of dying, carrying hell's breath with him on his journey into eternity.", 
+  "Bio": "At the base of the Bleeding Hills stretches a thousand-league wood, a place called The Hoven, where black pools gather the tarry blood of the uplands, and the king-mage Sutherex sits in benevolent rule. Once a sworn protector of the Hoven lands, Clinkz earned a reputation for his skill with a bow. In the three-hundredth year of the king-mage, the demon Maraxiform rose from sixth hell to lay claim to the forest. In response, the king-mage decreed an unbreakable spell: to any who slew the demon would be granted Life Without End.\r\nUnaware of the spell, Clinkz waded into battle, defending his lands against the demon's fiery onslaught. Clinkz drove Maraxiform back to the gates of sixth-hell itself, where on that fiery threshold the two locked in a mortal conflict. Grievously wounded, the demon let out a blast of hellfire as Clinkz loosed his final arrow. The arrow struck the demon true as hellfire poured out across the land, lighting the black pools and burning Clinkz alive at the instant of the demon's death. Thus, the mage's spell took effect at the very moment of the archer's conflagration, preserving him in this unholy state, leaving him a being of bones and rage, caught in the very act of dying, carrying hell's breath with him on his journey into eternity.", 
   "DisplayName": "Clinkz", 
   "Hype": "Shoot arrows with speed!\\n\\nShoot arrows with fire!\\n\\nSneak into position to fire arrows!\\n\\nEat a creep to get stronger and shoot better arrows!"
  }, 
@@ -2873,7 +2968,7 @@
   "Hype": "Entrap your enemies in ice!\\n\\nStun them with a wave of frost while restoring mana to friendly units!\\n\\nCall down a crushing ice storm that slows your enemy's retreat to a frozen crawl!"
  }, 
  "npc_dota_hero_dark_seer": {
-  "Bio": "Fast when he needs to be, and a cunning strategist, Ish'Kafel the Dark Seer requires no edged weapons to vanquish his enemies, relying instead on the strength of his powerful mind. His talent lies in his ability to maneuver the fight to his advantage. Hailing from a place he calls 'The Land behind the wall,' Dark Seer remains an outsider here--a warrior from a realm beyond the veil of this reality.  \nOnce a great general among his people, and a valiant defender of the god-king Damathryx, Dark Seer's army was wiped out by a much larger force in the final days of the Great Boundaries War. Facing certain defeat, he made one last desperate act: he led the enemy forces into the maze between the walls. At the last moment, just before capture, he crossed over--then sealed the walls forever in an explosive release of dark energy. When the dust settled, he saw that he had saved his people but found himself blinking at the sun of a different world, with no way to return.  Now he is committed to proving his worth as a military strategist, and vows to show that he's the greatest tactician this strange new world has ever seen.", 
+  "Bio": "Fast when he needs to be, and a cunning strategist, Ish'Kafel the Dark Seer requires no edged weapons to vanquish his enemies, relying instead on the strength of his powerful mind. His talent lies in his ability to maneuver the fight to his advantage. Hailing from a place he calls 'The Land behind the wall,' Dark Seer remains an outsider here--a warrior from a realm beyond the veil of this reality.  \r\nOnce a great general among his people, and a valiant defender of the god-king Damathryx, Dark Seer's army was wiped out by a much larger force in the final days of the Great Boundaries War. Facing certain defeat, he made one last desperate act: he led the enemy forces into the maze between the walls. At the last moment, just before capture, he crossed over--then sealed the walls forever in an explosive release of dark energy. When the dust settled, he saw that he had saved his people but found himself blinking at the sun of a different world, with no way to return.  Now he is committed to proving his worth as a military strategist, and vows to show that he's the greatest tactician this strange new world has ever seen.", 
   "DisplayName": "Dark Seer", 
   "Hype": "Vacuum\\n\\nIon Shell\\n\\nSurge\\n\\nWall of Replica"
  }, 
@@ -2888,12 +2983,12 @@
   "Hype": "Crypt Swarm\\n\\nSilence\\n\\nWitchcraft\\n\\nExorcism"
  }, 
  "npc_dota_hero_disruptor": {
-  "Bio": "High on the wind-ravaged steppes of Druud, a gifted young stormcrafter called Disruptor was the first to unlock the secrets of the summer squalls.   Constantly under assault from both seasonal storms and encroachment from civilized kingdoms to the South, the upland Oglodi have for centuries struggled to subsist atop the endless tablelands.  They are the fractured remnant of a once-great civilization, a fallen tribe, their stormcraft strange and inscrutable, cobbled together from scraps of lost knowledge which even they no longer fully understand.  For those on the high plain, weather has become a kind of religion, worshiped as both the giver and taker of life.  But the electrical storms that bring life-sustaining rains arrive at a cost, and many are the charred and smoking corpses left in their wake.  \nAlthough small for his kind, Disruptor is fearless, and driven by an insatiable curiosity.  As a youth, while still unblooded and without a stryder, he explored the ruins of the ancestral cities, searching through collapsed and long-moldering libraries, rummaging through rusting manufactories.  He took what he needed and returned to his tribe.  Adapting a coil of ancient design, he harnessed the power of electrical differential and now calls down the thunder whenever he wishes.  Part magic, part craftsmanship, his coils hold in their glowing plates the power of life and death--a power wielded with precision against the landed castes to the South, and any interlopers who cross into ancient Oglodi lands.", 
+  "Bio": "High on the wind-ravaged steppes of Druud, a gifted young stormcrafter called Disruptor was the first to unlock the secrets of the summer squalls.  Constantly under assault from both seasonal storms and encroachment from civilized kingdoms to the South, the upland Oglodi have for centuries struggled to subsist atop the endless tablelands.  They are the fractured remnant of a once-great civilization, a fallen tribe, their stormcraft strange and inscrutable, cobbled together from scraps of lost knowledge which even they no longer fully understand.  For those on the high plain, weather has become a kind of religion, worshiped as both the giver and taker of life.  But the electrical storms that bring life-sustaining rains arrive at a cost, and many are the charred and smoking corpses left in their wake.  \r\nAlthough small for his kind, Disruptor is fearless, and driven by an insatiable curiosity.  As a youth, while still unblooded and without a stryder, he explored the ruins of the ancestral cities, searching through collapsed and long-moldering libraries, rummaging through rusting manufactories.  He took what he needed and returned to his tribe.  Adapting a coil of ancient design, he harnessed the power of electrical differential and now calls down the thunder whenever he wishes.  Part magic, part craftsmanship, his coils hold in their glowing plates the power of life and death--a power wielded with precision against the landed castes to the South, and any interlopers who cross into ancient Oglodi lands.", 
   "DisplayName": "Disruptor", 
   "Hype": "Hype"
  }, 
  "npc_dota_hero_doom_bringer": {
-  "Bio": "He that burns and is not consumed, devours and is never sated, kills and is beyond all judgment--Lucifer brings doom to all who would stand against him. Bearing away souls on the tip of a fiery sword, he is the Fallen One, a once-favored general from the realm behind the light, cast out for the sin of defiance: he would not kneel. \nSix times his name was tolled from the great bell of Vashundol. Six and sixty times his wings were branded, until only smoking stumps remained. Without wings, he slipped loose from the tethers that bound him within the light and he fell screaming to earth. A crater in the desert, Paradise lost.  Now he attacks without mercy, without motive, the only living being able to move freely between the seven dark dominions. Lashed by inescapable needs, twisted by unimaginable talents, Doom carries his own hell with him wherever he goes. Defiant to the last. Eventually, the world will belong to Doom.", 
+  "Bio": "He that burns and is not consumed, devours and is never sated, kills and is beyond all judgment--Lucifer brings doom to all who would stand against him. Bearing away souls on the tip of a fiery sword, he is the Fallen One, a once-favored general from the realm behind the light, cast out for the sin of defiance: he would not kneel. \r\nSix times his name was tolled from the great bell of Vashundol. Six and sixty times his wings were branded, until only smoking stumps remained. Without wings, he slipped loose from the tethers that bound him within the light and he fell screaming to earth. A crater in the desert, Paradise lost.  Now he attacks without mercy, without motive, the only living being able to move freely between the seven dark dominions. Lashed by inescapable needs, twisted by unimaginable talents, Doom carries his own hell with him wherever he goes. Defiant to the last. Eventually, the world will belong to Doom.", 
   "DisplayName": "Doom", 
   "Hype": "Devour enemy creeps whole!\\n\\nScorch the battlefield in hellish flame!\\n\\nGamble with targets' lives.\\n\\nInflict the devastating curse of doom upon enemy heroes!"
  }, 
@@ -2908,7 +3003,7 @@
   "Hype": "Stop your enemies cold with a stunning blast of ice!\\n\\nSilence your enemies so they may cast no magic!\\n\\nIncrease the impact of allied attacks and gain incredible accuracy to strike your foes dead!"
  }, 
  "npc_dota_hero_earth_spirit": {
-  "Bio": "Deep amid the Upland crags and cliffs there runs a seam of sacred jade long foresworn by highland miners. From this rare material, the likeness of the great general Kaolin was carved and buried at the head of a stone funerary army ten thousand strong--a force of soldiers and holy men, jesters and acrobats, carved by crafstmen and entombed for millennia in the dark embrace of the Earth.\nWhat the craftsmen had not known was that within the strange seam of jade flowed the spirit of the Earth itself--an elemental force at one with the planet. When the force within the carved jade found itself cut off from the life's blood of the world, it gathered its strength over the course of a thousand years and dug itself free and into the light. Now the great Kaolin Earth Spirit strides the Upland roads, fighting for the spirit of the Earth; and in times of need calls forth remnants of his buried army still locked in the loving embrace of the soil.", 
+  "Bio": "Deep amid the Upland crags and cliffs there runs a seam of sacred jade long foresworn by highland miners. From this rare material, the likeness of the great general Kaolin was carved and buried at the head of a stone funerary army ten thousand strong--a force of soldiers and holy men, jesters and acrobats, carved by crafstmen and entombed for millennia in the dark embrace of the Earth.\r\nWhat the craftsmen had not known was that within the strange seam of jade flowed the spirit of the Earth itself--an elemental force at one with the planet. When the force within the carved jade found itself cut off from the life's blood of the world, it gathered its strength over the course of a thousand years and dug itself free and into the light. Now the great Kaolin Earth Spirit strides the Upland roads, fighting for the spirit of the Earth; and in times of need calls forth remnants of his buried army still locked in the loving embrace of the soil.", 
   "DisplayName": "Earth Spirit"
  }, 
  "npc_dota_hero_earthshaker": {
@@ -2917,7 +3012,7 @@
   "Hype": "Slam your massive totem to the ground, transfiguring the landscape and shaking enemies to their bones!\\n\\nSend shockwaves through stone and soil, smashing all resistance.\\n\\nDivide enemy forces with walls of rock!"
  }, 
  "npc_dota_hero_elder_titan": {
-  "Bio": "Well may you ask, \\\"How did this world take its form?\\\" Why of all the worlds in creation, has this one its strange properties, its diverse and motley collection of creatures, cultures and lore? \\\"The answer,\\\" One whispers, \\\"lies with the Titans.\\\"\n\t\tThese original progenitors were there near the Beginning--if not actual witnesses to the creation, then born with it still echoing in their ears. Stamped with the earliest energies of the universe, they wished nothing more than to continue as creators themselves. Thus they bent to the task of shaping matter to their will: hammering and heating, bending and blasting. And when matter proved less challenging than they liked, they turned their tools upon themselves, reshaping their minds and reforging their spirits until they had become beings of great endurance. Reality itself became the ultimate object of their smithing. Yet, along the way, they sometimes erred. In cases of great ambition, mistakes are unavoidable.\n\t\tThe one we know as the Elder Titan was a great innovator, one who studied at the forge of creation. In honing his skills, he shattered something that could never be repaired, only thrown aside. He fell into his own broken world, a shattered soul himself. There he dwelt among the jagged shards and fissured planes, along with other lost fragments that had sifted down through the cracks in the early universe. And this is why the world we know resembles an isle of castaways, survivors of a wreck now long forgotten. Forgotten, that is, by all but the One who blames himself. He spends his time forever seeking a way to accomplish the repairs, that he might rejoin the parts of his broken soul, that we and the world alike might all be mended. This is the One we know as Elder Titan.", 
+  "Bio": "Well may you ask, \\\"How did this world take its form?\\\" Why of all the worlds in creation, has this one its strange properties, its diverse and motley collection of creatures, cultures and lore? \\\"The answer,\\\" One whispers, \\\"lies with the Titans.\\\"\r\n\t\tThese original progenitors were there near the Beginning--if not actual witnesses to the creation, then born with it still echoing in their ears. Stamped with the earliest energies of the universe, they wished nothing more than to continue as creators themselves. Thus they bent to the task of shaping matter to their will: hammering and heating, bending and blasting. And when matter proved less challenging than they liked, they turned their tools upon themselves, reshaping their minds and reforging their spirits until they had become beings of great endurance. Reality itself became the ultimate object of their smithing. Yet, along the way, they sometimes erred. In cases of great ambition, mistakes are unavoidable.\r\n\t\tThe one we know as the Elder Titan was a great innovator, one who studied at the forge of creation. In honing his skills, he shattered something that could never be repaired, only thrown aside. He fell into his own broken world, a shattered soul himself. There he dwelt among the jagged shards and fissured planes, along with other lost fragments that had sifted down through the cracks in the early universe. And this is why the world we know resembles an isle of castaways, survivors of a wreck now long forgotten. Forgotten, that is, by all but the One who blames himself. He spends his time forever seeking a way to accomplish the repairs, that he might rejoin the parts of his broken soul, that we and the world alike might all be mended. This is the One we know as Elder Titan.", 
   "DisplayName": "Elder Titan"
  }, 
  "npc_dota_hero_ember_spirit": {
@@ -2930,7 +3025,7 @@
   "Hype": "Slow your attackers' attacks!\\n\\nDominate creeps and slow heroes!\\n\\nSummon Wisps to heal your allies\\n\\nThrow spears that damage!"
  }, 
  "npc_dota_hero_enigma": {
-  "Bio": "Nothing is known of Enigma's background. There are only stories and legends, most of them apocryphal, passed down through the ages. In truth, Enigma is a mystery for whom the only true biography is description: he is a universal force, a consumer of worlds. He is a being of the void, at times corporeal, other times ethereal. A beast between the planes. \nThere are stories that say he was once a great alchemist who tried to unlock the secrets of the universe and was cursed for his arrogance. Other legends tell that he is an ancient being of strange gravity, the abyss personified--a twisted voice from out the original darkness, before the first light in the universe. And there are older legends that say he is the first collapsed star, a black hole grown complicated and sentient--his motivations unknowable, his power inexorable, a force of destruction unleashed upon existence itself.", 
+  "Bio": "Nothing is known of Enigma's background. There are only stories and legends, most of them apocryphal, passed down through the ages. In truth, Enigma is a mystery for whom the only true biography is description: he is a universal force, a consumer of worlds. He is a being of the void, at times corporeal, other times ethereal. A beast between the planes. \r\nThere are stories that say he was once a great alchemist who tried to unlock the secrets of the universe and was cursed for his arrogance. Other legends tell that he is an ancient being of strange gravity, the abyss personified--a twisted voice from out the original darkness, before the first light in the universe. And there are older legends that say he is the first collapsed star, a black hole grown complicated and sentient--his motivations unknowable, his power inexorable, a force of destruction unleashed upon existence itself.", 
   "DisplayName": "Enigma", 
   "Hype": "Focus your enigmatic hatred, bringing enemies to their knees--should they have any!\\n\\nConvert enemy creeps into a tripled force that follows your command!\\n\\nLay waste to vast regions, steeping territory in strange magic!\\n\\nBend the nature of the universe itself, creating a black hole that sucks nearby enemies into the blackest abyss!"
  }, 
@@ -2980,7 +3075,7 @@
   "Hype": "Summon the power of the sea itself!\\n\\nDrown your enemies, and yank them back to a position of your choosing.\\n\\nCall down a ghost ship upon the heads of opposing forces, driving them beneath its massive keel!"
  }, 
  "npc_dota_hero_legion_commander": {
-  "Bio": "They came without warning. Within the city walls of Stonehall there came a rumble and a terrible sound, and from blackness unknown came a force of beasts numbering beyond count, wielding flame and foul sorcery, slaying and snatching mothers and sons to dark purpose. Of once-mighty Stonehall's military strength only the Bronze Legion, led by the indomitable Commander Tresdin, was near enough to answer the call of battle. They rode into their city, fighting through bloodstained alleyways and burning markets, cutting their way through the monstrous throng to the source of the sudden invasion: an ethereal rift within the city square, and at its precipice thundered their dreaded champion.\nEnwrapped in a corrosive shimmer, the leader of the abyssal horde swung its massive blade, cleaving a legionnaire in two as his flesh began to spoil. Tresdin lifted her blood-stained sword and settled her sights on the beast. It turned, smiling at her through a maze of teeth. Heedless of the battle raging around them, they charged one another.\nDeflecting blow after blow, the pair danced their deadly duel as the Bronze Legion met its end around them. Tresdin leapt forward as her foe swung its sword to meet her. The odds turned. The attack smashed into Tresdin suddenly, a brutal thrust from the side, but even as her balance slipped she rallied her strength for another stroke. Blade scraped on blade, beyond the hilt to the gnarled paw below, carving it in two in a fearsome spray of sparks and blood. The vile audience looked on in astonishment as she pressed the attack, driving her blade through her foe's flesh into the stampeding heart within. With a scream that split the clouds above, the beast erupted in a torrent of gore and anguish. The stygian portal wavered, the power sustaining the chasm beyond vanishing as suddenly as it had appeared. The remaining invaders fell quickly to Stonehall steel.\nThough victorious, the survivors saw little to celebrate: the city lay in ruins, and survivors were few. Fires continued to spread. Unfurling her banners of war, Tresdin gathered what allies she could. Her anger smoldered as she pledged brutal vengeance upon the forces of the abyss, and damned be any who would dare stand in her way.", 
+  "Bio": "They came without warning. Within the city walls of Stonehall there came a rumble and a terrible sound, and from blackness unknown came a force of beasts numbering beyond count, wielding flame and foul sorcery, slaying and snatching mothers and sons to dark purpose. Of once-mighty Stonehall's military strength only the Bronze Legion, led by the indomitable Commander Tresdin, was near enough to answer the call of battle. They rode into their city, fighting through bloodstained alleyways and burning markets, cutting their way through the monstrous throng to the source of the sudden invasion: an ethereal rift within the city square, and at its precipice thundered their dreaded champion.\r\nEnwrapped in a corrosive shimmer, the leader of the abyssal horde swung its massive blade, cleaving a legionnaire in two as his flesh began to spoil. Tresdin lifted her blood-stained sword and settled her sights on the beast. It turned, smiling at her through a maze of teeth. Heedless of the battle raging around them, they charged one another.\r\nDeflecting blow after blow, the pair danced their deadly duel as the Bronze Legion met its end around them. Tresdin leapt forward as her foe swung its sword to meet her. The odds turned. The attack smashed into Tresdin suddenly, a brutal thrust from the side, but even as her balance slipped she rallied her strength for another stroke. Blade scraped on blade, beyond the hilt to the gnarled paw below, carving it in two in a fearsome spray of sparks and blood. The vile audience looked on in astonishment as she pressed the attack, driving her blade through her foe's flesh into the stampeding heart within. With a scream that split the clouds above, the beast erupted in a torrent of gore and anguish. The stygian portal wavered, the power sustaining the chasm beyond vanishing as suddenly as it had appeared. The remaining invaders fell quickly to Stonehall steel.\r\nThough victorious, the survivors saw little to celebrate: the city lay in ruins, and survivors were few. Fires continued to spread. Unfurling her banners of war, Tresdin gathered what allies she could. Her anger smoldered as she pledged brutal vengeance upon the forces of the abyss, and damned be any who would dare stand in her way.", 
   "DisplayName": "Legion Commander"
  }, 
  "npc_dota_hero_leshrac": {
@@ -3011,7 +3106,7 @@
   "DisplayName": "Lone Druid"
  }, 
  "npc_dota_hero_luna": {
-  "Bio": "How had she been reduced to this?  She was once the Scourge of the Plains, a merciless leader of men and beasts, and able to sow terror wherever she dared.  Now she was far from her homeland, driven half mad from starvation and months of wandering, her army long dead or worse.  As she stood at the edge of an ancient forest, a pair of glowing eyes spied on from an elder branch.  Something beautiful and deadly sought a meal in the wilting dusk.  Without a sound, it turned and left.  Fury overtook her.  Clutching a rust-eaten dagger, she charged after the beast determined to reclaim even a shred of her past glory, but her quarry would not be caught.  Three times she cornered the creature among the rocks and trees, and three times she pounced only to witness its fading shadow darting further into the woods.  Yet the full moon shone brightly, and the creature's trail was easy to follow.  Arriving in a clearing atop a high hill, the beast's massive feline form sat in the open, attentive and waiting.  When the woman brandished her dagger, the creature reared and roared and charged.  Death, it seemed, had come for her at long last in this strange place.  She stood, calm and ready.  A flash of movement, and the beast snatched the dagger from her hand before vanishing into the forest.  Stillness.  Hooded figures approached. In reverent tones they revealed that Selemene, Goddess of the Moon, had chosen her, had guided her, had tested her. Unwittingly she had endured the sacred rites of the Dark Moon, warriors of the Nightsilver Woods.\nShe was offered a choice: join the Dark Moon and pledge herself to the service of Selemene, or leave and never return. She did not hesitate. Embracing her absolution, she renounced her bloody past, and took up a new mantle as Luna of the Dark Moon, the dreaded Moon Rider, ruthless and ever-loyal guardian of the Nightsilver Woods.", 
+  "Bio": "How had she been reduced to this?  She was once the Scourge of the Plains, a merciless leader of men and beasts, and able to sow terror wherever she dared.  Now she was far from her homeland, driven half mad from starvation and months of wandering, her army long dead or worse.  As she stood at the edge of an ancient forest, a pair of glowing eyes spied on from an elder branch.  Something beautiful and deadly sought a meal in the wilting dusk.  Without a sound, it turned and left.  Fury overtook her.  Clutching a rust-eaten dagger, she charged after the beast determined to reclaim even a shred of her past glory, but her quarry would not be caught.  Three times she cornered the creature among the rocks and trees, and three times she pounced only to witness its fading shadow darting further into the woods.  Yet the full moon shone brightly, and the creature's trail was easy to follow.  Arriving in a clearing atop a high hill, the beast's massive feline form sat in the open, attentive and waiting.  When the woman brandished her dagger, the creature reared and roared and charged.  Death, it seemed, had come for her at long last in this strange place.  She stood, calm and ready.  A flash of movement, and the beast snatched the dagger from her hand before vanishing into the forest.  Stillness.  Hooded figures approached. In reverent tones they revealed that Selemene, Goddess of the Moon, had chosen her, had guided her, had tested her. Unwittingly she had endured the sacred rites of the Dark Moon, warriors of the Nightsilver Woods.\r\nShe was offered a choice: join the Dark Moon and pledge herself to the service of Selemene, or leave and never return. She did not hesitate. Embracing her absolution, she renounced her bloody past, and took up a new mantle as Luna of the Dark Moon, the dreaded Moon Rider, ruthless and ever-loyal guardian of the Nightsilver Woods.", 
   "DisplayName": "Luna", 
   "Hype": "Lucent Beam\\n\\nMoon Glaive\\n\\nLunar Blessing\\n\\nEclipse"
  }, 
@@ -3043,7 +3138,7 @@
   "Hype": "Transform into a wave of destruction!\\n\\nAdapt to battle conditions by changing your abilities and strengths.\\n\\nSlam enemies with magical blasts of energy!\\n\\nReplicate any hero, altering the face of the battle...and your own!"
  }, 
  "npc_dota_hero_naga_siren": {
-  "Bio": "Among the high-sworn of the Slithereen Guard there is a solemn vow oft repeated before battle:  No Slithereen may fail.  In truth, these words are equal parts oath and enforceable covenant, for those who fall short of their duty are banished from the order.  To fail is to be other than Slithereen.\nOnce most highly esteemed of her race, Slithice for many years commanded a battalion of her fellows, using her formidable voice as her greatest weapon.  Powerful, sinuous, serpentine, she led her deadly Guard in defense of the Deep Ones, and the great wealth of the sunken cities.  But in the final battle of Crey, her forces were driven back by a marauding army of levianths intent on finding tribute for their god Maelrawn.  After the long and bloody onslaught, as the bodies were cleared from the sunken halls, a single jeweled chalice was found missing from the trove.  Of her hundred Guard, only a handful survived, but their bravery and sacrifice were of little consequence.  What mattered was that treasure was taken.  Honor destroyed.  And so Naga Siren was cast out.  Banished to search for the stolen chalice.  Though she might add a hundred times her weight to the golden trove, she is doomed to live apart until that day she returns that which was taken.  For no amount of gold is equal in honor to the honor she lost.", 
+  "Bio": "Among the high-sworn of the Slithereen Guard there is a solemn vow oft repeated before battle:  No Slithereen may fail.  In truth, these words are equal parts oath and enforceable covenant, for those who fall short of their duty are banished from the order.  To fail is to be other than Slithereen.\r\nOnce most highly esteemed of her race, Slithice for many years commanded a battalion of her fellows, using her formidable voice as her greatest weapon.  Powerful, sinuous, serpentine, she led her deadly Guard in defense of the Deep Ones, and the great wealth of the sunken cities.  But in the final battle of Crey, her forces were driven back by a marauding army of levianths intent on finding tribute for their god Maelrawn.  After the long and bloody onslaught, as the bodies were cleared from the sunken halls, a single jeweled chalice was found missing from the trove.  Of her hundred Guard, only a handful survived, but their bravery and sacrifice were of little consequence.  What mattered was that treasure was taken.  Honor destroyed.  And so Naga Siren was cast out.  Banished to search for the stolen chalice.  Though she might add a hundred times her weight to the golden trove, she is doomed to live apart until that day she returns that which was taken.  For no amount of gold is equal in honor to the honor she lost.", 
   "DisplayName": "Naga Siren", 
   "Hype": "Hype"
  }, 
@@ -3058,12 +3153,12 @@
   "Hype": "Cast a spell of desecration on your enemy's territories!\\n\\nEntrap the souls of enemy fighters, then sic them on their former friends!\\n\\nSummon the Dark Lord to fill your foes with a weakling's dread!"
  }, 
  "npc_dota_hero_night_stalker": {
-  "Bio": "Of the Night Stalker, there is no history, only stories. There are ancient tales woven into the lore of every race and every culture, of an impossible time before sunlight and daytime, when night reigned alone and the world was covered with the creatures of darkness--creatures like Balanar the Night Stalker. \nIt is said that on the dawn of the First Day, all the night creatures perished. All, that is, save one. Evil's embodiment, Night Stalker delights in his malevolence. He created the primal role of the Night Terror, the Boogeyman, and as long as there have been younglings, his is the specter summoned to terrify them. This is a role he relishes; nor are these empty theatrics. He does indeed stalk the unwary, the defenseless, those who have strayed beyond the lighted paths or denied the warnings of their communities. Night Stalker serves as living proof that every child's worst nightmare....is true.", 
+  "Bio": "Of the Night Stalker, there is no history, only stories. There are ancient tales woven into the lore of every race and every culture, of an impossible time before sunlight and daytime, when night reigned alone and the world was covered with the creatures of darkness--creatures like Balanar the Night Stalker. \r\nIt is said that on the dawn of the First Day, all the night creatures perished. All, that is, save one. Evil's embodiment, Night Stalker delights in his malevolence. He created the primal role of the Night Terror, the Boogeyman, and as long as there have been younglings, his is the specter summoned to terrify them. This is a role he relishes; nor are these empty theatrics. He does indeed stalk the unwary, the defenseless, those who have strayed beyond the lighted paths or denied the warnings of their communities. Night Stalker serves as living proof that every child's worst nightmare....is true.", 
   "DisplayName": "Night Stalker", 
   "Hype": "Pull enemies into a damaging void of night!\\n\\nInstill fear in the hearts of the living!\\n\\nGain power in the black of night!\\n\\n"
  }, 
  "npc_dota_hero_nyx_assassin": {
-  "Bio": "Deep in the Archive of Ultimyr, shelved between scholarly treatises on dragon cladistics and books of untranslatable spells, there is an ancient tome of entomological curiosities.  Compiled by scholars, the book describes the telepathic talents of the zealot scarab, a strange species of social insect with abilities unique to all the seven planes.    \nUnlike most grubs of his colony, Nyx Assassin did not arise from metamorphosis with the plodding thoughts and blunted appendages common to the worker caste of his kind. For his was a special transformation, guided by the grace of Nyx.  He was the chosen one, selected from the many and anointed with an extract of the queen goddess herself.  Not all survive the dark blessing of the queen's chamber, but he emerged with a penetrating mind, and dagger-like claws--his razor sharp mandibles raking the air while his thoughts projected directly into the minds of those around him.  Of all zealot scarabs, he alone was selected for the highest calling.  After his metamorphosis, he was reborn, by grace of Nyx, with abilities which shaped him for one thing and one thing only: to kill in the name of his goddess.", 
+  "Bio": "Deep in the Archive of Ultimyr, shelved between scholarly treatises on dragon cladistics and books of untranslatable spells, there is an ancient tome of entomological curiosities.  Compiled by scholars, the book describes the telepathic talents of the zealot scarab, a strange species of social insect with abilities unique to all the seven planes.    \r\nUnlike most grubs of his colony, Nyx Assassin did not arise from metamorphosis with the plodding thoughts and blunted appendages common to the worker caste of his kind. For his was a special transformation, guided by the grace of Nyx.  He was the chosen one, selected from the many and anointed with an extract of the queen goddess herself.  Not all survive the dark blessing of the queen's chamber, but he emerged with a penetrating mind, and dagger-like claws--his razor sharp mandibles raking the air while his thoughts projected directly into the minds of those around him.  Of all zealot scarabs, he alone was selected for the highest calling.  After his metamorphosis, he was reborn, by grace of Nyx, with abilities which shaped him for one thing and one thing only: to kill in the name of his goddess.", 
   "DisplayName": "Nyx Assassin", 
   "Hype": "Hype"
  }, 
@@ -3083,7 +3178,7 @@
   "Hype": ""
  }, 
  "npc_dota_hero_oracle": {
-  "Bio": "Will there be a bio here someday? Only Nerif nows for sure!", 
+  "Bio": "Ascendants to the Great Seat of Cymurri had for ages imported their Oracles exclusively from the Ivory Incubarium, high in the hollow peaks of the Zealot's Range, with a downpayment made at the time of the embryo's conception and the balance surrendered on delivery of a mature, well-trained prophet to the Gate of the Graven King.\r\nRaised by same Pallid Sybils who bred and birthed them, all sanctioned Oracles were anchored by their physical form to the world we most of us share; meanwhile, their souls roamed far afield, barely bound by the airiest astral umbilicus. From such cosmic roamings the prophets would return, speaking words of fire with tongues of flesh. Their mystic utterances were analyzed by the Cymurri Advisors, who found in them visions of the future, diplomatic advice, all the supernatural ammunition the line of Graven Kings needed to secure victory in every campaign, whether in the court or on the battlefield. Thus it went for generations, the Graventome's pages filling with the names of triumphant kings and the new domains they had acquired. So it went, that is, until the particular Oracle named Nerif arrived to serve the very last of the stone-helmed kings. \r\nFrom the first, Nerif's prophecies were unusual. They seemed not merely to portend the future, but to shape it. The weird soothsayer croaked out advice no one had requested, and suddenly the Cymurri found themselves immersed in conflicts with newfound enemies. The Advisors, sensing a threat to their power, were quick to pin these unwelcome developments on the latest Oracle. They demanded his removal, petitioning the Sybils to reclaim their defective prophet and replace him with a worthy substitute. But Nerif described an ominous dream of the Incubarium's destruction, and within hours came news of the ancient school's destruction in a catastrophic avalanche. Fearing the same fate as the Pallid Sybils, the Advisors withdrew to their counsel chambers, suddenly anxious to avoid the Oracle's notice. \r\nThe Graven King, however, was a creature of great practicality. He doubted the commitment of his overprudent Advisors. An Oracle of such rarity, he reasoned, ought be used as a weapon to enlarge his domain. He therefore demoted his timid counselors and stationed Nerif at his side. With only a blunt understanding of Nerif's talent, he boldly stated the outcomes he desired, and coaxed Nerif into uttering his wishes as prophecy. \r\nAt first, all was well. The Last Graven King boasted that by adopting Fate's pet, he had made a plaything of Fate itself. He should have taken it as a warning then when, on the eve of his invasion of the Unsated Satrap's realm, he attempted to coerce a prediction of certain victory from his Oracle, only to hear Nerif quietly mutter, \\\"It could go either way.\\\" No firmer statement could he force from Nerif's lips. Still, the King was confident in his army. The Satrapy was landlocked, poorly armed, and shut off from all possible allies. He took \\\"It could go either way\\\" to indicate that with tactical might on his side, there was little risk in his plan.\r\nOf course, we now know that he should have taken the sayer's words more literally. Even with careful study of the Annotated Annals of If, what happened on the field before the Unsated Satrap's palace is almost impossible to visualize. It appears that in the midst of the carnage, the battle began to bifurcate. At each pivotal moment, reality calved and broke into bits. Soldiers who staggered and fell in battle also stood sure-footed, forging onward to fight. Their minds also split; the warriors found themselves both dead and alive, existent and non-existent. Victory and defeat were partitioned, so that each separate outcome was experienced in simultaneity by both armies. The universe became a hall of mirrors, with all the mirrors endlessly shattering.\r\nThe immediate effect on both parties was insanity. Unable to comprehend the state of being both triumphant and defeated, the Graven King's mind dispersed into motes of madness. The naive Satrap fared no better. The opposing paired realities continued to split and split again, echoing into infinite histories, all of them populated by a bewildered populace that soon lost the ability to feed, clothe, defend, or reproduce itself in the traditional manner. \r\nLong before the repercussions had played out, however, Cymurri's wary Advisors had seized Nerif, bound and gagged him, and launched him out of their universe at high speed on a dimensional barque, in the hopes of depositing him where he could do them no harm forever. It was, of course, too late for them. And may well be for us.", 
   "DisplayName": "Oracle"
  }, 
  "npc_dota_hero_phantom_assassin": {
@@ -3096,7 +3191,7 @@
   "Hype": "Ability 1!\\n\\nAbility 2!\\n\\nFurther abilities!"
  }, 
  "npc_dota_hero_phoenix": {
-  "Bio": "Alone across an untouched darkness gleamed the Keeper's first sun, a singular point of conscious light fated to spread warmth into the empty void. Through aeons beyond count, this blinding beacon set to coalescing its incalculable energy before bursting forth the cataclysmic flare of supernova. From this inferno raced new beacons, star progeny identical to its parent, who journeyed an unlit ocean and settled in constellatory array. In time, they too would be made to propagate through supernova flame. So would this dazzling cycle of birth and rebirth repeat until all skies hewn of Titan toil deigned to twinkle and shine.\nBy this ageless crucible the star that mortals would come to call Phoenix collapsed into being, and like its ancestors was thrust into an endless cosmos to find a place among its stellar brethren. Yet curiosity toward that which the dimming elders comfort in the darkness consumed the fledgling, and so over long cycles it inquired and studied. It learned that among worlds both whole and broken would soon stir a nexus of remarkable variety locked in an enduring conflict of cosmic consequence, a plane which would find itself in need of more influence than a dying sun's distant rays could provide. Thus this infant son of suns took terrestrial form, eagerly travelling to shine its warmth upon those who may need it most, and perhaps seize upon its solar destiny.", 
+  "Bio": "Alone across an untouched darkness gleamed the Keeper's first sun, a singular point of conscious light fated to spread warmth into the empty void. Through aeons beyond count, this blinding beacon set to coalescing its incalculable energy before bursting forth the cataclysmic flare of supernova. From this inferno raced new beacons, star progeny identical to its parent, who journeyed an unlit ocean and settled in constellatory array. In time, they too would be made to propagate through supernova flame. So would this dazzling cycle of birth and rebirth repeat until all skies hewn of Titan toil deigned to twinkle and shine.\r\nBy this ageless crucible the star that mortals would come to call Phoenix collapsed into being, and like its ancestors was thrust into an endless cosmos to find a place among its stellar brethren. Yet curiosity toward that which the dimming elders comfort in the darkness consumed the fledgling, and so over long cycles it inquired and studied. It learned that among worlds both whole and broken would soon stir a nexus of remarkable variety locked in an enduring conflict of cosmic consequence, a plane which would find itself in need of more influence than a dying sun's distant rays could provide. Thus this infant son of suns took terrestrial form, eagerly travelling to shine its warmth upon those who may need it most, and perhaps seize upon its solar destiny.", 
   "DisplayName": "Phoenix"
  }, 
  "npc_dota_hero_puck": {
@@ -3120,7 +3215,7 @@
   "Hype": "Hurl poison daggers!\\n\\nTeleport in and out of combat!\\n\\nUnleash a piercing wave of sound that damages your enemies!"
  }, 
  "npc_dota_hero_rattletrap": {
-  "Bio": "Rattletrap descends from the same far-flung kindred as Sniper and Tinker, and like many of the Keen Folk, has offset his diminutive stature through the application of gadgetry and wit.  The son of the son of a clockmaker, Rattletrap was many years apprenticed to that trade before war rode down from the mountains and swept the plains villages free of such innocent vocations.  \\\"Your new trade is battle,\\\" his dying father told him as the village of their ancestors lay in charred and smoking ruins.    \nIt is a poor tradesman who blames his tools, and Rattletrap was never one to make excuses.  After burying his father among the ruins of their village, he set about to transform himself into the greatest tool of warfare that any world had ever seen. He vowed to never again be caught unprepared, instead using his talents to assemble a suit of powered Clockwerk armor to make the knights of other lands look like tin cans by comparison.  Now Rattletrap is alive with devices, a small but deadly warrior whose skills at ambush and destruction have risen to near-automated levels of efficiency.  An artisan of death, his mechanizations make short work of the unwary, heralding a new dawn in this age of warfare.  What time is it? It's Clockwerk time!", 
+  "Bio": "Rattletrap descends from the same far-flung kindred as Sniper and Tinker, and like many of the Keen Folk, has offset his diminutive stature through the application of gadgetry and wit.  The son of the son of a clockmaker, Rattletrap was many years apprenticed to that trade before war rode down from the mountains and swept the plains villages free of such innocent vocations.  \\\"Your new trade is battle,\\\" his dying father told him as the village of their ancestors lay in charred and smoking ruins.    \r\nIt is a poor tradesman who blames his tools, and Rattletrap was never one to make excuses.  After burying his father among the ruins of their village, he set about to transform himself into the greatest tool of warfare that any world had ever seen. He vowed to never again be caught unprepared, instead using his talents to assemble a suit of powered Clockwerk armor to make the knights of other lands look like tin cans by comparison.  Now Rattletrap is alive with devices, a small but deadly warrior whose skills at ambush and destruction have risen to near-automated levels of efficiency.  An artisan of death, his mechanizations make short work of the unwary, heralding a new dawn in this age of warfare.  What time is it? It's Clockwerk time!", 
   "DisplayName": "Clockwerk", 
   "Hype": "Battery Assault\\n\\nPowers Cogs\\n\\nRocket Flare\\n\\nHookshot"
  }, 
@@ -3135,7 +3230,7 @@
   "Hype": "Sow confusion with smoke bombs!\\n\\nTeleport to your advantage!\\n\\nFade to invisibility, and strike down unsuspecting victims from behind!"
  }, 
  "npc_dota_hero_rubick": {
-  "Bio": "Any mage can cast a spell or two, and a few may even study long enough to become a wizard, but only the most talented are allowed to be recognized as a Magus. Yet as with any sorcerer's circle, a sense of community has never guaranteed competitive courtesy.\nAlready a renowned duelist and scholar of the grander world of sorcery, it had never occurred to Rubick that he might perhaps be Magus material until he was in the midst of his seventh assassination attempt. As he casually tossed the twelfth of a string of would-be killers from a high balcony, it dawned on him how utterly unimaginative the attempts on his life had become. Where once the interruption of a fingersnap or firehand might have put a cheerful spring in his step, it had all become so very predictable. He craved greater competition. Therefore, donning his combat mask, he did what any wizard seeking to ascend the ranks would do: he announced his intention to kill a Magus.\nRubick quickly discovered that to threaten one Magus is to threaten them all, and they fell upon him in force. Each antagonist's spell was an unstoppable torrent of energy, and every attack a calculated killing blow. But very soon something occurred that Rubick's foes found unexpected: their arts appeared to turn against them. Inside the magic maelstrom, Rubick chuckled, subtly reading and replicating the powers of one in order to cast it against another, sowing chaos among those who had allied against him. Accusations of betrayal began to fly, and soon the sorcerers turned one upon another without suspecting who was behind their undoing.\nWhen the battle finally drew to a close, all were singed and frozen, soaked and cut and pierced. More than one lay dead by an ally's craft. Rubick stood apart, sore but delighted in the week's festivities. None had the strength to argue when he presented his petition of assumption to the Hidden Council, and the Insubstantial Eleven agreed as one to grant him the title of Grand Magus.", 
+  "Bio": "Any mage can cast a spell or two, and a few may even study long enough to become a wizard, but only the most talented are allowed to be recognized as a Magus. Yet as with any sorcerer's circle, a sense of community has never guaranteed competitive courtesy.\r\nAlready a renowned duelist and scholar of the grander world of sorcery, it had never occurred to Rubick that he might perhaps be Magus material until he was in the midst of his seventh assassination attempt. As he casually tossed the twelfth of a string of would-be killers from a high balcony, it dawned on him how utterly unimaginative the attempts on his life had become. Where once the interruption of a fingersnap or firehand might have put a cheerful spring in his step, it had all become so very predictable. He craved greater competition. Therefore, donning his combat mask, he did what any wizard seeking to ascend the ranks would do: he announced his intention to kill a Magus.\r\nRubick quickly discovered that to threaten one Magus is to threaten them all, and they fell upon him in force. Each antagonist's spell was an unstoppable torrent of energy, and every attack a calculated killing blow. But very soon something occurred that Rubick's foes found unexpected: their arts appeared to turn against them. Inside the magic maelstrom, Rubick chuckled, subtly reading and replicating the powers of one in order to cast it against another, sowing chaos among those who had allied against him. Accusations of betrayal began to fly, and soon the sorcerers turned one upon another without suspecting who was behind their undoing.\r\nWhen the battle finally drew to a close, all were singed and frozen, soaked and cut and pierced. More than one lay dead by an ally's craft. Rubick stood apart, sore but delighted in the week's festivities. None had the strength to argue when he presented his petition of assumption to the Hidden Council, and the Insubstantial Eleven agreed as one to grant him the title of Grand Magus.", 
   "DisplayName": "Rubick"
  }, 
  "npc_dota_hero_sand_king": {
@@ -3149,16 +3244,16 @@
   "Hype": ""
  }, 
  "npc_dota_hero_shadow_shaman": {
-  "Bio": "Born in the Bleeding Hills, Rhasta was just a starving youngling when picked up by a travelling con-man.  For two pins of copper, the old con-man would tell your fortune. For three, he'd castrate your pig, for five, he'd circumcise your sons. For a good meal, he'd don his shaman garb, read from his ancient books, and lay a curse upon your enemies. His strange new youngling, part hill troll, part...something else, worked as assistant and lent an air of the exotic to the con-man's trade. \nAlways one step ahead of cheated customers, one town ahead of a pursuing patronage, the two trekked across the blighted lands until one day the con-man realized that the little youngling could actually do what he only pretended at. His ward had a gift--a gift that customers valued. And so the youngling Rhasta was thrust before the crowds, and the trade-name Shadow Shaman was born. The two continued from town to town, conjuring for money as Shadow Shaman's reputation grew. Eventually, the pair's duplicitous past caught up with them, and they were ambushed by a mob of swindled ex-clients. The con-man was slain, and for the first time, Rhasta used his powers for darkness, massacring the attackers. He buried his beloved master, and now uses his powers to destroy any who would seek to do him harm.", 
+  "Bio": "Born in the Bleeding Hills, Rhasta was just a starving youngling when picked up by a travelling con-man.  For two pins of copper, the old con-man would tell your fortune. For three, he'd castrate your pig, for five, he'd circumcise your sons. For a good meal, he'd don his shaman garb, read from his ancient books, and lay a curse upon your enemies. His strange new youngling, part hill troll, part...something else, worked as assistant and lent an air of the exotic to the con-man's trade. \r\nAlways one step ahead of cheated customers, one town ahead of a pursuing patronage, the two trekked across the blighted lands until one day the con-man realized that the little youngling could actually do what he only pretended at. His ward had a gift--a gift that customers valued. And so the youngling Rhasta was thrust before the crowds, and the trade-name Shadow Shaman was born. The two continued from town to town, conjuring for money as Shadow Shaman's reputation grew. Eventually, the pair's duplicitous past caught up with them, and they were ambushed by a mob of swindled ex-clients. The con-man was slain, and for the first time, Rhasta used his powers for darkness, massacring the attackers. He buried his beloved master, and now uses his powers to destroy any who would seek to do him harm.", 
   "DisplayName": "Shadow Shaman", 
   "Hype": "Call forth a cone of devastating lightning!\\n\\nTransform your enemy into a lowly beast!\\n\\nShackle your enemies and overrun them with serpentine wards!"
  }, 
  "npc_dota_hero_shredder": {
-  "Bio": "Rizzrack could still hear the screams in his mind.  He worked, frantically turning wrenches, twisting screws, building and carving and forging.  Sleep eluded him; he only built.  Months had passed since he had shut himself in his uncle's workshop, and his deliverance was nearly complete.  He rubbed his back as his eyes drifted shut, and saw a blanket of flowers floating on the placid waves of Augury Bay before exploding into a cloud of pollen that silenced lives as it seized the lungs.  He woke with a choking start.  For hours the rhythmic sound of a whetstone filled the shop as he sharpened a set of massive blades, his mind filled with images of strangling vines garroting neighbors, enwrapping homes.  The flooding of Augury Bay had been nothing compared to the violent horrors the waters left to take root beyond the city walls.  But the saw-suit would make him strong and safe he thought, allowing himself this sliver of hope before the full might of his fear crashed into his fading mind.  Branches and bark and blood.  When the city fell, Rizzrack fled trees that walked, and fought, and killed.  Trees had shattered the gates and swarmed into the city.  Trees had crushed and thrashed and stomped the last that Augury Bay could muster in defense, and stalked the few fleeing refugees.  In addled silence Rizzrack unspooled the thick chain from the suit's arm, his hands quaking as he inspected each link and ran a trembling finger along the claw attached at its end.  The saw-suit was ready.\nWith his hand trembling he sparked the bladed machine to life.  Terror drove him, terror of what awaited him and of what he would have to face to have any hope of calming his mind.  As the saw-suit shuddered to life he knew he must face this fear, and he knew he wouldn't like it one bit.", 
+  "Bio": "Rizzrack could still hear the screams in his mind.  He worked, frantically turning wrenches, twisting screws, building and carving and forging.  Sleep eluded him; he only built.  Months had passed since he had shut himself in his uncle's workshop, and his deliverance was nearly complete.  He rubbed his back as his eyes drifted shut, and saw a blanket of flowers floating on the placid waves of Augury Bay before exploding into a cloud of pollen that silenced lives as it seized the lungs.  He woke with a choking start.  For hours the rhythmic sound of a whetstone filled the shop as he sharpened a set of massive blades, his mind filled with images of strangling vines garroting neighbors, enwrapping homes.  The flooding of Augury Bay had been nothing compared to the violent horrors the waters left to take root beyond the city walls.  But the saw-suit would make him strong and safe he thought, allowing himself this sliver of hope before the full might of his fear crashed into his fading mind.  Branches and bark and blood.  When the city fell, Rizzrack fled trees that walked, and fought, and killed.  Trees had shattered the gates and swarmed into the city.  Trees had crushed and thrashed and stomped the last that Augury Bay could muster in defense, and stalked the few fleeing refugees.  In addled silence Rizzrack unspooled the thick chain from the suit's arm, his hands quaking as he inspected each link and ran a trembling finger along the claw attached at its end.  The saw-suit was ready.\r\nWith his hand trembling he sparked the bladed machine to life.  Terror drove him, terror of what awaited him and of what he would have to face to have any hope of calming his mind.  As the saw-suit shuddered to life he knew he must face this fear, and he knew he wouldn't like it one bit.", 
   "DisplayName": "Timbersaw"
  }, 
  "npc_dota_hero_silencer": {
-  "Bio": "Part of the seventh and final generation of a carefully designed pedigree, Nortrom was bred by the ancient order of the Aeol Drias to be the greatest magic user the world had ever seen. He was the prophesied one, the culmination of two-hundred years of careful pairings, a war-mage who would bring glory to the order, and destruction to their sworn enemies, The Knights of the Fold. \nRaised with other young mages in a hidden cantonment among the hills of the Hazhadal barrens, the order's preceptors waited for Nortrom's abilities to manifest. While the other students honed their talents with fire, or ice, or incantatory spells, Nortrom sat silent and talentless, unable to cast so much as a hex. As the day of final testing approached, he still hadn't found his magic. In disgust, the preceptors berated him, while the children laughed. \\\"You are no mage,\\\" the head of the order declared. Still, Nortrom did not slink away. He entered the day of testing and faced down the young mages who had mocked him. And then his preceptors learned a valuable lesson: a lack of magic can be the greatest magic of all. Nortrom silenced the young mages one by one and defeated them in single combat, until he alone stood as champion of the Aeol Drias, in fulfillment of the prophecy.", 
+  "Bio": "Part of the seventh and final generation of a carefully designed pedigree, Nortrom was bred by the ancient order of the Aeol Drias to be the greatest magic user the world had ever seen. He was the prophesied one, the culmination of two-hundred years of careful pairings, a war-mage who would bring glory to the order, and destruction to their sworn enemies, The Knights of the Fold. \r\nRaised with other young mages in a hidden cantonment among the hills of the Hazhadal barrens, the order's preceptors waited for Nortrom's abilities to manifest. While the other students honed their talents with fire, or ice, or incantatory spells, Nortrom sat silent and talentless, unable to cast so much as a hex. As the day of final testing approached, he still hadn't found his magic. In disgust, the preceptors berated him, while the children laughed. \\\"You are no mage,\\\" the head of the order declared. Still, Nortrom did not slink away. He entered the day of testing and faced down the young mages who had mocked him. And then his preceptors learned a valuable lesson: a lack of magic can be the greatest magic of all. Nortrom silenced the young mages one by one and defeated them in single combat, until he alone stood as champion of the Aeol Drias, in fulfillment of the prophecy.", 
   "DisplayName": "Silencer", 
   "Hype": ""
  }, 
@@ -3168,7 +3263,7 @@
   "Hype": "Blast enemies with wraithfire from your wraith-infused blade!\\n\\nExude a vampiric aura!\\n\\nStrike your enemies critically!\\n\\nReincarnate instantly, returned to full vigor, in order to punish anyone foolish enough to strike you down!"
  }, 
  "npc_dota_hero_skywrath_mage": {
-  "Bio": "A highly placed mage in the court of the Ghastly Eyrie, Dragonus lives a troubled existence. Sworn by birth to protect whoever sits within the Nest of Thorns, he hates the current Skywrath queen with all his soul. As a youth, high-born, he was a friend and companion to the eldest Skywrath princess, Shendelzare, first in line for the Nest. He had loved her warmly and unshakably, but as his studies took hold, his mind turned to arcane learning and the mastery of Skywrath sorcery.\n\t\tObsessed with matters aetherial, he missed the mundane signs of courtly treachery that hinted at a plot against Shendelzare, and lost his chance to foil it. When the court was shaken by a swift and violent coup, he emerged from his studies to discover his oldest and dearest friend had been lost to him. The Nest of Thorns now belonged to Shendelzare's ruthless younger sister, and Dragonus could do nothing. The magic of the Skywrath Mage serves only the sworn protector of the Skywrath scion, so to act against the Nest would render him helpless. He clings to his post, believing it to be the best hope of one day restoring his true love to her rightful place. Meanwhile, his secret is known only to the goddess Scree'auk, whose magic it was transformed Shendelzare from a crippled physical creature into an embodiment of pure vengeful energy.\n\t\tWhile he dreams of restoring his beloved queen to the Ghastly Eyrie, he dreams even more desperately of restoring Shendelzare herself to a fully healed physical form. The duplicity of his role at court tortures him, for he is a noble and good-hearted creature; but the worst torture of all is imagining the hatred that Vengeful Spirit must hold in her heart for him.", 
+  "Bio": "A highly placed mage in the court of the Ghastly Eyrie, Dragonus lives a troubled existence. Sworn by birth to protect whoever sits within the Nest of Thorns, he hates the current Skywrath queen with all his soul. As a youth, high-born, he was a friend and companion to the eldest Skywrath princess, Shendelzare, first in line for the Nest. He had loved her warmly and unshakably, but as his studies took hold, his mind turned to arcane learning and the mastery of Skywrath sorcery.\r\n\t\tObsessed with matters aetherial, he missed the mundane signs of courtly treachery that hinted at a plot against Shendelzare, and lost his chance to foil it. When the court was shaken by a swift and violent coup, he emerged from his studies to discover his oldest and dearest friend had been lost to him. The Nest of Thorns now belonged to Shendelzare's ruthless younger sister, and Dragonus could do nothing. The magic of the Skywrath Mage serves only the sworn protector of the Skywrath scion, so to act against the Nest would render him helpless. He clings to his post, believing it to be the best hope of one day restoring his true love to her rightful place. Meanwhile, his secret is known only to the goddess Scree'auk, whose magic it was transformed Shendelzare from a crippled physical creature into an embodiment of pure vengeful energy.\r\n\t\tWhile he dreams of restoring his beloved queen to the Ghastly Eyrie, he dreams even more desperately of restoring Shendelzare herself to a fully healed physical form. The duplicity of his role at court tortures him, for he is a noble and good-hearted creature; but the worst torture of all is imagining the hatred that Vengeful Spirit must hold in her heart for him.", 
   "DisplayName": "Skywrath Mage"
  }, 
  "npc_dota_hero_slardar": {
@@ -3181,7 +3276,7 @@
   "DisplayName": "Slark"
  }, 
  "npc_dota_hero_sniper": {
-  "Bio": "Kardel Sharpeye was born deep in the mountains of Knollen where, since time immemorial, Keen Folk have survived by hunting the strange, cliff-dwelling steepstalkers above their village, shooting them from a distance and collecting the carcasses where they fell. Sharpeye was among the best of these strange mountain keens for whom projectile weapons are but another appendage, and to shoot is as natural as to touch. \nOn his day of summoning, when he was to gain full standing in his village, Sharpeye took the ancient test: a single shot from the valley floor to strike a beast down from the cliffs. To miss was to be dishonored. With his entire village standing vigil, Sharpeye took his shot. A steepstalker fell; the crowd cheered.  But when the carcass was collected, the village grew silent, for the elders found that the bullet had pierced its glittering central eye then fallen to be clenched in the steepstalker's mandibles. This ominous sign was the literal opening of a dark prophecy, foretelling both greatness and exile for the gunman who made such a shot. Sharpeye the Sniper was thus, by his own skill, condemned to make his way apart from his people--and unwelcome back among them until he has fulfilled the remainder of the prophecy by attaining legendary stature on a field of battle.", 
+  "Bio": "Kardel Sharpeye was born deep in the mountains of Knollen where, since time immemorial, Keen Folk have survived by hunting the strange, cliff-dwelling steepstalkers above their village, shooting them from a distance and collecting the carcasses where they fell. Sharpeye was among the best of these strange mountain keens for whom projectile weapons are but another appendage, and to shoot is as natural as to touch. \r\nOn his day of summoning, when he was to gain full standing in his village, Sharpeye took the ancient test: a single shot from the valley floor to strike a beast down from the cliffs. To miss was to be dishonored. With his entire village standing vigil, Sharpeye took his shot. A steepstalker fell; the crowd cheered.  But when the carcass was collected, the village grew silent, for the elders found that the bullet had pierced its glittering central eye then fallen to be clenched in the steepstalker's mandibles. This ominous sign was the literal opening of a dark prophecy, foretelling both greatness and exile for the gunman who made such a shot. Sharpeye the Sniper was thus, by his own skill, condemned to make his way apart from his people--and unwelcome back among them until he has fulfilled the remainder of the prophecy by attaining legendary stature on a field of battle.", 
   "DisplayName": "Sniper", 
   "Hype": "Pepper an area with explosive shrapnel!\\n\\nBlast enemies with incredible accuracy!\\n\\nAssassinate your rivals from impossible distances!"
  }, 
@@ -3206,15 +3301,16 @@
   "Hype": "Destroy enemies with a stunning storm bolt!\\n\\nStrike with such force that all nearby enemies take damage!\\n\\nHearten your allies with a mighty warcry and bring down divinely-powered blows upon your enemies!"
  }, 
  "npc_dota_hero_techies": {
-  "Bio": "In the storied saga of Dredger's Bight, no business has ever been more reviled than Techies Demolitions. Then again, Dredger's Bight no longer exists. Nor does Toterin. Or even Trapper Town. In fact, if one were to track the history of Techies Demolitions they might notice that shortly after Techies appear, towns tend to disappear.\nLike every inevitable disaster surrounding Techies, the obliteration of Dredger's Bight began with an invention. Tasked with designing a safer way of detonating explosives in the mines beneath the city, pyrotechnic prodigies Squee, Spleen, and Spoon developed their most outlandish creation yet: a button which, when pressed, would trigger a distant device to spark a fuse.\nOvereager to test their invention, the trio stuffed barrel after barrel with flamesalt explosives, piling every corner of their tiny workshop high with the newly developed remote bombs. From this stockpile they plucked a single payload, burying it in a far away field. As they cowered in a ditch, Spleen pressed the detonator button. Yet after a moment, nothing happened. Confused, he stood up, pressing his button again and again until, finally, an explosion tore a hole in the field. Elated, Squee and Spleen turned toward home just as a massive wave of sound and force arrived to knock them over.\nBewildered, their ears ringing from the unexpected blast, they gathered in the dingy miasma to see a smoking ruin where their workshop once stood. Chunks of wood and stone continued to fall as the yawning crater before them slowly deepened into an expanding pit. The whole of Dredger's Bight shuddered, and then gradually started to slide into the mines below as its panicked residents fled.\nSitting at the edge of their sinking home they grinned and giggled, as giddy at the possibilities as they were oblivious to the scorn of their former neighbors. They wondered only one thing: how could they trigger an even bigger blast?", 
+  "Bio": "In the storied saga of Dredger's Bight, no business has ever been more reviled than Techies Demolitions. Then again, Dredger's Bight no longer exists. Nor does Toterin. Or even Trapper Town. In fact, if one were to track the history of Techies Demolitions they might notice that shortly after Techies appear, towns tend to disappear.\r\nLike every inevitable disaster surrounding Techies, the obliteration of Dredger's Bight began with an invention. Tasked with designing a safer way of detonating explosives in the mines beneath the city, pyrotechnic prodigies Squee, Spleen, and Spoon developed their most outlandish creation yet: a button which, when pressed, would trigger a distant device to spark a fuse.\r\nOvereager to test their invention, the trio stuffed barrel after barrel with flamesalt explosives, piling every corner of their tiny workshop high with the newly developed remote bombs. From this stockpile they plucked a single payload, burying it in a far away field. As they cowered in a ditch, Spleen pressed the detonator button. Yet after a moment, nothing happened. Confused, he stood up, pressing his button again and again until, finally, an explosion tore a hole in the field. Elated, Squee and Spleen turned toward home just as a massive wave of sound and force arrived to knock them over.\r\nBewildered, their ears ringing from the unexpected blast, they gathered in the dingy miasma to see a smoking ruin where their workshop once stood. Chunks of wood and stone continued to fall as the yawning crater before them slowly deepened into an expanding pit. The whole of Dredger's Bight shuddered, and then gradually started to slide into the mines below as its panicked residents fled.\r\nSitting at the edge of their sinking home they grinned and giggled, as giddy at the possibilities as they were oblivious to the scorn of their former neighbors. They wondered only one thing: how could they trigger an even bigger blast?", 
   "DisplayName": "Techies"
  }, 
  "npc_dota_hero_templar_assassin": {
   "Bio": "Lanaya, the Templar Assassin, came to her calling by a path of curious inquiry. Possessed of a scientific bent, she spent her early years engaged in meticulous study of nature's laws--peering into grimoires of magic and alchemy, recreating experiments from charred fragments of the Violet Archives, and memorizing observations of the Keen recordkeepers. Already quiet and secretive by nature, the difficulty of acquiring these objects further reinforced her skills of stealth. Had she been less retiring, she might have become notorious among the guilds as a thief-scholar. Instead her investigations led her into far more obscure corners. As she devoted her furtive talents to unlocking the secrets of the universe, she instead unlocked a secret door that exists in nature itself: the entryway to the most Hidden Temple. The intelligences that waited beyond that portal, proved to be expecting her, and whatever mysteries they revealed in the moment of their discovery was nothing compared to the answers they held out to Lanaya should she continue in their service. She swore to protect the mysteries, but more to the point, in service to the Hidden Temple she satisfies her endless craving for understanding. In the eyes of each foe she expunges, a bit more of the mystery is revealed.", 
-  "DisplayName": "Templar Assassin"
+  "DisplayName": "Templar Assassin", 
+  "Hype": "Refraction\\n\\nMeld\\n\\nPsi Blades\\n\\nPsionic Trap"
  }, 
  "npc_dota_hero_terrorblade": {
-  "Bio": "Terrorblade is the demon marauder--an outlaw hellion whom even other demons fear. A cosmic iconoclast, he stole from the Demon Lords, ignored the codified rites that should have bound his behavior, and broke every law of the seven Infernal Regions. For his crimes, he was taught this lesson: even Hell has a hell. A short, brutal trial ensued, with many dead on all sides, and he was finally incarcerated in Foulfell, a hidden dimension where demonkind imprison their own.\nBut Foulfell is no normal prison. In this dark mirror of reality, demons are sentenced to gaze eternally into the twisted reflection of their own souls. But instead of suffering, Terrorblade made himself master of his own reflected worst self--a raging, thieving demon of unimaginable power. With his inner beast under sway, he destroyed the fractal prison walls and burst free to turn his terror loose upon all creation.", 
+  "Bio": "Terrorblade is the demon marauder--an outlaw hellion whom even other demons fear. A cosmic iconoclast, he stole from the Demon Lords, ignored the codified rites that should have bound his behavior, and broke every law of the seven Infernal Regions. For his crimes, he was taught this lesson: even Hell has a hell. A short, brutal trial ensued, with many dead on all sides, and he was finally incarcerated in Foulfell, a hidden dimension where demonkind imprison their own.\r\nBut Foulfell is no normal prison. In this dark mirror of reality, demons are sentenced to gaze eternally into the twisted reflection of their own souls. But instead of suffering, Terrorblade made himself master of his own reflected worst self--a raging, thieving demon of unimaginable power. With his inner beast under sway, he destroyed the fractal prison walls and burst free to turn his terror loose upon all creation.", 
   "DisplayName": "Terrorblade"
  }, 
  "npc_dota_hero_tidehunter": {
@@ -3238,15 +3334,15 @@
   "Hype": ""
  }, 
  "npc_dota_hero_troll_warlord": {
-  "Bio": "It's an easy thing to offend a troll. A prickly and contentious race, trolls thrive on argument and strife, missing no excuse to raise their voices in dispute. Males grow to maturity in subterranean chambers beneath their matriarch's domicile, feeding and amusing themselves while contributing nothing. Often they stay for years beyond the age of maturity, while the matriarch provides them with sustenance. When young trolls are finally pushed from their sub-chamber, they gather with others of their kind, forming roving gangs of malcontents who complain loudly about all manner of vexation.     \nAs much as trolls love to argue, imagine how rare it is for a troll to be driven from his own kind for being too difficult to get along with. Such was Jah'rakal's fate, a monger troll from deep in the Hoven. So deluded was he, so bitter and abrasive, that even other trolls found his company intolerable. After one particularly vitriolic outburst in which he claimed the lion's share of loot from their latest raid, his cohorts finally snapped. They turned on him, beat him with clubs, and drove him from the encampment. Enraged at his banishment, he returned the next day, armed with steel, and slew them all, one by one. He then swore a blood oath: he would ever after be a fighting force unto himself. Now he roams the world as the Troll Warlord, bitter and angry, the Imperial high commander of an army of one.", 
+  "Bio": "It's an easy thing to offend a troll. A prickly and contentious race, trolls thrive on argument and strife, missing no excuse to raise their voices in dispute. Males grow to maturity in subterranean chambers beneath their matriarch's domicile, feeding and amusing themselves while contributing nothing. Often they stay for years beyond the age of maturity, while the matriarch provides them with sustenance. When young trolls are finally pushed from their sub-chamber, they gather with others of their kind, forming roving gangs of malcontents who complain loudly about all manner of vexation.     \r\nAs much as trolls love to argue, imagine how rare it is for a troll to be driven from his own kind for being too difficult to get along with. Such was Jah'rakal's fate, a monger troll from deep in the Hoven. So deluded was he, so bitter and abrasive, that even other trolls found his company intolerable. After one particularly vitriolic outburst in which he claimed the lion's share of loot from their latest raid, his cohorts finally snapped. They turned on him, beat him with clubs, and drove him from the encampment. Enraged at his banishment, he returned the next day, armed with steel, and slew them all, one by one. He then swore a blood oath: he would ever after be a fighting force unto himself. Now he roams the world as the Troll Warlord, bitter and angry, the Imperial high commander of an army of one.", 
   "DisplayName": "Troll Warlord"
  }, 
  "npc_dota_hero_tusk": {
-  "Bio": "It had been a brawl to remember. There stood Ymir, the Tusk, the Terror from the Barrier, the Snowball from Cobalt, the only fighter to have bested the Bristled Bruiser in a fair fight, and now the last man standing in Wolfsden Tavern. What started as a simple bar bet of supremacy ended with four regulars, a blacksmith, and six of the Frost Brigade's best soldiers writhing against the shards and splinters of almost every bottle, mug, and chair in the building. The Tusk boasted and toasted his victory as he emptied his brew.\nNo sooner had the defeated regained consciousness than the cries for double-or-nothing rang out. The Tusk was pleased at the prospect, but none could think of a bet bigger than the one he just conquered. Horrified at the damage to his tavern and desperate to avoid another brawl, the barkeep had an idea. As skilled as he was, Ymir had never taken part in a real battle, never tested himself against the indiscriminate death and chaos of war. He proposed a wager to the fighter: seek out the biggest battle he could find, survive, and win it for whichever side he chose. The stakes? The next round of drinks.", 
+  "Bio": "It had been a brawl to remember. There stood Ymir, the Tusk, the Terror from the Barrier, the Snowball from Cobalt, the only fighter to have bested the Bristled Bruiser in a fair fight, and now the last man standing in Wolfsden Tavern. What started as a simple bar bet of supremacy ended with four regulars, a blacksmith, and six of the Frost Brigade's best soldiers writhing against the shards and splinters of almost every bottle, mug, and chair in the building. The Tusk boasted and toasted his victory as he emptied his brew.\r\nNo sooner had the defeated regained consciousness than the cries for double-or-nothing rang out. The Tusk was pleased at the prospect, but none could think of a bet bigger than the one he just conquered. Horrified at the damage to his tavern and desperate to avoid another brawl, the barkeep had an idea. As skilled as he was, Ymir had never taken part in a real battle, never tested himself against the indiscriminate death and chaos of war. He proposed a wager to the fighter: seek out the biggest battle he could find, survive, and win it for whichever side he chose. The stakes? The next round of drinks.", 
   "DisplayName": "Tusk"
  }, 
  "npc_dota_hero_undying": {
-  "Bio": "How long has it been since he lost his name? The torn ruin of his mind no longer knows.\nDimly he recalls armor and banners and grim-faced kin riding at his side. He remembers a battle: pain and fear as pale hands ripped him from his saddle. He remembers terror as they threw him into the yawning pit of the Dead God alongside his brothers, to hear the Dirge and be consumed into nothingness. In the darkness below, time left them. Thought left them. Sanity left them. Hunger, however, did not. They turned on each other with split fingernails and shattered teeth. Then it came: distant at first, a fragile note at the edge of perception, joined by another, then another, inescapable and unending. The chorus grew into a living wall of sound pulsing in his mind until no other thought survived. With the Dirge consuming him, he opened his arms to the Dead God and welcomed his obliteration. Yet destruction was not what he'd been chosen for. The Dead God demanded war. In the belly of the great nothing, he was granted a new purpose: to spread the Dirge across the land, to rally the sleepless dead against the living. He was to become the Undying, the herald of the Dead God, to rise and fall and rise again whenever his body failed him. To trudge on through death unending, that the Dirge might never end.", 
+  "Bio": "How long has it been since he lost his name? The torn ruin of his mind no longer knows.\r\nDimly he recalls armor and banners and grim-faced kin riding at his side. He remembers a battle: pain and fear as pale hands ripped him from his saddle. He remembers terror as they threw him into the yawning pit of the Dead God alongside his brothers, to hear the Dirge and be consumed into nothingness. In the darkness below, time left them. Thought left them. Sanity left them. Hunger, however, did not. They turned on each other with split fingernails and shattered teeth. Then it came: distant at first, a fragile note at the edge of perception, joined by another, then another, inescapable and unending. The chorus grew into a living wall of sound pulsing in his mind until no other thought survived. With the Dirge consuming him, he opened his arms to the Dead God and welcomed his obliteration. Yet destruction was not what he'd been chosen for. The Dead God demanded war. In the belly of the great nothing, he was granted a new purpose: to spread the Dirge across the land, to rally the sleepless dead against the living. He was to become the Undying, the herald of the Dead God, to rise and fall and rise again whenever his body failed him. To trudge on through death unending, that the Dirge might never end.", 
   "DisplayName": "Undying"
  }, 
  "npc_dota_hero_ursa": {
@@ -3288,8 +3384,12 @@
   "DisplayName": "Windranger", 
   "Hype": "Skewer your opponents with your piercing arrow!\\n\\nDevastate distant foes with your power shot!\\n\\nMove like the wind, overtaking enemies with your blistering attack speed!"
  }, 
+ "npc_dota_hero_winter_wyvern": {
+  "Bio": "Like many great poets, Auroth just wants time to write, but the Winter Wyvern's life is full of interruptions. The epics of the Eldwurms have a long and colorful history, but some fear that the remaining dragon scholars are not as prolific as they once were, with few lines added to the Eldwurm Eddas since the last age of greatness. Auroth laments: \\\"We forget that there is more to life than triumph and dominion over enemies. We must also live our lives in the pursuit of creative expression.\\\" She embarks on research expeditions, collecting books for inspiration. But all this research can be terribly distracting, and she spends less time writing than she should. Although she knows she should be lurking in her lair, adding to the Eddas, she finds herself engaged in epic battles against powerful enemies. She loots castles, raids ancient libraries ... and if she happens to heap glory on herself in the process, she tells herself that it's merely a side effect of her research. The fact is, while her skill and power on the battlefield are legendary, her scholarly travails have thus far hardly been the stuff of literary acclaim. But she is not content to stand as a protagonist of heroic lore. She wishes also to create it.", 
+  "DisplayName": "Winter Wyvern"
+ }, 
  "npc_dota_hero_wisp": {
-  "Bio": "Io is everywhere, and in all things.  Denounced by enemies as the great unmaker, worshiped by scholars as the twinkling of a divine eye, this strange Wisp of life-force occupies all planes at once, the merest fraction of its being crossing into physical existence at any one moment.  \nLike the great twin riders Dark and Light, and yet another ancient traveler whose true history is lost to the ages, Io the Wisp is a Fundamental of the universe, a force older than time, a wanderer from realms far beyond mortal understanding. Io is nothing less than the sum of all attractive and repulsive forces within the material field, a sentient manifestation of the charge that bind existence together. It is only in the controlled warping of these electrical waylines that Io's presence can be experienced on the physical plane. A benevolent, cooperative force, Io bonds its strange magnetism to others so that the power of allies might be enhanced.  Its motives inscrutable, its strength unimaginable, Io moves through the physical plane, the perfect expression of the mysteries of the universe.\n", 
+  "Bio": "Io is everywhere, and in all things.  Denounced by enemies as the great unmaker, worshiped by scholars as the twinkling of a divine eye, this strange Wisp of life-force occupies all planes at once, the merest fraction of its being crossing into physical existence at any one moment.  \r\nLike the great twin riders Dark and Light, and yet another ancient traveler whose true history is lost to the ages, Io the Wisp is a Fundamental of the universe, a force older than time, a wanderer from realms far beyond mortal understanding. Io is nothing less than the sum of all attractive and repulsive forces within the material field, a sentient manifestation of the charge that bind existence together. It is only in the controlled warping of these electrical waylines that Io's presence can be experienced on the physical plane. A benevolent, cooperative force, Io bonds its strange magnetism to others so that the power of allies might be enhanced.  Its motives inscrutable, its strength unimaginable, Io moves through the physical plane, the perfect expression of the mysteries of the universe.\r\n", 
   "DisplayName": "Io", 
   "Hype": "Hype"
  }, 
@@ -3468,6 +3568,9 @@
  "npc_dota_observer_wards": {
   "DisplayName": "Observer Ward"
  }, 
+ "npc_dota_phantomassassin_gravestone": {
+  "DisplayName": "Paradox Memorial"
+ }, 
  "npc_dota_phoenix_sun": {
   "DisplayName": "Phoenix Sun"
  }, 
@@ -3633,7 +3736,7 @@
   "Lore": "The crystals of the Outworld produce arcane power, and the Harbinger channels it into the world of mortals."
  }, 
  "obsidian_destroyer_sanity_eclipse": {
-  "Description": "Deals damage to enemy Heroes in an area of effect based on the difference between Harbinger and the affected Hero's intelligence. If the Hero takes less than the damage threshold, that Hero loses 75%% of its current mana.  Sanity's Eclipse can hit units trapped in Astral Imprisonment.  If an enemy hero has the same or higher Intelligence than Outworld Devourer, Sanity's Eclipse has no effect.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Unleashes a psychic blast that damages enemy heroes based on the difference between the affected the hero's Intelligence and Outworld Devourer's.  If the difference in intelligence is less than the threshold, the affected hero will lose 75%% of their current mana.  Should an enemy hero have the same or higher Intelligence than Outworld Devourer, Sanity's Eclipse will have no effect.  Sanity's Eclipse can hit units trapped by Astral Imprisonment.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Sanity's Eclipse", 
   "Lore": "When an Outworld crystal ruptures, cataclysmic energies are released, and the reverberations of this power are felt interdimensionally."
  }, 
@@ -3672,7 +3775,7 @@
   "Lore": "The holy embodiment of Purist Thunderwrath is enough to weaken those of lesser faith."
  }, 
  "omniknight_guardian_angel": {
-  "Description": "Omniknight summons a Guardian Angel that grants immunity from physical damage and greatly increases hit point regeneration of nearby allies.\\n\\nUpgradable by Aghanim's Scepter", 
+  "Description": "Omniknight summons a Guardian Angel that grants immunity from physical damage.\\n\\nUpgradable by Aghanim's Scepter", 
   "DisplayName": "Guardian Angel", 
   "Lore": "The All Seeing One casts down his protection over those that Purist calls friend."
  }, 
@@ -3682,32 +3785,32 @@
   "Lore": "Priests of the Omniscience are adept at removing impurities from fellow warriors."
  }, 
  "omniknight_repel": {
-  "Description": "Creates a powerful divine ward that grants Spell Immunity and 100% resistance to Magic Damage from affecting a target unit.", 
+  "Description": "Creates a divine barrier around a target unit which grants them Spell Immunity and 100%% resistance to Magic Damage.", 
   "DisplayName": "Repel", 
   "Lore": "When faced with the pit of sacrifice, Purist's resilience to magic was tested and affirmed."
  }, 
  "oracle_false_promise": {
-  "Description": "Temporarily alters the target ally's destiny, delaying all damage, healing and regeneration effects on them until False Promise ends. Ally is granted invisibility while attacking and moving. Removes all negative status effects when applied.", 
+  "Description": "Temporarily alters an ally's destiny, rendering them invisible while moving, attacking, or using abilities, and delaying any healing or damage taken until False Promise ends. Any healing that is delayed by False Promise is doubled. Removes most negative status effects and disables when applied.", 
   "DisplayName": "False Promise", 
-  "Lore": ""
+  "Lore": "As false prophets are blind to the future, so your enemies shall be blind to your allies."
  }, 
  "oracle_fates_edict": {
-  "Description": "Oracle enraptures the target, rendering them unable to attack, granting them 100% spell resistance, and increasing the damage they take from other damage types. Can be cast on both allies and enemies.", 
+  "Description": "Oracle enraptures a target, disarming them and granting them %magic_damage_resistance_pct_tooltip%%% magic damage resistance, yet also increasing any damage taken from other damage types. Can be cast on allies and enemies.", 
   "DisplayName": "Fate's Edict", 
-  "Lore": ""
+  "Lore": "An unbreakable prophecy resounds: a chosen ally shall briefly suffer no magics.  Other kinds of suffering however..."
  }, 
  "oracle_fortunes_end": {
-  "Description": "Channels Oracle's power into a bolt of scouring energy for up to 2.9 seconds. When released the bolt strikes the targeted enemy, dealing damage and purging in an area around them. The purge duration is equal to the time spent channeling.", 
+  "Description": "CHANNELED - Gathers Oracle's power into a bolt of scouring energy that, when released, damages, stops movement, and purges enemies of buffs in an area around the target. Can be channeled for up to %max_channel_time_tooltip% seconds. The stop duration is equal to the time spent channeling.", 
   "DisplayName": "Fortune's End", 
-  "Lore": ""
+  "Lore": "The astral orb crackles with power while raw energy lances out, temporarily disrupting an enemy's connection to their own body."
  }, 
  "oracle_purifying_flames": {
-  "Description": "Burns away impurities from the target, dealing heavy damage and causing them to regenerate life each second over the duration. Can be cast on both allies and enemies.", 
+  "Description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.", 
   "DisplayName": "Purifying Flames", 
-  "Lore": ""
+  "Lore": "Like a hall of mirrors might amplify the light of a single candle, the shattered walls of the universe can transform the light of prophecy into a burning torch."
  }, 
  "phantom_assassin_blur": {
-  "Description": "The Phantom Assassin blurs her body, causing some enemy attacks to miss and allowing her to disappear from the enemy minimap when far from enemy heroes.", 
+  "Description": "Phantom Assassin focuses inward, increasing her ability to evade enemy attacks, and allowing her to blur her body to disappear from the enemy team's minimap when far from enemy heroes.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "DisplayName": "Blur", 
   "Lore": "Meditation allows a Veiled Sister to carefully anticipate her opponents in combat."
  }, 
@@ -3742,7 +3845,7 @@
   "Lore": "Azwraith knows that on the field of battle, speed can mean everything."
  }, 
  "phantom_lancer_spirit_lance": {
-  "Description": "Casts a magical spirit lance on a target enemy unit that damages and slows, while a Phantom is summoned to attack the unit.", 
+  "Description": "Sends a magical spirit lance to a target enemy unit that damages and slows, while summoning an illusory phantom to attack the unit.", 
   "DisplayName": "Spirit Lance", 
   "Lore": "Azwraith's proficiency at spearing his family's meal of fish is proving quite useful in the battlefield."
  }, 
@@ -3804,7 +3907,7 @@
   "DisplayName": "Ethereal Jaunt"
  }, 
  "puck_illusory_orb": {
-  "Description": "Puck launches magic orb that floats in a straight path, damaging enemy units along the way. At any point, Puck may teleport to the orb's location using Ethereal Jaunt.", 
+  "Description": "Puck launches a magic orb that floats in a straight path, damaging enemy units along the way. At any point, Puck may teleport to the orb's location using Ethereal Jaunt.", 
   "DisplayName": "Illusory Orb", 
   "Lore": "The playful Faerie Dragon delights in confusing others, vanishing and reappearing where unexpected."
  }, 
@@ -3958,6 +4061,10 @@
   "Description": "Roshan launches a number of slow moving fireballs at all nearby enemies.", 
   "DisplayName": "Fireball "
  }, 
+ "roshan_halloween_levels": {
+  "Description": "Roshan's current level", 
+  "DisplayName": "Roshan's level"
+ }, 
  "roshan_halloween_shell": {
   "Description": "Roshan becomes immune to physical damage, but takes enhanced magical damage for a brief time.  When Roshan uses Shell, all ability and item cooldowns are refreshed.", 
   "DisplayName": "Shell"
@@ -4057,7 +4164,7 @@
   "Lore": "Once Shadow Demon no longer has any need for his collected cultist, he releases it from its subservience - and its life."
  }, 
  "shadow_demon_disruption": {
-  "Description": "Banishes the targeted unit, removing it from play for the duration.  Upon returning, two illusions of the unit are created under Shadow Demon's control.", 
+  "Description": "Banishes the targeted unit from the battlefield for a short duration.  Upon returning, two illusions of the banished unit are created under Shadow Demon's control.", 
   "DisplayName": "Disruption", 
   "Lore": "The pain of deception comes not while it happens, but when it is revealed."
  }, 
@@ -4229,7 +4336,7 @@
   "Lore": "The hidden Thirteenth is a slippery foe."
  }, 
  "sniper_assassinate": {
-  "Description": "Sniper locks onto a target enemy unit, and after 1.7 seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.", 
+  "Description": "Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.", 
   "DisplayName": "Assassinate", 
   "Lore": "In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
  }, 
@@ -4239,7 +4346,7 @@
   "Lore": "Taking potshots at steepstalkers in his childhood has been thoroughly refined into perfect leads on enemy combatants."
  }, 
  "sniper_shrapnel": {
-  "Description": "Fires a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area.", 
+  "Description": "Consumes a charge to a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area. Shrapnel charges restore every %charge_restore_time% seconds.", 
   "DisplayName": "Shrapnel", 
   "Lore": "Kardel's modular rifle also fires incendiary rounds, useful for assaulting entrenched locations."
  }, 
@@ -4329,7 +4436,7 @@
   "Lore": "The Rogue Knight's iron gauntlet, taken from the school of his father, strikes his foes to their core."
  }, 
  "sven_warcry": {
-  "Description": "Sven's Warcry heartens his allies for battle, increasing their movement speed and armor.  Lasts 7 seconds.", 
+  "Description": "Sven's Warcry heartens his allies for battle, increasing their movement speed and armor.  Lasts %duration_tooltip% seconds.", 
   "DisplayName": "Warcry", 
   "Lore": "Calling a few lines from the Vigil Codex fortifies Sven's obedience to his rogue code. So poetic!"
  }, 
@@ -4407,12 +4514,12 @@
   "Lore": "Temper, temper. The rage rises up and takes control.  Meet Terrorblade's own worst self."
  }, 
  "terrorblade_reflection": {
-  "Description": "Terrorblade brings forth an invulnerable dark illusion of the targeted enemy Hero. The enemy Hero is slowed and attacked by the illusion for a short duration.", 
+  "Description": "Terrorblade brings forth an invulnerable dark reflection of the targeted enemy Hero. The enemy Hero is slowed and attacked by the reflection for a short duration.", 
   "DisplayName": "Reflection", 
   "Lore": "In the fractal prison of Foulfell, Terrorblade learned the truth of this old tale: you are your own worst enemy.  Now it is a lesson he teaches others."
  }, 
  "terrorblade_sunder": {
-  "Description": "Severs the soul from both Terrorblade and a target Hero, then exchanges them, carrying a percentage of each units' life force. The target Hero is also dealt a ministun. Some hit points must remain.", 
+  "Description": "Severs the life from both Terrorblade and a target Hero, exchanging a percentage of both units' current health. Some health points must remain.", 
   "DisplayName": "Sunder", 
   "Lore": "You didn't need that life, did you?  The demon marauder steals that which you hold most dear."
  }, 
@@ -4481,7 +4588,7 @@
   "DisplayName": "Tempest"
  }, 
  "treant_eyes_in_the_forest": {
-  "Description": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within a %overgrowth_aoe% radius of a summoned tree will be entangled and damaged.", 
+  "Description": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within an %overgrowth_aoe% radius of an enchanted tree will be entangled and damaged.", 
   "DisplayName": "Eyes In The Forest", 
   "Lore": "One can never be too certain who, or what, might need protecting."
  }, 
@@ -4535,7 +4642,7 @@
   "Lore": "The chill of home!"
  }, 
  "tusk_ice_shards": {
-  "Description": "Tusk compresses shards of ice into a ball of frozen energy that damages all enemies it comes in contact with. When the ball reaches its target destination the shards are released, creating a barrier that lasts for 5 seconds.", 
+  "Description": "Tusk compresses shards of ice into a ball of frozen energy that damages all enemies it comes in contact with. When the ball reaches its target destination the shards are released, creating a barrier that lasts for %shard_duration% seconds.", 
   "DisplayName": "Ice Shards", 
   "Lore": "In the frozen tundra near the Barrier, after the last sun of autumn has set, ice can form with alarming speed."
  }, 
@@ -4550,7 +4657,7 @@
   "Lore": "Tales are still told of the wild feat that ended the grand brawl at White Fields."
  }, 
  "tusk_walrus_punch": {
-  "Description": "Tusk prepares his mighty Walrus Punch; his next attack will do a critical strike and launch the victim into the air. The victim will be slowed upon landing and take damage.", 
+  "Description": "Tusk connects with his mighty Walrus Punch, a critical strike so powerful it launches its victim into the air. The victim is slowed upon landing.", 
   "DisplayName": "Walrus PUNCH!", 
   "Lore": "It never matters who throws the first punch, only who throws the last."
  }, 
@@ -4560,12 +4667,12 @@
   "Lore": "The strength of the living is simply borrowed from the strength of the dead."
  }, 
  "undying_flesh_golem": {
-  "Description": "Undying transforms into a horrifying flesh golem that possesses a Plague Aura.  This aura slows all enemy units within 750 range and amplifies the damage they take; the closer to Undying, the more damage and slow.  When a plagued unit dies, Undying is healed equal to a percentage of that unit's maximum health.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Undying transforms into a horrifying flesh golem that possesses a Plague Aura.  This aura slows all enemy units within %radius% range and amplifies the damage they take; the closer to Undying, the more damage and slow.  When a plagued unit dies, Undying is healed equal to a percentage of his own maximum health.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Flesh Golem", 
   "Lore": "The flesh of the recently dead add to the power of Dirge's plague."
  }, 
  "undying_soul_rip": {
-  "Description": "Redirects the flow of energy through a target friendly or enemy unit, healing or damaging it depending on how many units are near Undying.  Each unit loses up to 25 HP as part of the cost.", 
+  "Description": "Redirects the flow of energy through a target friendly or enemy unit, healing or damaging it depending on how many units are near Undying.  Each unit loses HP as part of the cost.", 
   "DisplayName": "Soul Rip", 
   "Lore": "Even his allied Heroes feel despair in Undying's presence."
  }, 
@@ -4644,7 +4751,7 @@
   "Lore": "It is not unusual for sword and shield alike to corrode in the very hands of those who attack the Netherdrake."
  }, 
  "viper_nethertoxin": {
-  "Description": "Nethertoxin causes Viper's normal attack to deal bonus damage to units based on how much health they are missing.  The bonus damage doubles for each 20%% of health missing from the target.   Nethertoxin deals half damage to creeps and buildings.", 
+  "Description": "Nethertoxin causes Viper's normal attack to deal bonus damage to units based on how much health they are missing.  The bonus damage doubles for each 20%% of health missing from the target.  Nethertoxin deals half damage to creeps and buildings.", 
   "DisplayName": "Nethertoxin", 
   "Lore": "Poison from the Nether Reaches turns wounds into fatalities, and fatigue into death."
  }, 
@@ -4736,7 +4843,7 @@
   "Lore": "Lyralei's ability to bombard opponents with a flurry of arrows is unparalleled - even at the expense of accuracy."
  }, 
  "windrunner_powershot": {
-  "Description": "Windranger charges her bow for up to 1 second for a single powerful shot. The arrow deals damage to enemy units and destroys trees in its path. If the channeling is cancelled early, the shot will still occur but deal less damage.", 
+  "Description": "Windranger charges her bow for up to 1 second for a single powerful shot, which deals more damage the longer it is charged. The arrow damages enemies and destroys trees along its path. For each enemy that Powershot hits, its damage is reduced by 10%%.", 
   "DisplayName": "Powershot", 
   "Lore": "During her early years of training, Lyralei learned to fire powerful arrows that cleaved even trees to reach their targets."
  }, 
@@ -4749,6 +4856,26 @@
   "Description": "Increases movement speed and adds evasion from all physical attacks, while slowing movement of nearby enemies.", 
   "DisplayName": "Windrun", 
   "Lore": "Lyralei enchants gusts of winds to fight incoming attacks."
+ }, 
+ "winter_wyvern_arctic_burn": {
+  "Description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a burning freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus%% additional vision range at night while soaring.", 
+  "DisplayName": "Arctic Burn", 
+  "Lore": "The same organ where some dragons stoke their inner flame is, in Auroth, a crucible of unimaginable cold. From deep within her frosty gullet, an exhalation sends enemies into burning agony."
+ }, 
+ "winter_wyvern_cold_embrace": {
+  "Description": "Encases an ally in an icy cocoon, freezing them solid while healing a base amount as well as a percentage of their maximum health each second. The cocoon blocks all physical damage.", 
+  "DisplayName": "Cold Embrace", 
+  "Lore": "From winter's heart comes a cold, healing embrace. The ice slows the blood and allows the spell to better work its curative magic."
+ }, 
+ "winter_wyvern_splinter_blast": {
+  "Description": "Launches a ball of brittle ice toward an enemy. The ice shatters on impact, leaving the primary target completely unaffected, while hurling damaging splinters into nearby enemies in a %split_radius% radius. Enemies struck by these splinters are slowed by %movespeed_slow_tooltip%%%.", 
+  "DisplayName": "Splinter Blast", 
+  "Lore": "Produced slowly by specialized vesicles in her frozen gullet, Winter Wyvern blast shards of ice at her enemies."
+ }, 
+ "winter_wyvern_winters_curse": {
+  "Description": "Winter Wyvern freezes an enemy in place while striking those nearby with a maddening curse which causes them to attack their frozen ally.", 
+  "DisplayName": "Winter's Curse", 
+  "Lore": "The oldest of the bookwurm\u2019s spells, this curse lends truth to the old saw: sometimes the enemy of my enemy is my enemy still."
  }, 
  "wisp_empty1": {
   "Description": "", 
@@ -4796,7 +4923,7 @@
   "Lore": "Witch Doctor performs a ritualistic dance, one that haunts the dreams of those who live to recount it."
  }, 
  "witch_doctor_maledict": {
-  "Description": "Curses all enemy Heroes in an area, causing them to take damage every 4 seconds, adding bonus damage for every 100 HP lost since the curse began.", 
+  "Description": "Curses all enemy Heroes in a small area, causing them to take a set amount of damage each second, as well as bursts of damage every 4 seconds based on how much health they have lost since the curse began.", 
   "DisplayName": "Maledict", 
   "Lore": "Certain voodoo magics can make an enemy regret engaging the Witch Doctor."
  }, 

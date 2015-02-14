@@ -8,15 +8,37 @@ $(function () {
         function createQuestion() {
             var h = heroes[Math.floor(Math.random() * heroes.length)],
                 data = herodata[h],
-                count = 0;
-                
+                count = 0,
+				imgCount = 0;
+			$('#contentcontainer').hide();
             $('#abilitybox_start').empty();
             $('#abilitybox_end').empty();
             $('#heroportrait').empty();
             $('#heroname').empty();
-            $('#heroportrait').css('background-image', 'url("http://media.steampowered.com/apps/dota2/images/heroes/' + h + '_hphover.png")');
+			imgCount = _.filter(data.abilities, function (ability) { 
+				return ability.name != 'attribute_bonus' && ability.displayname != 'Empty' && ability.displayname != ''
+			}).length + 1;
+			
+			function checkShowContent() {
+				if (imgCount == 0) {
+					$('#contentcontainer').show();
+				}
+			}
+			var portraitImage = new Image();
+			portraitImage.src = "http://media.steampowered.com/apps/dota2/images/heroes/" + h.replace('npc_dota_hero_','') + "_lg.png";
+			portraitImage.onload = function () {
+				$('#heroportrait').attr('src', portraitImage.src);
+				imgCount--;
+				checkShowContent();
+			};
             $('#heroname').text(data.displayname);
             
+			function setImage(element, src) {
+				element.css('background-image', 'url(' + src + ')');
+				imgCount--;
+				checkShowContent();
+			}
+			
             for (var i = 0; i < data.abilities.length; i++) {
                 if (data.abilities[i].name != 'attribute_bonus' && data.abilities[i].displayname != 'Empty' && data.abilities[i].displayname != '') {
                     var abilityboxend = $('<div class=abilitybox_end id=ability_' + i + '></div>').droppable({
@@ -41,16 +63,25 @@ $(function () {
                         }
                     }).appendTo('#abilitybox_end');
 
-                    var imageUrl = "http://media.steampowered.com/apps/dota2/images/abilities/" + data.abilities[i].name + "_hp2.png",
-                        ability = $('<div class=abilitybox id=' + data.abilities[i].name + '></div>').css('background-image', 'url(' + imageUrl + ')').draggable({
+                    var imageUrl = "http://media.steampowered.com/apps/dota2/images/abilities/" + data.abilities[i].name + "_hp2.png";
+						overlay = $('<div class="overlay-hover"></div>'),
+						abilityWrapper = $('<div class="ability-wrapper" id=' + data.abilities[i].name + '></div>').draggable({
                             revert: 'invalid'
-                        });
+                        }),
+                        ability = $('<div class="abilitybox"></div>');
+						abilityWrapper.append(overlay);
+						abilityWrapper.append(ability);
+
+					var abilityImage = new Image();
+					abilityImage.src = imageUrl;
+					abilityImage.onload = setImage(ability, imageUrl);
+						
                     ability.html($('<div class=abilitytextcontainer></div>').html($('<div class=abilitytext></div>').text(data.abilities[i].displayname)));
                     if (Math.random() < 0.5) {
-                        ability.appendTo('#abilitybox_start');
+                        abilityWrapper.appendTo('#abilitybox_start');
                     }
                     else {
-                        ability.prependTo('#abilitybox_start');
+                        abilityWrapper.prependTo('#abilitybox_start');
                     }
                 }
             }

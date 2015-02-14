@@ -14,6 +14,12 @@ context:
             -   name: Prize Pool Growth Charts
                 type: page
                 url: /dota2/international/2014/prizepool/
+            -   name: Asia Championships
+                type: header
+            -   name: 2015 Results
+                type: page
+                url: /dota2/dac/2015
+            -   type: divider
             -   name: Community
                 type: header
             -   name: Live Streams
@@ -21,16 +27,11 @@ context:
                 url: /dota2/community/streams
             -   type: divider
             -   name: Patches
-                type: header
-            -   name: Patch 6.81
                 type: page
-                url: /dota2/patches/6.81
-            -   name: Patch 6.80
+                url: /dota2/patches
+            -   name: A-Z Challenge List
                 type: page
-                url: /dota2/patches/6.80
-            -   name: Patch 6.79
-                type: page
-                url: /dota2/patches/6.79
+                url: /dota2/a-z-challenge-list
             type: node
             url: dota2/community
         -   css_class: li-webapps
@@ -81,6 +82,12 @@ context:
             -   name: Item Scramble
                 type: page
                 url: /dota2/apps/item-scramble
+            -   name: Replay Viewer
+                type: page
+                url: /dota2/apps/replay/viewer
+            -   name: Tread Switch Trainer
+                type: page
+                url: /dota2/apps/tread-switch-trainer
             type: node
             url: dota2/apps
         -   css_class: li-heroes

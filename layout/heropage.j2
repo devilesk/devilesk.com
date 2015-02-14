@@ -23,11 +23,11 @@
                 <img class="img-rounded" src="http://media.steampowered.com/apps/dota2/images/heroes/{{ resource.meta.hero.replace('npc_dota_hero_', '') }}_lg.png">
             </div>
             <div class="col-lg-4 text-center">
-                {% if herodata[resource.meta.hero].team == 'Good' %}
+                {% if herodata[resource.meta.hero].team.lower() == 'good' %}
                 <img src="{{ media_url('/images/pip_radiant.png') }}">
                 <span>Radiant</span>
                 {%- endif %}
-                {% if herodata[resource.meta.hero].team == 'Bad' %}
+                {% if herodata[resource.meta.hero].team.lower() == 'bad' %}
                 <img src="{{ media_url('/images/pip_dire.png') }}">
                 <span>Dire</span>
                 {%- endif %}

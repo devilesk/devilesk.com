@@ -54,13 +54,13 @@ $(function () {
                 });
             }
         }
-        
         for (var i = 0; i < itemUpgrade.length; i ++) {
-            var key = _.reduce(itemUpgrade[i].allComponents, function (memo, item) {
+            var key = _.reduce(itemUpgrade[i].allComponents.sort(), function (memo, item) {
                 return memo + item;
             }, '');
             hashMapUpgrade[key] = itemUpgrade[i].name;
         }
+		
         generateQuestion();
     });
 	
@@ -220,7 +220,6 @@ function getSnappedTo(el) {
             return element.snapping ? element.item : null;
         });
     }
-
     return snappedTo;
 }
 

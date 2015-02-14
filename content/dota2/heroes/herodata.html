@@ -88,7 +88,7 @@ margin-bottom: 6px;
 </div>
 
 <div class="table-responsive">
-<table class="table">
+<table class="table highlight-row">
 <thead>
 <tr data-bind="foreach: headers">
 	<th data-bind="css: { 'text-right': $root.headers()[$index()].align == 'right', 'text-center': $root.headers()[$index()].align == 'center' }, visible: $parent.headers()[$index()].display()"><a href="#" data-bind="html: $parent.headerHTML($index, $data), click: function(data, event) { $parent.columnClick($index, data, event); }"></a></th>

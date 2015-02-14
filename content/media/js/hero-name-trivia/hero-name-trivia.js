@@ -38,7 +38,7 @@ $(function () {
             /*$('#item').removeAttr('class');
             $('#item').addClass('itemsprite');
             $('#item').addClass('itemsprite-' + items_shuffled[0]);*/
-            $('#item').attr('src','http://cdn.dota2.com/apps/dota2/images/heroes/' + items_shuffled[0] + '_full.png');
+            $('#item').attr('src','http://cdn.dota2.com/apps/dota2/images/heroes/' + items_shuffled[0].replace('npc_dota_hero_', '') + '_full.png');
             for (var i=0;i<answers_shuffled.length;i++) {
                 $('#answer_' + answers_shuffled[i]).html(itemnames[items_shuffled[i]]).blur();
             }

@@ -8,13 +8,15 @@ def main():
     ROOT = '/srv/www/dev.devilesk.com'
     
     SCRIPTS = [
-        ROOT + '/dota2/apps/hero-calculator/jquery-ui-1.11.0.custom.js',
+        ROOT + '/dota2/apps/hero-calculator/jquery-ui.js',
+        ROOT + '/dota2/apps/hero-calculator/Chart.scatter.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.inventory.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.tooltips.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.abilitydata.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.abilities.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.buffs.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.buffs.amplification.reduction.js',
+        ROOT + '/dota2/apps/hero-calculator/hero-calculator.buildexplorer.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.hero.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.hero.illusion.js',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.hero.meepo.js',
@@ -31,14 +33,14 @@ def main():
     APP_OUT = ROOT + '/dota2/apps/hero-calculator/hero-calculator.app.min.js'
 
     STYLESHEETS = [
-        ROOT + '/dota2/apps/hero-calculator/jquery-ui-1.10.3.custom.css',
+        ROOT + '/dota2/apps/hero-calculator/jquery-ui.css',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.items.css',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.app.css',
         ]
     STYLESHEETS_OUT = ROOT + '/dota2/apps/hero-calculator/hero-calculator.min.css'
 
     STYLESHEETS_LIGHT = [
-        ROOT + '/dota2/apps/hero-calculator/jquery-ui-1.10.3.custom.css',
+        ROOT + '/dota2/apps/hero-calculator/jquery-ui.css',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.items.css',
         ROOT + '/dota2/apps/hero-calculator/hero-calculator.app-light.css',
         ]
@@ -60,18 +62,20 @@ def main():
         print 'Development index.html to production'
         with open(ROOT + '/dota2/apps/hero-calculator/index.html','r') as f:
             data = f.read()
-            dev_header = '<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom.css" />' \
+            dev_header = '<link rel="stylesheet" type="text/css" href="jquery-ui.css" />' \
             '<link rel="stylesheet" type="text/css" href="hero-calculator.items.css" />' \
             '<link id="hero-css" rel="stylesheet" type="text/css" href="hero-calculator.app.css" />'
             header = '    <link id="hero-css" rel="stylesheet" type="text/css" href="hero-calculator.min.css" />'
             data = data.replace(dev_header, header)
-            dev_footer = '<script src="jquery-ui-1.11.0.custom.js"></script>\n' \
+            dev_footer = '<script src="jquery-ui.js"></script>\n' \
+            '    <script src="Chart.scatter.js"></script>\n' \
             '    <script src="hero-calculator.inventory.js"></script>\n' \
             '    <script src="hero-calculator.tooltips.js"></script>\n' \
             '    <script src="hero-calculator.abilitydata.js"></script>\n' \
             '    <script src="hero-calculator.abilities.js"></script>\n' \
             '    <script src="hero-calculator.buffs.js"></script>\n' \
             '    <script src="hero-calculator.buffs.amplification.reduction.js"></script>\n' \
+            '    <script src="hero-calculator.buildexplorer.js"></script>\n' \
             '    <script src="hero-calculator.hero.js"></script>\n' \
             '    <script src="hero-calculator.hero.illusion.js"></script>\n' \
             '    <script src="hero-calculator.hero.meepo.js"></script>\n' \

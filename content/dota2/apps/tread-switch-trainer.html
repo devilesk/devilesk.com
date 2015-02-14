@@ -1,0 +1,54 @@
+---
+extends: base.j2
+title: Dota 2 Tread Switching Trainer
+description: Dota 2 Tread Switching Trainer. Practice your tread switching skills.
+active_menu: page-webapps
+header: Tread Switch Trainer
+---
+
+  {% block main %}
+    <div id='info' class="form-horizontal" style="">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Primary Attribute:</label>
+            <div class="col-sm-10">
+                <label class="radio-inline">
+                  <input type="radio" name="attr" value="0" checked> Str
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="attr" value="1"> Int
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="attr" value="2"> Agi
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="use_key" class="col-sm-2 control-label">Use Key:</label>
+            <div class="col-sm-10">
+                <input id="use_key" type="text" name="key" class="form-control" style="width: 40px" value="E" maxlength="1">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="switch_key" class="col-sm-2 control-label">Tread Switch Key:</label>
+            <div class="col-sm-10">
+                <input id="switch_key" type="text" name="key" class="form-control" style="width: 40px"  value="D" maxlength="1">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <img id='treads' src='/media/images/items/power_treads_str.png'></img>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="switch_key" class="col-sm-2 control-label">Objective:</label>
+            <div class="col-sm-10">
+                <p id='objective' class="form-control-static"></p>
+            </div>
+        </div>
+    </div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/tread-switch-trainer/tread-switch-trainer.js') }}"></script>
+  {% endblock scripts %}

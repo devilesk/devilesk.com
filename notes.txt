@@ -1,0 +1,2 @@
+How Do I grep For all non-ASCII Characters in UNIX?
+grep --color='auto' -P -n "[\x80-\xFF]" file.xml
