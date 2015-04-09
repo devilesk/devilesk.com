@@ -398,6 +398,25 @@ var HEROCALCULATOR = (function (my) {
         }
     };
     
+    ko.bindingHandlers.diffCss = {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+            var value = ko.utils.unwrapObservable(valueAccessor()),
+                stat = allBindingsAccessor().diffCssStat;
+            if (stat == 'attackTime' || stat == 'bat') {
+                value = -value;
+            }
+            ko.applyBindingsToNode(element, { css: {'diffPos': value > 0, 'diffNeg': value < 0} });
+        },
+        update: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+            var value = ko.utils.unwrapObservable(valueAccessor()),
+                stat = allBindingsAccessor().diffCssStat;
+            if (stat == 'attackTime' || stat == 'bat') {
+                value = -value;
+            }
+            ko.applyBindingsToNode(element, { css: {'diffPos': value > 0, 'diffNeg': value < 0} });
+        }
+    };
+    
     ko.bindingHandlers.jqAuto = {
         init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
             var options = valueAccessor() || {},
