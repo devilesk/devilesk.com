@@ -11,6 +11,22 @@ body {
 	letter-spacing:.2px;
 	line-height:1.5em;
 }
+footer, .push {
+	text-align:center;
+	height: 150px; /* .push must be the same height as .footer */
+	font-size:8pt;
+    margin-top:30px;
+}
+footer > p {
+	margin:0px;
+}
+footer > img {
+	display:block;
+	margin:auto;
+}
+hr {
+
+}
 table.highlight-row tbody tr:hover {
     background-color: #ddd;
 }
@@ -41,39 +57,24 @@ a.column-item img {
     background-color: #f5f5f5;
     border: 1px solid #e3e3e3;
 }
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-	color: #333;
-	background-color: #ebebeb;
-	border-color: #adadad;
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .toggled {
+    color: #333;
+    background-color: #ebebeb;
+    border-color: #adadad;
+}
+.btn-default.disabled, .btn-default[disabled], fieldset[disabled] .btn-default, .btn-default.disabled:hover, .btn-default[disabled]:hover, fieldset[disabled] .btn-default:hover, .btn-default.disabled:focus, .btn-default[disabled]:focus, fieldset[disabled] .btn-default:focus, .btn-default.disabled:active, .btn-default[disabled]:active, fieldset[disabled] .btn-default:active, .btn-default.disabled.active, .btn-default[disabled].active, fieldset[disabled] .btn-default.active {
+    background-color: #fff;
+    border-color: #ccc;
 }
 .table>thead>tr>th {
 	vertical-align: bottom;
 	border-bottom: 2px solid #ddd;
 }
-@media only screen and (min-width : 768px) {
-    /* Make Navigation Toggle on Desktop Hover */
-    .top-nav-menu .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-    .mobile-only {
-        display: none;
-    }
-}
 .showColumn {
 	background-color: #f5f5f5 !important;
 }
-}
 .hideColumn {
 	background-color: #fff !important;
-}
-.popover {
-    background-color:white;
-}
-.popover.bottom .arrow:after {
-    border-bottom-color:#white;
-}
-.popover.top .arrow:after {
-    border-top-color:white;
 }
 .nav-tabs>li>a:hover {
 
@@ -82,9 +83,11 @@ a.column-item img {
 
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-
-
-
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
 }
 .nav-tabs {
 
@@ -95,8 +98,6 @@ a.column-item img {
 }
 .form-control {
 
-}
-.form-control {
 
 
 }
@@ -111,7 +112,7 @@ a.column-item img {
 
 }
 .pagination {
-margin: 0;
+    margin: 0;
 }
 .pagination>li>a, .pagination>li>span {
 
@@ -125,7 +126,7 @@ margin: 0;
 
 
 
-cursor: not-allowed;
+    cursor: not-allowed;
 }
 .btn-default {
 
@@ -138,18 +139,8 @@ cursor: not-allowed;
 	height: 100%;
 	margin: 0 auto -180px; /* the bottom margin is the negative value of the footer's height */
 }
-footer, .push {
-	text-align:center;
-	height: 150px; /* .push must be the same height as .footer */
-	font-size:8pt;
-    margin-top:30px;
-}
-footer > p {
-	margin:0px;
-}
-footer > img {
-	display:block;
-	margin:auto;
+.jumbotron {
+
 }
 .navbar-brand  > div {
 	width:190px;
@@ -162,10 +153,7 @@ footer > img {
 .navbar-default {
 
 
-	linear-gradient(to bottom, #f8f8f8, #e7e7e7);
-}
-.jumbotron {
-
+	background: linear-gradient(to bottom, #f8f8f8, #e7e7e7);
 }
 .navbar-default .navbar-nav > li > a {
 
@@ -195,20 +183,17 @@ footer > img {
 .dropdown-menu .divider {
 
 }
-.page-community .navbar-default .navbar-nav>.li-community>a, .page-webapps .navbar-default .navbar-nav>.li-webapps>a, .page-heroes .navbar-default .navbar-nav>.li-heroes>a, .page-items .navbar-default .navbar-nav>.li-items>a, .page-guides .navbar-default .navbar-nav>.li-guides>a, .page-forums .navbar-default .navbar-nav>.li-forums>a {
-
-
-}
 .dropdown-header {
 
     font-size:14px;
 }
+.page-community .navbar-default .navbar-nav>.li-community>a, .page-webapps .navbar-default .navbar-nav>.li-webapps>a, .page-heroes .navbar-default .navbar-nav>.li-heroes>a, .page-items .navbar-default .navbar-nav>.li-items>a, .page-guides .navbar-default .navbar-nav>.li-guides>a, .page-forums .navbar-default .navbar-nav>.li-forums>a {
+
+
+}
 .list-group-item {
 
     border:none;
-}
-hr {
-
 }
 .panel-default>.panel-heading {
 
@@ -221,12 +206,44 @@ hr {
 .panel {
 
 }
-.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
-
-}
 .panel>.panel-body+.table {
 
 }
+.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
+
+}
+.modal-content {
+    background-color: white;
+}
+.modal-header {
+    border-bottom: 1px solid #303239;
+}
+.modal-footer {
+    border-top: 1px solid #303239;
+}
+.input-group-addon {
+    color: #555;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+@media only screen and (min-width : 768px) {
+    /* Make Navigation Toggle on Desktop Hover */
+    .top-nav-menu .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .mobile-only {
+        display: none;
+    }
+}
 .label-primary > a {
     color:white;
+}
+.popover {
+    background-color:white;
+}
+.popover.bottom .arrow:after {
+    border-bottom-color:white;
+}
+.popover.top .arrow:after {
+    border-top-color:white;
 }

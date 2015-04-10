@@ -1,6 +1,9 @@
 body {
     margin:0;
 }
+img[src="ward_observer.png"]:hover, img[src="ward_sentry.png"]:hover {
+    cursor:pointer;
+}
 #controls {
     position:absolute;
     top:100px;
@@ -53,5 +56,5 @@ body {
     text-align: right;
 }
 #movespeed-container {
-    padding-left: 65px;
+    padding-left: 49px;
 }

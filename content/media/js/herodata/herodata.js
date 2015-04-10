@@ -1,4 +1,6 @@
 $(function () {
+    var heroData = {};
+    
 	$('.dropdown-menu').click(function(e) {
         e.stopPropagation();
     });
@@ -20,8 +22,8 @@ $(function () {
 	}
 
 	function getTotalAttribute(h, type, level, bonus) {
-		var basestat = 0;
-		var statgain = 0;
+		var basestat = 0,
+            statgain = 0;
 		if (type.toLowerCase() == 'agi') {
 			basestat = heroData[h].attributebaseagility
 			statgain = heroData[h].attributeagilitygain
@@ -63,6 +65,8 @@ $(function () {
 			{name: 'Max Dmg', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
 			{name: 'Avg Dmg', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
 			{name: 'Armor', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'EHP', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
+			{name: 'EHP Magic', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
 			{name: 'HP', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
 			{name: 'HP Regen', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
 			{name: 'Mana', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
@@ -77,6 +81,9 @@ $(function () {
 			{name: '<abbr title=\"Movement Speed\">MS</abbr>', display: ko.observable(true), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()},
 			{name: 'Turn Rate', display: ko.observable(false), align: 'right', filter: true, filterType: 'numeric', filterValue: ko.observable(), filterComparison: ko.observable()}
 		]);
+        for (var i = 0; i < self.headers().length; i++) {
+            self.headers()[i].defaultDisplay = ko.observable(self.headers()[i].display());
+        }
 		self.headerHTML = function(index, data) {
 			if (self.sortDirections()[index()]() == -1) {
 				return "<a href=\"#\">" +  data.name + " <div class=\"glyphicon glyphicon-chevron-down\"></div></a>"
@@ -128,30 +135,65 @@ $(function () {
 				return ""
 			}
 		}
+        self.clearLabels = function () {
+            self.sortColumns.removeAll();
+        }
+        self.clearFilters = function () {
+            for (var i = 0; i < self.headers().length; i++) {
+                if (self.headers()[i].filterValue != undefined) {
+                    self.headers()[i].filterValue(null);
+                }
+            }
+        }
+        self.hideAllColumns = function () {
+            for (var i = 0; i < self.headers().length; i++) {
+                self.headers()[i].display(false);
+            }
+        }
+        self.resetColumns = function () {
+            for (var i = 0; i < self.headers().length; i++) {
+                self.headers()[i].display(self.headers()[i].defaultDisplay());
+            }
+        }
 		self.sortColumns.push(1);
 		self.data_cache = ko.computed(function() {
-			var d = ko.observableArray([]);
+			var d = ko.observableArray([]),
+                row, agiTotal, intTotal, strTotal, primaryTotal;
 			for (h in heroData) {
-				var row = []
+				row = [],
+                agiTotal = getTotalAttribute(h,'agi', self.level(), self.bonus()),
+                intTotal = getTotalAttribute(h,'int', self.level(), self.bonus()),
+                strTotal = getTotalAttribute(h,'str', self.level(), self.bonus()),
+                primaryTotal = getTotalAttribute(h,getPrimaryStat(h), self.level(), self.bonus());
 				//row.push('<img src=\'/dota2/images/heroes/' + h.replace('npc_dota_hero_','') + '.png\' />');
 				row.push('<div class="portraitsprite portraitsprite-' + h.replace('npc_dota_hero_','') + '"></div>');
 				row.push(heroData[h].displayname);
 				row.push(getPrimaryStat(h));
-				row.push(getTotalAttribute(h,'agi', self.level(), self.bonus()).toPrecision(3));
-				row.push(getTotalAttribute(h,'int', self.level(), self.bonus()).toPrecision(3));
-				row.push(getTotalAttribute(h,'str', self.level(), self.bonus()).toPrecision(3));
+				row.push(agiTotal.toPrecision(3));
+				row.push(intTotal.toPrecision(3));
+				row.push(strTotal.toPrecision(3));
 				row.push(heroData[h].attributeagilitygain);
 				row.push(heroData[h].attributeintelligencegain);
 				row.push(heroData[h].attributestrengthgain);
 
-				row.push((heroData[h].attackdamagemin + getTotalAttribute(h,getPrimaryStat(h), self.level(), self.bonus())).toPrecision(3));
-				row.push((heroData[h].attackdamagemax + getTotalAttribute(h,getPrimaryStat(h), self.level(), self.bonus())).toPrecision(3));
-				row.push(((heroData[h].attackdamagemax-heroData[h].attackdamagemin)/2 + getTotalAttribute(h,getPrimaryStat(h), self.level(), self.bonus()) + heroData[h].attackdamagemin).toPrecision(3));
-				row.push((heroData[h].armorphysical + getTotalAttribute(h,'agi', self.level(), self.bonus())*.14).toPrecision(3));
-				row.push((heroData[h].statushealth + getTotalAttribute(h,'str', self.level(), self.bonus())*19).toPrecision(4));
-				row.push((heroData[h].statushealthregen + getTotalAttribute(h,'str', self.level(), self.bonus())*.03).toPrecision(3));
-				row.push((heroData[h].statusmana + getTotalAttribute(h,'int', self.level(), self.bonus())*13).toPrecision(4));
-				row.push((heroData[h].statusmanaregen + getTotalAttribute(h,'int', self.level(), self.bonus())*.04).toPrecision(3));
+				row.push((heroData[h].attackdamagemin + primaryTotal).toPrecision(3));
+				row.push((heroData[h].attackdamagemax + primaryTotal).toPrecision(3));
+				row.push(((heroData[h].attackdamagemax-heroData[h].attackdamagemin)/2 + primaryTotal + heroData[h].attackdamagemin).toPrecision(3));
+				row.push((heroData[h].armorphysical + agiTotal*.14).toPrecision(3));
+				row.push(
+                    (
+                        (heroData[h].statushealth + strTotal*19) * (1 + (heroData[h].armorphysical + agiTotal*.14) * 0.06)
+                    ).toPrecision(4)
+                );
+				row.push(
+                    (
+                        (heroData[h].statushealth + strTotal*19) * (1/(1-heroData[h].magicalresistance/100))
+                    ).toPrecision(4)
+                );
+				row.push((heroData[h].statushealth + strTotal*19).toPrecision(4));
+				row.push((heroData[h].statushealthregen + strTotal*.03).toPrecision(3));
+				row.push((heroData[h].statusmana + intTotal*13).toPrecision(4));
+				row.push((heroData[h].statusmanaregen + intTotal*.04).toPrecision(3));
 				if (heroData[h].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK') {
 					row.push('Melee');
 				}
@@ -188,7 +230,7 @@ $(function () {
 				}
 				return 0;
 			});
-            var filtered = _.filter(d(), function(row) {
+            return _.filter(d(), function(row) {
                 return _.every(row, function(item, i) {
                     if (!self.headers()[i].filter) return true;
                     if (!self.headers()[i].filterValue()) return true;
@@ -200,6 +242,12 @@ $(function () {
                                 break;
                                 case 'lt':
                                     return parseFloat(item) < parseFloat(self.headers()[i].filterValue());
+                                break;
+                                case 'ge':
+                                    return parseFloat(item) >= parseFloat(self.headers()[i].filterValue());
+                                break;
+                                case 'le':
+                                    return parseFloat(item) <= parseFloat(self.headers()[i].filterValue());
                                 break;
                                 case 'eq':
                                     return parseFloat(item) == parseFloat(self.headers()[i].filterValue());
@@ -216,7 +264,6 @@ $(function () {
                     return self.headers()[i].filter;
                 });
             });
-			return filtered;
 		}, this);
 		
 		self.toggleColumn = function(index,data,event) {
@@ -224,11 +271,9 @@ $(function () {
 		};
 	}
 
-	var heroData = {};
 	$.getJSON("/media/js/herodata.json", function (data) {
 		heroData = data;
-		var tableViewModel = new TableViewModel();
-		ko.applyBindings(tableViewModel);
+		ko.applyBindings(new TableViewModel());
 	});
 
 });

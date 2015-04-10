@@ -25,6 +25,9 @@ padding: 5px;
 margin: 3px;
 margin-bottom: 6px;
 }
+.glyphicon {
+top: 2px;
+}
 </style>
   {% endblock custom_css %}
 {% block main %}
@@ -49,13 +52,15 @@ margin-bottom: 6px;
 </div>
 
 <div class="col-md-4 form-group form-inline">
-<label for="columns">Show Columns</label>
-<div class="dropdown">
+<label style="display:block" for="columns">Show Columns</label>
+<div class="dropdown" style="display:inline-block">
 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Columns <span class="caret"></span></button>
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-bind="foreach: headers">
 	<li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-bind="css: {showColumn: $parent.headers()[$index()].display(), hideColumn: !$parent.headers()[$index()].display()}, click: function(data, event) { $parent.toggleColumn($index, data, event); }, html: $data.name"></a></li>
 </ul>
 </div>
+<button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { hideAllColumns() }">Hide All</button>
+<button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { resetColumns() }">Reset</button>
 </div>
 </div>
 
@@ -65,6 +70,7 @@ margin-bottom: 6px;
 <span id="sortby" data-bind="foreach: sortColumns">
 	<span class="label label-primary" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
 </span>
+<span class="label" style="display:none" data-bind="visible: sortColumns().length > 1, click: function(data, event) { clearLabels(); }"><a href="">Clear All</a></span>
 </div>
 <div class="checkbox">
   <label>
@@ -85,6 +91,10 @@ margin-bottom: 6px;
     <div class="form-inline" data-bind="template: { name: $root.filterTemplateToUse, data: $data }"></div>
 </div>
 <!-- /ko -->
+</div>
+
+<div class="form-group" style="display:none" data-bind="visible: filterVisible">
+    <input class="form-control" type="button" data-bind="click: clearFilters" value="Clear All Filters" />
 </div>
 
 <div class="table-responsive">
@@ -122,7 +132,9 @@ Row count: <span data-bind="text: data().length"></span>
         <div class="form-group">
             <select class="form-control" data-bind="value: filterComparison">
                 <option value="gt">&gt;</option>
+                <option value="ge">&ge;</option>
                 <option value="lt">&lt;</option>
+                <option value="le">&le;</option>
                 <option value="eq">=</option>
             </select>
         </div>
