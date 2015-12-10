@@ -21,28 +21,27 @@ def main():
         print 'MODE: DEVELOPMENT'
         
     if len(sys.argv) > 1 and 'deploy' in sys.argv:
-        shutil.copy2('/home/sites/devilesk.com/site.yaml', '/home/sites/devilesk.com/site-backup.yaml')
+        hyde_args = ["hyde"]
+        if len(sys.argv) > 1 and 'verbose' in sys.argv:
+            hyde_args.append("-v")
+        
+        hyde_args.append("gen")
+        
+        if len(sys.argv) > 1 and 'regen' in sys.argv:
+            hyde_args.append("-r")
 
-        print 'site-backup.yaml created'
+        if len(sys.argv) > 1 and 'production' in sys.argv:
+            hyde_args.append("-c")
+            hyde_args.append("/home/sites/devilesk.com/site-prod.yaml")
+            print 'using site-prod.yaml'
 
-        with open('/home/sites/devilesk.com/site.yaml', 'r') as f:
-            data = yaml.load(f)
+        print 'calling hyde gen with args', hyde_args
 
-        data['deploy_root'] = DEPLOY_ROOT
-
-        print 'hyde deploy root set to', data['deploy_root']
-
-        with open('/home/sites/devilesk.com/site.yaml', 'w') as f:
-            f.write(yaml.dump(data, default_flow_style=False, indent=4))
-
-        print 'site.yaml saved'
-        print 'calling hyde gen'
-
-        call(["hyde", "gen"], cwd='/home/sites/devilesk.com')
+        call(hyde_args, cwd='/home/sites/devilesk.com')
 
         print 'site deployed'
 
-        shutil.copy2('/home/sites/devilesk.com/site-backup.yaml', '/home/sites/devilesk.com/site.yaml')
+        #shutil.copy2('/home/sites/devilesk.com/site-backup.yaml', '/home/sites/devilesk.com/site.yaml')
 
         print 'site.yaml reverted'
 
@@ -63,6 +62,7 @@ def main():
     if len(sys.argv) > 1 and 'purgesprites' in sys.argv:
         print 'Purging cloudflare cache of spritesheets...'
         CACHE_FILES = [
+            'http://devilesk.com/media/images/itemspritesheet.jpg',
             'http://devilesk.com/media/images/miniherospritesheet.png',
             'http://devilesk.com/media/images/herospritesheet.jpg',
             'http://devilesk.com/media/images/portraitspritesheet.png',

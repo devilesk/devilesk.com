@@ -1,0 +1,28 @@
+{% extends "base.j2" %}
+
+{% block custom_css %}
+<style type="text/css">
+
+</style>
+{% endblock custom_css %}
+                
+{% block main %}
+
+<div class="col-md-12">
+    {% for group in resource.meta.data -%}
+        <h4>{{ group.header }}</h4>
+        {% for item in group.items -%}
+        <a class="column-item" href="{{ content_url(item.url) }}">
+            <div class="pull-left">
+                <img class="img-rounded" src="{{ item.image }}" alt="{{ item.name }}">
+            </div>
+            <div class="column-item-info">
+                <h4 class="media-heading">{{ item.name }}</h4>
+                {{ item.description }}
+            </div>
+        </a>
+        {%- endfor %}
+    {%- endfor %}
+</div>
+
+{%- endblock %}

@@ -1,4 +1,42 @@
 {
+ "dota_death_prophet_exorcism_spirit": {
+  "AttackAcquisitionRange": 0, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 0, 
+  "attackdamagemin": 0, 
+  "attackpoint": 0, 
+  "attackrange": 0, 
+  "attackrate": 1, 
+  "attacktype": "DOTA_UNIT_CAP_NO_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 20, 
+  "bountygoldmin": 16, 
+  "bountyxp": 0, 
+  "level": 0, 
+  "magicalresistance": 0, 
+  "movementspeed": 0, 
+  "movementturnrate": 0.5, 
+  "name": "dota_death_prophet_exorcism_spirit", 
+  "projectilespeed": 0, 
+  "statushealth": 100, 
+  "statushealthregen": 0.5, 
+  "statusmana": 0, 
+  "statusmanaregen": 0, 
+  "unitlevel": 0, 
+  "visiondaytimerange": 1600, 
+  "visionnighttimerange": 600
+ }, 
  "dota_fountain": {
   "AttackAcquisitionRange": 1200, 
   "AttackRangeBuffer": 250, 
@@ -34,6 +72,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -72,6 +111,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 1200
  }, 
@@ -110,6 +150,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 575, 
   "visionnighttimerange": 575
  }, 
@@ -148,6 +189,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 1200
  }, 
@@ -215,7 +257,7 @@
     ], 
     "AbilityCastRange": 0, 
     "AbilityCastRangeBuffer": 250, 
-    "AbilityChannelTime": 3, 
+    "AbilityChannelTime": 4.5, 
     "AbilityDuration": [
      0, 
      0, 
@@ -244,7 +286,7 @@
      "DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
     ], 
     "cooldown": [
-     60
+     30
     ], 
     "damage": [
      0, 
@@ -274,9 +316,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 500, 
-  "bountygoldmin": 100, 
-  "bountyxp": 1789, 
+  "bountygoldmax": 250, 
+  "bountygoldmin": 250, 
+  "bountyxp": 250, 
   "displayname": "Dire Year Beast", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -288,6 +330,7 @@
   "statushealthregen": 5, 
   "statusmana": 500, 
   "statusmanaregen": 1, 
+  "unitlevel": 1, 
   "visiondaytimerange": 50, 
   "visionnighttimerange": 50
  }, 
@@ -392,6 +435,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -496,6 +540,7 @@
   "statushealthregen": 3, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 1200
  }, 
@@ -600,6 +645,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -704,6 +750,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -808,6 +855,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -912,6 +960,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -1016,6 +1065,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -1120,6 +1170,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -1149,7 +1200,7 @@
   "bountyxp": 88, 
   "displayname": "Siege Creep", 
   "level": 0, 
-  "magicalresistance": 0, 
+  "magicalresistance": 80, 
   "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_badguys_siege", 
@@ -1158,6 +1209,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 850
  }, 
@@ -1196,6 +1248,7 @@
   "statushealthregen": 0, 
   "statusmana": 1000, 
   "statusmanaregen": 0, 
+  "unitlevel": 8, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -1225,7 +1278,7 @@
   "bountyxp": 88, 
   "displayname": "Super Siege Creep", 
   "level": 0, 
-  "magicalresistance": 0, 
+  "magicalresistance": 80, 
   "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_badguys_siege_upgraded", 
@@ -1234,6 +1287,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 850
  }, 
@@ -1263,7 +1317,7 @@
   "bountyxp": 88, 
   "displayname": "Mega Siege Creep", 
   "level": 0, 
-  "magicalresistance": 0, 
+  "magicalresistance": 80, 
   "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_badguys_siege_upgraded_mega", 
@@ -1272,6 +1326,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 850
  }, 
@@ -1310,6 +1365,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1348,6 +1404,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1386,6 +1443,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1468,7 +1526,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 140, 
   "attackdamagemin": 120, 
   "attackpoint": 0.6, 
@@ -1496,6 +1554,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1578,7 +1637,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 140, 
   "attackdamagemin": 120, 
   "attackpoint": 0.6, 
@@ -1606,6 +1665,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1688,7 +1748,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 140, 
   "attackdamagemin": 120, 
   "attackpoint": 0.6, 
@@ -1716,6 +1776,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1792,7 +1853,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 182, 
   "attackdamagemin": 122, 
   "attackpoint": 0.6, 
@@ -1820,6 +1881,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -1896,7 +1958,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 182, 
   "attackdamagemin": 122, 
   "attackpoint": 0.6, 
@@ -1924,6 +1986,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -2000,7 +2063,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 182, 
   "attackdamagemin": 122, 
   "attackpoint": 0.6, 
@@ -2028,6 +2091,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -2132,6 +2196,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -2169,6 +2234,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 500, 
   "visionnighttimerange": 500
  }, 
@@ -2290,6 +2356,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -2386,7 +2453,7 @@
   "armorphysical": 0, 
   "attackdamagemax": 15, 
   "attackdamagemin": 15, 
-  "attackpoint": 0.633, 
+  "attackpoint": 0.5, 
   "attackrange": 550, 
   "attackrate": 1.25, 
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK", 
@@ -2411,6 +2478,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -2507,7 +2575,7 @@
   "armorphysical": 0, 
   "attackdamagemax": 30, 
   "attackdamagemin": 30, 
-  "attackpoint": 0.633, 
+  "attackpoint": 0.5, 
   "attackrange": 550, 
   "attackrate": 1.25, 
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK", 
@@ -2532,6 +2600,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -2628,7 +2697,7 @@
   "armorphysical": 0, 
   "attackdamagemax": 45, 
   "attackdamagemin": 45, 
-  "attackpoint": 0.633, 
+  "attackpoint": 0.5, 
   "attackrange": 550, 
   "attackrate": 1.25, 
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK", 
@@ -2653,6 +2722,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -2749,7 +2819,7 @@
   "armorphysical": 0, 
   "attackdamagemax": 60, 
   "attackdamagemin": 60, 
-  "attackpoint": 0.633, 
+  "attackpoint": 0.5, 
   "attackrange": 550, 
   "attackrate": 1.25, 
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK", 
@@ -2774,6 +2844,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -2889,6 +2960,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -2927,6 +2999,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 700, 
   "visionnighttimerange": 700
  }, 
@@ -2957,7 +3030,7 @@
   "displayname": "Hawk", 
   "level": 0, 
   "magicalresistance": 0, 
-  "movementspeed": 300, 
+  "movementspeed": 275, 
   "movementturnrate": 0.6, 
   "name": "npc_dota_beastmaster_hawk_2", 
   "projectilespeed": 900, 
@@ -2965,6 +3038,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 1000, 
   "visionnighttimerange": 800
  }, 
@@ -3038,7 +3112,7 @@
      0, 
      0
     ], 
-    "description": "If motionless for some time, the Greater Hawk becomes invisible.", 
+    "description": "If motionless for some time, the hawk becomes invisible.", 
     "displayname": "Invisibility", 
     "level": 0, 
     "manacost": [
@@ -3071,7 +3145,7 @@
   "displayname": "Hawk", 
   "level": 0, 
   "magicalresistance": 0, 
-  "movementspeed": 350, 
+  "movementspeed": 300, 
   "movementturnrate": 0.6, 
   "name": "npc_dota_beastmaster_hawk_3", 
   "projectilespeed": 900, 
@@ -3079,6 +3153,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 1300, 
   "visionnighttimerange": 900
  }, 
@@ -3152,7 +3227,7 @@
      0, 
      0
     ], 
-    "description": "If motionless for some time, the Greater Hawk becomes invisible.", 
+    "description": "If motionless for some time, the hawk becomes invisible.", 
     "displayname": "Invisibility", 
     "level": 0, 
     "manacost": [
@@ -3185,7 +3260,7 @@
   "displayname": "Hawk", 
   "level": 0, 
   "magicalresistance": 0, 
-  "movementspeed": 400, 
+  "movementspeed": 325, 
   "movementturnrate": 0.6, 
   "name": "npc_dota_beastmaster_hawk_4", 
   "projectilespeed": 900, 
@@ -3193,6 +3268,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 1600, 
   "visionnighttimerange": 1000
  }, 
@@ -3261,10 +3337,7 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     7, 
-     7, 
-     7, 
-     7
+     5
     ], 
     "damage": [
      0, 
@@ -3561,9 +3634,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 15, 
-  "bountygoldmin": 11, 
-  "bountyxp": 196, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Earth", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -3575,6 +3648,7 @@
   "statushealthregen": 1, 
   "statusmana": 400, 
   "statusmanaregen": 2, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -3643,10 +3717,7 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     7, 
-     7, 
-     7, 
-     7
+     5
     ], 
     "damage": [
      0, 
@@ -3943,9 +4014,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 15, 
-  "bountygoldmin": 11, 
-  "bountyxp": 242, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Earth", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -3957,6 +4028,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 8, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -4025,10 +4097,7 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     7, 
-     7, 
-     7, 
-     7
+     5
     ], 
     "damage": [
      0, 
@@ -4325,9 +4394,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 35, 
-  "bountygoldmin": 31, 
-  "bountyxp": 242, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Earth", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -4339,6 +4408,7 @@
   "statushealthregen": 2, 
   "statusmana": 600, 
   "statusmanaregen": 2, 
+  "unitlevel": 8, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -4529,9 +4599,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 15, 
-  "bountygoldmin": 11, 
-  "bountyxp": 196, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Fire", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -4543,6 +4613,7 @@
   "statushealthregen": 2, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -4733,9 +4804,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 15, 
-  "bountygoldmin": 11, 
-  "bountyxp": 242, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Fire", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -4747,6 +4818,7 @@
   "statushealthregen": 4, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 8, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -4937,9 +5009,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 35, 
-  "bountygoldmin": 31, 
-  "bountyxp": 242, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Fire", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -4951,6 +5023,7 @@
   "statushealthregen": 4, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 8, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -4991,10 +5064,7 @@
       "name": "radius", 
       "tooltip": "RADIUS:", 
       "value": [
-       200, 
-       200, 
-       200, 
-       200
+       600
       ]
      }, 
      {
@@ -5013,10 +5083,7 @@
      "DOTA_ABILITY_BEHAVIOR_POINT"
     ], 
     "cooldown": [
-     8, 
-     8, 
-     8, 
-     8
+     6
     ], 
     "damage": [
      0, 
@@ -5024,7 +5091,7 @@
      0, 
      0
     ], 
-    "description": "Damages summoned units in a small radius and purges most buffs or debuffs.", 
+    "description": "Damages summoned units in an area and purges most buffs or debuffs.", 
     "displayname": "Dispel Magic", 
     "level": 0, 
     "lore": "", 
@@ -5318,9 +5385,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 15, 
-  "bountygoldmin": 11, 
-  "bountyxp": 196, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Storm", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -5332,6 +5399,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 1.5, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -5372,10 +5440,7 @@
       "name": "radius", 
       "tooltip": "RADIUS:", 
       "value": [
-       200, 
-       200, 
-       200, 
-       200
+       600
       ]
      }, 
      {
@@ -5394,10 +5459,7 @@
      "DOTA_ABILITY_BEHAVIOR_POINT"
     ], 
     "cooldown": [
-     8, 
-     8, 
-     8, 
-     8
+     6
     ], 
     "damage": [
      0, 
@@ -5405,7 +5467,7 @@
      0, 
      0
     ], 
-    "description": "Damages summoned units in a small radius and purges most buffs or debuffs.", 
+    "description": "Damages summoned units in an area and purges most buffs or debuffs.", 
     "displayname": "Dispel Magic", 
     "level": 0, 
     "lore": "", 
@@ -5699,9 +5761,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 15, 
-  "bountygoldmin": 11, 
-  "bountyxp": 242, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Storm", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -5713,6 +5775,7 @@
   "statushealthregen": 2, 
   "statusmana": 750, 
   "statusmanaregen": 1.5, 
+  "unitlevel": 8, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -5753,10 +5816,7 @@
       "name": "radius", 
       "tooltip": "RADIUS:", 
       "value": [
-       200, 
-       200, 
-       200, 
-       200
+       600
       ]
      }, 
      {
@@ -5775,10 +5835,7 @@
      "DOTA_ABILITY_BEHAVIOR_POINT"
     ], 
     "cooldown": [
-     8, 
-     8, 
-     8, 
-     8
+     6
     ], 
     "damage": [
      0, 
@@ -5786,7 +5843,7 @@
      0, 
      0
     ], 
-    "description": "Damages summoned units in a small radius and purges most buffs or debuffs.", 
+    "description": "Damages summoned units in an area and purges most buffs or debuffs.", 
     "displayname": "Dispel Magic", 
     "level": 0, 
     "lore": "", 
@@ -6080,9 +6137,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 35, 
-  "bountygoldmin": 31, 
-  "bountyxp": 242, 
+  "bountygoldmax": 0, 
+  "bountygoldmin": 0, 
+  "bountyxp": 0, 
   "displayname": "Storm", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -6094,6 +6151,7 @@
   "statushealthregen": 2, 
   "statusmana": 750, 
   "statusmanaregen": 1.5, 
+  "unitlevel": 8, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -6131,6 +6189,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1100, 
   "visionnighttimerange": 800
  }, 
@@ -6169,6 +6228,13 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
+      "name": "movement_speed", 
+      "tooltip": "%MOVE SLOW:", 
+      "value": [
+       -8
+      ]
+     }, 
+     {
       "name": "duration_hero", 
       "tooltip": "DURATION (HERO):", 
       "value": [
@@ -6177,23 +6243,16 @@
      }, 
      {
       "name": "damage_per_second", 
-      "tooltip": "DAMAGE:", 
+      "tooltip": "DAMAGE PER SECOND:", 
       "value": [
        8
       ]
      }, 
      {
       "name": "duration", 
-      "tooltip": "DURATION:", 
+      "tooltip": "DURATION (CREEP):", 
       "value": [
        6
-      ]
-     }, 
-     {
-      "name": "movement_speed", 
-      "tooltip": "MOVEMENT SPEED:", 
-      "value": [
-       -15
       ]
      }
     ], 
@@ -6212,7 +6271,7 @@
      0, 
      0
     ], 
-    "description": "Poisons enemies on attack.", 
+    "description": "Poisons and slows enemies with each attack.", 
     "displayname": "Poison Sting", 
     "level": 0, 
     "manacost": [
@@ -6319,6 +6378,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1100, 
   "visionnighttimerange": 800
  }, 
@@ -6401,6 +6461,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -6438,6 +6499,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -6761,8 +6823,9 @@
     "attributes": [
      {
       "name": "movement_speed", 
+      "tooltip": "BURST MOVE SPEED:", 
       "value": [
-       650
+       800
       ]
      }, 
      {
@@ -6854,6 +6917,71 @@
      0
     ], 
     "name": "courier_morph"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 0, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5676, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "attributes": [
+     {
+      "name": "handoff_distance", 
+      "value": [
+       400
+      ]
+     }, 
+     {
+      "name": "stash_pickup_distance", 
+      "value": [
+       250
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_HIDDEN", 
+     "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
+     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    ], 
+    "cooldown": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "level": 0, 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "courier_take_stash_and_transfer_items"
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
@@ -6885,6 +7013,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 350, 
   "visionnighttimerange": 350
  }, 
@@ -6909,8 +7038,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 48, 
-  "bountygoldmin": 38, 
+  "bountygoldmax": 43, 
+  "bountygoldmin": 37, 
   "bountyxp": 62, 
   "displayname": "Melee Creep", 
   "level": 0, 
@@ -6922,6 +7051,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -6959,6 +7089,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -6996,6 +7127,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7033,6 +7165,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7057,8 +7190,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 53, 
-  "bountygoldmin": 43, 
+  "bountygoldmax": 48, 
+  "bountygoldmin": 42, 
   "bountyxp": 41, 
   "displayname": "Ranged Creep", 
   "level": 0, 
@@ -7071,6 +7204,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 2, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7109,6 +7243,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 2, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7147,6 +7282,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7185,6 +7321,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7209,8 +7346,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 48, 
-  "bountygoldmin": 38, 
+  "bountygoldmax": 43, 
+  "bountygoldmin": 37, 
   "bountyxp": 62, 
   "displayname": "Melee Creep", 
   "level": 0, 
@@ -7222,6 +7359,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7259,6 +7397,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7296,6 +7435,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7333,6 +7473,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7357,8 +7498,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 53, 
-  "bountygoldmin": 43, 
+  "bountygoldmax": 48, 
+  "bountygoldmin": 42, 
   "bountyxp": 41, 
   "displayname": "Ranged Creep", 
   "level": 0, 
@@ -7371,6 +7512,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 2, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7409,6 +7551,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 2, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7447,6 +7590,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7485,6 +7629,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 1, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 800
  }, 
@@ -7522,6 +7667,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 600
  }, 
@@ -7560,6 +7706,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -7587,6 +7734,7 @@
   "bountygoldmax": 1, 
   "bountygoldmin": 1, 
   "bountyxp": 12, 
+  "displayname": "Stone Remnant", 
   "level": 0, 
   "magicalresistance": 0, 
   "movementspeed": 0, 
@@ -7597,6 +7745,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -7635,6 +7784,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -7646,14 +7796,9 @@
   "abilities": [
    {
     "AbilityCastPoint": 0, 
-    "AbilityCastRange": 475, 
+    "AbilityCastRange": 500, 
     "AbilityCastRangeBuffer": 250, 
-    "AbilityChannelTime": [
-     1.4, 
-     1.4, 
-     1.4, 
-     1.4
-    ], 
+    "AbilityChannelTime": 1.2, 
     "AbilityDuration": [
      0, 
      0, 
@@ -7671,7 +7816,7 @@
       "name": "radius", 
       "tooltip": "RADIUS:", 
       "value": [
-       475
+       500
       ]
      }, 
      {
@@ -7688,7 +7833,7 @@
       "name": "cast_time", 
       "tooltip": "CAST TIME:", 
       "value": [
-       1.8
+       1.6
       ]
      }, 
      {
@@ -7700,6 +7845,12 @@
        100, 
        110
       ]
+     }, 
+     {
+      "name": "animation_rate", 
+      "value": [
+       0
+      ]
      }
     ], 
     "behavior": [
@@ -7707,10 +7858,10 @@
      "DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     ], 
     "cooldown": [
-     15, 
-     15, 
-     15, 
-     15
+     14, 
+     13, 
+     12, 
+     11
     ], 
     "damage": [
      0, 
@@ -7903,6 +8054,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -7940,6 +8092,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 450, 
   "visionnighttimerange": 450
  }, 
@@ -8081,6 +8234,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 300, 
   "visionnighttimerange": 300
  }, 
@@ -8404,8 +8558,9 @@
     "attributes": [
      {
       "name": "movement_speed", 
+      "tooltip": "BURST MOVE SPEED:", 
       "value": [
-       650
+       800
       ]
      }, 
      {
@@ -8477,6 +8632,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 10, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -8488,8 +8644,8 @@
   "abilities": [], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 0, 
-  "attackdamagemax": 23, 
-  "attackdamagemin": 21, 
+  "attackdamagemax": 30, 
+  "attackdamagemin": 26, 
   "attackpoint": 0.467, 
   "attackrange": 100, 
   "attackrate": 1.75, 
@@ -8507,14 +8663,53 @@
   "displayname": "Treant", 
   "level": 0, 
   "magicalresistance": 0, 
-  "movementspeed": 300, 
+  "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_furion_treant", 
   "statushealth": 550, 
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
-  "visiondaytimerange": 1200, 
+  "unitlevel": 2, 
+  "visiondaytimerange": 1000, 
+  "visionnighttimerange": 800
+ }, 
+ "npc_dota_furion_treant_large": {
+  "AttackAcquisitionRange": 500, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 90, 
+  "attackdamagemin": 78, 
+  "attackpoint": 0.467, 
+  "attackrange": 100, 
+  "attackrate": 1, 
+  "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 20, 
+  "bountygoldmin": 14, 
+  "bountyxp": 30, 
+  "displayname": "Greater Treant", 
+  "level": 0, 
+  "magicalresistance": 0, 
+  "movementspeed": 325, 
+  "movementturnrate": 0.5, 
+  "name": "npc_dota_furion_treant_large", 
+  "statushealth": 1650, 
+  "statushealthregen": 0.5, 
+  "statusmana": 0, 
+  "statusmanaregen": 0, 
+  "unitlevel": 2, 
+  "visiondaytimerange": 1000, 
   "visionnighttimerange": 800
  }, 
  "npc_dota_goodguys_cny_beast": {
@@ -8581,7 +8776,7 @@
     ], 
     "AbilityCastRange": 0, 
     "AbilityCastRangeBuffer": 250, 
-    "AbilityChannelTime": 3, 
+    "AbilityChannelTime": 4.5, 
     "AbilityDuration": [
      0, 
      0, 
@@ -8610,7 +8805,7 @@
      "DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
     ], 
     "cooldown": [
-     60
+     30
     ], 
     "damage": [
      0, 
@@ -8640,9 +8835,9 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 500, 
-  "bountygoldmin": 100, 
-  "bountyxp": 1789, 
+  "bountygoldmax": 250, 
+  "bountygoldmin": 250, 
+  "bountyxp": 250, 
   "displayname": "Radiant Year Beast", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -8654,6 +8849,7 @@
   "statushealthregen": 5, 
   "statusmana": 500, 
   "statusmanaregen": 1, 
+  "unitlevel": 1, 
   "visiondaytimerange": 50, 
   "visionnighttimerange": 50
  }, 
@@ -8758,6 +8954,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -8862,6 +9059,7 @@
   "statushealthregen": 3, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 1200
  }, 
@@ -8966,6 +9164,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -9070,6 +9269,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -9174,6 +9374,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -9278,6 +9479,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -9382,6 +9584,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -9486,6 +9689,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 900, 
   "visionnighttimerange": 600
  }, 
@@ -9515,7 +9719,7 @@
   "bountyxp": 88, 
   "displayname": "Siege Creep", 
   "level": 0, 
-  "magicalresistance": 0, 
+  "magicalresistance": 80, 
   "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_goodguys_siege", 
@@ -9524,6 +9728,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 850
  }, 
@@ -9562,6 +9767,7 @@
   "statushealthregen": 0, 
   "statusmana": 1000, 
   "statusmanaregen": 0, 
+  "unitlevel": 8, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -9591,7 +9797,7 @@
   "bountyxp": 88, 
   "displayname": "Super Siege Creep", 
   "level": 0, 
-  "magicalresistance": 0, 
+  "magicalresistance": 80, 
   "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_goodguys_siege_upgraded", 
@@ -9600,6 +9806,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 850
  }, 
@@ -9629,7 +9836,7 @@
   "bountyxp": 88, 
   "displayname": "Mega Siege Creep", 
   "level": 0, 
-  "magicalresistance": 0, 
+  "magicalresistance": 80, 
   "movementspeed": 325, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_goodguys_siege_upgraded_mega", 
@@ -9638,6 +9845,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 850, 
   "visionnighttimerange": 850
  }, 
@@ -9676,6 +9884,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -9714,6 +9923,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -9752,6 +9962,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -9834,7 +10045,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 140, 
   "attackdamagemin": 120, 
   "attackpoint": 0.6, 
@@ -9862,6 +10073,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -9944,7 +10156,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 140, 
   "attackdamagemin": 120, 
   "attackpoint": 0.6, 
@@ -9972,6 +10184,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -10054,7 +10267,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 140, 
   "attackdamagemin": 120, 
   "attackpoint": 0.6, 
@@ -10082,6 +10295,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -10158,7 +10372,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 182, 
   "attackdamagemin": 122, 
   "attackpoint": 0.6, 
@@ -10186,6 +10400,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -10262,7 +10477,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 182, 
   "attackdamagemin": 122, 
   "attackpoint": 0.6, 
@@ -10290,6 +10505,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -10366,7 +10582,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 25, 
+  "armorphysical": 22, 
   "attackdamagemax": 182, 
   "attackdamagemin": 122, 
   "attackpoint": 0.6, 
@@ -10394,6 +10610,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -10498,6 +10715,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 1900, 
   "visionnighttimerange": 800
  }, 
@@ -10536,6 +10754,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -10609,7 +10828,7 @@
      0, 
      0
     ], 
-    "description": "If motionless for some time, the Greater Hawk becomes invisible.", 
+    "description": "If motionless for some time, the hawk becomes invisible.", 
     "displayname": "Invisibility", 
     "level": 0, 
     "manacost": [
@@ -10650,6 +10869,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 1600, 
   "visionnighttimerange": 1200
  }, 
@@ -10687,6 +10907,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -10893,6 +11114,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 5, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1200
  }, 
@@ -11121,6 +11343,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 5, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1200
  }, 
@@ -11368,6 +11591,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 5, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1200
  }, 
@@ -11608,6 +11832,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 5, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1200
  }, 
@@ -11882,6 +12107,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 5, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1200
  }, 
@@ -12090,6 +12316,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12319,6 +12546,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12542,6 +12770,7 @@
   "statushealthregen": 2, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12580,6 +12809,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12618,6 +12848,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12656,6 +12887,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12694,6 +12926,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12732,6 +12965,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12770,6 +13004,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12808,6 +13043,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12846,6 +13082,7 @@
   "statushealthregen": 1, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -12884,6 +13121,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -12920,6 +13158,7 @@
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 1400
  }, 
@@ -12958,6 +13197,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -12995,6 +13235,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 200, 
   "visionnighttimerange": 200
  }, 
@@ -13107,6 +13348,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 5, 
   "statusmanaregen": 4, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -13137,7 +13379,7 @@
   "displayname": "Healing Ward", 
   "level": 0, 
   "magicalresistance": 0, 
-  "movementspeed": 450, 
+  "movementspeed": 420, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_juggernaut_healing_ward", 
   "projectilespeed": 900, 
@@ -13145,6 +13387,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -13183,6 +13426,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -13221,6 +13465,7 @@
   "statushealthregen": 2, 
   "statusmana": 300, 
   "statusmanaregen": 0, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -13308,6 +13553,7 @@
   "statushealthregen": 3, 
   "statusmana": 300, 
   "statusmanaregen": 0, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -13463,6 +13709,7 @@
   "statushealthregen": 4, 
   "statusmana": 300, 
   "statusmanaregen": 0, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -13685,6 +13932,7 @@
   "statushealthregen": 5, 
   "statusmana": 300, 
   "statusmanaregen": 0, 
+  "unitlevel": 7, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -13722,6 +13970,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -13759,6 +14008,7 @@
   "statushealthregen": 0, 
   "statusmana": 500, 
   "statusmanaregen": 2, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -13797,6 +14047,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -13903,6 +14154,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -14076,6 +14328,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -14249,6 +14502,7 @@
   "statushealthregen": 15, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -14285,8 +14539,22 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
+      "name": "burn_as_damage_tooltip", 
+      "tooltip": "%CONVERTED TO DAMAGE:", 
+      "value": [
+       100
+      ]
+     }, 
+     {
+      "name": "cast_range_tooltip", 
+      "tooltip": "CAST RANGE:", 
+      "value": [
+       600
+      ]
+     }, 
+     {
       "name": "burn_amount", 
-      "tooltip": "BURN AMOUNT:", 
+      "tooltip": "MANA BURN PER HIT:", 
       "value": [
        125, 
        175, 
@@ -14298,8 +14566,6 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     20, 
-     20, 
      20
     ], 
     "damage": [
@@ -14308,7 +14574,7 @@
      0, 
      0
     ], 
-    "description": "Burns targeted unit's mana.", 
+    "description": "Launches an arrow that burns away the targeted unit's mana, dealing damage equal to the amount of mana burned.", 
     "displayname": "Mana Burn", 
     "level": 0, 
     "manacost": [
@@ -14348,8 +14614,8 @@
       "name": "speed_bonus", 
       "tooltip": "%SPEED BONUS:", 
       "value": [
-       3, 
-       6, 
+       5, 
+       7, 
        9
       ]
      }, 
@@ -14390,8 +14656,8 @@
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 4, 
-  "attackdamagemax": 40, 
-  "attackdamagemin": 40, 
+  "attackdamagemax": 60, 
+  "attackdamagemin": 60, 
   "attackpoint": 0.7, 
   "attackrange": 350, 
   "attackrate": 1, 
@@ -14413,10 +14679,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_necronomicon_archer_1", 
   "projectilespeed": 900, 
-  "statushealth": 400, 
+  "statushealth": 700, 
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1300, 
   "visionnighttimerange": 800
  }, 
@@ -14453,8 +14720,22 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
+      "name": "burn_as_damage_tooltip", 
+      "tooltip": "%CONVERTED TO DAMAGE:", 
+      "value": [
+       100
+      ]
+     }, 
+     {
+      "name": "cast_range_tooltip", 
+      "tooltip": "CAST RANGE:", 
+      "value": [
+       600
+      ]
+     }, 
+     {
       "name": "burn_amount", 
-      "tooltip": "BURN AMOUNT:", 
+      "tooltip": "MANA BURN PER HIT:", 
       "value": [
        125, 
        175, 
@@ -14466,8 +14747,6 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     20, 
-     20, 
      20
     ], 
     "damage": [
@@ -14476,7 +14755,7 @@
      0, 
      0
     ], 
-    "description": "Burns targeted unit's mana.", 
+    "description": "Launches an arrow that burns away the targeted unit's mana, dealing damage equal to the amount of mana burned.", 
     "displayname": "Mana Burn", 
     "level": 0, 
     "manacost": [
@@ -14516,8 +14795,8 @@
       "name": "speed_bonus", 
       "tooltip": "%SPEED BONUS:", 
       "value": [
-       3, 
-       6, 
+       5, 
+       7, 
        9
       ]
      }, 
@@ -14558,8 +14837,8 @@
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 4, 
-  "attackdamagemax": 80, 
-  "attackdamagemin": 80, 
+  "attackdamagemax": 90, 
+  "attackdamagemin": 90, 
   "attackpoint": 0.7, 
   "attackrange": 450, 
   "attackrate": 1, 
@@ -14581,10 +14860,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_necronomicon_archer_2", 
   "projectilespeed": 900, 
-  "statushealth": 600, 
+  "statushealth": 800, 
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -14621,8 +14901,22 @@
     "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
     "attributes": [
      {
+      "name": "burn_as_damage_tooltip", 
+      "tooltip": "%CONVERTED TO DAMAGE:", 
+      "value": [
+       100
+      ]
+     }, 
+     {
+      "name": "cast_range_tooltip", 
+      "tooltip": "CAST RANGE:", 
+      "value": [
+       600
+      ]
+     }, 
+     {
       "name": "burn_amount", 
-      "tooltip": "BURN AMOUNT:", 
+      "tooltip": "MANA BURN PER HIT:", 
       "value": [
        125, 
        175, 
@@ -14634,8 +14928,6 @@
      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     ], 
     "cooldown": [
-     20, 
-     20, 
      20
     ], 
     "damage": [
@@ -14644,7 +14936,7 @@
      0, 
      0
     ], 
-    "description": "Burns targeted unit's mana.", 
+    "description": "Launches an arrow that burns away the targeted unit's mana, dealing damage equal to the amount of mana burned.", 
     "displayname": "Mana Burn", 
     "level": 0, 
     "manacost": [
@@ -14684,8 +14976,8 @@
       "name": "speed_bonus", 
       "tooltip": "%SPEED BONUS:", 
       "value": [
-       3, 
-       6, 
+       5, 
+       7, 
        9
       ]
      }, 
@@ -14749,10 +15041,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_necronomicon_archer_3", 
   "projectilespeed": 900, 
-  "statushealth": 800, 
+  "statushealth": 900, 
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1500, 
   "visionnighttimerange": 800
  }, 
@@ -14798,7 +15091,7 @@
      }, 
      {
       "name": "burn_amount", 
-      "tooltip": "BURN PER HIT:", 
+      "tooltip": "MANA BURN PER HIT:", 
       "value": [
        25, 
        50, 
@@ -14884,7 +15177,7 @@
      0, 
      0
     ], 
-    "description": "Damage dealt to unit that kills Necronomicon Warrior.", 
+    "description": "Deals damage to the unit that kills the Necronomicon Warrior.", 
     "displayname": "Last Will", 
     "level": 0, 
     "manacost": [
@@ -14898,8 +15191,8 @@
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 4, 
-  "attackdamagemax": 25, 
-  "attackdamagemin": 25, 
+  "attackdamagemax": 45, 
+  "attackdamagemin": 45, 
   "attackpoint": 0.56, 
   "attackrange": 100, 
   "attackrate": 0.75, 
@@ -14920,10 +15213,11 @@
   "movementspeed": 350, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_necronomicon_warrior_1", 
-  "statushealth": 400, 
+  "statushealth": 700, 
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1300, 
   "visionnighttimerange": 800
  }, 
@@ -14969,7 +15263,7 @@
      }, 
      {
       "name": "burn_amount", 
-      "tooltip": "BURN PER HIT:", 
+      "tooltip": "MANA BURN PER HIT:", 
       "value": [
        25, 
        50, 
@@ -15055,7 +15349,7 @@
      0, 
      0
     ], 
-    "description": "Damage dealt to unit that kills Necronomicon Warrior.", 
+    "description": "Deals damage to the unit that kills the Necronomicon Warrior.", 
     "displayname": "Last Will", 
     "level": 0, 
     "manacost": [
@@ -15069,8 +15363,8 @@
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 4, 
-  "attackdamagemax": 50, 
-  "attackdamagemin": 50, 
+  "attackdamagemax": 60, 
+  "attackdamagemin": 60, 
   "attackpoint": 0.56, 
   "attackrange": 100, 
   "attackrate": 0.75, 
@@ -15091,10 +15385,11 @@
   "movementspeed": 350, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_necronomicon_warrior_2", 
-  "statushealth": 600, 
+  "statushealth": 800, 
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -15140,7 +15435,7 @@
      }, 
      {
       "name": "burn_amount", 
-      "tooltip": "BURN PER HIT:", 
+      "tooltip": "MANA BURN PER HIT:", 
       "value": [
        25, 
        50, 
@@ -15226,7 +15521,7 @@
      0, 
      0
     ], 
-    "description": "Damage dealt to unit that kills Necronomicon Warrior.", 
+    "description": "Deals damage to the unit that kills the Necronomicon Warrior.", 
     "displayname": "Last Will", 
     "level": 0, 
     "manacost": [
@@ -15322,10 +15617,11 @@
   "movementspeed": 350, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_necronomicon_warrior_3", 
-  "statushealth": 800, 
+  "statushealth": 900, 
   "statushealthregen": 5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1500, 
   "visionnighttimerange": 800
  }, 
@@ -15499,6 +15795,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -15573,7 +15870,7 @@
      6
     ], 
     "damage": 70, 
-    "description": "The Big Thunder Lizard slams his mammoth body against the ground. The shock damages nearby enemies and throws them off their footing. Heroes regain their balance more quickly.", 
+    "description": "The Ancient Thunderhide slams his mammoth body against the ground. The shock damages nearby enemies and throws them off their footing. Heroes regain their balance more quickly.", 
     "displayname": "Slam", 
     "level": 0, 
     "manacost": [
@@ -15611,7 +15908,7 @@
      }, 
      {
       "name": "attackspeed_bonus", 
-      "tooltip": "%BONUS ATTACK SPEED:", 
+      "tooltip": "BONUS ATTACK SPEED:", 
       "value": [
        75
       ]
@@ -15629,7 +15926,7 @@
      0, 
      0
     ], 
-    "description": "The Big Thunder Lizard works himself into a frenzy, increasing his attack speed.", 
+    "description": "The Ancient Thunderhide works himself into a frenzy, increasing his attack speed.", 
     "displayname": "Frenzy", 
     "level": 0, 
     "manacost": [
@@ -15660,9 +15957,31 @@
     ], 
     "AbilityModifierSupportBonus": 0, 
     "AbilityModifierSupportValue": 1, 
-    "ID": 5303, 
+    "ID": 5682, 
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
-    "attributes": [], 
+    "attributes": [
+     {
+      "name": "damage_bonus", 
+      "tooltip": "%ATTACK DAMAGE INCREASE:", 
+      "value": [
+       15
+      ]
+     }, 
+     {
+      "name": "radius", 
+      "tooltip": "RADIUS:", 
+      "value": [
+       900
+      ]
+     }, 
+     {
+      "name": "speed_bonus", 
+      "tooltip": "ATTACK SPEED BONUS:", 
+      "value": [
+       15
+      ]
+     }
+    ], 
     "behavior": [
      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     ], 
@@ -15678,8 +15997,8 @@
      0, 
      0
     ], 
-    "description": "This creature does not feel the effects of most magical spells.", 
-    "displayname": "Spell Immunity", 
+    "description": "The rhythm of the Thunderhide's heartbeat increases the attack speed and attack damage of nearby allies.", 
+    "displayname": "War Drums Aura", 
     "level": 0, 
     "manacost": [
      0, 
@@ -15687,7 +16006,7 @@
      0, 
      0
     ], 
-    "name": "neutral_spell_immunity"
+    "name": "big_thunder_lizard_wardrums_aura"
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
@@ -15719,6 +16038,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 1, 
+  "unitlevel": 6, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -15728,6 +16048,73 @@
   "FollowRange": 100, 
   "HasInventory": 0, 
   "abilities": [
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 0, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5681, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "attributes": [
+     {
+      "name": "radius", 
+      "tooltip": "AURA RADIUS:", 
+      "value": [
+       900
+      ]
+     }, 
+     {
+      "name": "bonus_armor", 
+      "tooltip": "BONUS ARMOR:", 
+      "value": [
+       2
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    ], 
+    "cooldown": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "The Ancient Black Dragon's dreaded presence grants nearby allies additional armor. This bonus can stack with itself.", 
+    "displayname": "Dragonhide Aura", 
+    "level": 0, 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "black_dragon_dragonhide_aura"
+   }, 
    {
     "AbilityCastPoint": [
      0, 
@@ -15877,7 +16264,7 @@
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 6, 
+  "armorphysical": 4, 
   "attackdamagemax": 81, 
   "attackdamagemin": 48, 
   "attackpoint": 0.94, 
@@ -15891,8 +16278,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 234, 
-  "bountygoldmin": 164, 
+  "bountygoldmax": 190, 
+  "bountygoldmin": 150, 
   "bountyxp": 155, 
   "displayname": "Ancient Black Dragon", 
   "level": 0, 
@@ -15905,6 +16292,7 @@
   "statushealthregen": 2, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -15915,7 +16303,7 @@
   "HasInventory": 0, 
   "abilities": [], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 2, 
+  "armorphysical": 0, 
   "attackdamagemax": 45, 
   "attackdamagemin": 34, 
   "attackpoint": 0.94, 
@@ -15929,8 +16317,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 56, 
-  "bountygoldmin": 44, 
+  "bountygoldmax": 45, 
+  "bountygoldmin": 35, 
   "bountyxp": 62, 
   "displayname": "Ancient Black Drake", 
   "level": 0, 
@@ -15943,6 +16331,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16109,6 +16498,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 1, 
+  "unitlevel": 5, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16208,6 +16598,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 1, 
+  "unitlevel": 3, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16306,6 +16697,7 @@
   "statushealthregen": 1, 
   "statusmana": 200, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16344,6 +16736,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16382,6 +16775,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16520,6 +16914,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 550, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16611,6 +17006,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16763,6 +17159,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16801,6 +17198,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16839,6 +17237,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -16996,6 +17395,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 500, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -17109,6 +17509,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 0.75, 
+  "unitlevel": 3, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -17215,6 +17616,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -17329,6 +17731,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -17338,58 +17741,6 @@
   "FollowRange": 100, 
   "HasInventory": 0, 
   "abilities": [
-   {
-    "AbilityCastPoint": [
-     0, 
-     0, 
-     0, 
-     0
-    ], 
-    "AbilityCastRange": 0, 
-    "AbilityCastRangeBuffer": 250, 
-    "AbilityChannelTime": [
-     0, 
-     0, 
-     0, 
-     0
-    ], 
-    "AbilityDuration": [
-     0, 
-     0, 
-     0, 
-     0
-    ], 
-    "AbilityModifierSupportBonus": 0, 
-    "AbilityModifierSupportValue": 1, 
-    "ID": 5303, 
-    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
-    "attributes": [], 
-    "behavior": [
-     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    ], 
-    "cooldown": [
-     0, 
-     0, 
-     0, 
-     0
-    ], 
-    "damage": [
-     0, 
-     0, 
-     0, 
-     0
-    ], 
-    "description": "This creature does not feel the effects of most magical spells.", 
-    "displayname": "Spell Immunity", 
-    "level": 0, 
-    "manacost": [
-     0, 
-     0, 
-     0, 
-     0
-    ], 
-    "name": "neutral_spell_immunity"
-   }, 
    {
     "AbilityCastPoint": [
      0, 
@@ -17456,6 +17807,58 @@
      0
     ], 
     "name": "granite_golem_hp_aura"
+   }, 
+   {
+    "AbilityCastPoint": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityCastRange": 0, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5303, 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "attributes": [], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    ], 
+    "cooldown": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "This creature does not feel the effects of most magical spells.", 
+    "displayname": "Spell Immunity", 
+    "level": 0, 
+    "manacost": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "name": "neutral_spell_immunity"
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
@@ -17487,6 +17890,7 @@
   "statushealthregen": 1.5, 
   "statusmana": 600, 
   "statusmanaregen": 1.5, 
+  "unitlevel": 6, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -17525,6 +17929,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -17641,6 +18046,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 540, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -17679,6 +18085,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -17717,6 +18124,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -17823,6 +18231,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -17861,6 +18270,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -17870,6 +18280,71 @@
   "FollowRange": 100, 
   "HasInventory": 0, 
   "abilities": [
+   {
+    "AbilityCastPoint": 0.3, 
+    "AbilityCastRange": 800, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5670, 
+    "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+    "attributes": [
+     {
+      "name": "duration", 
+      "tooltip": "STUN DURATION:", 
+      "value": [
+       0.6
+      ]
+     }, 
+     {
+      "name": "speed", 
+      "value": [
+       800
+      ]
+     }, 
+     {
+      "name": "damage", 
+      "tooltip": "DAMAGE:", 
+      "value": [
+       125
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    ], 
+    "cooldown": [
+     30
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Hurls a boulder at the target, damaging and stunning them. Golems do not do this unless commanded to.", 
+    "displayname": "Hurl Boulder", 
+    "level": 0, 
+    "lore": "\\\"Why do they hesitate? What are they afraid of throwing?\\\"", 
+    "manacost": [
+     0
+    ], 
+    "name": "mud_golem_hurl_boulder"
+   }, 
    {
     "AbilityCastPoint": [
      0, 
@@ -17893,9 +18368,46 @@
     ], 
     "AbilityModifierSupportBonus": 0, 
     "AbilityModifierSupportValue": 1, 
-    "ID": 5303, 
+    "ID": 5667, 
     "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
-    "attributes": [], 
+    "attributes": [
+     {
+      "name": "duration", 
+      "value": [
+       2
+      ]
+     }, 
+     {
+      "name": "movespeed", 
+      "value": [
+       -25
+      ]
+     }, 
+     {
+      "name": "radius", 
+      "value": [
+       250
+      ]
+     }, 
+     {
+      "name": "shard_duration_tooltip", 
+      "value": [
+       60
+      ]
+     }, 
+     {
+      "name": "shard_health_tooltip", 
+      "value": [
+       240
+      ]
+     }, 
+     {
+      "name": "shard_damage_tooltip", 
+      "value": [
+       9
+      ]
+     }
+    ], 
     "behavior": [
      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     ], 
@@ -17911,8 +18423,8 @@
      0, 
      0
     ], 
-    "description": "This creature does not feel the effects of most magical spells.", 
-    "displayname": "Spell Immunity", 
+    "description": "On death, Mud Golems shatter into 2 Shard Golems. Shard Golems have %shard_health_tooltip% health, deal %shard_damage_tooltip% damage per attack, and live for %shard_duration_tooltip% seconds.", 
+    "displayname": "Shard Split", 
     "level": 0, 
     "manacost": [
      0, 
@@ -17920,11 +18432,11 @@
      0, 
      0
     ], 
-    "name": "neutral_spell_immunity"
+    "name": "mud_golem_rock_destroy"
    }
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
-  "armorphysical": 2, 
+  "armorphysical": 0, 
   "attackdamagemax": 33, 
   "attackdamagemin": 29, 
   "attackpoint": 0.3, 
@@ -17938,13 +18450,13 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 62, 
-  "bountygoldmin": 54, 
-  "bountyxp": 88, 
+  "bountygoldmax": 34, 
+  "bountygoldmin": 30, 
+  "bountyxp": 42, 
   "displayname": "Mud Golem", 
   "level": 0, 
-  "magicalresistance": 0, 
-  "movementspeed": 270, 
+  "magicalresistance": 50, 
+  "movementspeed": 310, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_neutral_mud_golem", 
   "projectilespeed": 0, 
@@ -17952,6 +18464,217 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 1, 
+  "unitlevel": 4, 
+  "visiondaytimerange": 800, 
+  "visionnighttimerange": 800
+ }, 
+ "npc_dota_neutral_mud_golem_split": {
+  "AttackAcquisitionRange": 500, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [
+   {
+    "AbilityCastPoint": 0.3, 
+    "AbilityCastRange": 800, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5670, 
+    "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+    "attributes": [
+     {
+      "name": "duration", 
+      "tooltip": "STUN DURATION:", 
+      "value": [
+       0.6
+      ]
+     }, 
+     {
+      "name": "speed", 
+      "value": [
+       800
+      ]
+     }, 
+     {
+      "name": "damage", 
+      "tooltip": "DAMAGE:", 
+      "value": [
+       125
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    ], 
+    "cooldown": [
+     30
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Hurls a boulder at the target, damaging and stunning them. Golems do not do this unless commanded to.", 
+    "displayname": "Hurl Boulder", 
+    "level": 0, 
+    "lore": "\\\"Why do they hesitate? What are they afraid of throwing?\\\"", 
+    "manacost": [
+     0
+    ], 
+    "name": "mud_golem_hurl_boulder"
+   }
+  ], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 10, 
+  "attackdamagemin": 9, 
+  "attackpoint": 0.3, 
+  "attackrange": 100, 
+  "attackrate": 1.35, 
+  "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 16, 
+  "bountygoldmin": 10, 
+  "bountyxp": 23, 
+  "displayname": "Shard Golem", 
+  "level": 0, 
+  "magicalresistance": 50, 
+  "movementspeed": 310, 
+  "movementturnrate": 0.5, 
+  "name": "npc_dota_neutral_mud_golem_split", 
+  "projectilespeed": 0, 
+  "statushealth": 240, 
+  "statushealthregen": 0.5, 
+  "statusmana": 400, 
+  "statusmanaregen": 1, 
+  "unitlevel": 4, 
+  "visiondaytimerange": 800, 
+  "visionnighttimerange": 800
+ }, 
+ "npc_dota_neutral_mud_golem_split_doom": {
+  "AttackAcquisitionRange": 500, 
+  "AttackRangeBuffer": 250, 
+  "FollowRange": 100, 
+  "HasInventory": 0, 
+  "abilities": [
+   {
+    "AbilityCastPoint": 0.3, 
+    "AbilityCastRange": 800, 
+    "AbilityCastRangeBuffer": 250, 
+    "AbilityChannelTime": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityDuration": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "AbilityModifierSupportBonus": 0, 
+    "AbilityModifierSupportValue": 1, 
+    "ID": 5670, 
+    "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
+    "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+    "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+    "attributes": [
+     {
+      "name": "duration", 
+      "tooltip": "STUN DURATION:", 
+      "value": [
+       0.6
+      ]
+     }, 
+     {
+      "name": "speed", 
+      "value": [
+       800
+      ]
+     }, 
+     {
+      "name": "damage", 
+      "tooltip": "DAMAGE:", 
+      "value": [
+       125
+      ]
+     }
+    ], 
+    "behavior": [
+     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    ], 
+    "cooldown": [
+     30
+    ], 
+    "damage": [
+     0, 
+     0, 
+     0, 
+     0
+    ], 
+    "description": "Hurls a boulder at the target, damaging and stunning them. Golems do not do this unless commanded to.", 
+    "displayname": "Hurl Boulder", 
+    "level": 0, 
+    "lore": "\\\"Why do they hesitate? What are they afraid of throwing?\\\"", 
+    "manacost": [
+     0
+    ], 
+    "name": "mud_golem_hurl_boulder"
+   }
+  ], 
+  "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
+  "armorphysical": 0, 
+  "attackdamagemax": 10, 
+  "attackdamagemin": 9, 
+  "attackpoint": 0.3, 
+  "attackrange": 100, 
+  "attackrate": 1.35, 
+  "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK", 
+  "attributeagilitygain": 0, 
+  "attributebaseagility": 0, 
+  "attributebaseintelligence": 0, 
+  "attributebasestrength": 0, 
+  "attributeintelligencegain": 0, 
+  "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
+  "attributestrengthgain": 0, 
+  "bountygoldmax": 16, 
+  "bountygoldmin": 10, 
+  "bountyxp": 23, 
+  "displayname": "Doom Shard", 
+  "level": 0, 
+  "magicalresistance": 50, 
+  "movementspeed": 310, 
+  "movementturnrate": 0.5, 
+  "name": "npc_dota_neutral_mud_golem_split_doom", 
+  "projectilespeed": 0, 
+  "statushealth": 240, 
+  "statushealthregen": 0.5, 
+  "statusmana": 400, 
+  "statusmanaregen": 1, 
+  "unitlevel": 4, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18055,8 +18778,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 61, 
-  "bountygoldmin": 43, 
+  "bountygoldmax": 45, 
+  "bountygoldmin": 35, 
   "bountyxp": 62, 
   "displayname": "Ogre Frostmage", 
   "level": 0, 
@@ -18069,6 +18792,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18107,6 +18831,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18131,8 +18856,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 70, 
-  "bountygoldmin": 60, 
+  "bountygoldmax": 55, 
+  "bountygoldmin": 45, 
   "bountyxp": 88, 
   "displayname": "Hellbear", 
   "level": 0, 
@@ -18141,10 +18866,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_neutral_polar_furbolg_champion", 
   "projectilespeed": 0, 
-  "statushealth": 950, 
+  "statushealth": 700, 
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18317,6 +19043,7 @@
   "statushealthregen": 1, 
   "statusmana": 300, 
   "statusmanaregen": 0, 
+  "unitlevel": 5, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18408,6 +19135,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 1, 
+  "unitlevel": 5, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18564,8 +19292,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 111, 
-  "bountygoldmin": 97, 
+  "bountygoldmax": 91, 
+  "bountygoldmin": 77, 
   "bountyxp": 119, 
   "displayname": "Satyr Tormenter", 
   "level": 0, 
@@ -18578,6 +19306,7 @@
   "statushealthregen": 1, 
   "statusmana": 600, 
   "statusmanaregen": 0, 
+  "unitlevel": 6, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18667,6 +19396,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 600, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18707,7 +19437,6 @@
      }, 
      {
       "name": "summon_damage", 
-      "tooltip": "SUMMON DAMAGE:", 
       "value": [
        400
       ]
@@ -18731,7 +19460,7 @@
      0, 
      0
     ], 
-    "description": "The Satyr Banisher knows every trick in the book, allowing him to remove debuffs from allies or buffs from enemies. His trickery also slows the enemy's movement. If the enemy is a summoned unit or an illusion, it takes damage as well.", 
+    "description": "The Satyr Banisher knows every trick in the book, allowing him to remove debuffs from allies or buffs from enemies. His trickery also slows the enemy's movement.", 
     "displayname": "Purge", 
     "level": 0, 
     "manacost": [
@@ -18769,6 +19498,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 500, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18846,8 +19576,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 87, 
-  "bountygoldmin": 79, 
+  "bountygoldmax": 70, 
+  "bountygoldmin": 60, 
   "bountyxp": 119, 
   "displayname": "Ancient Rumblehide", 
   "level": 0, 
@@ -18860,6 +19590,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 400, 
   "statusmanaregen": 1, 
+  "unitlevel": 5, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 800
  }, 
@@ -18898,6 +19629,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -18924,7 +19656,7 @@
   "attributestrengthgain": 0, 
   "bountygoldmax": 50, 
   "bountygoldmin": 50, 
-  "bountyxp": 0, 
+  "bountyxp": 50, 
   "displayname": "Observer Ward", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -18936,6 +19668,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 1600, 
   "visionnighttimerange": 1600
  }, 
@@ -18974,6 +19707,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -19012,6 +19746,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 800
  }, 
@@ -19049,6 +19784,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -19087,6 +19823,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -19125,6 +19862,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -19163,6 +19901,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -19201,6 +19940,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -19239,6 +19979,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 1600, 
   "visionnighttimerange": 600
  }, 
@@ -19276,6 +20017,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 575, 
   "visionnighttimerange": 575
  }, 
@@ -19314,6 +20056,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 300, 
   "visionnighttimerange": 300
  }, 
@@ -19663,6 +20406,7 @@
   "statushealthregen": 20, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 30, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 1400
  }, 
@@ -20531,6 +21275,7 @@
   "statushealthregen": 35, 
   "statusmana": 5000, 
   "statusmanaregen": 150, 
+  "unitlevel": 30, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 1400
  }, 
@@ -20568,6 +21313,7 @@
   "statushealthregen": 0, 
   "statusmana": 1000, 
   "statusmanaregen": 0, 
+  "unitlevel": 8, 
   "visiondaytimerange": 2400, 
   "visionnighttimerange": 2400
  }, 
@@ -20606,6 +21352,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 500, 
   "visionnighttimerange": 500
  }, 
@@ -20644,6 +21391,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -20682,6 +21430,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -20720,6 +21469,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -20758,6 +21508,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -20795,6 +21546,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -20832,8 +21584,9 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
-  "visiondaytimerange": 800, 
-  "visionnighttimerange": 800
+  "unitlevel": 1, 
+  "visiondaytimerange": 600, 
+  "visionnighttimerange": 600
  }, 
  "npc_dota_target_dummy": {
   "AttackAcquisitionRange": 800, 
@@ -20869,6 +21622,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 1, 
   "visionnighttimerange": 1
  }, 
@@ -20893,8 +21647,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 0, 
-  "bountygoldmin": 0, 
+  "bountygoldmax": 10, 
+  "bountygoldmin": 10, 
   "bountyxp": 14, 
   "displayname": "Land Mine", 
   "level": 0, 
@@ -20907,6 +21661,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 64, 
   "visionnighttimerange": 64
  }, 
@@ -20944,6 +21699,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -21033,8 +21789,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 0, 
-  "bountygoldmin": 0, 
+  "bountygoldmax": 10, 
+  "bountygoldmin": 10, 
   "bountyxp": 6, 
   "displayname": "Remote Mine", 
   "level": 0, 
@@ -21047,6 +21803,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 700, 
   "visionnighttimerange": 700
  }, 
@@ -21071,8 +21828,8 @@
   "attributeintelligencegain": 0, 
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH", 
   "attributestrengthgain": 0, 
-  "bountygoldmax": 0, 
-  "bountygoldmin": 0, 
+  "bountygoldmax": 10, 
+  "bountygoldmin": 10, 
   "bountyxp": 6, 
   "displayname": "Stasis Trap", 
   "level": 0, 
@@ -21085,6 +21842,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 600, 
   "visionnighttimerange": 600
  }, 
@@ -21181,7 +21939,7 @@
   "attributestrengthgain": 0, 
   "bountygoldmax": 1, 
   "bountygoldmin": 1, 
-  "bountyxp": 12, 
+  "bountyxp": 0, 
   "displayname": "Psionic Trap", 
   "level": 0, 
   "magicalresistance": 0, 
@@ -21193,6 +21951,7 @@
   "statushealthregen": 0.5, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -21230,6 +21989,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -21267,6 +22027,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 800, 
   "visionnighttimerange": 800
  }, 
@@ -21304,8 +22065,9 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
-  "visiondaytimerange": 500, 
-  "visionnighttimerange": 500
+  "unitlevel": 1, 
+  "visiondaytimerange": 0, 
+  "visionnighttimerange": 0
  }, 
  "npc_dota_tusk_frozen_sigil1": {
   "AttackAcquisitionRange": 800, 
@@ -21342,6 +22104,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -21380,6 +22143,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -21418,6 +22182,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -21456,6 +22221,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 0, 
   "visiondaytimerange": 400, 
   "visionnighttimerange": 400
  }, 
@@ -21543,10 +22309,11 @@
   "movementturnrate": 0, 
   "name": "npc_dota_unit_tombstone1", 
   "projectilespeed": 900, 
-  "statushealth": 200, 
+  "statushealth": 6, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -21634,10 +22401,11 @@
   "movementturnrate": 0, 
   "name": "npc_dota_unit_tombstone2", 
   "projectilespeed": 900, 
-  "statushealth": 400, 
+  "statushealth": 8, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -21725,10 +22493,11 @@
   "movementturnrate": 0, 
   "name": "npc_dota_unit_tombstone3", 
   "projectilespeed": 900, 
-  "statushealth": 600, 
+  "statushealth": 10, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -21816,10 +22585,11 @@
   "movementturnrate": 0, 
   "name": "npc_dota_unit_tombstone4", 
   "projectilespeed": 900, 
-  "statushealth": 800, 
+  "statushealth": 14, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 4, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -21884,6 +22654,12 @@
       ]
      }, 
      {
+      "name": "radius", 
+      "value": [
+       1200
+      ]
+     }, 
+     {
       "name": "duration", 
       "tooltip": "SLOW DURATION:", 
       "value": [
@@ -21979,8 +22755,8 @@
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 0, 
-  "attackdamagemax": 45, 
-  "attackdamagemin": 37, 
+  "attackdamagemax": 39, 
+  "attackdamagemin": 31, 
   "attackpoint": 0.3, 
   "attackrange": 128, 
   "attackrate": 1.6, 
@@ -22001,10 +22777,11 @@
   "movementspeed": 375, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_unit_undying_zombie", 
-  "statushealth": 30, 
-  "statushealthregen": 0.25, 
+  "statushealth": 2, 
+  "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 1400
  }, 
@@ -22069,6 +22846,12 @@
       ]
      }, 
      {
+      "name": "radius", 
+      "value": [
+       1200
+      ]
+     }, 
+     {
       "name": "duration", 
       "tooltip": "SLOW DURATION:", 
       "value": [
@@ -22164,8 +22947,8 @@
   ], 
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical", 
   "armorphysical": 0, 
-  "attackdamagemax": 45, 
-  "attackdamagemin": 37, 
+  "attackdamagemax": 39, 
+  "attackdamagemin": 31, 
   "attackpoint": 0.3, 
   "attackrange": 128, 
   "attackrate": 1.6, 
@@ -22186,10 +22969,11 @@
   "movementspeed": 375, 
   "movementturnrate": 0.5, 
   "name": "npc_dota_unit_undying_zombie_torso", 
-  "statushealth": 30, 
-  "statushealthregen": 0.25, 
+  "statushealth": 2, 
+  "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1400, 
   "visionnighttimerange": 1400
  }, 
@@ -22228,6 +23012,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -22266,6 +23051,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -22304,6 +23090,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -22342,6 +23129,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }, 
@@ -22393,7 +23181,7 @@
       "name": "stun_radius", 
       "tooltip": "STUN RADIUS:", 
       "value": [
-       325
+       340
       ]
      }, 
      {
@@ -22530,10 +23318,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_visage_familiar1", 
   "projectilespeed": 900, 
-  "statushealth": 300, 
+  "statushealth": 12, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 390, 
   "visionnighttimerange": 390
  }, 
@@ -22585,7 +23374,7 @@
       "name": "stun_radius", 
       "tooltip": "STUN RADIUS:", 
       "value": [
-       325
+       340
       ]
      }, 
      {
@@ -22722,10 +23511,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_visage_familiar2", 
   "projectilespeed": 900, 
-  "statushealth": 450, 
+  "statushealth": 12, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 390, 
   "visionnighttimerange": 390
  }, 
@@ -22777,7 +23567,7 @@
       "name": "stun_radius", 
       "tooltip": "STUN RADIUS:", 
       "value": [
-       325
+       340
       ]
      }, 
      {
@@ -22914,10 +23704,11 @@
   "movementturnrate": 0.5, 
   "name": "npc_dota_visage_familiar3", 
   "projectilespeed": 900, 
-  "statushealth": 600, 
+  "statushealth": 12, 
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 390, 
   "visionnighttimerange": 390
  }, 
@@ -23104,9 +23895,10 @@
   "name": "npc_dota_warlock_golem_1", 
   "projectilespeed": 0, 
   "statushealth": 900, 
-  "statushealthregen": 15, 
+  "statushealthregen": 25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -23293,9 +24085,10 @@
   "name": "npc_dota_warlock_golem_2", 
   "projectilespeed": 0, 
   "statushealth": 1200, 
-  "statushealthregen": 30, 
+  "statushealthregen": 50, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -23482,9 +24275,10 @@
   "name": "npc_dota_warlock_golem_3", 
   "projectilespeed": 0, 
   "statushealth": 1500, 
-  "statushealthregen": 45, 
+  "statushealthregen": 75, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -23671,9 +24465,10 @@
   "name": "npc_dota_warlock_golem_scepter_1", 
   "projectilespeed": 0, 
   "statushealth": 675, 
-  "statushealthregen": 15, 
+  "statushealthregen": 25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -23860,9 +24655,10 @@
   "name": "npc_dota_warlock_golem_scepter_2", 
   "projectilespeed": 0, 
   "statushealth": 900, 
-  "statushealthregen": 30, 
+  "statushealthregen": 50, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -24049,9 +24845,10 @@
   "name": "npc_dota_warlock_golem_scepter_3", 
   "projectilespeed": 0, 
   "statushealth": 1125, 
-  "statushealthregen": 45, 
+  "statushealthregen": 75, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 1800, 
   "visionnighttimerange": 1800
  }, 
@@ -24090,6 +24887,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 2, 
   "visiondaytimerange": 321, 
   "visionnighttimerange": 321
  }, 
@@ -24127,6 +24925,7 @@
   "statushealthregen": 0, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 1, 
   "visiondaytimerange": 0, 
   "visionnighttimerange": 0
  }, 
@@ -24165,6 +24964,7 @@
   "statushealthregen": 0.25, 
   "statusmana": 0, 
   "statusmanaregen": 0, 
+  "unitlevel": 3, 
   "visiondaytimerange": 1200, 
   "visionnighttimerange": 800
  }

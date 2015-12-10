@@ -25,7 +25,7 @@
    }, 
    {
     "name": "bash_chance_melee", 
-    "tooltip": "%MELEE CHANCE:", 
+    "tooltip": "%BASH MELEE CHANCE:", 
     "value": [
      25
     ]
@@ -34,39 +34,48 @@
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
-     100
+     85
+    ]
+   }, 
+   {
+    "name": "bonus_chance_damage", 
+    "tooltip": "BASH BONUS DAMAGE:", 
+    "value": [
+     60
     ]
    }, 
    {
     "name": "bash_cooldown", 
     "value": [
-     2
-    ]
-   }, 
-   {
-    "name": "stun_duration", 
-    "value": [
-     2
+     2.3
     ]
    }, 
    {
     "name": "bash_chance_ranged", 
-    "tooltip": "%RANGED CHANCE:", 
+    "tooltip": "%BASH RANGED CHANCE:", 
     "value": [
      10
     ]
    }, 
    {
     "name": "bash_duration", 
+    "tooltip": "BASH STUN DURATION:", 
     "value": [
      1.4
+    ]
+   }, 
+   {
+    "name": "stun_duration", 
+    "tooltip": "OVERWHELM STUN DURATION:", 
+    "value": [
+     2
     ]
    }
   ], 
   "cooldown": [
    60
   ], 
-  "description": "Active: Stun a target enemy unit for %stun_duration% seconds. Goes through Spell Immunity. Passive: Bash - Gives a chance to stun for 1.4 seconds.", 
+  "description": "Active: Overwhelm - Stuns a target enemy unit for %stun_duration% seconds. Pierces Spell Immunity.\\nPassive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.", 
   "displayname": "Abyssal Blade", 
   "id": 208, 
   "itemcost": 6750, 
@@ -148,12 +157,14 @@
    }, 
    {
     "name": "bonus_movement_speed_pct", 
+    "tooltip": "%ENDURANCE MOVE SPEED:", 
     "value": [
      10
     ]
    }, 
    {
     "name": "duration", 
+    "tooltip": "ENDURANCE DURATION:", 
     "value": [
      6
     ]
@@ -167,12 +178,14 @@
    }, 
    {
     "name": "bonus_attack_speed_pct", 
+    "tooltip": "ENDURANCE ATTACK SPEED:", 
     "value": [
-     10
+     25
     ]
    }, 
    {
     "name": "radius", 
+    "tooltip": "AURA/ENDURANCE RADIUS:", 
     "value": [
      900
     ]
@@ -181,7 +194,7 @@
   "cooldown": [
    30
   ], 
-  "description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to surrounding allies.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to surrounding allies.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
+  "description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to allies in a %radius% radius.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to allies in a %radius% radius.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
   "displayname": "Drum of Endurance", 
   "id": 185, 
   "itemcost": 1850, 
@@ -210,9 +223,10 @@
     ]
    }, 
    {
-    "name": "replenish_radius", 
+    "name": "replenish_amount", 
+    "tooltip": "REPLENISH MANA RESTORE:", 
     "value": [
-     600
+     135
     ]
    }, 
    {
@@ -223,24 +237,24 @@
     ]
    }, 
    {
-    "name": "replenish_amount", 
-    "tooltip": "MANA RESTORED:", 
+    "name": "replenish_radius", 
+    "tooltip": "REPLENISH CAST RADIUS:", 
     "value": [
-     135
+     900
     ]
    }
   ], 
   "cooldown": [
    55
   ], 
-  "description": "Active: Replenish Mana - Restores mana in an area around the hero.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "description": "Active: Replenish Mana - Restores mana to all allies in a %replenish_radius% area around the hero.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
   "displayname": "Arcane Boots", 
   "id": 180, 
-  "itemcost": 1450, 
+  "itemcost": 1350, 
   "level": 0, 
   "lore": "Magi equipped with these boots are valued in battle.", 
   "manacost": [
-   35
+   0
   ], 
   "name": "item_arcane_boots"
  }, 
@@ -262,7 +276,7 @@
     "name": "bonus_attack_speed", 
     "tooltip": "+$attack", 
     "value": [
-     15
+     25
     ]
    }, 
    {
@@ -282,7 +296,7 @@
    {
     "name": "unholy_bonus_attack_speed", 
     "value": [
-     10
+     0
     ]
    }, 
    {
@@ -311,6 +325,12 @@
     ]
    }, 
    {
+    "name": "unholy_health_drain_per_second_tooltip", 
+    "value": [
+     40
+    ]
+   }, 
+   {
     "name": "toggle_cooldown", 
     "value": [
      "0.036f"
@@ -320,10 +340,10 @@
   "cooldown": [
    0
   ], 
-  "description": "Active: Unholy Strength - Gives +31 damage, +10 attack speed, and +25 strength while active, but drains 40 HP per second.  You cannot die from the health loss when the bonus strength is gone, or the health drain per second.", 
+  "description": "Active: Toggle Unholy Strength - When active, Unholy Strength grants +%unholy_bonus_damage% damage and +%unholy_bonus_strength% strength, but drains %unholy_health_drain_per_second_tooltip% health per second.  You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated.", 
   "displayname": "Armlet of Mordiggian", 
   "id": 151, 
-  "itemcost": 2400, 
+  "itemcost": 2320, 
   "level": 0, 
   "lore": "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power.", 
   "manacost": [], 
@@ -360,7 +380,7 @@
    }, 
    {
     "name": "aura_negative_armor", 
-    "tooltip": "AURA ARMOR REDUCTION:", 
+    "tooltip": "AURA ENEMY ARMOR REDUCTION:", 
     "value": [
      -5
     ]
@@ -374,14 +394,14 @@
    }, 
    {
     "name": "aura_positive_armor", 
-    "tooltip": "AURA BONUS ARMOR:", 
+    "tooltip": "AURA ALLY BONUS ARMOR:", 
     "value": [
      5
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive:  Assault Aura - Grants attack speed and armor to nearby allied units, and decreases armor for nearby enemies.\\n\\nMultiple instances of Assault Aura do not stack.", 
+  "description": "Passive: Assault Aura - Grants attack speed and armor to nearby allied units, and decreases the armor of nearby enemies.\\n\\nMultiple instances of Assault Aura do not stack.", 
   "displayname": "Assault Cuirass", 
   "id": 112, 
   "itemcost": 5250, 
@@ -403,12 +423,12 @@
     "name": "bonus_strength", 
     "tooltip": "+$str", 
     "value": [
-     6
+     8
     ]
    }, 
    {
     "name": "bash_chance_melee", 
-    "tooltip": "%MELEE CHANCE:", 
+    "tooltip": "%BASH MELEE CHANCE:", 
     "value": [
      25
     ]
@@ -417,33 +437,41 @@
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
-     40
+     25
     ]
    }, 
    {
     "name": "bash_cooldown", 
     "value": [
-     2
+     2.3
+    ]
+   }, 
+   {
+    "name": "bonus_chance_damage", 
+    "tooltip": "BASH BONUS DAMAGE:", 
+    "value": [
+     60
     ]
    }, 
    {
     "name": "bash_chance_ranged", 
-    "tooltip": "%RANGED CHANCE:", 
+    "tooltip": "%BASH RANGED CHANCE:", 
     "value": [
      10
     ]
    }, 
    {
     "name": "bash_duration", 
+    "tooltip": "BASH STUN DURATION:", 
     "value": [
      1.4
     ]
    }
   ], 
   "cooldown": [
-   2
+   2.3
   ], 
-  "description": "Passive: Bash - Gives a chance to stun for 1.4 seconds.", 
+  "description": "Passive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.", 
   "displayname": "Skull Basher", 
   "id": 143, 
   "itemcost": 2950, 
@@ -481,7 +509,14 @@
   "name": "item_belt_of_strength"
  }, 
  "item_bfury": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 350, 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_CUSTOM", 
+  "AbilityUnitTargetType": [
+   "DOTA_UNIT_TARGET_TREE", 
+   "DOTA_UNIT_TARGET_CUSTOM"
+  ], 
   "ItemAliases": [
    "bf;battle", 
    "fury"
@@ -507,7 +542,20 @@
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
-     65
+     55
+    ]
+   }, 
+   {
+    "name": "quelling_bonus_ranged", 
+    "tooltip": "%QUELL RANGED DAMAGE:", 
+    "value": [
+     125
+    ]
+   }, 
+   {
+    "name": "cleave_radius", 
+    "value": [
+     280
     ]
    }, 
    {
@@ -518,29 +566,34 @@
     ]
    }, 
    {
-    "name": "cleave_radius", 
-    "value": [
-     250
-    ]
-   }, 
-   {
     "name": "quelling_bonus", 
+    "tooltip": "%QUELL MELEE DAMAGE:", 
     "value": [
-     32
+     160
     ]
    }, 
    {
-    "name": "quelling_bonus_ranged", 
+    "name": "cast_range_tooltip", 
+    "tooltip": "CHOP TREE CAST RANGE:", 
     "value": [
-     12
+     350
+    ]
+   }, 
+   {
+    "name": "cast_range_ward", 
+    "tooltip": "CHOP WARD CAST RANGE:", 
+    "value": [
+     450
     ]
    }
   ], 
-  "cooldown": [], 
-  "description": "Passive: Cleave - Deals a percent of attack damage in a %cleave_radius% area around the target. Ranged units cannot Cleave.", 
+  "cooldown": [
+   4
+  ], 
+  "description": "Active: Chop Tree/Ward - Destroy a target tree or ward. Chop cast range is increased when targetting wards.\\nPassive: Quell - Increases attack damage against non-hero units, based on whether the equipped hero is ranged or melee. Does not provide bonus damage against Roshan.\\nPassive: Cleave - Deals a percent of attack damage in a %cleave_radius% area around the target. Ranged units cannot Cleave.", 
   "displayname": "Battle Fury", 
   "id": 145, 
-  "itemcost": 4350, 
+  "itemcost": 4525, 
   "level": 0, 
   "lore": "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once.", 
   "manacost": [], 
@@ -568,7 +621,7 @@
    }, 
    {
     "name": "duration", 
-    "tooltip": "DURATION:", 
+    "tooltip": "AVATAR DURATION:", 
     "value": [
      10, 
      9, 
@@ -606,7 +659,7 @@
    60, 
    55
   ], 
-  "description": "Active: Avatar - Grants Spell Immunity and 100% Magic Damage Resistance.  Duration and cooldown decrease with each use.  Some Ultimate abilities are able to disable through Black King Bar.", 
+  "description": "Active: Avatar - Grants Spell Immunity and 100% Magic Damage Resistance.  Duration and cooldown decrease with each use.  Some abilities are able to disable through Avatar.", 
   "displayname": "Black King Bar", 
   "id": 116, 
   "itemcost": 3975, 
@@ -650,15 +703,16 @@
    }, 
    {
     "name": "duration", 
+    "tooltip": "DAMAGE RETURN DURATION:", 
     "value": [
      4.5
     ]
    }
   ], 
   "cooldown": [
-   17
+   15
   ], 
-  "description": "Active: Damage Return - Returns any damage you take to the unit that dealt the damage.  Lasts 4.5 seconds.", 
+  "description": "Active: Damage Return - Reflects any damage taken back to the unit that dealt the damage.  Lasts %duration% seconds.", 
   "displayname": "Blade Mail", 
   "id": 127, 
   "itemcost": 2200, 
@@ -719,7 +773,7 @@
   "description": null, 
   "displayname": "Blades of Attack", 
   "id": 2, 
-  "itemcost": 450, 
+  "itemcost": 420, 
   "level": 0, 
   "lore": "The damage of these small, concealable blades should not be underestimated.", 
   "manacost": [], 
@@ -762,7 +816,7 @@
   "cooldown": [
    12
   ], 
-  "description": "Active: Blink - Teleport to a target point up to %blink_range% units away.  If damage is taken, Blink Dagger cannot be used for 3 seconds.", 
+  "description": "Active: Blink - Teleport to a target point up to %blink_range% units away.  If damage is taken, Blink Dagger cannot be used for %blink_damage_cooldown% seconds.", 
   "displayname": "Blink Dagger", 
   "id": 1, 
   "itemcost": 2250, 
@@ -795,12 +849,6 @@
     "tooltip": "+$hp_regen", 
     "value": [
      9
-    ]
-   }, 
-   {
-    "name": "bonus_damage", 
-    "value": [
-     0
     ]
    }, 
    {
@@ -842,9 +890,15 @@
     ]
    }, 
    {
-    "name": "vision_on_death_radius", 
+    "name": "respawn_time_reduction", 
     "value": [
-     1800
+     3
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "value": [
+     0
     ]
    }, 
    {
@@ -856,20 +910,14 @@
    {
     "name": "death_gold_reduction", 
     "value": [
-     25
-    ]
-   }, 
-   {
-    "name": "respawn_time_reduction", 
-    "value": [
-     4
+     0
     ]
    }
   ], 
   "cooldown": [
    300
   ], 
-  "description": "Active: Pocket Deny - Instantly causes you to die.\\n\\nPassive: Bloodpact - Begins with 8 charges, and gains a charge each time an enemy hero dies within 1675 range. Each charge grants 1 mana regeneration per second, reduces the gold lost from death by 25, and reduces respawn time by 4 seconds. If the bearer dies, 500 + 30 health per charge is restored to all allies within a 1675 radius, while the Bloodstone loses a third of its charges. A bloodmark is then placed where the bearer died, granting vision over a 1800 radius and allowing the bearer to gain nearby experience while dead.", 
+  "description": "Active: Pocket Deny - Instantly causes you to die.\\nPassive: Bloodpact - Begins with 8 charges, and gains a charge each time an enemy hero dies within 1675 range. Each charge grants 1 mana regeneration per second, and reduces respawn time by %respawn_time_reduction% seconds. If the bearer dies, %heal_on_death_base% + %heal_on_death_per_charge% health per charge is restored to all allies within a %heal_on_death_range% radius, while the Bloodstone loses a third of its charges.", 
   "displayname": "Bloodstone", 
   "id": 121, 
   "itemcost": 4900, 
@@ -969,7 +1017,7 @@
     "name": "health_restore", 
     "tooltip": "HEALTH RESTORED:", 
     "value": [
-     135
+     110
     ]
    }, 
    {
@@ -982,7 +1030,7 @@
   "cooldown": [
    0.5
   ], 
-  "description": "Use:  Regenerate - Restores HP and Mana over time. Effect is lost if unit is attacked. Empty Bottle refills near town fountain.  You can also store runes in the bottle, to save for later use.  After 2 minutes, stored Runes will be activated automatically.  If Bottle does not have full charges and is placed on a courier, the courier will move 30%% slower.\\n\\nHold Control to use your Bottle on an allied hero.", 
+  "description": "Use: Regenerate - Consumes a charge to restore Health and Mana over time. Healing stops if attacked.  Bottle can be refilled at your team's fountain.  Runes can be stored in the Bottle for later use, and are activated automatically after 2 minutes.  If Bottle does not have full charges and is placed on a courier, the courier will move 30%% slower.\\n\\nHold Control to use Regenerate on an allied hero.  Stored runes cannot be shared.", 
   "displayname": "Bottle", 
   "id": 41, 
   "itemcost": 700, 
@@ -1106,8 +1154,9 @@
    }, 
    {
     "name": "bonus_aoe_radius", 
+    "tooltip": "ARMOR CAST RADIUS:", 
     "value": [
-     750
+     900
     ]
    }, 
    {
@@ -1139,7 +1188,7 @@
   "cooldown": [
    25
   ], 
-  "description": "Active: Armor Bonus - Gives +%bonus_aoe_armor% to all nearby allied units.  Lasts 25 seconds on heroes, 30 seconds on units.", 
+  "description": "Active: Armor Bonus - Gives +%bonus_aoe_armor% armor to all allied units in a %bonus_aoe_radius% radius.  Lasts 25 seconds on heroes, 30 seconds on units.", 
   "displayname": "Buckler", 
   "id": 86, 
   "itemcost": 800, 
@@ -1181,10 +1230,10 @@
     ]
    }, 
    {
-    "name": "bonus_move_speed", 
-    "tooltip": "%FLUTTER BONUS MOVE SPEED:", 
+    "name": "duration", 
+    "tooltip": "FLUTTER DURATION:", 
     "value": [
-     20
+     6
     ]
    }, 
    {
@@ -1195,10 +1244,10 @@
     ]
    }, 
    {
-    "name": "duration", 
-    "tooltip": "FLUTTER DURATION:", 
+    "name": "bonus_move_speed", 
+    "tooltip": "%FLUTTER BONUS MOVE SPEED:", 
     "value": [
-     8
+     25
     ]
    }
   ], 
@@ -1208,7 +1257,7 @@
   "description": "Active: Flutter - Trade evasion for %bonus_move_speed%%% additional movement speed for %duration% seconds.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "displayname": "Butterfly", 
   "id": 139, 
-  "itemcost": 6000, 
+  "itemcost": 5875, 
   "level": 0, 
   "lore": "Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat.", 
   "manacost": [], 
@@ -1265,7 +1314,7 @@
   "cooldown": [
    40
   ], 
-  "description": "Use: Instantly restores health and mana.", 
+  "description": "Use: Consume to instantly restore health and mana.", 
   "displayname": "Cheese", 
   "id": 33, 
   "itemcost": 1000, 
@@ -1305,7 +1354,7 @@
    "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
   ], 
   "AbilityCastPoint": 0, 
-  "AbilityCastRange": 100, 
+  "AbilityCastRange": 250, 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
   "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
   "ItemAliases": "clarity", 
@@ -1315,22 +1364,22 @@
   "ItemStackable": 1, 
   "attributes": [
    {
-    "name": "total_mana", 
-    "tooltip": "MANA RESTORED:", 
-    "value": [
-     150
-    ]
-   }, 
-   {
     "name": "buff_duration", 
     "tooltip": "DURATION:", 
     "value": [
-     40
+     45
+    ]
+   }, 
+   {
+    "name": "total_mana", 
+    "tooltip": "TOTAL MANA RESTORED:", 
+    "value": [
+     170
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Use: Restores mana on the target unit over time.  If the unit is attacked, the effect is lost.", 
+  "description": "Use: Restores mana to the target unit over time.  If the unit is attacked, the effect is lost.", 
   "displayname": "Clarity", 
   "id": 38, 
   "itemcost": 50, 
@@ -1373,13 +1422,13 @@
     "name": "tooltip_resist", 
     "tooltip": "%+$spell_resist", 
     "value": [
-     15
+     20
     ]
    }, 
    {
     "name": "bonus_magical_armor", 
     "value": [
-     15
+     20
     ]
    }
   ], 
@@ -1405,12 +1454,12 @@
   "ItemSupport": 1, 
   "attributes": [], 
   "cooldown": [], 
-  "description": "Creature that carries items to and from your base.", 
+  "description": "Use: Deploy Courier - Deploys a creature to carry items to and from your team's base.", 
   "displayname": "Animal Courier", 
   "id": 45, 
   "itemcost": 120, 
   "level": 0, 
-  "lore": "Losing the donkey is punishable by death.", 
+  "lore": "Losing the courier is punishable by death.", 
   "manacost": [], 
   "name": "item_courier"
  }, 
@@ -1474,7 +1523,7 @@
     "name": "block_chance", 
     "tooltip": "%BLOCK CHANCE:", 
     "value": [
-     67
+     75
     ]
    }, 
    {
@@ -1494,21 +1543,21 @@
    {
     "name": "block_damage_ranged_active", 
     "value": [
-     50
+     55
     ]
    }, 
    {
     "name": "block_damage_melee_active", 
     "tooltip": "GUARD DAMAGE BLOCK :", 
     "value": [
-     50
+     55
     ]
    }, 
    {
     "name": "bonus_aoe_radius", 
     "tooltip": "GUARD RADIUS:", 
     "value": [
-     750
+     900
     ]
    }
   ], 
@@ -1518,7 +1567,7 @@
   "description": "Active: Guard - Grant nearby allied heroes a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\\nPassive: Damage Block - Gives the wearer a chance to block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "displayname": "Crimson Guard", 
   "id": 242, 
-  "itemcost": 3850, 
+  "itemcost": 3550, 
   "level": 0, 
   "lore": "A cuirass originally built to protect against the dreaded Year Beast.", 
   "manacost": [], 
@@ -1530,7 +1579,7 @@
    "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
   ], 
   "AbilityCastPoint": 0, 
-  "AbilityCastRange": 700, 
+  "AbilityCastRange": 575, 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_CUSTOM", 
   "AbilityUnitTargetType": "DOTA_UNIT_TARGET_CUSTOM", 
   "ItemAliases": [
@@ -1566,22 +1615,30 @@
    }, 
    {
     "name": "cyclone_duration", 
+    "tooltip": "CYCLONE DURATION:", 
     "value": [
      2.5
+    ]
+   }, 
+   {
+    "name": "cast_range_tooltip", 
+    "tooltip": "CYCLONE CAST RANGE:", 
+    "value": [
+     575
     ]
    }
   ], 
   "cooldown": [
    23
   ], 
-  "description": "Active: Cyclone - A target unit is swept up in a cyclone and made invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.", 
+  "description": "Active: Cyclone - Sweeps a target unit up into cyclone, making them invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.", 
   "displayname": "Eul's Scepter of Divinity", 
   "id": 100, 
-  "itemcost": 2850, 
+  "itemcost": 2825, 
   "level": 0, 
   "lore": "A mysterious scepter passed down through the ages, its disruptive winds can be used for good or evil.", 
   "manacost": [
-   75
+   175
   ], 
   "name": "item_cyclone"
  }, 
@@ -1638,6 +1695,12 @@
     ]
    }, 
    {
+    "name": "damage_delay", 
+    "value": [
+     0
+    ]
+   }, 
+   {
     "name": "damage", 
     "tooltip": "BURST DAMAGE:", 
     "value": [
@@ -1667,7 +1730,7 @@
    20, 
    15
   ], 
-  "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
+  "description": "Active: Energy Burst - Emits a powerful burst of magical damage upon a targeted enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 104, 
   "itemcost": 2720, 
@@ -1731,6 +1794,12 @@
     ]
    }, 
    {
+    "name": "damage_delay", 
+    "value": [
+     0
+    ]
+   }, 
+   {
     "name": "damage", 
     "tooltip": "BURST DAMAGE:", 
     "value": [
@@ -1760,7 +1829,7 @@
    20, 
    15
   ], 
-  "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
+  "description": "Active: Energy Burst - Emits a powerful burst of magical damage upon a targeted enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 201, 
   "itemcost": 3970, 
@@ -1824,6 +1893,12 @@
     ]
    }, 
    {
+    "name": "damage_delay", 
+    "value": [
+     0
+    ]
+   }, 
+   {
     "name": "damage", 
     "tooltip": "BURST DAMAGE:", 
     "value": [
@@ -1853,7 +1928,7 @@
    20, 
    15
   ], 
-  "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
+  "description": "Active: Energy Burst - Emits a powerful burst of magical damage upon a targeted enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 202, 
   "itemcost": 5220, 
@@ -1917,6 +1992,12 @@
     ]
    }, 
    {
+    "name": "damage_delay", 
+    "value": [
+     0
+    ]
+   }, 
+   {
     "name": "damage", 
     "tooltip": "BURST DAMAGE:", 
     "value": [
@@ -1946,7 +2027,7 @@
    20, 
    15
   ], 
-  "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
+  "description": "Active: Energy Burst - Emits a powerful burst of magical damage upon a targeted enemy unit. Upgradable.", 
   "displayname": "Dagon", 
   "id": 203, 
   "itemcost": 6470, 
@@ -2008,6 +2089,12 @@
     ]
    }, 
    {
+    "name": "damage_delay", 
+    "value": [
+     0
+    ]
+   }, 
+   {
     "name": "damage", 
     "tooltip": "BURST DAMAGE:", 
     "value": [
@@ -2037,7 +2124,7 @@
    20, 
    15
   ], 
-  "description": "Active: Energy Burst - Burst of damage to target enemy unit. Upgradable.", 
+  "description": "Active: Energy Burst - Emits a powerful burst of magical damage upon a targeted enemy unit.", 
   "displayname": "Dagon", 
   "id": 204, 
   "itemcost": 7720, 
@@ -2098,7 +2185,7 @@
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
-     60
+     50
     ]
    }
   ], 
@@ -2106,7 +2193,7 @@
   "description": "Passive: Corruption - Your attacks reduce target's armor for 15 seconds.\\n\\nDesolator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Desolator", 
   "id": 168, 
-  "itemcost": 4100, 
+  "itemcost": 3500, 
   "level": 0, 
   "lore": "A wicked weapon, used in torturing political criminals.", 
   "manacost": [], 
@@ -2197,6 +2284,13 @@
     ]
    }, 
    {
+    "name": "cast_range_tooltip", 
+    "tooltip": "PURGE CAST RANGE:", 
+    "value": [
+     600
+    ]
+   }, 
+   {
     "name": "damage_per_burn", 
     "value": [
      1
@@ -2204,9 +2298,9 @@
    }
   ], 
   "cooldown": [
-   8
+   0
   ], 
-  "description": "Active: Purge - Purges a target unit, removing its buffs, and slowing it. Instantly kills summoned units.\\nPassive: Manabreak - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Does not stack with other manabreak abilities.\\n\\nUpgradable.", 
+  "description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns 12 mana per attack from ranged illusions. Does not stack with other manabreak abilities.\\n\\nUpgradable.", 
   "displayname": "Diffusal Blade", 
   "id": 174, 
   "itemcost": 3150, 
@@ -2300,6 +2394,13 @@
     ]
    }, 
    {
+    "name": "cast_range_tooltip", 
+    "tooltip": "PURGE CAST RANGE:", 
+    "value": [
+     600
+    ]
+   }, 
+   {
     "name": "damage_per_burn", 
     "value": [
      1
@@ -2307,9 +2408,9 @@
    }
   ], 
   "cooldown": [
-   8
+   0
   ], 
-  "description": "Active: Purge - Purges a target unit, removing its buffs, and slowing it. Instantly kills summoned units.\\nPassive: Manabreak - Your attacks burn %feedback_mana_burn% mana and deal the same amount in physical damage. Does not stack with other manabreak abilities.", 
+  "description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. Instantly kills enemy summoned units and illusions. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns 12 mana per attack from ranged illusions. Does not stack with other manabreak abilities.", 
   "displayname": "Diffusal Blade", 
   "id": 196, 
   "itemcost": 3850, 
@@ -2347,7 +2448,7 @@
     "name": "movespeed", 
     "tooltip": "%SLOW:", 
     "value": [
-     -15
+     -20
     ]
    }, 
    {
@@ -2359,9 +2460,9 @@
    }
   ], 
   "cooldown": [
-   60
+   30
   ], 
-  "description": "Use: Reveal - Reveals and slows invisible Heroes in a nearby area.", 
+  "description": "Use: Reveals and slows invisible Heroes in a nearby area.", 
   "displayname": "Dust of Appearance", 
   "id": 40, 
   "itemcost": 180, 
@@ -2390,11 +2491,56 @@
   "description": null, 
   "displayname": "Eaglesong", 
   "id": 52, 
-  "itemcost": 3300, 
+  "itemcost": 3200, 
   "level": 0, 
   "lore": "Capturing the majestic call of an eagle, this mystical horn brings limitless dexterity to those who hear it.", 
   "manacost": [], 
   "name": "item_eagle"
+ }, 
+ "item_enchanted_mango": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+   "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+  ], 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 400, 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
+  "ItemAliases": [
+   "enchanted", 
+   "mango"
+  ], 
+  "ItemInitialCharges": 1, 
+  "ItemQuality": "consumable", 
+  "ItemShopTags": "consumable", 
+  "ItemStackable": 0, 
+  "attributes": [
+   {
+    "name": "replenish_amount", 
+    "tooltip": "MANA RESTORED:", 
+    "value": [
+     150
+    ]
+   }, 
+   {
+    "name": "hp_regen", 
+    "tooltip": "+$hp_regen", 
+    "value": [
+     1
+    ]
+   }
+  ], 
+  "cooldown": [], 
+  "description": "Use: Consume the mango to instantly restore %replenish_amount% mana.\\n\\nHold Control to use Enchanted Mango on an allied hero.", 
+  "displayname": "Enchanted Mango", 
+  "id": 216, 
+  "itemcost": 125, 
+  "level": 0, 
+  "lore": "The bittersweet flavors of Jidi Isle are irresistible to amphibians.", 
+  "manacost": [], 
+  "name": "item_enchanted_mango"
  }, 
  "item_energy_booster": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
@@ -2417,7 +2563,7 @@
   "description": null, 
   "displayname": "Energy Booster", 
   "id": 59, 
-  "itemcost": 1000, 
+  "itemcost": 900, 
   "level": 0, 
   "lore": "This lapis gemstone is commonly added to the collection of wizards seeking to improve their presence in combat.", 
   "manacost": [], 
@@ -2481,6 +2627,7 @@
    }, 
    {
     "name": "blast_movement_slow", 
+    "tooltip": "%BLAST ENEMY MOVE SLOW:", 
     "value": [
      -80
     ]
@@ -2514,12 +2661,12 @@
    }
   ], 
   "cooldown": [
-   30
+   20
   ], 
-  "description": "Active: Ether Blast - Launches a projectile which converts your target into ethereal form, increasing incoming magic damage. Target unit is slowed and cannot attack or be attacked, and takes %blast_agility_multiplier%x of your primary attribute + 75 as damage.", 
+  "description": "Active: Ether Blast - Launches a projectile which converts the target to ethereal form, increasing any incoming magic damage they take, while rendering them immune to physical damage and unable to attack.  Can be cast on self.  If the target is an enemy, it is also slowed, and takes %blast_agility_multiplier%x your primary attribute + %blast_damage_base% as magical damage.\\nUsing a Town Portal Scroll or Boots of Travel will not dispel Ethereal Form.", 
   "displayname": "Ethereal Blade", 
   "id": 176, 
-  "itemcost": 4900, 
+  "itemcost": 4700, 
   "level": 0, 
   "lore": "A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes.", 
   "manacost": [
@@ -2534,7 +2681,7 @@
    "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
   ], 
   "AbilityCastPoint": 0, 
-  "AbilityCastRange": 100, 
+  "AbilityCastRange": 250, 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
   "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
   "ItemAliases": [
@@ -2557,12 +2704,12 @@
     "name": "buff_duration", 
     "tooltip": "DURATION:", 
     "value": [
-     10
+     8
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Use: Regenerate - Restores HP on the target unit over time.  If the unit is attacked, the effect is lost.", 
+  "description": "Use: Restores health to the target unit over time.  If the unit is attacked, the effect is lost.", 
   "displayname": "Healing Salve", 
   "id": 39, 
   "itemcost": 110, 
@@ -2583,7 +2730,7 @@
   "ItemSupport": 1, 
   "attributes": [], 
   "cooldown": [], 
-  "description": "Fast flying creature that carries items to and from your base.  Requires Animal Courier.", 
+  "description": "Upgrades your team's Animal Courier to a Flying Courier, granting it swift, unobstructed movement to carry items to and from your team's base.\\n\\nRequires a deployed Animal Courier.", 
   "displayname": "Flying Courier", 
   "id": 84, 
   "itemcost": 220, 
@@ -2606,7 +2753,6 @@
   "AbilityUnitTargetType": [
    "DOTA_UNIT_TARGET_HERO", 
    "DOTA_UNIT_TARGET_BASIC", 
-   "DOTA_UNIT_TARGET_MECHANICAL", 
    "DOTA_UNIT_TARGET_CUSTOM"
   ], 
   "ItemAliases": [
@@ -2620,7 +2766,7 @@
     "name": "bonus_health_regen", 
     "tooltip": "+$hp_regen", 
     "value": [
-     3
+     4
     ]
    }, 
    {
@@ -2640,7 +2786,7 @@
   "cooldown": [
    20
   ], 
-  "description": "Active: Force - Pushes any target unit %push_length% units in the direction it is facing.  Double click to self-cast.", 
+  "description": "Active: Force - Pushes any target unit %push_length% units in the direction it is facing.  Double click to instantly cast Force on yourself.", 
   "displayname": "Force Staff", 
   "id": 102, 
   "itemcost": 2250, 
@@ -2694,18 +2840,19 @@
   "attributes": [
    {
     "name": "radius", 
+    "tooltip": "TRUE SIGHT RADIUS:", 
     "value": [
      1100
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: True Sight - Gives the ability to see invisible units and wards. Drops on death, but cannot be destroyed.", 
+  "description": "Passive: True Sight - Adds the ability to see invisible units and wards to any allied vision within its carrier's range.\\nDropped on death, and cannot be destroyed.", 
   "displayname": "Gem of True Sight", 
   "id": 30, 
   "itemcost": 900, 
   "level": 0, 
-  "lore": null, 
+  "lore": "Not one thrall creature of the depths,\\nNor spirit bound in drowning's keep,\\nNor Maelrawn the Tentacular,\\nShall rest till seas, gem comes to sleep.", 
   "manacost": [], 
   "name": "item_gem"
  }, 
@@ -2731,7 +2878,7 @@
    }, 
    {
     "name": "extra_spell_damage_percent", 
-    "tooltip": "%INCREASED MAGIC DAMAGE:", 
+    "tooltip": "%GHOST ADDED MAGIC DAMAGE:", 
     "value": [
      -40
     ]
@@ -2740,21 +2887,87 @@
     "name": "bonus_all_stats", 
     "tooltip": "+$all", 
     "value": [
-     7
+     5
     ]
    }
   ], 
   "cooldown": [
    30
   ], 
-  "description": "Active: Ghost Form - Enter ghost form and become unable to attack or be attacked, but take 40%% extra magic damage. Using a Teleport Scroll dispels Ghost Form.", 
+  "description": "Active: Ghost Form - Enter ghost form, becoming immune to physical damage, yet unable to attack and taking 40%% extra magic damage.\\nUsing a Town Portal Scroll or Boots of Travel  will not dispel Ghost Form.", 
   "displayname": "Ghost Scepter", 
   "id": 37, 
-  "itemcost": 1600, 
+  "itemcost": 1500, 
   "level": 0, 
   "lore": "Imbues the wielder with a ghostly presence, allowing them to evade physical damage.", 
   "manacost": [], 
   "name": "item_ghost"
+ }, 
+ "item_glimmer_cape": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL", 
+   "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+  ], 
+  "AbilityCastRange": 800, 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
+  "ItemAliases": [
+   "glimmer", 
+   "cape"
+  ], 
+  "ItemQuality": "rare", 
+  "attributes": [
+   {
+    "name": "bonus_magical_armor", 
+    "tooltip": "%+$spell_resist", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "fade_delay", 
+    "tooltip": "GLIMMER FADE TIME:", 
+    "value": [
+     0.6
+    ]
+   }, 
+   {
+    "name": "bonus_attack_speed", 
+    "tooltip": "+$attack", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "active_magical_armor", 
+    "tooltip": "%GLIMMER MAGIC RESISTANCE:", 
+    "value": [
+     45
+    ]
+   }, 
+   {
+    "name": "duration", 
+    "tooltip": "GLIMMER DURATION:", 
+    "value": [
+     5
+    ]
+   }
+  ], 
+  "cooldown": [
+   16
+  ], 
+  "description": "Active: Glimmer - After a %fade_delay% second delay, grants invisibility and %active_magical_armor%%% magic resistance to you or a target allied unit. Can be cast while channelling.", 
+  "displayname": "Glimmer Cape", 
+  "id": 254, 
+  "itemcost": 1950, 
+  "level": 0, 
+  "lore": "The stolen cape of a master illusionist.", 
+  "manacost": [
+   110
+  ], 
+  "name": "item_glimmer_cape"
  }, 
  "item_gloves": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
@@ -2770,7 +2983,7 @@
     "name": "bonus_attack_speed", 
     "tooltip": "+$attack", 
     "value": [
-     15
+     20
     ]
    }
   ], 
@@ -2813,10 +3026,10 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Critical Strike - Grants a chance to deal critical damage on an attack.", 
+  "description": "Passive: Critical Strike - Grants each attack a chance to deal additional damage. Critical Strike does not work against buildings.", 
   "displayname": "Daedalus", 
   "id": 141, 
-  "itemcost": 5550, 
+  "itemcost": 5520, 
   "level": 0, 
   "lore": "A weapon of incredible power that is difficult for even the strongest of warriors to control.", 
   "manacost": [], 
@@ -2852,7 +3065,7 @@
   ], 
   "description": "Use the Greevil Whistle to temporarily transform into your Greevil!", 
   "displayname": "Greevil Whistle", 
-  "id": 228, 
+  "id": 1007, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -2890,12 +3103,129 @@
   ], 
   "description": "Use the Greevil Whistle to toggle between Greevil and Hero!", 
   "displayname": "Greevil Whistle", 
-  "id": 235, 
+  "id": 1008, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
   "name": "item_greevil_whistle_toggle"
+ }, 
+ "item_guardian_greaves": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  ], 
+  "ItemAliases": [
+   "guardian", 
+   "greaves"
+  ], 
+  "ItemQuality": "rare", 
+  "ItemShopTags": "int;armor;regen_health;hard_to_tag", 
+  "attributes": [
+   {
+    "name": "bonus_mana", 
+    "tooltip": "+$mana", 
+    "value": [
+     250
+    ]
+   }, 
+   {
+    "name": "bonus_all_stats", 
+    "tooltip": "+$all", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "replenish_radius", 
+    "tooltip": "AURA/MEND RADIUS:", 
+    "value": [
+     900
+    ]
+   }, 
+   {
+    "name": "bonus_movement", 
+    "tooltip": "+$move_speed", 
+    "value": [
+     55
+    ]
+   }, 
+   {
+    "name": "aura_armor", 
+    "tooltip": "AURA ARMOR:", 
+    "value": [
+     2
+    ]
+   }, 
+   {
+    "name": "aura_health_regen_bonus", 
+    "tooltip": "AURA BOOST HEALTH REGEN:", 
+    "value": [
+     15
+    ]
+   }, 
+   {
+    "name": "bonus_armor", 
+    "tooltip": "+$armor", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "aura_health_regen", 
+    "tooltip": "AURA HEALTH REGEN:", 
+    "value": [
+     4
+    ]
+   }, 
+   {
+    "name": "aura_armor_bonus", 
+    "tooltip": "AURA BOOST ARMOR:", 
+    "value": [
+     15
+    ]
+   }, 
+   {
+    "name": "aura_bonus_threshold", 
+    "tooltip": "%AURA BOOST THRESHOLD:", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "replenish_mana", 
+    "tooltip": "MEND MANA RESTORE:", 
+    "value": [
+     160
+    ]
+   }, 
+   {
+    "name": "replenish_health", 
+    "tooltip": "MEND HEAL:", 
+    "value": [
+     250
+    ]
+   }, 
+   {
+    "name": "aura_radius", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   40
+  ], 
+  "description": "Active: Mend - Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative buffs from the caster.\\nPassive: Guardian Aura - Provides nearby allies with %aura_health_regen% health regeneration and %aura_armor% bonus armor. If an allied hero's health falls below %aura_bonus_threshold%%%, they receive %aura_health_regen_bonus% health regeneration and %aura_armor_bonus% armor.", 
+  "displayname": "Guardian Greaves", 
+  "id": 231, 
+  "itemcost": 5300, 
+  "level": 0, 
+  "lore": "One of many holy instruments constructed to honor the Omniscience.", 
+  "manacost": [
+   0
+  ], 
+  "name": "item_guardian_greaves"
  }, 
  "item_halloween_candy_corn": {
   "AbilityBehavior": [
@@ -2925,7 +3255,7 @@
   ], 
   "description": "Use: Deposit the candy in your bucket to give all heroes on the map gold and XP, or use it to satisfy a rampaging Roshan's sweet tooth. Get the highest candy in your bucket to win a prize! Carrying candy makes you less healthy, and decreases your max HP.", 
   "displayname": "Greevil Taffy", 
-  "id": 216, 
+  "id": 1000, 
   "itemcost": 0, 
   "level": 0, 
   "lore": "A strange looking candy, made out of Greevil cream and gummy vitamins.", 
@@ -2947,7 +3277,7 @@
   ], 
   "cooldown": [], 
   "description": null, 
-  "id": 226, 
+  "id": 1006, 
   "itemcost": 6200, 
   "level": 0, 
   "lore": null, 
@@ -2993,12 +3323,19 @@
     "value": [
      30
     ]
+   }, 
+   {
+    "name": "transmute_cast_range_tooltip", 
+    "tooltip": "TRANSMUTE CAST RANGE:", 
+    "value": [
+     600
+    ]
    }
   ], 
   "cooldown": [
    100
   ], 
-  "description": "Active: Transmute - Kills a non-hero target for 190 gold and 2.5x experience.  Cannot be used on Ancient Creeps.", 
+  "description": "Active: Transmute - Kills a non-hero target for %bonus_gold% gold and %xp_multiplier%x experience.  Cannot be used on Ancient Creeps.", 
   "displayname": "Hand of Midas", 
   "id": 65, 
   "itemcost": 2050, 
@@ -3016,16 +3353,17 @@
   "ItemShopTags": "str;int;agi;regen_health", 
   "attributes": [
    {
-    "name": "aura_radius", 
+    "name": "aura_health_regen", 
+    "tooltip": "AURA HEALTH REGEN:", 
     "value": [
-     750
+     3
     ]
    }, 
    {
-    "name": "aura_health_regen", 
-    "tooltip": "BONUS REGEN:", 
+    "name": "aura_radius", 
+    "tooltip": "AURA REGEN RADIUS:", 
     "value": [
-     3
+     900
     ]
    }, 
    {
@@ -3037,7 +3375,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Regeneration Aura - Restores HP to allies in a %aura_radius% unit radius.\\n\\nMultiple instances of Regeneration Aura do not stack.", 
+  "description": "Passive: Regeneration Aura - Restores health to allies in a %aura_radius% unit radius.\\n\\nMultiple instances of Regeneration Aura do not stack.", 
   "displayname": "Headdress", 
   "id": 94, 
   "itemcost": 600, 
@@ -3065,9 +3403,9 @@
    }, 
    {
     "name": "health_regen_rate", 
-    "tooltip": "%HEALTH RESTORED:", 
+    "tooltip": "%HEALTH RESTORED PER SECOND:", 
     "value": [
-     2
+     4
     ]
    }, 
    {
@@ -3080,14 +3418,20 @@
    {
     "name": "cooldown_melee", 
     "value": [
-     4
+     5
+    ]
+   }, 
+   {
+    "name": "cooldown_ranged_tooltip", 
+    "value": [
+     7
     ]
    }
   ], 
   "cooldown": [
-   6
+   7
   ], 
-  "description": "Passive: Health Regeneration - Restores a percentage of max health per second. \\n\\nThis ability is disabled if damage is taken from an enemy Hero or Roshan within the last 4 seconds if your hero is melee or 6 seconds if your hero is ranged.", 
+  "description": "Passive: Health Regeneration - Restores a percentage of max health per second. If damage is taken from an enemy hero or Roshan, this ability is disabled for %cooldown_melee% seconds for melee heroes, or %cooldown_ranged_tooltip% seconds for ranged heroes.", 
   "displayname": "Heart of Tarrasque", 
   "id": 114, 
   "itemcost": 5500, 
@@ -3113,6 +3457,41 @@
   "ItemShopTags": "str;damage;evasion", 
   "attributes": [
    {
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "bonus_evasion", 
+    "tooltip": "%+$evasion", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "maim_attack_speed", 
+    "tooltip": "MAIM ATTACK SLOW:", 
+    "value": [
+     -20
+    ]
+   }, 
+   {
+    "name": "maim_duration", 
+    "tooltip": "MAIM DURATION:", 
+    "value": [
+     4
+    ]
+   }, 
+   {
     "name": "maim_chance", 
     "tooltip": "%MAIM CHANCE:", 
     "value": [
@@ -3127,56 +3506,31 @@
     ]
    }, 
    {
-    "name": "bonus_evasion", 
-    "tooltip": "%+$evasion", 
-    "value": [
-     25
-    ]
-   }, 
-   {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
-    "value": [
-     20
-    ]
-   }, 
-   {
-    "name": "maim_duration", 
-    "value": [
-     4
-    ]
-   }, 
-   {
-    "name": "maim_attack_speed", 
-    "tooltip": "MAIM ATTACK SLOW:", 
-    "value": [
-     -20
-    ]
-   }, 
-   {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
-    "value": [
-     25
-    ]
-   }, 
-   {
     "name": "disarm_range", 
+    "tooltip": "DISARM RANGED DURATION:", 
     "value": [
      4.5
     ]
    }, 
    {
     "name": "disarm_melee", 
+    "tooltip": "DISARM MELEE DURATION:", 
     "value": [
      3
+    ]
+   }, 
+   {
+    "name": "disarm_cast_range_tooltip", 
+    "tooltip": "DISARM CAST RANGE:", 
+    "value": [
+     600
     ]
    }
   ], 
   "cooldown": [
    30
   ], 
-  "description": "Active: Disarms the target for %disarm_range% seconds. Lasts %disarm_melee% on Melee targets. \\nPassive: Lesser Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nStacks diminishingly with other sources of Evasion.", 
+  "description": "Active: Disarm - Prevents a target from attacking. Lasts %disarm_melee% seconds on melee targets, and %disarm_range% seconds on ranged targets.\\nPassive: Lesser Maim - Each attack has a chance to slow the enemy's movement and attack speed for %maim_duration% seconds.\\n\\nStacks diminishingly with other sources of Evasion.", 
   "displayname": "Heaven's Halberd", 
   "id": 210, 
   "itemcost": 3850, 
@@ -3217,7 +3571,7 @@
   "description": null, 
   "displayname": "Helm of Iron Will", 
   "id": 6, 
-  "itemcost": 950, 
+  "itemcost": 900, 
   "level": 0, 
   "lore": "The helmet of a legendary warrior who fell in battle.", 
   "manacost": [], 
@@ -3230,7 +3584,10 @@
   ], 
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 700, 
-  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS", 
+  "AbilityUnitTargetFlags": [
+   "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS", 
+   "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+  ], 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_ENEMY", 
   "AbilityUnitTargetType": "DOTA_UNIT_TARGET_CREEP", 
   "ItemAliases": [
@@ -3264,9 +3621,10 @@
     ]
    }, 
    {
-    "name": "health_bonus", 
+    "name": "health_min", 
+    "tooltip": "DOMINATED HEALTH MINIMUM:", 
     "value": [
-     500
+     1400
     ]
    }, 
    {
@@ -3286,10 +3644,10 @@
   "cooldown": [
    60
   ], 
-  "description": "Active: Dominate - Take control of a non-hero, non-ancient target unit. Dominated units gain %health_bonus% bonus health.\\nPassive: Lifesteal - Gives lifesteal on attacks.\\n\\nHelm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "description": "Active: Dominate - Take control of a non-hero, non-ancient target unit. If a dominated creep's base health is naturally below the health minimum, its base health will be raised to the health minimum.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nHelm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Helm of the Dominator", 
   "id": 164, 
-  "itemcost": 1850, 
+  "itemcost": 1800, 
   "level": 0, 
   "lore": "The powerful headpiece of a dead necromancer.", 
   "manacost": [
@@ -3332,7 +3690,7 @@
   "description": null, 
   "displayname": "Hood of Defiance", 
   "id": 131, 
-  "itemcost": 2125, 
+  "itemcost": 2100, 
   "level": 0, 
   "lore": "A furred, magic resistant headpiece that is feared by wizards.", 
   "manacost": [], 
@@ -3368,9 +3726,11 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
    "DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
   ], 
+  "AbilitySharedCooldown": "shadow_blade", 
   "ItemAliases": [
    "sb;invis;shadow", 
-   "blade"
+   "blade;silver", 
+   "edge"
   ], 
   "ItemQuality": "epic", 
   "ItemShopTags": "damage;attack_speed;movespeed;hard_to_tag", 
@@ -3419,7 +3779,7 @@
   "cooldown": [
    28
   ], 
-  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to break the invisibility, you gain %windwalk_bonus_damage% bonus damage on that attack.  Lasts %windwalk_duration% seconds.", 
+  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to end the invisibility, you gain %windwalk_bonus_damage% bonus damage on that attack.  Lasts %windwalk_duration% seconds.", 
   "displayname": "Shadow Blade", 
   "id": 152, 
   "itemcost": 2800, 
@@ -3459,7 +3819,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Pierce - Grants a chance to deal bonus damage.", 
+  "description": "Passive: Pierce - Grants each attack a chance to deal bonus damage.", 
   "displayname": "Javelin", 
   "id": 7, 
   "itemcost": 1500, 
@@ -3497,10 +3857,10 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Critical Strike - Grants a chance to deal critical damage on an attack.", 
+  "description": "Passive: Critical Strike - Grants each attack a chance to deal additional damage. Critical Strike does not work against buildings.", 
   "displayname": "Crystalys", 
   "id": 149, 
-  "itemcost": 2150, 
+  "itemcost": 2120, 
   "level": 0, 
   "lore": "A blade forged from rare crystals, it seeks weak points in enemy armor.", 
   "manacost": [], 
@@ -3524,7 +3884,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Lifesteal - Gives lifesteal on attacks.\\n\\nMorbid Mask is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "description": "Passive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nMorbid Mask is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Morbid Mask", 
   "id": 26, 
   "itemcost": 900, 
@@ -3532,6 +3892,75 @@
   "lore": "A mask that drains the energy of those caught in its gaze.", 
   "manacost": [], 
   "name": "item_lifesteal"
+ }, 
+ "item_lotus_orb": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+  "AbilityCastRange": 900, 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
+  "ItemAliases": [
+   "ls;lotus", 
+   "orb"
+  ], 
+  "ItemQuality": "epic", 
+  "ItemShopTags": "regen_health;regen_mana;str;agi;int;hard_to_tag", 
+  "attributes": [
+   {
+    "name": "bonus_armor", 
+    "tooltip": "+$armor", 
+    "value": [
+     10
+    ]
+   }, 
+   {
+    "name": "bonus_health_regen", 
+    "tooltip": "+$hp_regen", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
+    "value": [
+     10
+    ]
+   }, 
+   {
+    "name": "cast_range_tooltip", 
+    "tooltip": "ECHO CAST RANGE:", 
+    "value": [
+     900
+    ]
+   }, 
+   {
+    "name": "bonus_mana_regen", 
+    "tooltip": "%+$mana_regen", 
+    "value": [
+     125
+    ]
+   }, 
+   {
+    "name": "active_duration", 
+    "tooltip": "ECHO DURATION:", 
+    "value": [
+     6
+    ]
+   }
+  ], 
+  "cooldown": [
+   15
+  ], 
+  "description": "Active: Echo Shell - Applies a shield to the target unit which re-casts most targeted spells back to their caster. The shielded unit will still take damage from the spell. Dispels negative buffs when applied.", 
+  "displayname": "Lotus Orb", 
+  "id": 226, 
+  "itemcost": 4000, 
+  "level": 0, 
+  "lore": "The jewel at its center still reflects a pale image of its creator.", 
+  "manacost": [
+   75
+  ], 
+  "name": "item_lotus_orb"
  }, 
  "item_maelstrom": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
@@ -3548,7 +3977,7 @@
    }, 
    {
     "name": "chain_chance", 
-    "tooltip": "%CHANCE TO CHAIN:", 
+    "tooltip": "%CHAIN CHANCE:", 
     "value": [
      25
     ]
@@ -3562,6 +3991,7 @@
    }, 
    {
     "name": "chain_radius", 
+    "tooltip": "CHAIN LEAP RADIUS:", 
     "value": [
      900
     ]
@@ -3573,21 +4003,28 @@
     ]
    }, 
    {
-    "name": "chain_strikes", 
-    "value": [
-     4
-    ]
-   }, 
-   {
     "name": "chain_damage", 
     "tooltip": "CHAIN DAMAGE:", 
     "value": [
      120
     ]
+   }, 
+   {
+    "name": "chain_strikes", 
+    "tooltip": "CHAIN TARGETS:", 
+    "value": [
+     4
+    ]
+   }, 
+   {
+    "name": "chain_cooldown", 
+    "value": [
+     0
+    ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits %chain_strikes% targets, dealing damage.\\n\\nMaelstrom is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
+  "description": "Passive: Chain Lightning - Grants a chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets, dealing %chain_damage% magical damage to each.\\n\\nMaelstrom is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
   "displayname": "Maelstrom", 
   "id": 166, 
   "itemcost": 2800, 
@@ -3618,7 +4055,7 @@
    }, 
    {
     "name": "restore_per_charge", 
-    "tooltip": "RESTORE PER CHARGE:", 
+    "tooltip": "HEALTH/MANA PER CHARGE:", 
     "value": [
      15
     ]
@@ -3633,7 +4070,7 @@
   "cooldown": [
    13
   ], 
-  "description": "Active: Energy Charge - Gains charges (max %max_charges%) based on enemies using abilities in a nearby area.  When activated, it restores health and mana based on the number of charges stored.", 
+  "description": "Active: Energy Charge - Instantly restores health and mana based on the number of charges stored. Gains a charge (max %max_charges%) whenever a nearby visible enemy uses an ability.", 
   "displayname": "Magic Stick", 
   "id": 34, 
   "itemcost": 200, 
@@ -3666,7 +4103,7 @@
     "name": "bonus_all_stats", 
     "tooltip": "+$all", 
     "value": [
-     3
+     4
     ]
    }, 
    {
@@ -3677,7 +4114,7 @@
    }, 
    {
     "name": "restore_per_charge", 
-    "tooltip": "RESTORE PER CHARGE:", 
+    "tooltip": "HEALTH/MANA PER CHARGE:", 
     "value": [
      15
     ]
@@ -3686,10 +4123,10 @@
   "cooldown": [
    13
   ], 
-  "description": "Active: Energy Charge - Gains charges (max %max_charges%) based on enemies using abilities in a nearby area.  When activated, it restores health and mana based on the number of charges stored.", 
+  "description": "Active: Energy Charge - Instantly restores health and mana based on the number of charges stored. Gains a charge (max %max_charges%) whenever a nearby visible enemy uses an ability.", 
   "displayname": "Magic Wand", 
   "id": 36, 
-  "itemcost": 500, 
+  "itemcost": 465, 
   "level": 0, 
   "lore": "A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike.", 
   "manacost": [], 
@@ -3771,6 +4208,12 @@
     ]
    }, 
    {
+    "name": "invuln_duration", 
+    "value": [
+     0.1
+    ]
+   }, 
+   {
     "name": "images_do_damage_percent_melee", 
     "value": [
      -67
@@ -3786,7 +4229,7 @@
    {
     "name": "cooldown_melee", 
     "value": [
-     35
+     30
     ]
    }, 
    {
@@ -3796,9 +4239,9 @@
     ]
    }, 
    {
-    "name": "invuln_duration", 
+    "name": "cooldown_ranged_tooltip", 
     "value": [
-     0.1
+     45
     ]
    }, 
    {
@@ -3829,16 +4272,16 @@
    }
   ], 
   "cooldown": [
-   50
+   45
   ], 
-  "description": "Active: Mirror Image - Creates %images_count% images of your hero that last 20 seconds.\\n\\nMelee images deal %tooltip_damage_outgoing_melee%%% damage and take %tooltip_damage_incoming_melee_total_pct%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%% and take %tooltip_damage_incoming_ranged_total_pct%%% damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
+  "description": "Active: Mirror Image - Creates %images_count% images of your hero that last %tooltip_illusion_duration% seconds. Melee heroes have a %cooldown_melee% second cooldown on this ability, while for Ranged heroes the cooldown is %cooldown_ranged_tooltip% seconds.\\n\\nMelee images deal %tooltip_damage_outgoing_melee%%% damage and take %tooltip_damage_incoming_melee_total_pct%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%% and take %tooltip_damage_incoming_ranged_total_pct%%% damage.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "displayname": "Manta Style", 
   "id": 147, 
   "itemcost": 4950, 
   "level": 0, 
   "lore": "An axe made of reflective materials that causes confusion amongst enemy ranks.", 
   "manacost": [
-   165
+   125
   ], 
   "name": "item_manta"
  }, 
@@ -3886,14 +4329,16 @@
   "attributes": [
    {
     "name": "berserk_bonus_attack_speed", 
+    "tooltip": "BERSERK ATTACK SPEED:", 
     "value": [
      100
     ]
    }, 
    {
     "name": "berserk_bonus_movement_speed", 
+    "tooltip": "%BERSERK MOVE SPEED:", 
     "value": [
-     30
+     17
     ]
    }, 
    {
@@ -3905,12 +4350,14 @@
    }, 
    {
     "name": "berserk_extra_damage", 
+    "tooltip": "%BERSERK ADDED DAMAGE TAKEN:", 
     "value": [
      30
     ]
    }, 
    {
     "name": "berserk_duration", 
+    "tooltip": "BERSERK DURATION:", 
     "value": [
      12
     ]
@@ -3919,7 +4366,7 @@
   "cooldown": [
    25
   ], 
-  "description": "Active: Berserk - Gives %berserk_bonus_attack_speed% attack speed and %berserk_bonus_movement_speed%%% movement speed but causes you to take extra %berserk_extra_damage%%% damage.  Lasts 12 seconds.\\nPassive: Lifesteal - Grants lifesteal on attacks.\\n\\nMask of Madness is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "description": "Active: Berserk - Gives %berserk_bonus_attack_speed% attack speed and %berserk_bonus_movement_speed%%% movement speed, but causes you to take extra %berserk_extra_damage%%% damage.  Lasts %berserk_duration% seconds.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nMask of Madness is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "displayname": "Mask of Madness", 
   "id": 172, 
   "itemcost": 1800, 
@@ -3933,12 +4380,11 @@
  "item_medallion_of_courage": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
   "AbilityCastRange": 1000, 
-  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES", 
+  "AbilitySharedCooldown": "medallion", 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_BOTH", 
   "AbilityUnitTargetType": [
    "DOTA_UNIT_TARGET_HERO", 
-   "DOTA_UNIT_TARGET_BASIC", 
-   "DOTA_UNIT_TARGET_MECHANICAL"
+   "DOTA_UNIT_TARGET_BASIC"
   ], 
   "ItemAliases": [
    "medallion", 
@@ -3957,7 +4403,7 @@
    }, 
    {
     "name": "armor_reduction", 
-    "tooltip": "ARMOR REDUCTION:", 
+    "tooltip": "VALOR ARMOR REDUCTION:", 
     "value": [
      -7
     ]
@@ -3971,15 +4417,23 @@
    }, 
    {
     "name": "duration", 
+    "tooltip": "VALOR DURATION:", 
     "value": [
      7
+    ]
+   }, 
+   {
+    "name": "valor_cast_range_tooltip", 
+    "tooltip": "VALOR CAST RANGE:", 
+    "value": [
+     1000
     ]
    }
   ], 
   "cooldown": [
    7
   ], 
-  "description": "Active: Valor - If cast on an ally, increases their armor while reducing the caster's. If cast on an enemy, reduces the armor of both the enemy and the caster.  Lasts 7 seconds.", 
+  "description": "Active: Valor - If cast on an ally, increases their armor while reducing the caster's. If cast on an enemy, reduces the armor of both the enemy and the caster. Cannot target magic immune enemies. Armor reduction is halved against Roshan.", 
   "displayname": "Medallion of Courage", 
   "id": 187, 
   "itemcost": 1200, 
@@ -4007,7 +4461,7 @@
    {
     "name": "aura_radius", 
     "value": [
-     750
+     900
     ]
    }, 
    {
@@ -4018,41 +4472,45 @@
     ]
    }, 
    {
-    "name": "heal_radius", 
-    "value": [
-     750
-    ]
-   }, 
-   {
     "name": "heal_bonus_armor", 
+    "tooltip": "RESTORE ARMOR:", 
     "value": [
      2
     ]
    }, 
    {
+    "name": "heal_armor_duration", 
+    "tooltip": "RESTORE ARMOR DURATION:", 
+    "value": [
+     25
+    ]
+   }, 
+   {
     "name": "aura_health_regen", 
-    "tooltip": "BONUS HP REGEN:", 
+    "tooltip": "AURA HEALTH REGEN:", 
     "value": [
      4
     ]
    }, 
    {
     "name": "heal_amount", 
+    "tooltip": "RESTORE HEAL:", 
     "value": [
      250
     ]
    }, 
    {
-    "name": "heal_armor_duration", 
+    "name": "heal_radius", 
+    "tooltip": "AURA/RESTORE RADIUS:", 
     "value": [
-     25
+     900
     ]
    }
   ], 
   "cooldown": [
-   45
+   65
   ], 
-  "description": "Active: Restore - Heals %heal_amount% HP and gives +%heal_bonus_armor% armor in an area.\\nPassive: Mekansm Aura - Bonus HP Regen in an area.\\n\\nMultiple instances of Mekansm Aura do not stack.", 
+  "description": "Active: Restore - Heals %heal_amount% health and gives +%heal_bonus_armor% armor to allied units in a %heal_radius% radius.\\nPassive: Mekansm Aura - Grants %aura_health_regen% health regeneration to allied units in a %aura_radius% radius.\\n\\nMultiple instances of Mekansm Aura do not stack.", 
   "displayname": "Mekansm", 
   "id": 79, 
   "itemcost": 2300, 
@@ -4093,7 +4551,7 @@
  "item_mjollnir": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
   "AbilityCastPoint": 0, 
-  "AbilityCastRange": 600, 
+  "AbilityCastRange": 800, 
   "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
   "AbilityUnitTargetType": [
    "DOTA_UNIT_TARGET_HERO", 
@@ -4119,8 +4577,9 @@
    }, 
    {
     "name": "chain_strikes", 
+    "tooltip": "CHAIN TARGETS:", 
     "value": [
-     8
+     12
     ]
    }, 
    {
@@ -4164,8 +4623,15 @@
    }, 
    {
     "name": "static_radius", 
+    "tooltip": "STATIC RELEASE RADIUS:", 
     "value": [
      900
+    ]
+   }, 
+   {
+    "name": "chain_cooldown", 
+    "value": [
+     0
     ]
    }, 
    {
@@ -4177,6 +4643,7 @@
    }, 
    {
     "name": "chain_radius", 
+    "tooltip": "CHAIN LEAP RADIUS:", 
     "value": [
      900
     ]
@@ -4204,7 +4671,7 @@
   "cooldown": [
    35
   ], 
-  "description": "Active: Static Charge - Places a charged shield on a target unit which has a %static_chance%%% chance to release a shocking bolt at a nearby attacker and %static_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a Chain Lightning that hits %chain_strikes% targets, dealing damage.\\n\\nMjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
+  "description": "Active: Static Charge - Places a charged shield on a target unit which has a %static_chance%%% chance to release a shocking bolt at a nearby attacker and %static_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets, dealing %chain_damage% magical damage to each.\\n\\nMjollnir is a Unique Attack Modifier that stacks with other Unique Attack Modifiers, but overrides them when Chain Lightning occurs.", 
   "displayname": "Mjollnir", 
   "id": 158, 
   "itemcost": 5700, 
@@ -4234,7 +4701,7 @@
    }, 
    {
     "name": "bash_chance", 
-    "tooltip": "%CHANCE TO MINI-BASH:", 
+    "tooltip": "%MINI-BASH CHANCE:", 
     "value": [
      35
     ]
@@ -4261,7 +4728,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Mini-Bash - Gives a chance to minibash and deal bonus damage.\\nPassive: True Strike - Prevents your attacks from missing. True Strike does not work when attacking enemy structures.", 
+  "description": "Passive: Mini-Bash - Grants each attack a chance to deal bonus damage and deal a mini-stun.\\nPassive: True Strike - Prevents your attacks from missing. True Strike does not work when attacking enemy structures.", 
   "displayname": "Monkey King Bar", 
   "id": 135, 
   "itemcost": 5400, 
@@ -4269,6 +4736,55 @@
   "lore": "A powerful staff used by a master warrior.", 
   "manacost": [], 
   "name": "item_monkey_king_bar"
+ }, 
+ "item_moon_shard": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  ], 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": [
+   "DOTA_UNIT_TARGET_HERO", 
+   "DOTA_UNIT_TARGET_CUSTOM"
+  ], 
+  "ItemAliases": [
+   "moon", 
+   "shard"
+  ], 
+  "ItemQuality": "common", 
+  "ItemShopTags": "attack_speed", 
+  "attributes": [
+   {
+    "name": "bonus_night_vision", 
+    "tooltip": "SHADE BONUS NIGHT VISION:", 
+    "value": [
+     250
+    ]
+   }, 
+   {
+    "name": "consumed_bonus", 
+    "tooltip": "CONSUME ATTACK SPEED:", 
+    "value": [
+     60
+    ]
+   }, 
+   {
+    "name": "bonus_attack_speed", 
+    "tooltip": "+$attack", 
+    "value": [
+     120
+    ]
+   }
+  ], 
+  "cooldown": [], 
+  "description": "Use: Consume the Moon Shard to permanently gain %consumed_bonus% attack speed. Does not stack.\\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision.", 
+  "displayname": "Moon Shard", 
+  "id": 247, 
+  "itemcost": 4000, 
+  "level": 0, 
+  "lore": "Said to be a tear from the lunar goddess Selemene.", 
+  "manacost": [], 
+  "name": "item_moon_shard"
  }, 
  "item_mystery_arrow": {
   "AbilityBehavior": [
@@ -4326,7 +4842,7 @@
   "damage": 360, 
   "description": null, 
   "duration": 3.11, 
-  "id": 218, 
+  "id": 1002, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -4381,7 +4897,7 @@
   ], 
   "damage": 360, 
   "description": null, 
-  "id": 217, 
+  "id": 1001, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -4465,7 +4981,7 @@
   ], 
   "damage": 440, 
   "description": null, 
-  "id": 219, 
+  "id": 1003, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -4538,7 +5054,7 @@
   ], 
   "damage": 300, 
   "description": null, 
-  "id": 220, 
+  "id": 1004, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -4589,7 +5105,7 @@
    2
   ], 
   "description": null, 
-  "id": 221, 
+  "id": 1005, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -4659,28 +5175,18 @@
     ]
    }, 
    {
+    "name": "archer_attack_speed_radius", 
+    "value": [
+     400
+    ]
+   }, 
+   {
     "name": "bonus_intellect", 
     "tooltip": "+$int", 
     "value": [
      15, 
      21, 
      24
-    ]
-   }, 
-   {
-    "name": "archer_mana_burn", 
-    "value": [
-     125, 
-     175, 
-     225
-    ]
-   }, 
-   {
-    "name": "archer_attack_speed", 
-    "value": [
-     3, 
-     6, 
-     9
     ]
    }, 
    {
@@ -4692,27 +5198,99 @@
     ]
    }, 
    {
+    "name": "warrior_mana_break_tooltip", 
+    "tooltip": "WARRIOR MANA BREAK:", 
+    "value": [
+     25, 
+     50, 
+     75
+    ]
+   }, 
+   {
+    "name": "warrior_health_tooltip", 
+    "tooltip": "WARRIOR HEALTH:", 
+    "value": [
+     700, 
+     800, 
+     900
+    ]
+   }, 
+   {
+    "name": "warrior_damage_tooltip", 
+    "tooltip": "WARRIOR DAMAGE:", 
+    "value": [
+     45, 
+     60, 
+     75
+    ]
+   }, 
+   {
+    "name": "explosion", 
+    "tooltip": "WARRIOR LAST WILL DMG:", 
+    "value": [
+     550, 
+     675, 
+     800
+    ]
+   }, 
+   {
     "name": "warrior_truesight", 
     "value": [
      1000
     ]
    }, 
    {
-    "name": "archer_attack_speed_radius", 
+    "name": "archer_mana_burn", 
+    "tooltip": "ARCHER MANA BURN:", 
     "value": [
-     400
+     125, 
+     175, 
+     225
+    ]
+   }, 
+   {
+    "name": "archer_aura_radius_tooltip", 
+    "value": [
+     900
+    ]
+   }, 
+   {
+    "name": "archer_damage_tooltip", 
+    "tooltip": "ARCHER DAMAGE:", 
+    "value": [
+     60, 
+     90, 
+     120
+    ]
+   }, 
+   {
+    "name": "archer_attack_speed", 
+    "tooltip": "%ARCHER AURA SPEED:", 
+    "value": [
+     5, 
+     7, 
+     9
+    ]
+   }, 
+   {
+    "name": "archer_health_tooltip", 
+    "tooltip": "ARCHER HEALTH:", 
+    "value": [
+     700, 
+     800, 
+     900
     ]
    }
   ], 
   "cooldown": [
    95
   ], 
-  "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds. Upgradable.", 
+  "description": "Active: Demonic Summoning - Summons a Warrior and an Archer to fight for you for %summon_duration% seconds, whose strength and abilities increase as Necronomicon is upgraded. Warrior gains True Sight at level 3. Upgradable.", 
   "displayname": "Necronomicon", 
   "id": 106, 
   "itemcost": 2700, 
   "level": 0, 
-  "lore": "Considered the holy grail of necromancy and demonology, a powerful malefic force is locked within its pages.", 
+  "lore": "Considered the ultimate in necromancy and demonology, a powerful malefic force is locked within its pages.", 
   "manacost": [
    50
   ], 
@@ -4752,28 +5330,18 @@
     ]
    }, 
    {
+    "name": "archer_attack_speed_radius", 
+    "value": [
+     400
+    ]
+   }, 
+   {
     "name": "bonus_intellect", 
     "tooltip": "+$int", 
     "value": [
      15, 
      21, 
      24
-    ]
-   }, 
-   {
-    "name": "archer_mana_burn", 
-    "value": [
-     125, 
-     175, 
-     225
-    ]
-   }, 
-   {
-    "name": "archer_attack_speed", 
-    "value": [
-     3, 
-     6, 
-     9
     ]
    }, 
    {
@@ -4785,27 +5353,99 @@
     ]
    }, 
    {
+    "name": "warrior_mana_break_tooltip", 
+    "tooltip": "WARRIOR MANA BREAK:", 
+    "value": [
+     25, 
+     50, 
+     75
+    ]
+   }, 
+   {
+    "name": "warrior_health_tooltip", 
+    "tooltip": "WARRIOR HEALTH:", 
+    "value": [
+     700, 
+     800, 
+     900
+    ]
+   }, 
+   {
+    "name": "warrior_damage_tooltip", 
+    "tooltip": "WARRIOR DAMAGE:", 
+    "value": [
+     45, 
+     60, 
+     75
+    ]
+   }, 
+   {
+    "name": "explosion", 
+    "tooltip": "WARRIOR LAST WILL DMG:", 
+    "value": [
+     550, 
+     675, 
+     800
+    ]
+   }, 
+   {
     "name": "warrior_truesight", 
     "value": [
      1000
     ]
    }, 
    {
-    "name": "archer_attack_speed_radius", 
+    "name": "archer_mana_burn", 
+    "tooltip": "ARCHER MANA BURN:", 
     "value": [
-     400
+     125, 
+     175, 
+     225
+    ]
+   }, 
+   {
+    "name": "archer_aura_radius_tooltip", 
+    "value": [
+     900
+    ]
+   }, 
+   {
+    "name": "archer_damage_tooltip", 
+    "tooltip": "ARCHER DAMAGE:", 
+    "value": [
+     60, 
+     90, 
+     120
+    ]
+   }, 
+   {
+    "name": "archer_attack_speed", 
+    "tooltip": "%ARCHER AURA SPEED:", 
+    "value": [
+     5, 
+     7, 
+     9
+    ]
+   }, 
+   {
+    "name": "archer_health_tooltip", 
+    "tooltip": "ARCHER HEALTH:", 
+    "value": [
+     700, 
+     800, 
+     900
     ]
    }
   ], 
   "cooldown": [
    95
   ], 
-  "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds.", 
+  "description": "Active: Demonic Summoning - Summons a Warrior and an Archer to fight for you for %summon_duration% seconds, whose strength and abilities increase as Necronomicon is upgraded. Warrior gains True Sight at level 3. Upgradable.", 
   "displayname": "Necronomicon", 
   "id": 193, 
   "itemcost": 3950, 
   "level": 0, 
-  "lore": "Considered the holy grail of necromancy and demonology, a powerful malefic force is locked within its pages.", 
+  "lore": "Considered the ultimate in necromancy and demonology, a powerful malefic force is locked within its pages.", 
   "manacost": [
    50
   ], 
@@ -4843,28 +5483,18 @@
     ]
    }, 
    {
+    "name": "archer_attack_speed_radius", 
+    "value": [
+     400
+    ]
+   }, 
+   {
     "name": "bonus_intellect", 
     "tooltip": "+$int", 
     "value": [
      15, 
      21, 
      24
-    ]
-   }, 
-   {
-    "name": "archer_mana_burn", 
-    "value": [
-     125, 
-     175, 
-     225
-    ]
-   }, 
-   {
-    "name": "archer_attack_speed", 
-    "value": [
-     3, 
-     6, 
-     9
     ]
    }, 
    {
@@ -4876,27 +5506,99 @@
     ]
    }, 
    {
+    "name": "warrior_mana_break_tooltip", 
+    "tooltip": "WARRIOR MANA BREAK:", 
+    "value": [
+     25, 
+     50, 
+     75
+    ]
+   }, 
+   {
+    "name": "warrior_health_tooltip", 
+    "tooltip": "WARRIOR HEALTH:", 
+    "value": [
+     700, 
+     800, 
+     900
+    ]
+   }, 
+   {
+    "name": "warrior_damage_tooltip", 
+    "tooltip": "WARRIOR DAMAGE:", 
+    "value": [
+     45, 
+     60, 
+     75
+    ]
+   }, 
+   {
+    "name": "explosion", 
+    "tooltip": "WARRIOR LAST WILL DMG:", 
+    "value": [
+     550, 
+     675, 
+     800
+    ]
+   }, 
+   {
     "name": "warrior_truesight", 
     "value": [
      1000
     ]
    }, 
    {
-    "name": "archer_attack_speed_radius", 
+    "name": "archer_mana_burn", 
+    "tooltip": "ARCHER MANA BURN:", 
     "value": [
-     400
+     125, 
+     175, 
+     225
+    ]
+   }, 
+   {
+    "name": "archer_aura_radius_tooltip", 
+    "value": [
+     900
+    ]
+   }, 
+   {
+    "name": "archer_damage_tooltip", 
+    "tooltip": "ARCHER DAMAGE:", 
+    "value": [
+     60, 
+     90, 
+     120
+    ]
+   }, 
+   {
+    "name": "archer_attack_speed", 
+    "tooltip": "%ARCHER AURA SPEED:", 
+    "value": [
+     5, 
+     7, 
+     9
+    ]
+   }, 
+   {
+    "name": "archer_health_tooltip", 
+    "tooltip": "ARCHER HEALTH:", 
+    "value": [
+     700, 
+     800, 
+     900
     ]
    }
   ], 
   "cooldown": [
    95
   ], 
-  "description": "Active: Demonic Summoning - Summons a Necronomicon Warrior and a Necronomicon Archer to fight for you.  Their strength and abilities increase as Necronomicon increases in level.  Lasts 40 seconds.", 
+  "description": "Active: Demonic Summoning - Summons a Warrior and an Archer to fight for you for %summon_duration% seconds, whose strength and abilities increase as Necronomicon is upgraded. Warrior gains True Sight at level 3.", 
   "displayname": "Necronomicon", 
   "id": 194, 
   "itemcost": 5200, 
   "level": 0, 
-  "lore": "Considered the holy grail of necromancy and demonology, a powerful malefic force is locked within its pages.", 
+  "lore": "Considered the ultimate in necromancy and demonology, a powerful malefic force is locked within its pages.", 
   "manacost": [
    50
   ], 
@@ -4992,11 +5694,93 @@
   "description": null, 
   "displayname": "Oblivion Staff", 
   "id": 67, 
-  "itemcost": 1675, 
+  "itemcost": 1650, 
   "level": 0, 
   "lore": "Deceptively hidden as an ordinary quarterstaff, it is actually very powerful, much like the Eldritch who originally possessed it.", 
   "manacost": [], 
   "name": "item_oblivion_staff"
+ }, 
+ "item_octarine_core": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "ItemAliases": [
+   "mana;mb;octarine", 
+   "core"
+  ], 
+  "ItemQuality": "rare", 
+  "ItemShopTags": "move_speed;boost_mana;mana_pool", 
+  "attributes": [
+   {
+    "name": "bonus_health", 
+    "tooltip": "+$health", 
+    "value": [
+     450
+    ]
+   }, 
+   {
+    "name": "bonus_mana", 
+    "tooltip": "+$mana", 
+    "value": [
+     400
+    ]
+   }, 
+   {
+    "name": "bonus_intelligence", 
+    "tooltip": "+$int", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "bonus_cooldown", 
+    "tooltip": "%COOLDOWN REDUCTION:", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "hero_lifesteal", 
+    "tooltip": "%HERO SPELL LIFESTEAL:", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "bonus_health_regen", 
+    "tooltip": "+$hp_regen", 
+    "value": [
+     4
+    ]
+   }, 
+   {
+    "name": "bonus_mana_regen", 
+    "tooltip": "%+$mana_regen", 
+    "value": [
+     100
+    ]
+   }, 
+   {
+    "name": "creep_lifesteal", 
+    "tooltip": "%CREEP SPELL LIFESTEAL:", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "active_duration", 
+    "value": [
+     7
+    ]
+   }
+  ], 
+  "cooldown": [], 
+  "description": "Passive: Cooldown Reduction - Reduces the cooldown time of all spells and items by %bonus_cooldown%%%.\\nPassive: Spell Lifesteal - A percentage of damage caused by spells is returned to the caster as health.", 
+  "displayname": "Octarine Core", 
+  "id": 235, 
+  "itemcost": 5900, 
+  "level": 0, 
+  "lore": "At the core of spellcraft are spectrums only the very gifted can sense.", 
+  "manacost": [], 
+  "name": "item_octarine_core"
  }, 
  "item_ogre_axe": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
@@ -5032,40 +5816,40 @@
    "of", 
    "venom"
   ], 
-  "ItemQuality": "secret_shop", 
+  "ItemQuality": "component", 
   "ItemShopTags": "hard_to_tag", 
   "attributes": [
    {
-    "name": "poison_movement_speed_range", 
-    "tooltip": "%RANGED SLOW:", 
-    "value": [
-     -4
-    ]
-   }, 
-   {
-    "name": "poison_duration", 
-    "tooltip": "DURATION:", 
-    "value": [
-     4
-    ]
-   }, 
-   {
     "name": "poison_movement_speed_melee", 
-    "tooltip": "%MELEE SLOW:", 
+    "tooltip": "%POISON MELEE SLOW:", 
     "value": [
      -12
     ]
    }, 
    {
+    "name": "poison_movement_speed_range", 
+    "tooltip": "%POISON RANGED SLOW:", 
+    "value": [
+     -4
+    ]
+   }, 
+   {
     "name": "poison_damage", 
-    "tooltip": "POISON DAMAGE:", 
+    "tooltip": "POISON DAMAGE PER SECOND:", 
     "value": [
      3
+    ]
+   }, 
+   {
+    "name": "poison_duration", 
+    "tooltip": "POISON DURATION:", 
+    "value": [
+     4
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing, depending on whether your hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Orb of Venom can be combined with Lifesteal Attack Modifiers.", 
+  "description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing movement based on whether the equipped hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Orb of Venom can be combined with Lifesteal Attack Modifiers.", 
   "displayname": "Orb of Venom", 
   "id": 181, 
   "itemcost": 275, 
@@ -5112,9 +5896,10 @@
     ]
    }, 
    {
-    "name": "silence_damage_percent", 
+    "name": "silence_duration", 
+    "tooltip": "SOUL BURN DURATION:", 
     "value": [
-     30
+     5
     ]
    }, 
    {
@@ -5125,19 +5910,20 @@
     ]
    }, 
    {
-    "name": "silence_duration", 
+    "name": "silence_damage_percent", 
+    "tooltip": "%SOUL BURN INCREASED DAMAGE:", 
     "value": [
-     5
+     30
     ]
    }
   ], 
   "cooldown": [
    18
   ], 
-  "description": "Active: Soul Burn - Silences target unit for %silence_duration% seconds and amplifies the damage it takes by %silence_damage_percent%%%.", 
+  "description": "Active: Soul Burn - Silences the target unit for %silence_duration% seconds and amplifies the damage it takes by %silence_damage_percent%%%.", 
   "displayname": "Orchid Malevolence", 
   "id": 98, 
-  "itemcost": 4125, 
+  "itemcost": 4075, 
   "level": 0, 
   "lore": "A garnet rod constructed from the essence of a fire demon.", 
   "manacost": [
@@ -5149,15 +5935,8 @@
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
   "ItemAliases": "perseverance", 
   "ItemQuality": "common", 
-  "ItemShopTags": "damage;regen_health;regen_mana", 
+  "ItemShopTags": "regen_health;regen_mana", 
   "attributes": [
-   {
-    "name": "bonus_health_regen", 
-    "tooltip": "+$hp_regen", 
-    "value": [
-     5
-    ]
-   }, 
    {
     "name": "bonus_mana_regen", 
     "tooltip": "%+$mana_regen", 
@@ -5171,13 +5950,20 @@
     "value": [
      10
     ]
+   }, 
+   {
+    "name": "bonus_health_regen", 
+    "tooltip": "+$hp_regen", 
+    "value": [
+     5
+    ]
    }
   ], 
   "cooldown": [], 
   "description": "", 
   "displayname": "Perseverance", 
   "id": 69, 
-  "itemcost": 1750, 
+  "itemcost": 1700, 
   "level": 0, 
   "lore": "A gem that grants heart to the bearer.", 
   "manacost": [], 
@@ -5197,10 +5983,16 @@
   "ItemShopTags": "damage;move_speed;hard_to_tag", 
   "attributes": [
    {
-    "name": "phase_movement_speed", 
-    "tooltip": "%PHASE MOVE BOOST:", 
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
     "value": [
-     16
+     24
+    ]
+   }, 
+   {
+    "name": "bonus_attack_speed", 
+    "value": [
+     0
     ]
    }, 
    {
@@ -5214,24 +6006,31 @@
     "name": "phase_duration", 
     "tooltip": "PHASE DURATION:", 
     "value": [
-     4
+     2.5
     ]
    }, 
    {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
+    "name": "phase_movement_speed", 
+    "tooltip": "%PHASE MOVE BOOST MELEE:", 
     "value": [
      24
+    ]
+   }, 
+   {
+    "name": "phase_movement_speed_range", 
+    "tooltip": "%PHASE MOVE BOOST RANGED:", 
+    "value": [
+     20
     ]
    }
   ], 
   "cooldown": [
    8
   ], 
-  "description": "Active: Phase - Gives increased movement speed and lets you move through units.  Phase is cancelled upon using another item or ability.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "description": "Active: Phase - Gives increased movement speed and lets you move through units.  The increased movement speed is based on whether the equipped hero is melee or ranged.  Phase is cancelled upon using another item or ability.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
   "displayname": "Phase Boots", 
   "id": 50, 
-  "itemcost": 1350, 
+  "itemcost": 1290, 
   "level": 0, 
   "lore": "Boots that allow the wearer to travel between the ether.", 
   "manacost": [], 
@@ -5271,14 +6070,15 @@
     ]
    }, 
    {
-    "name": "aura_health_regen", 
-    "tooltip": "AURA HEALTH REGEN:", 
+    "name": "magic_resistance_aura", 
+    "tooltip": "%AURA MAGIC RESISTANCE:", 
     "value": [
-     4
+     10
     ]
    }, 
    {
-    "name": "barrier_radius", 
+    "name": "aura_radius", 
+    "tooltip": "AURA RADIUS:", 
     "value": [
      900
     ]
@@ -5290,9 +6090,10 @@
     ]
    }, 
    {
-    "name": "aura_radius", 
+    "name": "aura_health_regen", 
+    "tooltip": "AURA HEALTH REGEN:", 
     "value": [
-     750
+     4
     ]
    }, 
    {
@@ -5308,15 +6109,34 @@
     "value": [
      12
     ]
+   }, 
+   {
+    "name": "barrier_block_creep", 
+    "value": [
+     400
+    ]
+   }, 
+   {
+    "name": "bonus_all_stats", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "barrier_radius", 
+    "tooltip": "BARRIER CAST RADIUS:", 
+    "value": [
+     900
+    ]
    }
   ], 
   "cooldown": [
    60
   ], 
-  "description": "Active: Barrier - Gives nearby friendly units a shield that blocks %barrier_block% spell damage.\\nPassive: Insight Aura - Gives nearby friendly units %aura_health_regen% health regeneration.", 
+  "description": "Active: Barrier - Gives a shield that blocks %barrier_block% spell damage to all allies in a %barrier_radius% radius.\\nPassive: Insight Aura - Gives allied units %aura_health_regen% health regeneration and %magic_resistance_aura%%% magic resistance in a %aura_radius% radius.", 
   "displayname": "Pipe of Insight", 
   "id": 90, 
-  "itemcost": 3525, 
+  "itemcost": 3500, 
   "level": 0, 
   "lore": "A powerful artifact of mysterious origin, it creates barriers against magical forces.", 
   "manacost": [
@@ -5327,7 +6147,7 @@
  "item_platemail": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
   "ItemAliases": "platemail", 
-  "ItemQuality": "component", 
+  "ItemQuality": "secret_shop", 
   "ItemShopTags": "armor", 
   "attributes": [
    {
@@ -5393,30 +6213,17 @@
   "ItemShopTags": "agi;block", 
   "attributes": [
    {
-    "name": "damage_block_ranged", 
-    "tooltip": "RANGED BLOCK:", 
-    "value": [
-     10
-    ]
-   }, 
-   {
-    "name": "block_chance", 
-    "tooltip": "%BLOCK CHANCE:", 
-    "value": [
-     53
-    ]
-   }, 
-   {
     "name": "damage_block_melee", 
-    "tooltip": "MELEE BLOCK:", 
+    "tooltip": "MELEE DAMAGE BLOCK:", 
     "value": [
      20
     ]
    }, 
    {
-    "name": "block_chance_hero", 
+    "name": "damage_block_ranged", 
+    "tooltip": "RANGED DAMAGE BLOCK:", 
     "value": [
-     100
+     10
     ]
    }, 
    {
@@ -5425,13 +6232,26 @@
     "value": [
      6
     ]
+   }, 
+   {
+    "name": "block_chance", 
+    "tooltip": "%CREEP BLOCK CHANCE:", 
+    "value": [
+     53
+    ]
+   }, 
+   {
+    "name": "block_chance_hero", 
+    "value": [
+     100
+    ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Damage Block - Blocks physical attack damage based on whether the equipped hero is ranged or melee.  Poor Man's Shield will always block attacks from enemy Heroes, but has a chance to block damage from creeps.", 
+  "description": "Passive: Damage Block - Blocks physical attack damage based on whether the equipped hero is ranged or melee.  Poor Man's Shield will always block attacks from enemy Heroes, but has a %block_chance%%% chance to block damage from creeps.", 
   "displayname": "Poor Man's Shield", 
   "id": 71, 
-  "itemcost": 550, 
+  "itemcost": 500, 
   "level": 0, 
   "lore": "A busted old shield that seems to block more than it should.", 
   "manacost": [], 
@@ -5453,14 +6273,14 @@
     "name": "bonus_stat", 
     "tooltip": "+$selected_attrib", 
     "value": [
-     8
+     9
     ]
    }, 
    {
     "name": "bonus_attack_speed", 
     "tooltip": "+$attack", 
     "value": [
-     30
+     25
     ]
    }, 
    {
@@ -5468,6 +6288,12 @@
     "tooltip": "+$move_speed", 
     "value": [
      50
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "value": [
+     0
     ]
    }
   ], 
@@ -5498,7 +6324,7 @@
   ], 
   "description": null, 
   "displayname": "A Gift!", 
-  "id": 227, 
+  "id": 1009, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -5530,7 +6356,7 @@
   "description": null, 
   "displayname": "Quarterstaff", 
   "id": 10, 
-  "itemcost": 900, 
+  "itemcost": 875, 
   "level": 0, 
   "lore": "A basic staff that allows you to strike quickly.", 
   "manacost": [], 
@@ -5554,23 +6380,37 @@
   "attributes": [
    {
     "name": "damage_bonus_ranged", 
-    "tooltip": "%QUELL RANGED BONUS:", 
+    "tooltip": "%QUELL RANGED DAMAGE:", 
     "value": [
-     12
+     115
+    ]
+   }, 
+   {
+    "name": "quelling_range_tooltip", 
+    "tooltip": "CHOP TREE CAST RANGE:", 
+    "value": [
+     350
     ]
    }, 
    {
     "name": "damage_bonus", 
-    "tooltip": "%QUELL MELEE BONUS:", 
+    "tooltip": "%QUELL MELEE DAMAGE:", 
     "value": [
-     32
+     140
+    ]
+   }, 
+   {
+    "name": "cast_range_ward", 
+    "tooltip": "CHOP WARD CAST RANGE:", 
+    "value": [
+     450
     ]
    }
   ], 
   "cooldown": [
-   5
+   4
   ], 
-  "description": "Active:  Destroy Tree/Ward - Destroy a target tree, or deals 100 damage to a ward.\\nPassive: Quell - Gives bonus attack damage against non-hero units, based on whether the equipped hero is ranged or melee.", 
+  "description": "Active: Chop Tree/Ward - Destroy a target tree or ward. Chop cast range is increased when targetting wards.\\nPassive: Quell - Increases attack damage against non-hero units, based on whether the equipped hero is ranged or melee. Does not provide bonus damage against Roshan.", 
   "displayname": "Quelling Blade", 
   "id": 11, 
   "itemcost": 225, 
@@ -5591,16 +6431,17 @@
   "ItemShopTags": "damage", 
   "attributes": [
    {
-    "name": "aura_radius", 
-    "value": [
-     700
-    ]
-   }, 
-   {
     "name": "aura_damage", 
     "tooltip": "BURN DAMAGE PER SECOND:", 
     "value": [
      50
+    ]
+   }, 
+   {
+    "name": "blind_pct", 
+    "tooltip": "%BURN MISS CHANCE:", 
+    "value": [
+     17
     ]
    }, 
    {
@@ -5609,10 +6450,17 @@
     "value": [
      65
     ]
+   }, 
+   {
+    "name": "aura_radius", 
+    "tooltip": "BURN RADIUS:", 
+    "value": [
+     700
+    ]
    }
   ], 
   "cooldown": [], 
-  "description": "Active:  Toggles Burn Damage on or off.\\nPassive: Burn Damage - Deals damage per second in a %aura_radius% radius.", 
+  "description": "Active: Toggle Burn - When active, scorches nearby enemies for %aura_damage% damage per second and blinds them, causing them to miss %blind_pct%%% of their attacks.", 
   "displayname": "Radiance", 
   "id": 137, 
   "itemcost": 5150, 
@@ -5634,12 +6482,12 @@
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
-     300
+     330
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Drops on death.  Divine Rapier is muted to anyone but the owner, as long as he or his teammates pick it up. As soon as an enemy picks it up, Divine Rapier is unmuted, but cannot be dropped except on death.", 
+  "description": "Drops on death.  Becomes unusable if picked up by an ally of its owner until it is returned to its owner. It is immediately usable by anybody if an enemy of the owner picks it up. A dropped Rapier cannot be picked up by a courier.", 
   "displayname": "Divine Rapier", 
   "id": 133, 
   "itemcost": 6200, 
@@ -5666,7 +6514,7 @@
   "description": null, 
   "displayname": "Reaver", 
   "id": 53, 
-  "itemcost": 3200, 
+  "itemcost": 3000, 
   "level": 0, 
   "lore": "A massive axe capable of tearing whole mountains down.", 
   "manacost": [], 
@@ -5692,8 +6540,8 @@
  "item_recipe_ancient_janggo": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_bracer", 
    "item_robe", 
+   "item_bracer", 
    "item_recipe_ancient_janggo"
   ], 
   "ItemResult": "item_ancient_janggo", 
@@ -5763,7 +6611,6 @@
   "name": "item_recipe_assault"
  }, 
  "item_recipe_basher": {
-  "InvalidHeroes": "npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void;npc_dota_hero_slardar;npc_dota_hero_troll_warlord", 
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_belt_of_strength", 
@@ -5786,7 +6633,8 @@
   "ItemRequirements": [
    "item_broadsword", 
    "item_claymore", 
-   "item_pers"
+   "item_pers", 
+   "item_quelling_blade"
   ], 
   "ItemResult": "item_bfury", 
   "attributes": [], 
@@ -5847,7 +6695,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 120, 
-  "itemcost": 800, 
+  "itemcost": 900, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -5919,7 +6767,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 243, 
-  "itemcost": 825, 
+  "itemcost": 600, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6042,7 +6890,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 167, 
-  "itemcost": 900, 
+  "itemcost": 300, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6119,6 +6967,23 @@
   "manacost": [], 
   "name": "item_recipe_force_staff"
  }, 
+ "item_recipe_glimmer_cape": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_shadow_amulet", 
+   "item_cloak"
+  ], 
+  "ItemResult": "item_glimmer_cape", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 253, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_glimmer_cape"
+ }, 
  "item_recipe_greater_crit": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
@@ -6136,6 +7001,24 @@
   "lore": null, 
   "manacost": [], 
   "name": "item_recipe_greater_crit"
+ }, 
+ "item_recipe_guardian_greaves": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_mekansm", 
+   "item_arcane_boots", 
+   "item_recipe_guardian_greaves"
+  ], 
+  "ItemResult": "item_guardian_greaves", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 230, 
+  "itemcost": 1650, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_guardian_greaves"
  }, 
  "item_recipe_hand_of_midas": {
   "ItemAliases": "hom", 
@@ -6185,7 +7068,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 113, 
-  "itemcost": 1200, 
+  "itemcost": 1400, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6279,6 +7162,24 @@
   "manacost": [], 
   "name": "item_recipe_lesser_crit"
  }, 
+ "item_recipe_lotus_orb": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_pers", 
+   "item_platemail", 
+   "item_recipe_lotus_orb"
+  ], 
+  "ItemResult": "item_lotus_orb", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 221, 
+  "itemcost": 900, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_lotus_orb"
+ }, 
  "item_recipe_maelstrom": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
@@ -6300,18 +7201,17 @@
  "item_recipe_magic_wand": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
+   "item_circlet", 
    "item_branches", 
    "item_branches", 
-   "item_branches", 
-   "item_magic_stick", 
-   "item_recipe_magic_wand"
+   "item_magic_stick"
   ], 
   "ItemResult": "item_magic_wand", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 35, 
-  "itemcost": 150, 
+  "itemcost": 0, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -6424,6 +7324,23 @@
   "manacost": [], 
   "name": "item_recipe_monkey_king_bar"
  }, 
+ "item_recipe_moon_shard": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_hyperstone", 
+   "item_hyperstone"
+  ], 
+  "ItemResult": "item_moon_shard", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 246, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_moon_shard"
+ }, 
  "item_recipe_necronomicon": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
@@ -6513,6 +7430,23 @@
   "lore": null, 
   "manacost": [], 
   "name": "item_recipe_oblivion_staff"
+ }, 
+ "item_recipe_octarine_core": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_mystic_staff", 
+   "item_soul_booster"
+  ], 
+  "ItemResult": "item_octarine_core", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 228, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_octarine_core"
  }, 
  "item_recipe_orchid": {
   "ItemRecipe": 1, 
@@ -6658,7 +7592,7 @@
  "item_recipe_refresher": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_oblivion_staff", 
+   "item_pers", 
    "item_pers", 
    "item_recipe_refresher"
   ], 
@@ -6710,9 +7644,9 @@
  "item_recipe_rod_of_atos": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
+   "item_vitality_booster", 
    "item_staff_of_wizardry", 
-   "item_staff_of_wizardry", 
-   "item_vitality_booster"
+   "item_staff_of_wizardry"
   ], 
   "ItemResult": "item_rod_of_atos", 
   "attributes": [], 
@@ -6814,6 +7748,24 @@
   "manacost": [], 
   "name": "item_recipe_shivas_guard"
  }, 
+ "item_recipe_silver_edge": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_invis_sword", 
+   "item_sange", 
+   "item_recipe_silver_edge"
+  ], 
+  "ItemResult": "item_silver_edge", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 248, 
+  "itemcost": 600, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_silver_edge"
+ }, 
  "item_recipe_skadi": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
@@ -6832,6 +7784,23 @@
   "lore": null, 
   "manacost": [], 
   "name": "item_recipe_skadi"
+ }, 
+ "item_recipe_solar_crest": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_medallion_of_courage", 
+   "item_talisman_of_evasion"
+  ], 
+  "ItemResult": "item_solar_crest", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 227, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_solar_crest"
  }, 
  "item_recipe_soul_booster": {
   "ItemRecipe": 1, 
@@ -6923,6 +7892,23 @@
   "manacost": [], 
   "name": "item_recipe_travel_boots"
  }, 
+ "item_recipe_travel_boots_2": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_travel_boots", 
+   "item_recipe_travel_boots"
+  ], 
+  "ItemResult": "item_travel_boots_2", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 219, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_travel_boots_2"
+ }, 
  "item_recipe_ultimate_scepter": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
@@ -6992,7 +7978,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 189, 
-  "itemcost": 1250, 
+  "itemcost": 900, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -7001,7 +7987,7 @@
  "item_recipe_vladmir": {
   "ItemRecipe": 1, 
   "ItemRequirements": [
-   "item_ring_of_regen", 
+   "item_headdress", 
    "item_ring_of_basilius", 
    "item_lifesteal", 
    "item_recipe_vladmir"
@@ -7016,6 +8002,23 @@
   "lore": null, 
   "manacost": [], 
   "name": "item_recipe_vladmir"
+ }, 
+ "item_recipe_ward_dispenser": {
+  "ItemRecipe": 1, 
+  "ItemRequirements": [
+   "item_ward_dispenser", 
+   "item_ward_dispenser"
+  ], 
+  "ItemResult": "item_ward_dispenser", 
+  "attributes": [], 
+  "cooldown": [], 
+  "description": null, 
+  "id": 217, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_recipe_ward_dispenser"
  }, 
  "item_recipe_wraith_band": {
   "ItemRecipe": 1, 
@@ -7064,39 +8067,25 @@
    "orb"
   ], 
   "ItemQuality": "rare", 
-  "ItemShopTags": "regen_health;regen_mana;damage;hard_to_tag", 
+  "ItemShopTags": "regen_health;regen_mana;hard_to_tag", 
   "attributes": [
    {
     "name": "bonus_mana_regen", 
     "tooltip": "%+$mana_regen", 
     "value": [
-     200
+     250
     ]
    }, 
    {
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
-     40
+     20
     ]
    }, 
    {
     "name": "bonus_health_regen", 
     "tooltip": "+$hp_regen", 
-    "value": [
-     5
-    ]
-   }, 
-   {
-    "name": "bonus_int", 
-    "tooltip": "+$int", 
-    "value": [
-     6
-    ]
-   }, 
-   {
-    "name": "bonus_attack_speed", 
-    "tooltip": "+$attack", 
     "value": [
      10
     ]
@@ -7108,7 +8097,7 @@
   "description": "Active: Reset Cooldowns - Resets the cooldowns of all your items and abilities.", 
   "displayname": "Refresher Orb", 
   "id": 110, 
-  "itemcost": 5225, 
+  "itemcost": 5200, 
   "level": 0, 
   "lore": "A powerful artifact created for wizards.", 
   "manacost": [
@@ -7213,7 +8202,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Aquila Aura - Grants mana regeneration and armor in a %aura_radius% area of effect.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Aquila Aura do not stack.", 
+  "description": "Passive: Aquila Aura - Grants mana regeneration and armor in a %aura_radius% area of effect.\\nActive: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Aquila Aura do not stack.", 
   "displayname": "Ring of Aquila", 
   "id": 212, 
   "itemcost": 1010, 
@@ -7272,7 +8261,7 @@
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Basilius Aura - Grants mana regeneration and armor in a %aura_radius% area of effect.\\n Active: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Basilius Aura do not stack.", 
+  "description": "Passive: Basilius Aura - Grants mana regeneration and armor in a %aura_radius% area of effect.\\nActive: Toggle whether the aura affects other non-hero units.\\n\\nMultiple instances of Basilius Aura do not stack.", 
   "displayname": "Ring of Basilius", 
   "id": 88, 
   "itemcost": 525, 
@@ -7288,7 +8277,7 @@
    "of", 
    "health"
   ], 
-  "ItemQuality": "secret_shop", 
+  "ItemQuality": "component", 
   "ItemShopTags": "regen_health", 
   "attributes": [
    {
@@ -7303,7 +8292,7 @@
   "description": null, 
   "displayname": "Ring of Health", 
   "id": 56, 
-  "itemcost": 875, 
+  "itemcost": 850, 
   "level": 0, 
   "lore": "A shiny ring found beneath a fat halfling's corpse.", 
   "manacost": [], 
@@ -7405,7 +8394,7 @@
    "atos"
   ], 
   "ItemQuality": "rare", 
-  "ItemShopTags": "int;armor;regen_health", 
+  "ItemShopTags": "int;regen_health", 
   "attributes": [
    {
     "name": "bonus_health", 
@@ -7415,24 +8404,42 @@
     ]
    }, 
    {
-    "name": "slow", 
-    "tooltip": "%CRIPPLE SLOW:", 
+    "name": "bonus_attack_speed", 
     "value": [
-     60
+     0
     ]
    }, 
    {
     "name": "bonus_intellect", 
     "tooltip": "+$int", 
     "value": [
-     25
+     30
     ]
    }, 
    {
     "name": "duration", 
-    "tooltip": "DURATION:", 
+    "tooltip": "CRIPPLE DURATION:", 
     "value": [
      4
+    ]
+   }, 
+   {
+    "name": "bonus_movement_speed", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "slow", 
+    "tooltip": "%CRIPPLE MOVE SLOW:", 
+    "value": [
+     60
     ]
    }
   ], 
@@ -7457,6 +8464,34 @@
   "ItemShopTags": "damage;str;unique", 
   "attributes": [
    {
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
+    "value": [
+     16
+    ]
+   }, 
+   {
+    "name": "maim_chance", 
+    "tooltip": "%MAIM CHANCE:", 
+    "value": [
+     15
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
+    "value": [
+     10
+    ]
+   }, 
+   {
+    "name": "maim_duration", 
+    "tooltip": "MAIM DURATION:", 
+    "value": [
+     4
+    ]
+   }, 
+   {
     "name": "maim_movement_speed", 
     "tooltip": "%MAIM MOVEMENT SLOW:", 
     "value": [
@@ -7469,37 +8504,10 @@
     "value": [
      -20
     ]
-   }, 
-   {
-    "name": "maim_chance", 
-    "tooltip": "%MAIM CHANCE:", 
-    "value": [
-     15
-    ]
-   }, 
-   {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
-    "value": [
-     16
-    ]
-   }, 
-   {
-    "name": "maim_duration", 
-    "value": [
-     4
-    ]
-   }, 
-   {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
-    "value": [
-     10
-    ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Lesser Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.", 
+  "description": "Passive: Lesser Maim - Each attack has a chance to slow the enemy's movement and attack speed for %maim_duration% seconds.", 
   "displayname": "Sange", 
   "id": 162, 
   "itemcost": 2050, 
@@ -7519,22 +8527,8 @@
   "ItemShopTags": "damage;str;agi;attack_speed;unique", 
   "attributes": [
    {
-    "name": "maim_slow_movement", 
-    "tooltip": "%MAIM MOVEMENT SLOW:", 
-    "value": [
-     -32
-    ]
-   }, 
-   {
-    "name": "maim_slow_attack", 
-    "tooltip": "MAIM ATTACK SLOW:", 
-    "value": [
-     -32
-    ]
-   }, 
-   {
-    "name": "maim_chance", 
-    "tooltip": "%MAIM CHANCE:", 
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
     "value": [
      16
     ]
@@ -7547,13 +8541,6 @@
     ]
    }, 
    {
-    "name": "bonus_attack_speed", 
-    "tooltip": "+$attack", 
-    "value": [
-     16
-    ]
-   }, 
-   {
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
@@ -7561,8 +8548,22 @@
     ]
    }, 
    {
-    "name": "bonus_strength", 
-    "tooltip": "+$str", 
+    "name": "maim_chance", 
+    "tooltip": "%MAIM CHANCE:", 
+    "value": [
+     16
+    ]
+   }, 
+   {
+    "name": "maim_slow_movement", 
+    "tooltip": "%MAIM MOVEMENT SLOW:", 
+    "value": [
+     -32
+    ]
+   }, 
+   {
+    "name": "bonus_attack_speed", 
+    "tooltip": "+$attack", 
     "value": [
      16
     ]
@@ -7575,14 +8576,22 @@
     ]
    }, 
    {
+    "name": "maim_slow_attack", 
+    "tooltip": "MAIM ATTACK SLOW:", 
+    "value": [
+     -32
+    ]
+   }, 
+   {
     "name": "maim_duration", 
+    "tooltip": "MAIM DURATION:", 
     "value": [
      5
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Greater Maim - Gives a chance on attack to slow movement speed for %maim_duration% seconds.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
+  "description": "Passive: Greater Maim - Each attack has a chance to slow the enemy's movement and attack speed for %maim_duration% seconds.\\n\\nYasha-based movement speed bonuses from multiple items do not stack.", 
   "displayname": "Sange and Yasha", 
   "id": 154, 
   "itemcost": 4100, 
@@ -7622,9 +8631,17 @@
     ]
    }, 
    {
-    "name": "unholy_duration", 
+    "name": "unholy_lifesteal_total_tooltip", 
+    "tooltip": "%UNHOLY RAGE LIFESTEAL:", 
     "value": [
-     3.5
+     200
+    ]
+   }, 
+   {
+    "name": "unholy_duration", 
+    "tooltip": "UNHOLY RAGE DURATION:", 
+    "value": [
+     4
     ]
    }, 
    {
@@ -7644,10 +8661,10 @@
   "cooldown": [
    35
   ], 
-  "description": "Active: Unholy Rage - Increases Lifesteal by %unholy_lifesteal_percent%%% for %unholy_duration% seconds.\\nPassive: Lifesteal - Gives Lifesteal on attacks.\\n\\nSatanic is a Unique Attack Modifier, and does not stack with other Unique Attack Modifier.", 
+  "description": "Active: Unholy Rage - Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nSatanic is a Unique Attack Modifier, and does not stack with other Unique Attack Modifier.", 
   "displayname": "Satanic", 
   "id": 156, 
-  "itemcost": 6150, 
+  "itemcost": 5900, 
   "level": 0, 
   "lore": "Immense power at the cost of your soul.", 
   "manacost": [], 
@@ -7669,23 +8686,24 @@
   ], 
   "attributes": [
    {
-    "name": "bonus_attack_speed", 
-    "tooltip": "+$attack", 
+    "name": "fade_time", 
+    "tooltip": "FADE TIME:", 
     "value": [
-     30
+     1.5
     ]
    }, 
    {
-    "name": "fade_time", 
+    "name": "bonus_attack_speed", 
+    "tooltip": "+$attack", 
     "value": [
-     1.5
+     20
     ]
    }
   ], 
   "cooldown": [
    10
   ], 
-  "description": "Active: Fade - Grants invisibility to you or target allied hero over 1.5 seconds. Moving breaks the invisibility. There is no cooldown when using this item on yourself.", 
+  "description": "Active: Fade - Grants invisibility to you or a target allied hero after a %fade_time% second fade time. Moving breaks the invisibility. There is no cooldown when using this item on yourself.", 
   "displayname": "Shadow Amulet", 
   "id": 215, 
   "itemcost": 1400, 
@@ -7749,18 +8767,19 @@
    }, 
    {
     "name": "sheep_duration", 
+    "tooltip": "HEX DURATION:", 
     "value": [
      3.5
     ]
    }
   ], 
   "cooldown": [
-   35
+   30
   ], 
-  "description": "Active: Hex - Turns a target unit into a harmless critter for %sheep_duration% seconds. Destroys illusions.", 
+  "description": "Active: Hex - Turns a target unit into a harmless critter for %sheep_duration% seconds. Instantly destroys illusions.", 
   "displayname": "Scythe of Vyse", 
   "id": 96, 
-  "itemcost": 5675, 
+  "itemcost": 5650, 
   "level": 0, 
   "lore": "The most guarded relic among the cult of Vyse, it is the most coveted weapon among magi.", 
   "manacost": [
@@ -7802,32 +8821,6 @@
     ]
    }, 
    {
-    "name": "blast_speed", 
-    "value": [
-     350
-    ]
-   }, 
-   {
-    "name": "blast_damage", 
-    "tooltip": "BLAST DAMAGE:", 
-    "value": [
-     200
-    ]
-   }, 
-   {
-    "name": "aura_attack_speed", 
-    "tooltip": "AURA ATTACK SLOW:", 
-    "value": [
-     -40
-    ]
-   }, 
-   {
-    "name": "blast_radius", 
-    "value": [
-     900
-    ]
-   }, 
-   {
     "name": "blast_movement_speed", 
     "tooltip": "%BLAST MOVEMENT SLOW:", 
     "value": [
@@ -7840,12 +8833,39 @@
     "value": [
      4
     ]
+   }, 
+   {
+    "name": "aura_attack_speed", 
+    "tooltip": "AURA ATTACK SLOW:", 
+    "value": [
+     -45
+    ]
+   }, 
+   {
+    "name": "blast_damage", 
+    "tooltip": "BLAST DAMAGE:", 
+    "value": [
+     200
+    ]
+   }, 
+   {
+    "name": "blast_radius", 
+    "tooltip": "BLAST RADIUS:", 
+    "value": [
+     900
+    ]
+   }, 
+   {
+    "name": "blast_speed", 
+    "value": [
+     350
+    ]
    }
   ], 
   "cooldown": [
    30
   ], 
-  "description": "Active: Arctic Blast - Emits a freezing wave that does %blast_damage% damage to enemies and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.\\nPassive: Freezing Aura - Reduces attack speed on enemies.\\n\\nMultiple instances of Freezing Aura do not stack.", 
+  "description": "Active: Arctic Blast - Emits a freezing wave that deals %blast_damage% magical damage to enemies and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.\\nPassive: Freezing Aura - Reduces the attack speed of all enemies in a %aura_radius% radius.\\n\\nMultiple instances of Freezing Aura do not stack.", 
   "displayname": "Shiva's Guard", 
   "id": 119, 
   "itemcost": 4700, 
@@ -7855,6 +8875,136 @@
    100
   ], 
   "name": "item_shivas_guard"
+ }, 
+ "item_silver_edge": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
+   "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+  ], 
+  "AbilitySharedCooldown": "shadow_blade", 
+  "ItemAliases": [
+   "sb;invis;shadow", 
+   "blade"
+  ], 
+  "ItemQuality": "epic", 
+  "ItemShopTags": "damage;attack_speed;movespeed;hard_to_tag", 
+  "attributes": [
+   {
+    "name": "bonus_attack_speed", 
+    "tooltip": "+$attack", 
+    "value": [
+     30
+    ]
+   }, 
+   {
+    "name": "bonus_strength", 
+    "tooltip": "+$str", 
+    "value": [
+     16
+    ]
+   }, 
+   {
+    "name": "backstab_reduction", 
+    "tooltip": "%ENEMY DAMAGE REDUCTION:", 
+    "value": [
+     -40
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
+    "value": [
+     32
+    ]
+   }, 
+   {
+    "name": "maim_attack_speed", 
+    "tooltip": "MAIM ATTACK SLOW:", 
+    "value": [
+     -20
+    ]
+   }, 
+   {
+    "name": "maim_duration", 
+    "tooltip": "MAIM DURATION:", 
+    "value": [
+     4
+    ]
+   }, 
+   {
+    "name": "maim_chance", 
+    "tooltip": "%MAIM CHANCE:", 
+    "value": [
+     15
+    ]
+   }, 
+   {
+    "name": "maim_movement_speed", 
+    "tooltip": "%MAIM MOVE SLOW:", 
+    "value": [
+     -20
+    ]
+   }, 
+   {
+    "name": "windwalk_duration", 
+    "tooltip": "SHADOW WALK DURATION:", 
+    "value": [
+     14
+    ]
+   }, 
+   {
+    "name": "windwalk_movement_speed", 
+    "value": [
+     20
+    ]
+   }, 
+   {
+    "name": "backstab_slow", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "backstab_duration", 
+    "tooltip": "REDUCTION DURATION:", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "windwalk_bonus_damage", 
+    "tooltip": "BONUS ATTACK DAMAGE:", 
+    "value": [
+     225
+    ]
+   }, 
+   {
+    "name": "backstab_duration_range", 
+    "value": [
+     5
+    ]
+   }, 
+   {
+    "name": "windwalk_fade_time", 
+    "value": [
+     0.3
+    ]
+   }
+  ], 
+  "cooldown": [
+   24
+  ], 
+  "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus damage to the target, disable their passive abilities, and reduce their damage output.\\nPassive: Lesser Maim - Each attack has a chance to slow the enemy's movement and attack speed for %maim_duration% seconds.", 
+  "displayname": "Silver Edge", 
+  "id": 249, 
+  "itemcost": 5450, 
+  "level": 0, 
+  "lore": "Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath.", 
+  "manacost": [
+   75
+  ], 
+  "name": "item_silver_edge"
  }, 
  "item_skadi": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
@@ -7889,33 +9039,35 @@
    }, 
    {
     "name": "cold_duration_melee", 
+    "tooltip": "COLD MELEE DURATION:", 
     "value": [
      5
     ]
    }, 
    {
     "name": "cold_duration_ranged", 
+    "tooltip": "COLD RANGED DURATION:", 
     "value": [
-     3
+     2.5
     ]
    }, 
    {
     "name": "cold_movement_speed", 
-    "tooltip": "%MOVE SLOW:", 
+    "tooltip": "%COLD MOVE SLOW:", 
     "value": [
      -35
     ]
    }, 
    {
     "name": "cold_attack_speed", 
-    "tooltip": "ATTACK SLOW:", 
+    "tooltip": "COLD ATTACK SLOW:", 
     "value": [
      -45
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Cold Attack - Attacks slow the movement and attack speed of the target.\\n\\nEye of Skadi is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Eye of Skadi can be combined with Lifesteal Attack Modifiers.", 
+  "description": "Passive: Cold Attack - Each attack slows the movement and attack speed of the target. The duration of the slow is based on whether the equipped hero is melee or ranged.\\n\\nEye of Skadi is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Eye of Skadi can be combined with Lifesteal Attack Modifiers.", 
   "displayname": "Eye of Skadi", 
   "id": 160, 
   "itemcost": 5675, 
@@ -8000,7 +9152,7 @@
   "cooldown": [
    90
   ], 
-  "description": "Use: Upon activation, the user and all nearby allied player-controlled units gain invisiblity and bonus movement speed for a brief time.  Minimap icons will also be hidden.  Upon moving within 1025 range of an enemy hero or tower, the invisibility is lost.", 
+  "description": "Use: Upon activation, the user and all nearby allied player-controlled units gain invisibility and bonus movement speed for a brief time.  Minimap icons will also be hidden.  Attacking, or moving within 1025 range of an enemy hero or tower, will break the invisibility.", 
   "displayname": "Smoke of Deceit", 
   "id": 188, 
   "itemcost": 100, 
@@ -8035,6 +9187,104 @@
   "lore": "A mask commonly used by mages and warlocks for various rituals.", 
   "manacost": [], 
   "name": "item_sobi_mask"
+ }, 
+ "item_solar_crest": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+  "AbilityCastRange": 1000, 
+  "AbilitySharedCooldown": "medallion", 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_BOTH", 
+  "AbilityUnitTargetType": [
+   "DOTA_UNIT_TARGET_HERO", 
+   "DOTA_UNIT_TARGET_BASIC"
+  ], 
+  "ItemAliases": [
+   "solar", 
+   "crest"
+  ], 
+  "ItemQuality": "rare", 
+  "ItemShopTags": "armor;regen_mana;hard_to_tag", 
+  "attributes": [
+   {
+    "name": "bonus_mana_regen_pct", 
+    "tooltip": "%+$mana_regen", 
+    "value": [
+     75
+    ]
+   }, 
+   {
+    "name": "bonus_evasion", 
+    "tooltip": "%+$evasion", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "bonus_armor", 
+    "tooltip": "+$armor", 
+    "value": [
+     10
+    ]
+   }, 
+   {
+    "name": "armor_reduction", 
+    "tooltip": "SHINE ENEMY ARMOR LOSS:", 
+    "value": [
+     -10
+    ]
+   }, 
+   {
+    "name": "enemy_armor_reduction_tooltip", 
+    "value": [
+     10
+    ]
+   }, 
+   {
+    "name": "allied_armor", 
+    "tooltip": "SHINE ALLY BONUS ARMOR:", 
+    "value": [
+     10
+    ]
+   }, 
+   {
+    "name": "allied_evasion", 
+    "tooltip": "%SHINE ALLY EVASION:", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "miss_chance", 
+    "tooltip": "%SHINE ENEMY MISS CHANCE:", 
+    "value": [
+     25
+    ]
+   }, 
+   {
+    "name": "duration", 
+    "tooltip": "SHINE DURATION:", 
+    "value": [
+     7
+    ]
+   }, 
+   {
+    "name": "valor_cast_range_tooltip", 
+    "tooltip": "SHINE CAST RANGE:", 
+    "value": [
+     1000
+    ]
+   }
+  ], 
+  "cooldown": [
+   7
+  ], 
+  "description": "Active: Shine - Temporarily removes the armor and evasion from Solar Crest. When cast on an ally it grants them %allied_armor% armor and %allied_evasion%%% evasion. When cast on an enemy, it removes %enemy_armor_reduction_tooltip% of their armor and blinds them, causing them to miss %miss_chance%%% of their attacks. Cannot target magic immune enemies. Armor reduction is halved against Roshan.", 
+  "displayname": "Solar Crest", 
+  "id": 229, 
+  "itemcost": 3000, 
+  "level": 0, 
+  "lore": "A talisman forged to honor the daytime sky.", 
+  "manacost": [], 
+  "name": "item_solar_crest"
  }, 
  "item_soul_booster": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
@@ -8078,7 +9328,7 @@
   "description": null, 
   "displayname": "Soul Booster", 
   "id": 129, 
-  "itemcost": 3300, 
+  "itemcost": 3200, 
   "level": 0, 
   "lore": "Regain lost courage.", 
   "manacost": [], 
@@ -8124,6 +9374,7 @@
    }, 
    {
     "name": "duration", 
+    "tooltip": "SACRIFICE DURATION:", 
     "value": [
      10
     ]
@@ -8132,12 +9383,12 @@
   "cooldown": [
    30
   ], 
-  "description": "Active: Sacrifice - Consume %health_sacrifice% HP to temporarily gain %mana_gain% Mana.  Lasts 10 seconds.", 
+  "description": "Active: Sacrifice - Consume %health_sacrifice% health to temporarily gain %mana_gain% mana.  Lasts 10 seconds.", 
   "displayname": "Soul Ring", 
   "id": 178, 
   "itemcost": 800, 
   "level": 0, 
-  "lore": "A ring that feeds on the souls of those around it.", 
+  "lore": "A ring that feeds on the souls of those who wear it.", 
   "manacost": [
    0
   ], 
@@ -8177,26 +9428,26 @@
     ]
    }, 
    {
-    "name": "block_cooldown", 
-    "value": [
-     17
-    ]
-   }, 
-   {
     "name": "bonus_damage", 
     "tooltip": "+$damage", 
     "value": [
      10
     ]
+   }, 
+   {
+    "name": "block_cooldown", 
+    "value": [
+     16
+    ]
    }
   ], 
   "cooldown": [
-   17
+   16
   ], 
-  "description": "Spellblock - Passively blocks most targeted spells once every 17 seconds. Can be cast on an allied unit to temporarily transfer the buff.", 
+  "description": "Passive: Spellblock - Blocks most targeted spells once every %block_cooldown% seconds.\\nActive: Transfer Spellblock - Temporarily removes Spellblock from the item's owner and transfers it to an allied unit.", 
   "displayname": "Linken's Sphere", 
   "id": 123, 
-  "itemcost": 5175, 
+  "itemcost": 5125, 
   "level": 0, 
   "lore": "This magical sphere once protected one of the most famous heroes in history.", 
   "manacost": [], 
@@ -8241,23 +9492,23 @@
   "attributes": [
    {
     "name": "damage_block_ranged", 
-    "tooltip": "RANGED BLOCK:", 
+    "tooltip": "RANGED DAMAGE BLOCK:", 
     "value": [
-     10
+     8
     ]
    }, 
    {
     "name": "block_chance", 
     "tooltip": "%BLOCK CHANCE:", 
     "value": [
-     53
+     50
     ]
    }, 
    {
     "name": "damage_block_melee", 
-    "tooltip": "MELEE BLOCK:", 
+    "tooltip": "MELEE DAMAGE BLOCK:", 
     "value": [
-     20
+     16
     ]
    }
   ], 
@@ -8265,7 +9516,7 @@
   "description": "Passive: Damage Block - Gives a chance to block damage based on whether the equipped hero is melee or ranged.", 
   "displayname": "Stout Shield", 
   "id": 182, 
-  "itemcost": 250, 
+  "itemcost": 200, 
   "level": 0, 
   "lore": "One man's wine barrel bottom is another man's shield.", 
   "manacost": [], 
@@ -8278,7 +9529,7 @@
    "of", 
    "evasion"
   ], 
-  "ItemQuality": "component", 
+  "ItemQuality": "secret_shop", 
   "ItemShopTags": "evasion", 
   "attributes": [
    {
@@ -8315,22 +9566,36 @@
   "ItemStackable": 1, 
   "attributes": [
    {
+    "name": "total_heal_ward_tooltip", 
+    "tooltip": "EAT WARD HEALTH RESTORED:", 
+    "value": [
+     230
+    ]
+   }, 
+   {
+    "name": "cast_range_ward", 
+    "tooltip": "EAT WARD CAST RANGE:", 
+    "value": [
+     450
+    ]
+   }, 
+   {
     "name": "total_heal", 
-    "tooltip": "HEALTH RESTORED:", 
+    "tooltip": "EAT TREE HEALTH RESTORED:", 
     "value": [
      115
     ]
    }, 
    {
     "name": "buff_duration", 
-    "tooltip": "DURATION:", 
+    "tooltip": "HEAL DURATION:", 
     "value": [
      16
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Use: Eat Tree - Consume a tree to restore health over time. Comes with 4 charges.\\n\\nUse on an allied hero to give them one Tango.", 
+  "description": "Use: Eat a Tree or Ward - Consume a target tree or ward to gradually restore health.\\n\\nComes with 4 charges.  Can be used on an allied hero to give them one Tango.", 
   "displayname": "Tango", 
   "id": 44, 
   "itemcost": 125, 
@@ -8343,22 +9608,40 @@
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 165, 
-  "AbilityUnitTargetType": "DOTA_UNIT_TARGET_TREE", 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_CUSTOM", 
+  "AbilityUnitTargetType": [
+   "DOTA_UNIT_TARGET_TREE", 
+   "DOTA_UNIT_TARGET_CUSTOM"
+  ], 
   "ItemInitialCharges": 1, 
   "ItemQuality": "consumable", 
   "ItemShopTags": "consumable", 
   "ItemStackable": 0, 
   "attributes": [
    {
+    "name": "total_heal_ward_tooltip", 
+    "tooltip": "EAT WARD HEALTH RESTORED:", 
+    "value": [
+     230
+    ]
+   }, 
+   {
+    "name": "cast_range_ward", 
+    "tooltip": "EAT WARD CAST RANGE:", 
+    "value": [
+     450
+    ]
+   }, 
+   {
     "name": "total_heal", 
-    "tooltip": "HEALTH RESTORED:", 
+    "tooltip": "EAT TREE HEALTH RESTORED:", 
     "value": [
      115
     ]
    }, 
    {
     "name": "buff_duration", 
-    "tooltip": "DURATION:", 
+    "tooltip": "HEAL DURATION:", 
     "value": [
      16
     ]
@@ -8367,12 +9650,12 @@
   "cooldown": [
    60
   ], 
-  "description": "Use: Eat Tree - Consume a tree to restore health over time.", 
+  "description": "Use: Eat a Tree or Ward - Consume a target tree or ward to gradually restore health.", 
   "displayname": "Tango (Shared)", 
   "id": 241, 
   "itemcost": 30, 
   "level": 0, 
-  "lore": "", 
+  "lore": "Om nom nom.", 
   "manacost": [], 
   "name": "item_tango_single"
  }, 
@@ -8422,12 +9705,12 @@
    }
   ], 
   "cooldown": [
-   65
+   70
   ], 
-  "description": "Use: Teleport - Teleports you to a target friendly building.", 
+  "description": "Use: Teleport - Teleports you to a target friendly building. Double-click to teleport to your team's base fountain.", 
   "displayname": "Town Portal Scroll", 
   "id": 46, 
-  "itemcost": 100, 
+  "itemcost": 75, 
   "level": 0, 
   "lore": null, 
   "manacost": [
@@ -8537,7 +9820,6 @@
   "AbilityUnitTargetType": [
    "DOTA_UNIT_TARGET_HERO", 
    "DOTA_UNIT_TARGET_CREEP", 
-   "DOTA_UNIT_TARGET_MECHANICAL", 
    "DOTA_UNIT_TARGET_BUILDING"
   ], 
   "ItemAliases": [
@@ -8545,8 +9827,12 @@
    "of", 
    "travel"
   ], 
+  "ItemBaseLevel": 1, 
   "ItemQuality": "common", 
   "ItemShopTags": "teleport;move_speed", 
+  "MaxUpgradeLevel": 2, 
+  "UpgradeRecipe": "item_recipe_travel_boots", 
+  "UpgradesItems": "item_travel_boots", 
   "attributes": [
    {
     "name": "bonus_movement_speed", 
@@ -8557,9 +9843,9 @@
    }
   ], 
   "cooldown": [
-   50
+   45
   ], 
-  "description": "Active: Teleport - Teleports you to an allied non-hero unit or structure.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "description": "Active: Teleport - Teleports you to an allied non-hero unit or structure. Double-click to teleport to your team's base fountain. Upgradable to allow you to teleport to allied heroes.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
   "displayname": "Boots of Travel", 
   "id": 48, 
   "itemcost": 2450, 
@@ -8570,13 +9856,62 @@
   ], 
   "name": "item_travel_boots"
  }, 
+ "item_travel_boots_2": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_POINT", 
+   "DOTA_ABILITY_BEHAVIOR_CHANNELLED", 
+   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
+   "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+  ], 
+  "AbilityChannelTime": 3, 
+  "AbilitySharedCooldown": "teleport", 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_INVULNERABLE", 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": [
+   "DOTA_UNIT_TARGET_HERO", 
+   "DOTA_UNIT_TARGET_CREEP", 
+   "DOTA_UNIT_TARGET_BUILDING"
+  ], 
+  "ItemAliases": [
+   "bot;boots", 
+   "of", 
+   "travel"
+  ], 
+  "ItemBaseLevel": 2, 
+  "ItemQuality": "common", 
+  "ItemShopTags": "teleport;move_speed", 
+  "MaxUpgradeLevel": 2, 
+  "attributes": [
+   {
+    "name": "bonus_movement_speed", 
+    "tooltip": "+$move_speed", 
+    "value": [
+     100
+    ]
+   }
+  ], 
+  "cooldown": [
+   45
+  ], 
+  "description": "Active: Teleport - Teleports you to any allied structure or unit, including heroes. Double-click to teleport to your team's base fountain.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "displayname": "Boots of Travel", 
+  "id": 220, 
+  "itemcost": 4450, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [
+   75
+  ], 
+  "name": "item_travel_boots_2"
+ }, 
  "item_ultimate_orb": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
   "ItemAliases": [
    "ultimate", 
    "orb"
   ], 
-  "ItemQuality": "component", 
+  "ItemQuality": "secret_shop", 
   "ItemShopTags": "agi;int;str", 
   "attributes": [
    {
@@ -8599,6 +9934,10 @@
  }, 
  "item_ultimate_scepter": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityCastRange": 600, 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO", 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
   "ItemAliases": [
    "ultimate;aghanim's", 
    "scepter"
@@ -8714,6 +10053,13 @@
     ]
    }, 
    {
+    "name": "soul_release_range_tooltip", 
+    "tooltip": "SOUL RELEASE CAST RANGE:", 
+    "value": [
+     950
+    ]
+   }, 
+   {
     "name": "soul_damage_duration", 
     "value": [
      8
@@ -8723,7 +10069,7 @@
   "cooldown": [
    7
   ], 
-  "description": "Gains charges every time an enemy hero dies within %soul_radius% units.  Only the closest Urn to the dying hero will gain a charge.\\nActive: Soul Release - Heals HP over time to friendly units, but deals pure damage over time to enemy units.  The healing effect is lost if the affected unit takes damage from an enemy hero or tower.", 
+  "description": "Active: Soul Release - Heals health over time to friendly units, but deals pure damage over time to enemy units.  The healing effect is lost if the affected ally takes damage from an enemy hero or tower.\\nGains charges every time an enemy hero dies within %soul_radius% units.  Only the closest Urn to the dying hero will gain a charge.", 
   "displayname": "Urn of Shadows", 
   "id": 92, 
   "itemcost": 875, 
@@ -8749,7 +10095,7 @@
     "name": "block_chance", 
     "tooltip": "%BLOCK CHANCE:", 
     "value": [
-     67
+     75
     ]
    }, 
    {
@@ -8778,7 +10124,7 @@
   "description": "Passive: Damage Block - Gives the wielder a chance to block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "displayname": "Vanguard", 
   "id": 125, 
-  "itemcost": 2225, 
+  "itemcost": 2150, 
   "level": 0, 
   "lore": "A powerful shield that defends its wielder from even the most vicious of attacks.", 
   "manacost": [], 
@@ -8787,7 +10133,8 @@
  "item_veil_of_discord": {
   "AbilityBehavior": [
    "DOTA_ABILITY_BEHAVIOR_AOE", 
-   "DOTA_ABILITY_BEHAVIOR_POINT"
+   "DOTA_ABILITY_BEHAVIOR_POINT", 
+   "DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
   ], 
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 1000, 
@@ -8800,15 +10147,15 @@
   "ItemShopTags": "int;armor;regen_health;hard_to_tag", 
   "attributes": [
    {
-    "name": "bonus_stats", 
-    "tooltip": "+$all", 
+    "name": "bonus_armor", 
+    "tooltip": "+$armor", 
     "value": [
      6
     ]
    }, 
    {
-    "name": "bonus_damage", 
-    "tooltip": "+$damage", 
+    "name": "bonus_stats", 
+    "tooltip": "+$all", 
     "value": [
      6
     ]
@@ -8821,10 +10168,24 @@
     ]
    }, 
    {
+    "name": "debuff_radius", 
+    "tooltip": "MAGIC WEAKNESS RADIUS:", 
+    "value": [
+     600
+    ]
+   }, 
+   {
     "name": "resist_debuff_duration", 
     "tooltip": "MAGIC WEAKNESS DURATION:", 
     "value": [
-     25
+     16
+    ]
+   }, 
+   {
+    "name": "bonus_damage", 
+    "tooltip": "+$damage", 
+    "value": [
+     6
     ]
    }, 
    {
@@ -8833,33 +10194,19 @@
     "value": [
      -25
     ]
-   }, 
-   {
-    "name": "bonus_armor", 
-    "tooltip": "+$armor", 
-    "value": [
-     6
-    ]
-   }, 
-   {
-    "name": "debuff_radius", 
-    "tooltip": "MAGIC WEAKNESS RADIUS:", 
-    "value": [
-     600
-    ]
    }
   ], 
   "cooldown": [
-   30
+   20
   ], 
   "description": "Active: Magic Weakness - Emits a weakening blast that increases the magic damage enemies take. Lasts %resist_debuff_duration% seconds.", 
   "displayname": "Veil of Discord", 
   "id": 190, 
-  "itemcost": 2670, 
+  "itemcost": 2270, 
   "level": 0, 
   "lore": "The headwear of corrupt magi.", 
   "manacost": [
-   75
+   50
   ], 
   "name": "item_veil_of_discord"
  }, 
@@ -8900,16 +10247,38 @@
   "ItemShopTags": "lifesteal;damage;armor;regen_mana", 
   "attributes": [
    {
-    "name": "vampiric_aura", 
-    "tooltip": "%AURA LIFESTEAL:", 
+    "name": "hp_regen", 
+    "tooltip": "AURA HEALTH REGEN:", 
     "value": [
-     16
+     3
     ]
    }, 
    {
-    "name": "aura_radius", 
+    "name": "mana_regen_aura", 
+    "tooltip": "AURA MANA REGEN:", 
     "value": [
-     900
+     0.8
+    ]
+   }, 
+   {
+    "name": "bonus_all_stats", 
+    "tooltip": "+$all", 
+    "value": [
+     2
+    ]
+   }, 
+   {
+    "name": "vampiric_aura", 
+    "tooltip": "%AURA MELEE LIFESTEAL:", 
+    "value": [
+     15
+    ]
+   }, 
+   {
+    "name": "vampiric_aura_ranged", 
+    "tooltip": "%AURA RANGED LIFESTEAL:", 
+    "value": [
+     10
     ]
    }, 
    {
@@ -8921,31 +10290,24 @@
    }, 
    {
     "name": "damage_aura", 
-    "tooltip": "%AURA BONUS DAMAGE:", 
+    "tooltip": "%AURA BONUS ATTACK DAMAGE:", 
     "value": [
      15
     ]
    }, 
    {
-    "name": "mana_regen_aura", 
-    "tooltip": "AURA MANA REGEN:", 
+    "name": "aura_radius", 
+    "tooltip": "AURA RADIUS:", 
     "value": [
-     0.8
-    ]
-   }, 
-   {
-    "name": "hp_regen", 
-    "tooltip": "+$hp_regen", 
-    "value": [
-     2
+     900
     ]
    }
   ], 
   "cooldown": [], 
-  "description": "Passive: Vladmir's Aura - Grants a variety of bonuses to nearby allies.  Lifesteal bonuses from Vladmir's Aura only affect melee units.  \\n\\nMultiple instances of Vladmir's Aura do not stack.", 
+  "description": "Passive: Vladmir's Aura - Grants lifesteal, health regeneration, mana regeneration, bonus attack damage, and armor to allies in a %aura_radius% radius.  The lifesteal percentage is based on whether the hero affected by the aura is melee or ranged.\\n\\nMultiple instances of Vladmir's Aura do not stack.", 
   "displayname": "Vladmir's Offering", 
   "id": 81, 
-  "itemcost": 2075, 
+  "itemcost": 2325, 
   "level": 0, 
   "lore": "An eerie mask that is haunted with the malice of a fallen vampire.", 
   "manacost": [], 
@@ -8957,7 +10319,7 @@
    "void", 
    "stone"
   ], 
-  "ItemQuality": "secret_shop", 
+  "ItemQuality": "component", 
   "ItemShopTags": "regen_mana", 
   "attributes": [
    {
@@ -8972,11 +10334,100 @@
   "description": "", 
   "displayname": "Void Stone", 
   "id": 57, 
-  "itemcost": 875, 
+  "itemcost": 850, 
   "level": 0, 
   "lore": "Jewelry that was once used to channel nether realm magic, this ring pulses with energy.", 
   "manacost": [], 
   "name": "item_void_stone"
+ }, 
+ "item_ward_dispenser": {
+  "AbilityBehavior": [
+   "DOTA_ABILITY_BEHAVIOR_POINT", 
+   "DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
+  ], 
+  "AbilityCastRange": 500, 
+  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO", 
+  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_FRIENDLY", 
+  "AbilityUnitTargetType": "DOTA_UNIT_TARGET_HERO", 
+  "ItemAliases": "ward", 
+  "ItemQuality": "common", 
+  "attributes": [
+   {
+    "name": "observer_cost", 
+    "value": [
+     75
+    ]
+   }, 
+   {
+    "name": "sentry_cost", 
+    "value": [
+     100
+    ]
+   }, 
+   {
+    "name": "bonus_health", 
+    "value": [
+     100
+    ]
+   }, 
+   {
+    "name": "creation_delay", 
+    "value": [
+     0
+    ]
+   }, 
+   {
+    "name": "observer_vision_range_tooltip", 
+    "tooltip": "OBSERVER VISION RANGE:", 
+    "value": [
+     1600
+    ]
+   }, 
+   {
+    "name": "lifetime_observer", 
+    "value": [
+     420
+    ]
+   }, 
+   {
+    "name": "lifetime_sentry", 
+    "value": [
+     240
+    ]
+   }, 
+   {
+    "name": "observer_duration_minutes_tooltip", 
+    "tooltip": "OBSERVER DURATION (MINUTES):", 
+    "value": [
+     7
+    ]
+   }, 
+   {
+    "name": "true_sight_range", 
+    "tooltip": "SENTRY TRUE SIGHT RANGE:", 
+    "value": [
+     850
+    ]
+   }, 
+   {
+    "name": "sentry_duration_minutes_tooltip", 
+    "tooltip": "SENTRY DURATION (MINUTES):", 
+    "value": [
+     4
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Double-Click to switch the currently active ward.\\n\\nUse: Plant the currently active ward to keep watch over an area. Observer Wards reveal their surrounding area to your team. Sentry Wards grant True Sight, the ability to see invisible enemy units and wards, to any existing allied vision within its range.", 
+  "displayname": "Observer and Sentry Wards", 
+  "id": 218, 
+  "itemcost": 275, 
+  "level": 0, 
+  "lore": "Advancements in stacking efficiency have made wards easier to carry than ever.", 
+  "manacost": [], 
+  "name": "item_ward_dispenser"
  }, 
  "item_ward_observer": {
   "AbilityBehavior": [
@@ -8992,15 +10443,16 @@
    "observer", 
    "ward"
   ], 
-  "ItemInitialCharges": 2, 
+  "ItemInitialCharges": 1, 
   "ItemQuality": "consumable", 
   "ItemShopTags": "consumable", 
   "ItemStackable": 1, 
-  "ItemStockTime": 360, 
+  "ItemStockTime": 180, 
   "ItemSupport": 1, 
   "attributes": [
    {
     "name": "vision_range", 
+    "tooltip": "VISION RANGE:", 
     "value": [
      1600
     ]
@@ -9016,17 +10468,24 @@
     "value": [
      420
     ]
+   }, 
+   {
+    "name": "duration_minutes_tooltip", 
+    "tooltip": "DURATION (MINUTES):", 
+    "value": [
+     7
+    ]
    }
   ], 
   "cooldown": [
    1
   ], 
-  "description": "Use: Places an Observer Ward to give sight of the surrounding area. Lasts 7 minutes.\\n\\nHold Control to give one Observer Ward to an allied hero.", 
+  "description": "Use: Plants an Observer Ward, an invisible watcher that gives vision of its surrounding area to your team. Lasts %duration_minutes_tooltip% minutes.\\n\\nHold Control to give one Observer Ward to an allied hero.", 
   "displayname": "Observer Ward", 
   "id": 42, 
-  "itemcost": 150, 
+  "itemcost": 75, 
   "level": 0, 
-  "lore": null, 
+  "lore": "A form of half-sentient plant, often cultivated by apprentice wizards.", 
   "manacost": [], 
   "name": "item_ward_observer"
  }, 
@@ -9058,6 +10517,7 @@
    }, 
    {
     "name": "true_sight_range", 
+    "tooltip": "TRUE SIGHT RANGE:", 
     "value": [
      850
     ]
@@ -9073,17 +10533,24 @@
     "value": [
      200
     ]
+   }, 
+   {
+    "name": "duration_minutes_tooltip", 
+    "tooltip": "DURATION (MINUTES):", 
+    "value": [
+     4
+    ]
    }
   ], 
   "cooldown": [
    1
   ], 
-  "description": "Use: Places a Sentry Ward to give True Sight of the surrounding area. Lasts 4 minutes.\\n\\nHold Control to give one Sentry Ward to an allied hero.", 
+  "description": "Use: Plants a Sentry Ward, an invisible watcher that grants True Sight, the ability to see invisible enemy units and wards, to any existing allied vision within its range. Lasts %duration_minutes_tooltip% minutes.\\n\\nHold Control to give one Sentry Ward to an allied hero.", 
   "displayname": "Sentry Ward", 
   "id": 43, 
   "itemcost": 200, 
   "level": 0, 
-  "lore": null, 
+  "lore": "A form of plant originally grown in the garden of a fearful king.", 
   "manacost": [], 
   "name": "item_ward_sentry"
  }, 
@@ -9124,7 +10591,7 @@
   "cooldown": [], 
   "description": "Use the cake to heal 400 health and 50 mana over 8 seconds", 
   "displayname": "Fruit-bit Cake", 
-  "id": 231, 
+  "id": 1012, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9168,7 +10635,7 @@
   "cooldown": [], 
   "description": "Use the cocoa to heal 300 health and 150 mana over 14 seconds", 
   "displayname": "Cocoa with Marshmallows", 
-  "id": 233, 
+  "id": 1014, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9212,7 +10679,7 @@
   "cooldown": [], 
   "description": "Use the cookie to heal 350 health and 100 mana over 11 seconds", 
   "displayname": "Wizard Cookie", 
-  "id": 232, 
+  "id": 1013, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9238,7 +10705,7 @@
   ], 
   "description": "After channeling for 2 seconds the greevil pops to the new location.", 
   "displayname": "Greevil Blink Bone", 
-  "id": 240, 
+  "id": 1020, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9281,7 +10748,7 @@
   "cooldown": [], 
   "description": "Use the chow to heal your greevil 400 health and 150 mana over 5 seconds.", 
   "displayname": "Greevil Chow", 
-  "id": 239, 
+  "id": 1019, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9310,7 +10777,7 @@
   "cooldown": [], 
   "description": "Makes your greevil move at max speed for 10 seconds.", 
   "displayname": "Greevil Treat", 
-  "id": 238, 
+  "id": 1018, 
   "itemcost": 0, 
   "level": 0, 
   "lore": "There is nothing faster than a greevil eating his favorite treat!", 
@@ -9354,7 +10821,7 @@
   "cooldown": [], 
   "description": "Use the ham to heal 300 health and 75 mana over 2 seconds", 
   "displayname": "Clove Studded Ham", 
-  "id": 234, 
+  "id": 1015, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9398,7 +10865,7 @@
   "cooldown": [], 
   "description": "Use the kringle to heal 250 health and 200 mana over 17 seconds", 
   "displayname": "Kringle", 
-  "id": 236, 
+  "id": 1016, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9420,7 +10887,7 @@
   "cooldown": [], 
   "description": "Refreshes all the Greevil's abilities.", 
   "displayname": "Snow Mushroom", 
-  "id": 237, 
+  "id": 1017, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9442,7 +10909,7 @@
   "cooldown": [], 
   "description": "Gives a massive increase of 100 to movespeed. Increases control on the ice. Use short paths for the best result!", 
   "displayname": "Speed Skates", 
-  "id": 230, 
+  "id": 1011, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 
@@ -9466,7 +10933,7 @@
   ], 
   "description": "Use: Open Stocking to receive your gifts!", 
   "displayname": "Xmas Stocking", 
-  "id": 229, 
+  "id": 1010, 
   "itemcost": 0, 
   "level": 0, 
   "lore": null, 

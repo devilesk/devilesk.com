@@ -6918,11 +6918,11 @@ var HEROCALCULATOR = (function (my) {
 		my.unitData = {},
 		my.abilityData = {},
 		my.stackableItems = ['clarity','flask','dust','ward_observer','ward_sentry','tango','tpscroll','smoke_of_deceit'],
-		my.levelitems = ['necronomicon','dagon','diffusal_blade'],
-		my.validItems = ["abyssal_blade","ultimate_scepter","courier","arcane_boots","armlet","assault","boots_of_elves","bfury","belt_of_strength","black_king_bar","blade_mail","blade_of_alacrity","blades_of_attack","blink","bloodstone","boots","travel_boots","bottle","bracer","broadsword","buckler","butterfly","chainmail","circlet","clarity","claymore","cloak","lesser_crit","greater_crit","dagon","demon_edge","desolator","diffusal_blade","rapier","ancient_janggo","dust","eagle","energy_booster","ethereal_blade","cyclone","skadi","flying_courier","force_staff","gauntlets","gem","ghost","gloves","hand_of_midas","headdress","flask","heart","heavens_halberd","helm_of_iron_will","helm_of_the_dominator","hood_of_defiance","hyperstone","branches","javelin","sphere","maelstrom","magic_stick","magic_wand","manta","mantle","mask_of_madness","medallion_of_courage","mekansm","mithril_hammer","mjollnir","monkey_king_bar","lifesteal","mystic_staff","necronomicon","null_talisman","oblivion_staff","ward_observer","ogre_axe","orb_of_venom","orchid","pers","phase_boots","pipe","platemail","point_booster","poor_mans_shield","power_treads","quarterstaff","quelling_blade","radiance","reaver","refresher","ring_of_aquila","ring_of_basilius","ring_of_health","ring_of_protection","ring_of_regen","robe","rod_of_atos","relic","sobi_mask","sange","sange_and_yasha","satanic","sheepstick","ward_sentry","shadow_amulet","invis_sword","shivas_guard","basher","slippers","smoke_of_deceit","soul_booster","soul_ring","staff_of_wizardry","stout_shield","talisman_of_evasion","tango","tpscroll","tranquil_boots","ultimate_orb","urn_of_shadows","vanguard","veil_of_discord","vitality_booster","vladmir","void_stone","wraith_band","yasha","crimson_guard"],
-        my.itemsWithActive = ['heart','smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila'];
+		my.levelitems = ['necronomicon','dagon','diffusal_blade','travel_boots'],
+		my.validItems = ["abyssal_blade","ultimate_scepter","courier","arcane_boots","armlet","assault","boots_of_elves","bfury","belt_of_strength","black_king_bar","blade_mail","blade_of_alacrity","blades_of_attack","blink","bloodstone","boots","travel_boots","bottle","bracer","broadsword","buckler","butterfly","chainmail","circlet","clarity","claymore","cloak","lesser_crit","greater_crit","dagon","demon_edge","desolator","diffusal_blade","rapier","ancient_janggo","dust","eagle","energy_booster","ethereal_blade","cyclone","skadi","flying_courier","force_staff","gauntlets","gem","ghost","gloves","hand_of_midas","headdress","flask","heart","heavens_halberd","helm_of_iron_will","helm_of_the_dominator","hood_of_defiance","hyperstone","branches","javelin","sphere","maelstrom","magic_stick","magic_wand","manta","mantle","mask_of_madness","medallion_of_courage","mekansm","mithril_hammer","mjollnir","monkey_king_bar","lifesteal","mystic_staff","necronomicon","null_talisman","oblivion_staff","ward_observer","ogre_axe","orb_of_venom","orchid","pers","phase_boots","pipe","platemail","point_booster","poor_mans_shield","power_treads","quarterstaff","quelling_blade","radiance","reaver","refresher","ring_of_aquila","ring_of_basilius","ring_of_health","ring_of_protection","ring_of_regen","robe","rod_of_atos","relic","sobi_mask","sange","sange_and_yasha","satanic","sheepstick","ward_sentry","shadow_amulet","invis_sword","shivas_guard","basher","slippers","smoke_of_deceit","soul_booster","soul_ring","staff_of_wizardry","stout_shield","talisman_of_evasion","tango","tpscroll","tranquil_boots","ultimate_orb","urn_of_shadows","vanguard","veil_of_discord","vitality_booster","vladmir","void_stone","wraith_band","yasha","crimson_guard","enchanted_mango","lotus_orb","glimmer_cape","guardian_greaves","moon_shard","silver_edge","solar_crest","octarine_core"],
+        my.itemsWithActive = ['heart','smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila', 'butterfly', 'moon_shard', 'silver_edge'];
     
-    my.ItemInput = function (value, name) {
+    my.ItemInput = function (value, name, debuff) {
         if (my.itemData['item_' + value].ItemAliases instanceof Array) {
             var itemAlias = my.itemData['item_' + value].ItemAliases.join(' ');
         }
@@ -6930,8 +6930,17 @@ var HEROCALCULATOR = (function (my) {
             var itemAlias = my.itemData['item_' + value].ItemAliases;
         }
         this.value = ko.observable(value);
-        this.name = ko.observable(name);
-        this.displayname = ko.observable(name + ' <span style="display:none">' + ';' + itemAlias + '</span>');
+        this.debuff = ko.observable(debuff);
+        if (this.debuff()) {
+            this.value = ko.observable(value + '|' + debuff.id);
+            this.name = ko.observable(name + ' (' + debuff.name + ')');
+            this.displayname = ko.observable(name + ' (' + debuff.name + ') <span style="display:none">' + ';' + itemAlias + '</span>');
+        }
+        else {
+            this.value = ko.observable(value);
+            this.name = ko.observable(name);
+            this.displayname = ko.observable(name + ' <span style="display:none">' + ';' + itemAlias + '</span>');
+        }
     };
 	
 	my.BasicInventoryViewModel = function (h) {
@@ -6941,10 +6950,23 @@ var HEROCALCULATOR = (function (my) {
         self.addItem = function (data, event) {
             if (data.selectedItem() != undefined) {
                 var new_item = {
-                    item: data.selectedItem(),
+                    item: data.selectedItem().split('|')[0],
                     state: ko.observable(0),
                     size: data.itemInputValue(),
                     enabled: ko.observable(true)
+                }
+                switch (new_item.item) {
+                    case 'dagon':
+                        new_item.size = Math.min(new_item.size, 5);
+                    break;
+                    break;
+                    case 'travel_boots':
+                    case 'diffusal_blade':
+                        new_item.size = Math.min(new_item.size, 2);
+                    break;
+                    case 'necronomicon':
+                        new_item.size = Math.min(new_item.size, 3);
+                    break;
                 }
                 self.items.push(new_item);
                 if (data.selectedItem() === 'ring_of_aquila' || data.selectedItem() === 'ring_of_basilius' || data.selectedItem() === 'heart') {
@@ -7029,6 +7051,7 @@ var HEROCALCULATOR = (function (my) {
                 break;
                 case 'dagon':
                 case 'diffusal_blade':
+                case 'travel_boots':
                 case 'necronomicon':
                     if (data.size > 1) {
                         return '/media/images/items/' + data.item + '_' + data.size + '.png';
@@ -7172,10 +7195,13 @@ var HEROCALCULATOR = (function (my) {
         self.addItemDebuff = function (data, event) {
             if (self.hasInventory() && self.selectedItemDebuff() != undefined) {
                 var new_item = {
-                    item: self.selectedItemDebuff(),
+                    item: self.selectedItemDebuff().split('|')[0],
                     state: ko.observable(0),
                     size: 1,
                     enabled: ko.observable(true)
+                }
+                if (self.selectedItemDebuff().split('|').length == 2) {
+                    new_item.debuff = self.selectedItemDebuff().split('|')[1]
                 }
                 self.items.push(new_item);
                 if (self.selectedItemDebuff() === 'ring_of_aquila' || self.selectedItemDebuff() === 'ring_of_basilius') {
@@ -7361,6 +7387,7 @@ var HEROCALCULATOR = (function (my) {
                                     totalAttribute += parseInt(attribute.value[0]);
                                 }
                             }
+                            if (attribute.name == 'bonus_intelligence') {totalAttribute += parseInt(attribute.value[0]);};
                             if (attribute.name == 'bonus_int') {totalAttribute += parseInt(attribute.value[0]);};
                             if (attribute.name == 'bonus_stat' && self.items()[i].state() == 1) {totalAttribute += parseInt(attribute.value[0]);};
                         break;
@@ -7675,6 +7702,7 @@ var HEROCALCULATOR = (function (my) {
             }
             return {value: totalAttribute, excludeList: excludeList};
         };
+        
         self.getMana = function () {
             var totalAttribute = 0;
             for (var i = 0; i < self.items().length; i++) {
@@ -7691,6 +7719,7 @@ var HEROCALCULATOR = (function (my) {
             }
             return totalAttribute;
         };
+        
         self.getManaRegen = function () {
             var totalAttribute = 0;
             for (var i = 0; i < self.items().length; i++) {
@@ -7700,6 +7729,7 @@ var HEROCALCULATOR = (function (my) {
                     var attribute = my.itemData['item_' + item].attributes[j];
                     switch(attribute.name) {
                         case 'aura_mana_regen':
+                        case 'mana_regen_aura':
                             totalAttribute += parseFloat(attribute.value[0]);
                         break;
                     }
@@ -7735,6 +7765,7 @@ var HEROCALCULATOR = (function (my) {
             }
             return 0;
         };
+        
         self.getArmor = function () {
             var totalAttribute = 0;
             for (var i = 0; i < self.items().length; i++) {
@@ -7752,6 +7783,7 @@ var HEROCALCULATOR = (function (my) {
             }
             return totalAttribute;
         };
+        
         self.getArmorAura = function (aList) {
             var totalAttribute = 0,
                 attributeList = aList || [];
@@ -7819,13 +7851,11 @@ var HEROCALCULATOR = (function (my) {
                 if (!self.items()[i].enabled()) continue;
                 for (var j = 0; j < my.itemData['item_' + item].attributes.length; j++) {
                     var attribute = my.itemData['item_' + item].attributes[j];
-                    if (excludeList.indexOf(attribute.name) > -1) continue;
+                    if (excludeList.indexOf(attribute.name) > -1 || excludeList.indexOf(item + '_' + attribute.name) > -1) continue;
                     switch(attribute.name) {
-                        case 'bonus_armor':
-                            if (isActive && item == 'medallion_of_courage') {
-                                totalAttribute -= parseInt(attribute.value[0]);
-                                excludeList.push(attribute.name);
-                            }
+                        case 'armor_reduction':
+                            totalAttribute += parseInt(attribute.value[0]);
+                            excludeList.push(item + '_' + attribute.name);
                         break;
                         case 'aura_negative_armor':
                             totalAttribute += parseInt(attribute.value[0]);
@@ -7850,7 +7880,7 @@ var HEROCALCULATOR = (function (my) {
                     var attribute = my.itemData['item_' + item].attributes[j];
                     switch(attribute.name) {
                         case 'bonus_evasion':
-                            totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
+                            if (item != 'butterfly' || !isActive) totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
                         break;
                     }
                 }
@@ -7861,7 +7891,7 @@ var HEROCALCULATOR = (function (my) {
             var totalAttribute = 0,
             hasBoots = false,
             hasEuls = false,
-            bootItems = ['boots','phase_boots','arcane_boots','travel_boots','power_treads','tranquil_boots'];
+            bootItems = ['boots','phase_boots','arcane_boots','travel_boots','power_treads','tranquil_boots','guardian_greaves'];
             for (var i = 0; i < self.items().length; i++) {
                 var item = self.items()[i].item;
                 var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
@@ -7909,6 +7939,7 @@ var HEROCALCULATOR = (function (my) {
                 hasDrumsActive = false,
                 hasPhaseActive = false,
                 hasShadowBladeActive = false,
+                hasButterflyActive = false,
                 hasMoMActive = false,
                 yashaItems = ['manta','yasha','sange_and_yasha'];
             for (var i = 0; i < self.items().length; i++) {
@@ -7946,7 +7977,7 @@ var HEROCALCULATOR = (function (my) {
                             }
                         break;
                         case 'windwalk_movement_speed':
-                            if (isActive && !hasShadowBladeActive && item == 'invis_sword') {
+                            if (isActive && !hasShadowBladeActive && (item == 'invis_sword' || item == 'silver_edge')) {
                                 totalAttribute += parseInt(attribute.value[0]);
                                 hasShadowBladeActive = true;
                             }
@@ -7964,6 +7995,12 @@ var HEROCALCULATOR = (function (my) {
                             }
                             else if (item == 'smoke_of_deceit' && isActive) {
                                 totalAttribute += parseInt(attribute.value[0]);
+                            }
+                        break;
+                        case 'bonus_move_speed':
+                            if (isActive && !hasButterflyActive && item == 'butterfly') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasButterflyActive = true;
                             }
                         break;
                     }
@@ -7995,6 +8032,12 @@ var HEROCALCULATOR = (function (my) {
                         case 'cold_movement_speed':
                             if (item == 'skadi') {
                                 totalAttribute += parseInt(attribute.value[0]);
+                            }
+                        break;
+                        case 'maim_movement_speed':
+                            if (self.items()[i].debuff && self.items()[i].debuff == 'maim') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                excludeList.push(attribute.name);
                             }
                         break;
                     }
@@ -8097,9 +8140,20 @@ var HEROCALCULATOR = (function (my) {
                                     hasPowerTreads = true;
                                 }
                             }
+                            else if (item == 'moon_shard') {
+                                if (!isActive) {
+                                    totalAttribute += parseInt(attribute.value[0]);
+                                }
+                            }
                             else {
                                 totalAttribute += parseInt(attribute.value[0]);
                             }
+                        break;
+                        case 'consumed_bonus':
+                            if (item == 'moon_shard' && isActive) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                            }
+                        break;
                         break;
                         case 'bonus_speed':
                             totalAttribute += parseInt(attribute.value[0]);
@@ -8149,6 +8203,12 @@ var HEROCALCULATOR = (function (my) {
                         break;
                         case 'cold_attack_speed':
                             if (item == 'skadi') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                excludeList.push(attribute.name);
+                            }
+                        break;
+                        case 'maim_attack_speed':
+                            if (self.items()[i].debuff && self.items()[i].debuff == 'maim') {
                                 totalAttribute += parseInt(attribute.value[0]);
                                 excludeList.push(attribute.name);
                             }
@@ -8268,6 +8328,90 @@ var HEROCALCULATOR = (function (my) {
             return totalAttribute;
         };        
 
+        self.getVisionRangeNight = ko.computed(function () {
+            var totalAttribute = 0;
+            for (var i = 0; i < self.items().length; i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j = 0; j < my.itemData['item_' + item].attributes.length; j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'bonus_night_vision':
+                            if (item != 'moon_shard' || !isActive) {
+                                totalAttribute += parseInt(attribute.value[0]);
+                            }
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getMissChance = function (e) {
+            var totalAttribute = 1,
+                excludeList = e || [];
+            for (var i = 0; i < self.items().length; i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j = 0; j < my.itemData['item_' + item].attributes.length; j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    if (excludeList.indexOf(attribute.name) > -1) continue;
+                    switch(attribute.name) {
+                        case 'miss_chance':
+                            totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
+                            excludeList.push(attribute.name);
+                        break;
+                        case 'blind_pct':
+                            totalAttribute *= (1 - parseInt(attribute.value[0]) / 100);
+                            excludeList.push(attribute.name);
+                        break;
+                    }
+                }
+            }
+            return {value: totalAttribute, excludeList: excludeList};
+        };
+        
+        self.getBaseDamageReductionPct = function () {
+            var totalAttribute = 1;
+            for (var i = 0; i < self.items().length; i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j = 0; j < my.itemData['item_' + item].attributes.length; j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'backstab_reduction':
+                            if (self.items()[i].debuff && self.items()[i].debuff == 'shadow_walk') {
+                                totalAttribute *= (1 + parseInt(attribute.value[0]) / 100);
+                            }
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };    
+        self.getBonusDamageReductionPct = function () {
+            var totalAttribute = 1;
+            for (var i = 0; i < self.items().length; i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j = 0; j < my.itemData['item_' + item].attributes.length; j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    switch(attribute.name) {
+                        case 'backstab_reduction':
+                            if (self.items()[i].debuff && self.items()[i].debuff == 'shadow_walk') {
+                                totalAttribute *= (1 + parseInt(attribute.value[0]) / 100);
+                            }
+                        break;
+                    }
+                }
+            }
+            return totalAttribute;
+        };    
+        
         self.itemOptions = ko.observableArray([]);
         var itemOptionsArr = [];
         for (var i = 0; i < my.validItems.length; i++) {
@@ -8278,15 +8422,30 @@ var HEROCALCULATOR = (function (my) {
             self.itemOptions.push(new my.ItemInput(i.replace('item_',''),my.itemData[i].displayname));
         }*/
         
-        var itemBuffs = ['assault', 'ancient_janggo', 'headdress', 'mekansm', 'pipe', 'ring_of_aquila', 'vladmir', 'ring_of_basilius','buckler'];
+        var itemBuffs = ['assault', 'ancient_janggo', 'headdress', 'mekansm', 'pipe', 'ring_of_aquila', 'vladmir', 'ring_of_basilius', 'buckler', 'solar_crest'];
         self.itemBuffOptions = ko.observableArray(_.map(itemBuffs, function(item) { return new my.ItemInput(item, my.itemData['item_' + item].displayname); }));
         /*for (i in itemBuffs) {
             self.itemBuffOptions.push(new my.ItemInput(itemBuffs[i], my.itemData['item_' + itemBuffs[i]].displayname));
         }*/
         self.selectedItemBuff = ko.observable('assault');
 
-        var itemDebuffs = ['assault', 'shivas_guard', 'desolator', 'medallion_of_courage', 'sheepstick', 'veil_of_discord'];
-        self.itemDebuffOptions = ko.observableArray(_.map(itemDebuffs, function(item) { return new my.ItemInput(item, my.itemData['item_' + item].displayname); }));        
+        var itemDebuffs = [
+            {item: 'assault', debuff: null},
+            {item: 'shivas_guard', debuff: null},
+            {item: 'desolator', debuff: null},
+            {item: 'medallion_of_courage', debuff: null},
+            {item: 'radiance', debuff: null},
+            {item: 'sheepstick', debuff: null},
+            {item: 'veil_of_discord', debuff: null},
+            {item: 'solar_crest', debuff: null},
+            {item: 'silver_edge', debuff: {id: 'shadow_walk', name: 'Shadow Walk'}},
+            {item: 'silver_edge', debuff: {id: 'maim', name: 'Lesser Maim'}}
+        ]
+        self.itemDebuffOptions = ko.observableArray(_.map(itemDebuffs,
+            function(item) {
+                return new my.ItemInput(item.item, my.itemData['item_' + item.item].displayname, item.debuff);
+            })
+        );
         /*for (i in itemDebuffs) {
             self.itemDebuffOptions.push(new my.ItemInput(itemDebuffs[i], my.itemData['item_' + itemDebuffs[i]].displayname));
         }*/
@@ -12023,7 +12182,7 @@ var HEROCALCULATOR = (function (my) {
                 }
                 else {
                     if (ability.bonusStrength != undefined) {
-                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1) || ability.name() == 'invoker_quas')) {
                             // pudge_flesh_heap,invoker_quas,morphling_morph_str,morphling_morph_agi,undying_decay
                             totalAttribute+=ability.bonusStrength();
                         }
@@ -12058,7 +12217,7 @@ var HEROCALCULATOR = (function (my) {
                 }
                 else {
                     if (ability.bonusAgility != undefined) {
-                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1) || ability.name() == 'invoker_wex')) {
                             // invoker_wex,morphling_morph_agi,morphling_morph_str
                             totalAttribute+=ability.bonusAgility();
                         }
@@ -12092,7 +12251,7 @@ var HEROCALCULATOR = (function (my) {
                     }
                 }
                 else if (ability.bonusInt != undefined) {
-                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1) || ability.name() == 'invoker_exort')) {
                         // invoker_exort
                         totalAttribute+=ability.bonusInt();
                     }
@@ -12353,6 +12512,27 @@ var HEROCALCULATOR = (function (my) {
             return totalAttribute;
         });
 
+        self.getMana = ko.computed(function () {
+            var totalAttribute = 0;
+            for (var i = 0; i < self.abilities().length; i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j = 0; j < self.abilities()[i].attributes().length; j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                                // obsidian_destroyer_essence_aura
+                                case 'bonus_mana':
+									totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
         self.getManaRegen = ko.computed(function () {
             var totalAttribute = 0;
             for (var i = 0; i < self.abilities().length; i++) {
@@ -12720,7 +12900,7 @@ var HEROCALCULATOR = (function (my) {
             return { sources: sources, total: totalAttribute, multiplier: totalMultiplier };
         });
         
-        self.getBaseDamageReductionPct = ko.computed(function () {
+        self.getSelfBaseDamageReductionPct = ko.computed(function () {
             var totalAttribute = 1;
             for (var i = 0; i < self.abilities().length; i++) {
                 var ability = self.abilities()[i];
@@ -12744,6 +12924,23 @@ var HEROCALCULATOR = (function (my) {
                                         totalAttribute *= (1 + self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level())/100);
                                     }
                                 break;
+                            }
+                        }
+                    }
+                }
+            }
+            return totalAttribute;
+        });
+        
+        self.getBaseDamageReductionPct = ko.computed(function () {
+            var totalAttribute = 1;
+            for (var i = 0; i < self.abilities().length; i++) {
+                var ability = self.abilities()[i];
+                if (!(ability.name() in self.abilityData)) {
+                    if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
+                        for (var j = 0; j < self.abilities()[i].attributes().length; j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
                                 // vengefulspirit_command_aura
                                 case 'bonus_damage_pct':
                                     if (ability.name() == 'vengefulspirit_command_aura') {
@@ -15288,7 +15485,10 @@ var HEROCALCULATOR = (function (my) {
                     ).toFixed(2);
         });
         self.mana = ko.pureComputed(function () {
-            return (self.heroData().statusmana + self.totalInt() * 13 + self.inventory.getMana()).toFixed(2);
+            return (self.heroData().statusmana
+                    + self.totalInt() * 13
+                    + self.inventory.getMana()
+                    + self.ability().getMana()).toFixed(2);
         });
         self.manaregen = ko.pureComputed(function () {
             return ((self.heroData().statusmanaregen 
@@ -15317,6 +15517,7 @@ var HEROCALCULATOR = (function (my) {
                     + self.ability().getArmor()
                     + self.enemy().ability().getArmorReduction()
                     + self.buffs.getArmor()
+                    + self.buffs.itemBuffs.getArmor()
                     + self.debuffs.getArmorReduction()
                     //+ self.buffs.itemBuffs.getArmorAura().value
                     + armorAura.value
@@ -15376,8 +15577,8 @@ var HEROCALCULATOR = (function (my) {
                 abilityBaseDamage = self.ability().getBaseDamage(),
                 minDamage = self.heroData().attackdamagemin,
                 maxDamage = self.heroData().attackdamagemax;
-            return [Math.floor((minDamage + totalAttribute + abilityBaseDamage.total) * self.ability().getBaseDamageReductionPct() * self.debuffs.getBaseDamageReductionPct() * abilityBaseDamage.multiplier),
-                    Math.floor((maxDamage + totalAttribute + abilityBaseDamage.total) * self.ability().getBaseDamageReductionPct() * self.debuffs.getBaseDamageReductionPct() * abilityBaseDamage.multiplier)];
+            return [Math.floor((minDamage + totalAttribute + abilityBaseDamage.total) * self.ability().getSelfBaseDamageReductionPct() * self.enemy().ability().getBaseDamageReductionPct() * self.debuffs.getBaseDamageReductionPct() * self.debuffs.itemBuffs.getBaseDamageReductionPct() * abilityBaseDamage.multiplier),
+                    Math.floor((maxDamage + totalAttribute + abilityBaseDamage.total) * self.ability().getSelfBaseDamageReductionPct() * self.enemy().ability().getBaseDamageReductionPct() * self.debuffs.getBaseDamageReductionPct() * self.debuffs.itemBuffs.getBaseDamageReductionPct() * abilityBaseDamage.multiplier)];
         });
         self.bonusDamage = ko.pureComputed(function () {
             return ((self.inventory.getBonusDamage().total
@@ -15397,7 +15598,9 @@ var HEROCALCULATOR = (function (my) {
                     + Math.floor(
                         ((self.selectedHero().heroName == 'riki') ? self.ability().getBonusDamageBackstab().total[0] * self.totalAgi() : 0)
                       )
-                    ) * self.ability().getBaseDamageReductionPct());
+                    ) * self.ability().getSelfBaseDamageReductionPct()
+                      * self.enemy().ability().getBaseDamageReductionPct()
+                      * self.debuffs.itemBuffs.getBaseDamageReductionPct());
         });
         self.bonusDamageReduction = ko.pureComputed(function () {
             return Math.abs(self.enemy().ability().getBonusDamageReduction() + self.debuffs.getBonusDamageReduction());
@@ -15469,18 +15672,19 @@ var HEROCALCULATOR = (function (my) {
                 return (e * 100).toFixed(2);
             }
             else {
-                return ((1-(self.inventory.getEvasion() * self.ability().getEvasion() * self.ability().getEvasionBacktrack())) * 100).toFixed(2);
+                return ((1-(self.inventory.getEvasion() * self.ability().getEvasion() * self.ability().getEvasionBacktrack() * self.buffs.itemBuffs.getEvasion())) * 100).toFixed(2);
             }
         });
         self.ehpPhysical = ko.pureComputed(function () {
-            var evasion = self.enemy().inventory.isSheeped() || self.debuffs.itemBuffs.isSheeped() ? 1 : self.inventory.getEvasion() * self.ability().getEvasion();
+            var evasion = self.enemy().inventory.isSheeped() || self.debuffs.itemBuffs.isSheeped() ? 1 : self.inventory.getEvasion() * self.ability().getEvasion() * self.buffs.itemBuffs.getEvasion();
             if (self.totalArmorPhysical() >= 0) {
                 var ehp = self.health() * (1 + .06 * self.totalArmorPhysical());
             }
             else {
-                var ehp = self.health() / (2 - Math.pow(0.94, -self.totalArmorPhysical()));
+                var ehp = self.health() * (1 - .06 * self.totalArmorPhysical()) / (1 - .12 * self.totalArmorPhysical());
             }
-            ehp /= (1 - (1 - (evasion * self.ability().getEvasionBacktrack())))
+            ehp /= (1 - (1 - (evasion * self.ability().getEvasionBacktrack())));
+            ehp /= (1 - parseFloat(self.enemy().missChance()) / 100);
             ehp *= (_.some(self.inventory.activeItems(), function (item) {return item.item == 'mask_of_madness';}) ? (1 / 1.3) : 1);
 			ehp *= (1 / self.ability().getDamageReduction());
 			ehp *= (1 / self.buffs.getDamageReduction());
@@ -15737,12 +15941,13 @@ var HEROCALCULATOR = (function (my) {
 			var result = value;
             switch (type) {
                 case 'physical':
-                    if (self.enemy().totalArmorPhysical() >= 0) {
+                    /*if (self.enemy().totalArmorPhysical() >= 0) {
                         result = value * (1 - (0.06 * self.enemy().totalArmorPhysical()) / (1 + 0.06 * self.enemy().totalArmorPhysical()));
                     }
                     else {
-                        result = value * (1 + (1 - Math.pow(0.94, -self.enemy().totalArmorPhysical())));
-                    }
+                        result = value * (1 - (0.06 * Math.abs(self.enemy().totalArmorPhysical())) / (1 + 0.06 * Math.abs(self.enemy().totalArmorPhysical())));
+                    }*/
+                    result = value * (1 - (0.06 * self.enemy().totalArmorPhysical()) / (1 + 0.06 * Math.abs(self.enemy().totalArmorPhysical())));
                 break;
                 case 'magic':
                     result = value * (1 - self.enemy().totalMagicResistance() / 100);
@@ -15751,12 +15956,13 @@ var HEROCALCULATOR = (function (my) {
                     result = value;
                 break;
                 case 'composite':
-                    if (self.enemy().totalArmorPhysical() >= 0) {
+                    /*if (self.enemy().totalArmorPhysical() >= 0) {
                         result = value * (1 - (0.06 * self.enemy().totalArmorPhysical()) / (1 + 0.06 * self.enemy().totalArmorPhysical()));
                     }
                     else {
                         result = value * (1 + (1 - Math.pow(0.94, -self.enemy().totalArmorPhysical())));
-                    }
+                    }*/
+                    result = value * (1 - (0.06 * self.enemy().totalArmorPhysical()) / (1 + 0.06 * Math.abs(self.enemy().totalArmorPhysical())));
                     result *= (1 - self.enemy().totalMagicResistance() / 100);
                 break;
             }
@@ -15797,7 +16003,7 @@ var HEROCALCULATOR = (function (my) {
 
             // bonus damage from items
             for (i in itemBonusDamage) {
-                var d = itemBonusDamage[i].damage*itemBonusDamage[i].count;
+                var d = itemBonusDamage[i].damage*itemBonusDamage[i].count * self.ability().getSelfBaseDamageReductionPct() * self.enemy().ability().getBaseDamageReductionPct() * self.debuffs.itemBuffs.getBaseDamageReductionPct();
                 result.push({
                     name: itemBonusDamage[i].displayname + (itemBonusDamage[i].count > 1 ? ' x' + itemBonusDamage[i].count : ''),
                     damage: d,
@@ -16063,7 +16269,12 @@ var HEROCALCULATOR = (function (my) {
             return 0;
         });
         self.missChance = ko.pureComputed(function () {
-            return ((1 - (self.enemy().ability().getMissChance() * self.debuffs.getMissChance())) * 100).toFixed(2);
+            var missDebuff = _.reduce([self.enemy().inventory.getMissChance, self.debuffs.itemBuffs.getMissChance], function (memo, fn) {
+                var obj = fn(memo.excludeList);
+                obj.value *= memo.value;
+                return obj;
+            }, {value:1, excludeList:[]});
+            return ((1 - (self.enemy().ability().getMissChance() * self.debuffs.getMissChance() * missDebuff.value)) * 100).toFixed(2);
         });
         self.totalattackrange = ko.pureComputed(function () {
             return self.heroData().attackrange + self.ability().getAttackRange();
@@ -16072,7 +16283,7 @@ var HEROCALCULATOR = (function (my) {
             return (self.heroData().visiondaytimerange) * (1 + self.enemy().ability().getVisionRangePctReduction() + self.debuffs.getVisionRangePctReduction());
         });
         self.visionrangenight = ko.pureComputed(function () {
-            return (self.heroData().visionnighttimerange + self.ability().getVisionRangeNight()) * (1 + self.enemy().ability().getVisionRangePctReduction() + self.debuffs.getVisionRangePctReduction());
+            return (self.heroData().visionnighttimerange + self.inventory.getVisionRangeNight() + self.ability().getVisionRangeNight()) * (1 + self.enemy().ability().getVisionRangePctReduction() + self.debuffs.getVisionRangePctReduction());
         });
         self.lifesteal = ko.pureComputed(function () {
             var total = self.inventory.getLifesteal() + self.ability().getLifesteal() + self.buffs.getLifesteal();

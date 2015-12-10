@@ -7,16 +7,9 @@ context:
             name: COMMUNITY
             submenu:
             -   name: The International
-                type: header
-            -   name: Tournament Results
                 type: page
-                url: /dota2/international/2014
-            -   name: Prize Pool Growth Charts
-                type: page
-                url: /dota2/international/2014/prizepool/
+                url: /dota2/international
             -   name: Asia Championships
-                type: header
-            -   name: 2015 Results
                 type: page
                 url: /dota2/dac/2015
             -   type: divider
@@ -29,9 +22,9 @@ context:
             -   name: Patches
                 type: page
                 url: /dota2/patches
-            -   name: A-Z Challenge List
+            -   name: All Hero Challenge List
                 type: page
-                url: /dota2/a-z-challenge-list
+                url: /dota2/all-hero-challenge-list
             type: node
             url: dota2/community
         -   css_class: li-webapps
@@ -82,6 +75,9 @@ context:
             -   name: Item Scramble
                 type: page
                 url: /dota2/apps/item-scramble
+            -   name: Layout Editor
+                type: page
+                url: /dota2/apps/layout-editor
             -   name: Replay Viewer
                 type: page
                 url: /dota2/apps/replay/viewer
@@ -103,6 +99,9 @@ context:
             -   name: Patch History
                 type: page
                 url: /dota2/heroes/patchhistory
+            -   name: Unit Data
+                type: page
+                url: /dota2/heroes/unitdata
             type: node
             url: dota2/heroes
         -   css_class: li-items
@@ -125,7 +124,12 @@ context:
                 type: page
             type: node
             url: dota2/guides
-        tweet_via: ringce
+        -   css_class: li-blog
+            description: Blog Home
+            name: BLOG
+            type: node
+            url: blog
+        tweet_via: devilesk
     providers:
         herodata: data/herodata.yaml
         herostat: data/herodata_stats.yaml
@@ -146,7 +150,6 @@ plugins:
 - hyde.ext.plugins.meta.TaggerPlugin
 - hyde.ext.plugins.text.SyntextPlugin
 - hyde.ext.plugins.text.TextlinksPlugin
-- hyde.ext.plugins.js.UglifyPlugin
 - hero_functions.MyJinjaLoader
 sorter:
     time:
@@ -156,3 +159,13 @@ sorter:
             meta.listable: true
             source.kind: html
         reverse: true
+tagger:
+    sorter: time
+    archives:
+        blog:
+            source: blog
+            target: blog/tags
+            template: tagged_posts.j2
+            archive_extension: html
+            meta:
+                listable: false

@@ -1,5 +1,5 @@
 $(function () {
-	var items = ['blink','blades_of_attack','broadsword','chainmail','claymore','helm_of_iron_will','javelin','mithril_hammer','platemail','quarterstaff','quelling_blade','ring_of_protection','gauntlets','slippers','mantle','branches','belt_of_strength','boots_of_elves','robe','circlet','ogre_axe','blade_of_alacrity','staff_of_wizardry','ultimate_orb','gloves','lifesteal','ring_of_regen','sobi_mask','boots','gem','cloak','talisman_of_evasion','cheese','magic_stick','magic_wand','ghost','clarity','flask','dust','bottle','ward_observer','ward_sentry','tango','courier','tpscroll','travel_boots','phase_boots','demon_edge','eagle','reaver','relic','hyperstone','ring_of_health','void_stone','mystic_staff','energy_booster','point_booster','vitality_booster','power_treads','hand_of_midas','oblivion_staff','pers','poor_mans_shield','bracer','wraith_band','null_talisman','mekansm','vladmir','flying_courier','buckler','ring_of_basilius','pipe','urn_of_shadows','headdress','sheepstick','orchid','cyclone','force_staff','dagon','necronomicon','ultimate_scepter','refresher','assault','heart','black_king_bar','aegis','shivas_guard','bloodstone','sphere','vanguard','blade_mail','soul_booster','hood_of_defiance','rapier','monkey_king_bar','radiance','butterfly','greater_crit','basher','bfury','manta','lesser_crit','armlet','invis_sword','sange_and_yasha','satanic','mjollnir','skadi','sange','helm_of_the_dominator','maelstrom','desolator','yasha','mask_of_madness','diffusal_blade','ethereal_blade','soul_ring','arcane_boots','orb_of_venom','stout_shield','ancient_janggo','medallion_of_courage','smoke_of_deceit','veil_of_discord','rod_of_atos','abyssal_blade','heavens_halberd','ring_of_aquila','tranquil_boots','shadow_amulet','crimson_guard'];
+	var items = ["blink","blades_of_attack","broadsword","chainmail","claymore","helm_of_iron_will","javelin","mithril_hammer","platemail","quarterstaff","quelling_blade","ring_of_protection","gauntlets","slippers","mantle","branches","belt_of_strength","boots_of_elves","robe","circlet","ogre_axe","blade_of_alacrity","staff_of_wizardry","ultimate_orb","gloves","lifesteal","ring_of_regen","sobi_mask","boots","gem","cloak","talisman_of_evasion","cheese","magic_stick","magic_wand","ghost","clarity","flask","dust","bottle","ward_observer","ward_sentry","tango","courier","tpscroll","travel_boots","phase_boots","demon_edge","eagle","reaver","relic","hyperstone","ring_of_health","void_stone","mystic_staff","energy_booster","point_booster","vitality_booster","power_treads","hand_of_midas","oblivion_staff","pers","poor_mans_shield","bracer","wraith_band","null_talisman","mekansm","vladmir","flying_courier","buckler","ring_of_basilius","pipe","urn_of_shadows","headdress","sheepstick","orchid","cyclone","force_staff","dagon","necronomicon","ultimate_scepter","refresher","assault","heart","black_king_bar","aegis","shivas_guard","bloodstone","sphere","vanguard","blade_mail","soul_booster","hood_of_defiance","rapier","monkey_king_bar","radiance","butterfly","greater_crit","basher","bfury","manta","lesser_crit","armlet","invis_sword","sange_and_yasha","satanic","mjollnir","skadi","sange","helm_of_the_dominator","maelstrom","desolator","yasha","mask_of_madness","diffusal_blade","ethereal_blade","soul_ring","arcane_boots","orb_of_venom","stout_shield","ancient_janggo","medallion_of_courage","smoke_of_deceit","veil_of_discord","rod_of_atos","abyssal_blade","heavens_halberd","ring_of_aquila","tranquil_boots","shadow_amulet","crimson_guard","enchanted_mango","lotus_orb","glimmer_cape","guardian_greaves","moon_shard","silver_edge","solar_crest","octarine_core"];
 	var itemnames = {
 	'blink':'Blink Dagger',
 	'blades_of_attack':'Blades of Attack',
@@ -131,7 +131,15 @@ $(function () {
 	'ring_of_aquila':'Ring of Aquila',
 	'tranquil_boots':'Tranquil Boots',
 	'shadow_amulet':'Shadow Amulet',
-    'crimson_guard':'Crimson Guard'
+    'crimson_guard':'Crimson Guard',
+    'enchanted_mango':'Enchanted Mango',
+    'lotus_orb':'Lotus Orb',
+    'glimmer_cape':'Glimmer Cape',
+    'guardian_greaves':'Guardian Greaves',
+    'moon_shard':'Moon Shard',
+    'silver_edge':'Silver Edge',
+    'solar_crest':'Solar Crest',
+    'octarine_core':'Octarine Core'
 	};
 	
 	var answers = [0,1,2,3,4];

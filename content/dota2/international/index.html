@@ -1,51 +1,36 @@
 ---
-extends: base.j2
-default_block: main
+extends: onecolumnindexpage.j2
 title: Dota 2 The International
 description: devilesk Dota 2
 active_menu: page-community
 header: The International
+data:
+-   header: 2015
+    items:
+    -   name: Total prize pool over time chart
+        description: Chart of the total prize pool over time
+        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/slardar_bash_hp1.png'
+        url: /dota2/international/2015/prizepool/1
+-   header: 2014
+    items:
+    -   name: Tournament Results
+        description: ''
+        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/sniper_headshot_hp1.png'
+        url: /dota2/international/2014
+    -   name: Phase 2 results web visualization
+        description: Web visualization of round robin phase results
+        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/tidehunter_anchor_smash_hp1.png'
+        url: /dota2/international/2014/phase2
+    -   name: Total prize pool over time chart
+        description: Chart of the total prize pool over time
+        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/tusk_ice_shards_hp1.png'
+        url: /dota2/international/2014/prizepool/1
+    -   name: Half hour difference chart
+        description: Chart of the half hour difference in prize pool growth
+        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/wisp_tether_hp1.png'
+        url: /dota2/international/2014/prizepool/2
+    -   name: Daily average chart
+        description: Chart of the daily average prize pool growth
+        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_macropyre_hp1.png'
+        url: /dota2/international/2014/prizepool/3
 ---
-
-<div class="col-md-12">
-	<div class="media">
-		<a class="pull-left" href="{{ content_url('/dota2/international/2014') }}">
-			<img class="media-object img-rounded" src="http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_macropyre_hp1.png" alt="Tournament results">
-		</a>
-		<div class="media-body">
-			<h4 class="media-heading">Tournament Results</h4>
-		</div>
-	</div>
-	<div class="media">
-		<a class="pull-left" href="{{ content_url('/dota2/international/2014/phase2') }}">
-			<img class="media-object img-rounded" src="http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_macropyre_hp1.png" alt="Phase 2 results web visualization">
-		</a>
-		<div class="media-body">
-			<h4 class="media-heading">Web visualization of round robin phase results</h4>
-		</div>
-	</div>
-	<div class="media">
-		<a class="pull-left" href="{{ content_url('/dota2/international/2014/prizepool/1') }}">
-			<img class="media-object img-rounded" src="http://cdn.dota2.com/apps/dota2/images/abilities/razor_static_link_hp1.png" alt="Total prize pool over time chart">
-		</a>
-		<div class="media-body">
-			<h4 class="media-heading">Chart of the total prize pool over time</h4>
-		</div>
-	</div>
-	<div class="media">
-		<a class="pull-left" href="{{ content_url('/dota2/international/2014/prizepool/2') }}">
-			<img class="media-object img-rounded" src="http://cdn.dota2.com/apps/dota2/images/abilities/razor_static_link_hp1.png" alt="Half hour difference chart">
-		</a>
-		<div class="media-body">
-			<h4 class="media-heading">Chart of the half hour difference in prize pool growth</h4>
-		</div>
-	</div>
-	<div class="media">
-		<a class="pull-left" href="{{ content_url('/dota2/international/2014/prizepool/3') }}">
-			<img class="media-object img-rounded" src="http://cdn.dota2.com/apps/dota2/images/abilities/razor_static_link_hp1.png" alt="Daily average chart">
-		</a>
-		<div class="media-body">
-			<h4 class="media-heading">Chart of the daily average prize pool growth</h4>
-		</div>
-	</div>
-</div>

@@ -28,6 +28,13 @@ margin-bottom: 6px;
 .glyphicon {
 top: 2px;
 }
+.dropdown-menu {
+min-width: 320px;
+}
+li.table-columns {
+width:50%;
+float:left;
+}
 </style>
   {% endblock custom_css %}
 {% block main %}
@@ -56,7 +63,7 @@ top: 2px;
 <div class="dropdown" style="display:inline-block">
 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Columns <span class="caret"></span></button>
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-bind="foreach: headers">
-	<li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-bind="css: {showColumn: $parent.headers()[$index()].display(), hideColumn: !$parent.headers()[$index()].display()}, click: function(data, event) { $parent.toggleColumn($index, data, event); }, html: $data.name"></a></li>
+	<li class="table-columns" role="presentation"><a href="#" role="menuitem" tabindex="-1" data-bind="css: {showColumn: $parent.headers()[$index()].display(), hideColumn: !$parent.headers()[$index()].display()}, click: function(data, event) { $parent.toggleColumn($index, data, event); }, html: $data.name"></a></li>
 </ul>
 </div>
 <button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { hideAllColumns() }">Hide All</button>

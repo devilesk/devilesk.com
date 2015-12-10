@@ -1,0 +1,70 @@
+---
+title: Interactive Map Ward Vision Update
+description: >
+    Interactive dota 2 map updated ward vision with fog of war and explanation of fog mechanics.
+created: !!timestamp '2015-05-17 4:00:00'
+tags:
+    - Interactive Dota Map
+    - update
+post_images: images/blog/interactive-map-ward-vision-update/
+---
+
+{% mark image -%}
+
+![Interactive Map Ward Vision Update]([[!!images/blog/interactive-map-ward-vision-update/header.png]])
+
+
+
+{%- endmark %}
+
+{% mark excerpt -%}
+
+
+I've updated the [dota 2 interactive map](/dota2/apps/interactivemap2) to show ward vision with fog of war.
+
+{%- endmark %}
+
+I've tried to make it as accurate as possible and from every test I've run it seems to match the vision in game perfectly.
+
+### Fog Mechanics
+
+Fog of war in Dota 2 is tile-based with a tile size of 64x64 units. You can see the fog of war grid in game with some console commands.
+
+Start up a local lobby with cheats turned on. Once the game starts, open up the [console](http://dota2.gamepedia.com/Console) and enter `sv_cheats 1` followed by `fow_server_debug 1`. This will turn on a grid that shows which tiles you have vision of in green and tiles hidden by fog in red.
+Vision blocking entities like trees and cliffs are also shown.
+
+![In game 1]([[!!images/blog/interactive-map-ward-vision-update/2015-04-22_00002.jpg]])
+
+You can use `cl_leveloverview 2` to get an overhead view of the map.
+
+![In game 2]([[!!images/blog/interactive-map-ward-vision-update/2015-04-22_00005.jpg]])
+
+Use `fow_server_debug_team 1` if you want to see Dire vision.
+
+You always have vision in a 2 tile radius around you, even if you're in the middle of vision blockers.
+
+![In game 3]([[!!images/blog/interactive-map-ward-vision-update/2015-05-05_00040.jpg]])
+
+You have vision of a tile if the line connecting the center of that tile and the center of the tile you're in does not intersect the circle around any vision blocker.
+
+![In game 4]([[!!images/blog/interactive-map-ward-vision-update/2015-04-22_00005b.jpg]])
+
+The vision blocking circle around a tree has a radius sqrt(2), half the diagonal length of a 2x2 tile square. Vision blockers that outline the edges of cliffs have a radius of sqrt(2)/2, half the diagonal length of a single tile.
+
+![In game 5]([[!!images/blog/interactive-map-ward-vision-update/tree_radius.jpg]])
+
+You can see how this can result in some interesting patches of vision. There are some tiles with a line of vision that can go between trees spaced diagonally apart. No vision can go through 1x1 tile vision blockers spaced diagonally apart.
+
+![In game 6]([[!!images/blog/interactive-map-ward-vision-update/2015-04-22_00004b.jpg]])
+
+![In game 7]([[!!images/blog/interactive-map-ward-vision-update/2015-04-14_00019.jpg]])
+
+The interactive map produces the same results
+
+![Interactive Map 1]([[!!images/blog/interactive-map-ward-vision-update/R7PeN76.jpg]])
+
+You can click the tree markers to toggle them as cut down or not and the ward vision will take them into account.
+
+![Interactive Map 2]([[!!images/blog/interactive-map-ward-vision-update/QWRSKRr.jpg]])
+
+If you think there's any inconsistencies between the in game vision and the interactive map, confirm it with the steps above and let me know.
