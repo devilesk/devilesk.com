@@ -268,43 +268,53 @@ var HEROCALCULATOR = (function (my) {
 	ko.bindingHandlers.chart = {
 		init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
 			var newCanvas = $('<canvas/>'),
-				data = ko.utils.unwrapObservable(valueAccessor()),
-				ctx = newCanvas[0].getContext("2d"),
-				chartType = allBindingsAccessor().chartType,
-				options = allBindingsAccessor().chartOptions || {};
+          data = ko.utils.unwrapObservable(valueAccessor()),
+          ctx = newCanvas[0].getContext("2d"),
+          chartType = allBindingsAccessor().chartType,
+          options = allBindingsAccessor().chartOptions || {},
+          chartContext = allBindingsAccessor().chartContext;
 				
 			$(element).append(newCanvas);
 			var myChart = new Chart(ctx)[chartType](data, options);
 			ko.utils.domData.set(element, 'myChart', myChart);
 			
-            //handle disposal (if KO removes by the template binding)
-            ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-                var myChart = ko.utils.domData.get(element, 'myChart');
-                myChart.clear();
-				myChart.destroy();
-            });
+      //handle disposal (if KO removes by the template binding)
+      ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+        var myChart = ko.utils.domData.get(element, 'myChart');
+        myChart.clear();
+        myChart.destroy();
+      });
+            
+      if (chartContext) {
+        chartContext(ctx);
+      }
 		},
 		update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
 			var newCanvas = $('<canvas/>').width(730).height(365),
-				data = ko.utils.unwrapObservable(valueAccessor()),
-				ctx = newCanvas[0].getContext("2d"),
-				chartType = allBindingsAccessor().chartType,
-				options = allBindingsAccessor().chartOptions || {},
-				myChart = ko.utils.domData.get(element, 'myChart');
+          data = ko.utils.unwrapObservable(valueAccessor()),
+          ctx = newCanvas[0].getContext("2d"),
+          chartType = allBindingsAccessor().chartType,
+          options = allBindingsAccessor().chartOptions || {},
+          chartContext = allBindingsAccessor().chartContext,
+          myChart = ko.utils.domData.get(element, 'myChart');
 			
-            if (myChart) {
-                myChart.clear();
-                myChart.destroy();
-            }
+      if (myChart) {
+        myChart.clear();
+        myChart.destroy();
+      }
 			bindingContext.$root.displayShop();
 			bindingContext.$root.sideView();
 			bindingContext.$root.shopDock();
 			$(element).empty();
 			$(element).append(newCanvas);
-            if (data.datasets.length > 0) {
+      if (data.datasets.length > 0) {
 				myChart = new Chart(ctx)[chartType](data, options);
 				ko.utils.domData.set(element, 'myChart', myChart);
-            }
+      }
+      
+      if (chartContext) {
+        chartContext(ctx);
+      }
 		}
 	};
 
@@ -733,6 +743,7 @@ var HEROCALCULATOR = (function (my) {
             else {
             }
         });
+    
 		self.shopDockTrigger = ko.computed(function () {
 			self.windowWidth();
 			self.shopDock();

@@ -120,24 +120,24 @@
   "Lore": "Years of meditation and obsession with revenge have hardened Anti-Mage's skin against mystical opponents."
  }, 
  "arc_warden_flux": {
-  "Description": "Engulfs an enemy unit with swirling volatile energy, slowing its movement speed and dealing damage over time if it is alone. The effect is muted if there is a nearby enemy unit.", 
+  "Description": "Infuses a lone enemy unit with swirling, volatile energy, slowing its movement speed and dealing damage over time. The effect is muted if another enemy unit is near the target.", 
   "DisplayName": "Flux", 
-  "Lore": ""
+  "Lore": "An infinitesimal fraction of the power which imprisoned the Ancients."
  }, 
  "arc_warden_magnetic_field": {
-  "Description": "Distorts space, generating a circular field that grants evasion and bonus attack speed to allied heroes and buildings within.", 
+  "Description": "Generates a circular distortion field of magnetic energy that protects allied heroes and buildings within it by evading attacks coming from outside the field.", 
   "DisplayName": "Magnetic Field", 
-  "Lore": ""
+  "Lore": "Time and space are of little consequence to one as old as Zet."
  }, 
  "arc_warden_spark_wraith": {
-  "Description": "Summons a Spark Wraith that slowly materializes; haunts the targeted area until an enemy comes within its range and then fuses itself into them dealing magical damage.", 
+  "Description": "Summons a Spark Wraith that slowly materializes and patrols a targeted area until an enemy comes within its range. Once a target has been found the wraith fuses with them, dealing magical damage and purging the unit.", 
   "DisplayName": "Spark Wraith", 
-  "Lore": ""
+  "Lore": "Lesser fragments of Zet's original self."
  }, 
  "arc_warden_tempest_double": {
-  "Description": "By vibrating at extreme speeds, Arc Warden is able to create a perfect electrical incarnation of himself, at the cost of his current health and mana. This incarnation can use any spells or items he has, and spawns with his health and mana after the cast.", 
+  "Description": "Briefly refocusing its fractured elements into a single form, the Arc Warden is able to create a perfect electrical duplication of itself. The duplicate can use all of Arc Warden's current items and spells, except items that drop on death. The duplicate has seperate item and ability cooldowns.", 
   "DisplayName": "Tempest Double", 
-  "Lore": ""
+  "Lore": "Warped by the power of its peers, Arc Warden becomes what it despises most: disharmony."
  }, 
  "attribute_bonus": {
   "Description": "Improves all attributes per point spent", 
@@ -154,7 +154,7 @@
   "Lore": "Mogul Khan's warcry taunts opponents into engaging in an unconquerable battle with the Axe."
  }, 
  "axe_counter_helix": {
-  "Description": "When attacked, Axe performs a helix counter attack, dealing damage to all nearby enemies.", 
+  "Description": "When attacked, Axe performs a helix counter attack, dealing pure damage to all nearby enemies.", 
   "DisplayName": "Counter Helix", 
   "Lore": "Axe is the only reinforcement this army needs."
  }, 
@@ -254,7 +254,7 @@
   "Lore": "While learning to maneuver in nature alone, the Beastmaster also mastered the use of a pair of tomahawks, adept at cutting down trees as well as adversaries."
  }, 
  "big_thunder_lizard_frenzy": {
-  "Description": "The Ancient Thunderhide works himself into a frenzy, increasing his attack speed.", 
+  "Description": "The Ancient Thunderhide works an ally into a frenzy, causing his ally to have increased attack speed.", 
   "DisplayName": "Frenzy"
  }, 
  "big_thunder_lizard_slam": {
@@ -268,6 +268,10 @@
  "black_dragon_dragonhide_aura": {
   "Description": "The Ancient Black Dragon's dreaded presence grants nearby allies additional armor. This bonus can stack with itself.", 
   "DisplayName": "Dragonhide Aura"
+ }, 
+ "black_dragon_fireball": {
+  "Description": "The Black Dragon hurls a fire blast on the ground, igniting the area in a %radius% radius for %duration% seconds. Enemies caught in the fire will take %damage% damage per second.", 
+  "DisplayName": "Fireball"
  }, 
  "black_dragon_splash_attack": {
   "Description": "The Black Dragon's explosive attacks are felt by all nearby enemies. Units closer to the blast take more damage.", 
@@ -284,7 +288,7 @@
   "Lore": "Strygwyr shares his animalistic thirst for bloodshed."
  }, 
  "bloodseeker_rupture": {
-  "Description": "Causes an enemy unit's skin to rupture. If the unit moves, it takes a percentage of the distance traveled as damage.  The damage is dealt through spell immunity.", 
+  "Description": "Causes an enemy unit's skin to rupture. If the unit moves, it takes a percentage of the distance traveled as damage.  The damage is dealt through spell immunity.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Rupture", 
   "Lore": "When the Bloodseeker hunts you, injuries become fatalities."
  }, 
@@ -341,8 +345,8 @@
   "Lore": ""
  }, 
  "brewmaster_earth_pulverize": {
-  "Description": "Provides a chance to do damage in a small radius.", 
-  "DisplayName": "Pulverize", 
+  "Description": "Deals %bonus_building_damage%%% bonus damage to buildings.", 
+  "DisplayName": "Demolish", 
   "Lore": ""
  }, 
  "brewmaster_earth_spell_immunity": {
@@ -391,12 +395,12 @@
   "Lore": "An enforcer's honor can be a prickly thing.  So can his quills."
  }, 
  "bristleback_viscous_nasal_goo": {
-  "Description": "Covers a target in snot, causing it to have reduced armor and movement speed.  Multiple casts stack and refresh the duration.", 
+  "Description": "Covers a target in snot, causing it to have reduced armor and movement speed.  Multiple casts stack and refresh the duration.\\n\\nUpgradable by Aghanim's Scepter, making Goo an AoE ability that applies Goo to all enemies around you in a %radius% radius.", 
   "DisplayName": "Viscous Nasal Goo", 
   "Lore": "Having caught a cold while stuck in the snow, Bristleback turns it to his advantage."
  }, 
  "bristleback_warpath": {
-  "Description": "Bristleback works himself up into a fury every time he casts a spell, increasing his movement speed and damage.", 
+  "Description": "Bristleback works himself up into a fury every time he casts a spell, increasing his movement speed and damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Warpath", 
   "Lore": "'Temper, temper,' his mum always chided.  But in a fight, a temper can come in handy."
  }, 
@@ -456,7 +460,7 @@
   "Lore": "Bradwarden has no need to parry his opponent's attacks; his armor-like hide does it for him."
  }, 
  "centaur_stampede": {
-  "Description": "Centaur leads all allies into a vicious charge causing them to move through units at max speed and stop any enemy units they trample. Trampled enemies take damage based on Centaur Warrunner's strength. Each enemy can be trampled once.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Centaur leads all allies into a vicious charge causing them to move through units at max speed and stop any enemy units they trample. Trampled enemies take damage based on Centaur Warrunner's strength. Each enemy can be trampled once.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Stampede", 
   "Lore": "The great belt of Omexe, which labels Bradwarden as the greatest warrior of his kind, incites his fellow gladiators to follow him into barbarous combat."
  }, 
@@ -481,7 +485,7 @@
   "Lore": "Armageddon rides between the planes, bringing Chaos Knight to his victim wherever he may hide."
  }, 
  "chen_hand_of_god": {
-  "Description": "Fully regenerates any creeps under Chen's control and heals all allied heroes on the map.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Heals all allied heroes on the map as well as all units under Chen's control.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Hand of God", 
   "Lore": "Using the mental link with his thralls, Chen calls down restoration and well-being to those who share his fanaticism."
  }, 
@@ -639,7 +643,7 @@
   "Lore": "Krobelus' many trips to the grave gather a flock of the damned."
  }, 
  "death_prophet_exorcism": {
-  "Description": "Unleashes evil spirits to drain the life of nearby enemy units and structures. At the end of the spell's duration, Death Prophet is healed in proportion to the damage dealt.  Lasts 30 seconds.", 
+  "Description": "Unleashes evil spirits to drain the life of nearby enemy units and structures. At the end of the spell's duration, Death Prophet is healed in proportion to the damage dealt.  Lasts 35 seconds.", 
   "DisplayName": "Exorcism", 
   "Lore": "Over time, the banshee remnants of her previous lives return to haunt the present."
  }, 
@@ -648,10 +652,9 @@
   "DisplayName": "Silence", 
   "Lore": "Peering into the veil of her opponent's demise, Krobelus sees a silent future."
  }, 
- "death_prophet_witchcraft": {
-  "Description": "Increases the potency of Death Prophet's spells, while providing a passive movement speed boost.  Reduces mana costs and cooldowns of Crypt Swarm and Silence, and adds additional spirits to Exorcism.", 
-  "DisplayName": "Witchcraft", 
-  "Lore": "With each death, Krobelus adds necromantic power to her repertoire."
+ "death_prophet_spirit_siphon": {
+  "Description": "Creates a spirit link between Death Prophet and an enemy unit, draining %damage% + %damage_pct%%% Max HP per second and slowing the enemy's movement speed by %movement_slow%%%.", 
+  "DisplayName": "Spirit Siphon"
  }, 
  "default_attack": {
   "Description": "Damage done by direct attacks.", 
@@ -695,9 +698,9 @@
   "Description": "", 
   "DisplayName": "Empty"
  }, 
- "doom_bringer_lvl_death": {
-  "Description": "Ignites an enemy hero's soul, dealing base damage and a mini-stun. If the target hero's level is a multiple of the Hero Level Multiplier, or they are level 25, they will be dealt additional damage equal to %lvl_bonus_damage%%% of their maximum health.", 
-  "DisplayName": "LVL? Death", 
+ "doom_bringer_infernal_blade": {
+  "Description": "Doom swings his burning sword, igniting the enemy. Stuns for %ministun_duration% seconds and applies a %burn_duration% second burn that deals %burn_damage% + %burn_damage_pct%%% of the target's Max HP as damage per second.", 
+  "DisplayName": "Infernal Blade", 
   "Lore": "Lucifer shares the fire branding bestowed upon him at the time of his exile."
  }, 
  "doom_bringer_scorched_earth": {
@@ -724,7 +727,7 @@
   "Lore": "Davion's combination of dragon talents and knightly skills makes him a vicious opponent in melee combat."
  }, 
  "dragon_knight_elder_dragon_form": {
-  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his damage, speed, and Dragon Tail's range, while granting him new powers.\\n<font color=\\\"#9acd32\\\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal 20 poison damage per second for 5 seconds. Works on structures.\\n<font color=\\\"#ff0000\\\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a 300 radius, with Corrosive Breath added to the primary target.\\n<font color=\\\"#87ceeb\\\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by 30%% and attack speed by 20 of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the primary target.", 
+  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his speed, and Dragon Tail's range, while granting him new powers.\\n<font color=\\\"#9acd32\\\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal 20 poison damage per second for 5 seconds. Works on structures.\\n<font color=\\\"#ff0000\\\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a 300 radius, with Corrosive Breath added to the primary target.\\n<font color=\\\"#87ceeb\\\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by 30%% and attack speed by 20 of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the primary target.", 
   "DisplayName": "Elder Dragon Form", 
   "Lore": "The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm."
  }, 
@@ -738,7 +741,7 @@
   "Lore": "Ice-encased arrows pierce the silence, chilling their victims to the core."
  }, 
  "drow_ranger_marksmanship": {
-  "Description": "Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within 400 range.", 
+  "Description": "Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within 400 range.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Marksmanship", 
   "Lore": "The Drow Ranger is the epitome of archery prowess."
  }, 
@@ -748,7 +751,7 @@
   "Lore": "Traxex is rather fond of the tranquility of physical combat, calling on her Drow heritage to end the incantations of opposing magi."
  }, 
  "drow_ranger_trueshot": {
-  "Description": "Adds bonus damage to the physical attack of allied, ranged Hero units on the map based on a percentage of Drow's agility.  Affects creeps for 30 seconds when cast.", 
+  "Description": "Adds bonus damage to the physical attack of allied, ranged Hero units based on a percentage of Drow's agility.  Affects creeps for 30 seconds when cast.", 
   "DisplayName": "Precision Aura", 
   "Lore": "Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
  }, 
@@ -763,7 +766,7 @@
   "Lore": "It is with the power of a mountain that Earth Spirit strikes his enemies."
  }, 
  "earth_spirit_geomagnetic_grip": {
-  "Description": "Earth Spirit pulls the target Stone Remnant or allied unit to his location.  Enemies struck by the gripped target will be silenced, and take damage if the gripped target is a Stone Remnant.", 
+  "Description": "Earth Spirit pulls the target Stone Remnant. Enemies struck by the gripped target will be silenced, and take damage if the gripped target is a Stone Remnant.", 
   "DisplayName": "Geomagnetic Grip", 
   "Lore": "Like calls to like. Even the minerals found in the blood and bones of living beings are not immune to the call of the Earth Spirit."
  }, 
@@ -793,12 +796,12 @@
   "Lore": "The earth trembles beneath the mighty footsteps of Raigor."
  }, 
  "earthshaker_echo_slam": {
-  "Description": "Shockwaves travel through the ground, damaging enemy units.  Each enemy hit causes an echo to damage nearby units.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Shockwaves travel through the ground, damaging enemy units.  Each enemy hit causes an echo to damage nearby units.", 
   "DisplayName": "Echo Slam", 
   "Lore": "Tectonic plates crack, mountains fold, and foes are crushed by the Echo Slam."
  }, 
  "earthshaker_enchant_totem": {
-  "Description": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.", 
+  "Description": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.\\n\\nUpgradable by Aghanim's Scepter. Enchant Totem becomes a %scepter_distance% range ground target ability, causes you to jump in the air and land at the target spot, casting Enchant Totem there.\\nReduced cast point of Enchant Totem to 0.", 
   "DisplayName": "Enchant Totem", 
   "Lore": "Raigor's gorilla strength can destroy mountains."
  }, 
@@ -877,7 +880,7 @@
   "Lore": "Whimsical spirits of the woods possess a healing power that is quite subtle, but gains strength in numbers."
  }, 
  "enchantress_untouchable": {
-  "Description": "Enchantress beguiles her enemies, slowing their attacks when she is attacked.  Lasts 4 seconds.", 
+  "Description": "Enchantress beguiles her enemies, slowing their attacks when she is attacked.", 
   "DisplayName": "Untouchable", 
   "Lore": "After attacking Aiushtha, most opponents are overwhelmed with guilt having attacked such a natural beauty."
  }, 
@@ -918,15 +921,14 @@
  "ent_dota_radiant_candybucket": {
   "DisplayName": "Radiant Candy Bucket"
  }, 
- "faceless_void_backtrack": {
-  "Description": "Faceless Void dodges damage by jumping backward in time, eluding both physical and magical attacks.", 
-  "DisplayName": "Backtrack", 
-  "Lore": "Darkterror sees what has yet to be seen."
- }, 
  "faceless_void_chronosphere": {
   "Description": "Creates a blister in spacetime, trapping all units caught in its sphere of influence and causes you to move very quickly inside it.  Only Faceless Void and any units he controls are unaffected.  Invisible units in the sphere will be revealed.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Chronosphere", 
   "Lore": "When a rift opens to Claszureme, all poor souls caught within will likely never return."
+ }, 
+ "faceless_void_time_dilation": {
+  "Description": "Faceless Void traps all nearby enemies in a time dilation field for %duration% seconds, freezing their cooldowns and slowing their movement and attack speed by %slow%%% for each cooldown frozen.", 
+  "DisplayName": "Time Dilation"
  }, 
  "faceless_void_time_lock": {
   "Description": "Adds the chance for an attack to lock an enemy unit in time, stunning it and dealing bonus damage.", 
@@ -934,7 +936,7 @@
   "Lore": "The strike of the Faceless Void lands with dimension shifting force."
  }, 
  "faceless_void_time_walk": {
-  "Description": "Rushes to a target location while slowing the movement of all enemies along its path for 3 seconds.", 
+  "Description": "Rushes to a target location while backtracking any damage taken the last %backtrack_duration% seconds.", 
   "DisplayName": "Time Walk", 
   "Lore": "Darkterror tears a hole in time, passing through Claszureme, and appearing back in an instant."
  }, 
@@ -966,7 +968,7 @@
   "Lore": "The Prophet keeps his sentinel over the forest, protecting it when in need."
  }, 
  "furion_wrath_of_nature": {
-  "Description": "Damaging energy bounces around the map, striking enemies close to the cast point that are in vision. Each enemy hit beyond the first adds damage.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Damaging energy bounces around the map, striking enemies close to the cast point that are in vision. Each enemy hit beyond the first adds damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Wrath of Nature", 
   "Lore": "Nature's Prophet calls Verodicia's fury to strike down those who might ravage the wilderness."
  }, 
@@ -1229,7 +1231,7 @@
   "Lore": ""
  }, 
  "invoker_forge_spirit": {
-  "Description": "Invoker forges a spirit embodying the strength of fire and fortitude of ice. Damage, health, and armor are based on the level of <font color='#cabe68'>Exort</font> while attack range, mana, and duration are based on the level of <font color='#7998b5'>Quas</font>. The elemental's scorching attack is capable of melting the armor of enemy heroes. If both <font color='#7998b5'>Quas</font> and <font color='#cabe68'>Exort</font> are level 4 or higher, Invoker will create two spirits instead of one.", 
+  "Description": "Invoker forges a spirit embodying the strength of fire and fortitude of ice. Damage, mana, and armor are based on the level of <font color='#cabe68'>Exort</font> while attack range, health, and duration are based on the level of <font color='#7998b5'>Quas</font>. The elemental's scorching attack is capable of melting the armor of enemy heroes. If both <font color='#7998b5'>Quas</font> and <font color='#cabe68'>Exort</font> are level 4 or higher, Invoker will create two spirits instead of one.", 
   "DisplayName": "Forge Spirit", 
   "Lore": "Culween's Most Cunning Fabrications."
  }, 
@@ -1269,7 +1271,7 @@
   "Lore": ""
  }, 
  "item_abyssal_blade": {
-  "Description": "Active: Overwhelm - Stuns a target enemy unit for %stun_duration% seconds. Pierces Spell Immunity.\\nPassive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.", 
+  "Description": "Active: Overwhelm - Stuns a target enemy unit for %stun_duration% seconds. Pierces Spell Immunity.\\nPassive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.\\nPassive: Damage Block - Makes the wielder block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "DisplayName": "Abyssal Blade", 
   "Lore": "The lost blade of the Commander of the Abyss, this edge cuts into an enemy's soul."
  }, 
@@ -1277,6 +1279,11 @@
   "Description": "Passive: Reincarnation - Brings you to life with full health and mana %reincarnate_time% seconds after you die, at the location where you died. Reincarnation must be used within %disappear_time_minutes_tooltip% minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage).", 
   "DisplayName": "Aegis of the Immortal", 
   "Lore": "The Immortal was said to own a shield that protected him from death itself."
+ }, 
+ "item_aether_lens": {
+  "Description": "Passive: Increases spell cast range by %cast_range_bonus% and spell damage output by %spell_amp%%%", 
+  "DisplayName": "Aether Lens", 
+  "Lore": ""
  }, 
  "item_ancient_janggo": {
   "Description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to allies in a %radius% radius.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to allies in a %radius% radius.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
@@ -1294,9 +1301,12 @@
   "Lore": "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
  }, 
  "item_assault": {
-  "Description": "Passive: Assault Aura - Grants attack speed and armor to nearby allied units, and decreases the armor of nearby enemies.\\n\\nMultiple instances of Assault Aura do not stack.", 
+  "Description": "Passive: Assault Aura - Grants attack speed and armor to nearby allied units and structures, and decreases the armor of nearby enemies.\\n\\nMultiple instances of Assault Aura do not stack.", 
   "DisplayName": "Assault Cuirass", 
   "Lore": "Forged in the depths of the nether reaches, this hellish mail provides an army with increased armor and attack speed."
+ }, 
+ "item_banana": {
+  "DisplayName": "Banana"
  }, 
  "item_basher": {
   "Description": "Passive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.", 
@@ -1330,15 +1340,25 @@
   "DisplayName": "Blades of Attack", 
   "Lore": "The damage of these small, concealable blades should not be underestimated."
  }, 
+ "item_blight_stone": {
+  "Description": "Passive: Your attacks reduce target's armor for %corruption_duration% seconds.\\n\\nBlight Stone is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "DisplayName": "Blight Stone", 
+  "Lore": ""
+ }, 
  "item_blink": {
   "Description": "Active: Blink - Teleport to a target point up to %blink_range% units away.  If damage is taken, Blink Dagger cannot be used for %blink_damage_cooldown% seconds.", 
   "DisplayName": "Blink Dagger", 
   "Lore": "The fabled dagger used by the fastest assassin ever to walk the lands."
  }, 
  "item_bloodstone": {
-  "Description": "Active: Pocket Deny - Instantly causes you to die.\\nPassive: Bloodpact - Begins with 8 charges, and gains a charge each time an enemy hero dies within 1675 range. Each charge grants 1 mana regeneration per second, and reduces respawn time by %respawn_time_reduction% seconds. If the bearer dies, %heal_on_death_base% + %heal_on_death_per_charge% health per charge is restored to all allies within a %heal_on_death_range% radius, while the Bloodstone loses a third of its charges.", 
+  "Description": "Active: Pocket Deny - Instantly causes you to die.\\nPassive: Bloodpact - Begins with 12 charges, and gains a charge each time an enemy hero dies within 1675 range. Each charge grants 1 mana regeneration per second, and reduces respawn time by %respawn_time_reduction% seconds. If the bearer dies, %heal_on_death_base% + %heal_on_death_per_charge% health per charge is restored to all allies within a %heal_on_death_range% radius, while the Bloodstone loses a third of its charges.", 
   "DisplayName": "Bloodstone", 
   "Lore": "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
+ }, 
+ "item_bloodthorn": {
+  "Description": "Active: Silences a target for %silence_duration% seconds and amplifies the damage it takes by %silence_damage_percent%%%. All attacks on the silenced target will have True Strike and land a crit on impact.\\nPassive: Critical Strike - Grants each attack a chance to deal additional damage. Critical Strike does not work against buildings.", 
+  "DisplayName": "Bloodthorn", 
+  "Lore": ""
  }, 
  "item_boots": {
   "Description": "Flat movement speed bonuses from multiple pairs of boots do not stack.", 
@@ -1359,6 +1379,7 @@
   "Lore": "The bracer is a common choice to toughen up defenses and increase longevity."
  }, 
  "item_branches": {
+  "Description": "Active: Targets the ground to plant a happy little tree that lasts for %tree_duration% seconds.", 
   "DisplayName": "Iron Branch", 
   "Lore": "A seemingly ordinary branch, its ironlike qualities are bestowed upon the bearer."
  }, 
@@ -1408,7 +1429,7 @@
   "Lore": "Losing the courier is punishable by death."
  }, 
  "item_crimson_guard": {
-  "Description": "Active: Guard - Grant nearby allied heroes a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\\nPassive: Damage Block - Gives the wearer a chance to block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
+  "Description": "Active: Guard - Grant nearby allied heroes a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\\nPassive: Damage Block - Makes the wielder block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "DisplayName": "Crimson Guard", 
   "Lore": "A cuirass originally built to protect against the dreaded Year Beast."
  }, 
@@ -1452,14 +1473,19 @@
   "Lore": "A wicked weapon, used in torturing political criminals."
  }, 
  "item_diffusal_blade": {
-  "Description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns 12 mana per attack from ranged illusions. Does not stack with other manabreak abilities.\\n\\nUpgradable.", 
+  "Description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. Does not stack with other manabreak abilities.\\n\\nUpgradable.", 
   "DisplayName": "Diffusal Blade", 
   "Lore": "An enchanted blade that allows the user to cut straight into the enemy's soul."
  }, 
  "item_diffusal_blade_2": {
-  "Description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. Instantly kills enemy summoned units and illusions. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns 12 mana per attack from ranged illusions. Does not stack with other manabreak abilities.", 
+  "Description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. Does not stack with other manabreak abilities.", 
   "DisplayName": "Diffusal Blade", 
   "Lore": "An enchanted blade that allows the user to cut straight into the enemy's soul."
+ }, 
+ "item_dragon_lance": {
+  "Description": "Passive: Increases attack range of ranged heroes by %base_attack_range%.", 
+  "DisplayName": "Dragon Lance", 
+  "Lore": ""
  }, 
  "item_dust": {
   "Description": "Use: Reveals and slows invisible Heroes in a nearby area.", 
@@ -1468,6 +1494,11 @@
  "item_eagle": {
   "DisplayName": "Eaglesong", 
   "Lore": "Capturing the majestic call of an eagle, this mystical horn brings limitless dexterity to those who hear it."
+ }, 
+ "item_echo_sabre": {
+  "Description": "Passive: Causes melee attacks to attack twice in quick succession. The double attacks apply a %slow_duration% second %movement_slow%%% movement and attack speed slow on each strike.", 
+  "DisplayName": "Echo Sabre", 
+  "Lore": ""
  }, 
  "item_enchanted_mango": {
   "Description": "Use: Consume the mango to instantly restore %replenish_amount% mana.\\n\\nHold Control to use Enchanted Mango on an allied hero.", 
@@ -1482,6 +1513,11 @@
   "Description": "Active: Ether Blast - Launches a projectile which converts the target to ethereal form, increasing any incoming magic damage they take, while rendering them immune to physical damage and unable to attack.  Can be cast on self.  If the target is an enemy, it is also slowed, and takes %blast_agility_multiplier%x your primary attribute + %blast_damage_base% as magical damage.\\nUsing a Town Portal Scroll or Boots of Travel will not dispel Ethereal Form.", 
   "DisplayName": "Ethereal Blade", 
   "Lore": "A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes."
+ }, 
+ "item_faerie_fire": {
+  "Description": "Use: Consume the Faerie Fire to instantly restore %hp_restore% HP", 
+  "DisplayName": "Faerie Fire", 
+  "Lore": ""
  }, 
  "item_flask": {
   "Description": "Use: Restores health to the target unit over time.  If the unit is attacked, the effect is lost.", 
@@ -1568,22 +1604,37 @@
   "Lore": "The helmet of a legendary warrior who fell in battle."
  }, 
  "item_helm_of_the_dominator": {
-  "Description": "Active: Dominate - Take control of a non-hero, non-ancient target unit. If a dominated creep's base health is naturally below the health minimum, its base health will be raised to the health minimum.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nHelm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "Description": "Active: Dominate - Take control of a non-hero, non-ancient target unit and sets its movement speed to %speed_base%. If a dominated creep's base health is naturally below the health minimum, its base health will be raised to the health minimum.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nHelm of the Dominator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "DisplayName": "Helm of the Dominator", 
   "Lore": "The powerful headpiece of a dead necromancer."
  }, 
  "item_hood_of_defiance": {
+  "Description": "Active: Creates a spell shield that absorbs up to %barrier_block% magical damage.", 
   "DisplayName": "Hood of Defiance", 
   "Lore": "A furred, magic resistant headpiece that is feared by wizards."
+ }, 
+ "item_hurricane_pike": {
+  "Description": "Active: When used on an enemy, it pushes you both away from each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Works like Force Staff when used on self or allies.\\nPassive: Increases attack range of ranged heroes by %base_attack_range%.", 
+  "DisplayName": "Hurricane Pike", 
+  "Lore": ""
  }, 
  "item_hyperstone": {
   "DisplayName": "Hyperstone", 
   "Lore": "A mystical, carved stone that boosts the fervor of the holder."
  }, 
+ "item_infused_raindrop": {
+  "Description": "Passive: Consumes a charge to block %magic_damage_block% magic damage from damage instances over %min_damage% damage. Comes with %initial_charges% charges. When the charges are gone, the item disappear.", 
+  "DisplayName": "Infused Raindrop", 
+  "Lore": ""
+ }, 
  "item_invis_sword": {
-  "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move 20%% faster and can move through units.  If attacking to end the invisibility, you gain %windwalk_bonus_damage% bonus damage on that attack.  Lasts %windwalk_duration% seconds.", 
+  "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move %windwalk_movement_speed%%% faster and can move through units.  If attacking to end the invisibility, you gain %windwalk_bonus_damage% bonus damage on that attack.  Lasts %windwalk_duration% seconds.", 
   "DisplayName": "Shadow Blade", 
   "Lore": "The blade of a fallen king, it allows you to move unseen and strike from the shadows."
+ }, 
+ "item_iron_talon": {
+  "Description": "Active: Targets a non-player enemy unit to remove %creep_damage_pct%%% of its current HP.\\nPassive: Quell - Increases attack damage against non-hero units, based on whether the equipped hero is ranged or melee. Does not provide bonus damage against Roshan.", 
+  "DisplayName": "Iron Talon"
  }, 
  "item_javelin": {
   "Description": "Passive: Pierce - Grants each attack a chance to deal bonus damage.", 
@@ -1700,7 +1751,7 @@
   "Lore": "You grow stronger just by holding it."
  }, 
  "item_orb_of_venom": {
-  "Description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing movement based on whether the equipped hero is melee or ranged.\\n\\nOrb of Venom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.  Orb of Venom can be combined with Lifesteal Attack Modifiers.", 
+  "Description": "Passive: Poison Attack - Poisons the target, dealing damage over time and slowing movement based on whether the equipped hero is melee or ranged.", 
   "DisplayName": "Orb of Venom", 
   "Lore": "Envenoms your veapon with the venom of a venomous viper."
  }, 
@@ -1715,7 +1766,7 @@
   "Lore": "A gem that grants heart to the bearer."
  }, 
  "item_phase_boots": {
-  "Description": "Active: Phase - Gives increased movement speed and lets you move through units.  The increased movement speed is based on whether the equipped hero is melee or ranged.  Phase is cancelled upon using another item or ability.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
+  "Description": "Active: Phase - Gives increased movement speed and lets you move through units.  The increased movement speed is based on whether the equipped hero is melee or ranged.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
   "DisplayName": "Phase Boots", 
   "Lore": "Boots that allow the wearer to travel between the ether."
  }, 
@@ -1846,7 +1897,7 @@
   "Lore": "Said to have belonged to a goddess, today it retains much of its former power."
  }, 
  "item_silver_edge": {
-  "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus damage to the target, disable their passive abilities, and reduce their damage output.\\nPassive: Lesser Maim - Each attack has a chance to slow the enemy's movement and attack speed for %maim_duration% seconds.", 
+  "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus damage to the target, disable their passive abilities, and reduce their damage output.", 
   "DisplayName": "Silver Edge", 
   "Lore": "Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath."
  }, 
@@ -1860,7 +1911,7 @@
   "Lore": "Light boots made from spider skin that tingles your senses."
  }, 
  "item_smoke_of_deceit": {
-  "Description": "Use: Upon activation, the user and all nearby allied player-controlled units gain invisibility and bonus movement speed for a brief time.  Minimap icons will also be hidden.  Attacking, or moving within 1025 range of an enemy hero or tower, will break the invisibility.", 
+  "Description": "Use: Upon activation, the user and all nearby allied player-controlled units gain invisibility and bonus movement speed for a brief time.  Minimap icons will also be hidden.  Attacking, or moving within %visibility_radius% range of an enemy hero or tower, will break the invisibility.", 
   "DisplayName": "Smoke of Deceit"
  }, 
  "item_sobi_mask": {
@@ -1910,6 +1961,11 @@
   "DisplayName": "Tango (Shared)", 
   "Lore": "Om nom nom."
  }, 
+ "item_tome_of_knowledge": {
+  "Description": "Use: Grants you experience.", 
+  "DisplayName": "Tome of Knowledge", 
+  "Lore": ""
+ }, 
  "item_tpscroll": {
   "Description": "Use: Teleport - Teleports you to a target friendly building. Double-click to teleport to your team's base fountain.", 
   "DisplayName": "Town Portal Scroll"
@@ -1943,7 +1999,7 @@
   "Lore": "Contains the ashes of powerful demons."
  }, 
  "item_vanguard": {
-  "Description": "Passive: Damage Block - Gives the wielder a chance to block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
+  "Description": "Passive: Damage Block - Makes the wielder block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "DisplayName": "Vanguard", 
   "Lore": "A powerful shield that defends its wielder from even the most vicious of attacks."
  }, 
@@ -1980,6 +2036,11 @@
   "Description": "Use: Plants a Sentry Ward, an invisible watcher that grants True Sight, the ability to see invisible enemy units and wards, to any existing allied vision within its range. Lasts %duration_minutes_tooltip% minutes.\\n\\nHold Control to give one Sentry Ward to an allied hero.", 
   "DisplayName": "Sentry Ward", 
   "Lore": "A form of plant originally grown in the garden of a fearful king."
+ }, 
+ "item_wind_lace": {
+  "Description": "Passive: Gives increased movement speed.", 
+  "DisplayName": "Wind Lace", 
+  "Lore": ""
  }, 
  "item_winter_cake": {
   "Description": "Use the cake to heal 400 health and 50 mana over 8 seconds", 
@@ -2081,7 +2142,7 @@
   "Lore": "The Primordial light turns the tides of battle in favor of Ezalor and his allies."
  }, 
  "keeper_of_the_light_chakra_magic": {
-  "Description": "Restores mana to the target unit, and reduces the cooldown of the next spell they cast.", 
+  "Description": "Restores mana to the target unit, increases its mana capacity, and reduces the cooldown of the next spell they cast.", 
   "DisplayName": "Chakra Magic", 
   "Lore": "In the same vein, Ezalor bestows his harmony among others."
  }, 
@@ -2278,7 +2339,7 @@
   "Lore": "Dancing flames embody Lina's playful nature, bringing out her true blazing self."
  }, 
  "lina_laguna_blade": {
-  "Description": "Fires off a bolt of lightning at a single enemy unit, dealing massive damage.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Fires off a bolt of lightning at a single enemy unit, dealing massive damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Laguna Blade", 
   "Lore": "The air around Lina becomes so intensely torrid that it scorches a foe that comes too close with white-hot lightning."
  }, 
@@ -2288,7 +2349,7 @@
   "Lore": "Lina's essence allows her to focus the sun's energies, causing air to combust at will."
  }, 
  "lion_finger_of_death": {
-  "Description": "Rips at an enemy unit, trying to turn it inside-out. Deals massive damage.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Rips at an enemy unit, trying to turn it inside-out. Deals massive damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Finger of Death", 
   "Lore": "Lion's disfigured hand is also the source of his greatest power, capable of flooding victims with malefic force."
  }, 
@@ -2312,8 +2373,17 @@
   "DisplayName": "Rabid", 
   "Lore": "Bears are not commonly seen as being agile creatures, but can actually move rather quickly, especially when enraged."
  }, 
+ "lone_druid_savage_roar": {
+  "Description": "Lone Druid roars fiercely causing nearby enemies to flee towards their base in terror. Their movement speed is increased by %bonus_speed%%%.", 
+  "DisplayName": "Savage Roar", 
+  "Lore": "Sylla studies and masters the arts of the lost Bear Clan, enhancing his attunement with the wild."
+ }, 
+ "lone_druid_savage_roar_bear": {
+  "Description": "Spirit Bear roars fiercely causing nearby enemies to flee towards their base in terror. Their movement speed is increased by %bonus_speed%%%.", 
+  "DisplayName": "Savage Roar"
+ }, 
  "lone_druid_spirit_bear": {
-  "Description": "Summons a powerful Spirit Bear companion that can equip items.  If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers %backlash_damage%%% of his max health as backlash damage if the Spirit Bear dies.  As the bear increases in levels, it can learn the Return, Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from attributes.\\n\\nUpgradable with Aghanim's Scepter, allowing Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies.", 
+  "Description": "Summons a powerful Spirit Bear companion that can equip items.  If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers %backlash_damage%%% of his max health as backlash damage if the Spirit Bear dies.  As the bear increases in levels, it can learn the Return, Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from attributes.\\n\\nUpgradable by Aghanim's Scepter, allowing Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies.", 
   "DisplayName": "Summon Spirit Bear", 
   "Lore": "Sylla's lifelong companion is symbiotic with his spirit and heart, coming to aid him in any time of need."
  }, 
@@ -2329,13 +2399,8 @@
   "Description": "Immediately teleports the Spirit Bear back to the Lone Druid.  The Spirit Bear cannot teleport if it has taken damage from a player unit in the last 3 seconds.", 
   "DisplayName": "Return"
  }, 
- "lone_druid_synergy": {
-  "Description": "Increases the Lone Druid's synergy with his Spirit Bear and himself, upgrading attributes and abilities.", 
-  "DisplayName": "Synergy", 
-  "Lore": "Sylla studies and masters the arts of the lost Bear Clan, enhancing his attunement with the wild."
- }, 
  "lone_druid_true_form": {
-  "Description": "Lone Druid learns to morph himself into a raging bear, losing his ranged advantage and some base movement speed, but gaining melee power as well as the Battle Cry ability.  He can morph freely between druid and bear form.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Lone Druid learns to morph himself into a raging bear, losing his ranged advantage and some base movement speed, but gaining melee power as well as the Battle Cry ability.  He can morph freely between druid and bear form.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "True Form", 
   "Lore": "The mighty bear is the king of the forest, possessing the throne through raw power."
  }, 
@@ -2345,7 +2410,7 @@
   "Lore": "When Sylla cries in the forest, the reverberations are felt for a great distance."
  }, 
  "lone_druid_true_form_druid": {
-  "Description": "Return to Druid form.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Return to Druid form.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Druid Form"
  }, 
  "luna_eclipse": {
@@ -2379,30 +2444,30 @@
   "Lore": "Blood-curdling wolf cries signal to opponents that Banehallow is among them."
  }, 
  "lycan_shapeshift": {
-  "Description": "Lycan assumes his lupine form, granting him critical strikes and added vision at night.  During Shapeshift, Lycan and all units under his control move at increased speed and cannot be slowed.", 
+  "Description": "Lycan assumes his lupine form, granting him and his units critical strikes and added vision at night. During Shapeshift, Lycan and all units under his control move at increased speed, cannot be slowed and have a %crit_chance%%% chance to deal a critical strike doing %crit_multiplier%%% damage.", 
   "DisplayName": "Shapeshift", 
   "Lore": "Forever a slave to his lycanthropy, Banehallow has come to accept his curse, and embrace his own savagery."
  }, 
  "lycan_summon_wolves": {
-  "Description": "Summons two wolves to fight for Lycan.  Level 2-4 wolves have Critical Strike, level 3-4 wolves have permanent invisibility, and level 4 wolves have 15 HP regen.", 
+  "Description": "Summons two wolves to fight for Lycan.  Level 2-4 wolves have Cripple, level 3-4 wolves have permanent invisibility, and level 4 wolves have 15 HP regen.", 
   "DisplayName": "Summon Wolves", 
   "Lore": "The very enchantment that twisted his being also summons canine familiars."
  }, 
  "lycan_summon_wolves_critical_strike": {
-  "Description": "Gives a chance to deal bonus damage.", 
-  "DisplayName": "Critical Strike"
+  "Description": "Gives %maim_chance%%% to cripple the target, causing %maim_damage% damage per second and lose %maim_attack_speed% Attack Speed for %maim_duration% seconds.", 
+  "DisplayName": "Cripple"
  }, 
  "lycan_summon_wolves_invisibility": {
   "Description": "Permanently invisible when not attacking.", 
   "DisplayName": "Invisibility"
  }, 
  "magnataur_empower": {
-  "Description": "Gives an allied unit bonus damage and cleave on attack.", 
+  "Description": "Gives an allied unit bonus damage and cleave on attack.\\n\\nUpgradable by Aghanim's Scepter, changing Empower to be an allied hero aura. Affects ranged heroes for half values and causes them to splash around the target. Can still be cast on units, but doesn't stack.", 
   "DisplayName": "Empower", 
   "Lore": "With a deep bellow, Magnus displays his true power."
  }, 
  "magnataur_reverse_polarity": {
-  "Description": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.", 
+  "Description": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Reverse Polarity", 
   "Lore": "Magnus fights with the fury of the erupting Mt. Joerlak."
  }, 
@@ -2422,7 +2487,7 @@
   "Lore": "While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
  }, 
  "medusa_mystic_snake": {
-  "Description": "A mystic snake made of energy jumps from target to target dealing damage and stealing mana. After it reaches its last target, it returns to Medusa to replenish her with mana. The snake deals more damage and steals more mana per jump. Deals Pure damage to units petrified by Stone Gaze.", 
+  "Description": "A mystic snake made of energy jumps from target to target dealing damage and stealing mana. After it reaches its last target, it returns to Medusa to replenish her with mana. The snake deals more damage per jump and steals %snake_mana_steal%%% of the targets' total mana. Deals Pure damage to units petrified by Stone Gaze.", 
   "DisplayName": "Mystic Snake", 
   "Lore": "The Gorgon's curse is her greatest strength."
  }, 
@@ -2457,7 +2522,7 @@
   "Lore": "Sometimes breaking one of the Riftshadow Crystals can be just the trick for getting yourself out of a bind.  Or your other self."
  }, 
  "mirana_arrow": {
-  "Description": "Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from 0.01 to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target.", 
+  "Description": "Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from 0.01 to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target. Instantly kills the first non-ancient creep it hits.", 
   "DisplayName": "Sacred Arrow", 
   "Lore": "Lunar energies make the Princess of the Moon's arrows more deadly than most."
  }, 
@@ -2472,7 +2537,7 @@
   "Lore": "Both friend and foe alike recognize Mirana's iconic white beast in the heat of battle."
  }, 
  "mirana_starfall": {
-  "Description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.", 
+  "Description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter, causing Starstorm to passively trigger every %scepter_interval% seconds. Does not trigger if the enemy doesn't see Mirana.", 
   "DisplayName": "Starstorm", 
   "Lore": "The Goddess breaks the strata to empower her Princess in the time of need."
  }, 
@@ -2504,7 +2569,7 @@
   "Lore": "Shifting water makes it difficult to discern the nature of Morphling."
  }, 
  "morphling_replicate": {
-  "Description": "Morphling replicates any hero, friend or foe, dealing 50%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Morphling replicates any hero, friend or foe, dealing %tooltip_illusion_damage_out_pct%%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Replicate", 
   "Lore": "Staring into Morphling produces a reflection that mimics the beholder."
  }, 
@@ -2521,6 +2586,10 @@
  "mud_golem_rock_destroy": {
   "Description": "On death, Mud Golems shatter into 2 Shard Golems. Shard Golems have %shard_health_tooltip% health, deal %shard_damage_tooltip% damage per attack, and live for %shard_duration_tooltip% seconds.", 
   "DisplayName": "Shard Split"
+ }, 
+ "mudgolem_cloak_aura": {
+  "Description": "This creature protects its allies with a Magic Resistance aura. Creeps are better protected.", 
+  "DisplayName": "Cloak Aura"
  }, 
  "naga_siren_ensnare": {
   "Description": "Interrupts the target and traps them in place, preventing movement or blinking.", 
@@ -2596,12 +2665,12 @@
   "Lore": "Even being near Nevermore eats away at one's soul."
  }, 
  "nevermore_necromastery": {
-  "Description": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. If the killed unit is a hero, he gains 12 souls.  On death, he releases half of them from bondage.", 
+  "Description": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. If the killed unit is a hero, he gains 12 souls.  On death, he releases half of them from bondage.\\n\\nUpgradable by Aghanim's Scepter, increasing Necromastery Max Souls to %necromastery_max_souls_scepter%.", 
   "DisplayName": "Necromastery", 
   "Lore": "Harvested souls swirl in and out of the Abysm, empowering the Shadow Fiend to increase the size of his collection."
  }, 
  "nevermore_requiem": {
-  "Description": "Shadow Fiend gathers his captured souls to release them as lines of demonic energy. Units near Shadow Fiend when the souls are released can be damaged by several lines of energy. Any unit damaged by Requiem of Souls will have its movement speed and attack damage reduced. Lines of energy are created for every 2 souls captured through Necromastery. Requiem of Souls is automatically cast whenever Shadow Fiend dies, regardless of its cooldown.", 
+  "Description": "Shadow Fiend gathers his captured souls to release them as lines of demonic energy. Units near Shadow Fiend when the souls are released can be damaged by several lines of energy. Any unit damaged by Requiem of Souls will have its movement speed and attack damage reduced. Lines of energy are created for every 2 souls captured through Necromastery. Requiem of Souls is automatically cast whenever Shadow Fiend dies, regardless of its cooldown.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Requiem of Souls", 
   "Lore": "The captured souls of those past slain are released to ravage their former allies."
  }, 
@@ -2989,9 +3058,6 @@
   "Bio": "The Font of Avernus is the source of a family's strength, a crack in primal stones from which vapors of prophetic power have issued for generations. Each newborn of the cavernous House Avernus is bathed in the black mist, and by this baptism they are given an innate connection to the mystic energies of the land. They grow up believing themselves fierce protectors of their lineal traditions, the customs of the realm--but what they really are protecting is the Font itself. And the motives of the mist are unclear.\r\n\t\tWhen the infant Abaddon was bathed in the Font, they say something went awry. In the child's eyes there flared a light of comprehension that startled all present and set the sacerdotes to whispering. He was raised with every expectation of following the path all scions of Avernus took--to train in war, that in times of need he might lead the family's army in defense of the ancestral lands. But Abaddon was always one apart. Where others trained with weapons, he bent himself to meditation in the presence of the mist. He drank deep from the vapors that welled from the Font, learning to blend his spirit with the potency that flowed from far beneath the House; he became a creature of the black mist.\r\n\t\tThere was bitterness within the House Avernus--elders and young alike accusing him of neglecting his responsibilities. But all such accusations stopped when Abaddon rode into battle, and they saw how the powers of the mist had given him mastery over life and death beyond those of any lord the House had ever known.", 
   "DisplayName": "Abaddon"
  }, 
- "npc_dota_hero_abyssal_underlord": {
-  "DisplayName": "Abyssal Underlord"
- }, 
  "npc_dota_hero_alchemist": {
   "Bio": "The sacred science of Chymistry was a Darkbrew family tradition, but no Darkbrew had ever shown the kind of creativity, ambition, and recklessness of young Razzil. However, when adulthood came calling he pushed aside the family trade to try his hand at manufacturing gold through Alchemy. In an act of audacity befitting his reputation, Razzil announced he would transmute an entire mountain into gold. Following two decades of research and spending and preparation, he failed spectacularly, quickly finding himself imprisoned for the widespread destruction his experiment wrought. Yet Razzil was never one to take a setback lightly, and sought escape to continue his research. When his new cellmate turned out to be a fierce ogre, he found just the opportunity he needed. After convincing the ogre not to eat him, Razzil set about carefully concocting a tincture for it to drink, made from the moulds and mosses growing in the prison stone work. In a week's time, it seemed ready. When the ogre drank the potion, it flew into an unstoppable berserker rage, destroying the cell bars and exploding through walls and guards alike. They soon found themselves lost somewhere in the forest surrounding the city with a trail of wreckage in their wake and no signs of pursuit.  In the tonic's afterglow, the ogre seemed serene, happy, and even eager. Resolving to work together, the pair set off to collect the materials needed to attempt Razzil's Alchemic transmutation once more.", 
   "DisplayName": "Alchemist"
@@ -3005,6 +3071,7 @@
   "DisplayName": "Anti-Mage"
  }, 
  "npc_dota_hero_arc_warden": {
+  "Bio": "Before the beginning of all, there existed a presence: a primordial mind, infinite, awesome, and set to inscrutable purpose. As the universe thundered into being, this mind was fragmented and scattered. Two among its greater fragments--who would come to be named Radiant and Dire--found themselves locked in vicious opposition, and began twisting all of creation to serve their conflict.\r\nAs war and cataclysm threatened the nascent cosmos, the will of a third fragment made itself known. Naming itself Zet, this intellect sought to resolve the disharmony and return all to perfect unity. Appalled by its kin's conflicting nature, Zet gathered the sum of its power. In a sudden flash, it overwhelmed its siblings, and fused the warring aspects into a stellar sphere before hurling them into the darkness to orbit a nondescript world. Harmony was restored, though only the barest fraction of Zet's strength remained. Setting its gaze on the prison, Zet chose to use its weakened power to serve as watchful warden until time's end. For uncounted aeons, this vigil stood.\r\nLife flourished upon the world below, oblivious to the dangers imprisoned within the softly glowing moon, or of Zet's struggles to contain them. As the captives' eternal clash reverberated within, the surface of the prison shuddered, over time beginning to crack. Ultimately, Zet's depleted power proved insufficient to contain the breach, and at last the moon was shattered. The prison's ancient inhabitants had escaped to sow their conflict anew.\r\nFlung to the farthest reaches by the prison's explosion, Zet was transformed by the dissonant energies of its former captives. No longer of single form and thought, its presence had become split among many--some lesser, some greater--each connected by a fleeting arc of consciousness. Struggling to suppress its own disunity, Zet sped toward the burgeoning conflict of its siblings, bending its fractured wills toward a singular conclusion: the aspects of the primordial mind must be made to reunite, or all must be destroyed lest the conflict spread further...", 
   "DisplayName": "Arc Warden"
  }, 
  "npc_dota_hero_axe": {
@@ -3765,12 +3832,12 @@
   "Lore": "The scarab kills for the glory of his queen."
  }, 
  "obsidian_destroyer_arcane_orb": {
-  "Description": "Adds extra pure damage to Outworld Devourer's attacks, based on his remaining mana pool.  Arcane Orb also does bonus damage to summoned units and illusions.\\n\\nArcane Orb is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "Description": "Adds extra pure damage to Outworld Devourer's attacks, based on his remaining mana pool. Steals %int_steal% intelligence for %int_steal_duration% seconds per hit when attacking an enemy hero. Arcane Orb also does bonus damage to summoned units and illusions.\\n\\nArcane Orb is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "DisplayName": "Arcane Orb", 
   "Lore": "Harbinger's outworldly knowledge allows it to tap into the ebb and flow of all spiritual energy, infusing it into his being."
  }, 
  "obsidian_destroyer_astral_imprisonment": {
-  "Description": "Places a target allied or enemy hero into an astral prison.  The hidden hero is invulnerable and disabled.  When cast on an enemy Hero, Harbinger temporarily steals intelligence from that hero.", 
+  "Description": "Places a target unit into an astral prison. The hidden unit is invulnerable and disabled. When the astral prison implodes, it deals %damage% damage to enemies in a %radius% radius around the target.", 
   "DisplayName": "Astral Imprisonment", 
   "Lore": "Locked away in the pocket between this world and the Outworld, victims realize their infantile knowledge and mortality."
  }, 
@@ -3780,7 +3847,7 @@
   "Lore": "The crystals of the Outworld produce arcane power, and the Harbinger channels it into the world of mortals."
  }, 
  "obsidian_destroyer_sanity_eclipse": {
-  "Description": "Unleashes a psychic blast that removes %mana_drain%%% of the mana from affected heroes, while also damaging them based on the difference between the affected the hero's Intelligence and Outworld Devourer's. If an enemy hero has the same or higher Intelligence than Outworld Devourer, Sanity's Eclipse will not cause damage. Sanity's Eclipse can hit units trapped by Astral Imprisonment.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Unleashes a psychic blast that removes %mana_drain%%% of the mana from affected heroes, while also damaging them based on the difference between the affected hero's Intelligence and Outworld Devourer's. If an enemy hero has the same or higher Intelligence than Outworld Devourer, Sanity's Eclipse will not cause damage. Sanity's Eclipse can hit units trapped by Astral Imprisonment.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Sanity's Eclipse", 
   "Lore": "When an Outworld crystal ruptures, cataclysmic energies are released, and the reverberations of this power are felt interdimensionally."
  }, 
@@ -3814,7 +3881,7 @@
   "Lore": "The 'who-casts-spell-first' argument between himself is solved simply by both casting at once."
  }, 
  "omniknight_degen_aura": {
-  "Description": "Greatly degenerates the movement and attack capabilities of enemy units that stray too near, including Spell Immune enemies.", 
+  "Description": "Greatly degenerates the movement and attack capabilities of enemy units that stray too near.", 
   "DisplayName": "Degen Aura", 
   "Lore": "The holy embodiment of Purist Thunderwrath is enough to weaken those of lesser faith."
  }, 
@@ -3834,7 +3901,7 @@
   "Lore": "When faced with the pit of sacrifice, Purist's resilience to magic was tested and affirmed."
  }, 
  "oracle_false_promise": {
-  "Description": "Temporarily alters an ally's destiny, delaying any healing or damage taken until False Promise ends. Any healing that is delayed by False Promise is doubled. Removes most negative status effects and disables while active.", 
+  "Description": "Temporarily alters an ally's destiny, delaying any healing or damage taken until False Promise ends. Any healing that is delayed by False Promise is doubled. Removes most negative status effects and disables on initial cast.", 
   "DisplayName": "False Promise", 
   "Lore": "Foes and false prophets oft make lies of men's fates."
  }, 
@@ -3844,12 +3911,12 @@
   "Lore": "An unbreakable prophecy resounds: a chosen ally shall briefly suffer no magics.  Other kinds of suffering however..."
  }, 
  "oracle_fortunes_end": {
-  "Description": "CHANNELED - Gathers Oracle's power into a bolt of scouring energy that, when released, damages, stops movement, and purges enemies of buffs in an area around the target. Can be channeled for up to %max_channel_time_tooltip% seconds. The stop duration is equal to the time spent channeling.", 
+  "Description": "CHANNELED - Gathers Oracle's power into a bolt of scouring energy that, when released, damages, stops movement, and purges enemies of buffs in an area around the target. If target is an ally it will only purge. Can be channeled for up to %max_channel_time_tooltip% seconds. The stop duration is equal to the time spent channeling.", 
   "DisplayName": "Fortune's End", 
   "Lore": "The astral orb crackles with power while raw energy lances out, temporarily disrupting an enemy's connection to their own body."
  }, 
  "oracle_purifying_flames": {
-  "Description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.", 
+  "Description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.\\n\\nUpgradable by Aghanim's Scepter, reducing cooldown and improves cast point.", 
   "DisplayName": "Purifying Flames", 
   "Lore": "Like a hall of mirrors might amplify the light of a single candle, the shattered walls of the universe can transform the light of prophecy into a burning torch."
  }, 
@@ -3869,7 +3936,7 @@
   "Lore": "Mortred's silken veil is the last thing her unfortunate target sees."
  }, 
  "phantom_assassin_stifling_dagger": {
-  "Description": "Throws a dagger which deals pure damage and slows the enemy unit's movement speed, while also applying attack effects from items and abilities.", 
+  "Description": "Throws a dagger slowing the enemy unit's movement speed, dealing %base_damage%+%attack_factor_tooltip%%% of Phantom Assassin's attack damage as physical damage and applying attack effects from items and abilities.", 
   "DisplayName": "Stifling Dagger", 
   "Lore": "The first skill learned by the Sisters of the Veil often signals an incoming hit."
  }, 
@@ -3966,7 +4033,7 @@
   "Lore": "With a mischievous grin, Puck spreads its enchanted powder which disrupts magical flow."
  }, 
  "pudge_dismember": {
-  "Description": "CHANNELED - Pudge chows down on an enemy unit, disabling it and dealing damage over time. Lasts 3 seconds on Heroes, 6 seconds on creeps.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "CHANNELED - Pudge chows down on an enemy unit, disabling it and dealing damage over time. Pudge gets healed for the same amount he damages. Lasts 3 seconds on Heroes, 6 seconds on creeps.", 
   "DisplayName": "Dismember", 
   "Lore": "'When I'm through with these vermin, they'll be fit for a pie!'"
  }, 
@@ -3976,7 +4043,7 @@
   "Lore": "The Butcher gives new meaning to the words 'meat shield.'"
  }, 
  "pudge_meat_hook": {
-  "Description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.", 
+  "Description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.\\n\\nUpgradable by Aghanim's Scepter, reducing the cooldown and increasing the damage.", 
   "DisplayName": "Meat Hook", 
   "Lore": "The Butcher's hook is a symbolic nightmare, its curved blade a frightening reminder of his slaughterous intent."
  }, 
@@ -4021,7 +4088,7 @@
   "Lore": "Akasha's envenomed dagger allows her to delight in the drawn out suffering of her victims."
  }, 
  "queenofpain_sonic_wave": {
-  "Description": "Creates a gigantic wave of sound in front of Queen of Pain, dealing heavy damage to all enemy units in its wake.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Creates a gigantic wave of sound in front of Queen of Pain, dealing heavy damage to all enemy units in its wake.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Sonic Wave", 
   "Lore": "Her most exquisite of all of torments, Akasha's Sonic Wave puts her poor foes out of their misery."
  }, 
@@ -4065,32 +4132,32 @@
   "DisplayName": "Unstable Current", 
   "Lore": "Attacking the Lightning Revenant is rewarded with shock therapy."
  }, 
- "riki_backstab": {
-  "Description": "If Riki attacks from behind, bonus damage is applied based on his current agility.", 
-  "DisplayName": "Backstab", 
-  "Lore": "The Stealth Assassin is not afraid to fight dirty, and specializes in attacking his opponents from behind."
- }, 
  "riki_blink_strike": {
-  "Description": "Teleports behind the target unit, striking for bonus damage if it is an enemy. Blink Strike charges restore every %charge_restore_time% seconds.", 
+  "Description": "Teleports behind the target unit, striking for bonus damage if it is an enemy.", 
   "DisplayName": "Blink Strike", 
   "Lore": "The Stealth Assassin's agile movement makes him impossible to escape."
  }, 
  "riki_permanent_invisibility": {
-  "Description": "Riki fades into the shadows, becoming invisible and gaining additional health regeneration.  If Riki attacks an enemy, he will become visible.", 
-  "DisplayName": "Permanent Invisibility", 
+  "Description": "Riki fades into the shadows, becoming invisible. Every time Riki strikes his enemy from behind, he deals bonus damage based on his Agility. When Riki attacks, he becomes visible.", 
+  "DisplayName": "Cloak and Dagger", 
   "Lore": "Riki comes for you."
  }, 
  "riki_smoke_screen": {
-  "Description": "Throws down a smoke bomb, silencing enemies, causing causing them to miss most attacks, as well as slowing movement and turn speed.", 
+  "Description": "Throws down a smoke bomb, silencing enemies, and causing them to miss most attacks, as well as slowing movement.", 
   "DisplayName": "Smoke Screen", 
   "Lore": "Since his escape during the night of his betrayal, Riki has valued the use of a simple smoke screen to confuse his opponents."
+ }, 
+ "riki_tricks_of_the_trade": {
+  "Description": "CHANNELED - Phases out of the world while striking every enemy from behind in a %range% AoE once per second.", 
+  "DisplayName": "Tricks of the Trade", 
+  "Lore": "The Stealth Assassin is not afraid to fight dirty, and specializes in attacking his opponents from behind."
  }, 
  "roshan_bash": {
   "Description": "Roshan has a chance to stun on attack.", 
   "DisplayName": "Bash"
  }, 
  "roshan_devotion": {
-  "Description": "Roshan possesses numerous protective abilities, including 75%% magic damage resistance, the ability to instantly purge attacking illusions, and a scaling armor bonus that increases as time goes on.", 
+  "Description": "Roshan possesses numerous protective abilities, including 55%% magic damage resistance, the ability to instantly purge attacking illusions, and a scaling armor bonus that increases as time goes on.", 
   "DisplayName": "Strength of the Immortal"
  }, 
  "roshan_halloween_apocalypse": {
@@ -4167,7 +4234,7 @@
   "Lore": ""
  }, 
  "sandking_burrowstrike": {
-  "Description": "Sand King burrows into the ground and tunnels forward, damaging and stunning enemy units above him as he resurfaces.", 
+  "Description": "Sand King burrows into the ground and tunnels forward, damaging and stunning enemy units above him as he resurfaces.\\n\\nUpgradable by Aghanim's Scepter, increasing the range and applies Caustic Finale to every heroes hit by Burrowstrike.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Burrowstrike", 
   "Lore": "Crixalis often lies in wait, burrowing under the surface to ambush his adversaries."
  }, 
@@ -4177,7 +4244,7 @@
   "Lore": "An injection from Crixalis makes one brittle and as dry as the arid wastes, subject to implosive demise."
  }, 
  "sandking_epicenter": {
-  "Description": "CHANNELED - After channeling for 2 seconds, Sand King sends a disturbance into the earth, causing it to shudder violently. All enemies caught within range will take damage and become slowed. Each subsequent pulse increases the radius of damage dealt.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "CHANNELED - After channeling for 2 seconds, Sand King sends a disturbance into the earth, causing it to shudder violently. All enemies caught within range will take damage and become slowed. Each subsequent pulse increases the radius of damage dealt.", 
   "DisplayName": "Epicenter", 
   "Lore": "Many an explorer was lost to the quicksands of the Scintillant Waste."
  }, 
@@ -4203,7 +4270,7 @@
   "DisplayName": "Purge"
  }, 
  "shadow_demon_demonic_purge": {
-  "Description": "Purges the target enemy unit, removing positive buffs, and slowing the target for the duration.  The unit slowly regains its speed until the end of the duration, upon which damage is dealt.  Units under the effect of Disruption can still be affected by Demonic Purge.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Purges the target enemy unit, removing positive buffs, and slowing the target for the duration.  The unit slowly regains its speed until the end of the duration, upon which damage is dealt.  Units under the effect of Disruption can still be affected by Demonic Purge.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Demonic Purge", 
   "Lore": "Once Shadow Demon no longer has any need for his collected cultist, he releases it from its subservience - and its life."
  }, 
@@ -4232,7 +4299,7 @@
   "Lore": "Originally used to open shows with the travelling con-man, Rhasta's lightning display shocks adversaries in more ways than one."
  }, 
  "shadow_shaman_mass_serpent_ward": {
-  "Description": "Summons 10 serpent wards to attack enemy units and structures. The wards are immune to magic, and have a small area of splash damage that increases per level.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Summons 10 serpent wards to attack enemy units and structures. The wards are immune to magic, and have a small area of splash damage. It takes two hits to destroy a single ward.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Mass Serpent Ward", 
   "Lore": "Snake charming was a big part of the Shadow Shaman's act; now Rhasta can empower the snakes to do his bidding."
  }, 
@@ -4280,12 +4347,12 @@
   "Lore": "In the case that Rizzrack gets surrounded by the the vines and plants of his nightmares, he has an immediate chainsaw defense."
  }, 
  "silencer_curse_of_the_silent": {
-  "Description": "Curses the target area, causing enemy Heroes to take damage and lose mana until they cast a spell.", 
-  "DisplayName": "Curse of the Silent", 
+  "Description": "Curses the target area, causing enemy heroes to take damage and slowing their movement speed. Anytime affected enemies cast a spell, the duration is increased.", 
+  "DisplayName": "Arcane Curse", 
   "Lore": "Nortrom's lack of incantations is less of a problem for him than it is for his adversaries."
  }, 
  "silencer_glaives_of_wisdom": {
-  "Description": "Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. \\n\\nGlaives of Wisdom is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers. ", 
+  "Description": "Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence.", 
   "DisplayName": "Glaives of Wisdom", 
   "Lore": "Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
  }, 
@@ -4295,7 +4362,7 @@
   "Lore": "With a shock to the ground, all magic and sound pauses, and Nortrom fulfills his prophecy."
  }, 
  "silencer_last_word": {
-  "Description": "Enchants a target, causing them to be damaged, silenced, and their movement speed slowed if they cast a spell or if the enchantment timer expires.", 
+  "Description": "Enchants a target, causing them to be damaged and silenced if they cast a spell or if the enchantment timer expires.", 
   "DisplayName": "Last Word", 
   "Lore": "Nortrom ensures that spells uttered by his opponents will be their last."
  }, 
@@ -4450,7 +4517,7 @@
   "Lore": "The Storm is coming in."
  }, 
  "storm_spirit_electric_vortex": {
-  "Description": "A vortex that pulls an enemy unit to Storm Spirit's location, it also slows the Storm Spirit by 50%% for 3 seconds.", 
+  "Description": "A vortex that pulls an enemy unit to Storm Spirit's location, it also slows the Storm Spirit by 50%% for 3 seconds.\\n\\nUpgradable by Aghanim's Scepter, causing Electric Vortex to be a %scepter_radius% AoE ability.", 
   "DisplayName": "Electric Vortex", 
   "Lore": "Raijin's thunderous, boisterous energy often draws others into an electrifying situation."
  }, 
@@ -4573,7 +4640,7 @@
   "Lore": "Stolen from one of Admiral Kunkka's flagships, Leviathan's heavy anchor proves useful as a melee weapon."
  }, 
  "tidehunter_gush": {
-  "Description": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds.", 
+  "Description": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds.\\n\\nUpgradable by Aghanim's Scepter, turning Gush into a ground targeted wave and decreasing cooldown.", 
   "DisplayName": "Gush", 
   "Lore": "During his championship of the Sunken Isles, Leviathan gained mastery over the open sea."
  }, 
@@ -4583,7 +4650,7 @@
   "Lore": "Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet."
  }, 
  "tidehunter_ravage": {
-  "Description": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.", 
+  "Description": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Ravage", 
   "Lore": "Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea."
  }, 
@@ -4657,7 +4724,7 @@
   "Lore": "Rooftrellen calls the ancestral spirit of nature, releasing its power through all of his kin."
  }, 
  "troll_warlord_battle_trance": {
-  "Description": "Troll's presence on the battlefield increases the attack speed of himself and all allied heroes. ", 
+  "Description": "Troll's presence on the battlefield increases the attack speed of himself and all allied heroes.", 
   "DisplayName": "Battle Trance", 
   "Lore": "An adrenaline rush of pure hatred quickens your blades."
  }, 
@@ -4673,7 +4740,8 @@
  }, 
  "troll_warlord_whirling_axes_melee": {
   "Description": "Troll hurls two axes around him in a close range area of effect, damaging enemy units and causing them to miss some attacks.", 
-  "DisplayName": "Whirling Axes (Melee)"
+  "DisplayName": "Whirling Axes (Melee)", 
+  "Lore": "Keep your enemies close."
  }, 
  "troll_warlord_whirling_axes_ranged": {
   "Description": "Troll hurls a fistful of five axes in a cone shape over 900 range, slowing and damaging enemy units.", 
@@ -4700,7 +4768,7 @@
   "Lore": "Into the great wide white!"
  }, 
  "tusk_snowball": {
-  "Description": "Tusk begins rolling into a snowball. Allies within a %snowball_grab_radius_tooltip% radius can also be added to the snowball by right-clicking on them, even while the snowball is moving. Once launched, any enemies caught in the snowball's path will be stunned and take damage. Each allied Hero in the snowball will add to its damage.", 
+  "Description": "Tusk begins rolling into a snowball. Allies within a %snowball_grab_radius% radius can also be added to the snowball by right-clicking on them, even while the snowball is moving. Once launched, any enemies caught in the snowball's path will be stunned and take damage. Each allied Hero in the snowball will add to its damage.", 
   "DisplayName": "Snowball", 
   "Lore": "Tales are still told of the wild feat that ended the grand brawl at White Fields."
  }, 
@@ -4743,7 +4811,7 @@
   "Lore": "The very steps of a male ursine shake the ground as well as the resolve of opposing warriors."
  }, 
  "ursa_enrage": {
-  "Description": "Ursa goes into a frenzy, multiplying his Fury Swipes damage and causing him to take %damage_reduction%%% less damage. Removes any existing debuffs.", 
+  "Description": "Ursa goes into a frenzy, multiplying his Fury Swipes damage and causing him to take %damage_reduction%%% less damage. Removes any existing debuffs.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Enrage", 
   "Lore": "Ulfsaar succumbs to his ancient spirit, becoming the most ferocious creature on the battlefield."
  }, 
@@ -4808,7 +4876,7 @@
   "Lore": "Poison from the Nether Reaches turns wounds into fatalities, and fatigue into death."
  }, 
  "viper_poison_attack": {
-  "Description": "Intensifies Viper's venom, adding an effect to his normal attack that slows attack and movement speed while dealing damage over time.\\n\\nPoison Attack is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
+  "Description": "Intensifies Viper's venom, adding an effect to his normal attack that slows attack and movement speed while dealing damage over time.", 
   "DisplayName": "Poison Attack", 
   "Lore": "The Netherdrake's inborn toxic breath quickly drains the vitality of its afflicted."
  }, 
@@ -4847,7 +4915,7 @@
   "Lore": "An ancient incantation that links the vital energies of multiple lifeforms into one collective body."
  }, 
  "warlock_golem_flaming_fists": {
-  "Description": "Grants a chance to deal extra damage to nearby units when attacking.", 
+  "Description": "Deals extra damage to nearby units when attacking.", 
   "DisplayName": "Flaming Fists"
  }, 
  "warlock_golem_permanent_immolation": {
@@ -4890,7 +4958,7 @@
   "Lore": "If Skitskurr does not deem the current reality of the world to fit his desires, he simply crawls back in time to right what was wronged."
  }, 
  "windrunner_focusfire": {
-  "Description": "Windranger channels the wind to gain %bonus_attack_speed% additional attack speed against a single enemy unit or structure, though with a reduction to her attack damage.  Extra damage from secondary item effects is not reduced.  Lasts %focusfire_duration_tooltip% seconds.\\n\\nUpgradable with Aghanim's Scepter.", 
+  "Description": "Windranger channels the wind to gain %bonus_attack_speed% additional attack speed against a single enemy unit or structure, though with a reduction to her attack damage.  Extra damage from secondary item effects is not reduced.  Lasts %focusfire_duration_tooltip% seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Focus Fire", 
   "Lore": "Lyralei's ability to bombard opponents with a flurry of arrows is unparalleled - even at the expense of accuracy."
  }, 
@@ -4910,7 +4978,7 @@
   "Lore": "Lyralei enchants gusts of winds to fight incoming attacks."
  }, 
  "winter_wyvern_arctic_burn": {
-  "Description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a magical freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus%% additional vision range at night while soaring.", 
+  "Description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a magical freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus% additional vision range at night while soaring.\\n\\nUpgradable by Aghanim's Scepter, causing Arctic Burn to be a toggle ability, draining %mana_cost_scepter% mana per second when active. Removes limit on number of attacks per target.", 
   "DisplayName": "Arctic Burn", 
   "Lore": "The same organ where some dragons stoke their inner flame is, in Auroth, a crucible of unimaginable cold. From deep within her frosty gullet, an exhalation sends enemies into burning agony."
  }, 
@@ -4925,7 +4993,7 @@
   "Lore": "Produced slowly by specialized vesicles in her frozen gullet, Winter Wyvern blast shards of ice at her enemies."
  }, 
  "winter_wyvern_winters_curse": {
-  "Description": "Winter Wyvern freezes an enemy in place while striking those nearby with a maddening curse which causes them to attack their frozen ally. Those cursed to attack their ally take %damage_reduction%%% less damage.", 
+  "Description": "Winter Wyvern freezes an enemy in place while striking those nearby with a maddening curse which causes them to attack their frozen ally with increased attack speed. The frozen ally and those cursed to attack their ally are immune to all damage from their enemies.", 
   "DisplayName": "Winter's Curse", 
   "Lore": "The oldest of the bookwurm\u2019s spells, this curse lends truth to the old saw: sometimes the enemy of my enemy is my enemy still."
  }, 

@@ -6919,7 +6919,7 @@ var HEROCALCULATOR = (function (my) {
 		my.abilityData = {},
 		my.stackableItems = ['clarity','flask','dust','ward_observer','ward_sentry','tango','tpscroll','smoke_of_deceit'],
 		my.levelitems = ['necronomicon','dagon','diffusal_blade','travel_boots'],
-		my.validItems = ["abyssal_blade","ultimate_scepter","courier","arcane_boots","armlet","assault","boots_of_elves","bfury","belt_of_strength","black_king_bar","blade_mail","blade_of_alacrity","blades_of_attack","blink","bloodstone","boots","travel_boots","bottle","bracer","broadsword","buckler","butterfly","chainmail","circlet","clarity","claymore","cloak","lesser_crit","greater_crit","dagon","demon_edge","desolator","diffusal_blade","rapier","ancient_janggo","dust","eagle","energy_booster","ethereal_blade","cyclone","skadi","flying_courier","force_staff","gauntlets","gem","ghost","gloves","hand_of_midas","headdress","flask","heart","heavens_halberd","helm_of_iron_will","helm_of_the_dominator","hood_of_defiance","hyperstone","branches","javelin","sphere","maelstrom","magic_stick","magic_wand","manta","mantle","mask_of_madness","medallion_of_courage","mekansm","mithril_hammer","mjollnir","monkey_king_bar","lifesteal","mystic_staff","necronomicon","null_talisman","oblivion_staff","ward_observer","ogre_axe","orb_of_venom","orchid","pers","phase_boots","pipe","platemail","point_booster","poor_mans_shield","power_treads","quarterstaff","quelling_blade","radiance","reaver","refresher","ring_of_aquila","ring_of_basilius","ring_of_health","ring_of_protection","ring_of_regen","robe","rod_of_atos","relic","sobi_mask","sange","sange_and_yasha","satanic","sheepstick","ward_sentry","shadow_amulet","invis_sword","shivas_guard","basher","slippers","smoke_of_deceit","soul_booster","soul_ring","staff_of_wizardry","stout_shield","talisman_of_evasion","tango","tpscroll","tranquil_boots","ultimate_orb","urn_of_shadows","vanguard","veil_of_discord","vitality_booster","vladmir","void_stone","wraith_band","yasha","crimson_guard","enchanted_mango","lotus_orb","glimmer_cape","guardian_greaves","moon_shard","silver_edge","solar_crest","octarine_core"],
+		my.validItems = ["abyssal_blade","ultimate_scepter","courier","arcane_boots","armlet","assault","boots_of_elves","bfury","belt_of_strength","black_king_bar","blade_mail","blade_of_alacrity","blades_of_attack","blink","bloodstone","boots","travel_boots","bottle","bracer","broadsword","buckler","butterfly","chainmail","circlet","clarity","claymore","cloak","lesser_crit","greater_crit","dagon","demon_edge","desolator","diffusal_blade","rapier","ancient_janggo","dust","eagle","energy_booster","ethereal_blade","cyclone","skadi","flying_courier","force_staff","gauntlets","gem","ghost","gloves","hand_of_midas","headdress","flask","heart","heavens_halberd","helm_of_iron_will","helm_of_the_dominator","hood_of_defiance","hyperstone","branches","javelin","sphere","maelstrom","magic_stick","magic_wand","manta","mantle","mask_of_madness","medallion_of_courage","mekansm","mithril_hammer","mjollnir","monkey_king_bar","lifesteal","mystic_staff","necronomicon","null_talisman","oblivion_staff","ward_observer","ogre_axe","orb_of_venom","orchid","pers","phase_boots","pipe","platemail","point_booster","poor_mans_shield","power_treads","quarterstaff","quelling_blade","radiance","reaver","refresher","ring_of_aquila","ring_of_basilius","ring_of_health","ring_of_protection","ring_of_regen","robe","rod_of_atos","relic","sobi_mask","sange","sange_and_yasha","satanic","sheepstick","ward_sentry","shadow_amulet","invis_sword","shivas_guard","basher","slippers","smoke_of_deceit","soul_booster","soul_ring","staff_of_wizardry","stout_shield","talisman_of_evasion","tango","tpscroll","tranquil_boots","ultimate_orb","urn_of_shadows","vanguard","veil_of_discord","vitality_booster","vladmir","void_stone","wraith_band","yasha","crimson_guard","enchanted_mango","lotus_orb","glimmer_cape","guardian_greaves","moon_shard","silver_edge","solar_crest","octarine_core","aether_lens","faerie_fire","iron_talon","dragon_lance"],
         my.itemsWithActive = ['heart','smoke_of_deceit','dust','ghost','tranquil_boots','phase_boots','power_treads','buckler','medallion_of_courage','ancient_janggo','mekansm','pipe','veil_of_discord','rod_of_atos','orchid','sheepstick','armlet','invis_sword','ethereal_blade','shivas_guard','manta','mask_of_madness','diffusal_blade','mjollnir','satanic','ring_of_basilius','ring_of_aquila', 'butterfly', 'moon_shard', 'silver_edge'];
     
     my.ItemInput = function (value, name, debuff) {
@@ -7371,6 +7371,7 @@ var HEROCALCULATOR = (function (my) {
                                 }
                             }
                             if (attribute.name == 'bonus_stat' && self.items()[i].state() == 2) {totalAttribute += parseInt(attribute.value[0]);};
+                            if (attribute.name == 'bonus_agi') {totalAttribute += parseInt(attribute.value[0]);};
                         break;
                         case 'int':
                             if (attribute.name == 'bonus_intellect') {
@@ -7401,6 +7402,7 @@ var HEROCALCULATOR = (function (my) {
                                 }
                             }
                             if (attribute.name == 'bonus_stat' && self.items()[i].state() == 0) {totalAttribute += parseInt(attribute.value[0]);};
+                            if (attribute.name == 'bonus_str') {totalAttribute += parseInt(attribute.value[0]);};
                             if (attribute.name == 'unholy_bonus_strength' && isActive) {totalAttribute += parseInt(attribute.value[0]);};
                         break;
                     }
@@ -8348,6 +8350,31 @@ var HEROCALCULATOR = (function (my) {
             return totalAttribute;
         });
         
+        self.getAttackRange = function (attacktype, aList) {
+            var totalAttribute = 0,
+                attributeList = aList || [];
+            for (var i = 0; i < self.items().length; i++) {
+                var item = self.items()[i].item;
+                var isActive = self.activeItems.indexOf(self.items()[i]) >= 0 ? true : false;
+                if (!self.items()[i].enabled()) continue;
+                for (var j = 0;j < my.itemData['item_' + item].attributes.length; j++) {
+                    var attribute = my.itemData['item_' + item].attributes[j];
+                    if (_.find(attributeList, function (a) { return attribute.name == a.name; })) continue;
+                    switch(attribute.name) {
+                        // dragon_lance
+                        case 'base_attack_range':
+                            if (attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK') attributeList.push({'name':attribute.name, 'value': parseInt(attribute.value[0])});
+                        break;
+                    }
+                }
+            }
+            
+            totalAttribute = _.reduce(attributeList, function (memo, attribute) {
+                return memo += attribute.value;
+            }, 0);
+            return {value: totalAttribute, attributes: attributeList};
+        };
+        
         self.getMissChance = function (e) {
             var totalAttribute = 1,
                 excludeList = e || [];
@@ -8497,11 +8524,14 @@ var HEROCALCULATOR = (function (my) {
         '$evasion': 'Evasion',
         '$spell_resist': 'Spell Resistance',
         '$selected_attribute': 'Selected Attribute',
-        '$selected_attrib': 'Selected Attribute'
+        '$selected_attrib': 'Selected Attribute',
+        '$cast_range': 'Cast Range',
+        '$attack_range': 'Attack Range'
     }
 
     function getTooltipItemAttributes(item) {
         var a = '';
+        console.log('getTooltip', item);
         for (var i = 0; i < item.attributes.length; i++) {
             if (item.attributes[i].tooltip != null) {
                 var attributeTooltip = item.attributes[i].tooltip;
@@ -10067,6 +10097,22 @@ var HEROCALCULATOR = (function (my) {
                 fn: function(v,a,parent,index) {
                     return v[0]/100*v[1]*a/100;
                 }
+            }
+        ],
+        'legion_commander_duel': [
+            {
+                label: 'Duel Wins',
+                controlType: 'input'
+            },
+            {
+                attributeName: 'reward_damage',
+                label: 'Total Damage:',
+                ignoreTooltip: true,
+                controlType: 'text',
+                fn: function(v,a) {
+                    return v*a;
+                },
+                returnProperty: 'bonusDamage'
             }
         ],
         'leshrac_pulse_nova': [
@@ -12653,6 +12699,16 @@ var HEROCALCULATOR = (function (my) {
                             totalAttribute -= 422;
                         }
                     }
+                    else if (ability.level() > 0 && ability.name() == 'enchantress_impetus' && self.hasScepter()) {
+                        for (var j = 0; j < self.abilities()[i].attributes().length; j++) {
+                            var attribute = self.abilities()[i].attributes()[j];
+                            switch(attribute.name()) {
+                              case 'bonus_attack_range_scepter':
+                                totalAttribute += self.getAbilityAttributeValue(self.abilities()[i].attributes(), attribute.name(), ability.level());
+                              break;
+                            }
+                        }
+                    }
                 }
                 else if (ability.attackrange != undefined) {
                     if (ability.level() > 0 && (ability.isActive() || (ability.behavior().indexOf('DOTA_ABILITY_BEHAVIOR_PASSIVE') != -1))) {
@@ -13340,7 +13396,7 @@ var HEROCALCULATOR = (function (my) {
                                 if (sources[ability.name()] == undefined) {
                                     sources[ability.name()] = {
                                         'chance': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_chance', ability.level())/100,
-                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_damage', ability.level())/100,
+                                        'multiplier': self.getAbilityAttributeValue(self.abilities()[i].attributes(), 'crit_multiplier', ability.level())/100,
                                         'count': 1,
                                         'displayname': ability.displayname()
                                     }
@@ -14842,13 +14898,13 @@ var HEROCALCULATOR = (function (my) {
 }(HEROCALCULATOR));
 var HEROCALCULATOR = (function (my) {
 
-    my.GraphPropertyOption = function (id, label) {
-		this.id = id;
-        this.label = label;
-    };
+  my.GraphPropertyOption = function (id, label) {
+  this.id = id;
+    this.label = label;
+  };
     
 	my.BuildExplorerViewModel = function (h) {
-        var self = this;
+    var self = this;
 		self.parent = h;
 
 		self.itemBuild = ko.observableArray([]);
@@ -14891,12 +14947,12 @@ var HEROCALCULATOR = (function (my) {
 		});
 		
 		self.availableSkillBuildPoints = ko.computed(function () {
-            return _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == -1); }, 0);
-        });
-        self.getSkillBuildAbilityLevel = function (index) {
-            return _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == index); }, 0);
-        };
-        self.toggleAbilitySkillBuild = function (index, abilityIndex, data, event) {
+      return _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == -1); }, 0);
+    });
+    self.getSkillBuildAbilityLevel = function (index) {
+      return _.reduce(self.skillBuild(), function(memo, num){ return memo + (num() == index); }, 0);
+    };
+    self.toggleAbilitySkillBuild = function (index, abilityIndex, data, event) {
 			if (self.skillBuild()[index]() != abilityIndex) {
 				var ability = self.parent.ability().abilities()[abilityIndex],
 					abilityType = ability.abilitytype(),
@@ -14929,7 +14985,7 @@ var HEROCALCULATOR = (function (my) {
 			else {
 				self.skillBuild()[index](-1);
 			}
-        };
+    };
 		self.IsValidAbilityLevel = function (ability, heroName, heroLevel, abilityLevel) {
 			var a = 1, b = 2, m = 4;
 			if (ability.name() == 'attribute_bonus') {
@@ -14962,26 +15018,26 @@ var HEROCALCULATOR = (function (my) {
 			return heroLevel >= a + b * abilityLevel && abilityLevel < m;
 		}
 		
-        self.resetItemBuild = function (index) {
-            self.itemBuild()[index].removeAll();
-        };		
-        self.resetAllItemBuilds = function () {
-            for (var i = 0; i < 25; i++) {
-                self.itemBuild()[i].removeAll();
-                self.itemBuild()[i].carryOver(true);
-            }
-        };
-        self.resetSkillBuild = function () {
-            for (var i = 0; i < 25; i++) {
-                self.skillBuild()[i](-1);
-            }
-        };
-        self.graphData = ko.observableArray([]);
-        self.graphDataHeader = ko.observable('');
+    self.resetItemBuild = function (index) {
+      self.itemBuild()[index].removeAll();
+    };		
+    self.resetAllItemBuilds = function () {
+      for (var i = 0; i < 25; i++) {
+        self.itemBuild()[i].removeAll();
+        self.itemBuild()[i].carryOver(true);
+      }
+    };
+    self.resetSkillBuild = function () {
+      for (var i = 0; i < 25; i++) {
+        self.skillBuild()[i](-1);
+      }
+    };
+    self.graphData = ko.observableArray([]);
+    self.graphDataHeader = ko.observable('');
 		self.parent.selectedHero.subscribe(function (newValue) {
 			self.graphDataHeader(self.parent.selectedHero().heroDisplayName);
 		});
-        self.graphDataDescription = ko.observable('');
+    self.graphDataDescription = ko.observable('');
 		self.graphProperties = ko.observableArray([
 			new my.GraphPropertyOption('totalArmorPhysical', 'Armor'),
 			new my.GraphPropertyOption('totalArmorPhysicalReduction', 'Physical Damage Reduction'),
@@ -14997,26 +15053,26 @@ var HEROCALCULATOR = (function (my) {
 			new my.GraphPropertyOption('attacksPerSecond', 'Attacks per second'),
 			new my.GraphPropertyOption('attackTime', 'Time per attack')
 		]);
-        self.graph = function () {
-            var savedAbilityLevels = [],
-                savedLevel = self.parent.selectedHeroLevel(),
-				savedItems = self.parent.inventory.items();
-				savedActiveItems = self.parent.inventory.activeItems(),
-                s = ko.toJS(self.skillBuild),
-				carryOverItems = [],
-				carryOverActiveItems = [],
-                dataset = [];
-            for (var i = 0; i < self.parent.ability().abilities().length; i++) {
-                savedAbilityLevels.push(self.parent.ability().abilities()[i].level());
-            }
-            for (var i = 1; i < 26; i++) {
-                self.parent.selectedHeroLevel(i);
-                var skillBuildSubset = s.slice(0, i);
-                for (var j = 0; j < self.parent.ability().abilities().length; j++) {
-                    var a = self.parent.ability().abilities()[j],
-                        count = _.reduce(skillBuildSubset, function(memo, num){ return memo + (num == j); }, 0);
-                    a.level(count);
-                }
+    self.graph = function () {
+      var savedAbilityLevels = [],
+          savedLevel = self.parent.selectedHeroLevel(),
+          savedItems = self.parent.inventory.items(),
+          savedActiveItems = self.parent.inventory.activeItems(),
+          s = ko.toJS(self.skillBuild),
+          carryOverItems = [],
+          carryOverActiveItems = [],
+          dataset = [];
+      for (var i = 0; i < self.parent.ability().abilities().length; i++) {
+        savedAbilityLevels.push(self.parent.ability().abilities()[i].level());
+      }
+      for (var i = 1; i < 26; i++) {
+        self.parent.selectedHeroLevel(i);
+        var skillBuildSubset = s.slice(0, i);
+        for (var j = 0; j < self.parent.ability().abilities().length; j++) {
+          var a = self.parent.ability().abilities()[j],
+              count = _.reduce(skillBuildSubset, function(memo, num){ return memo + (num == j); }, 0);
+          a.level(count);
+        }
 				
 				if (!self.itemBuild()[i-1].carryOver()) {
 					carryOverItems = [];
@@ -15030,42 +15086,42 @@ var HEROCALCULATOR = (function (my) {
 				dataObj = {};
 				for (var j = 0; j < self.graphProperties().length; j++) {
 					var prop = self.graphProperties()[j];
-                    switch (prop.id) {
-                        case 'dps':
-                            dataObj[prop.id] = self.parent['damageTotalInfo']().dps.total.toFixed(2);
-                        break;
-                        case 'damage':
-                            dataObj[prop.id] = self.parent['damageTotalInfo']().total.toFixed(2);
-                        break;
-                        default :
-                            dataObj[prop.id] = self.parent[prop.id]();
-                        break;
-                    }
+          switch (prop.id) {
+            case 'dps':
+              dataObj[prop.id] = self.parent['damageTotalInfo']().dps.total.toFixed(2);
+            break;
+            case 'damage':
+              dataObj[prop.id] = self.parent['damageTotalInfo']().total.toFixed(2);
+            break;
+            default :
+              dataObj[prop.id] = self.parent[prop.id]();
+            break;
+          }
 				}
 				
 				dataObj.items = _.map(carryOverItems, function(item) {
-                    return ko.toJS(item);
-                });
-                dataset.push(dataObj);
+          return ko.toJS(item);
+        });
+        dataset.push(dataObj);
 				if (carryOverItems > 0) {
 					self.graphDataItemRows[i-1](true);
 				}
-            }
+      }
 			var data = {
-                header: self.graphDataHeader(),
+        header: self.graphDataHeader(),
 				description: self.graphDataDescription(),
-                items: _.map(self.parent.inventory.items(), function(item) {
-                    return ko.toJS(item);
-                }),
-                skillBuild: ko.toJS(self.skillBuild),
-                data: dataset,
+        items: _.map(self.parent.inventory.items(), function(item) {
+          return ko.toJS(item);
+        }),
+        skillBuild: ko.toJS(self.skillBuild),
+        data: dataset,
 				abilityMap : self.abilityMapData.slice(0),
 				cumulativeSkillBuild: [],
 				visible: ko.observable(true)
-            }
+      }
 			for (var i = 0; i < 25; i++) {
 				var skillBuildAtLevel = [],
-					skillBuildSlice = data.skillBuild.slice(0, i + 1);
+            skillBuildSlice = data.skillBuild.slice(0, i + 1);
 				for (var j = 0; j < data.abilityMap.length; j++) {
 					var abilityIndex = data.abilityMap[j];
 					skillBuildAtLevel.push(_.reduce(skillBuildSlice, function(memo, num){ return memo + (num == abilityIndex); }, 0));
@@ -15073,14 +15129,14 @@ var HEROCALCULATOR = (function (my) {
 				data.cumulativeSkillBuild.push(skillBuildAtLevel);
 			}
 				
-            self.graphData.push(data);
-            self.parent.selectedHeroLevel(savedLevel);
-            for (var i = 0; i < self.parent.ability().abilities().length; i++) {
-                self.parent.ability().abilities()[i].level(savedAbilityLevels[i]);
-            }
+      self.graphData.push(data);
+      self.parent.selectedHeroLevel(savedLevel);
+      for (var i = 0; i < self.parent.ability().abilities().length; i++) {
+        self.parent.ability().abilities()[i].level(savedAbilityLevels[i]);
+      }
 			self.parent.inventory.items(savedItems);
 			self.parent.inventory.activeItems(savedActiveItems);
-        };
+    };
 		self.removeGraphDataSet = function (data) {
 			self.graphData.remove(data);
 		}
@@ -15123,41 +15179,42 @@ var HEROCALCULATOR = (function (my) {
 			}
 			return data;
 		});
-        self.graphDistinctColor = function (max, index, alpha) {
-            var alpha = alpha || 1;
-            rgba = self.hslToRgb((1 / max) * index % 1, 1, .5);
-            rgba.push(alpha);
-            return "rgba(" + rgba.join() + ")";
+    self.graphDistinctColor = function (max, index, alpha) {
+      var alpha = alpha || 1;
+      rgba = self.hslToRgb((1 / max) * index % 1, 1, .5);
+      rgba.push(alpha);
+      return "rgba(" + rgba.join() + ")";
+    }
+    self.getDistinctColor = function (max, index, alpha) {
+      var alpha = alpha || 1;
+      rgba = self.hslToRgb((1 / max) * index % 1, 1, .5);
+      rgba.push(alpha);
+      return rgba;
+    }
+    self.hslToRgb = function (h, s, l) {
+      var r, g, b;
+      if (s == 0) {
+        r = g = b = l; // achromatic
+      }
+      else {
+        var hue2rgb = function hue2rgb(p, q, t) {
+          if(t < 0) t += 1;
+          if(t > 1) t -= 1;
+          if(t < 1/6) return p + (q - p) * 6 * t;
+          if(t < 1/2) return q;
+          if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+          return p;
         }
-        self.getDistinctColor = function (max, index, alpha) {
-            var alpha = alpha || 1;
-            rgba = self.hslToRgb((1 / max) * index % 1, 1, .5);
-            rgba.push(alpha);
-            return rgba;
-        }
-        self.hslToRgb = function (h, s, l) {
-            var r, g, b;
-            if(s == 0){
-                r = g = b = l; // achromatic
-            }else{
-                var hue2rgb = function hue2rgb(p, q, t){
-                    if(t < 0) t += 1;
-                    if(t > 1) t -= 1;
-                    if(t < 1/6) return p + (q - p) * 6 * t;
-                    if(t < 1/2) return q;
-                    if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-                    return p;
-                }
 
-                var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-                var p = 2 * l - q;
-                r = hue2rgb(p, q, h + 1/3);
-                g = hue2rgb(p, q, h);
-                b = hue2rgb(p, q, h - 1/3);
-            }
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1/3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1/3);
+      }
 
-            return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-        }
+      return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+    }
 		
 		self.showGraphItemBuildRows = ko.observable(false);
 		self.showGraphSkillBuildColumns = ko.observable(false);
@@ -15206,17 +15263,22 @@ var HEROCALCULATOR = (function (my) {
 				}
             }
 		}
-        self.loadGraphData = function (data) {
-			self.parent.sectionDisplay()['skillbuild'](true);
-            for (var i = 0; i < data.length; i++) {
-                data[i].visible = ko.observable(data[i].visible);
-            }
-            self.graphData(data);
-        }
-
-        return self;
+    self.loadGraphData = function (data) {
+      self.parent.sectionDisplay()['skillbuild'](true);
+      for (var i = 0; i < data.length; i++) {
+        data[i].visible = ko.observable(data[i].visible);
+      }
+      self.graphData(data);
+    }
+    self.graphChartContext = ko.observable();
+    self.exportImage = function () {
+      console.log('graphChartContext', self.graphData());
+      var w = window.open();
+      w.document.write('<img src="'+ self.graphChartContext().canvas.toDataURL() +'"/>');
+    }
+    return self;
 	}
-    return my;
+  return my;
 }(HEROCALCULATOR));
 var HEROCALCULATOR = (function (my) {
 
@@ -15255,8 +15317,8 @@ var HEROCALCULATOR = (function (my) {
         return options;
     }
     
-    my.totalExp = [0, 200, 500, 900, 1400, 2000, 2600, 3200, 4400, 5400, 6000, 8200, 9000, 10400, 11900, 13500, 15200, 17000, 18900, 20900, 23000, 25200, 27500, 29900, 32400];
-    my.nextLevelExp = [200, 300, 400, 500, 600, 600, 600, 1200, 1000, 600, 2200, 800, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, '&mdash;'];
+    my.totalExp = [0, 200, 500, 900, 1400, 2000, 2600, 3400, 4400, 5400, 6000, 8200, 9000, 10400, 11900, 13500, 15200, 17000, 18900, 20900, 23000, 25200, 27500, 29900, 32400];
+    my.nextLevelExp = [200, 300, 400, 500, 600, 600, 800, 1000, 1000, 600, 2200, 800, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, '&mdash;'];
     
     my.HeroCalculatorModel = function (h) {
         var self = this;
@@ -15467,7 +15529,7 @@ var HEROCALCULATOR = (function (my) {
                    ).toFixed(2);
         });
         self.health = ko.pureComputed(function () {
-            return (self.heroData().statushealth + Math.floor(self.totalStr()) * 19 
+            return (self.heroData().statushealth + Math.floor(self.totalStr()) * 20 
                     + self.inventory.getHealth()
                     + self.ability().getHealth()).toFixed(2);
         });
@@ -15486,7 +15548,7 @@ var HEROCALCULATOR = (function (my) {
         });
         self.mana = ko.pureComputed(function () {
             return (self.heroData().statusmana
-                    + self.totalInt() * 13
+                    + self.totalInt() * 12
                     + self.inventory.getMana()
                     + self.ability().getMana()).toFixed(2);
         });
@@ -16277,7 +16339,8 @@ var HEROCALCULATOR = (function (my) {
             return ((1 - (self.enemy().ability().getMissChance() * self.debuffs.getMissChance() * missDebuff.value)) * 100).toFixed(2);
         });
         self.totalattackrange = ko.pureComputed(function () {
-            return self.heroData().attackrange + self.ability().getAttackRange();
+            var attacktype = self.heroData().attacktype;
+            return self.heroData().attackrange + self.ability().getAttackRange() + self.inventory.getAttackRange(attacktype).value;
         });
         self.visionrangeday = ko.pureComputed(function () {
             return (self.heroData().visiondaytimerange) * (1 + self.enemy().ability().getVisionRangePctReduction() + self.debuffs.getVisionRangePctReduction());
