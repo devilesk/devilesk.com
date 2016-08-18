@@ -53,6 +53,7 @@ def main():
         'hero-calculator.app.min.js',
         'changelog.txt',
         'hero-calculator.items.png',
+        'hero-calculator.shop.png',
         'templates.html',
         'report.php',
         'save.php'
@@ -130,7 +131,9 @@ def main():
             'http://devilesk.com/dota2/apps/hero-calculator/hero-calculator.app.min.js',
             'http://devilesk.com/dota2/apps/hero-calculator/hero-calculator.min.css',
             'http://devilesk.com/dota2/apps/hero-calculator/hero-calculator.min-light.css',
-            'http://devilesk.com/dota2/apps/hero-calculator/changelog.txt'
+            'http://devilesk.com/dota2/apps/hero-calculator/changelog.txt',
+            'http://devilesk.com/dota2/apps/hero-calculator/hero-calculator.items.png',
+            'http://devilesk.com/dota2/apps/hero-calculator/hero-calculator.shop.png',
             ]
         purge_cache(CACHE_FILES)
 

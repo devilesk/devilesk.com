@@ -3,7 +3,7 @@ npc_dota_hero_abaddon:
   AttackDamageType: DAMAGE_TYPE_ArmorPhysical
   HeroID: 102
   abilities:
-  - AbilityCastPoint: [0.452, 0.452, 0.452, 0.452]
+  - AbilityCastPoint: 0.35
     AbilityCastRange: 800
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -798,7 +798,7 @@ npc_dota_hero_antimage:
       value: [0.6, 0.85, 1.1]
     - name: mana_void_ministun
       tooltip: 'STUN DURATION:'
-      value: [0.15]
+      value: [0.3]
     - name: mana_void_aoe_radius
       tooltip: 'RADIUS:'
       value: [500]
@@ -898,7 +898,7 @@ npc_dota_hero_arc_warden:
       tooltip: 'CAST RANGE:'
       value: [600, 700, 800, 900]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [20]
+    cooldown: [18]
     damage: [0, 0, 0, 0]
     description: Infuses a lone enemy unit with swirling, volatile energy, slowing
       its movement speed and dealing damage over time. The effect is muted if another
@@ -1001,9 +1001,9 @@ npc_dota_hero_arc_warden:
     attributes:
     - name: duration
       tooltip: 'DURATION:'
-      value: [12, 13, 14]
+      value: [12, 14, 16]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
-    cooldown: [50, 40, 30]
+    cooldown: [40, 35, 30]
     damage: [0, 0, 0, 0]
     description: Briefly refocusing its fractured elements into a single form, the
       Arc Warden is able to create a perfect electrical duplication of itself. The
@@ -1018,8 +1018,8 @@ npc_dota_hero_arc_warden:
   - *id001
   abilitylayout: 4
   armorphysical: -2
-  attackdamagemax: 35
-  attackdamagemin: 25
+  attackdamagemax: 39
+  attackdamagemin: 29
   attackpoint: 0.3
   attackrange: 625
   attackrate: 1.7
@@ -1312,7 +1312,7 @@ npc_dota_hero_bane:
       tooltip: 'HEAL AMOUNT:'
       value: [90, 160, 230, 300]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [14, 14, 14, 14]
+    cooldown: [14, 13, 12, 11]
     damage: [90, 160, 230, 300]
     description: Feasts on the vital energies of an enemy unit, healing Bane and dealing
       damage.
@@ -1616,7 +1616,7 @@ npc_dota_hero_batrider:
     - name: grab_radius_scepter
       tooltip: 'SCEPTER TETHER RANGE:'
       value: [400]
-    - name: scepter_damage
+    - name: damage_scepter
       tooltip: 'SCEPTER DAMAGE PER SECOND:'
       value: [100.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
@@ -1750,7 +1750,7 @@ npc_dota_hero_beastmaster:
     level: 0
     lore: After befriending the strange beast of his childhood, Beastmaster has learned
       to call to animals in times of need.
-    manacost: [15]
+    manacost: [25]
     name: beastmaster_call_of_the_wild
   - AbilityCastPoint: 0.3
     AbilityCastRange: 0
@@ -1769,7 +1769,7 @@ npc_dota_hero_beastmaster:
       value: [200, 300, 400, 500]
     - name: boar_damage_tooltip
       tooltip: 'BOAR ATTACK DAMAGE:'
-      value: [15, 30, 45, 60]
+      value: [10, 25, 40, 55]
     - name: boar_moveslow_tooltip
       tooltip: '%BOAR MOVEMENT SLOW:'
       value: [10, 20, 30, 40]
@@ -1791,7 +1791,7 @@ npc_dota_hero_beastmaster:
     level: 0
     lore: After befriending the strange beast of his childhood, Beastmaster has learned
       to call to animals in times of need.
-    manacost: [15]
+    manacost: [25]
     name: beastmaster_call_of_the_wild_boar
   - AbilityCastPoint: [0, 0, 0, 0]
     AbilityCastRange: 0
@@ -1837,9 +1837,9 @@ npc_dota_hero_beastmaster:
       value: [3, 3.5, 4]
     - name: damage
       tooltip: 'DAMAGE:'
-      value: [200, 250, 300]
+      value: [150, 225, 300]
     - name: side_damage
-      value: [200, 250, 300]
+      value: [150, 225, 300]
     - name: damage_radius
       tooltip: 'SHOUT WIDTH:'
       value: [300]
@@ -1994,7 +1994,7 @@ npc_dota_hero_bloodseeker:
     - name: delay_plus_castpoint_tooltip
       value: [3.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [30, 25, 20, 15]
+    cooldown: [25, 21, 17, 13]
     damage: [0, 0, 0, 0]
     description: Bloodseeker baptizes an area in sacred blood. After %delay_plus_castpoint_tooltip%
       seconds the ritual completes, causing any enemies caught in the area to take
@@ -2062,7 +2062,7 @@ npc_dota_hero_bloodseeker:
       value: [12.0]
     - name: movement_damage_pct
       tooltip: '%MOVE DAMAGE:'
-      value: [20, 40, 60]
+      value: [26, 42, 60]
     - name: damage_cap_amount
       value: [200]
     - name: damage_cap_interval
@@ -2070,10 +2070,10 @@ npc_dota_hero_bloodseeker:
     - name: cast_range_tooltip
       tooltip: 'CAST RANGE:'
       value: [1000]
-    - name: max_charges
+    - name: max_charges_scepter
       tooltip: 'SCEPTER CHARGES:'
       value: [2]
-    - name: charge_restore_time
+    - name: charge_restore_time_scepter
       tooltip: 'SCEPTER REPLENISH TIME:'
       value: [40]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
@@ -2182,10 +2182,10 @@ npc_dota_hero_bounty_hunter:
       value: [150, 175, 200, 225]
     - name: bonus_movespeed
       tooltip: '%MOVE SLOW:'
-      value: [-18, -22, -26, -30]
+      value: [-15, -20, -25, -30]
     - name: bonus_attackspeed
       tooltip: 'ATTACK SLOW:'
-      value: [-25, -27, -29, -31]
+      value: [-15, -20, -25, -30]
     - name: duration
       tooltip: 'DURATION:'
       value: [3, 3, 3, 3]
@@ -2254,7 +2254,7 @@ npc_dota_hero_bounty_hunter:
       value: [925, 925, 925]
     - name: bonus_gold_self
       tooltip: 'BONUS GOLD FOR SELF:'
-      value: [200, 275, 350]
+      value: [150, 250, 350]
     - name: bonus_gold
       tooltip: 'BONUS GOLD FOR ALLIES:'
       value: [40, 80, 120]
@@ -2455,7 +2455,7 @@ npc_dota_hero_brewmaster:
     attributes:
     - name: duration
       tooltip: 'DURATION:'
-      value: [15, 17, 19]
+      value: [16, 18, 20]
     - name: split_duration
       value: [0.6]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
@@ -2554,7 +2554,7 @@ npc_dota_hero_bristleback:
       value: [4]
     - name: goo_duration_creep
       value: [10.0]
-    - name: radius
+    - name: radius_scepter
       tooltip: 'SCEPTER RADIUS:'
       value: [700]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
@@ -2562,8 +2562,7 @@ npc_dota_hero_bristleback:
     damage: [0, 0, 0, 0]
     description: Covers a target in snot, causing it to have reduced armor and movement
       speed.  Multiple casts stack and refresh the duration.\n\nUpgradable by Aghanim's
-      Scepter, making Goo an AoE ability that applies Goo to all enemies around you
-      in a %radius% radius.
+      Scepter.
     displayname: Viscous Nasal Goo
     level: 0
     lore: Having caught a cold while stuck in the snow, Bristleback turns it to his
@@ -2984,7 +2983,7 @@ npc_dota_hero_centaur:
     - name: radius
       value: [190]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [6]
+    cooldown: [5]
     damage: [0, 0, 0, 0]
     description: Centaur strikes a mighty blow at melee range, damaging both himself
       and a small area around the target.  Centaur cannot die from Double Edge.
@@ -3085,7 +3084,7 @@ npc_dota_hero_centaur:
   attributebasestrength: 23
   attributeintelligencegain: 1.6
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
-  attributestrengthgain: 3.8
+  attributestrengthgain: 4
   bio: "It's said that a centaur's road is paved with the corpses of the fallen. \
     \ For the one called Warrunner, it has been a long road indeed.  To outsiders,\
     \ the four-legged clans of Druud are often mistaken for simple, brutish creatures.\
@@ -3266,7 +3265,7 @@ npc_dota_hero_chaos_knight:
     - name: vision_radius
       value: [400]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
-    cooldown: [140, 140, 140]
+    cooldown: [130]
     damage: [0, 0, 0, 0]
     description: Summons several phantasmal copies of the Chaos Knight from alternate
       dimensions. There is a 50%% chance an extra phantasm will be summoned. The phantasms
@@ -3556,7 +3555,7 @@ npc_dota_hero_clinkz:
     manacost: [90, 90, 90, 90]
     name: clinkz_strafe
   - AbilityCastPoint: [0, 0, 0, 0]
-    AbilityCastRange: 630
+    AbilityCastRange: 640
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -3646,7 +3645,7 @@ npc_dota_hero_clinkz:
   attackdamagemax: 21
   attackdamagemin: 15
   attackpoint: 0.7
-  attackrange: 630
+  attackrange: 640
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 3.3
@@ -3707,7 +3706,7 @@ npc_dota_hero_crystal_maiden:
     attributes:
     - name: radius
       tooltip: 'RADIUS:'
-      value: [400]
+      value: [425]
     - name: movespeed_slow
       tooltip: '%MOVEMENT SLOW:'
       value: [-20, -30, -40, -50]
@@ -3731,7 +3730,7 @@ npc_dota_hero_crystal_maiden:
     manacost: [100, 120, 140, 160]
     name: crystal_maiden_crystal_nova
   - AbilityCastPoint: [0.3, 0.3, 0.3, 0.3]
-    AbilityCastRange: 500
+    AbilityCastRange: 525
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -4377,7 +4376,7 @@ npc_dota_hero_death_prophet:
     attributes:
     - name: damage
       tooltip: 'BASE DAMAGE:'
-      value: [25.0]
+      value: [16.0]
     - name: damage_pct
       tooltip: '%MAX HP AS DAMAGE:'
       value: [1, 2.5, 4, 5.5]
@@ -4769,7 +4768,7 @@ npc_dota_hero_doom_bringer:
     attributes:
     - name: burn_damage
       tooltip: 'BASE BURN DAMAGE:'
-      value: [40]
+      value: [25, 30, 35, 40]
     - name: burn_damage_pct
       tooltip: '%MAX HP AS DAMAGE:'
       value: [1.25, 2.5, 3.75, 5]
@@ -4853,7 +4852,7 @@ npc_dota_hero_doom_bringer:
     - name: deniable_pct
       value: [25, 25, 25]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [125]
+    cooldown: [145]
     damage: [0, 0, 0, 0]
     description: Inflicts a curse that prevents an enemy Hero from casting spells
       or using items, while taking damage over time.\n\nUpgradable by Aghanim's Scepter.
@@ -5124,7 +5123,7 @@ npc_dota_hero_drow_ranger:
     attributes:
     - name: frost_arrows_movement_speed
       tooltip: '%MOVEMENT SLOW:'
-      value: [-15, -30, -45, -60]
+      value: [-16, -32, -48, -64]
     - name: frost_arrows_hero_duration_tooltip
       tooltip: 'HERO DURATION:'
       value: [1.5]
@@ -5280,7 +5279,7 @@ npc_dota_hero_drow_ranger:
   level: 0
   magicalresistance: 25
   movementspeed: 300
-  movementturnrate: 0.6
+  movementturnrate: 0.7
   name: npc_dota_hero_drow_ranger
   projectilespeed: 1250
   role: Carry,Disabler,Pusher
@@ -5379,7 +5378,7 @@ npc_dota_hero_earth_spirit:
       value: [80]
     - name: slow_duration
       tooltip: 'SLOW DURATION:'
-      value: [2.0]
+      value: [1.4, 1.6, 1.8, 2]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [16, 12, 8, 4]
     damage: [0, 0, 0, 0]
@@ -5431,7 +5430,7 @@ npc_dota_hero_earth_spirit:
     damage: [0, 0, 0, 0]
     description: Earth Spirit pulls the target Stone Remnant. Enemies struck by the
       gripped target will be silenced, and take damage if the gripped target is a
-      Stone Remnant.
+      Stone Remnant.\n\nUpgradable by Aghanim's Scepter.
     displayname: Geomagnetic Grip
     level: 0
     lore: Like calls to like. Even the minerals found in the blood and bones of living
@@ -5494,8 +5493,8 @@ npc_dota_hero_earth_spirit:
     cooldown: [45]
     damage: [0, 0, 0, 0]
     description: Earth Spirit temporarily enchants a hero, granting them the properties
-      of a Stone Remnant. After %duration% seconds the remnant shatters, releasing
-      the hero and damaging nearby enemies.
+      of a Stone Remnant. After a short duration the remnant shatters, releasing the
+      hero and damaging nearby enemies.
     displayname: Enchant Remnant
     level: 0
     lore: Kaolin uses the elemental power of the Earth to temporarily petrify living
@@ -5538,14 +5537,14 @@ npc_dota_hero_earth_spirit:
     - name: slow_duration
       value: [2.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [80]
+    cooldown: [100, 90, 80]
     damage: [0, 0, 0, 0]
     description: Magnetizes units in a small nearby area, causing them to take damage
       for a short duration. Magnetized heroes cause nearby Stone Remnants to explode,
       destroying the remnant and refreshing Magnetize's duration on all nearby enemies.
       This process can repeat multiple times. If an enemy hero is affected by silence
       or slows as a result of Geomagnetic Grip or Rolling Boulder, all magnetized
-      heroes share the effects.\n\nUpgradable by Aghanim's Scepter.
+      heroes share the effects.
     displayname: Magnetize
     level: 0
     lore: At the Earth Spirit's call, the minerals in the blood and bones of his enemies
@@ -5651,7 +5650,7 @@ npc_dota_hero_earthshaker:
     - name: tooltip_duration
       tooltip: 'DURATION:'
       value: [14, 14, 14, 14]
-    - name: scepter_distance
+    - name: distance_scepter
       tooltip: 'SCEPTER JUMP DISTANCE:'
       value: [900]
     - name: duration
@@ -5662,10 +5661,7 @@ npc_dota_hero_earthshaker:
     cooldown: [5]
     damage: [0, 0, 0, 0]
     description: Empowers Earthshaker's totem, causing it to deal extra damage on
-      the next attack.\n\nUpgradable by Aghanim's Scepter. Enchant Totem becomes a
-      %scepter_distance% range ground target ability, causes you to jump in the air
-      and land at the target spot, casting Enchant Totem there.\nReduced cast point
-      of Enchant Totem to 0.
+      the next attack.\n\nUpgradable by Aghanim's Scepter.
     displayname: Enchant Totem
     level: 0
     lore: Raigor's gorilla strength can destroy mountains.
@@ -5713,11 +5709,11 @@ npc_dota_hero_earthshaker:
     attributes:
     - name: echo_slam_damage_range
       tooltip: 'RADIUS:'
-      value: [575]
+      value: [600]
     - name: echo_slam_echo_search_range
-      value: [575]
+      value: [600]
     - name: echo_slam_echo_range
-      value: [575]
+      value: [600]
     - name: echo_slam_echo_damage
       tooltip: 'ECHO DAMAGE:'
       value: [40, 55, 70]
@@ -6567,11 +6563,11 @@ npc_dota_hero_enigma:
     ID: 5149
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_YES
     abilitytype: DOTA_ABILITY_TYPE_ULTIMATE
-    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
+    abilityunitdamagetype: DAMAGE_TYPE_PURE
     attributes:
     - name: far_damage
       tooltip: 'DAMAGE PER SECOND:'
-      value: [55, 110, 165]
+      value: [50, 100, 150]
     - name: far_radius
       tooltip: 'RADIUS:'
       value: [420]
@@ -6582,7 +6578,7 @@ npc_dota_hero_enigma:
     - name: near_radius
       value: [200]
     - name: near_damage
-      value: [55, 110, 165]
+      value: [50, 100, 150]
     - name: tick_rate
       value: [0.1, 0.1, 0.1]
     - name: duration
@@ -7109,7 +7105,7 @@ npc_dota_hero_gyrocopter:
     - name: projectile_speed
       value: [800]
     - name: fire_rate
-      value: [1.4]
+      value: [1.2]
     - name: scepter_radius
       value: [600]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
@@ -7880,7 +7876,7 @@ npc_dota_hero_invoker:
     attributes:
     - name: spirit_damage
       tooltip: DAMAGE (<font color='#cabe68'>EXORT</font>):\n
-      value: [29, 38, 47, 56, 65, 74, 83, 92]
+      value: [22, 32, 42, 52, 62, 72, 82, 92]
     - name: spirit_mana
       tooltip: MANA (<font color='#cabe68'>EXORT</font>):\n
       value: [100, 150, 200, 250, 300, 350, 400, 450]
@@ -8132,7 +8128,7 @@ npc_dota_hero_jakiro:
       value: [0.5]
     - name: duration
       tooltip: 'DURATION:'
-      value: [1, 1.4, 1.8, 2.2]
+      value: [1, 1.5, 2, 2.5]
     - name: path_radius
       tooltip: 'RADIUS:'
       value: [150]
@@ -8498,8 +8494,7 @@ npc_dota_hero_keeper_of_the_light:
     description: Channels light energy, building power the longer it's channeled.  Once
       released, a wave is sent forth that deals damage and gives vision in its path.  The
       longer it is channeled, the more damage is dealt.\n\nUpgradable by Aghanim's
-      Scepter, allowing Illuminate to heal allies and harm enemies during daytime.
-      The heal and damage amounts are the same.
+      Scepter.
     displayname: Illuminate
     level: 0
     lore: Ezalor's hidden light reveals itself in marvelous fashion.
@@ -8560,7 +8555,7 @@ npc_dota_hero_keeper_of_the_light:
       tooltip: 'COOLDOWN REDUCTION DURATION:'
       value: [15.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [19, 18, 17, 16]
+    cooldown: [17, 16, 15, 14]
     damage: [0, 0, 0, 0]
     description: Restores mana to the target unit, increases its mana capacity, and
       reduces the cooldown of the next spell they cast.
@@ -8720,8 +8715,7 @@ npc_dota_hero_keeper_of_the_light:
     description: Channels light energy, building power the longer it's channeled.  Once
       released, a wave is sent forth that deals damage and gives vision in its path.  The
       longer it is channeled, the more damage is dealt.\n\nUpgradable by Aghanim's
-      Scepter, allowing Illuminate to heal allies and harm enemies during daytime.
-      The heal and damage amounts are the same.
+      Scepter.
     displayname: Illuminate
     level: 0
     lore: Ezalor's hidden light reveals itself in marvelous fashion.
@@ -8757,7 +8751,7 @@ npc_dota_hero_keeper_of_the_light:
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 1.6
   attributebaseagility: 15
-  attributebaseintelligence: 22
+  attributebaseintelligence: 25
   attributebasestrength: 14
   attributeintelligencegain: 2.8
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
@@ -8813,7 +8807,7 @@ npc_dota_hero_kunkka:
       value: [-35]
     - name: slow_duration
       tooltip: 'SLOW DURATION:'
-      value: [1, 2, 3, 4]
+      value: [1.75, 2.5, 3.25, 4]
     - name: stun_duration
       tooltip: 'STUN DURATION:'
       value: [1.6]
@@ -8832,7 +8826,7 @@ npc_dota_hero_kunkka:
     manacost: [90, 100, 110, 120]
     name: kunkka_torrent
   - AbilityCastPoint: [0, 0, 0, 0]
-    AbilityCastRange: 128
+    AbilityCastRange: 150
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -8848,7 +8842,7 @@ npc_dota_hero_kunkka:
       value: [450, 500, 550, 600]
     - name: damage_bonus
       tooltip: 'DAMAGE BONUS:'
-      value: [25, 40, 55, 70]
+      value: [25, 45, 65, 85]
     - name: cleave_damage
       value: [100]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AUTOCAST,
@@ -8941,7 +8935,8 @@ npc_dota_hero_kunkka:
     description: Summons a ghostly ship that sails through the battle before smashing
       apart, damaging and stunning all enemies caught near the wreckage. Allied heroes
       touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus
-      movement speed and a delayed reaction to 50%% of all incoming damage.
+      movement speed and a delayed reaction to 50%% of all incoming damage.\n\nUpgradeable
+      by Aghanim's Scepter.
     displayname: Ghostship
     level: 0
     lore: The final ship of the Claddish Navy is nothing but a phantom, but it is
@@ -9042,7 +9037,7 @@ npc_dota_hero_legion_commander:
       value: [14, 16, 18, 20]
     - name: damage_per_hero
       tooltip: 'DAMAGE PER HERO:'
-      value: [20, 35, 50, 65]
+      value: [20, 40, 60, 80]
     - name: illusion_dmg_pct
       tooltip: '%ILLUSION DAMAGE:'
       value: [25]
@@ -9118,7 +9113,7 @@ npc_dota_hero_legion_commander:
       tooltip: '%LIFESTEAL:'
       value: [55, 65, 75, 85]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
-    cooldown: [2.6, 2, 1.4, 0.8]
+    cooldown: [2.3, 1.8, 1.3, 0.8]
     damage: [0, 0, 0, 0]
     description: When attacked, Legion Commander has a chance to immediately counterattack
       with bonus lifesteal.
@@ -9143,6 +9138,7 @@ npc_dota_hero_legion_commander:
       tooltip: 'DURATION:'
       value: [4, 4.75, 5.5]
     - name: duration_scepter
+      tooltip: 'SCEPTER DURATION:'
       value: [6, 7, 8]
     - name: reward_damage
       tooltip: 'BONUS DAMAGE:'
@@ -9466,7 +9462,7 @@ npc_dota_hero_lich:
       value: [-30, -30, -30, -30]
     - name: slow_attack_speed
       tooltip: 'ENEMY ATTACK SLOW:'
-      value: [-20, -20, -20, -20]
+      value: [-30]
     - name: slow_duration
       tooltip: 'SLOW DURATION:'
       value: [2, 2, 2, 2]
@@ -9547,9 +9543,11 @@ npc_dota_hero_lich:
       tooltip: 'SCEPTER CAST RANGE:'
       value: [850, 850, 850]
     - name: slow_movement_speed_scepter
-      value: [-30]
+      tooltip: '%MOVEMENT SLOW:'
+      value: [-50]
     - name: slow_attack_speed_scepter
-      value: [-30]
+      tooltip: 'ATTACK SLOW:'
+      value: [-50]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [120, 90, 60]
     damage: [0, 0, 0, 0]
@@ -9791,7 +9789,7 @@ npc_dota_hero_life_stealer:
       If the infested unit is an enemy creep or a neutral creep, he can take control
       of the unit's ability to move and attack, and when consumed the creep will heal
       Lifestealer's health equal to the creep's current health.  Does not work on
-      enemy heroes.\n\nUpgradable by Aghanim's Scepter.
+      enemy heroes.
     displayname: Infest
     level: 0
     lore: With this infestation, N'aix consumes the life blood of the host, restoring
@@ -9846,7 +9844,7 @@ npc_dota_hero_life_stealer:
   attackdamagemin: 32
   attackpoint: 0.39
   attackrange: 150
-  attackrate: 1.7
+  attackrate: 1.85
   attacktype: DOTA_UNIT_CAP_MELEE_ATTACK
   attributeagilitygain: 1.9
   attributebaseagility: 18
@@ -9916,7 +9914,7 @@ npc_dota_hero_lina:
     - name: dragon_slave_distance
       value: [1075]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [8.5]
+    cooldown: [8]
     damage: [110, 180, 250, 320]
     description: Lina channels the breath of a dragon, sending out a wave of fire
       that scorches every enemy in its path.
@@ -10212,7 +10210,7 @@ npc_dota_hero_lion:
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 1.5
   attributebaseagility: 15
-  attributebaseintelligence: 22
+  attributebaseintelligence: 20
   attributebasestrength: 16
   attributeintelligencegain: 3
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
@@ -10287,8 +10285,7 @@ npc_dota_hero_lone_druid:
       Druid suffers %backlash_damage%%% of his max health as backlash damage if the
       Spirit Bear dies.  As the bear increases in levels, it can learn the Return,
       Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from
-      attributes.\n\nUpgradable by Aghanim's Scepter, allowing Spirit Bear to attack
-      at any range from Lone Druid, and to survive if Lone Druid dies.
+      attributes.\n\nUpgradable by Aghanim's Scepter.
     displayname: Summon Spirit Bear
     level: 0
     lore: Sylla's lifelong companion is symbiotic with his spirit and heart, coming
@@ -10504,7 +10501,7 @@ npc_dota_hero_luna:
   AttackDamageType: DAMAGE_TYPE_ArmorPhysical
   HeroID: 48
   abilities:
-  - AbilityCastPoint: [0.6, 0.6, 0.6, 0.6]
+  - AbilityCastPoint: 0.6
     AbilityCastRange: 800
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -10518,7 +10515,7 @@ npc_dota_hero_luna:
     attributes:
     - name: stun_duration
       tooltip: 'STUN DURATION:'
-      value: [0.6, 0.6, 0.6, 0.6]
+      value: [0.8]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [6, 6, 6, 6]
     damage: [75, 150, 225, 300]
@@ -10686,7 +10683,7 @@ npc_dota_hero_luna:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 330
+  movementspeed: 335
   movementturnrate: 0.6
   name: npc_dota_hero_luna
   projectilespeed: 900
@@ -10946,20 +10943,18 @@ npc_dota_hero_magnataur:
       value: [20, 30, 40, 50]
     - name: cleave_radius
       tooltip: 'CLEAVE RADIUS:'
-      value: [200]
+      value: [225]
     - name: splash_damage_pct
       value: [10, 15, 20, 25]
     - name: splash_radius
-      value: [200]
+      value: [225]
     - name: aura_radius
       value: [900]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
     cooldown: [8]
     damage: [0, 0, 0, 0]
     description: Gives an allied unit bonus damage and cleave on attack.\n\nUpgradable
-      by Aghanim's Scepter, changing Empower to be an allied hero aura. Affects ranged
-      heroes for half values and causes them to splash around the target. Can still
-      be cast on units, but doesn't stack.
+      by Aghanim's Scepter.
     displayname: Empower
     level: 0
     lore: With a deep bellow, Magnus displays his true power.
@@ -11037,8 +11032,7 @@ npc_dota_hero_magnataur:
     cooldown: [120, 110, 100]
     damage: [0, 0, 0, 0]
     description: Magnus changes properties of matter, sucking all nearby enemies in
-      front of him and stunning them with a powerful slam and dealing damage.\n\nUpgradable
-      by Aghanim's Scepter.
+      front of him and stunning them with a powerful slam and dealing damage.
     displayname: Reverse Polarity
     level: 0
     lore: Magnus fights with the fury of the erupting Mt. Joerlak.
@@ -11059,7 +11053,7 @@ npc_dota_hero_magnataur:
   attributebasestrength: 21
   attributeintelligencegain: 1.65
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
-  attributestrengthgain: 2.75
+  attributestrengthgain: 2.9
   bio: 'The master-smiths of Mt. Joerlak agree on only a single point: that the horn
     of a magnoceros is more precious than any alloy. And of all such horns, the largest
     and sharpest belongs to the beast they call Magnus. For half a generation, Magnus
@@ -11267,7 +11261,7 @@ npc_dota_hero_medusa:
   attributebaseagility: 20
   attributebaseintelligence: 19
   attributebasestrength: 14
-  attributeintelligencegain: 1.85
+  attributeintelligencegain: 2.1
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
   attributestrengthgain: 1.65
   bio: 'Beauty is power. This thought comforted Medusa--the youngest and loveliest
@@ -11383,7 +11377,7 @@ npc_dota_hero_meepo:
       value: [2.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
-    damage: [8, 16, 24, 32]
+    damage: [10, 20, 30, 40]
     description: Meepo enchants his weapon to deal damage per second, as well as slow
       the movement speed of the attacked unit.  Geostrikes from multiple Meepos stack.
     displayname: Geostrike
@@ -11495,7 +11489,7 @@ npc_dota_hero_mirana:
       value: [650]
     - name: starfall_secondary_radius
       value: [425]
-    - name: scepter_interval
+    - name: interval_scepter
       tooltip: 'SCEPTER INTERVAL:'
       value: [8.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
@@ -11503,9 +11497,7 @@ npc_dota_hero_mirana:
     damage: [75, 150, 225, 300]
     description: Calls down a wave of meteors to damage nearby enemy units. The closest
       enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck
-      a second time for 75%% of the damage.\n\nUpgradable by Aghanim's Scepter, causing
-      Starstorm to passively trigger every %scepter_interval% seconds. Does not trigger
-      if the enemy doesn't see Mirana.
+      a second time for 75%% of the damage.\n\nUpgradable by Aghanim's Scepter.
     displayname: Starstorm
     level: 0
     lore: The Goddess breaks the strata to empower her Princess in the time of need.
@@ -11835,7 +11827,7 @@ npc_dota_hero_morphling:
       tooltip: 'DURATION:'
       value: [20.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_HIDDEN]
-    cooldown: [70]
+    cooldown: [60]
     damage: [0, 0, 0, 0]
     description: Morphling creates a hybrid replication of a target allied hero, which
       can cast all of that hero's current, non-ultimate abilities. Enemies are able
@@ -11879,8 +11871,7 @@ npc_dota_hero_morphling:
     description: Morphling replicates any hero, friend or foe, dealing %tooltip_illusion_damage_out_pct%%%
       of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At
       any time, Morphling can instantly take the position of the Replicate for 150
-      mana. If Morphling dies, the Replicate will expire.\n\nUpgradable by Aghanim's
-      Scepter.
+      mana. If Morphling dies, the Replicate will expire.
     displayname: Replicate
     level: 0
     lore: Staring into Morphling produces a reflection that mimics the beholder.
@@ -11934,7 +11925,7 @@ npc_dota_hero_morphling:
   attackrange: 350
   attackrate: 1.6
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
-  attributeagilitygain: 3.4
+  attributeagilitygain: 3.7
   attributebaseagility: 24
   attributebaseintelligence: 17
   attributebasestrength: 19
@@ -12143,7 +12134,7 @@ npc_dota_hero_naga_siren:
   attributebasestrength: 21
   attributeintelligencegain: 2
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
-  attributestrengthgain: 2.3
+  attributestrengthgain: 2.5
   bio: "Among the high-sworn of the Slithereen Guard there is a solemn vow oft repeated\
     \ before battle: No Slithereen may fail.  In truth, these words are equal parts\
     \ oath and enforceable covenant, for those who fall short of their duty are banished\
@@ -12214,7 +12205,7 @@ npc_dota_hero_necrolyte:
     manacost: [125, 145, 165, 185]
     name: necrolyte_death_pulse
   - AbilityCastPoint: [0, 0, 0, 0]
-    AbilityCastRange: 1200
+    AbilityCastRange: 900
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -12226,10 +12217,10 @@ npc_dota_hero_necrolyte:
     attributes:
     - name: aura_radius
       tooltip: 'RADIUS:'
-      value: [1200]
+      value: [900]
     - name: aura_damage
       tooltip: '%HEALTH DECAY:'
-      value: [0.6, 0.9, 1.2, 1.5]
+      value: [0.6, 1, 1.4, 1.8]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_AURA]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
@@ -12369,7 +12360,7 @@ npc_dota_hero_nevermore:
   AttackDamageType: DAMAGE_TYPE_ArmorPhysical
   HeroID: 11
   abilities:
-  - AbilityCastPoint: [0.67, 0.67, 0.67, 0.67]
+  - AbilityCastPoint: 0.67
     AbilityCastRange: 0
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -12389,7 +12380,7 @@ npc_dota_hero_nevermore:
     - name: shadowraze_cooldown
       value: [3]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [10, 10, 10, 10]
+    cooldown: [10]
     damage: [100, 175, 250, 325]
     description: Shadow Fiend razes the area in front of him, dealing damage to enemy
       units in an area.
@@ -12398,7 +12389,7 @@ npc_dota_hero_nevermore:
     lore: Nevermore's trademark for harvesting souls.
     manacost: [90]
     name: nevermore_shadowraze1
-  - AbilityCastPoint: [0.67, 0.67, 0.67, 0.67]
+  - AbilityCastPoint: 0.67
     AbilityCastRange: 0
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -12418,7 +12409,7 @@ npc_dota_hero_nevermore:
     - name: shadowraze_cooldown
       value: [3]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [10, 10, 10, 10]
+    cooldown: [10]
     damage: [100, 175, 250, 325]
     description: Shadow Fiend razes the area in front of him, dealing damage to enemy
       units in an area.
@@ -12427,7 +12418,7 @@ npc_dota_hero_nevermore:
     lore: Nevermore's trademark for harvesting souls.
     manacost: [90]
     name: nevermore_shadowraze2
-  - AbilityCastPoint: [0.67, 0.67, 0.67, 0.67]
+  - AbilityCastPoint: 0.67
     AbilityCastRange: 0
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -12447,7 +12438,7 @@ npc_dota_hero_nevermore:
     - name: shadowraze_cooldown
       value: [3]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [10, 10, 10, 10]
+    cooldown: [10]
     damage: [100, 175, 250, 325]
     description: Shadow Fiend razes the area in front of him, dealing damage to enemy
       units in an area.
@@ -12471,7 +12462,7 @@ npc_dota_hero_nevermore:
       value: [2]
     - name: necromastery_max_souls
       tooltip: 'MAX SOULS:'
-      value: [15, 22, 29, 36]
+      value: [18, 24, 30, 36]
     - name: necromastery_soul_release
       value: [0.5]
     - name: necromastery_souls_hero_bonus
@@ -12484,8 +12475,7 @@ npc_dota_hero_nevermore:
     damage: [0, 0, 0, 0]
     description: Shadow Fiend steals the soul from units he kills, gaining bonus damage.
       If the killed unit is a hero, he gains 12 souls.  On death, he releases half
-      of them from bondage.\n\nUpgradable by Aghanim's Scepter, increasing Necromastery
-      Max Souls to %necromastery_max_souls_scepter%.
+      of them from bondage.\n\nUpgradable by Aghanim's Scepter.
     displayname: Necromastery
     level: 0
     lore: Harvested souls swirl in and out of the Abysm, empowering the Shadow Fiend
@@ -12558,9 +12548,10 @@ npc_dota_hero_nevermore:
       value: [700, 700, 700]
     - name: soul_death_release
       value: [0.5]
-    - name: requiem_heal_scepter_pct
+    - name: requiem_heal_pct_scepter
+      tooltip: '%SCEPTER HEAL ON RETURN:'
       value: [100.0]
-    - name: requiem_damage_scepter_pct
+    - name: requiem_damage_pct_scepter
       tooltip: '%SCEPTER DAMAGE ON RETURN:'
       value: [40.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN]
@@ -12610,7 +12601,7 @@ npc_dota_hero_nevermore:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 305
+  movementspeed: 310
   movementturnrate: 1
   name: npc_dota_hero_nevermore
   projectilespeed: 1200
@@ -12940,12 +12931,12 @@ npc_dota_hero_nyx_assassin:
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_HIDDEN]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: Nyx Assassin buries himself beneath the battlefield over %burrow_delay%
-      second. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast,
-      the range of Mana Burn and Impale is increased by %impale_burn_range_increase_pct_tooltip%%%,
-      and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary,
-      unable to attack, and invisible. His health and mana regeneration are also increased,
-      and he gains %damage_reduction%%% damage reduction.
+    description: Nyx Assassin buries himself beneath the battlefield over a short
+      duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when
+      cast, the range of Mana Burn and Impale is increased, and Impale's cooldown
+      is decreased. While burrowed, Nyx Assassin is stationary, unable to attack,
+      and invisible. His health and mana regeneration are also increased, and he gains
+      damage reduction from all damage sources.
     displayname: Burrow
     level: 0
     lore: Some castes of zealot scarab are known to create small burrows to lie in
@@ -13006,7 +12997,7 @@ npc_dota_hero_nyx_assassin:
     damage: [0, 0, 0, 0]
     description: Allows Nyx Assassin to become invisible and gain a speed bonus.  If
       Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt
-      with the attack.\n\nUpgradable by Aghanim's Scepter.
+      with the attack.
     displayname: Vendetta
     level: 0
     lore: The scarab kills for the glory of his queen.
@@ -13047,7 +13038,7 @@ npc_dota_hero_nyx_assassin:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 300
+  movementspeed: 305
   movementturnrate: 0.5
   name: npc_dota_hero_nyx_assassin
   projectilespeed: 900
@@ -13087,7 +13078,7 @@ npc_dota_hero_obsidian_destroyer:
       value: [1, 2, 3, 4]
     - name: int_steal_duration
       tooltip: 'STEAL DURATION:'
-      value: [50.0]
+      value: [60.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AUTOCAST,
       DOTA_ABILITY_BEHAVIOR_ATTACK]
     cooldown: [0]
@@ -13151,7 +13142,7 @@ npc_dota_hero_obsidian_destroyer:
       value: [900]
     - name: bonus_mana
       tooltip: 'BASE MANA:'
-      value: [75, 150, 225, 300]
+      value: [125, 200, 275, 350]
     - name: restore_amount
       tooltip: '%RESTORED MANA:'
       value: [10, 15, 20, 25]
@@ -13281,7 +13272,7 @@ npc_dota_hero_ogre_magi:
       tooltip: 'STUN DURATION:'
       value: [1.5]
     - name: multicast_delay
-      value: [0.4]
+      value: [0.5]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [12]
     damage: [55, 110, 165, 220]
@@ -13316,7 +13307,7 @@ npc_dota_hero_ogre_magi:
     - name: projectile_speed
       value: [1000]
     - name: multicast_delay
-      value: [0.4]
+      value: [0.5]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AOE]
     cooldown: [15]
     damage: [0, 0, 0, 0]
@@ -13325,7 +13316,7 @@ npc_dota_hero_ogre_magi:
     displayname: Ignite
     level: 0
     lore: Batter up!
-    manacost: [95, 105, 115, 125]
+    manacost: [90]
     name: ogre_magi_ignite
   - AbilityCastPoint: 0.45
     AbilityCastRange: 600
@@ -13376,14 +13367,14 @@ npc_dota_hero_ogre_magi:
       tooltip: 'STUN DURATION:'
       value: [1.5]
     - name: multicast_delay
-      value: [0.4]
+      value: [0.5]
     - name: scepter_mana
       value: [0.6]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [6]
     damage: 275
     description: Blasts an enemy unit with a wave of fire, dealing damage and stunning
-      the target. Its mana cost is 60%% of the hero's current mana.
+      the target. Its mana cost is 60%% of Ogre Magi's current mana.
     displayname: Unrefined Fireblast
     level: 0
     lore: The 'who-casts-spell-first' argument between himself is solved simply by
@@ -13441,8 +13432,7 @@ npc_dota_hero_ogre_magi:
       has its cooldown decreased, its range increased, and its mana cost increased.\n<font
       color=\"#DE8930\">Ignite</font> hits enemies in an area, its range is increased,
       and it may be cast onto random nearby enemies when used.\n<font color=\"#E34F4F\">Bloodlust</font>
-      has its cooldown reduced, and may be cast on random nearby allies when used.\n\nUpgradable
-      by Aghanim's Scepter.
+      has its cooldown reduced, and may be cast on random nearby allies when used.
     displayname: Multicast
     level: 0
     lore: Despite being largely incapacitated by his IQ, the Ogre Magi's success in
@@ -13629,10 +13619,10 @@ npc_dota_hero_omniknight:
   attributeagilitygain: 1.75
   attributebaseagility: 15
   attributebaseintelligence: 17
-  attributebasestrength: 20
+  attributebasestrength: 22
   attributeintelligencegain: 1.8
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
-  attributestrengthgain: 2.65
+  attributestrengthgain: 2.8
   bio: Purist Thunderwrath was a hard-fighting, road-worn, deeply committed knight,
     sworn to the order in which he had grown up as squire to elder knights of great
     reputation. He had spent his entire life in the service of the Omniscience, the
@@ -13753,7 +13743,7 @@ npc_dota_hero_oracle:
     manacost: [50]
     name: oracle_fates_edict
   - AbilityCastPoint: 0.3
-    AbilityCastRange: 750
+    AbilityCastRange: 800
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -13789,8 +13779,7 @@ npc_dota_hero_oracle:
     description: Burns away impurities, dealing heavy magic damage to the target before
       causing them to regenerate health over time. The amount of health regenerated
       over its duration exceeds the amount of initial damage. Can be cast on enemies
-      and allies.\n\nUpgradable by Aghanim's Scepter, reducing cooldown and improves
-      cast point.
+      and allies.\n\nUpgradable by Aghanim's Scepter.
     displayname: Purifying Flames
     level: 0
     lore: Like a hall of mirrors might amplify the light of a single candle, the shattered
@@ -13942,7 +13931,7 @@ npc_dota_hero_phantom_assassin:
       value: [1, 2, 3, 4]
     - name: base_damage
       tooltip: 'BASE DAMAGE:'
-      value: [60]
+      value: [75]
     - name: attack_factor
       value: [-75, -60, -45, -30]
     - name: attack_factor_tooltip
@@ -13968,7 +13957,7 @@ npc_dota_hero_phantom_assassin:
     AbilityModifierSupportBonus: 0
     AbilityModifierSupportValue: 1
     ID: 5191
-    SpellImmunityType: SPELL_IMMUNITY_ENEMIES_NO
+    SpellImmunityType: SPELL_IMMUNITY_ENEMIES_YES
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
     - name: bonus_attack_speed
@@ -14433,7 +14422,7 @@ npc_dota_hero_phoenix:
       value: [6]
     - name: base_dmg
       tooltip: 'BASE DAMAGE PER SECOND:'
-      value: [15, 20, 25, 30]
+      value: [10, 15, 20, 25]
     - name: hp_perc_dmg
       tooltip: '%MAX DAMAGE:'
       value: [1.25, 2.5, 3.75, 5]
@@ -14459,7 +14448,7 @@ npc_dota_hero_phoenix:
       tooltip: 'DURATION:'
       value: [6]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [20]
+    cooldown: [26]
     damage: [0, 0, 0, 0]
     description: Phoenix expels a beam of light at the cost of its own health. The
       beam damages enemies and heals allies for a base amount plus a percentage of
@@ -14938,8 +14927,7 @@ npc_dota_hero_pudge:
     damage: [90, 180, 270, 360]
     description: Launches a bloody hook toward a unit or location. The hook will snag
       the first unit it encounters, dragging the unit back to Pudge and dealing damage
-      if it is an enemy.\n\nUpgradable by Aghanim's Scepter, reducing the cooldown
-      and increasing the damage.
+      if it is an enemy.\n\nUpgradable by Aghanim's Scepter.
     displayname: Meat Hook
     level: 0
     lore: The Butcher's hook is a symbolic nightmare, its curved blade a frightening
@@ -14965,7 +14953,7 @@ npc_dota_hero_pudge:
       value: [0.2]
     - name: rot_slow
       tooltip: '%MOVE SLOW:'
-      value: [-27]
+      value: [-30]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_TOGGLE, DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL,
       DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [0, 0, 0, 0]
@@ -15029,7 +15017,7 @@ npc_dota_hero_pudge:
       value: [0.3, 0.4, 0.5]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_CHANNELLED,
       DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [30, 30, 30]
+    cooldown: [30, 25, 20]
     damage: [0, 0, 0, 0]
     description: CHANNELED - Pudge chows down on an enemy unit, disabling it and dealing
       damage over time. Pudge gets healed for the same amount he damages. Lasts 3
@@ -15110,7 +15098,7 @@ npc_dota_hero_pugna:
       tooltip: 'RADIUS:'
       value: [400, 400, 400, 400]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [5.5, 5.5, 5.5, 5.5]
+    cooldown: [5]
     damage: [100, 175, 250, 325]
     description: An exploding pulse deals damage to enemies and structures in the
       area.  Deals half damage to structures.
@@ -15250,7 +15238,7 @@ npc_dota_hero_pugna:
   attributebaseagility: 16
   attributebaseintelligence: 26
   attributebasestrength: 17
-  attributeintelligencegain: 4
+  attributeintelligencegain: 4.5
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
   attributestrengthgain: 1.2
   bio: In the realm of Pugna's birth, near the vents of the Nether Reaches, there
@@ -15511,7 +15499,7 @@ npc_dota_hero_rattletrap:
       them proves useful as an offensive maneuver.
     manacost: [75, 75, 75, 75]
     name: rattletrap_battery_assault
-  - AbilityCastPoint: [0.3, 0.3, 0.3, 0.3]
+  - AbilityCastPoint: 0.2
     AbilityCastRange: 0
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -15537,7 +15525,7 @@ npc_dota_hero_rattletrap:
     - name: push_duration
       value: [0.85]
     - name: cogs_radius
-      value: [200]
+      value: [215]
     - name: trigger_distance
       value: [170]
     - name: extra_pull_buffer
@@ -15570,7 +15558,7 @@ npc_dota_hero_rattletrap:
     attributes:
     - name: radius
       tooltip: 'RADIUS:'
-      value: [575, 575, 575, 575]
+      value: [600]
     - name: duration
       value: [10, 10, 10, 10]
     - name: speed
@@ -15820,7 +15808,7 @@ npc_dota_hero_razor:
       value: [1, 1, 1]
     - name: damage
       tooltip: 'DAMAGE:'
-      value: [37, 50, 63]
+      value: [40, 55, 70]
     - name: strike_interval_scepter
       tooltip: 'SCEPTER STRIKE INTERVAL:'
       value: [0.6, 0.5, 0.4]
@@ -15916,7 +15904,7 @@ npc_dota_hero_riki:
     level: 0
     lore: Since his escape during the night of his betrayal, Riki has valued the use
       of a simple smoke screen to confuse his opponents.
-    manacost: [75, 80, 85, 90]
+    manacost: [90]
     name: riki_smoke_screen
   - AbilityCastPoint: 0.3
     AbilityCastRange: 800
@@ -16351,8 +16339,7 @@ npc_dota_hero_sand_king:
     damage: [100, 160, 220, 280]
     description: Sand King burrows into the ground and tunnels forward, damaging and
       stunning enemy units above him as he resurfaces.\n\nUpgradable by Aghanim's
-      Scepter, increasing the range and applies Caustic Finale to every heroes hit
-      by Burrowstrike.\n\nUpgradable by Aghanim's Scepter.
+      Scepter.
     displayname: Burrowstrike
     level: 0
     lore: Crixalis often lies in wait, burrowing under the surface to ambush his adversaries.
@@ -16470,7 +16457,7 @@ npc_dota_hero_sand_king:
       value: [3]
     behavior: [DOTA_ABILITY_BEHAVIOR_CHANNELLED, DOTA_ABILITY_BEHAVIOR_NO_TARGET,
       DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [140, 120, 100]
+    cooldown: [120, 110, 100]
     damage: [0, 0, 0, 0]
     description: CHANNELED - After channeling for 2 seconds, Sand King sends a disturbance
       into the earth, causing it to shudder violently. All enemies caught within range
@@ -16493,7 +16480,7 @@ npc_dota_hero_sand_king:
   attributeagilitygain: 2.1
   attributebaseagility: 19
   attributebaseintelligence: 16
-  attributebasestrength: 21
+  attributebasestrength: 22
   attributeintelligencegain: 1.8
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
   attributestrengthgain: 2.6
@@ -16544,7 +16531,7 @@ npc_dota_hero_shadow_demon:
       value: [2.5, 2.5, 2.5, 2.5]
     - name: illusion_duration
       tooltip: 'ILLUSION DURATION:'
-      value: [6, 8, 10, 12]
+      value: [8, 10, 12, 14]
     - name: illusion_outgoing_damage
       value: [70, 55, 40, 25]
     - name: illusion_outgoing_tooltip
@@ -16875,12 +16862,12 @@ npc_dota_hero_shadow_shaman:
       value: [175]
     - name: splash_damage
       tooltip: '%SPLASH DAMAGE:'
-      value: [75]
+      value: [100]
     - name: damage_min
-      value: [40, 55, 70]
+      value: [40, 60, 80]
     - name: damage_max
       tooltip: 'ATTACK DAMAGE:'
-      value: [45, 60, 75]
+      value: [45, 65, 85]
     - name: duration
       tooltip: 'DURATION:'
       value: [45, 45, 45]
@@ -17102,10 +17089,10 @@ npc_dota_hero_shredder:
       DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE, DOTA_ABILITY_BEHAVIOR_HIDDEN]
     cooldown: [8, 8, 8]
     damage: [0, 0, 0, 0]
-    description: Fires your main saw blade at the target location where it will spin
-      in place, dealing damage in an area around it.  Additionally, for each 5%% of
-      health missing, enemies caught in the saw blade move more slowly. The blade
-      deals damage and cuts down trees in its path when fired and retracted.  While
+    description: Fires a secondary saw blade at the target location where it will
+      spin in place, dealing damage in an area around it.  Additionally, for each
+      5%% of health missing, enemies caught in the saw blade move more slowly. The
+      blade deals damage and cuts down trees in its path when fired and retracted.  While
       active the ability costs mana, and you lose the ability to attack.
     displayname: Chakram
     level: 0
@@ -17395,7 +17382,7 @@ npc_dota_hero_silencer:
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 3
-  attributebaseagility: 16
+  attributebaseagility: 22
   attributebaseintelligence: 27
   attributebasestrength: 17
   attributeintelligencegain: 2.5
@@ -17466,7 +17453,7 @@ npc_dota_hero_skeleton_king:
       value: [4.0]
     - name: blast_dot_damage
       tooltip: 'DAMAGE PER SECOND:'
-      value: [15, 30, 40, 50]
+      value: [20, 35, 50, 65]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [8, 8, 8, 8]
     damage: [50, 100, 150, 200]
@@ -17686,7 +17673,7 @@ npc_dota_hero_skywrath_mage:
       value: [1600]
     - name: slow_radius
       tooltip: 'DAMAGE RADIUS:'
-      value: [200]
+      value: [250]
     - name: speed
       value: [800, 800, 800, 800]
     - name: damage
@@ -17764,10 +17751,10 @@ npc_dota_hero_skywrath_mage:
       value: [600, 1000, 1400]
     - name: damage_interval
       value: [0.1]
-    - name: scepter_cooldown
+    - name: cooldown_scepter
       tooltip: 'SCEPTER COOLDOWN:'
       value: [20, 10, 5]
-    - name: scepter_duration
+    - name: duration_scepter
       tooltip: 'SCEPTER DURATION:'
       value: [12.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
@@ -17900,7 +17887,7 @@ npc_dota_hero_slardar:
       tooltip: 'STUN DURATION:'
       value: [1.6, 1.9, 2.2, 2.5]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
-    cooldown: [8, 8, 8, 8]
+    cooldown: [8]
     damage: [75, 125, 175, 225]
     description: Slams the ground, stunning and damaging nearby enemy land units.  After
       the stun, the affected units are slowed.
@@ -18003,7 +17990,7 @@ npc_dota_hero_slardar:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 300
+  movementspeed: 290
   movementturnrate: 0.5
   name: npc_dota_hero_slardar
   projectilespeed: 0
@@ -18082,7 +18069,7 @@ npc_dota_hero_slark:
       value: [95]
     - name: pounce_damage
       tooltip: 'POUNCE DAMAGE:'
-      value: [50, 100, 150, 200]
+      value: [40, 80, 120, 160]
     - name: leash_duration
       tooltip: 'LEASH DURATION:'
       value: [3.5]
@@ -18258,7 +18245,7 @@ npc_dota_hero_sniper:
       value: [55]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [0]
-    damage: [15, 30, 45, 60]
+    damage: [15, 35, 55, 75]
     description: Consumes a charge to launch a ball of shrapnel that showers the target
       area in explosive pellets. Enemies are subject to damage and slowed movement.
       Reveals the targeted area. Shrapnel charges restore every %charge_restore_time%
@@ -18708,7 +18695,7 @@ npc_dota_hero_spirit_breaker:
       value: [17, 17, 17, 17]
     - name: damage
       tooltip: '%MOVESPEED AS DAMAGE:'
-      value: [22, 28, 34, 40]
+      value: [22, 30, 38, 46]
     - name: duration
       tooltip: 'STUN DURATION:'
       value: [1, 1.2, 1.4, 1.6]
@@ -18879,7 +18866,7 @@ npc_dota_hero_storm_spirit:
     - name: duration
       tooltip: 'DURATION:'
       value: [1, 1.5, 2, 2.5]
-    - name: scepter_radius
+    - name: radius_scepter
       tooltip: 'SCEPTER RADIUS:'
       value: [475]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
@@ -18887,7 +18874,7 @@ npc_dota_hero_storm_spirit:
     damage: [0, 0, 0, 0]
     description: A vortex that pulls an enemy unit to Storm Spirit's location, it
       also slows the Storm Spirit by 50%% for 3 seconds.\n\nUpgradable by Aghanim's
-      Scepter, causing Electric Vortex to be a %scepter_radius% AoE ability.
+      Scepter.
     displayname: Electric Vortex
     level: 0
     lore: Raijin's thunderous, boisterous energy often draws others into an electrifying
@@ -18908,7 +18895,7 @@ npc_dota_hero_storm_spirit:
     attributes:
     - name: overload_aoe
       tooltip: 'RADIUS:'
-      value: [275]
+      value: [300]
     - name: overload_move_slow
       tooltip: '%MOVEMENT SLOW:'
       value: [-80]
@@ -18920,7 +18907,7 @@ npc_dota_hero_storm_spirit:
       value: [0.6, 0.6, 0.6, 0.6]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
-    damage: [30, 50, 70, 90]
+    damage: [40, 60, 80, 100]
     description: Casting a spell creates an electrical charge, which is released in
       a burst on his next attack, dealing damage and slowing nearby enemies.
     displayname: Overload
@@ -18985,9 +18972,9 @@ npc_dota_hero_storm_spirit:
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 1.8
   attributebaseagility: 22
-  attributebaseintelligence: 23
+  attributebaseintelligence: 24
   attributebasestrength: 19
-  attributeintelligencegain: 2.6
+  attributeintelligencegain: 3
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
   attributestrengthgain: 1.5
   bio: 'Storm Spirit is literally a force of nature--the wild power of wind and weather,
@@ -19131,7 +19118,7 @@ npc_dota_hero_sven:
     - name: gods_strength_damage
       tooltip: '%BONUS DAMAGE:'
       value: [100, 150, 200]
-    - name: scepter_aoe
+    - name: radius_scepter
       tooltip: 'SCEPTER ALLY AURA RADIUS:'
       value: [900]
     - name: gods_strength_damage_scepter
@@ -19363,8 +19350,7 @@ npc_dota_hero_techies:
     damage: [0, 0, 0, 0]
     description: Plant a warning sign to remind enemies to step lightly. Only one
       sign can exist at a time. Lasts %lifetime% seconds.\n\nUpgradable by Aghanim's
-      Scepter, allowing Minefield Sign to hide any Land Mines, Stasis Traps, and Remote
-      Mines in a %aura_radius% radius from True Sight.
+      Scepter.
     displayname: Minefield Sign
     level: 0
     lore: Watch your step!
@@ -19572,7 +19558,7 @@ npc_dota_hero_templar_assassin:
       tooltip: 'SPLIT RANGE:'
       value: [590, 630, 670, 710]
     - name: attack_spill_width
-      value: [68, 68, 68, 68]
+      value: [75]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
@@ -19602,7 +19588,7 @@ npc_dota_hero_templar_assassin:
     - name: trap_duration
       value: [5.0]
     - name: movement_speed_bonus_stage
-      value: [-5]
+      value: [5.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE, DOTA_ABILITY_BEHAVIOR_NO_TARGET,
       DOTA_ABILITY_BEHAVIOR_IMMEDIATE, DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL]
     cooldown: [0.5]
@@ -19633,7 +19619,7 @@ npc_dota_hero_templar_assassin:
       value: [30]
     - name: movement_speed_max_tooltip
       tooltip: '%MAX MOVEMENT SLOW:'
-      value: [50]
+      value: [60]
     - name: trap_duration_tooltip
       tooltip: 'SLOW DURATION:'
       value: [5]
@@ -19753,17 +19739,17 @@ npc_dota_hero_terrorblade:
     attributes:
     - name: illusion_duration
       tooltip: 'ILLUSION DURATION:'
-      value: [32.0]
+      value: [34.0]
     - name: illusion_outgoing_damage
       value: [70, 60, 50, 40]
     - name: illusion_outgoing_tooltip
       tooltip: '%ILLUSION DAMAGE:'
       value: [30, 40, 50, 60]
     - name: illusion_incoming_damage
-      value: [325.0]
+      value: [300.0]
     - name: illusion_incoming_damage_total_tooltip
       tooltip: '%ILLUSION DAMAGE TAKEN:'
-      value: [425.0]
+      value: [400.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
     cooldown: [16]
     damage: [0, 0, 0, 0]
@@ -19772,7 +19758,7 @@ npc_dota_hero_terrorblade:
     level: 0
     lore: There's only one thing more dangerous than facing Terrorblade.  Facing MORE
       Terrrorblades!
-    manacost: [80]
+    manacost: [70]
     name: terrorblade_conjure_image
   - AbilityCastPoint: 0
     AbilityCastRange: 0
@@ -19792,7 +19778,7 @@ npc_dota_hero_terrorblade:
       value: [0.35]
     - name: base_attack_time
       tooltip: 'BASE ATTACK TIME:'
-      value: [1.6]
+      value: [1.5]
     - name: bonus_range
       value: [400]
     - name: tooltip_attack_range
@@ -19928,8 +19914,7 @@ npc_dota_hero_tidehunter:
     cooldown: [12]
     damage: [110, 160, 210, 260]
     description: Summons a gush of water to damage an enemy unit, reducing their movement
-      speed and armor.  Lasts 4 seconds.\n\nUpgradable by Aghanim's Scepter, turning
-      Gush into a ground targeted wave and decreasing cooldown.
+      speed and armor.  Lasts 4 seconds.\n\nUpgradable by Aghanim's Scepter.
     displayname: Gush
     level: 0
     lore: During his championship of the Sunken Isles, Leviathan gained mastery over
@@ -20105,14 +20090,13 @@ npc_dota_hero_tinker:
       tooltip: 'CAST RANGE:'
       value: [650]
     - name: cast_range_scepter
+      tooltip: 'SCEPTER REFRACT RADIUS:'
       value: [650]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
     cooldown: [14, 14, 14, 14]
     damage: [80, 160, 240, 320]
     description: Fires an intense energy beam, dealing damage and blinding the target,
-      causing it to miss all physical attacks. \n\nUpgradable by Aghanim's Scepter,
-      causing the laser to refract between all visible enemy heroes in a %cast_range_scepter%
-      range.
+      causing it to miss all physical attacks. \n\nUpgradable by Aghanim's Scepter.
     displayname: Laser
     level: 0
     lore: Boush perfected this rock cutting laser in his subterranean laboratory,
@@ -20138,11 +20122,14 @@ npc_dota_hero_tinker:
       value: [2, 2, 2, 2]
     - name: speed
       value: [900, 900, 900, 900]
+    - name: targets_scepter
+      tooltip: 'SCEPTER TARGETS:'
+      value: [4, 4, 4, 4]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
     cooldown: [25, 25, 25, 25]
     damage: [125, 200, 275, 350]
     description: Launches a pair of rockets at the nearest visible enemy heroes within
-      2500 range. The number of missile targets is doubled with Aghanim's Scepter.
+      2500 range. \n\nUpgradable by Aghanim's Scepter.
     displayname: Heat-Seeking Missile
     level: 0
     lore: The last contraption Boush was able to save was a retrofitted rocket launcher
@@ -20314,7 +20301,7 @@ npc_dota_hero_tiny:
       value: [275]
     - name: radius
       tooltip: 'RADIUS:'
-      value: [275, 275, 275, 275]
+      value: [275]
     - name: bonus_damage_pct
       value: [20, 20, 20, 20]
     - name: grow_bonus_damage_pct
@@ -20326,7 +20313,7 @@ npc_dota_hero_tiny:
       tooltip: 'DAMAGE:'
       value: [75, 150, 225, 300]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_RUNE_TARGET]
-    cooldown: [9]
+    cooldown: [8]
     damage: [0, 0, 0, 0]
     description: Grabs the nearest unit in a 275 radius around Tiny, ally or enemy,
       and launches it at the target unit or rune to deal damage where they land.  If
@@ -20601,8 +20588,8 @@ npc_dota_hero_treant:
     cooldown: [25]
     damage: [0, 0, 0, 0]
     description: Treant Protector enchants a tree, which grants him unobstructed vision
-      in that location. If Overgrowth is cast, units within a %overgrowth_aoe% radius
-      of an enchanted tree will be entangled and damaged.
+      in that location. If Overgrowth is cast, units within a radius of an enchanted
+      tree will be entangled and damaged.
     displayname: Eyes In The Forest
     level: 0
     lore: One can never be too certain who, or what, might need protecting.
@@ -20632,8 +20619,7 @@ npc_dota_hero_treant:
     cooldown: [70]
     damage: [0, 0, 0, 0]
     description: Summons an overgrowth of vines and branches around Treant that prevent
-      afflicted enemies from moving, blinking, going invisible, or attacking.\n\nUpgradable
-      by Aghanim's Scepter.
+      afflicted enemies from moving, blinking, going invisible, or attacking.
     displayname: Overgrowth
     level: 0
     lore: Rooftrellen calls the ancestral spirit of nature, releasing its power through
@@ -20643,8 +20629,8 @@ npc_dota_hero_treant:
   - *id001
   abilitylayout: 4
   armorphysical: -1
-  attackdamagemax: 64
-  attackdamagemin: 56
+  attackdamagemax: 70
+  attackdamagemin: 62
   attackpoint: 0.6
   attackrange: 150
   attackrate: 1.9
@@ -20709,18 +20695,18 @@ npc_dota_hero_troll_warlord:
     attributes:
     - name: bonus_hp
       tooltip: 'BONUS HEALTH:'
-      value: [100]
+      value: [0]
     - name: bonus_move_speed
       tooltip: 'BONUS MOVE SPEED:'
       value: [10, 20, 30, 40]
     - name: bonus_armor
       tooltip: 'BONUS ARMOR:'
-      value: [3]
+      value: [6]
     - name: bonus_range
       value: [350]
     - name: base_attack_time
       tooltip: 'MELEE BASE ATTACK TIME:'
-      value: [1.55]
+      value: [1.5]
     - name: bash_chance
       tooltip: '%BASH CHANCE:'
       value: [10]
@@ -20744,7 +20730,7 @@ npc_dota_hero_troll_warlord:
     manacost: [0, 0, 0, 0]
     name: troll_warlord_berserkers_rage
   - AbilityCastPoint: [0.2, 0.2, 0.2, 0.2]
-    AbilityCastRange: 900
+    AbilityCastRange: 1000
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -20760,7 +20746,7 @@ npc_dota_hero_troll_warlord:
     - name: axe_speed
       value: [1500.0]
     - name: axe_range
-      value: [945.0]
+      value: [1000.0]
     - name: axe_damage
       tooltip: 'AXE DAMAGE:'
       value: [75]
@@ -20889,7 +20875,7 @@ npc_dota_hero_troll_warlord:
   attributeagilitygain: 2.75
   attributebaseagility: 21
   attributebaseintelligence: 13
-  attributebasestrength: 17
+  attributebasestrength: 20
   attributeintelligencegain: 1
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
   attributestrengthgain: 2.2
@@ -21113,8 +21099,8 @@ npc_dota_hero_tusk:
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_HIDDEN]
     cooldown: [8]
     damage: [0, 0, 0, 0]
-    description: Kicks the target unit back %push_length% units, damaging them and
-      slowing their movement by %move_slow%%% for %slow_duration% seconds.
+    description: Kicks the target unit back, damaging them and slowing their movement
+      speed.
     displayname: Walrus Kick
     level: 0
     manacost: [100]
@@ -21151,8 +21137,7 @@ npc_dota_hero_tusk:
     cooldown: [36, 24, 12]
     damage: [0, 0, 0, 0]
     description: Tusk connects with his mighty Walrus Punch, a critical strike so
-      powerful it launches its victim into the air. The victim is slowed upon landing.\n\nUpgradable
-      by Aghanim's Scepter.
+      powerful it launches its victim into the air. The victim is slowed upon landing.
     displayname: Walrus PUNCH!
     level: 0
     lore: It never matters who throws the first punch, only who throws the last.
@@ -21211,7 +21196,7 @@ npc_dota_hero_undying:
   HeroID: 85
   abilities:
   - AbilityCastPoint: [0.45, 0.45, 0.45, 0.45]
-    AbilityCastRange: 625
+    AbilityCastRange: 650
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [21, 24, 27, 30]
@@ -21230,7 +21215,7 @@ npc_dota_hero_undying:
       value: [4]
     - name: decay_duration
       tooltip: 'STEAL DURATION:'
-      value: [40.0]
+      value: [45.0]
     - name: radius
       tooltip: 'RADIUS:'
       value: [325]
@@ -21244,7 +21229,7 @@ npc_dota_hero_undying:
     damage: [0, 0, 0, 0]
     description: Undying steals strength from all enemy heroes in an area, dealing
       base damage as he claims the enemy's strength for himself.\n\nUpgradable by
-      Aghanim's Scepter, increasing Decay's strength steal.
+      Aghanim's Scepter.
     displayname: Decay
     level: 0
     lore: The strength of the living is simply borrowed from the strength of the dead.
@@ -21390,7 +21375,7 @@ npc_dota_hero_undying:
   attributebaseagility: 10
   attributebaseintelligence: 27
   attributebasestrength: 22
-  attributeintelligencegain: 2.5
+  attributeintelligencegain: 2.8
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
   attributestrengthgain: 2.1
   bio: "How long has it been since he lost his name? The torn ruin of his mind no\
@@ -21503,7 +21488,7 @@ npc_dota_hero_ursa:
     attributes:
     - name: bonus_reset_time
       tooltip: 'RESET TIME:'
-      value: [15.0]
+      value: [20.0]
     - name: bonus_reset_time_roshan
       tooltip: 'RESET TIME (ROSHAN):'
       value: [6.0]
@@ -21540,7 +21525,7 @@ npc_dota_hero_ursa:
       value: [80]
     - name: duration
       tooltip: 'DURATION:'
-      value: [4]
+      value: [4.0]
     - name: cooldown_scepter
       tooltip: 'SCEPTER COOLDOWN:'
       value: [30, 24, 18]
@@ -21590,7 +21575,7 @@ npc_dota_hero_ursa:
   projectilespeed: 900
   role: Carry,Jungler,Durable,Disabler
   statushealth: 200
-  statushealthregen: 0.25
+  statushealthregen: 0.75
   statusmana: 50
   statusmanaregen: 0.01
   team: Good
@@ -21739,9 +21724,9 @@ npc_dota_hero_vengefulspirit:
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 3.3
   attributebaseagility: 27
-  attributebaseintelligence: 15
+  attributebaseintelligence: 13
   attributebasestrength: 18
-  attributeintelligencegain: 1.75
+  attributeintelligencegain: 1.5
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
   attributestrengthgain: 2.6
   bio: 'Even the most contented Skywrath is an ill-tempered creature, naturally inclined
@@ -21872,7 +21857,7 @@ npc_dota_hero_venomancer:
       value: [75, 200, 325, 450]
     - name: ward_damage_tooltip
       tooltip: 'WARD DAMAGE:'
-      value: [10, 19, 29, 38]
+      value: [13, 22, 31, 40]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
     cooldown: [5]
     damage: [0, 0, 0, 0]
@@ -21941,9 +21926,9 @@ npc_dota_hero_venomancer:
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 2.6
   attributebaseagility: 22
-  attributebaseintelligence: 15
+  attributebaseintelligence: 17
   attributebasestrength: 18
-  attributeintelligencegain: 1.75
+  attributeintelligencegain: 1.8
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
   attributestrengthgain: 1.85
   bio: 'In the Acid Jungles of Jidi Isle, poison runs in the veins and bubbles in
@@ -22128,7 +22113,7 @@ npc_dota_hero_viper:
       value: [125, 125, 125]
     - name: cooldown_scepter
       tooltip: 'SCEPTER COOLDOWN:'
-      value: [12.0]
+      value: [10.0]
     - name: cast_range_scepter
       tooltip: 'SCEPTER CAST RANGE:'
       value: [900]
@@ -22165,7 +22150,7 @@ npc_dota_hero_viper:
   attributebasestrength: 20
   attributeintelligencegain: 1.8
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
-  attributestrengthgain: 1.9
+  attributestrengthgain: 2.1
   bio: The malevolent familiar of a sadistic wizard who captured and hoped to tame
     him, Viper was curiously glad to have been sprung from the sealed and unchanging
     subterranean Nether Reaches where his race had lived for millions of years, after
@@ -22198,7 +22183,7 @@ npc_dota_hero_visage:
   HeroID: 92
   abilities:
   - AbilityCastPoint: [0.2, 0.2, 0.2, 0.2]
-    AbilityCastRange: [600, 600, 600, 600]
+    AbilityCastRange: 650
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -22286,10 +22271,10 @@ npc_dota_hero_visage:
     attributes:
     - name: bonus_armor
       tooltip: 'ARMOR PER LAYER:'
-      value: [1, 2, 4, 5]
+      value: [1.5, 3, 4.5, 6]
     - name: bonus_resist
       tooltip: '%RESIST PER LAYER:'
-      value: [3, 6, 12, 16]
+      value: [5, 10, 15, 20]
     - name: max_layers
       tooltip: 'MAX LAYERS:'
       value: [4]
@@ -22746,8 +22731,8 @@ npc_dota_hero_weaver:
   - *id001
   abilitylayout: 4
   armorphysical: -1
-  attackdamagemax: 49
-  attackdamagemin: 39
+  attackdamagemax: 51
+  attackdamagemin: 41
   attackpoint: 0.64
   attackrange: 425
   attackrate: 1.8
@@ -22900,7 +22885,7 @@ npc_dota_hero_windrunner:
       tooltip: 'DURATION:'
       value: [3, 4, 5, 6]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
-    cooldown: [15, 15, 15, 15]
+    cooldown: [14]
     damage: [0, 0, 0, 0]
     description: Increases movement speed and adds evasion from all physical attacks,
       while slowing movement of nearby enemies.
@@ -23049,9 +23034,7 @@ npc_dota_hero_winter_wyvern:
       soaring, her attacks travel further and faster, and slow enemies with a magical
       freeze that strips them of %percent_damage%%% of their current health each second.
       Her sight is also hardened against night's chill, granting her %night_vision_bonus%
-      additional vision range at night while soaring.\n\nUpgradable by Aghanim's Scepter,
-      causing Arctic Burn to be a toggle ability, draining %mana_cost_scepter% mana
-      per second when active. Removes limit on number of attacks per target.
+      additional vision range at night while soaring.\n\nUpgradable by Aghanim's Scepter.
     displayname: Arctic Burn
     level: 0
     lore: The same organ where some dragons stoke their inner flame is, in Auroth,
@@ -23159,7 +23142,7 @@ npc_dota_hero_winter_wyvern:
       tooltip: 'CURSE DURATION:'
       value: [3.25, 4, 4.75]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AOE]
-    cooldown: [90]
+    cooldown: [80]
     damage: [0, 0, 0, 0]
     description: Winter Wyvern freezes an enemy in place while striking those nearby
       with a maddening curse which causes them to attack their frozen ally with increased
@@ -23240,7 +23223,7 @@ npc_dota_hero_wisp:
       value: [900, 900, 900, 900]
     - name: movespeed
       tooltip: '%MOVEMENT SPEED BONUS:'
-      value: [14, 15, 16, 17]
+      value: [13, 14, 15, 16]
     - name: latch_distance
       value: [700, 700, 700, 700]
     - name: latch_speed
@@ -23653,7 +23636,7 @@ npc_dota_hero_witch_doctor:
       value: [60, 105, 150]
     - name: bounces
       value: [0, 0, 0]
-    - name: scepter_bounces
+    - name: bounces_scepter
       tooltip: 'SCEPTER BOUNCES:'
       value: [4, 4, 4]
     - name: bounce_radius
@@ -23736,7 +23719,7 @@ npc_dota_hero_zuus:
     - name: jump_delay
       value: [0.25, 0.25, 0.25, 0.25]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [1.75, 1.75, 1.75, 1.75]
+    cooldown: [1.6]
     damage: [85, 100, 115, 145]
     description: Hurls a bolt of lightning that leaps through nearby enemy units.
     displayname: Arc Lightning

@@ -395,7 +395,7 @@
   "Lore": "An enforcer's honor can be a prickly thing.  So can his quills."
  }, 
  "bristleback_viscous_nasal_goo": {
-  "Description": "Covers a target in snot, causing it to have reduced armor and movement speed.  Multiple casts stack and refresh the duration.\\n\\nUpgradable by Aghanim's Scepter, making Goo an AoE ability that applies Goo to all enemies around you in a %radius% radius.", 
+  "Description": "Covers a target in snot, causing it to have reduced armor and movement speed.  Multiple casts stack and refresh the duration.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Viscous Nasal Goo", 
   "Lore": "Having caught a cold while stuck in the snow, Bristleback turns it to his advantage."
  }, 
@@ -766,17 +766,17 @@
   "Lore": "It is with the power of a mountain that Earth Spirit strikes his enemies."
  }, 
  "earth_spirit_geomagnetic_grip": {
-  "Description": "Earth Spirit pulls the target Stone Remnant. Enemies struck by the gripped target will be silenced, and take damage if the gripped target is a Stone Remnant.", 
+  "Description": "Earth Spirit pulls the target Stone Remnant. Enemies struck by the gripped target will be silenced, and take damage if the gripped target is a Stone Remnant.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Geomagnetic Grip", 
   "Lore": "Like calls to like. Even the minerals found in the blood and bones of living beings are not immune to the call of the Earth Spirit."
  }, 
  "earth_spirit_magnetize": {
-  "Description": "Magnetizes units in a small nearby area, causing them to take damage for a short duration. Magnetized heroes cause nearby Stone Remnants to explode, destroying the remnant and refreshing Magnetize's duration on all nearby enemies. This process can repeat multiple times. If an enemy hero is affected by silence or slows as a result of Geomagnetic Grip or Rolling Boulder, all magnetized heroes share the effects.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Magnetizes units in a small nearby area, causing them to take damage for a short duration. Magnetized heroes cause nearby Stone Remnants to explode, destroying the remnant and refreshing Magnetize's duration on all nearby enemies. This process can repeat multiple times. If an enemy hero is affected by silence or slows as a result of Geomagnetic Grip or Rolling Boulder, all magnetized heroes share the effects.", 
   "DisplayName": "Magnetize", 
   "Lore": "At the Earth Spirit's call, the minerals in the blood and bones of his enemies rebel against the bodies they find themselves in."
  }, 
  "earth_spirit_petrify": {
-  "Description": "Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After %duration% seconds the remnant shatters, releasing the hero and damaging nearby enemies.", 
+  "Description": "Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After a short duration the remnant shatters, releasing the hero and damaging nearby enemies.", 
   "DisplayName": "Enchant Remnant", 
   "Lore": "Kaolin uses the elemental power of the Earth to temporarily petrify living beings, so that they might be conscripted into his stone funerary army."
  }, 
@@ -801,7 +801,7 @@
   "Lore": "Tectonic plates crack, mountains fold, and foes are crushed by the Echo Slam."
  }, 
  "earthshaker_enchant_totem": {
-  "Description": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.\\n\\nUpgradable by Aghanim's Scepter. Enchant Totem becomes a %scepter_distance% range ground target ability, causes you to jump in the air and land at the target spot, casting Enchant Totem there.\\nReduced cast point of Enchant Totem to 0.", 
+  "Description": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Enchant Totem", 
   "Lore": "Raigor's gorilla strength can destroy mountains."
  }, 
@@ -1614,7 +1614,7 @@
   "Lore": "A furred, magic resistant headpiece that is feared by wizards."
  }, 
  "item_hurricane_pike": {
-  "Description": "Active: When used on an enemy, it pushes you both away from each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Works like Force Staff when used on self or allies.\\nPassive: Increases attack range of ranged heroes by %base_attack_range%.", 
+  "Description": "Active: When used on an enemy, it pushes you both away from each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Grants %bonus_attack_speed% Attack Speed during the attacks. Works like Force Staff when used on self or allies.\\nPassive: Increases attack range of ranged heroes by %base_attack_range%.", 
   "DisplayName": "Hurricane Pike", 
   "Lore": ""
  }, 
@@ -1756,7 +1756,7 @@
   "Lore": "Envenoms your veapon with the venom of a venomous viper."
  }, 
  "item_orchid": {
-  "Description": "Active: Soul Burn - Silences the target unit for %silence_duration% seconds and amplifies the damage it takes by %silence_damage_percent%%%.", 
+  "Description": "Active: Soul Burn - Silences the target unit for %silence_duration% seconds. At the end of the silence, %silence_damage_percent%%% of the damage received while silenced is inflicted as bonus magical damage.", 
   "DisplayName": "Orchid Malevolence", 
   "Lore": "A garnet rod constructed from the essence of a fire demon."
  }, 
@@ -1856,6 +1856,34 @@
  "item_ring_of_regen": {
   "DisplayName": "Ring of Regen", 
   "Lore": "This ring is considered a good luck charm among the Gnomes."
+ }, 
+ "item_river_painter": {
+  "Description": "Pour this serum into the river to transform the water into liquid chrome for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Chrome"
+ }, 
+ "item_river_painter2": {
+  "Description": "Pour this serum into the river to dry up the water for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect . Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Dry"
+ }, 
+ "item_river_painter3": {
+  "Description": "Pour this serum into the river to transform the water into a green slime for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Slime"
+ }, 
+ "item_river_painter4": {
+  "Description": "Pour this serum into the river to make the water oily for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Oil"
+ }, 
+ "item_river_painter5": {
+  "Description": "Pour this serum into the river to make the water electric for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Electrified"
+ }, 
+ "item_river_painter6": {
+  "Description": "Pour this serum into the river to transform the water into a purple bubbling potion for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Potion"
+ }, 
+ "item_river_painter7": {
+  "Description": "Pour this serum into the river to transform the water into blood for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "DisplayName": "River Vial: Blood"
  }, 
  "item_robe": {
   "DisplayName": "Robe of the Magi", 
@@ -2155,7 +2183,7 @@
   "DisplayName": "Empty"
  }, 
  "keeper_of_the_light_illuminate": {
-  "Description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies and harm enemies during daytime. The heal and damage amounts are the same.", 
+  "Description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Illuminate", 
   "Lore": "Ezalor's hidden light reveals itself in marvelous fashion."
  }, 
@@ -2179,7 +2207,7 @@
   "Lore": "In a flash of light, Ezalor reveals his true nature."
  }, 
  "keeper_of_the_light_spirit_form_illuminate": {
-  "Description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies and harm enemies during daytime. The heal and damage amounts are the same.", 
+  "Description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Illuminate", 
   "Lore": "Ezalor's hidden light reveals itself in marvelous fashion."
  }, 
@@ -2192,7 +2220,7 @@
   "DisplayName": "Speed Aura"
  }, 
  "kunkka_ghostship": {
-  "Description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.", 
+  "Description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.\\n\\nUpgradeable by Aghanim's Scepter.", 
   "DisplayName": "Ghostship", 
   "Lore": "The final ship of the Claddish Navy is nothing but a phantom, but it is all too real to the enemies of the Admiral."
  }, 
@@ -2314,7 +2342,7 @@
   "Lore": "After escaping from his cell in Devarque, N'aix subsisted on flesh and bones of those unfortunate to cross his path."
  }, 
  "life_stealer_infest": {
-  "Description": "Lifestealer infests the body of a target unit, becoming undetectable inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and when consumed the creep will heal Lifestealer's health equal to the creep's current health.  Does not work on enemy heroes.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Lifestealer infests the body of a target unit, becoming undetectable inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and when consumed the creep will heal Lifestealer's health equal to the creep's current health.  Does not work on enemy heroes.", 
   "DisplayName": "Infest", 
   "Lore": "With this infestation, N'aix consumes the life blood of the host, restoring him back to full unholy power."
  }, 
@@ -2383,7 +2411,7 @@
   "DisplayName": "Savage Roar"
  }, 
  "lone_druid_spirit_bear": {
-  "Description": "Summons a powerful Spirit Bear companion that can equip items.  If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers %backlash_damage%%% of his max health as backlash damage if the Spirit Bear dies.  As the bear increases in levels, it can learn the Return, Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from attributes.\\n\\nUpgradable by Aghanim's Scepter, allowing Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies.", 
+  "Description": "Summons a powerful Spirit Bear companion that can equip items.  If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers %backlash_damage%%% of his max health as backlash damage if the Spirit Bear dies.  As the bear increases in levels, it can learn the Return, Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from attributes.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Summon Spirit Bear", 
   "Lore": "Sylla's lifelong companion is symbiotic with his spirit and heart, coming to aid him in any time of need."
  }, 
@@ -2462,12 +2490,12 @@
   "DisplayName": "Invisibility"
  }, 
  "magnataur_empower": {
-  "Description": "Gives an allied unit bonus damage and cleave on attack.\\n\\nUpgradable by Aghanim's Scepter, changing Empower to be an allied hero aura. Affects ranged heroes for half values and causes them to splash around the target. Can still be cast on units, but doesn't stack.", 
+  "Description": "Gives an allied unit bonus damage and cleave on attack.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Empower", 
   "Lore": "With a deep bellow, Magnus displays his true power."
  }, 
  "magnataur_reverse_polarity": {
-  "Description": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.", 
   "DisplayName": "Reverse Polarity", 
   "Lore": "Magnus fights with the fury of the erupting Mt. Joerlak."
  }, 
@@ -2537,7 +2565,7 @@
   "Lore": "Both friend and foe alike recognize Mirana's iconic white beast in the heat of battle."
  }, 
  "mirana_starfall": {
-  "Description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter, causing Starstorm to passively trigger every %scepter_interval% seconds. Does not trigger if the enemy doesn't see Mirana.", 
+  "Description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Starstorm", 
   "Lore": "The Goddess breaks the strata to empower her Princess in the time of need."
  }, 
@@ -2569,7 +2597,7 @@
   "Lore": "Shifting water makes it difficult to discern the nature of Morphling."
  }, 
  "morphling_replicate": {
-  "Description": "Morphling replicates any hero, friend or foe, dealing %tooltip_illusion_damage_out_pct%%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Morphling replicates any hero, friend or foe, dealing %tooltip_illusion_damage_out_pct%%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.", 
   "DisplayName": "Replicate", 
   "Lore": "Staring into Morphling produces a reflection that mimics the beholder."
  }, 
@@ -2665,7 +2693,7 @@
   "Lore": "Even being near Nevermore eats away at one's soul."
  }, 
  "nevermore_necromastery": {
-  "Description": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. If the killed unit is a hero, he gains 12 souls.  On death, he releases half of them from bondage.\\n\\nUpgradable by Aghanim's Scepter, increasing Necromastery Max Souls to %necromastery_max_souls_scepter%.", 
+  "Description": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. If the killed unit is a hero, he gains 12 souls.  On death, he releases half of them from bondage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Necromastery", 
   "Lore": "Harvested souls swirl in and out of the Abysm, empowering the Shadow Fiend to increase the size of his collection."
  }, 
@@ -3802,7 +3830,7 @@
   "DisplayName": "Death Ward"
  }, 
  "nyx_assassin_burrow": {
-  "Description": "Nyx Assassin buries himself beneath the battlefield over %burrow_delay% second. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mana Burn and Impale is increased by %impale_burn_range_increase_pct_tooltip%%%, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. His health and mana regeneration are also increased, and he gains %damage_reduction%%% damage reduction.", 
+  "Description": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mana Burn and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. His health and mana regeneration are also increased, and he gains damage reduction from all damage sources.", 
   "DisplayName": "Burrow", 
   "Lore": "Some castes of zealot scarab are known to create small burrows to lie in wait, ready to ambush their prey."
  }, 
@@ -3827,7 +3855,7 @@
   "Lore": "Some castes of zealot scarab are known to create small burrows to lie in wait, ready to ambush their prey."
  }, 
  "nyx_assassin_vendetta": {
-  "Description": "Allows Nyx Assassin to become invisible and gain a speed bonus.  If Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt with the attack.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Allows Nyx Assassin to become invisible and gain a speed bonus.  If Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt with the attack.", 
   "DisplayName": "Vendetta", 
   "Lore": "The scarab kills for the glory of his queen."
  }, 
@@ -3871,12 +3899,12 @@
   "Lore": "Batter up!"
  }, 
  "ogre_magi_multicast": {
-  "Description": "Enables Ogre Magi to cast his spells multiple times with each use, while also granting his spells greater potency:\\n<font color=\\\"#EEF10D\\\">Fireblast</font> has its cooldown decreased, its range increased, and its mana cost increased.\\n<font color=\\\"#DE8930\\\">Ignite</font> hits enemies in an area, its range is increased, and it may be cast onto random nearby enemies when used.\\n<font color=\\\"#E34F4F\\\">Bloodlust</font> has its cooldown reduced, and may be cast on random nearby allies when used.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Enables Ogre Magi to cast his spells multiple times with each use, while also granting his spells greater potency:\\n<font color=\\\"#EEF10D\\\">Fireblast</font> has its cooldown decreased, its range increased, and its mana cost increased.\\n<font color=\\\"#DE8930\\\">Ignite</font> hits enemies in an area, its range is increased, and it may be cast onto random nearby enemies when used.\\n<font color=\\\"#E34F4F\\\">Bloodlust</font> has its cooldown reduced, and may be cast on random nearby allies when used.", 
   "DisplayName": "Multicast", 
   "Lore": "Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
  }, 
  "ogre_magi_unrefined_fireblast": {
-  "Description": "Blasts an enemy unit with a wave of fire, dealing damage and stunning the target. Its mana cost is 60%% of the hero's current mana.", 
+  "Description": "Blasts an enemy unit with a wave of fire, dealing damage and stunning the target. Its mana cost is 60%% of Ogre Magi's current mana.", 
   "DisplayName": "Unrefined Fireblast", 
   "Lore": "The 'who-casts-spell-first' argument between himself is solved simply by both casting at once."
  }, 
@@ -3916,7 +3944,7 @@
   "Lore": "The astral orb crackles with power while raw energy lances out, temporarily disrupting an enemy's connection to their own body."
  }, 
  "oracle_purifying_flames": {
-  "Description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.\\n\\nUpgradable by Aghanim's Scepter, reducing cooldown and improves cast point.", 
+  "Description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Purifying Flames", 
   "Lore": "Like a hall of mirrors might amplify the light of a single candle, the shattered walls of the universe can transform the light of prophecy into a burning torch."
  }, 
@@ -4043,7 +4071,7 @@
   "Lore": "The Butcher gives new meaning to the words 'meat shield.'"
  }, 
  "pudge_meat_hook": {
-  "Description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.\\n\\nUpgradable by Aghanim's Scepter, reducing the cooldown and increasing the damage.", 
+  "Description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Meat Hook", 
   "Lore": "The Butcher's hook is a symbolic nightmare, its curved blade a frightening reminder of his slaughterous intent."
  }, 
@@ -4234,7 +4262,7 @@
   "Lore": ""
  }, 
  "sandking_burrowstrike": {
-  "Description": "Sand King burrows into the ground and tunnels forward, damaging and stunning enemy units above him as he resurfaces.\\n\\nUpgradable by Aghanim's Scepter, increasing the range and applies Caustic Finale to every heroes hit by Burrowstrike.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Sand King burrows into the ground and tunnels forward, damaging and stunning enemy units above him as he resurfaces.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Burrowstrike", 
   "Lore": "Crixalis often lies in wait, burrowing under the surface to ambush his adversaries."
  }, 
@@ -4319,7 +4347,7 @@
   "Lore": "The ultimate in anti-flora weaponry."
  }, 
  "shredder_chakram_2": {
-  "Description": "Fires your main saw blade at the target location where it will spin in place, dealing damage in an area around it.  Additionally, for each 5%% of health missing, enemies caught in the saw blade move more slowly. The blade deals damage and cuts down trees in its path when fired and retracted.  While active the ability costs mana, and you lose the ability to attack.", 
+  "Description": "Fires a secondary saw blade at the target location where it will spin in place, dealing damage in an area around it.  Additionally, for each 5%% of health missing, enemies caught in the saw blade move more slowly. The blade deals damage and cuts down trees in its path when fired and retracted.  While active the ability costs mana, and you lose the ability to attack.", 
   "DisplayName": "Chakram", 
   "Lore": "Cut cut cut cut cut cut cut cut cut cut cut!"
  }, 
@@ -4517,7 +4545,7 @@
   "Lore": "The Storm is coming in."
  }, 
  "storm_spirit_electric_vortex": {
-  "Description": "A vortex that pulls an enemy unit to Storm Spirit's location, it also slows the Storm Spirit by 50%% for 3 seconds.\\n\\nUpgradable by Aghanim's Scepter, causing Electric Vortex to be a %scepter_radius% AoE ability.", 
+  "Description": "A vortex that pulls an enemy unit to Storm Spirit's location, it also slows the Storm Spirit by 50%% for 3 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Electric Vortex", 
   "Lore": "Raijin's thunderous, boisterous energy often draws others into an electrifying situation."
  }, 
@@ -4562,7 +4590,7 @@
   "Lore": "The bane of Toterin!"
  }, 
  "techies_minefield_sign": {
-  "Description": "Plant a warning sign to remind enemies to step lightly. Only one sign can exist at a time. Lasts %lifetime% seconds.\\n\\nUpgradable by Aghanim's Scepter, allowing Minefield Sign to hide any Land Mines, Stasis Traps, and Remote Mines in a %aura_radius% radius from True Sight.", 
+  "Description": "Plant a warning sign to remind enemies to step lightly. Only one sign can exist at a time. Lasts %lifetime% seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Minefield Sign", 
   "Lore": "Watch your step!"
  }, 
@@ -4640,7 +4668,7 @@
   "Lore": "Stolen from one of Admiral Kunkka's flagships, Leviathan's heavy anchor proves useful as a melee weapon."
  }, 
  "tidehunter_gush": {
-  "Description": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds.\\n\\nUpgradable by Aghanim's Scepter, turning Gush into a ground targeted wave and decreasing cooldown.", 
+  "Description": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Gush", 
   "Lore": "During his championship of the Sunken Isles, Leviathan gained mastery over the open sea."
  }, 
@@ -4655,12 +4683,12 @@
   "Lore": "Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea."
  }, 
  "tinker_heat_seeking_missile": {
-  "Description": "Launches a pair of rockets at the nearest visible enemy heroes within 2500 range. The number of missile targets is doubled with Aghanim's Scepter.", 
+  "Description": "Launches a pair of rockets at the nearest visible enemy heroes within 2500 range. \\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Heat-Seeking Missile", 
   "Lore": "The last contraption Boush was able to save was a retrofitted rocket launcher with a homing mechanism."
  }, 
  "tinker_laser": {
-  "Description": "Fires an intense energy beam, dealing damage and blinding the target, causing it to miss all physical attacks. \\n\\nUpgradable by Aghanim's Scepter, causing the laser to refract between all visible enemy heroes in a %cast_range_scepter% range.", 
+  "Description": "Fires an intense energy beam, dealing damage and blinding the target, causing it to miss all physical attacks. \\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Laser", 
   "Lore": "Boush perfected this rock cutting laser in his subterranean laboratory, never considering its combat utility."
  }, 
@@ -4699,7 +4727,7 @@
   "DisplayName": "Tempest"
  }, 
  "treant_eyes_in_the_forest": {
-  "Description": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within a %overgrowth_aoe% radius of an enchanted tree will be entangled and damaged.", 
+  "Description": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within a radius of an enchanted tree will be entangled and damaged.", 
   "DisplayName": "Eyes In The Forest", 
   "Lore": "One can never be too certain who, or what, might need protecting."
  }, 
@@ -4719,7 +4747,7 @@
   "Lore": "The Protectors don't often come into vision; their natural state being nestled within their leafy brethren."
  }, 
  "treant_overgrowth": {
-  "Description": "Summons an overgrowth of vines and branches around Treant that prevent afflicted enemies from moving, blinking, going invisible, or attacking.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Summons an overgrowth of vines and branches around Treant that prevent afflicted enemies from moving, blinking, going invisible, or attacking.", 
   "DisplayName": "Overgrowth", 
   "Lore": "Rooftrellen calls the ancestral spirit of nature, releasing its power through all of his kin."
  }, 
@@ -4773,16 +4801,16 @@
   "Lore": "Tales are still told of the wild feat that ended the grand brawl at White Fields."
  }, 
  "tusk_walrus_kick": {
-  "Description": "Kicks the target unit back %push_length% units, damaging them and slowing their movement by %move_slow%%% for %slow_duration% seconds.", 
+  "Description": "Kicks the target unit back, damaging them and slowing their movement speed.", 
   "DisplayName": "Walrus Kick"
  }, 
  "tusk_walrus_punch": {
-  "Description": "Tusk connects with his mighty Walrus Punch, a critical strike so powerful it launches its victim into the air. The victim is slowed upon landing.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Tusk connects with his mighty Walrus Punch, a critical strike so powerful it launches its victim into the air. The victim is slowed upon landing.", 
   "DisplayName": "Walrus PUNCH!", 
   "Lore": "It never matters who throws the first punch, only who throws the last."
  }, 
  "undying_decay": {
-  "Description": "Undying steals strength from all enemy heroes in an area, dealing base damage as he claims the enemy's strength for himself.\\n\\nUpgradable by Aghanim's Scepter, increasing Decay's strength steal.", 
+  "Description": "Undying steals strength from all enemy heroes in an area, dealing base damage as he claims the enemy's strength for himself.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Decay", 
   "Lore": "The strength of the living is simply borrowed from the strength of the dead."
  }, 
@@ -4978,7 +5006,7 @@
   "Lore": "Lyralei enchants gusts of winds to fight incoming attacks."
  }, 
  "winter_wyvern_arctic_burn": {
-  "Description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a magical freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus% additional vision range at night while soaring.\\n\\nUpgradable by Aghanim's Scepter, causing Arctic Burn to be a toggle ability, draining %mana_cost_scepter% mana per second when active. Removes limit on number of attacks per target.", 
+  "Description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a magical freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus% additional vision range at night while soaring.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Arctic Burn", 
   "Lore": "The same organ where some dragons stoke their inner flame is, in Auroth, a crucible of unimaginable cold. From deep within her frosty gullet, an exhalation sends enemies into burning agony."
  }, 

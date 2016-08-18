@@ -367,6 +367,10 @@ header: Heroes
 						<div class="hero-overlay overlay-hover"></div>
 						<div class="cropped-vert-portrait cropped-vert-portrait-terrorblade" title="Terrorblade"></div>
 					</a>
+					<a class="hero" href="/dota2/heroes/arc_warden">
+						<div class="hero-overlay overlay-hover"></div>
+						<div class="cropped-vert-portrait cropped-vert-portrait-arc_warden" title="Arc Warden"></div>
+					</a>
 
 				</div>
 			</div>
@@ -548,6 +552,12 @@ header: Heroes
 				</div>
 			</div>
 
+      <div class="col-md-offset-4 col-md-4">
+        <div class="form-group">
+          <label>Search:</label>
+          <input type="text" id="search" class="form-control"></input>
+        </div>
+      </div>
 		</section>
 	</div>
 	{% endblock container %}
@@ -556,3 +566,18 @@ header: Heroes
 <div class="push"></div>
 {% endblock push %}
 {% endblock content2 %}
+
+{% block scripts %}
+<script type="text/javascript">
+$(function () {
+  $('#search').keyup(function () {
+    var searchVal = $(this).val().toLowerCase();
+    $(".hero").removeClass('no-match');
+    $(".hero").filter(function( index ) {
+      var s = $(this).find('.cropped-vert-portrait').attr('title').toLowerCase();
+      return $(this).attr('href').toLowerCase().indexOf(searchVal) === -1 && s.indexOf(searchVal) === -1 && s.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
+    }).addClass('no-match');
+  });
+});
+</script>
+{% endblock scripts %}

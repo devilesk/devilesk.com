@@ -53,6 +53,9 @@ a.column-item img {
 	background: linear-gradient(to bottom, white, black);
 	opacity: 0;
 }
+.no-match {
+  opacity: .1;
+}
 .well {
     background-color: #131415;
     border: 1px solid #303239;

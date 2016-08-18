@@ -294,7 +294,7 @@
   "description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to allies in a %radius% radius.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to allies in a %radius% radius.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
   "displayname": "Drum of Endurance", 
   "id": 185, 
-  "itemcost": 1775, 
+  "itemcost": 1785, 
   "level": 0, 
   "lore": "A relic that enchants the bodies of those around it for swifter movement in times of crisis.", 
   "manacost": [], 
@@ -418,19 +418,19 @@
    {
     "name": "unholy_bonus_armor", 
     "value": [
-     5
+     4
     ]
    }, 
    {
     "name": "unholy_health_drain_per_tick", 
     "value": [
-     4
+     5
     ]
    }, 
    {
     "name": "unholy_health_drain_per_second_tooltip", 
     "value": [
-     40
+     45
     ]
    }, 
    {
@@ -446,7 +446,7 @@
   "description": "Active: Toggle Unholy Strength - When active, Unholy Strength grants +%unholy_bonus_damage% damage and +%unholy_bonus_strength% strength, but drains %unholy_health_drain_per_second_tooltip% health per second.  You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated.", 
   "displayname": "Armlet of Mordiggian", 
   "id": 151, 
-  "itemcost": 2320, 
+  "itemcost": 2370, 
   "level": 0, 
   "lore": "Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power.", 
   "manacost": [], 
@@ -1184,7 +1184,7 @@
     "name": "target_crit_multiplier", 
     "tooltip": "%SILENCE CRITICAL DAMAGE:", 
     "value": [
-     135.0
+     145.0
     ]
    }
   ], 
@@ -1499,7 +1499,7 @@
     "name": "bonus_agility", 
     "tooltip": "+$agi", 
     "value": [
-     30
+     35
     ]
    }, 
    {
@@ -1842,7 +1842,7 @@
    }
   ], 
   "cooldown": [
-   50
+   46
   ], 
   "description": "Active: Guard - Grant nearby allied heroes a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\\nPassive: Damage Block - Makes the wielder block damage from each incoming attack based on whether the equipped hero is melee or ranged.", 
   "displayname": "Crimson Guard", 
@@ -1914,7 +1914,7 @@
   "description": "Active: Cyclone - Sweeps a target unit up into cyclone, making them invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself. Enemy units take 50 magical damage upon landing.", 
   "displayname": "Eul's Scepter of Divinity", 
   "id": 100, 
-  "itemcost": 2725, 
+  "itemcost": 2735, 
   "level": 0, 
   "lore": "A mysterious scepter passed down through the ages, its disruptive winds can be used for good or evil.", 
   "manacost": [
@@ -2726,21 +2726,21 @@
     "name": "bonus_agility", 
     "tooltip": "+$agi", 
     "value": [
-     15
+     14
     ]
    }, 
    {
     "name": "bonus_strength", 
     "tooltip": "+$str", 
     "value": [
-     15
+     14
     ]
    }, 
    {
     "name": "base_attack_range", 
     "tooltip": "+$attack_range", 
     "value": [
-     130
+     140
     ]
    }
   ], 
@@ -4260,7 +4260,7 @@
     "name": "base_attack_range", 
     "tooltip": "+$attack_range", 
     "value": [
-     130
+     140
     ]
    }, 
    {
@@ -4295,12 +4295,18 @@
     "value": [
      4
     ]
+   }, 
+   {
+    "name": "bonus_attack_speed", 
+    "value": [
+     100
+    ]
    }
   ], 
   "cooldown": [
    14
   ], 
-  "description": "Active: When used on an enemy, it pushes you both away from each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Works like Force Staff when used on self or allies.\\nPassive: Increases attack range of ranged heroes by %base_attack_range%.", 
+  "description": "Active: When used on an enemy, it pushes you both away from each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Grants %bonus_attack_speed% Attack Speed during the attacks. Works like Force Staff when used on self or allies.\\nPassive: Increases attack range of ranged heroes by %base_attack_range%.", 
   "displayname": "Hurricane Pike", 
   "id": 263, 
   "itemcost": 4375, 
@@ -6683,7 +6689,7 @@
   "cooldown": [
    18
   ], 
-  "description": "Active: Soul Burn - Silences the target unit for %silence_duration% seconds and amplifies the damage it takes by %silence_damage_percent%%%.", 
+  "description": "Active: Soul Burn - Silences the target unit for %silence_duration% seconds. At the end of the silence, %silence_damage_percent%%% of the damage received while silenced is inflicted as bonus magical damage.", 
   "displayname": "Orchid Malevolence", 
   "id": 98, 
   "itemcost": 4075, 
@@ -7392,7 +7398,7 @@
   "cooldown": [], 
   "description": null, 
   "id": 150, 
-  "itemcost": 500, 
+  "itemcost": 550, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -8647,14 +8653,15 @@
   "ItemRecipe": 1, 
   "ItemRequirements": [
    "item_invis_sword", 
-   "item_ultimate_orb"
+   "item_ultimate_orb", 
+   "item_recipe_silver_edge"
   ], 
   "ItemResult": "item_silver_edge", 
   "attributes": [], 
   "cooldown": [], 
   "description": null, 
   "id": 248, 
-  "itemcost": 0, 
+  "itemcost": 300, 
   "level": 0, 
   "lore": null, 
   "manacost": [], 
@@ -9243,6 +9250,202 @@
   "manacost": [], 
   "name": "item_ring_of_regen"
  }, 
+ "item_river_painter": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to transform the water into liquid chrome for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Chrome", 
+  "id": 1021, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter"
+ }, 
+ "item_river_painter2": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to dry up the water for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect . Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Dry", 
+  "id": 1022, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter2"
+ }, 
+ "item_river_painter3": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to transform the water into a green slime for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Slime", 
+  "id": 1023, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter3"
+ }, 
+ "item_river_painter4": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to make the water oily for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Oil", 
+  "id": 1024, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter4"
+ }, 
+ "item_river_painter5": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to make the water electric for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Electrified", 
+  "id": 1025, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter5"
+ }, 
+ "item_river_painter6": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to transform the water into a purple bubbling potion for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Potion", 
+  "id": 1026, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter6"
+ }, 
+ "item_river_painter7": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT", 
+  "AbilityCastPoint": 0, 
+  "AbilityCastRange": 200, 
+  "ItemAliases": "paint", 
+  "ItemQuality": "component", 
+  "ItemStackable": 1, 
+  "ItemStockTime": 900, 
+  "attributes": [
+   {
+    "name": "paint_duration", 
+    "value": [
+     900
+    ]
+   }
+  ], 
+  "cooldown": [
+   0
+  ], 
+  "description": "Pour this serum into the river to transform the water into blood for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.", 
+  "displayname": "River Vial: Blood", 
+  "id": 1027, 
+  "itemcost": 0, 
+  "level": 0, 
+  "lore": null, 
+  "manacost": [], 
+  "name": "item_river_painter7"
+ }, 
  "item_robe": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
   "ItemAliases": [
@@ -9319,7 +9522,7 @@
    }
   ], 
   "cooldown": [
-   12
+   10
   ], 
   "description": "Active: Cripple - Slows the target's movement speed.", 
   "displayname": "Rod of Atos", 
@@ -9861,7 +10064,7 @@
   "description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus damage to the target, disable their passive abilities, and reduce their damage output.", 
   "displayname": "Silver Edge", 
   "id": 249, 
-  "itemcost": 4800, 
+  "itemcost": 5100, 
   "level": 0, 
   "lore": "Once used to slay an unjust king, only to have the kingdom erupt into civil war in the aftermath.", 
   "manacost": [
@@ -10013,7 +10216,7 @@
    }
   ], 
   "cooldown": [
-   0
+   1
   ], 
   "description": "Use: Upon activation, the user and all nearby allied player-controlled units gain invisibility and bonus movement speed for a brief time.  Minimap icons will also be hidden.  Attacking, or moving within %visibility_radius% range of an enemy hero or tower, will break the invisibility.", 
   "displayname": "Smoke of Deceit", 
@@ -11498,7 +11701,7 @@
   "description": "Passive: Gives increased movement speed.", 
   "displayname": "Wind Lace", 
   "id": 244, 
-  "itemcost": 225, 
+  "itemcost": 235, 
   "level": 0, 
   "lore": "", 
   "manacost": [], 

@@ -1,11 +1,11 @@
 import yaml
 import imp
 
-hf  = imp.load_source('hero_functions', '../hero_functions.py')
+hf  = imp.load_source('hero_functions', '/home/sites/devilesk.com/hero_functions.py')
 
 print 'start...'
 
-with open('../data/herodata.yaml', 'r') as f:
+with open('/home/sites/devilesk.com/data/herodata.yaml', 'r') as f:
     herodata = yaml.load(f.read())
 
 print 'loaded'
@@ -33,5 +33,5 @@ for h in herodata:
         populate_data(data, h, 'armor', l, hf.get_armor)
         populate_data(data, h, 'attackspersecond', l, hf.get_attacks_per_second)
 
-with open('../data/herodata_stats.yaml', 'w') as f:
+with open('/home/sites/devilesk.com/data/herodata_stats.yaml', 'w') as f:
     f.write(yaml.safe_dump(data, default_flow_style=False))

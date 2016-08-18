@@ -7734,6 +7734,9 @@ var HEROCALCULATOR = (function (my) {
                         case 'mana_regen_aura':
                             totalAttribute += parseFloat(attribute.value[0]);
                         break;
+                        case 'mana_regen':
+                            if (item == 'infused_raindrop') totalAttribute += parseFloat(attribute.value[0]);
+                        break;
                     }
                 }
             }
@@ -7748,9 +7751,9 @@ var HEROCALCULATOR = (function (my) {
                     var attribute = my.itemData['item_' + item].attributes[j];
                     switch(attribute.name) {
                         case 'bonus_mana_regen':
-						case 'mana_regen':
-						case 'bonus_mana_regen_pct':
-                            totalAttribute += parseFloat(attribute.value[0]);
+                        case 'mana_regen':
+                        case 'bonus_mana_regen_pct':
+                            if (item != 'infused_raindrop') totalAttribute += parseFloat(attribute.value[0]);
                         break;
                     }
                 }
@@ -7779,6 +7782,9 @@ var HEROCALCULATOR = (function (my) {
                     switch(attribute.name) {
                         case 'bonus_armor':
                             if (!isActive || item != 'medallion_of_courage') { totalAttribute += parseInt(attribute.value[0]); };
+                        break;
+                        case 'unholy_bonus_armor':
+                            if (isActive && item == 'armlet') { totalAttribute += parseInt(attribute.value[0]); };
                         break;
                     }
                 }
@@ -7893,6 +7899,7 @@ var HEROCALCULATOR = (function (my) {
             var totalAttribute = 0,
             hasBoots = false,
             hasEuls = false,
+            hasWindLace = false,
             bootItems = ['boots','phase_boots','arcane_boots','travel_boots','power_treads','tranquil_boots','guardian_greaves'];
             for (var i = 0; i < self.items().length; i++) {
                 var item = self.items()[i].item;
@@ -7926,6 +7933,12 @@ var HEROCALCULATOR = (function (my) {
                             if (!hasBoots && bootItems.indexOf(item) >= 0) {
                                 totalAttribute += parseInt(attribute.value[0]);
                                 hasBoots = true;
+                            }
+                        break;
+                        case 'movement_speed':
+                            if (!hasWindLace && item == 'wind_lace') {
+                                totalAttribute += parseInt(attribute.value[0]);
+                                hasWindLace = true;
                             }
                         break;
                     }

@@ -87,7 +87,10 @@ context:
             description: Heroes Home
             name: HEROES
             submenu:
-            -   name: Hero Data
+            -   name: Stat Chart
+                type: page
+                url: /dota2/apps/chart
+            -   name: Stat Table
                 type: page
                 url: /dota2/heroes/herodata
             -   name: Lore
@@ -96,7 +99,7 @@ context:
             -   name: Patch History
                 type: page
                 url: /dota2/heroes/patchhistory
-            -   name: Unit Data
+            -   name: Unit Stat Table
                 type: page
                 url: /dota2/heroes/unitdata
             type: node
@@ -130,6 +133,11 @@ context:
     providers:
         herodata: data/herodata.yaml
         herostat: data/herodata_stats.yaml
+        shoplayout: data/shoplayout.yaml
+        herolore: data/herolore.yaml
+        heroloremenu: data/heroloremenu.yaml
+        itemtooltip: data/itemtooltip.yaml
+        itemtooltipmenu: data/itemtooltipmenu.yaml
 deploy_root: /srv/www/dev.devilesk.com
 media_root: media
 media_url: /media
@@ -147,6 +155,7 @@ plugins:
 - hyde.ext.plugins.meta.TaggerPlugin
 - hyde.ext.plugins.text.SyntextPlugin
 - hyde.ext.plugins.text.TextlinksPlugin
+- hyde.ext.plugins.js.UglifyPlugin
 - hero_functions.MyJinjaLoader
 sorter:
     time:

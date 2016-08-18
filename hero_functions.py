@@ -64,10 +64,10 @@ def get_damage_max(data, level=1, bonus_level=0):
     return int(data['attackdamagemax']) + math.floor(get_total_attr(get_primary(data), data, level, bonus_level))
 
 def get_health(data, level=1, bonus_level=0):
-    return calc_stat(data['statushealth'], 19, get_total_attr('str', data, level, bonus_level))
+    return calc_stat(data['statushealth'], 20, get_total_attr('str', data, level, bonus_level))
 
 def get_mana(data, level=1, bonus_level=0):
-    return calc_stat(data['statusmana'], 13, get_total_attr('int', data, level, bonus_level))
+    return calc_stat(data['statusmana'], 12, get_total_attr('int', data, level, bonus_level))
 
 def get_armor(data, level=1, bonus_level=0):
     return round(calc_stat(data['armorphysical'], .14, get_total_attr('agi', data, level, bonus_level)), 2)

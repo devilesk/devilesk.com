@@ -178,12 +178,7 @@
   "name": "abaddon_borrowed_time"
  }, 
  "abaddon_death_coil": {
-  "AbilityCastPoint": [
-   0.452, 
-   0.452, 
-   0.452, 
-   0.452
-  ], 
+  "AbilityCastPoint": 0.35, 
   "AbilityCastRange": 800, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -2189,7 +2184,7 @@
     "name": "mana_void_ministun", 
     "tooltip": "STUN DURATION:", 
     "value": [
-     0.15
+     0.3
     ]
    }, 
    {
@@ -2378,7 +2373,7 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   20
+   18
   ], 
   "damage": [
    0, 
@@ -2619,8 +2614,8 @@
     "tooltip": "DURATION:", 
     "value": [
      12, 
-     13, 
-     14
+     14, 
+     16
     ]
    }
   ], 
@@ -2628,8 +2623,8 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
   "cooldown": [
-   50, 
    40, 
+   35, 
    30
   ], 
   "damage": [
@@ -3238,9 +3233,9 @@
   ], 
   "cooldown": [
    14, 
-   14, 
-   14, 
-   14
+   13, 
+   12, 
+   11
   ], 
   "damage": [
    90, 
@@ -3895,7 +3890,7 @@
     ]
    }, 
    {
-    "name": "scepter_damage", 
+    "name": "damage_scepter", 
     "tooltip": "SCEPTER DAMAGE PER SECOND:", 
     "value": [
      100.0
@@ -4065,7 +4060,7 @@
   "AbilityModifierSupportBonus": 0, 
   "AbilityModifierSupportValue": 1, 
   "ID": 5171, 
-  "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
+  "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
   "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
@@ -4224,7 +4219,7 @@
   "level": 0, 
   "lore": "After befriending the strange beast of his childhood, Beastmaster has learned to call to animals in times of need.", 
   "manacost": [
-   15
+   25
   ], 
   "name": "beastmaster_call_of_the_wild"
  }, 
@@ -4272,10 +4267,10 @@
     "name": "boar_damage_tooltip", 
     "tooltip": "BOAR ATTACK DAMAGE:", 
     "value": [
-     15, 
-     30, 
-     45, 
-     60
+     10, 
+     25, 
+     40, 
+     55
     ]
    }, 
    {
@@ -4336,7 +4331,7 @@
   "level": 0, 
   "lore": "After befriending the strange beast of his childhood, Beastmaster has learned to call to animals in times of need.", 
   "manacost": [
-   15
+   25
   ], 
   "name": "beastmaster_call_of_the_wild_boar"
  }, 
@@ -4603,16 +4598,16 @@
     "name": "damage", 
     "tooltip": "DAMAGE:", 
     "value": [
-     200, 
-     250, 
+     150, 
+     225, 
      300
     ]
    }, 
    {
     "name": "side_damage", 
     "value": [
-     200, 
-     250, 
+     150, 
+     225, 
      300
     ]
    }, 
@@ -5287,10 +5282,10 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   30, 
    25, 
-   20, 
-   15
+   21, 
+   17, 
+   13
   ], 
   "damage": [
    0, 
@@ -5428,8 +5423,8 @@
     "name": "movement_damage_pct", 
     "tooltip": "%MOVE DAMAGE:", 
     "value": [
-     20, 
-     40, 
+     26, 
+     42, 
      60
     ]
    }, 
@@ -5453,14 +5448,14 @@
     ]
    }, 
    {
-    "name": "max_charges", 
+    "name": "max_charges_scepter", 
     "tooltip": "SCEPTER CHARGES:", 
     "value": [
      2
     ]
    }, 
    {
-    "name": "charge_restore_time", 
+    "name": "charge_restore_time_scepter", 
     "tooltip": "SCEPTER REPLENISH TIME:", 
     "value": [
      40
@@ -5818,9 +5813,9 @@
     "name": "bonus_movespeed", 
     "tooltip": "%MOVE SLOW:", 
     "value": [
-     -18, 
-     -22, 
-     -26, 
+     -15, 
+     -20, 
+     -25, 
      -30
     ]
    }, 
@@ -5828,10 +5823,10 @@
     "name": "bonus_attackspeed", 
     "tooltip": "ATTACK SLOW:", 
     "value": [
+     -15, 
+     -20, 
      -25, 
-     -27, 
-     -29, 
-     -31
+     -30
     ]
    }, 
    {
@@ -6007,8 +6002,8 @@
     "name": "bonus_gold_self", 
     "tooltip": "BONUS GOLD FOR SELF:", 
     "value": [
-     200, 
-     275, 
+     150, 
+     250, 
      350
     ]
    }, 
@@ -6636,9 +6631,9 @@
     "name": "duration", 
     "tooltip": "DURATION:", 
     "value": [
-     15, 
-     17, 
-     19
+     16, 
+     18, 
+     20
     ]
    }, 
    {
@@ -7277,7 +7272,7 @@
     ]
    }, 
    {
-    "name": "radius", 
+    "name": "radius_scepter", 
     "tooltip": "SCEPTER RADIUS:", 
     "value": [
      700
@@ -7300,7 +7295,7 @@
    0, 
    0
   ], 
-  "description": "Covers a target in snot, causing it to have reduced armor and movement speed.  Multiple casts stack and refresh the duration.\\n\\nUpgradable by Aghanim's Scepter, making Goo an AoE ability that applies Goo to all enemies around you in a %radius% radius.", 
+  "description": "Covers a target in snot, causing it to have reduced armor and movement speed.  Multiple casts stack and refresh the duration.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Viscous Nasal Goo", 
   "level": 0, 
   "lore": "Having caught a cold while stuck in the snow, Bristleback turns it to his advantage.", 
@@ -8040,7 +8035,7 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   6
+   5
   ], 
   "damage": [
    0, 
@@ -8748,9 +8743,7 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
   "cooldown": [
-   140, 
-   140, 
-   140
+   130
   ], 
   "damage": [
    0, 
@@ -9323,7 +9316,7 @@
    0, 
    0
   ], 
-  "AbilityCastRange": 630, 
+  "AbilityCastRange": 640, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -10567,7 +10560,7 @@
     "name": "radius", 
     "tooltip": "RADIUS:", 
     "value": [
-     400
+     425
     ]
    }, 
    {
@@ -10772,7 +10765,7 @@
    0.3, 
    0.3
   ], 
-  "AbilityCastRange": 500, 
+  "AbilityCastRange": 525, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -12052,7 +12045,7 @@
     "name": "damage", 
     "tooltip": "BASE DAMAGE:", 
     "value": [
-     25.0
+     16.0
     ]
    }, 
    {
@@ -12823,7 +12816,7 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   125
+   145
   ], 
   "damage": [
    0, 
@@ -12980,6 +12973,9 @@
     "name": "burn_damage", 
     "tooltip": "BASE BURN DAMAGE:", 
     "value": [
+     25, 
+     30, 
+     35, 
      40
     ]
    }, 
@@ -13625,10 +13621,10 @@
     "name": "frost_arrows_movement_speed", 
     "tooltip": "%MOVEMENT SLOW:", 
     "value": [
-     -15, 
-     -30, 
-     -45, 
-     -60
+     -16, 
+     -32, 
+     -48, 
+     -64
     ]
    }, 
    {
@@ -13815,9 +13811,6 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   13, 
-   13, 
-   13, 
    13
   ], 
   "damage": [
@@ -14200,7 +14193,7 @@
    0, 
    0
   ], 
-  "description": "Earth Spirit pulls the target Stone Remnant. Enemies struck by the gripped target will be silenced, and take damage if the gripped target is a Stone Remnant.", 
+  "description": "Earth Spirit pulls the target Stone Remnant. Enemies struck by the gripped target will be silenced, and take damage if the gripped target is a Stone Remnant.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Geomagnetic Grip", 
   "level": 0, 
   "lore": "Like calls to like. Even the minerals found in the blood and bones of living beings are not immune to the call of the Earth Spirit.", 
@@ -14299,6 +14292,8 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
+   100, 
+   90, 
    80
   ], 
   "damage": [
@@ -14307,7 +14302,7 @@
    0, 
    0
   ], 
-  "description": "Magnetizes units in a small nearby area, causing them to take damage for a short duration. Magnetized heroes cause nearby Stone Remnants to explode, destroying the remnant and refreshing Magnetize's duration on all nearby enemies. This process can repeat multiple times. If an enemy hero is affected by silence or slows as a result of Geomagnetic Grip or Rolling Boulder, all magnetized heroes share the effects.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Magnetizes units in a small nearby area, causing them to take damage for a short duration. Magnetized heroes cause nearby Stone Remnants to explode, destroying the remnant and refreshing Magnetize's duration on all nearby enemies. This process can repeat multiple times. If an enemy hero is affected by silence or slows as a result of Geomagnetic Grip or Rolling Boulder, all magnetized heroes share the effects.", 
   "displayname": "Magnetize", 
   "level": 0, 
   "lore": "At the Earth Spirit's call, the minerals in the blood and bones of his enemies rebel against the bodies they find themselves in.", 
@@ -14374,7 +14369,7 @@
    0, 
    0
   ], 
-  "description": "Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After %duration% seconds the remnant shatters, releasing the hero and damaging nearby enemies.", 
+  "description": "Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After a short duration the remnant shatters, releasing the hero and damaging nearby enemies.", 
   "displayname": "Enchant Remnant", 
   "level": 0, 
   "lore": "Kaolin uses the elemental power of the Earth to temporarily petrify living beings, so that they might be conscripted into his stone funerary army.", 
@@ -14464,7 +14459,10 @@
     "name": "slow_duration", 
     "tooltip": "SLOW DURATION:", 
     "value": [
-     2.0
+     1.4, 
+     1.6, 
+     1.8, 
+     2
     ]
    }
   ], 
@@ -14664,19 +14662,19 @@
     "name": "echo_slam_damage_range", 
     "tooltip": "RADIUS:", 
     "value": [
-     575
+     600
     ]
    }, 
    {
     "name": "echo_slam_echo_search_range", 
     "value": [
-     575
+     600
     ]
    }, 
    {
     "name": "echo_slam_echo_range", 
     "value": [
-     575
+     600
     ]
    }, 
    {
@@ -14760,7 +14758,7 @@
     ]
    }, 
    {
-    "name": "scepter_distance", 
+    "name": "distance_scepter", 
     "tooltip": "SCEPTER JUMP DISTANCE:", 
     "value": [
      900
@@ -14791,7 +14789,7 @@
    0, 
    0
   ], 
-  "description": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.\\n\\nUpgradable by Aghanim's Scepter. Enchant Totem becomes a %scepter_distance% range ground target ability, causes you to jump in the air and land at the target spot, casting Enchant Totem there.\\nReduced cast point of Enchant Totem to 0.", 
+  "description": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Enchant Totem", 
   "level": 0, 
   "lore": "Raigor's gorilla strength can destroy mountains.", 
@@ -16276,15 +16274,15 @@
   "ID": 5149, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
   "abilitytype": "DOTA_ABILITY_TYPE_ULTIMATE", 
-  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_PURE", 
   "attributes": [
    {
     "name": "far_damage", 
     "tooltip": "DAMAGE PER SECOND:", 
     "value": [
-     55, 
-     110, 
-     165
+     50, 
+     100, 
+     150
     ]
    }, 
    {
@@ -16317,9 +16315,9 @@
    {
     "name": "near_damage", 
     "value": [
-     55, 
-     110, 
-     165
+     50, 
+     100, 
+     150
     ]
    }, 
    {
@@ -21214,7 +21212,7 @@
    {
     "name": "fire_rate", 
     "value": [
-     1.4
+     1.2
     ]
    }, 
    {
@@ -22748,13 +22746,13 @@
     "name": "spirit_damage", 
     "tooltip": "DAMAGE (<font color='#cabe68'>EXORT</font>):\\n", 
     "value": [
-     29, 
-     38, 
-     47, 
-     56, 
-     65, 
-     74, 
-     83, 
+     22, 
+     32, 
+     42, 
+     52, 
+     62, 
+     72, 
+     82, 
      92
     ]
    }, 
@@ -23706,9 +23704,9 @@
     "tooltip": "DURATION:", 
     "value": [
      1, 
-     1.4, 
-     1.8, 
-     2.2
+     1.5, 
+     2, 
+     2.5
     ]
    }, 
    {
@@ -24458,10 +24456,10 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   19, 
-   18, 
    17, 
-   16
+   16, 
+   15, 
+   14
   ], 
   "damage": [
    0, 
@@ -24717,7 +24715,7 @@
    0, 
    0
   ], 
-  "description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies and harm enemies during daytime. The heal and damage amounts are the same.", 
+  "description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Illuminate", 
   "level": 0, 
   "lore": "Ezalor's hidden light reveals itself in marvelous fashion.", 
@@ -25138,7 +25136,7 @@
    0, 
    0
   ], 
-  "description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter, allowing Illuminate to heal allies and harm enemies during daytime. The heal and damage amounts are the same.", 
+  "description": "Channels light energy, building power the longer it's channeled.  Once released, a wave is sent forth that deals damage and gives vision in its path.  The longer it is channeled, the more damage is dealt.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Illuminate", 
   "level": 0, 
   "lore": "Ezalor's hidden light reveals itself in marvelous fashion.", 
@@ -25379,7 +25377,7 @@
    500, 
    600
   ], 
-  "description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.", 
+  "description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.\\n\\nUpgradeable by Aghanim's Scepter.", 
   "displayname": "Ghostship", 
   "level": 0, 
   "lore": "The final ship of the Claddish Navy is nothing but a phantom, but it is all too real to the enemies of the Admiral.", 
@@ -25446,7 +25444,7 @@
    0, 
    0
   ], 
-  "AbilityCastRange": 128, 
+  "AbilityCastRange": 150, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -25482,9 +25480,9 @@
     "tooltip": "DAMAGE BONUS:", 
     "value": [
      25, 
-     40, 
-     55, 
-     70
+     45, 
+     65, 
+     85
     ]
    }, 
    {
@@ -25564,9 +25562,9 @@
     "name": "slow_duration", 
     "tooltip": "SLOW DURATION:", 
     "value": [
-     1, 
-     2, 
-     3, 
+     1.75, 
+     2.5, 
+     3.25, 
      4
     ]
    }, 
@@ -25746,6 +25744,7 @@
    }, 
    {
     "name": "duration_scepter", 
+    "tooltip": "SCEPTER DURATION:", 
     "value": [
      6, 
      7, 
@@ -25841,9 +25840,9 @@
    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   ], 
   "cooldown": [
-   2.6, 
-   2, 
-   1.4, 
+   2.3, 
+   1.8, 
+   1.3, 
    0.8
   ], 
   "damage": [
@@ -25917,9 +25916,9 @@
     "tooltip": "DAMAGE PER HERO:", 
     "value": [
      20, 
-     35, 
-     50, 
-     65
+     40, 
+     60, 
+     80
     ]
    }, 
    {
@@ -26505,14 +26504,16 @@
    }, 
    {
     "name": "slow_movement_speed_scepter", 
+    "tooltip": "%MOVEMENT SLOW:", 
     "value": [
-     -30
+     -50
     ]
    }, 
    {
     "name": "slow_attack_speed_scepter", 
+    "tooltip": "ATTACK SLOW:", 
     "value": [
-     -30
+     -50
     ]
    }
   ], 
@@ -26657,10 +26658,7 @@
     "name": "slow_attack_speed", 
     "tooltip": "ENEMY ATTACK SLOW:", 
     "value": [
-     -20, 
-     -20, 
-     -20, 
-     -20
+     -30
     ]
    }, 
    {
@@ -27403,7 +27401,7 @@
    0, 
    0
   ], 
-  "description": "Lifestealer infests the body of a target unit, becoming undetectable inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and when consumed the creep will heal Lifestealer's health equal to the creep's current health.  Does not work on enemy heroes.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Lifestealer infests the body of a target unit, becoming undetectable inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and when consumed the creep will heal Lifestealer's health equal to the creep's current health.  Does not work on enemy heroes.", 
   "displayname": "Infest", 
   "level": 0, 
   "lore": "With this infestation, N'aix consumes the life blood of the host, restoring him back to full unholy power.", 
@@ -27638,7 +27636,7 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   8.5
+   8
   ], 
   "damage": [
    110, 
@@ -28560,7 +28558,7 @@
    0, 
    0
   ], 
-  "description": "Summons a powerful Spirit Bear companion that can equip items.  If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers %backlash_damage%%% of his max health as backlash damage if the Spirit Bear dies.  As the bear increases in levels, it can learn the Return, Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from attributes.\\n\\nUpgradable by Aghanim's Scepter, allowing Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies.", 
+  "description": "Summons a powerful Spirit Bear companion that can equip items.  If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers %backlash_damage%%% of his max health as backlash damage if the Spirit Bear dies.  As the bear increases in levels, it can learn the Return, Entangling Claws, and Demolish abilities.  Spirit Bear does not benefit from attributes.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Summon Spirit Bear", 
   "level": 0, 
   "lore": "Sylla's lifelong companion is symbiotic with his spirit and heart, coming to aid him in any time of need.", 
@@ -29121,12 +29119,7 @@
   "name": "luna_eclipse"
  }, 
  "luna_lucent_beam": {
-  "AbilityCastPoint": [
-   0.6, 
-   0.6, 
-   0.6, 
-   0.6
-  ], 
+  "AbilityCastPoint": 0.6, 
   "AbilityCastRange": 800, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -29152,10 +29145,7 @@
     "name": "stun_duration", 
     "tooltip": "STUN DURATION:", 
     "value": [
-     0.6, 
-     0.6, 
-     0.6, 
-     0.6
+     0.8
     ]
    }
   ], 
@@ -29921,7 +29911,7 @@
     "name": "cleave_radius", 
     "tooltip": "CLEAVE RADIUS:", 
     "value": [
-     200
+     225
     ]
    }, 
    {
@@ -29936,7 +29926,7 @@
    {
     "name": "splash_radius", 
     "value": [
-     200
+     225
     ]
    }, 
    {
@@ -29959,7 +29949,7 @@
    0, 
    0
   ], 
-  "description": "Gives an allied unit bonus damage and cleave on attack.\\n\\nUpgradable by Aghanim's Scepter, changing Empower to be an allied hero aura. Affects ranged heroes for half values and causes them to splash around the target. Can still be cast on units, but doesn't stack.", 
+  "description": "Gives an allied unit bonus damage and cleave on attack.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Empower", 
   "level": 0, 
   "lore": "With a deep bellow, Magnus displays his true power.", 
@@ -30059,7 +30049,7 @@
    0, 
    0
   ], 
-  "description": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Magnus changes properties of matter, sucking all nearby enemies in front of him and stunning them with a powerful slam and dealing damage.", 
   "displayname": "Reverse Polarity", 
   "level": 0, 
   "lore": "Magnus fights with the fury of the erupting Mt. Joerlak.", 
@@ -30888,10 +30878,10 @@
    0
   ], 
   "damage": [
-   8, 
-   16, 
-   24, 
-   32
+   10, 
+   20, 
+   30, 
+   40
   ], 
   "description": "Meepo enchants his weapon to deal damage per second, as well as slow the movement speed of the attacked unit.  Geostrikes from multiple Meepos stack.", 
   "displayname": "Geostrike", 
@@ -31272,7 +31262,7 @@
     ]
    }, 
    {
-    "name": "scepter_interval", 
+    "name": "interval_scepter", 
     "tooltip": "SCEPTER INTERVAL:", 
     "value": [
      8.0
@@ -31295,7 +31285,7 @@
    225, 
    300
   ], 
-  "description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter, causing Starstorm to passively trigger every %scepter_interval% seconds. Does not trigger if the enemy doesn't see Mirana.", 
+  "description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Starstorm", 
   "level": 0, 
   "lore": "The Goddess breaks the strata to empower her Princess in the time of need.", 
@@ -31513,7 +31503,7 @@
    "DOTA_ABILITY_BEHAVIOR_HIDDEN"
   ], 
   "cooldown": [
-   70
+   60
   ], 
   "damage": [
    0, 
@@ -31915,7 +31905,7 @@
    0, 
    0
   ], 
-  "description": "Morphling replicates any hero, friend or foe, dealing %tooltip_illusion_damage_out_pct%%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Morphling replicates any hero, friend or foe, dealing %tooltip_illusion_damage_out_pct%%% of the original Hero's outgoing damage while taking 100%% of any incoming damage.  At any time, Morphling can instantly take the position of the Replicate for 150 mana. If Morphling dies, the Replicate will expire.", 
   "displayname": "Replicate", 
   "level": 0, 
   "lore": "Staring into Morphling produces a reflection that mimics the beholder.", 
@@ -32724,7 +32714,7 @@
    0, 
    0
   ], 
-  "AbilityCastRange": 1200, 
+  "AbilityCastRange": 900, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -32748,7 +32738,7 @@
     "name": "aura_radius", 
     "tooltip": "RADIUS:", 
     "value": [
-     1200
+     900
     ]
    }, 
    {
@@ -32756,9 +32746,9 @@
     "tooltip": "%HEALTH DECAY:", 
     "value": [
      0.6, 
-     0.9, 
-     1.2, 
-     1.5
+     1, 
+     1.4, 
+     1.8
     ]
    }
   ], 
@@ -33484,9 +33474,9 @@
     "name": "necromastery_max_souls", 
     "tooltip": "MAX SOULS:", 
     "value": [
-     15, 
-     22, 
-     29, 
+     18, 
+     24, 
+     30, 
      36
     ]
    }, 
@@ -33528,7 +33518,7 @@
    0, 
    0
   ], 
-  "description": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. If the killed unit is a hero, he gains 12 souls.  On death, he releases half of them from bondage.\\n\\nUpgradable by Aghanim's Scepter, increasing Necromastery Max Souls to %necromastery_max_souls_scepter%.", 
+  "description": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. If the killed unit is a hero, he gains 12 souls.  On death, he releases half of them from bondage.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Necromastery", 
   "level": 0, 
   "lore": "Harvested souls swirl in and out of the Abysm, empowering the Shadow Fiend to increase the size of his collection.", 
@@ -33649,13 +33639,14 @@
     ]
    }, 
    {
-    "name": "requiem_heal_scepter_pct", 
+    "name": "requiem_heal_pct_scepter", 
+    "tooltip": "%SCEPTER HEAL ON RETURN:", 
     "value": [
      100.0
     ]
    }, 
    {
-    "name": "requiem_damage_scepter_pct", 
+    "name": "requiem_damage_pct_scepter", 
     "tooltip": "%SCEPTER DAMAGE ON RETURN:", 
     "value": [
      40.0
@@ -33688,12 +33679,7 @@
   "name": "nevermore_requiem"
  }, 
  "nevermore_shadowraze1": {
-  "AbilityCastPoint": [
-   0.67, 
-   0.67, 
-   0.67, 
-   0.67
-  ], 
+  "AbilityCastPoint": 0.67, 
   "AbilityCastRange": 0, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -33740,9 +33726,6 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
-   10, 
-   10, 
-   10, 
    10
   ], 
   "damage": [
@@ -33761,12 +33744,7 @@
   "name": "nevermore_shadowraze1"
  }, 
  "nevermore_shadowraze2": {
-  "AbilityCastPoint": [
-   0.67, 
-   0.67, 
-   0.67, 
-   0.67
-  ], 
+  "AbilityCastPoint": 0.67, 
   "AbilityCastRange": 0, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -33813,9 +33791,6 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
-   10, 
-   10, 
-   10, 
    10
   ], 
   "damage": [
@@ -33834,12 +33809,7 @@
   "name": "nevermore_shadowraze2"
  }, 
  "nevermore_shadowraze3": {
-  "AbilityCastPoint": [
-   0.67, 
-   0.67, 
-   0.67, 
-   0.67
-  ], 
+  "AbilityCastPoint": 0.67, 
   "AbilityCastRange": 0, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -33886,9 +33856,6 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
-   10, 
-   10, 
-   10, 
    10
   ], 
   "damage": [
@@ -34336,7 +34303,7 @@
    0, 
    0
   ], 
-  "description": "Nyx Assassin buries himself beneath the battlefield over %burrow_delay% second. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mana Burn and Impale is increased by %impale_burn_range_increase_pct_tooltip%%%, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. His health and mana regeneration are also increased, and he gains %damage_reduction%%% damage reduction.", 
+  "description": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mana Burn and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. His health and mana regeneration are also increased, and he gains damage reduction from all damage sources.", 
   "displayname": "Burrow", 
   "level": 0, 
   "lore": "Some castes of zealot scarab are known to create small burrows to lie in wait, ready to ambush their prey.", 
@@ -34746,7 +34713,7 @@
    0, 
    0
   ], 
-  "description": "Allows Nyx Assassin to become invisible and gain a speed bonus.  If Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt with the attack.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Allows Nyx Assassin to become invisible and gain a speed bonus.  If Nyx Assassin attacks to break the invisibility, massive bonus damage is dealt with the attack.", 
   "displayname": "Vendetta", 
   "level": 0, 
   "lore": "The scarab kills for the glory of his queen.", 
@@ -34819,7 +34786,7 @@
     "name": "int_steal_duration", 
     "tooltip": "STEAL DURATION:", 
     "value": [
-     50.0
+     60.0
     ]
    }
   ], 
@@ -34967,10 +34934,10 @@
     "name": "bonus_mana", 
     "tooltip": "BASE MANA:", 
     "value": [
-     75, 
-     150, 
-     225, 
-     300
+     125, 
+     200, 
+     275, 
+     350
     ]
    }, 
    {
@@ -35316,7 +35283,7 @@
    {
     "name": "multicast_delay", 
     "value": [
-     0.4
+     0.5
     ]
    }
   ], 
@@ -35484,7 +35451,7 @@
    {
     "name": "multicast_delay", 
     "value": [
-     0.4
+     0.5
     ]
    }
   ], 
@@ -35506,10 +35473,7 @@
   "level": 0, 
   "lore": "Batter up!", 
   "manacost": [
-   95, 
-   105, 
-   115, 
-   125
+   90
   ], 
   "name": "ogre_magi_ignite"
  }, 
@@ -35658,7 +35622,7 @@
    0, 
    0
   ], 
-  "description": "Enables Ogre Magi to cast his spells multiple times with each use, while also granting his spells greater potency:\\n<font color=\\\"#EEF10D\\\">Fireblast</font> has its cooldown decreased, its range increased, and its mana cost increased.\\n<font color=\\\"#DE8930\\\">Ignite</font> hits enemies in an area, its range is increased, and it may be cast onto random nearby enemies when used.\\n<font color=\\\"#E34F4F\\\">Bloodlust</font> has its cooldown reduced, and may be cast on random nearby allies when used.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Enables Ogre Magi to cast his spells multiple times with each use, while also granting his spells greater potency:\\n<font color=\\\"#EEF10D\\\">Fireblast</font> has its cooldown decreased, its range increased, and its mana cost increased.\\n<font color=\\\"#DE8930\\\">Ignite</font> hits enemies in an area, its range is increased, and it may be cast onto random nearby enemies when used.\\n<font color=\\\"#E34F4F\\\">Bloodlust</font> has its cooldown reduced, and may be cast on random nearby allies when used.", 
   "displayname": "Multicast", 
   "level": 0, 
   "lore": "Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill.", 
@@ -35703,7 +35667,7 @@
    {
     "name": "multicast_delay", 
     "value": [
-     0.4
+     0.5
     ]
    }, 
    {
@@ -35720,7 +35684,7 @@
    6
   ], 
   "damage": 275, 
-  "description": "Blasts an enemy unit with a wave of fire, dealing damage and stunning the target. Its mana cost is 60%% of the hero's current mana.", 
+  "description": "Blasts an enemy unit with a wave of fire, dealing damage and stunning the target. Its mana cost is 60%% of Ogre Magi's current mana.", 
   "displayname": "Unrefined Fireblast", 
   "level": 0, 
   "lore": "The 'who-casts-spell-first' argument between himself is solved simply by both casting at once.", 
@@ -36231,7 +36195,7 @@
  }, 
  "oracle_purifying_flames": {
   "AbilityCastPoint": 0.3, 
-  "AbilityCastRange": 750, 
+  "AbilityCastRange": 800, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -36321,7 +36285,7 @@
    0, 
    0
   ], 
-  "description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.\\n\\nUpgradable by Aghanim's Scepter, reducing cooldown and improves cast point.", 
+  "description": "Burns away impurities, dealing heavy magic damage to the target before causing them to regenerate health over time. The amount of health regenerated over its duration exceeds the amount of initial damage. Can be cast on enemies and allies.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Purifying Flames", 
   "level": 0, 
   "lore": "Like a hall of mirrors might amplify the light of a single candle, the shattered walls of the universe can transform the light of prophecy into a burning torch.", 
@@ -36513,7 +36477,7 @@
   "AbilityModifierSupportBonus": 0, 
   "AbilityModifierSupportValue": 1, 
   "ID": 5191, 
-  "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
+  "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
   "attributes": [
    {
@@ -36623,7 +36587,7 @@
     "name": "base_damage", 
     "tooltip": "BASE DAMAGE:", 
     "value": [
-     60
+     75
     ]
    }, 
    {
@@ -37548,10 +37512,10 @@
     "name": "base_dmg", 
     "tooltip": "BASE DAMAGE PER SECOND:", 
     "value": [
+     10, 
      15, 
      20, 
-     25, 
-     30
+     25
     ]
    }, 
    {
@@ -37632,7 +37596,7 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   20
+   26
   ], 
   "damage": [
    0, 
@@ -38465,8 +38429,8 @@
   ], 
   "cooldown": [
    30, 
-   30, 
-   30
+   25, 
+   20
   ], 
   "damage": [
    0, 
@@ -38673,7 +38637,7 @@
    270, 
    360
   ], 
-  "description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.\\n\\nUpgradable by Aghanim's Scepter, reducing the cooldown and increasing the damage.", 
+  "description": "Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge and dealing damage if it is an enemy.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Meat Hook", 
   "level": 0, 
   "lore": "The Butcher's hook is a symbolic nightmare, its curved blade a frightening reminder of his slaughterous intent.", 
@@ -38730,7 +38694,7 @@
     "name": "rot_slow", 
     "tooltip": "%MOVE SLOW:", 
     "value": [
-     -27
+     -30
     ]
    }
   ], 
@@ -39022,10 +38986,7 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
-   5.5, 
-   5.5, 
-   5.5, 
-   5.5
+   5
   ], 
   "damage": [
    100, 
@@ -39699,12 +39660,7 @@
   "name": "rattletrap_hookshot"
  }, 
  "rattletrap_power_cogs": {
-  "AbilityCastPoint": [
-   0.3, 
-   0.3, 
-   0.3, 
-   0.3
-  ], 
+  "AbilityCastPoint": 0.2, 
   "AbilityCastRange": 0, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -39771,7 +39727,7 @@
    {
     "name": "cogs_radius", 
     "value": [
-     200
+     215
     ]
    }, 
    {
@@ -39843,10 +39799,7 @@
     "name": "radius", 
     "tooltip": "RADIUS:", 
     "value": [
-     575, 
-     575, 
-     575, 
-     575
+     600
     ]
    }, 
    {
@@ -39965,9 +39918,9 @@
     "name": "damage", 
     "tooltip": "DAMAGE:", 
     "value": [
-     37, 
-     50, 
-     63
+     40, 
+     55, 
+     70
     ]
    }, 
    {
@@ -40559,9 +40512,6 @@
   "level": 0, 
   "lore": "Since his escape during the night of his betrayal, Riki has valued the use of a simple smoke screen to confuse his opponents.", 
   "manacost": [
-   75, 
-   80, 
-   85, 
    90
   ], 
   "name": "riki_smoke_screen"
@@ -42605,7 +42555,7 @@
    220, 
    280
   ], 
-  "description": "Sand King burrows into the ground and tunnels forward, damaging and stunning enemy units above him as he resurfaces.\\n\\nUpgradable by Aghanim's Scepter, increasing the range and applies Caustic Finale to every heroes hit by Burrowstrike.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Sand King burrows into the ground and tunnels forward, damaging and stunning enemy units above him as he resurfaces.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Burrowstrike", 
   "level": 0, 
   "lore": "Crixalis often lies in wait, burrowing under the surface to ambush his adversaries.", 
@@ -42822,8 +42772,8 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
-   140, 
    120, 
+   110, 
    100
   ], 
   "damage": [
@@ -43290,10 +43240,10 @@
     "name": "illusion_duration", 
     "tooltip": "ILLUSION DURATION:", 
     "value": [
-     6, 
      8, 
      10, 
-     12
+     12, 
+     14
     ]
    }, 
    {
@@ -43744,15 +43694,15 @@
     "name": "splash_damage", 
     "tooltip": "%SPLASH DAMAGE:", 
     "value": [
-     75
+     100
     ]
    }, 
    {
     "name": "damage_min", 
     "value": [
      40, 
-     55, 
-     70
+     60, 
+     80
     ]
    }, 
    {
@@ -43760,8 +43710,8 @@
     "tooltip": "ATTACK DAMAGE:", 
     "value": [
      45, 
-     60, 
-     75
+     65, 
+     85
     ]
    }, 
    {
@@ -44251,7 +44201,7 @@
    0, 
    0
   ], 
-  "description": "Fires your main saw blade at the target location where it will spin in place, dealing damage in an area around it.  Additionally, for each 5%% of health missing, enemies caught in the saw blade move more slowly. The blade deals damage and cuts down trees in its path when fired and retracted.  While active the ability costs mana, and you lose the ability to attack.", 
+  "description": "Fires a secondary saw blade at the target location where it will spin in place, dealing damage in an area around it.  Additionally, for each 5%% of health missing, enemies caught in the saw blade move more slowly. The blade deals damage and cuts down trees in its path when fired and retracted.  While active the ability costs mana, and you lose the ability to attack.", 
   "displayname": "Chakram", 
   "level": 0, 
   "lore": "Cut cut cut cut cut cut cut cut cut cut cut!", 
@@ -45040,10 +44990,10 @@
     "name": "blast_dot_damage", 
     "tooltip": "DAMAGE PER SECOND:", 
     "value": [
-     15, 
-     30, 
-     40, 
-     50
+     20, 
+     35, 
+     50, 
+     65
     ]
    }
   ], 
@@ -45561,7 +45511,7 @@
     "name": "slow_radius", 
     "tooltip": "DAMAGE RADIUS:", 
     "value": [
-     200
+     250
     ]
    }, 
    {
@@ -45695,7 +45645,7 @@
     ]
    }, 
    {
-    "name": "scepter_cooldown", 
+    "name": "cooldown_scepter", 
     "tooltip": "SCEPTER COOLDOWN:", 
     "value": [
      20, 
@@ -45704,7 +45654,7 @@
     ]
    }, 
    {
-    "name": "scepter_duration", 
+    "name": "duration_scepter", 
     "tooltip": "SCEPTER DURATION:", 
     "value": [
      12.0
@@ -45966,9 +45916,6 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
   "cooldown": [
-   8, 
-   8, 
-   8, 
    8
   ], 
   "damage": [
@@ -46301,10 +46248,10 @@
     "name": "pounce_damage", 
     "tooltip": "POUNCE DAMAGE:", 
     "value": [
-     50, 
-     100, 
-     150, 
-     200
+     40, 
+     80, 
+     120, 
+     160
     ]
    }, 
    {
@@ -46712,9 +46659,9 @@
   ], 
   "damage": [
    15, 
-   30, 
-   45, 
-   60
+   35, 
+   55, 
+   75
   ], 
   "description": "Consumes a charge to launch a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area. Shrapnel charges restore every %charge_restore_time% seconds.", 
   "displayname": "Shrapnel", 
@@ -47472,9 +47419,9 @@
     "tooltip": "%MOVESPEED AS DAMAGE:", 
     "value": [
      22, 
-     28, 
-     34, 
-     40
+     30, 
+     38, 
+     46
     ]
    }, 
    {
@@ -47838,7 +47785,7 @@
     ]
    }, 
    {
-    "name": "scepter_radius", 
+    "name": "radius_scepter", 
     "tooltip": "SCEPTER RADIUS:", 
     "value": [
      475
@@ -47860,7 +47807,7 @@
    0, 
    0
   ], 
-  "description": "A vortex that pulls an enemy unit to Storm Spirit's location, it also slows the Storm Spirit by 50%% for 3 seconds.\\n\\nUpgradable by Aghanim's Scepter, causing Electric Vortex to be a %scepter_radius% AoE ability.", 
+  "description": "A vortex that pulls an enemy unit to Storm Spirit's location, it also slows the Storm Spirit by 50%% for 3 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Electric Vortex", 
   "level": 0, 
   "lore": "Raijin's thunderous, boisterous energy often draws others into an electrifying situation.", 
@@ -47901,7 +47848,7 @@
     "name": "overload_aoe", 
     "tooltip": "RADIUS:", 
     "value": [
-     275
+     300
     ]
    }, 
    {
@@ -47939,10 +47886,10 @@
    0
   ], 
   "damage": [
-   30, 
-   50, 
-   70, 
-   90
+   40, 
+   60, 
+   80, 
+   100
   ], 
   "description": "Casting a spell creates an electrical charge, which is released in a burst on his next attack, dealing damage and slowing nearby enemies.", 
   "displayname": "Overload", 
@@ -48069,7 +48016,7 @@
     ]
    }, 
    {
-    "name": "scepter_aoe", 
+    "name": "radius_scepter", 
     "tooltip": "SCEPTER ALLY AURA RADIUS:", 
     "value": [
      900
@@ -48562,7 +48509,7 @@
    0, 
    0
   ], 
-  "description": "Plant a warning sign to remind enemies to step lightly. Only one sign can exist at a time. Lasts %lifetime% seconds.\\n\\nUpgradable by Aghanim's Scepter, allowing Minefield Sign to hide any Land Mines, Stasis Traps, and Remote Mines in a %aura_radius% radius from True Sight.", 
+  "description": "Plant a warning sign to remind enemies to step lightly. Only one sign can exist at a time. Lasts %lifetime% seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Minefield Sign", 
   "level": 0, 
   "lore": "Watch your step!", 
@@ -49113,10 +49060,7 @@
    {
     "name": "attack_spill_width", 
     "value": [
-     68, 
-     68, 
-     68, 
-     68
+     75
     ]
    }
   ], 
@@ -49202,7 +49146,7 @@
     "name": "movement_speed_max_tooltip", 
     "tooltip": "%MAX MOVEMENT SLOW:", 
     "value": [
-     50
+     60
     ]
    }, 
    {
@@ -49375,7 +49319,7 @@
    {
     "name": "movement_speed_bonus_stage", 
     "value": [
-     -5
+     5.0
     ]
    }
   ], 
@@ -49444,7 +49388,7 @@
    {
     "name": "movement_speed_bonus_stage", 
     "value": [
-     -5
+     5.0
     ]
    }
   ], 
@@ -49496,7 +49440,7 @@
     "name": "illusion_duration", 
     "tooltip": "ILLUSION DURATION:", 
     "value": [
-     32.0
+     34.0
     ]
    }, 
    {
@@ -49521,14 +49465,14 @@
    {
     "name": "illusion_incoming_damage", 
     "value": [
-     325.0
+     300.0
     ]
    }, 
    {
     "name": "illusion_incoming_damage_total_tooltip", 
     "tooltip": "%ILLUSION DAMAGE TAKEN:", 
     "value": [
-     425.0
+     400.0
     ]
    }
   ], 
@@ -49549,7 +49493,7 @@
   "level": 0, 
   "lore": "There's only one thing more dangerous than facing Terrorblade.  Facing MORE Terrrorblades!", 
   "manacost": [
-   80
+   70
   ], 
   "name": "terrorblade_conjure_image"
  }, 
@@ -49595,7 +49539,7 @@
     "name": "base_attack_time", 
     "tooltip": "BASE ATTACK TIME:", 
     "value": [
-     1.6
+     1.5
     ]
    }, 
    {
@@ -50072,7 +50016,7 @@
    210, 
    260
   ], 
-  "description": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds.\\n\\nUpgradable by Aghanim's Scepter, turning Gush into a ground targeted wave and decreasing cooldown.", 
+  "description": "Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Gush", 
   "level": 0, 
   "lore": "During his championship of the Sunken Isles, Leviathan gained mastery over the open sea.", 
@@ -50297,6 +50241,16 @@
      900, 
      900
     ]
+   }, 
+   {
+    "name": "targets_scepter", 
+    "tooltip": "SCEPTER TARGETS:", 
+    "value": [
+     4, 
+     4, 
+     4, 
+     4
+    ]
    }
   ], 
   "behavior": [
@@ -50314,7 +50268,7 @@
    275, 
    350
   ], 
-  "description": "Launches a pair of rockets at the nearest visible enemy heroes within 2500 range. The number of missile targets is doubled with Aghanim's Scepter.", 
+  "description": "Launches a pair of rockets at the nearest visible enemy heroes within 2500 range. \\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Heat-Seeking Missile", 
   "level": 0, 
   "lore": "The last contraption Boush was able to save was a retrofitted rocket launcher with a homing mechanism.", 
@@ -50388,6 +50342,7 @@
    }, 
    {
     "name": "cast_range_scepter", 
+    "tooltip": "SCEPTER REFRACT RADIUS:", 
     "value": [
      650
     ]
@@ -50408,7 +50363,7 @@
    240, 
    320
   ], 
-  "description": "Fires an intense energy beam, dealing damage and blinding the target, causing it to miss all physical attacks. \\n\\nUpgradable by Aghanim's Scepter, causing the laser to refract between all visible enemy heroes in a %cast_range_scepter% range.", 
+  "description": "Fires an intense energy beam, dealing damage and blinding the target, causing it to miss all physical attacks. \\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Laser", 
   "level": 0, 
   "lore": "Boush perfected this rock cutting laser in his subterranean laboratory, never considering its combat utility.", 
@@ -50960,9 +50915,6 @@
     "name": "radius", 
     "tooltip": "RADIUS:", 
     "value": [
-     275, 
-     275, 
-     275, 
      275
     ]
    }, 
@@ -51008,7 +50960,7 @@
    "DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"
   ], 
   "cooldown": [
-   9
+   8
   ], 
   "damage": [
    0, 
@@ -51186,7 +51138,7 @@
    0, 
    0
   ], 
-  "description": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within a %overgrowth_aoe% radius of an enchanted tree will be entangled and damaged.", 
+  "description": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within a radius of an enchanted tree will be entangled and damaged.", 
   "displayname": "Eyes In The Forest", 
   "level": 0, 
   "lore": "One can never be too certain who, or what, might need protecting.", 
@@ -51541,7 +51493,7 @@
    0, 
    0
   ], 
-  "description": "Summons an overgrowth of vines and branches around Treant that prevent afflicted enemies from moving, blinking, going invisible, or attacking.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Summons an overgrowth of vines and branches around Treant that prevent afflicted enemies from moving, blinking, going invisible, or attacking.", 
   "displayname": "Overgrowth", 
   "level": 0, 
   "lore": "Rooftrellen calls the ancestral spirit of nature, releasing its power through all of his kin.", 
@@ -51648,7 +51600,7 @@
     "name": "bonus_hp", 
     "tooltip": "BONUS HEALTH:", 
     "value": [
-     100
+     0
     ]
    }, 
    {
@@ -51665,7 +51617,7 @@
     "name": "bonus_armor", 
     "tooltip": "BONUS ARMOR:", 
     "value": [
-     3
+     6
     ]
    }, 
    {
@@ -51678,7 +51630,7 @@
     "name": "base_attack_time", 
     "tooltip": "MELEE BASE ATTACK TIME:", 
     "value": [
-     1.55
+     1.5
     ]
    }, 
    {
@@ -51922,7 +51874,7 @@
    0.2, 
    0.2
   ], 
-  "AbilityCastRange": 900, 
+  "AbilityCastRange": 1000, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -51958,7 +51910,7 @@
    {
     "name": "axe_range", 
     "value": [
-     945.0
+     1000.0
     ]
    }, 
    {
@@ -52551,7 +52503,7 @@
    0, 
    0
   ], 
-  "description": "Kicks the target unit back %push_length% units, damaging them and slowing their movement by %move_slow%%% for %slow_duration% seconds.", 
+  "description": "Kicks the target unit back, damaging them and slowing their movement speed.", 
   "displayname": "Walrus Kick", 
   "level": 0, 
   "manacost": [
@@ -52642,7 +52594,7 @@
    0, 
    0
   ], 
-  "description": "Tusk connects with his mighty Walrus Punch, a critical strike so powerful it launches its victim into the air. The victim is slowed upon landing.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Tusk connects with his mighty Walrus Punch, a critical strike so powerful it launches its victim into the air. The victim is slowed upon landing.", 
   "displayname": "Walrus PUNCH!", 
   "level": 0, 
   "lore": "It never matters who throws the first punch, only who throws the last.", 
@@ -52660,7 +52612,7 @@
    0.45, 
    0.45
   ], 
-  "AbilityCastRange": 625, 
+  "AbilityCastRange": 650, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -52702,7 +52654,7 @@
     "name": "decay_duration", 
     "tooltip": "STEAL DURATION:", 
     "value": [
-     40.0
+     45.0
     ]
    }, 
    {
@@ -52743,7 +52695,7 @@
    0, 
    0
   ], 
-  "description": "Undying steals strength from all enemy heroes in an area, dealing base damage as he claims the enemy's strength for himself.\\n\\nUpgradable by Aghanim's Scepter, increasing Decay's strength steal.", 
+  "description": "Undying steals strength from all enemy heroes in an area, dealing base damage as he claims the enemy's strength for himself.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Decay", 
   "level": 0, 
   "lore": "The strength of the living is simply borrowed from the strength of the dead.", 
@@ -53388,7 +53340,7 @@
     "name": "duration", 
     "tooltip": "DURATION:", 
     "value": [
-     4
+     4.0
     ]
    }, 
    {
@@ -53459,7 +53411,7 @@
     "name": "bonus_reset_time", 
     "tooltip": "RESET TIME:", 
     "value": [
-     15.0
+     20.0
     ]
    }, 
    {
@@ -53962,10 +53914,10 @@
     "name": "ward_damage_tooltip", 
     "tooltip": "WARD DAMAGE:", 
     "value": [
-     10, 
-     19, 
-     29, 
-     38
+     13, 
+     22, 
+     31, 
+     40
     ]
    }
   ], 
@@ -54678,7 +54630,7 @@
     "name": "cooldown_scepter", 
     "tooltip": "SCEPTER COOLDOWN:", 
     "value": [
-     12.0
+     10.0
     ]
    }, 
    {
@@ -54739,12 +54691,7 @@
    0.2, 
    0.2
   ], 
-  "AbilityCastRange": [
-   600, 
-   600, 
-   600, 
-   600
-  ], 
+  "AbilityCastRange": 650, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -54849,20 +54796,20 @@
     "name": "bonus_armor", 
     "tooltip": "ARMOR PER LAYER:", 
     "value": [
-     1, 
-     2, 
-     4, 
-     5
+     1.5, 
+     3, 
+     4.5, 
+     6
     ]
    }, 
    {
     "name": "bonus_resist", 
     "tooltip": "%RESIST PER LAYER:", 
     "value": [
-     3, 
-     6, 
-     12, 
-     16
+     5, 
+     10, 
+     15, 
+     20
     ]
    }, 
    {
@@ -56526,10 +56473,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
   ], 
   "cooldown": [
-   15, 
-   15, 
-   15, 
-   15
+   14
   ], 
   "damage": [
    0, 
@@ -56679,7 +56623,7 @@
    0, 
    0
   ], 
-  "description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a magical freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus% additional vision range at night while soaring.\\n\\nUpgradable by Aghanim's Scepter, causing Arctic Burn to be a toggle ability, draining %mana_cost_scepter% mana per second when active. Removes limit on number of attacks per target.", 
+  "description": "Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a magical freeze that strips them of %percent_damage%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus% additional vision range at night while soaring.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Arctic Burn", 
   "level": 0, 
   "lore": "The same organ where some dragons stoke their inner flame is, in Auroth, a crucible of unimaginable cold. From deep within her frosty gullet, an exhalation sends enemies into burning agony.", 
@@ -56938,7 +56882,7 @@
    "DOTA_ABILITY_BEHAVIOR_AOE"
   ], 
   "cooldown": [
-   90
+   80
   ], 
   "damage": [
    0, 
@@ -57536,10 +57480,10 @@
     "name": "movespeed", 
     "tooltip": "%MOVEMENT SPEED BONUS:", 
     "value": [
+     13, 
      14, 
      15, 
-     16, 
-     17
+     16
     ]
    }, 
    {
@@ -57725,7 +57669,7 @@
     ]
    }, 
    {
-    "name": "scepter_bounces", 
+    "name": "bounces_scepter", 
     "tooltip": "SCEPTER BOUNCES:", 
     "value": [
      4, 
@@ -58126,10 +58070,7 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   1.75, 
-   1.75, 
-   1.75, 
-   1.75
+   1.6
   ], 
   "damage": [
    85, 

@@ -259,8 +259,8 @@ $(function () {
         }
         return 0;
       });
-            return _.filter(d(), function(row) {
-                return _.every(row, function(item, i) {
+            return d().filter(function(row) {
+                return row.every(function(item, i) {
                     if (!self.headers()[i].filter) return true;
                     if (!self.headers()[i].filterValue()) return true;
                     switch (self.headers()[i].filterType) {

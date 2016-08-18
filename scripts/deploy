@@ -21,6 +21,13 @@ def main():
         print 'MODE: DEVELOPMENT'
         
     if len(sys.argv) > 1 and 'deploy' in sys.argv:
+        call(["python", "generate_hero_data.py"], cwd='/home/sites/devilesk.com/scripts')
+        print 'regenerated hero data'
+        call(["python", "generate_hero_lore.py"], cwd='/home/sites/devilesk.com/scripts')
+        print 'regenerated hero lore'
+        call(["python", "generate_item_tooltips.py"], cwd='/home/sites/devilesk.com/scripts')
+        print 'regenerated item tooltips'
+        
         hyde_args = ["hyde"]
         if len(sys.argv) > 1 and 'verbose' in sys.argv:
             hyde_args.append("-v")
