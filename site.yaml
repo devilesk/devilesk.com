@@ -156,7 +156,7 @@ plugins:
 - hyde.ext.plugins.text.SyntextPlugin
 - hyde.ext.plugins.text.TextlinksPlugin
 - hyde.ext.plugins.js.UglifyPlugin
-- hero_functions.MyJinjaLoader
+- plugins.hero_functions.MyJinjaLoader
 sorter:
     time:
         attr:

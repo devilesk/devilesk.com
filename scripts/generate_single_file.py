@@ -4,20 +4,23 @@ from hyde.generator import Generator
 from hyde.site import Site
 from fswrap import File, Folder
     
-def build(source_path, dest, layout_path, config_file):
+def build(source_path, dest, site_path, config_file):
     # create temp site directory
     print 'Creating temp site...'
     TEMP_SITE = File(__file__).parent.child_folder('_temp')
     TEMP_SITE.make()
     TEMP_SITE.child_folder('content').make()
+    TEMP_SITE.child_folder('plugins').make()
 
     # copy layout files to temp site
-    layout_folder = Folder(layout_path)
+    layout_folder = Folder(site_path).child_folder('layout')
     assert layout_folder.exists
     layout_folder.copy_contents_to(TEMP_SITE.child_folder('layout'))
 
-    # module used in devilesk.com layouts
-    File('/home/sites/devilesk.com/hero_functions.py').copy_to(TEMP_SITE)
+    # copy plugins folder
+    plugins_folder = Folder(site_path).child_folder('plugins')
+    assert plugins_folder.exists
+    plugins_folder.copy_contents_to(TEMP_SITE.child_folder('plugins'))
     
     # copy source file to temp site
     temp_source = File(source_path).copy_to(TEMP_SITE.child_folder('content'))
@@ -57,11 +60,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("in_file")
     parser.add_argument("out_file")
-    parser.add_argument("--layout_dir", default='/home/sites/devilesk.com/layout')
+    parser.add_argument("--site_path", default='/home/sites/devilesk.com')
     parser.add_argument("--config_file", default='/home/sites/devilesk.com/site-prod.yaml')
     args = parser.parse_args()
     
-    build(args.in_file, args.out_file, args.layout_dir, args.config_file)
+    build(args.in_file, args.out_file, args.site_path, args.config_file)
 
 if __name__ == "__main__":
     main()
