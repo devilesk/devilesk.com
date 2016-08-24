@@ -471,7 +471,10 @@
     "name": "bonus_damage_from_hero", 
     "tooltip": "BONUS DAMAGE(HERO):", 
     "value": [
-     30
+     30, 
+     35, 
+     40, 
+     45
     ]
    }, 
    {
@@ -479,9 +482,9 @@
     "tooltip": "DURATION:", 
     "value": [
      30, 
-     35, 
      40, 
-     45
+     50, 
+     60
     ]
    }
   ], 
@@ -501,10 +504,10 @@
    0, 
    0
   ], 
-  "description": "Nearby enemy units are weakened, losing a portion of their base damage.  If it dies while under this effect, Pit Lord gains bonus damage.", 
+  "description": "Nearby enemy units are weakened, losing a portion of their base damage. If a unit dies while under this effect, Underlord gains bonus damage.", 
   "displayname": "Atrophy Aura", 
   "level": 0, 
-  "lore": "", 
+  "lore": "To merely stand in the presence of the Underlord is to feel the conviction of battle sapped from one's soul.", 
   "manacost": [
    0, 
    0, 
@@ -611,7 +614,9 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   130
+   130, 
+   120, 
+   110
   ], 
   "damage": [
    0, 
@@ -619,10 +624,10 @@
    0, 
    0
   ], 
-  "description": "Opens a dark rift at the targeted friendly unit's position.  After a short delay, Abyssal Underlord and all nearby friendly heroes are teleported to that unit's location.  Dark Rift can be cancelled at anytime during the cast.  If it is cancelled in this way or the target unit dies before the spell becomes active, Dark Rift goes into cooldown.", 
+  "description": "Opens a dark rift at the targeted friendly unit's position.  After a short delay, Underlord and all nearby friendly heroes are teleported to that unit's location.  Dark Rift can be cancelled at anytime during the cast.  If it is cancelled in this way or the target unit dies before the spell becomes active, Dark Rift goes into cooldown.", 
   "displayname": "Dark Rift", 
   "level": 0, 
-  "lore": "", 
+  "lore": "They come without warning, leaving fire and blood where kingdoms once flourished.", 
   "manacost": [
    75, 
    150, 
@@ -691,12 +696,12 @@
    }, 
    {
     "name": "burn_damage", 
-    "tooltip": "BURN DAMAGE:", 
+    "tooltip": "%MAX HP BURN DAMAGE:", 
     "value": [
-     5, 
-     10, 
-     15, 
-     20
+     0.75, 
+     1.5, 
+     2.25, 
+     3
     ]
    }, 
    {
@@ -715,7 +720,7 @@
    {
     "name": "first_wave_delay", 
     "value": [
-     0.9
+     0.0
     ]
    }
   ], 
@@ -724,7 +729,7 @@
    "DOTA_ABILITY_BEHAVIOR_AOE"
   ], 
   "cooldown": [
-   14
+   12
   ], 
   "damage": [
    0, 
@@ -732,10 +737,10 @@
    0, 
    0
   ], 
-  "description": "Calls down waves of fire that damage enemy units in the target area, and continues to burn them for additional damage over time.", 
+  "description": "Calls down waves of fire that damage enemy units in the target area, burning for additional damage over time.", 
   "displayname": "Firestorm", 
   "level": 0, 
-  "lore": "", 
+  "lore": "The flames of conquest blaze forth from the darkest depths of the abyss.", 
   "manacost": [
    100, 
    110, 
@@ -809,10 +814,10 @@
    "DOTA_ABILITY_BEHAVIOR_AOE"
   ], 
   "cooldown": [
-   24, 
    21, 
    18, 
-   15
+   15, 
+   12
   ], 
   "damage": [
    0, 
@@ -820,10 +825,10 @@
    0, 
    0
   ], 
-  "description": "A deadly pit is conjured at the target location; any unit that enters is unable to move for some time and takes damage.  Each enemy unit can only be affected once.", 
+  "description": "A deadly pit is conjured at the target location; any unit that enters is unable to move for some time and takes damage. Each enemy unit can only be affected once.", 
   "displayname": "Pit of Malice", 
   "level": 0, 
-  "lore": "", 
+  "lore": "Twisting into the seams of reality itself, Vrogros' manifest hatred paralyzes those who defy his will.", 
   "manacost": [
    100, 
    115, 
@@ -5323,7 +5328,6 @@
   "ID": 5015, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
-  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "duration", 
@@ -5423,8 +5427,8 @@
     "name": "movement_damage_pct", 
     "tooltip": "%MOVE DAMAGE:", 
     "value": [
-     26, 
-     42, 
+     30, 
+     45, 
      60
     ]
    }, 
@@ -5523,9 +5527,9 @@
     "name": "bonus_movement_speed", 
     "tooltip": "%MAX THIRST MOVE SPEED:", 
     "value": [
-     10, 
-     20, 
-     30, 
+     16, 
+     24, 
+     32, 
      40
     ]
    }, 
@@ -5533,9 +5537,9 @@
     "name": "bonus_damage", 
     "tooltip": "MAX THIRST DAMAGE:", 
     "value": [
-     10, 
-     20, 
-     30, 
+     16, 
+     24, 
+     32, 
      40
     ]
    }, 
@@ -6374,7 +6378,9 @@
     "name": "damage", 
     "tooltip": "DAMAGE:", 
     "value": [
-     50
+     50, 
+     100, 
+     150
     ]
    }, 
    {
@@ -6769,7 +6775,7 @@
     "name": "damage", 
     "tooltip": "DAMAGE TO SUMMONS:", 
     "value": [
-     500
+     850
     ]
    }, 
    {
@@ -8390,7 +8396,7 @@
     "name": "slow_duration", 
     "tooltip": "STOP DURATION:", 
     "value": [
-     1.5
+     1.8
     ]
    }, 
    {
@@ -12045,7 +12051,7 @@
     "name": "damage", 
     "tooltip": "BASE DAMAGE:", 
     "value": [
-     16.0
+     14.0
     ]
    }, 
    {
@@ -13811,6 +13817,9 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
+   16, 
+   15, 
+   14, 
    13
   ], 
   "damage": [
@@ -13967,6 +13976,9 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
+   16, 
+   15, 
+   14, 
    13
   ], 
   "damage": [
@@ -15217,9 +15229,9 @@
     "name": "stomp_damage", 
     "tooltip": "STOMP DAMAGE:", 
     "value": [
-     85, 
-     110, 
-     135, 
+     70, 
+     100, 
+     130, 
      160
     ]
    }, 
@@ -15307,9 +15319,9 @@
     "name": "stomp_damage", 
     "tooltip": "STOMP DAMAGE:", 
     "value": [
-     85, 
-     110, 
-     135, 
+     70, 
+     100, 
+     130, 
      160
     ]
    }, 
@@ -16909,9 +16921,9 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   130, 
-   115, 
-   100
+   140, 
+   125, 
+   110
   ], 
   "damage": [
    0, 
@@ -16995,7 +17007,7 @@
   "displayname": "Time Dilation", 
   "level": 0, 
   "manacost": [
-   50
+   75
   ], 
   "name": "faceless_void_time_dilation"
  }, 
@@ -22066,6 +22078,7 @@
   "attributes": [
    {
     "name": "attribute_bonus_per_level", 
+    "tooltip": "BONUS:", 
     "value": [
      6
     ]
@@ -22086,6 +22099,8 @@
    0, 
    0
   ], 
+  "description": "Improves all attributes per point spent", 
+  "displayname": "Attribute Bonus", 
   "level": 0, 
   "manacost": [
    0, 
@@ -26016,10 +26031,10 @@
     "name": "attack_speed", 
     "tooltip": "BONUS ATTACK SPEED:", 
     "value": [
-     60, 
-     80, 
-     100, 
-     120
+     65, 
+     90, 
+     115, 
+     140
     ]
    }, 
    {
@@ -29911,7 +29926,7 @@
     "name": "cleave_radius", 
     "tooltip": "CLEAVE RADIUS:", 
     "value": [
-     225
+     240
     ]
    }, 
    {
@@ -29926,7 +29941,7 @@
    {
     "name": "splash_radius", 
     "value": [
-     225
+     240
     ]
    }, 
    {
@@ -34786,7 +34801,7 @@
     "name": "int_steal_duration", 
     "tooltip": "STEAL DURATION:", 
     "value": [
-     60.0
+     80.0
     ]
    }
   ], 
@@ -34862,10 +34877,20 @@
     "name": "damage", 
     "tooltip": "DAMAGE:", 
     "value": [
-     75, 
-     150, 
+     100, 
+     175, 
+     250, 
+     325
+    ]
+   }, 
+   {
+    "name": "cast_range_tooltip", 
+    "tooltip": "CAST RANGE:", 
+    "value": [
      225, 
-     300
+     350, 
+     475, 
+     600
     ]
    }
   ], 
@@ -35246,7 +35271,7 @@
   "level": 0, 
   "lore": "'Running's not as fun as hitting... Not one bit fun.'", 
   "manacost": [
-   75
+   50
   ], 
   "name": "ogre_magi_bloodlust"
  }, 
@@ -36017,8 +36042,8 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
-   90, 
-   60, 
+   100, 
+   65, 
    30
   ], 
   "damage": [
@@ -37145,7 +37170,7 @@
     ]
    }, 
    {
-    "name": "dps", 
+    "name": "damage_per_second", 
     "tooltip": "DAMAGE PER SECOND:", 
     "value": [
      10, 
@@ -37431,7 +37456,7 @@
     ]
    }, 
    {
-    "name": "dps", 
+    "name": "damage_per_second", 
     "tooltip": "DAMAGE PER SECOND:", 
     "value": [
      10, 
@@ -37509,7 +37534,7 @@
     ]
    }, 
    {
-    "name": "base_dmg", 
+    "name": "base_damage", 
     "tooltip": "BASE DAMAGE PER SECOND:", 
     "value": [
      10, 
@@ -37519,7 +37544,7 @@
     ]
    }, 
    {
-    "name": "hp_perc_dmg", 
+    "name": "hp_perc_damage", 
     "tooltip": "%MAX DAMAGE:", 
     "value": [
      1.25, 
@@ -38417,8 +38442,8 @@
     "tooltip": "STRENGTH MULTIPLIER:", 
     "value": [
      0.3, 
-     0.4, 
-     0.5
+     0.45, 
+     0.6
     ]
    }
   ], 
@@ -40304,10 +40329,10 @@
     "name": "bonus_damage", 
     "tooltip": "BONUS DAMAGE:", 
     "value": [
-     60, 
-     80, 
-     100, 
-     120
+     55, 
+     70, 
+     85, 
+     100
     ]
    }
   ], 
@@ -42787,9 +42812,9 @@
   "level": 0, 
   "lore": "Many an explorer was lost to the quicksands of the Scintillant Waste.", 
   "manacost": [
-   175, 
-   250, 
-   325
+   150, 
+   225, 
+   300
   ], 
   "name": "sandking_epicenter"
  }, 
@@ -42838,9 +42863,9 @@
    "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
   ], 
   "cooldown": [
-   40, 
-   30, 
-   20, 
+   34, 
+   26, 
+   18, 
    10
   ], 
   "damage": [
@@ -43268,20 +43293,14 @@
    {
     "name": "illusion_incoming_damage", 
     "value": [
-     50, 
-     50, 
-     50, 
-     50
+     100.0
     ]
    }, 
    {
     "name": "tooltip_total_illusion_incoming_damage", 
     "tooltip": "%ILLUSION DAMAGE TAKEN:", 
     "value": [
-     150, 
-     150, 
-     150, 
-     150
+     200.0
     ]
    }
   ], 
@@ -43753,7 +43772,7 @@
    0, 
    0
   ], 
-  "description": "Summons 10 serpent wards to attack enemy units and structures. The wards are immune to magic, and have a small area of splash damage. It takes two hits to destroy a single ward.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Summons 10 Serpent Wards to attack enemy units and structures. The Wards are immune to magic, and have a small area of splash damage. It takes two hits to destroy a single Ward.\\n\\nUpgradable by Aghanim's Scepter.", 
   "displayname": "Mass Serpent Ward", 
   "level": 0, 
   "lore": "Snake charming was a big part of the Shadow Shaman's act; now Rhasta can empower the snakes to do his bidding.", 
@@ -44272,10 +44291,10 @@
     "name": "stack_duration", 
     "tooltip": "STACK DURATION:", 
     "value": [
-     14, 
+     10, 
+     13, 
      16, 
-     18, 
-     20
+     19
     ]
    }
   ], 
@@ -44473,7 +44492,7 @@
     ]
    }, 
    {
-    "name": "damage_radius", 
+    "name": "radius", 
     "tooltip": "RADIUS:", 
     "value": [
      225, 
@@ -44508,9 +44527,6 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
-   4, 
-   4, 
-   4, 
    4
   ], 
   "damage": [
@@ -44653,9 +44669,9 @@
     "tooltip": "DAMAGE:", 
     "value": [
      14, 
-     21, 
-     28, 
-     35
+     22, 
+     30, 
+     38
     ]
    }, 
    {
@@ -49598,7 +49614,7 @@
   "level": 0, 
   "lore": "Temper, temper. The rage rises up and takes control.  Meet Terrorblade's own worst self.", 
   "manacost": [
-   50
+   100
   ], 
   "name": "terrorblade_metamorphosis"
  }, 
@@ -50175,7 +50191,7 @@
    290, 
    380
   ], 
-  "description": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "description": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.", 
   "displayname": "Ravage", 
   "level": 0, 
   "lore": "Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea.", 
@@ -51288,9 +51304,9 @@
     "tooltip": "REGEN:", 
     "value": [
      4, 
-     7, 
-     10, 
-     13
+     8, 
+     12, 
+     16
     ]
    }, 
    {
@@ -51316,10 +51332,10 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   32, 
-   26, 
-   20, 
-   14
+   30, 
+   24, 
+   18, 
+   12
   ], 
   "damage": [
    0, 
@@ -51598,7 +51614,6 @@
   "attributes": [
    {
     "name": "bonus_hp", 
-    "tooltip": "BONUS HEALTH:", 
     "value": [
      0
     ]
@@ -55139,7 +55154,7 @@
    {
     "name": "stun_delay", 
     "value": [
-     0.85
+     0.55
     ]
    }, 
    {
@@ -55188,7 +55203,7 @@
    "DOTA_ABILITY_BEHAVIOR_AOE"
   ], 
   "cooldown": [
-   26
+   20
   ], 
   "damage": [
    0, 

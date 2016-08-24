@@ -223,6 +223,225 @@ npc_dota_hero_abaddon:
   team: Bad
   visiondaytimerange: 1800
   visionnighttimerange: 800
+npc_dota_hero_abyssal_underlord:
+  AttackAcquisitionRange: 600
+  AttackDamageType: DAMAGE_TYPE_ArmorPhysical
+  HeroID: 108
+  abilities:
+  - AbilityCastPoint: 0.6
+    AbilityCastRange: 750
+    AbilityCastRangeBuffer: 250
+    AbilityChannelTime: [0, 0, 0, 0]
+    AbilityDuration: [0, 0, 0, 0]
+    AbilityModifierSupportBonus: 0
+    AbilityModifierSupportValue: 1
+    ID: 5613
+    abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
+    attributes:
+    - name: radius
+      tooltip: 'RADIUS:'
+      value: [400]
+    - name: wave_duration
+      value: [7.0]
+    - name: wave_count
+      tooltip: 'WAVE COUNT:'
+      value: [6]
+    - name: wave_damage
+      tooltip: 'WAVE DAMAGE:'
+      value: [25, 40, 55, 70]
+    - name: wave_interval
+      tooltip: WAVE INTERVAL
+      value: [1.0]
+    - name: burn_damage
+      tooltip: '%MAX HP BURN DAMAGE:'
+      value: [0.75, 1.5, 2.25, 3]
+    - name: burn_interval
+      value: [1.0]
+    - name: burn_duration
+      tooltip: 'BURN DURATION:'
+      value: [2.0]
+    - name: first_wave_delay
+      value: [0.0]
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE]
+    cooldown: [12]
+    damage: [0, 0, 0, 0]
+    description: Calls down waves of fire that damage enemy units in the target area,
+      burning for additional damage over time.
+    displayname: Firestorm
+    level: 0
+    lore: The flames of conquest blaze forth from the darkest depths of the abyss.
+    manacost: [100, 110, 120, 130]
+    name: abyssal_underlord_firestorm
+  - AbilityCastPoint: 0.6
+    AbilityCastRange: 750
+    AbilityCastRangeBuffer: 250
+    AbilityChannelTime: [0, 0, 0, 0]
+    AbilityDuration: [0, 0, 0, 0]
+    AbilityModifierSupportBonus: 0
+    AbilityModifierSupportValue: 1
+    ID: 5614
+    abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
+    attributes:
+    - name: radius
+      tooltip: 'RADIUS:'
+      value: [275]
+    - name: pit_duration
+      tooltip: 'PIT DURATION:'
+      value: [7.0]
+    - name: pit_interval
+      value: [0.5]
+    - name: pit_damage
+      tooltip: 'PIT DAMAGE:'
+      value: [100]
+    - name: ensnare_duration
+      tooltip: 'DISABLE DURATION:'
+      value: [1, 1.5, 2, 2.5]
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_AOE]
+    cooldown: [21, 18, 15, 12]
+    damage: [0, 0, 0, 0]
+    description: A deadly pit is conjured at the target location; any unit that enters
+      is unable to move for some time and takes damage. Each enemy unit can only be
+      affected once.
+    displayname: Pit of Malice
+    level: 0
+    lore: Twisting into the seams of reality itself, Vrogros' manifest hatred paralyzes
+      those who defy his will.
+    manacost: [100, 115, 130, 145]
+    name: abyssal_underlord_pit_of_malice
+  - AbilityCastPoint: [0, 0, 0, 0]
+    AbilityCastRange: 900
+    AbilityCastRangeBuffer: 250
+    AbilityChannelTime: [0, 0, 0, 0]
+    AbilityDuration: [0, 0, 0, 0]
+    AbilityModifierSupportBonus: 0
+    AbilityModifierSupportValue: 1
+    ID: 5615
+    abilitytype: DOTA_ABILITY_TYPE_BASIC
+    attributes:
+    - name: radius
+      tooltip: 'RADIUS:'
+      value: [900]
+    - name: damage_reduction_pct
+      tooltip: '%DAMAGE REDUCTION:'
+      value: [18, 26, 34, 42]
+    - name: bonus_damage_from_creep
+      tooltip: 'BONUS DAMAGE(CREEP):'
+      value: [5]
+    - name: bonus_damage_from_hero
+      tooltip: 'BONUS DAMAGE(HERO):'
+      value: [30, 35, 40, 45]
+    - name: bonus_damage_duration
+      tooltip: 'DURATION:'
+      value: [30, 40, 50, 60]
+    behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_AURA]
+    cooldown: [0, 0, 0, 0]
+    damage: [0, 0, 0, 0]
+    description: Nearby enemy units are weakened, losing a portion of their base damage.
+      If a unit dies while under this effect, Underlord gains bonus damage.
+    displayname: Atrophy Aura
+    level: 0
+    lore: To merely stand in the presence of the Underlord is to feel the conviction
+      of battle sapped from one's soul.
+    manacost: [0, 0, 0, 0]
+    name: abyssal_underlord_atrophy_aura
+  - AbilityCastPoint: 0.6
+    AbilityCastRange: 0
+    AbilityCastRangeBuffer: 250
+    AbilityChannelTime: [0, 0, 0, 0]
+    AbilityDuration: [0, 0, 0, 0]
+    AbilityModifierSupportBonus: 0
+    AbilityModifierSupportValue: 1
+    ID: 5616
+    abilitytype: DOTA_ABILITY_TYPE_ULTIMATE
+    attributes:
+    - name: radius
+      tooltip: 'TELEPORT RADIUS:'
+      value: [450]
+    - name: teleport_delay
+      tooltip: 'TELEPORT DELAY:'
+      value: [5, 4, 3]
+    behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
+    cooldown: [130, 120, 110]
+    damage: [0, 0, 0, 0]
+    description: Opens a dark rift at the targeted friendly unit's position.  After
+      a short delay, Underlord and all nearby friendly heroes are teleported to that
+      unit's location.  Dark Rift can be cancelled at anytime during the cast.  If
+      it is cancelled in this way or the target unit dies before the spell becomes
+      active, Dark Rift goes into cooldown.
+    displayname: Dark Rift
+    level: 0
+    lore: They come without warning, leaving fire and blood where kingdoms once flourished.
+    manacost: [75, 150, 225]
+    name: abyssal_underlord_dark_rift
+  - AbilityCastPoint: [0, 0, 0, 0]
+    AbilityCastRange: 0
+    AbilityCastRangeBuffer: 250
+    AbilityChannelTime: [0, 0, 0, 0]
+    AbilityDuration: [0, 0, 0, 0]
+    AbilityModifierSupportBonus: 0
+    AbilityModifierSupportValue: 1
+    ID: 5617
+    abilitytype: DOTA_ABILITY_TYPE_ULTIMATE
+    attributes: []
+    behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE,
+      DOTA_ABILITY_BEHAVIOR_HIDDEN, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
+    cooldown: [0, 0, 0, 0]
+    damage: [0, 0, 0, 0]
+    description: Stop the teleport.
+    displayname: Cancel Dark Rift
+    level: 0
+    manacost: [0, 0, 0, 0]
+    name: abyssal_underlord_cancel_dark_rift
+  - *id001
+  abilitylayout: 4
+  armorphysical: 2
+  attackdamagemax: 43
+  attackdamagemin: 37
+  attackpoint: 0.45
+  attackrange: 150
+  attackrate: 1.7
+  attacktype: DOTA_UNIT_CAP_MELEE_ATTACK
+  attributeagilitygain: 1.3
+  attributebaseagility: 12
+  attributebaseintelligence: 17
+  attributebasestrength: 25
+  attributeintelligencegain: 2.6
+  attributeprimary: DOTA_ATTRIBUTE_STRENGTH
+  attributestrengthgain: 2.6
+  bio: Neither myth nor song exist to tell of their coming. <br><br>Deep below the
+    surface of the world lay unknown wonders and horrors. Down and down again, well
+    beneath the slithering magma fields and simmering roots of dormant volcanoes stands
+    the obsidian city of Aziyog, its incomparable stonework spanning an endless cavern.
+    Within honeycomb walls mortared with the bones of countless slaves lies the domain
+    of the Abyssal Horde, and their brutal underlord Vrogros. <br><br>Armed by the
+    monstrous forgemasters of his kind and well-practiced in the arts of the Dark
+    Rift, Vrogros is able to conjure forth flame and crippling malice through the
+    twist between worlds. He seeks always to expand his holdings, destroying or enslaving
+    all he encounters. Yet the lands offered by the subterranean realm are few, and
+    so his sights have turned upward. By his command the first waves of abyssal invaders
+    have already marched through the rift, a few doomed legions meant merely to test
+    the might of nations above. Now, as his full force readies itself for unending
+    conquest, Vrogros himself steps into a sunlit world to announce his coming reign.
+    Those who face the Underlord will bow and pay tribute, or be crushed where they
+    stand.
+  displayname: Underlord
+  items: []
+  level: 0
+  magicalresistance: 25
+  movementspeed: 305
+  movementturnrate: 0.6
+  name: npc_dota_hero_abyssal_underlord
+  projectilespeed: 900
+  role: Support,Nuker,Disabler,Durable,Escape
+  statushealth: 200
+  statushealthregen: 0.25
+  statusmana: 50
+  statusmanaregen: 0.01
+  team: Bad
+  visiondaytimerange: 1800
+  visionnighttimerange: 800
 npc_dota_hero_alchemist:
   AttackAcquisitionRange: 600
   AttackDamageType: DAMAGE_TYPE_ArmorPhysical
@@ -1943,7 +2162,6 @@ npc_dota_hero_bloodseeker:
     ID: 5015
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_YES
     abilitytype: DOTA_ABILITY_TYPE_BASIC
-    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: duration
       tooltip: 'DURATION:'
@@ -2021,10 +2239,10 @@ npc_dota_hero_bloodseeker:
       value: [75]
     - name: bonus_movement_speed
       tooltip: '%MAX THIRST MOVE SPEED:'
-      value: [10, 20, 30, 40]
+      value: [16, 24, 32, 40]
     - name: bonus_damage
       tooltip: 'MAX THIRST DAMAGE:'
-      value: [10, 20, 30, 40]
+      value: [16, 24, 32, 40]
     - name: max_bonus_pct
       value: [25]
     - name: visibility_threshold_pct
@@ -2062,7 +2280,7 @@ npc_dota_hero_bloodseeker:
       value: [12.0]
     - name: movement_damage_pct
       tooltip: '%MOVE DAMAGE:'
-      value: [26, 42, 60]
+      value: [30, 45, 60]
     - name: damage_cap_amount
       value: [200]
     - name: damage_cap_interval
@@ -3043,7 +3261,7 @@ npc_dota_hero_centaur:
       value: [1, 2, 3]
     - name: slow_duration
       tooltip: 'STOP DURATION:'
-      value: [1.5]
+      value: [1.8]
     - name: radius
       tooltip: 'TRAMPLE RADIUS:'
       value: [105]
@@ -4376,7 +4594,7 @@ npc_dota_hero_death_prophet:
     attributes:
     - name: damage
       tooltip: 'BASE DAMAGE:'
-      value: [16.0]
+      value: [14.0]
     - name: damage_pct
       tooltip: '%MAX HP AS DAMAGE:'
       value: [1, 2.5, 4, 5.5]
@@ -4464,7 +4682,7 @@ npc_dota_hero_death_prophet:
   attributeagilitygain: 1.4
   attributebaseagility: 14
   attributebaseintelligence: 23
-  attributebasestrength: 18
+  attributebasestrength: 17
   attributeintelligencegain: 3
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
   attributestrengthgain: 1.9
@@ -5173,7 +5391,7 @@ npc_dota_hero_drow_ranger:
     - name: knockback_height
       value: [0]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [13]
+    cooldown: [16, 15, 14, 13]
     damage: [0, 0, 0, 0]
     description: Releases a wave that silences and knocks back enemy units. Knockback
       distance is relative to how close they are to you.
@@ -5800,7 +6018,7 @@ npc_dota_hero_elder_titan:
       value: [2, 3, 4, 5]
     - name: stomp_damage
       tooltip: 'STOMP DAMAGE:'
-      value: [85, 110, 135, 160]
+      value: [70, 100, 130, 160]
     - name: initial_stun_duration
       value: [0.8]
     - name: animation_rate
@@ -6706,7 +6924,7 @@ npc_dota_hero_faceless_void:
       attack speed by %slow%%% for each cooldown frozen.
     displayname: Time Dilation
     level: 0
-    manacost: [50]
+    manacost: [75]
     name: faceless_void_time_dilation
   - AbilityCastPoint: [0, 0, 0, 0]
     AbilityCastRange: 0
@@ -6768,7 +6986,7 @@ npc_dota_hero_faceless_void:
     - name: bonus_attack_speed
       value: [0]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [130, 115, 100]
+    cooldown: [140, 125, 110]
     damage: [0, 0, 0, 0]
     description: Creates a blister in spacetime, trapping all units caught in its
       sphere of influence and causes you to move very quickly inside it.  Only Faceless
@@ -9080,7 +9298,7 @@ npc_dota_hero_legion_commander:
       value: [5.0]
     - name: attack_speed
       tooltip: 'BONUS ATTACK SPEED:'
-      value: [60, 80, 100, 120]
+      value: [65, 90, 115, 140]
     - name: hp_regen
       tooltip: 'HP REGEN:'
       value: [30, 40, 50, 60]
@@ -9391,7 +9609,7 @@ npc_dota_hero_leshrac:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 320
+  movementspeed: 325
   movementturnrate: 0.5
   name: npc_dota_hero_leshrac
   projectilespeed: 900
@@ -10025,7 +10243,7 @@ npc_dota_hero_lina:
   attackdamagemin: 13
   attackpoint: 0.75
   attackrange: 670
-  attackrate: 1.7
+  attackrate: 1.6
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 1.5
   attributebaseagility: 16
@@ -10943,11 +11161,11 @@ npc_dota_hero_magnataur:
       value: [20, 30, 40, 50]
     - name: cleave_radius
       tooltip: 'CLEAVE RADIUS:'
-      value: [225]
+      value: [240]
     - name: splash_damage_pct
       value: [10, 15, 20, 25]
     - name: splash_radius
-      value: [225]
+      value: [240]
     - name: aura_radius
       value: [900]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
@@ -11429,7 +11647,7 @@ npc_dota_hero_meepo:
   attackrange: 150
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_MELEE_ATTACK
-  attributeagilitygain: 1.9
+  attributeagilitygain: 2.2
   attributebaseagility: 23
   attributebaseintelligence: 20
   attributebasestrength: 23
@@ -12601,7 +12819,7 @@ npc_dota_hero_nevermore:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 310
+  movementspeed: 315
   movementturnrate: 1
   name: npc_dota_hero_nevermore
   projectilespeed: 1200
@@ -13078,7 +13296,7 @@ npc_dota_hero_obsidian_destroyer:
       value: [1, 2, 3, 4]
     - name: int_steal_duration
       tooltip: 'STEAL DURATION:'
-      value: [60.0]
+      value: [80.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AUTOCAST,
       DOTA_ABILITY_BEHAVIOR_ATTACK]
     cooldown: [0]
@@ -13114,7 +13332,10 @@ npc_dota_hero_obsidian_destroyer:
       value: [400]
     - name: damage
       tooltip: 'DAMAGE:'
-      value: [75, 150, 225, 300]
+      value: [100, 175, 250, 325]
+    - name: cast_range_tooltip
+      tooltip: 'CAST RANGE:'
+      value: [225, 350, 475, 600]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
     cooldown: [22, 18, 14, 10]
     damage: [0, 0, 0, 0]
@@ -13349,7 +13570,7 @@ npc_dota_hero_ogre_magi:
     displayname: Bloodlust
     level: 0
     lore: '''Running''s not as fun as hitting... Not one bit fun.'''
-    manacost: [75]
+    manacost: [50]
     name: ogre_magi_bloodlust
   - AbilityCastPoint: 0.45
     AbilityCastRange: 475
@@ -13802,7 +14023,7 @@ npc_dota_hero_oracle:
     - name: radius
       value: [400.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [90, 60, 30]
+    cooldown: [100, 65, 30]
     damage: [0, 0, 0, 0]
     description: Temporarily alters an ally's destiny, delaying any healing or damage
       taken until False Promise ends. Any healing that is delayed by False Promise
@@ -14386,7 +14607,7 @@ npc_dota_hero_phoenix:
     - name: attackspeed_slow
       tooltip: 'ATTACK SPEED SLOW:'
       value: [-80, -100, -120, -140]
-    - name: dps
+    - name: damage_per_second
       tooltip: 'DAMAGE PER SECOND:'
       value: [10, 30, 50, 70]
     - name: spirit_count
@@ -14420,10 +14641,10 @@ npc_dota_hero_phoenix:
     - name: hp_cost_perc_per_second
       tooltip: '%HEALTH COST PER SECOND:'
       value: [6]
-    - name: base_dmg
+    - name: base_damage
       tooltip: 'BASE DAMAGE PER SECOND:'
       value: [10, 15, 20, 25]
-    - name: hp_perc_dmg
+    - name: hp_perc_damage
       tooltip: '%MAX DAMAGE:'
       value: [1.25, 2.5, 3.75, 5]
     - name: base_heal
@@ -14553,7 +14774,7 @@ npc_dota_hero_phoenix:
     - name: attackspeed_slow
       tooltip: 'ATTACK SPEED SLOW:'
       value: [-80, -100, -120, -140]
-    - name: dps
+    - name: damage_per_second
       tooltip: 'DAMAGE PER SECOND:'
       value: [10, 30, 50, 70]
     - name: spirit_count
@@ -15014,7 +15235,7 @@ npc_dota_hero_pudge:
       value: [60, 90, 120]
     - name: strength_damage
       tooltip: 'STRENGTH MULTIPLIER:'
-      value: [0.3, 0.4, 0.5]
+      value: [0.3, 0.45, 0.6]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_CHANNELLED,
       DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [30, 25, 20]
@@ -15923,7 +16144,7 @@ npc_dota_hero_riki:
       value: [700]
     - name: bonus_damage
       tooltip: 'BONUS DAMAGE:'
-      value: [60, 80, 100, 120]
+      value: [55, 70, 85, 100]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [16, 12, 8, 4]
     damage: [0, 0, 0, 0]
@@ -16367,7 +16588,7 @@ npc_dota_hero_sand_king:
       value: [50.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_CHANNELLED,
       DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
-    cooldown: [40, 30, 20, 10]
+    cooldown: [34, 26, 18, 10]
     damage: [25, 50, 75, 100]
     description: CHANNELED - Sand King creates a fearsome sandstorm that damages enemy
       units while hiding him from vision.  The invisibility remains for a short duration
@@ -16466,7 +16687,7 @@ npc_dota_hero_sand_king:
     displayname: Epicenter
     level: 0
     lore: Many an explorer was lost to the quicksands of the Scintillant Waste.
-    manacost: [175, 250, 325]
+    manacost: [150, 225, 300]
     name: sandking_epicenter
   - *id001
   abilitylayout: 4
@@ -16538,10 +16759,10 @@ npc_dota_hero_shadow_demon:
       tooltip: '%ILLUSION DAMAGE:'
       value: [30, 45, 60, 75]
     - name: illusion_incoming_damage
-      value: [50, 50, 50, 50]
+      value: [100.0]
     - name: tooltip_total_illusion_incoming_damage
       tooltip: '%ILLUSION DAMAGE TAKEN:'
-      value: [150, 150, 150, 150]
+      value: [200.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
     cooldown: [25, 22, 19, 16]
     damage: [0, 0, 0, 0]
@@ -16879,9 +17100,9 @@ npc_dota_hero_shadow_shaman:
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
     cooldown: [120]
     damage: [0, 0, 0, 0]
-    description: Summons 10 serpent wards to attack enemy units and structures. The
-      wards are immune to magic, and have a small area of splash damage. It takes
-      two hits to destroy a single ward.\n\nUpgradable by Aghanim's Scepter.
+    description: Summons 10 Serpent Wards to attack enemy units and structures. The
+      Wards are immune to magic, and have a small area of splash damage. It takes
+      two hits to destroy a single Ward.\n\nUpgradable by Aghanim's Scepter.
     displayname: Mass Serpent Ward
     level: 0
     lore: Snake charming was a big part of the Shadow Shaman's act; now Rhasta can
@@ -16998,7 +17219,7 @@ npc_dota_hero_shredder:
     - name: range
       tooltip: 'LATCH RANGE:'
       value: [850, 1050, 1250, 1450]
-    - name: damage_radius
+    - name: radius
       tooltip: 'RADIUS:'
       value: [225, 225, 225, 225]
     - name: speed
@@ -17008,7 +17229,7 @@ npc_dota_hero_shredder:
       tooltip: 'DAMAGE:'
       value: [100, 140, 180, 220]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [4, 4, 4, 4]
+    cooldown: [4]
     damage: [0, 0, 0, 0]
     description: Timbersaw fires a chain that embeds itself in the first tree it hits,
       pulling him towards it.  Any enemy in the path takes damage.
@@ -17038,7 +17259,7 @@ npc_dota_hero_shredder:
       value: [5, 10, 15, 20]
     - name: stack_duration
       tooltip: 'STACK DURATION:'
-      value: [14, 16, 18, 20]
+      value: [10, 13, 16, 19]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
@@ -17203,7 +17424,7 @@ npc_dota_hero_shredder:
   attributebasestrength: 22
   attributeintelligencegain: 2.4
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
-  attributestrengthgain: 2.1
+  attributestrengthgain: 1.8
   bio: "Rizzrack could still hear the screams in his mind.  He worked, frantically\
     \ turning wrenches, twisting screws, building and carving and forging.  Sleep\
     \ eluded him; he only built.  Months had passed since he had shut himself in his\
@@ -17262,7 +17483,7 @@ npc_dota_hero_silencer:
     attributes:
     - name: damage
       tooltip: 'DAMAGE:'
-      value: [14, 21, 28, 35]
+      value: [14, 22, 30, 38]
     - name: radius
       tooltip: 'RADIUS:'
       value: [425]
@@ -18378,7 +18599,7 @@ npc_dota_hero_sniper:
   level: 0
   magicalresistance: 25
   movementspeed: 290
-  movementturnrate: 0.6
+  movementturnrate: 0.7
   name: npc_dota_hero_sniper
   projectilespeed: 3000
   role: Carry,Nuker
@@ -18388,7 +18609,7 @@ npc_dota_hero_sniper:
   statusmanaregen: 0.01
   team: Good
   visiondaytimerange: 1800
-  visionnighttimerange: 1000
+  visionnighttimerange: 1100
 npc_dota_hero_spectre:
   AttackAcquisitionRange: 600
   AttackDamageType: DAMAGE_TYPE_ArmorPhysical
@@ -19803,7 +20024,7 @@ npc_dota_hero_terrorblade:
     level: 0
     lore: Temper, temper. The rage rises up and takes control.  Meet Terrorblade's
       own worst self.
-    manacost: [50]
+    manacost: [100]
     name: terrorblade_metamorphosis
   - AbilityCastPoint: 0.35
     AbilityCastRange: 550
@@ -20009,7 +20230,7 @@ npc_dota_hero_tidehunter:
     cooldown: [150, 150, 150]
     damage: [200, 290, 380]
     description: Slams the ground, causing tentacles to erupt in all directions, damaging
-      and stunning all nearby enemy units.\n\nUpgradable by Aghanim's Scepter.
+      and stunning all nearby enemy units.
     displayname: Ravage
     level: 0
     lore: Calling to the abyssal god Maelrawn has resulted in entire armadas being
@@ -20546,7 +20767,7 @@ npc_dota_hero_treant:
       value: [4, 5, 6, 7]
     - name: health_regen
       tooltip: 'REGEN:'
-      value: [4, 7, 10, 13]
+      value: [4, 8, 12, 16]
     - name: damage_block
       tooltip: 'BLOCK:'
       value: [20, 40, 60, 80]
@@ -20554,7 +20775,7 @@ npc_dota_hero_treant:
       tooltip: 'DURATION:'
       value: [15.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [32, 26, 20, 14]
+    cooldown: [30, 24, 18, 12]
     damage: [0, 0, 0, 0]
     description: Infuses the target hero or structure with a protective coating which
       grants bonus regeneration. Also blocks some damage from all sources. Dispels
@@ -20694,7 +20915,6 @@ npc_dota_hero_troll_warlord:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
     - name: bonus_hp
-      tooltip: 'BONUS HEALTH:'
       value: [0]
     - name: bonus_move_speed
       tooltip: 'BONUS MOVE SPEED:'

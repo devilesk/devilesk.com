@@ -20,28 +20,28 @@
   "Lore": "The curse that slows an enemy, speeds an ally."
  }, 
  "abyssal_underlord_atrophy_aura": {
-  "Description": "Nearby enemy units are weakened, losing a portion of their base damage.  If it dies while under this effect, Pit Lord gains bonus damage.", 
+  "Description": "Nearby enemy units are weakened, losing a portion of their base damage. If a unit dies while under this effect, Underlord gains bonus damage.", 
   "DisplayName": "Atrophy Aura", 
-  "Lore": ""
+  "Lore": "To merely stand in the presence of the Underlord is to feel the conviction of battle sapped from one's soul."
  }, 
  "abyssal_underlord_cancel_dark_rift": {
   "Description": "Stop the teleport.", 
   "DisplayName": "Cancel Dark Rift"
  }, 
  "abyssal_underlord_dark_rift": {
-  "Description": "Opens a dark rift at the targeted friendly unit's position.  After a short delay, Abyssal Underlord and all nearby friendly heroes are teleported to that unit's location.  Dark Rift can be cancelled at anytime during the cast.  If it is cancelled in this way or the target unit dies before the spell becomes active, Dark Rift goes into cooldown.", 
+  "Description": "Opens a dark rift at the targeted friendly unit's position.  After a short delay, Underlord and all nearby friendly heroes are teleported to that unit's location.  Dark Rift can be cancelled at anytime during the cast.  If it is cancelled in this way or the target unit dies before the spell becomes active, Dark Rift goes into cooldown.", 
   "DisplayName": "Dark Rift", 
-  "Lore": ""
+  "Lore": "They come without warning, leaving fire and blood where kingdoms once flourished."
  }, 
  "abyssal_underlord_firestorm": {
-  "Description": "Calls down waves of fire that damage enemy units in the target area, and continues to burn them for additional damage over time.", 
+  "Description": "Calls down waves of fire that damage enemy units in the target area, burning for additional damage over time.", 
   "DisplayName": "Firestorm", 
-  "Lore": ""
+  "Lore": "The flames of conquest blaze forth from the darkest depths of the abyss."
  }, 
  "abyssal_underlord_pit_of_malice": {
-  "Description": "A deadly pit is conjured at the target location; any unit that enters is unable to move for some time and takes damage.  Each enemy unit can only be affected once.", 
+  "Description": "A deadly pit is conjured at the target location; any unit that enters is unable to move for some time and takes damage. Each enemy unit can only be affected once.", 
   "DisplayName": "Pit of Malice", 
-  "Lore": ""
+  "Lore": "Twisting into the seams of reality itself, Vrogros' manifest hatred paralyzes those who defy his will."
  }, 
  "alchemist_acid_spray": {
   "Description": "Sprays high-pressure acid across a target area. Enemy units who step across the contaminated terrain take damage per second and have their armor reduced.", 
@@ -1197,6 +1197,10 @@
   "DisplayName": "Alacrity", 
   "Lore": "Gaster's Mandate of Impetuous Strife."
  }, 
+ "invoker_attribute_bonus": {
+  "Description": "Improves all attributes per point spent", 
+  "DisplayName": "Attribute Bonus"
+ }, 
  "invoker_chaos_meteor": {
   "Description": "Invoker pulls a flaming meteor from space onto the targeted location. Upon landing, the meteor rolls forward, constantly dealing damage based on the level of <font color='#cabe68'>Exort</font>, and rolling further based on the level of <font color='#d671a9'>Wex</font>. Units hit by the meteor will also be set on fire for a short time, receiving additional damage based on the level of <font color='#cabe68'>Exort</font>.", 
   "DisplayName": "Chaos Meteor", 
@@ -1905,7 +1909,7 @@
   "Lore": "Sange and Yasha, when attuned by the moonlight and used together, become a very powerful combination."
  }, 
  "item_satanic": {
-  "Description": "Active: Unholy Rage - Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nSatanic is a Unique Attack Modifier, and does not stack with other Unique Attack Modifier.", 
+  "Description": "Active: Unholy Rage - Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds.\\nPassive: Lifesteal - Heals the attacker for a percentage of attack damage dealt.\\n\\nSatanic is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "DisplayName": "Satanic", 
   "Lore": "Immense power at the cost of your soul."
  }, 
@@ -3085,6 +3089,10 @@
  "npc_dota_hero_abaddon": {
   "Bio": "The Font of Avernus is the source of a family's strength, a crack in primal stones from which vapors of prophetic power have issued for generations. Each newborn of the cavernous House Avernus is bathed in the black mist, and by this baptism they are given an innate connection to the mystic energies of the land. They grow up believing themselves fierce protectors of their lineal traditions, the customs of the realm--but what they really are protecting is the Font itself. And the motives of the mist are unclear.\r\n\t\tWhen the infant Abaddon was bathed in the Font, they say something went awry. In the child's eyes there flared a light of comprehension that startled all present and set the sacerdotes to whispering. He was raised with every expectation of following the path all scions of Avernus took--to train in war, that in times of need he might lead the family's army in defense of the ancestral lands. But Abaddon was always one apart. Where others trained with weapons, he bent himself to meditation in the presence of the mist. He drank deep from the vapors that welled from the Font, learning to blend his spirit with the potency that flowed from far beneath the House; he became a creature of the black mist.\r\n\t\tThere was bitterness within the House Avernus--elders and young alike accusing him of neglecting his responsibilities. But all such accusations stopped when Abaddon rode into battle, and they saw how the powers of the mist had given him mastery over life and death beyond those of any lord the House had ever known.", 
   "DisplayName": "Abaddon"
+ }, 
+ "npc_dota_hero_abyssal_underlord": {
+  "Bio": "Neither myth nor song exist to tell of their coming. <br><br>Deep below the surface of the world lay unknown wonders and horrors. Down and down again, well beneath the slithering magma fields and simmering roots of dormant volcanoes stands the obsidian city of Aziyog, its incomparable stonework spanning an endless cavern. Within honeycomb walls mortared with the bones of countless slaves lies the domain of the Abyssal Horde, and their brutal underlord Vrogros. <br><br>Armed by the monstrous forgemasters of his kind and well-practiced in the arts of the Dark Rift, Vrogros is able to conjure forth flame and crippling malice through the twist between worlds. He seeks always to expand his holdings, destroying or enslaving all he encounters. Yet the lands offered by the subterranean realm are few, and so his sights have turned upward. By his command the first waves of abyssal invaders have already marched through the rift, a few doomed legions meant merely to test the might of nations above. Now, as his full force readies itself for unending conquest, Vrogros himself steps into a sunlit world to announce his coming reign. Those who face the Underlord will bow and pay tribute, or be crushed where they stand.", 
+  "DisplayName": "Underlord"
  }, 
  "npc_dota_hero_alchemist": {
   "Bio": "The sacred science of Chymistry was a Darkbrew family tradition, but no Darkbrew had ever shown the kind of creativity, ambition, and recklessness of young Razzil. However, when adulthood came calling he pushed aside the family trade to try his hand at manufacturing gold through Alchemy. In an act of audacity befitting his reputation, Razzil announced he would transmute an entire mountain into gold. Following two decades of research and spending and preparation, he failed spectacularly, quickly finding himself imprisoned for the widespread destruction his experiment wrought. Yet Razzil was never one to take a setback lightly, and sought escape to continue his research. When his new cellmate turned out to be a fierce ogre, he found just the opportunity he needed. After convincing the ogre not to eat him, Razzil set about carefully concocting a tincture for it to drink, made from the moulds and mosses growing in the prison stone work. In a week's time, it seemed ready. When the ogre drank the potion, it flew into an unstoppable berserker rage, destroying the cell bars and exploding through walls and guards alike. They soon found themselves lost somewhere in the forest surrounding the city with a trail of wreckage in their wake and no signs of pursuit.  In the tonic's afterglow, the ogre seemed serene, happy, and even eager. Resolving to work together, the pair set off to collect the materials needed to attempt Razzil's Alchemic transmutation once more.", 
@@ -4327,7 +4335,7 @@
   "Lore": "Originally used to open shows with the travelling con-man, Rhasta's lightning display shocks adversaries in more ways than one."
  }, 
  "shadow_shaman_mass_serpent_ward": {
-  "Description": "Summons 10 serpent wards to attack enemy units and structures. The wards are immune to magic, and have a small area of splash damage. It takes two hits to destroy a single ward.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Summons 10 Serpent Wards to attack enemy units and structures. The Wards are immune to magic, and have a small area of splash damage. It takes two hits to destroy a single Ward.\\n\\nUpgradable by Aghanim's Scepter.", 
   "DisplayName": "Mass Serpent Ward", 
   "Lore": "Snake charming was a big part of the Shadow Shaman's act; now Rhasta can empower the snakes to do his bidding."
  }, 
@@ -4678,7 +4686,7 @@
   "Lore": "Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet."
  }, 
  "tidehunter_ravage": {
-  "Description": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.\\n\\nUpgradable by Aghanim's Scepter.", 
+  "Description": "Slams the ground, causing tentacles to erupt in all directions, damaging and stunning all nearby enemy units.", 
   "DisplayName": "Ravage", 
   "Lore": "Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea."
  }, 
