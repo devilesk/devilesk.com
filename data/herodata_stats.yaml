@@ -20,6 +20,28 @@ npc_dota_hero_abaddon:
     damagemin: 139.0
     health: 2340.0
     mana: 1118.0
+npc_dota_hero_abyssal_underlord:
+  1:
+    armor: 3.68
+    attackspersecond: 0.66
+    damagemax: 68.0
+    damagemin: 62.0
+    health: 700.0
+    mana: 254.0
+  16:
+    armor: 6.62
+    attackspersecond: 0.79
+    damagemax: 109.0
+    damagemin: 103.0
+    health: 1520.0
+    mana: 746.0
+  25:
+    armor: 10.82
+    attackspersecond: 0.96
+    damagemax: 150.0
+    damagemin: 144.0
+    health: 2340.0
+    mana: 1238.0
 npc_dota_hero_alchemist:
   1:
     armor: 1.54
@@ -466,21 +488,21 @@ npc_dota_hero_death_prophet:
     attackspersecond: 0.67
     damagemax: 59.0
     damagemin: 47.0
-    health: 560.0
+    health: 540.0
     mana: 326.0
   16:
     armor: 6.18
     attackspersecond: 0.81
     damagemax: 106.0
     damagemin: 94.0
-    health: 1160.0
+    health: 1140.0
     mana: 890.0
   25:
     armor: 10.38
     attackspersecond: 0.99
     damagemax: 151.0
     damagemin: 139.0
-    health: 1860.0
+    health: 1840.0
     mana: 1430.0
 npc_dota_hero_disruptor:
   1:
@@ -991,21 +1013,21 @@ npc_dota_hero_life_stealer:
 npc_dota_hero_lina:
   1:
     armor: 1.24
-    attackspersecond: 0.68
+    attackspersecond: 0.72
     damagemax: 58.0
     damagemin: 40.0
     health: 560.0
     mana: 374.0
   16:
     armor: 4.6
-    attackspersecond: 0.83
+    attackspersecond: 0.88
     damagemax: 108.0
     damagemin: 90.0
     health: 1040.0
     mana: 974.0
   25:
     armor: 9.08
-    attackspersecond: 1.01
+    attackspersecond: 1.07
     damagemax: 154.0
     damagemin: 136.0
     health: 1680.0
@@ -1151,17 +1173,17 @@ npc_dota_hero_meepo:
     health: 660.0
     mana: 290.0
   16:
-    armor: 8.42
-    attackspersecond: 0.9
-    damagemax: 79.0
-    damagemin: 73.0
+    armor: 9.12
+    attackspersecond: 0.93
+    damagemax: 84.0
+    damagemin: 78.0
     health: 1180.0
     mana: 602.0
   25:
-    armor: 13.32
-    attackspersecond: 1.11
-    damagemax: 114.0
-    damagemin: 108.0
+    armor: 14.3
+    attackspersecond: 1.15
+    damagemax: 121.0
+    damagemin: 115.0
     health: 1820.0
     mana: 986.0
 npc_dota_hero_mirana:
@@ -1725,16 +1747,16 @@ npc_dota_hero_shredder:
   16:
     armor: 3.18
     attackspersecond: 0.81
-    damagemax: 85.0
-    damagemin: 81.0
-    health: 1300.0
+    damagemax: 81.0
+    damagemin: 77.0
+    health: 1220.0
     mana: 758.0
   25:
     armor: 7.38
     attackspersecond: 0.98
-    damagemax: 122.0
-    damagemin: 118.0
-    health: 2040.0
+    damagemax: 115.0
+    damagemin: 111.0
+    health: 1900.0
     mana: 1226.0
 npc_dota_hero_silencer:
   1:

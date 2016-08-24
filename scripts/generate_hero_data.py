@@ -1,7 +1,7 @@
 import yaml
 import imp
 
-hf  = imp.load_source('hero_functions', '/home/sites/devilesk.com/hero_functions.py')
+hf  = imp.load_source('hero_functions', '/home/sites/devilesk.com/plugins/hero_functions.py')
 
 print 'start...'
 
