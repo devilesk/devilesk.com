@@ -1,0 +1,77 @@
+{
+    "date": "2015-11-01",
+    "menu": [
+        {
+            "id": "broodmother",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "broodmother",
+                    "name": "Broodmother"
+                }
+            ]
+        },
+        {
+            "id": "doom_bringer",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "doom_bringer",
+                    "name": "Doom"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "broodmother"
+                    ],
+                    "name": "Broodmother",
+                    "notes": [
+                        {
+                            "note": "Spiderlings Poison Sting slow reduced from 12% to 8%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "doom_bringer"
+                    ],
+                    "name": "Doom",
+                    "notes": [
+                        {
+                            "note": "Scepter Doom no longer increases damage",
+                            "detail": []
+                        },
+                        {
+                            "note": "Scorched Earth damage and heal reduced from 12\/24\/36\/48 to 12\/23\/34\/45",
+                            "detail": []
+                        },
+                        {
+                            "note": "Scorched Earth cooldown rescaled from 60\/55\/50\/45 to 55",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/19087\/",
+    "version": "6.85b"
+}

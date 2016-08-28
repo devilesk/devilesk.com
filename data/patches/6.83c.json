@@ -1,0 +1,171 @@
+{
+    "date": "2015-02-12",
+    "menu": [
+        {
+            "id": "general",
+            "name": "General",
+            "submenu": []
+        },
+        {
+            "id": "axe",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "axe",
+                    "name": "Axe"
+                }
+            ]
+        },
+        {
+            "id": "juggernaut",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "juggernaut",
+                    "name": "Juggernaut"
+                }
+            ]
+        },
+        {
+            "id": "lion",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "lion",
+                    "name": "Lion"
+                }
+            ]
+        },
+        {
+            "id": "phantom_lancer",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "phantom_lancer",
+                    "name": "Phantom Lancer"
+                }
+            ]
+        },
+        {
+            "id": "vengefulspirit",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "vengefulspirit",
+                    "name": "Vengeful Spirit"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [
+                        "general"
+                    ],
+                    "name": "General",
+                    "notes": [
+                        {
+                            "note": "Dire Ancients spawn box restriction area is now a bit smaller",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "axe"
+                    ],
+                    "name": "Axe",
+                    "notes": [
+                        {
+                            "note": "Axe's Berserker's Call no longer affects invulnerable units (like Cycloned units)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Axe's Berserker's Call no longer keeps the targets disabled if Axe dies while the targets still have the debuff",
+                            "detail": []
+                        },
+                        {
+                            "note": "Axe's Culling Blade kill threshold reduced from 250\/350\/450 to 250\/325\/400 (Scepter from 300\/450\/625 to 300\/425\/550)",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "juggernaut"
+                    ],
+                    "name": "Juggernaut",
+                    "notes": [
+                        {
+                            "note": "Juggernaut's agility growth reduced from 2.85 to 2.4",
+                            "detail": []
+                        },
+                        {
+                            "note": "Juggernaut's Healing Ward manacost rescaled from 80\/100\/120\/140 to 120\/125\/130\/135",
+                            "detail": []
+                        },
+                        {
+                            "note": "Juggernaut's Bladefury manacost rescaled from 110 to 120\/110\/100\/90",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lion"
+                    ],
+                    "name": "Lion",
+                    "notes": [
+                        {
+                            "note": "Lion's Hex unit movement speed reduced from 100 to 140 (same as Scythe of Vyse)",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phantom_lancer"
+                    ],
+                    "name": "Phantom Lancer",
+                    "notes": [
+                        {
+                            "note": "Enabled Phantom Lancer in Captain's Mode",
+                            "detail": [
+                                "Will be available in the main client next week."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "vengefulspirit"
+                    ],
+                    "name": "Vengeful Spirit",
+                    "notes": [
+                        {
+                            "note": "Vengeful Spirit's Wave of Terror duration reduced from 20 to 15 seconds",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/www.dota2.com\/newbloom\/part3",
+    "version": "6.83c"
+}

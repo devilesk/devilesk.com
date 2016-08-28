@@ -1,0 +1,223 @@
+{
+    "date": "2015-05-18",
+    "menu": [
+        {
+            "id": "general",
+            "name": "General",
+            "submenu": []
+        },
+        {
+            "id": "bristleback",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "bristleback",
+                    "name": "Bristleback"
+                },
+                {
+                    "id": "broodmother",
+                    "name": "Broodmother"
+                }
+            ]
+        },
+        {
+            "id": "chen",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "chen",
+                    "name": "Chen"
+                },
+                {
+                    "id": "drow_ranger",
+                    "name": "Drow Ranger"
+                }
+            ]
+        },
+        {
+            "id": "gyrocopter",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "gyrocopter",
+                    "name": "Gyrocopter"
+                },
+                {
+                    "id": "wisp",
+                    "name": "Io"
+                }
+            ]
+        },
+        {
+            "id": "undying",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "undying",
+                    "name": "Undying"
+                }
+            ]
+        },
+        {
+            "id": "mekansm",
+            "name": "Mekansm",
+            "submenu": []
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [
+                        "general"
+                    ],
+                    "name": "General",
+                    "notes": [
+                        {
+                            "note": "Haste rune duration reduced from 30 to 25",
+                            "detail": []
+                        },
+                        {
+                            "note": "The fixed portion of the XP Hero Bounty for first 5 levels is reduced from 100\/120\/160\/220\/300 to 100\/120\/140\/160\/180 (then continues +100 per level as usual)",
+                            "detail": []
+                        },
+                        {
+                            "note": "AoE Gold Bounty, for teams that are behind, now has a small additional component that doesn't fully scale with net worth (100\/75\/50\/35\/25 for 1\/2\/3\/4\/5 heroes, scales linearly from 0 to 4k net worth difference)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Small adjustments to AoE Gold (non-networth component)",
+                            "detail": [
+                                "Old:",
+                                "1: 154 + 7.7 * Level",
+                                "2: 115.5 + 6.6 * Level",
+                                "3: 66 + 5.5 * Level",
+                                "4: 38.5 + 4.4 * Level",
+                                "5: 33 + 4.4 * Level",
+                                "",
+                                "New",
+                                "1: 150 + 8 * Level",
+                                "2: 100 + 7 * Level",
+                                "3: 40 + 6 * Level",
+                                "4: 25 + 4 * Level",
+                                "5: 20 + 4 * Level"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "bristleback"
+                    ],
+                    "name": "Bristleback",
+                    "notes": [
+                        {
+                            "note": "Bristleback Base Attack Time increased from 1.7 to 1.8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "broodmother"
+                    ],
+                    "name": "Broodmother",
+                    "notes": [
+                        {
+                            "note": "Spiderlings Poison Sting slow reduced from 15 to 12%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "chen"
+                    ],
+                    "name": "Chen",
+                    "notes": [
+                        {
+                            "note": "Holy Persuasion now provides a base HP minimum of 700\/800\/900\/1000 instead of raw bonus HP",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "drow_ranger"
+                    ],
+                    "name": "Drow Ranger",
+                    "notes": [
+                        {
+                            "note": "Precision Aura's passive no longer has an exception for pseudo-heroes like Familiars (still affects them when cast, like creeps)",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "gyrocopter"
+                    ],
+                    "name": "Gyrocopter",
+                    "notes": [
+                        {
+                            "note": "Rocket Barrage damage reduced from 11\/15\/19\/23 to 8\/13\/18\/23",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "wisp"
+                    ],
+                    "name": "Io",
+                    "notes": [
+                        {
+                            "note": "Tether movespeed bonus reduced from 17% to 14\/15\/16\/17%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "undying"
+                    ],
+                    "name": "Undying",
+                    "notes": [
+                        {
+                            "note": "Tombstone HP reduced from 200\/400\/600\/800 to 175\/350\/525\/700",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "mekansm"
+                    ],
+                    "name": "Mekansm",
+                    "notes": [
+                        {
+                            "note": "Mekansm cooldown increased from 45 to 65",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/16847\/",
+    "version": "6.84c"
+}

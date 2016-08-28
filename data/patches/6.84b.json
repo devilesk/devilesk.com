@@ -1,0 +1,246 @@
+{
+    "date": "2015-05-09",
+    "menu": [
+        {
+            "id": "general",
+            "name": "General",
+            "submenu": []
+        },
+        {
+            "id": "beastmaster",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "beastmaster",
+                    "name": "Beastmaster"
+                }
+            ]
+        },
+        {
+            "id": "centaur",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "centaur",
+                    "name": "Centaur Warrunner"
+                }
+            ]
+        },
+        {
+            "id": "gyrocopter",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "gyrocopter",
+                    "name": "Gyrocopter"
+                }
+            ]
+        },
+        {
+            "id": "queenofpain",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "queenofpain",
+                    "name": "Queen of Pain"
+                }
+            ]
+        },
+        {
+            "id": "undying",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "undying",
+                    "name": "Undying"
+                },
+                {
+                    "id": "ursa",
+                    "name": "Ursa"
+                },
+                {
+                    "id": "visage",
+                    "name": "Visage"
+                }
+            ]
+        },
+        {
+            "id": "glimmer_cape",
+            "name": "Items F&ndash;L",
+            "submenu": [
+                {
+                    "id": "glimmer_cape",
+                    "name": "Glimmer Cape"
+                }
+            ]
+        },
+        {
+            "id": "silver_edge",
+            "name": "Items S",
+            "submenu": [
+                {
+                    "id": "silver_edge",
+                    "name": "Silver Edge"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [
+                        "general"
+                    ],
+                    "name": "General",
+                    "notes": [
+                        {
+                            "note": "Roshan armor upgrade increased from 1 per 8 minutes to 1.4 per 8 minutes",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "beastmaster"
+                    ],
+                    "name": "Beastmaster",
+                    "notes": [
+                        {
+                            "note": "Hawk movement speed from 250\/300\/350\/400 to 250\/275\/300\/325",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "centaur"
+                    ],
+                    "name": "Centaur Warrunner",
+                    "notes": [
+                        {
+                            "note": "Stampede Scepter damage reduction from 70% to 60%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "gyrocopter"
+                    ],
+                    "name": "Gyrocopter",
+                    "notes": [
+                        {
+                            "note": "Gyrocopter base Intelligence reduced from 23 to 19",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "queenofpain"
+                    ],
+                    "name": "Queen of Pain",
+                    "notes": [
+                        {
+                            "note": "Queen of Pain base movement speed reduced from 300 to 295",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "undying"
+                    ],
+                    "name": "Undying",
+                    "notes": [
+                        {
+                            "note": "Flesh Golem minimum damage amplification reduced from 5\/10\/15% to 1% (same for scepter)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Flesh Golem minimum slow reduced from 5% to 1%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Soul Rip manacost increased from 50\/75\/100\/125 to 100\/110\/120\/130",
+                            "detail": []
+                        },
+                        {
+                            "note": "Zombies no longer require two hits to kill from Towers",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ursa"
+                    ],
+                    "name": "Ursa",
+                    "notes": [
+                        {
+                            "note": "Enrage damage multiplier reduced from 2\/2.5\/3 to 1.5\/2\/2.5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "visage"
+                    ],
+                    "name": "Visage",
+                    "notes": [
+                        {
+                            "note": "Familiars hit requirement reduced from 4 to 3",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "glimmer_cape"
+                    ],
+                    "name": "Glimmer Cape",
+                    "notes": [
+                        {
+                            "note": "Glimmer Cape Magic Resistance reduced 66% to 55%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Glimmer Cape and Shadow Amulet Attack Speed reduced from 30 to 20",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "silver_edge"
+                    ],
+                    "name": "Silver Edge",
+                    "notes": [
+                        {
+                            "note": "Silver Edge recipe cost increased from 350 to 600",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/16749\/",
+    "version": "6.84b"
+}

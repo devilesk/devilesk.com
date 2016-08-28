@@ -27,6 +27,10 @@ def main():
         print 'regenerated hero lore'
         call(["python", "generate_item_tooltips.py"], cwd='/home/sites/devilesk.com/scripts')
         print 'regenerated item tooltips'
+        call(["python", "generate_patch_data.py"], cwd='/home/sites/devilesk.com/scripts')
+        print 'regenerated patch data'
+        call(["python", "generate_heroitem_keys.py"], cwd='/home/sites/devilesk.com/scripts')
+        print 'regenerated hero and item keys'
         
         hyde_args = ["hyde"]
         if len(sys.argv) > 1 and 'verbose' in sys.argv:

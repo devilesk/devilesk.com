@@ -1,0 +1,553 @@
+{
+    "date": "2014-06-02",
+    "menu": [
+        {
+            "id": "ancient_apparition",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "ancient_apparition",
+                    "name": "Ancient Apparition"
+                },
+                {
+                    "id": "batrider",
+                    "name": "Batrider"
+                },
+                {
+                    "id": "bounty_hunter",
+                    "name": "Bounty Hunter"
+                }
+            ]
+        },
+        {
+            "id": "doom_bringer",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "doom_bringer",
+                    "name": "Doom"
+                },
+                {
+                    "id": "drow_ranger",
+                    "name": "Drow Ranger"
+                }
+            ]
+        },
+        {
+            "id": "earthshaker",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "earthshaker",
+                    "name": "Earthshaker"
+                },
+                {
+                    "id": "elder_titan",
+                    "name": "Elder Titan"
+                },
+                {
+                    "id": "enigma",
+                    "name": "Enigma"
+                },
+                {
+                    "id": "invoker",
+                    "name": "Invoker"
+                },
+                {
+                    "id": "juggernaut",
+                    "name": "Juggernaut"
+                }
+            ]
+        },
+        {
+            "id": "leshrac",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "leshrac",
+                    "name": "Leshrac"
+                },
+                {
+                    "id": "lina",
+                    "name": "Lina"
+                },
+                {
+                    "id": "lycan",
+                    "name": "Lycan"
+                }
+            ]
+        },
+        {
+            "id": "mirana",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "mirana",
+                    "name": "Mirana"
+                },
+                {
+                    "id": "ogre_magi",
+                    "name": "Ogre Magi"
+                },
+                {
+                    "id": "omniknight",
+                    "name": "Omniknight"
+                }
+            ]
+        },
+        {
+            "id": "phantom_assassin",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "phantom_assassin",
+                    "name": "Phantom Assassin"
+                },
+                {
+                    "id": "queenofpain",
+                    "name": "Queen of Pain"
+                },
+                {
+                    "id": "riki",
+                    "name": "Riki"
+                }
+            ]
+        },
+        {
+            "id": "skywrath_mage",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "skywrath_mage",
+                    "name": "Skywrath Mage"
+                },
+                {
+                    "id": "slardar",
+                    "name": "Slardar"
+                }
+            ]
+        },
+        {
+            "id": "treant",
+            "name": "Heroes T",
+            "submenu": [
+                {
+                    "id": "treant",
+                    "name": "Treant Protector"
+                },
+                {
+                    "id": "tusk",
+                    "name": "Tusk"
+                }
+            ]
+        },
+        {
+            "id": "undying",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "undying",
+                    "name": "Undying"
+                },
+                {
+                    "id": "windrunner",
+                    "name": "Windranger"
+                },
+                {
+                    "id": "zuus",
+                    "name": "Zeus"
+                }
+            ]
+        },
+        {
+            "id": "mjollnir",
+            "name": "Mjollnir",
+            "submenu": []
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "ancient_apparition"
+                    ],
+                    "name": "Ancient Apparition",
+                    "notes": [
+                        {
+                            "note": "Ice Vortex slow decreased from 18\/22\/26\/30% to 15\/20\/25\/30%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "batrider"
+                    ],
+                    "name": "Batrider",
+                    "notes": [
+                        {
+                            "note": "Sticky Napalm bonus damage is now halved against non-hero units",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bounty_hunter"
+                    ],
+                    "name": "Bounty Hunter",
+                    "notes": [
+                        {
+                            "note": "Shadow Walk duration increased from 15\/20\/25\/30 to 20\/25\/30\/35",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "doom_bringer"
+                    ],
+                    "name": "Doom",
+                    "notes": [
+                        {
+                            "note": "Devour manacost rescaled from 60\/50\/40\/30 to 60",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "drow_ranger"
+                    ],
+                    "name": "Drow Ranger",
+                    "notes": [
+                        {
+                            "note": "Gust knockback duration increased from 0.5 to 0.6\/0.7\/0.8\/0.9",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "earthshaker"
+                    ],
+                    "name": "Earthshaker",
+                    "notes": [
+                        {
+                            "note": "Turn rate improved from 0.6 to 0.9",
+                            "detail": []
+                        },
+                        {
+                            "note": "Echo Slam's Initial Damage, Echo Search, Echo Damage AOE increased from 525, 550, 500 to 575, 575, 575",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "elder_titan"
+                    ],
+                    "name": "Elder Titan",
+                    "notes": [
+                        {
+                            "note": "Echo Stomp damage increased from 80\/85\/90\/95 to 80\/90\/100\/110",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "enigma"
+                    ],
+                    "name": "Enigma",
+                    "notes": [
+                        {
+                            "note": "Midnight Pulse duration increased from 8 to 11",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "invoker"
+                    ],
+                    "name": "Invoker",
+                    "notes": [
+                        {
+                            "note": "Forged Spirits 33% magic resistance removed",
+                            "detail": []
+                        },
+                        {
+                            "note": "Cold Snap damage reworked from the initial and secondary proc damage of 60\/30 to 7xQuasLevel per proc",
+                            "detail": []
+                        },
+                        {
+                            "note": "Deafening Blast's Disarm is now dispelled when Magic Immunity is applied",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "juggernaut"
+                    ],
+                    "name": "Juggernaut",
+                    "notes": [
+                        {
+                            "note": "Omnislash damage per slash rescaled from 175-250 to 200-225",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base Attack Time improved from 1.5 to 1.4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "leshrac"
+                    ],
+                    "name": "Leshrac",
+                    "notes": [
+                        {
+                            "note": "Pulse Nova damage increased from 66\/100\/144 to 80\/120\/160 (Scepter from 100\/150\/200 to 100\/160\/220)",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lina"
+                    ],
+                    "name": "Lina",
+                    "notes": [
+                        {
+                            "note": "Light Strike Array stun duration increased from 1.6 to 1.6\/1.7\/1.8\/1.9",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lycan"
+                    ],
+                    "name": "Lycan",
+                    "notes": [
+                        {
+                            "note": "Howl duration decreased from 12 to 10",
+                            "detail": []
+                        },
+                        {
+                            "note": "Howl bonus damage reduced from 20\/30\/40\/50 to 14\/26\/38\/50",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "mirana"
+                    ],
+                    "name": "Mirana",
+                    "notes": [
+                        {
+                            "note": "Sacred Arrow minimum stun duration decreased from 0.5 to 0.01 (maximum duration is still 5 seconds growing linearly)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Sacred Arrow minimum damage reduced by 40 (maximum damage is still 190\/280\/370\/460 growing linearly)",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ogre_magi"
+                    ],
+                    "name": "Ogre Magi",
+                    "notes": [
+                        {
+                            "note": "Multicast's passive manacost penalty on Fireblast reduced from 30\/70\/110 to 20\/40\/60",
+                            "detail": []
+                        },
+                        {
+                            "note": "Bloodlust can now be cast on Magic Immune allies",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "omniknight"
+                    ],
+                    "name": "Omniknight",
+                    "notes": [
+                        {
+                            "note": "Degen Aura slow increased from 7\/14\/21\/28% to 10\/18\/26\/34%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phantom_assassin"
+                    ],
+                    "name": "Phantom Assassin",
+                    "notes": [
+                        {
+                            "note": "Phantom Strike bonus attack speed increased from 100 to 130",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "queenofpain"
+                    ],
+                    "name": "Queen of Pain",
+                    "notes": [
+                        {
+                            "note": "Shadow Strike cast range increased from 435 to 450\/475\/500\/525",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "riki"
+                    ],
+                    "name": "Riki",
+                    "notes": [
+                        {
+                            "note": "Smoke Screen cooldown reduced from 13 to 11",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "skywrath_mage"
+                    ],
+                    "name": "Skywrath Mage",
+                    "notes": [
+                        {
+                            "note": "Ancient Seal damage amplification increased from 18\/24\/30\/36% to 30\/35\/40\/45%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "slardar"
+                    ],
+                    "name": "Slardar",
+                    "notes": [
+                        {
+                            "note": "Bash bonus damage increased from 40\/60\/80\/100 to 60\/80\/100\/120",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "treant"
+                    ],
+                    "name": "Treant Protector",
+                    "notes": [
+                        {
+                            "note": "Leech Seed damage per pulse decreased from 24\/36\/48\/60 to 15\/30\/45\/60",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tusk"
+                    ],
+                    "name": "Tusk",
+                    "notes": [
+                        {
+                            "note": "Snowball cooldown reduced from 21 to 21\/20\/19\/18",
+                            "detail": []
+                        },
+                        {
+                            "note": "Walrus Punch cooldown reduced from 30\/24\/18 to 25\/20\/15",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "undying"
+                    ],
+                    "name": "Undying",
+                    "notes": [
+                        {
+                            "note": "Intelligence growth increased from 2.0 to 2.5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "windrunner"
+                    ],
+                    "name": "Windranger",
+                    "notes": [
+                        {
+                            "note": "Focus Fire manacost decreased from 150 to 75\/100\/125",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "zuus"
+                    ],
+                    "name": "Zeus",
+                    "notes": [
+                        {
+                            "note": "Lightning Bolt vision and truesight duration increased from 3 to 4.5",
+                            "detail": []
+                        },
+                        {
+                            "note": "Lightning Bolt search area of effect increased from 250 to 325",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "mjollnir"
+                    ],
+                    "name": "Mjollnir",
+                    "notes": [
+                        {
+                            "note": "Recipe cost increased from 600 to 900",
+                            "detail": []
+                        },
+                        {
+                            "note": "Static Charge duration decreased from 20 to 15",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/13518\/",
+    "version": "6.81b"
+}

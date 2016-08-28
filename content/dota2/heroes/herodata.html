@@ -75,7 +75,7 @@ float:left;
 <div class="form-group">
 <label for="sortby">Sorting by: </label>
 <span id="sortby" data-bind="foreach: sortColumns">
-	<span class="label label-primary" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
+	<span class="label" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
 </span>
 <span class="label" style="display:none" data-bind="visible: sortColumns().length > 1, click: function(data, event) { clearLabels(); }"><a href="">Clear All</a></span>
 </div>

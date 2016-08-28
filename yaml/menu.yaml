@@ -1,0 +1,127 @@
+-   css_class: li-community
+    description: Community Home
+    name: COMMUNITY
+    submenu:
+    -   name: The International
+        type: page
+        url: /dota2/international
+    -   name: Asia Championships
+        type: page
+        url: /dota2/dac/2015
+    -   type: divider
+    -   name: Community
+        type: header
+    -   name: Live Streams
+        type: page
+        url: /dota2/community/streams
+    -   type: divider
+    -   name: Patches
+        type: page
+        url: /dota2/patches
+    -   name: All Hero Challenge List
+        type: page
+        url: /dota2/all-hero-challenge-list
+    type: node
+    url: dota2/community
+-   css_class: li-webapps
+    description: Web Apps Home
+    name: WEB APPS
+    submenu:
+    -   name: Trivia
+        type: header
+    -   name: Ability Matching
+        type: page
+        url: /dota2/apps/abilitymatching
+    -   name: Ability Trivia
+        type: page
+        url: /dota2/apps/ability-trivia
+    -   name: Ability Name Trivia
+        type: page
+        url: /dota2/apps/ability-name-trivia
+    -   name: Hero Name Trivia
+        type: page
+        url: /dota2/apps/hero-name-trivia
+    -   name: Item Cost Trivia
+        type: page
+        url: /dota2/apps/item-cost-trivia
+    -   name: Item Name Trivia
+        type: page
+        url: /dota2/apps/item-name-trivia
+    -   type: divider
+    -   name: Maps
+        type: header
+    -   name: Drawable Map
+        type: page
+        url: /dota2/apps/drawablemap
+    -   name: Interactive Map
+        type: page
+        url: /dota2/apps/interactivemap3
+    -   type: divider
+    -   name: Other
+        type: header
+    -   name: Hero Calculator
+        type: page
+        url: /dota2/apps/hero-calculator
+    -   name: Hero Selection Trainer
+        type: page
+        url: /dota2/apps/hero-selection-trainer
+    -   name: Item Scramble
+        type: page
+        url: /dota2/apps/item-scramble
+    -   name: Layout Editor
+        type: page
+        url: /dota2/apps/layout-editor
+    -   name: Replay Viewer
+        type: page
+        url: /dota2/apps/replay/viewer
+    -   name: Tread Switch Trainer
+        type: page
+        url: /dota2/apps/tread-switch-trainer
+    type: node
+    url: dota2/apps
+-   css_class: li-heroes
+    description: Heroes Home
+    name: HEROES
+    submenu:
+    -   name: Stat Chart
+        type: page
+        url: /dota2/apps/chart
+    -   name: Stat Table
+        type: page
+        url: /dota2/heroes/herodata
+    -   name: Lore
+        type: page
+        url: /dota2/heroes/lore
+    -   name: Patch History
+        type: page
+        url: /dota2/heroes/patchhistory
+    -   name: Unit Stat Table
+        type: page
+        url: /dota2/heroes/unitdata
+    type: node
+    url: dota2/heroes
+-   css_class: li-items
+    description: Items Home
+    name: ITEMS
+    type: node
+    url: dota2/items
+-   css_class: li-guides
+    description: Guides Home
+    name: GUIDES
+    submenu:
+    -   ext_url: http://steamcommunity.com/sharedfiles/filedetails/?id=123364976
+        name: Comprehensive Dota 2 Guide
+        type: page
+    -   ext_url: http://steamcommunity.com/sharedfiles/filedetails/?id=126386524
+        name: Basic Advice to Improve Your Games
+        type: page
+    -   ext_url: http://steamcommunity.com/sharedfiles/filedetails/?id=125563122
+        name: Beginner's Guide to Items
+        type: page
+    type: node
+    url: dota2/guides
+-   css_class: li-blog
+    description: Blog Home
+    name: BLOG
+    type: node
+    url: blog

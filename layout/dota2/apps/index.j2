@@ -1,0 +1,27 @@
+{% extends "base.j2" %}
+
+{% block custom_css %}
+<style type="text/css">
+
+</style>
+{% endblock custom_css %}
+                
+{% block main %}
+{% for column in apps -%}
+<div class="col-md-6">
+	{% for item in column -%}
+    <div class="media">
+        <a href="{{ content_url(item.url) }}">
+            <div class="media-left">
+                <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{ item.name }}</h4>
+                {{ item.description }}
+            </div>
+        </a>
+    </div>
+	{%- endfor %}
+</div>
+{%- endfor %}
+{%- endblock %}

@@ -1,0 +1,175 @@
+{
+    "date": "2015-01-13",
+    "menu": [
+        {
+            "id": "",
+            "name": "General",
+            "submenu": []
+        },
+        {
+            "id": "brewmaster",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "brewmaster",
+                    "name": "Brewmaster"
+                }
+            ]
+        },
+        {
+            "id": "faceless_void",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                },
+                {
+                    "id": "juggernaut",
+                    "name": "Juggernaut"
+                }
+            ]
+        },
+        {
+            "id": "slark",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "slark",
+                    "name": "Slark"
+                }
+            ]
+        },
+        {
+            "id": "tidehunter",
+            "name": "Heroes T",
+            "submenu": [
+                {
+                    "id": "tidehunter",
+                    "name": "Tidehunter"
+                }
+            ]
+        },
+        {
+            "id": "vengefulspirit",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "vengefulspirit",
+                    "name": "Vengeful Spirit"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [],
+                    "name": "General",
+                    "notes": [
+                        {
+                            "note": "Respawn time rescaled from 4*Level to 5 + 3.8*Level (total is still 100 at level 25)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Melee\/Ranged Barracks team bounty from 125\/75 to 175\/100 gold",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "brewmaster"
+                    ],
+                    "name": "Brewmaster",
+                    "notes": [
+                        {
+                            "note": "Brewmaster's Hurl Boulder damage reduced from 100 to 50 damage ",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Chronosphere manacost increased from 150\/175\/200 to 150\/225\/300 ",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "juggernaut"
+                    ],
+                    "name": "Juggernaut",
+                    "notes": [
+                        {
+                            "note": "Juggernaut base armor reduced by 1",
+                            "detail": []
+                        },
+                        {
+                            "note": "Omnislash cast range reduced from 450 to 350",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "slark"
+                    ],
+                    "name": "Slark",
+                    "notes": [
+                        {
+                            "note": "Pounce damage reduced from 55\/110\/165\/220 to 50\/100\/150\/200",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tidehunter"
+                    ],
+                    "name": "Tidehunter",
+                    "notes": [
+                        {
+                            "note": "Anchor Smash radius reduced from 400 to 375",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "vengefulspirit"
+                    ],
+                    "name": "Vengeful Spirit",
+                    "notes": [
+                        {
+                            "note": "Magic Missile cooldown rescaled from 10 to 13\/12\/11\/10 ",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/15462\/",
+    "version": "6.83b"
+}

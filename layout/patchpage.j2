@@ -1,10 +1,121 @@
 {% extends "base.j2" %}
 
+{% set data = patchdata[resource.meta.patch] %}
+
+{% macro getClass(data, type) -%}
+{% set id = data.replace(type + '_', '') %}
+{%- if id in herokeys -%}
+herosprite-{{ id }}
+{%- elif id in itemkeys -%}
+itemsprite-{{ id }}
+{% endif %}
+{% endmacro %}
+
+{% block title %}Patch {{ resource.meta.patch }} Notes{% endblock title %}
+{% block description %}Dota 2 Patch {{ resource.meta.patch }} Notes & Changelog. Information about changes to heroes, items, and general gameplay.{% endblock description %}
+
 {% block custom_css %}
 <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
 <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
 <link rel="stylesheet" href="{{ media_url('css/patch.css') }}">
+<style type="text/css">
+.group-icon {
+    margin-right:10px;
+    display:inline-block;
+}
+</style>
 {% endblock custom_css %}
+
+{% block container %}
+<div id="main" class="col-md-9" role="main">
+    <nav class="post_nav">
+    <a class="btn btn-default btn-xs backlink" href="{{ content_url(resource.node.url) }}">Back to list</a>
+    <a class="btn btn-default btn-xs prev{{' disabled' if not resource.prev_by_patch }}"
+        title="{{ resource.prev_by_patch.meta.patch }}"
+        {% if resource.prev_by_patch %}
+        href="{{ content_url(resource.prev_by_patch.url) }}"{% endif %}>
+        Previous
+    </a>
+
+    <a class="btn btn-default btn-xs next{{' disabled' if not resource.next_by_patch }}"
+        title="{{ resource.next_by_patch.meta.patch }}"
+        {% if resource.next_by_patch %}
+        href="{{ content_url(resource.next_by_patch.url) }}"{% endif %}>
+        Next
+    </a>
+    </nav>
+    
+    <header class="banner clearfix">
+        <h2>Patch {{ resource.meta.patch}} Changelog</h2>
+    </header>
+
+    <section class="content">
+        <p>{{ resource.meta.patch}} Update Notes</p>
+        <p>{{ resource.meta.patch}} Gameplay Update</p>
+        {% for section in data.sections %}
+            {% if section.data.length != 1 %}
+            <h3>{{ section.name }}</h3>
+            {% else %}
+            <h3 id="{{ section.data[0].id|join('_') }}">{{ section.name }}</h3>
+            {% endif %}
+            
+            {% for group in section.data %}
+            <div class="patch-group">
+                {% if section.data.length != 1 %}
+                <a class="anchor" id="{{ group.id|join('_') }}"></a>
+                {% endif %}
+                
+                {% for id in group.id %}
+                    {% if section.id == 'heroes' %}
+                        <div class="group-icon img-rounded hero herosprite herosprite-{{ id }}" title="{{ group.name }}"></div>
+                    {% elif section.id == 'items' %}
+                        <div class="group-icon img-rounded item itemsprite itemsprite-{{ id }}" title="{{ group.name }}"></div>
+                    {% elif section.id not in herokeys and section.id not in itemkeys %}
+                        <div class="group-icon img-rounded {{ getClass(id, section.id) }}" title="{{ group.name }}"></div>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if section.data.length != 1 %}
+                <p>{{ group.name }}</p>
+                {% endif %}
+                <ul>
+                    {% for note in group.notes %}
+                    <li>
+                        <span>{{ note.note }}</span>
+                        {% if note.detail %}
+                            {% for detail in note.detail %}
+                            <br><span>{{ detail }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        {% endfor %}
+
+        <p class="patch-source">Source: <a href="{{ data.source }}">{{ data.source }}</a></p>
+    </section>
+</div>
+
+<div class="col-md-3">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary">
+        <ul class="nav bs-docs-sidenav">
+            {% for item in data.menu %}
+            <li class="active">
+                <a href="#{{ item.id }}">{{ item.name }}</a>
+                <ul class="nav" data-bind="foreach: submenu">
+                    {% for subitem in item.submenu %}
+                    <li><a href="#{{ subitem.id }}">{{ subitem.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        <a class="back-to-top" href="#top">Back to top</a>
+    </div>
+</div>
+{% endblock container %}
 
 {% block scripts %}
 <script type="text/javascript">

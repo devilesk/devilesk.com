@@ -5,7 +5,7 @@
     <meta charset="{{ resource.meta.charset }}">
 
     <title>{% block title %}{{ resource.meta.title }}{% endblock title %}</title>
-    <meta name="description" content="{{ resource.meta.description }}">
+    <meta name="description" content="{% block description %}{{ resource.meta.description }}{% endblock description %}">
     <meta name="author" content="{{ resource.meta.author }}">
     <meta name="viewport" content="{{ resource.meta.viewport }}">
 
@@ -14,14 +14,19 @@
     {% endblock favicons %}
 
     {% block css %}
+    {% if site.config.mode == "production" %}
     <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ media_url('css/site.css') }}" id="theme-css">
+    {% else %}
+    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.css') }}">
+    {% endif %}
     {% endblock css %}
     {% block custom_css %}
     {% endblock custom_css %}
 
     {% block headjs %}
-	<script src="{{ media_url('js/style-switcher-head.js') }}"></script>
+    <script type="text/javascript">
+    function readCookie(a){for(var b=a+"=",c=document.cookie.split(";"),d=0;d<c.length;d++){for(var e=c[d];" "==e.charAt(0);)e=e.substring(1,e.length);if(0==e.indexOf(b))return e.substring(b.length,e.length)}return null}/*var link=document.createElement("link");link.id="theme-css",link.href="/media/css/site"+("light"==readCookie("theme")?"-light":"")+".css",link.type="text/css",link.rel="stylesheet",document.getElementsByTagName("head")[0].appendChild(link);*/
+    </script>
 	{% endblock headjs %}
     {% block endhead %}{% endblock endhead %}
 </head>
@@ -77,15 +82,14 @@
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
     {% endblock jquery %}
     {% block before_scripts %}{% endblock before_scripts %}
+    {% if site.config.mode == "production" %}
     <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
+    {% else %}
+    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
+    {% endif %}
     <script src="{{ media_url('js/style-switcher.js') }}"></script>
     
     {% block scripts %}{% endblock scripts %}
-
-    <!--[if lt IE 7 ]>
-        <script src="js/libs/dd_belatedpng.js"></script>
-        <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-    <![endif]-->
 
     {% block analytics %}
     {% include "analytics.j2" %}
