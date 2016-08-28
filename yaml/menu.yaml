@@ -1,4 +1,4 @@
--   css_class: li-community
+-   css_class: page-community
     description: Community Home
     name: COMMUNITY
     submenu:
@@ -23,7 +23,7 @@
         url: /dota2/all-hero-challenge-list
     type: node
     url: dota2/community
--   css_class: li-webapps
+-   css_class: page-webapps
     description: Web Apps Home
     name: WEB APPS
     submenu:
@@ -79,7 +79,7 @@
         url: /dota2/apps/tread-switch-trainer
     type: node
     url: dota2/apps
--   css_class: li-heroes
+-   css_class: page-heroes
     description: Heroes Home
     name: HEROES
     submenu:
@@ -100,12 +100,12 @@
         url: /dota2/heroes/unitdata
     type: node
     url: dota2/heroes
--   css_class: li-items
+-   css_class: page-items
     description: Items Home
     name: ITEMS
     type: node
     url: dota2/items
--   css_class: li-guides
+-   css_class: page-guides
     description: Guides Home
     name: GUIDES
     submenu:
@@ -120,7 +120,7 @@
         type: page
     type: node
     url: dota2/guides
--   css_class: li-blog
+-   css_class: page-blog
     description: Blog Home
     name: BLOG
     type: node

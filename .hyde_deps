@@ -1,29 +1,31 @@
 !!python/unicode '.hyde_deps': []
-!!python/unicode 'about.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'about.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'blog/angry-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
 !!python/unicode 'blog/atom.xml': [atom.j2, macros.j2]
 !!python/unicode 'blog/excerpts.xml': [atom.j2, macros.j2]
 !!python/unicode 'blog/happy-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
-!!python/unicode 'blog/index.html': [listing.j2, macros.j2, base.j2, analytics.j2]
-!!python/unicode 'blog/interactive-map-lane-view-update.html': [blog.j2, macros.j2,
-  analytics.j2, base.j2]
-!!python/unicode 'blog/interactive-map-tower-vision-update.html': [blog.j2, macros.j2,
-  analytics.j2, base.j2]
-!!python/unicode 'blog/interactive-map-ward-vision-update.html': [blog.j2, macros.j2,
-  analytics.j2, base.j2]
+!!python/unicode 'blog/index.html': [listing.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'blog/interactive-map-lane-view-update.html': [blog.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'blog/interactive-map-tower-vision-update.html': [blog.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'blog/interactive-map-ward-vision-update.html': [blog.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
 !!python/unicode 'blog/sad-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
-!!python/unicode 'blog/tags/Interactive Dota Map.html': [macros.j2, base.j2, tagged_posts.j2,
-  analytics.j2]
+!!python/unicode 'blog/tags/Interactive Dota Map.html': [tagged_posts.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
 !!python/unicode 'blog/tags/angry.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 !!python/unicode 'blog/tags/happy.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-!!python/unicode 'blog/tags/interactive dota map.html': [macros.j2, base.j2, tagged_posts.j2,
-  analytics.j2]
-!!python/unicode 'blog/tags/interactive map.html': [macros.j2, base.j2, tagged_posts.j2,
-  analytics.j2]
+!!python/unicode 'blog/tags/interactive dota map.html': [tagged_posts.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'blog/tags/interactive map.html': [tagged_posts.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
 !!python/unicode 'blog/tags/sad.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 !!python/unicode 'blog/tags/thoughts.html': [macros.j2, base.j2, tagged_posts.j2,
   analytics.j2]
-!!python/unicode 'blog/tags/update.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
+!!python/unicode 'blog/tags/update.html': [tagged_posts.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
 !!python/unicode 'blog\angry-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
 !!python/unicode 'blog\atom.xml': [atom.j2, macros.j2]
 !!python/unicode 'blog\excerpts.xml': [atom.j2, macros.j2]
@@ -46,7 +48,8 @@
 !!python/unicode 'bootstrap\js\bootstrap.min.js': []
 !!python/unicode 'css\custom.css': []
 !!python/unicode 'dota2/a-z-challenge-list.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/all-hero-challenge-list.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/all-hero-challenge-list.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
 !!python/unicode 'dota2/apps/.hero-calculator/changelog.txt': []
 !!python/unicode 'dota2/apps/.hero-calculator/hero-calculator.abilities.js': []
 !!python/unicode 'dota2/apps/.hero-calculator/hero-calculator.abilitydata.js': []
@@ -80,9 +83,11 @@
 !!python/unicode 'dota2/apps/.interactivemap2/theme/default/style.mobile.tidy.css': []
 !!python/unicode 'dota2/apps/.interactivemap2/theme/default/style.tidy.css': []
 !!python/unicode 'dota2/apps/.interactivemap2/tiles/2/main.py': []
-!!python/unicode 'dota2/apps/ability-name-trivia.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/apps/ability-trivia.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/apps/abilitymatching.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/apps/ability-name-trivia.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
+!!python/unicode 'dota2/apps/ability-trivia.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/apps/abilitymatching.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
 !!python/unicode 'dota2/apps/abilitytrivia.html': [base.j2, macros.j2, analytics.j2]
 !!python/unicode 'dota2/apps/abilitytrivia2.html': [base.j2, macros.j2, analytics.j2]
 !!python/unicode 'dota2/apps/drawablemap/.hyde_deps': []
@@ -108,13 +113,15 @@
 !!python/unicode 'dota2/apps/hero-calculator/jquery-ui-1.10.3.custom.js': []
 !!python/unicode 'dota2/apps/hero-calculator/report.php': []
 !!python/unicode 'dota2/apps/hero-calculator/templates.html': []
-!!python/unicode 'dota2/apps/hero-name-trivia.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/apps/hero-selection-trainer.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/apps/index.html': [macros.j2, dota2/apps/index.j2, base.j2,
+!!python/unicode 'dota2/apps/hero-name-trivia.html': [base.j2, macros.j2, root.j2,
   analytics.j2]
+!!python/unicode 'dota2/apps/hero-selection-trainer.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
+!!python/unicode 'dota2/apps/index.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'dota2/apps/interactivemap/SVGPan2.js': []
 !!python/unicode 'dota2/apps/interactivemap/drawing4.svg': []
-!!python/unicode 'dota2/apps/interactivemap/index.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/apps/interactivemap/index.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
 !!python/unicode 'dota2/apps/interactivemap/map.js': []
 !!python/unicode 'dota2/apps/interactivemap2/data.json': []
 !!python/unicode 'dota2/apps/interactivemap2/index.html': []
@@ -130,20 +137,24 @@
 !!python/unicode 'dota2/apps/interactivemap2/theme/default/style.mobile.tidy.css': []
 !!python/unicode 'dota2/apps/interactivemap2/theme/default/style.tidy.css': []
 !!python/unicode 'dota2/apps/interactivemap2/tiles/2/main.py': []
-!!python/unicode 'dota2/apps/item-cost-trivia.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/apps/item-name-trivia.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/apps/item-scramble.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/apps/item-cost-trivia.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
+!!python/unicode 'dota2/apps/item-name-trivia.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
+!!python/unicode 'dota2/apps/item-scramble.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'dota2/apps/player-cards.php': []
 !!python/unicode 'dota2/apps/player-cards/get_player_items.php': []
 !!python/unicode 'dota2/apps/player-cards/item_schema.json': []
 !!python/unicode 'dota2/apps/player-cards/player_cards_from_schema.json': []
-!!python/unicode 'dota2/apps/tread-switch-trainer.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/apps/tread-switch-trainer.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
 !!python/unicode 'dota2/castpoints.html': []
-!!python/unicode 'dota2/community/index.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/community/index.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'dota2/community/leagues.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/community/live-games.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/community/streams.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/guides/index.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/community/live-games.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
+!!python/unicode 'dota2/community/streams.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/guides/index.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'dota2/heroes/6.80/abaddon.html': [macros.j2, base.j2, heropage.j2,
   analytics.j2]
 !!python/unicode 'dota2/heroes/6.80/abyssal_underlord.html': [macros.j2, base.j2,
@@ -577,184 +588,238 @@
   analytics.j2]
 !!python/unicode 'dota2/heroes/6.81/zuus.html': [macros.j2, base.j2, heropage.j2,
   analytics.j2]
-!!python/unicode 'dota2/heroes/abaddon.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/abyssal_underlord.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/alchemist.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/ancient_apparition.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/antimage.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/arc_warden.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/axe.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/bane.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/batrider.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/beastmaster.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/bloodseeker.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/bounty_hunter.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/brewmaster.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/bristleback.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/broodmother.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/centaur.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/chaos_knight.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/chen.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/clinkz.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/crystal_maiden.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/dark_seer.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/dazzle.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/death_prophet.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/disruptor.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/doom_bringer.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/dragon_knight.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/drow_ranger.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/earth_spirit.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/earthshaker.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/elder_titan.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/ember_spirit.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/enchantress.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/enigma.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/faceless_void.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/furion.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/gyrocopter.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/herodata.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/huskar.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/index.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/invoker.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/jakiro.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/juggernaut.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/keeper_of_the_light.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/kunkka.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/legion_commander.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/leshrac.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/lich.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/life_stealer.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/lina.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/lion.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/lone_druid.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/lore.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/luna.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/lycan.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/magnataur.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/medusa.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/meepo.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/mirana.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/morphling.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/naga_siren.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/necrolyte.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/nevermore.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/night_stalker.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/nyx_assassin.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/obsidian_destroyer.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/ogre_magi.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/omniknight.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/oracle.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/patchhistory.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/phantom_assassin.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/phantom_lancer.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/phoenix.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/puck.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/pudge.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/pugna.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/queenofpain.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/rattletrap.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/razor.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/riki.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/rubick.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/sand_king.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/shadow_demon.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/shadow_shaman.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/shredder.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/silencer.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/skeleton_king.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/skywrath_mage.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/slardar.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/slark.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/sniper.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/spectre.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/spirit_breaker.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/storm_spirit.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/sven.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/techies.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/templar_assassin.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/terrorblade.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/tidehunter.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/tinker.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/tiny.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/treant.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/troll_warlord.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/tusk.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/undying.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/unitdata.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/ursa.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/vengefulspirit.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/venomancer.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/viper.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/visage.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/warlock.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/weaver.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/windrunner.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/winter_wyvern.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/wisp.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/heroes/witch_doctor.html': [macros.j2, base.j2, heropage.j2,
-  analytics.j2]
-!!python/unicode 'dota2/heroes/zuus.html': [macros.j2, base.j2, heropage.j2, analytics.j2]
-!!python/unicode 'dota2/index.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'dota2/heroes/abaddon.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/abyssal_underlord.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/alchemist.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/ancient_apparition.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/antimage.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/arc_warden.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/axe.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/bane.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/batrider.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/beastmaster.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/bloodseeker.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/bounty_hunter.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/brewmaster.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/bristleback.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/broodmother.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/centaur.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/chaos_knight.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/chen.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/clinkz.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/crystal_maiden.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/dark_seer.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/dazzle.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/death_prophet.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/disruptor.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/doom_bringer.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/dragon_knight.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/drow_ranger.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/earth_spirit.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/earthshaker.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/elder_titan.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/ember_spirit.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/enchantress.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/enigma.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/faceless_void.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/furion.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/gyrocopter.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/herodata.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/heroes/huskar.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/index.html': [basewide.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/invoker.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/jakiro.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/juggernaut.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/keeper_of_the_light.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/kunkka.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/legion_commander.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/leshrac.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/lich.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/life_stealer.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/lina.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/lion.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/lone_druid.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/lore.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/heroes/luna.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/lycan.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/magnataur.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/medusa.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/meepo.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/mirana.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/morphling.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/naga_siren.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/necrolyte.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/nevermore.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/night_stalker.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/nyx_assassin.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/obsidian_destroyer.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/ogre_magi.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/omniknight.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/oracle.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/patchhistory.html': [basewide.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/phantom_assassin.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/phantom_lancer.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/phoenix.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/puck.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/pudge.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/pugna.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/queenofpain.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/rattletrap.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/razor.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/riki.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/rubick.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/sand_king.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/shadow_demon.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/shadow_shaman.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/shredder.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/silencer.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/skeleton_king.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/skywrath_mage.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/slardar.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/slark.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/sniper.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/spectre.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/spirit_breaker.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/storm_spirit.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/sven.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/techies.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/templar_assassin.html': [heropage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/terrorblade.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/tidehunter.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/tinker.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/tiny.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/treant.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/troll_warlord.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/tusk.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/undying.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/unitdata.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/heroes/ursa.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/vengefulspirit.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/venomancer.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/viper.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/visage.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/warlock.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/weaver.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/windrunner.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/winter_wyvern.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/wisp.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/heroes/witch_doctor.html': [heropage.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
+!!python/unicode 'dota2/heroes/zuus.html': [heropage.j2, analytics.j2, base.j2, macros.j2,
+  root.j2]
+!!python/unicode 'dota2/index.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'dota2/international/2014/blank.json': []
 !!python/unicode 'dota2/international/2014/edit.html': []
 !!python/unicode 'dota2/international/2014/format.css': []
@@ -764,50 +829,79 @@
 !!python/unicode 'dota2/international/2014/phase2.html': []
 !!python/unicode 'dota2/international/2014/phase2.json': []
 !!python/unicode 'dota2/international/2014/prizepool/index.html': [onecolumnindexpage.j2,
-  base.j2, macros.j2, analytics.j2]
+  analytics.j2, base.j2, macros.j2, root.j2]
 !!python/unicode 'dota2/international/2014/save.php': []
 !!python/unicode 'dota2/international/2014/test.json': []
 !!python/unicode 'dota2/international/2014/ti4data.json': []
 !!python/unicode 'dota2/international/2014/ti4results.json': []
 !!python/unicode 'dota2/international/2015/prizepool/index.html': [onecolumnindexpage.j2,
-  base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/international/index.html': [onecolumnindexpage.j2, base.j2,
-  macros.j2, analytics.j2]
-!!python/unicode 'dota2/items/all.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/items/index.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'dota2/patches/6.79.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.80.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.81.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.81b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.82.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.82b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.82c.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.83.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.83b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.83c.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.84.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.84b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.84c.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.85.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/6.85b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches/index.html': [macros.j2, base.j2, dota2/patches/index.j2,
-  analytics.j2]
-!!python/unicode 'dota2/patches2/6.79.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.80.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.81.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.82.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.82b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.82c.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.83.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.83b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.83c.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.84.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.84b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.84c.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.85.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/6.85b.html': [macros.j2, base.j2, analytics.j2, patchpage.j2]
-!!python/unicode 'dota2/patches2/index.html': [macros.j2, base.j2, dota2/patches/index.j2,
-  analytics.j2]
+  analytics.j2, base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/international/index.html': [onecolumnindexpage.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/items/all.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/items/index.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/patches/6.79.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.80.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.81.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.81b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.82.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.82b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.82c.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.83.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.83b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.83c.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.84.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.84b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.84c.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.85.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/6.85b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches/index.html': [dota2/patches/index.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'dota2/patches2/6.79.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.80.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.81.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.82.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.82b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.82c.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.83.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.83b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.83c.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.84.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.84b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.84c.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.85.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/6.85b.html': [analytics.j2, base.j2, macros.j2, root.j2,
+  patchpage.j2]
+!!python/unicode 'dota2/patches2/index.html': [dota2/patches/index.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
 !!python/unicode 'dota2/prize-pool-international-2014-2.html': []
 !!python/unicode 'dota2/prize-pool-international-2014-3.html': []
 !!python/unicode 'dota2/prize-pool-international-2014.html': []
@@ -1053,7 +1147,7 @@
 !!python/unicode 'google326eace8919d7810.html': []
 !!python/unicode 'index.html': [analytics.j2]
 !!python/unicode 'index2.html': [base.j2, macros.j2, analytics.j2]
-!!python/unicode 'itemcost.html': [base.j2, macros.j2, analytics.j2]
+!!python/unicode 'itemcost.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'media/bootstrap/css/bootstrap-theme.css': []
 !!python/unicode 'media/bootstrap/css/bootstrap-theme.css.map': []
 !!python/unicode 'media/bootstrap/css/bootstrap-theme.min.css': []

@@ -3,6 +3,7 @@ extends: base.j2
 title: Dota 2 Community
 description: Community
 active_menu: page-community
+header: Community
 ---
 
   {% block custom_css %}
@@ -20,6 +21,10 @@ active_menu: page-community
 .box:last-child {
   border-bottom:none;
 }
+.pagination {
+    margin: 0;
+    margin-bottom: 20px;
+}
 </style>
   {% endblock custom_css %}
   {% block container %}
@@ -27,7 +32,6 @@ active_menu: page-community
   <div class="col-md-6">
 <div class="box">
 	<h3>Top Dota 2 Reddit Threads</h3>
-<div class="text-center">
 <ul id="pager_reddit" class="pagination pagination-sm">
   <li class="prev disabled"><a href="#">&laquo;</a></li>
   <li class="active"><a href="#">1</a></li>
@@ -37,7 +41,6 @@ active_menu: page-community
   <li><a href="#">5</a></li>
   <li class="next"><a href="#">&raquo;</a></li>
 </ul>
-</div>
 	<div id="reddit-list" class="list-group">
 
 	</div>
@@ -71,7 +74,6 @@ active_menu: page-community
 </div>
 <div class="box">
 	<h3>Live Twitch Streams</h3>
-	<div class="text-center">
 <ul id="pager_streams" class="pagination pagination-sm">
   <li class="prev disabled"><a href="#">&laquo;</a></li>
   <li class="active"><a href="#">1</a></li>
@@ -86,7 +88,6 @@ active_menu: page-community
   <li><a href="#">10</a></li>
   <li class="next"><a href="#">&raquo;</a></li>
 </ul>
-</div>
 	<div id="streams-list" class="list-group">
   
 	</div>

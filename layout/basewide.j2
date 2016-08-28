@@ -1,0 +1,8 @@
+{% extends "base.j2" %}
+
+{% block content %}
+{% block breadcrumbs %}{{ super() }}{% endblock breadcrumbs %}
+<div class="col-md-12">
+    {% block container %}{{ super() }}{% endblock container %}
+</div>
+{% endblock content %}

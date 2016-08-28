@@ -346,7 +346,7 @@ $(function() {
             intTotal = attributeModifiers.intelligence.call(hData, self.level(), self.bonus()),
             strTotal = attributeModifiers.strength.call(hData, self.level(), self.bonus()),
             primaryTotal = KTLIB.getAttributeAtLevel.call(hData, hData.attributeprimary, self.level(), self.bonus());
-          row.push('<div class="portraitsprite portraitsprite-' + h.replace('npc_dota_hero_', '') + '"></div>');
+          row.push('<div class="heroes-sprite-' + h.replace('npc_dota_hero_', '') + ' heroes-sprite-32x18"></div>');
           row.push(heroData[h].displayname);
           row.push(getPrimaryStat(h));
           row.push(agiTotal.toPrecision(3));

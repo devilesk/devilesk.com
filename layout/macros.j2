@@ -10,6 +10,38 @@
 </article>
 {% endmacro %}
 
+{% macro breadcrumb(res) %}
+{% if res.url != '/dota2/index.html' -%}
+<ol class="breadcrumb">
+    {% set stop = False %}
+    {% set crumbs = [] %}
+    {% for node in res.node.rwalk() %}
+        {% set p = node.get_resource('index.html') %}
+        {% if p and not stop -%}
+            {% if p.url == '/dota2/index.html' -%}
+                {% set stop = True %}
+            {% endif %}
+            {% do crumbs.insert(0, p) %}
+        {% endif %}
+    {% endfor %}
+    {% if res.name != 'index.html' -%}
+        {% do crumbs.append(res) %}
+    {% endif %}
+    {% for p in crumbs %}
+        {% if p.url == res.url -%}
+            <li class="breadcrumb-item active">{{ p.meta.header }}</li>
+        {% else %}
+            {% if p.url == '/dota2/index.html' -%}
+                <li class="breadcrumb-item"><a href="{{ p.url.rstrip('index.html') }}">Home</a></li>
+            {% else %}
+                <li class="breadcrumb-item"><a href="{{ p.url.rstrip('index.html') }}">{{ p.meta.header }}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ol>
+{% endif %}
+{% endmacro %}
+
 {% macro getValueString(values) -%}
 {% for item in values[:-1] -%}
 {{ item }} / 
@@ -33,7 +65,7 @@
           <ul class="top-nav-menu nav navbar-nav">
 			{% for item in menu -%}
                 {% if item.submenu -%}
-                <li class="dropdown {{ item.css_class }}">
+                <li class="dropdown {{ 'active' if item.css_class == resource.meta.active_menu }}">
                   <a href="{{ content_url(item.url) }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.name }} <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="mobile-only"><a href="{{ content_url(item.url) }}">{{ item.description }}</a></li>
@@ -54,11 +86,10 @@
                   </ul>
                 </li>
                 {% else %}
-                <li class="{{ item.css_class }}"><a href="{{ content_url(item.url) }}">{{ item.name }}</a></li>
+                <li class="{{ 'active' if item.css_class == resource.meta.active_menu }}"><a href="{{ content_url(item.url) }}">{{ item.name }}</a></li>
                 {%- endif %}
 			{%- endfor %}
-            
-<li class="li-forums"><a href="/dota2/forums/index.php">FORUMS</a></li>
+                <li class="li-forums"><a href="/dota2/forums/index.php">FORUMS</a></li>
 		  </ul>
 		</div>
 	</div>

@@ -12,15 +12,17 @@
     {% for group in resource.meta.data -%}
         <h4>{{ group.header }}</h4>
         {% for item in group.items -%}
-        <a class="column-item" href="{{ content_url(item.url) }}">
-            <div class="pull-left">
-                <img class="img-rounded" src="{{ item.image }}" alt="{{ item.name }}">
-            </div>
-            <div class="column-item-info">
-                <h4 class="media-heading">{{ item.name }}</h4>
-                {{ item.description }}
-            </div>
-        </a>
+        <div class="media">
+            <a href="{{ content_url(item.url) }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
         {%- endfor %}
     {%- endfor %}
 </div>

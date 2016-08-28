@@ -1,100 +1,25 @@
-<!doctype html>
-<html>
-<head>
-    {% block starthead %}{% endblock starthead %}
-    <meta charset="{{ resource.meta.charset }}">
+{% extends "root.j2" %}
 
-    <title>{% block title %}{{ resource.meta.title }}{% endblock title %}</title>
-    <meta name="description" content="{% block description %}{{ resource.meta.description }}{% endblock description %}">
-    <meta name="author" content="{{ resource.meta.author }}">
-    <meta name="viewport" content="{{ resource.meta.viewport }}">
-
-    {% block favicons %}
-    <link rel="shortcut icon" href="{{ media_url('/favicon.png') }}">
-    {% endblock favicons %}
-
-    {% block css %}
-    {% if site.config.mode == "production" %}
-    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-    {% else %}
-    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.css') }}">
-    {% endif %}
-    {% endblock css %}
-    {% block custom_css %}
-    {% endblock custom_css %}
-
-    {% block headjs %}
-    <script type="text/javascript">
-    function readCookie(a){for(var b=a+"=",c=document.cookie.split(";"),d=0;d<c.length;d++){for(var e=c[d];" "==e.charAt(0);)e=e.substring(1,e.length);if(0==e.indexOf(b))return e.substring(b.length,e.length)}return null}/*var link=document.createElement("link");link.id="theme-css",link.href="/media/css/site"+("light"==readCookie("theme")?"-light":"")+".css",link.type="text/css",link.rel="stylesheet",document.getElementsByTagName("head")[0].appendChild(link);*/
-    </script>
-	{% endblock headjs %}
-    {% block endhead %}{% endblock endhead %}
-</head>
-<body id="{{ resource.meta.id if resource.meta.id else resource.slug }}" class="{{ resource.meta.active_menu }}">
-    <div class="wrapper">
-    {% block nav %}
-        {% from "macros.j2" import render_nav with context %}
-        {{ render_nav(menu, 'main_nav') }}
-    {% endblock %}
-    {% block content %}
-    {% block content2 %}
-    <div class="container">
-        {% block container %}
-        <div id="main" role="main">
-            <header class="banner clearfix">
-                {% block header %}
-                    {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
-                {% endblock header %}
-            </header>
-            <section class="content">
-                {% block main %}
-                {% endblock main %}
-            </section>
-        </div>
-        {% endblock container %}
-    </div> <!--! end of #container -->
-    {% block push %}
-    <div class="push"></div>
-    {% endblock push %}
-    {% endblock content2 %}
+{% block content %}
+{% block breadcrumbs %}
+<div class="container">
+{% from "macros.j2" import breadcrumb with context  %}
+{{ breadcrumb(resource) }}
+</div>
+{% endblock breadcrumbs %}
+<div class="container">
+    {% block container %}
+    <div id="main" role="main">
+        <header class="banner clearfix">
+            {% block header %}
+                {% if resource.meta.header %}<h2>{{ resource.meta.header }}</h2>{% endif %}
+            {% endblock header %}
+        </header>
+        <section class="content">
+            {% block main %}
+            {% endblock main %}
+        </section>
     </div>
-
-    {% block footer %}
-    <footer>
-        <img width="80" height="80" src="{{ media_url('images/footer.png') }}">
-        <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
-        <p>Copyright &copy; 2016 <a href="http://devilesk.com">devilesk.com</a></p>
-        <p>Theme 
-            <select id="theme-select" class="form-control" style="display: inline;width: auto;height: auto;padding: 0;font-size: inherit;">
-                <option value="dark">dark</option>
-                <option value="light">light</option>
-            </select>
-        </p>
-    </footer>
-    {% endblock footer%}
-    {% endblock content%}
-
-    {% block js %}
-
-    {% block jquery %}
-    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.0.min.js"><script>')</script>
-    {% endblock jquery %}
-    {% block before_scripts %}{% endblock before_scripts %}
-    {% if site.config.mode == "production" %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
-    {% else %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
-    {% endif %}
-    <script src="{{ media_url('js/style-switcher.js') }}"></script>
-    
-    {% block scripts %}{% endblock scripts %}
-
-    {% block analytics %}
-    {% include "analytics.j2" %}
-    {% endblock analytics %}
-
-    {% endblock js %}
-</body>
-</html>
+    {% endblock container %}
+</div>
+{% endblock content %}
