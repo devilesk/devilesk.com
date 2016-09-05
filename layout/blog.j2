@@ -10,14 +10,14 @@
     title="{{ resource.prev_by_time.meta.title }}"
     {% if resource.prev_by_time %}
     href="{{ content_url(resource.prev_by_time.url) }}"{% endif %}>
-    Previous
+    Newer
 </a>
 
 <a class="btn btn-default btn-xs next{{' disabled' if not resource.next_by_time }}"
     title="{{ resource.next_by_time.meta.title }}"
     {% if resource.next_by_time %}
     href="{{ content_url(resource.next_by_time.url) }}"{% endif %}>
-    Next
+    Older
 </a>
 </nav>
 <h1 class="title">

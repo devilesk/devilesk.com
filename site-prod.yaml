@@ -41,6 +41,7 @@ sorter:
         attr:
         - meta.created
         filters:
+            meta.is_blog: true
             meta.listable: true
             source.kind: html
         reverse: true

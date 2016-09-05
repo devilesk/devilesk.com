@@ -1,9 +1,9 @@
 ---
 extends: base.j2
-title: Dota 2 Hero Data
+title: Dota 2 Hero Stats Table
 description: Dota 2 Hero Stats Sortable Table. Up-to-date hero information taken directly from Dota 2 game files.
 active_menu: page-heroes
-header: Hero Data
+header: Stats Table
 ---
 
   {% block custom_css %}
@@ -35,10 +35,51 @@ li.table-columns {
 width:50%;
 float:left;
 }
+table {
+    font-size: 14px;
+}
+.form-inline .filter-comparison {
+    width: calc(50% - 2px);
+}
+.sort-container {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.no-btn {
+    touch-action: initial;
+    cursor: auto;
+    -webkit-user-select: initial;
+    -moz-user-select: initial;
+    -ms-user-select: initial;
+    user-select: initial;
+}
+.column-dropdown {
+    display: inline-block;
+    padding: 0;
+    vertical-align: bottom;
+}
+.controls-row .form-group {
+    display: inline-block;
+}
+.fullscreen {
+    font-size: 16px;
+}
+.hideColumn {
+	background-color:#131415 !important;
+}
 </style>
   {% endblock custom_css %}
-{% block main %}
-
+  
+{% block content %}
+{% block breadcrumbs %}{{ super() }}{% endblock breadcrumbs %}
+<div data-bind="css: {'container': !fullscreen(), 'container-fluid': fullscreen}">
+    {% block container %}
+    <div id="main" role="main">
+        <header class="banner clearfix">
+                            <h2>Stats Table<div class="fullscreen checkbox pull-right"><label><input type="checkbox" data-bind="checked: fullscreen"><span class="glyphicon glyphicon-fullscreen"></span> Fullscreen</label></div></h2>
+        </header>
+        <section class="content">
 <div class="row">
 
 <div class="col-md-12">
@@ -60,48 +101,59 @@ float:left;
 
 <div class="col-md-4 form-group form-inline">
 <label style="display:block" for="columns">Show Columns</label>
-<div class="dropdown" style="display:inline-block">
-<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Columns <span class="caret"></span></button>
+<div class="column-dropdown dropdown col-md-4">
+<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">Columns <span class="caret"></span></button>
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-bind="foreach: headers">
 	<li class="table-columns" role="presentation"><a href="#" role="menuitem" tabindex="-1" data-bind="css: {showColumn: $parent.headers()[$index()].display(), hideColumn: !$parent.headers()[$index()].display()}, click: function(data, event) { $parent.toggleColumn($index, data, event); }, html: $data.name"></a></li>
 </ul>
 </div>
-<button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { hideAllColumns() }">Hide All</button>
-<button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { resetColumns() }">Reset</button>
+<button type="button" class="btn btn-default col-md-4" data-toggle="dropdown" data-bind="click: function (data, event) { hideAllColumns() }">Hide All</button>
+<button type="button" class="btn btn-default col-md-4" data-toggle="dropdown" data-bind="click: function (data, event) { resetColumns() }">Reset</button>
 </div>
 </div>
 
-<div>
-<div class="form-group">
-<label for="sortby">Sorting by: </label>
-<span id="sortby" data-bind="foreach: sortColumns">
-	<span class="label" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
-</span>
-<span class="label" style="display:none" data-bind="visible: sortColumns().length > 1, click: function(data, event) { clearLabels(); }"><a href="">Clear All</a></span>
-</div>
-<div class="checkbox">
-  <label>
-    <input type="checkbox" data-bind="checked: multiSort">
-    Enable sorting on multiple columns. You can also hold shift while clicking column headers.
-  </label>
-</div>
+<div class="controls-row">
+  <div class="form-group">
+    <label class="btn btn-default" data-bind="css: { active: multiSort }" title="">
+      <input type="checkbox" data-bind="checked: multiSort, disable: shiftKey">
+      Multi-column sorting <span id="multiSort-tooltip" class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" title="Holding shift also enables this."></span>
+    </label>
+  </div>
+  <div class="form-group">
+    <input class="btn btn-default" type="button" data-toggle="button" data-bind="click: toggleFilterVisibility" value="Show Row Filters" />
+  </div>
+  <div class="form-group">
+    <input class="btn btn-default" type="button" data-bind="click: clearFilters" value="Clear All Row Filters" />
+  </div>
+  <div class="form-group">
+    <div class="btn no-btn">
+    Row count: <span data-bind="text: data().length"></span>
+    </div>
+  </div>
+  <div class="form-group pull-right">
+    <input class="btn btn-default" type="button" data-bind="click: exportCSV" value="Export to CSV" />
+  </div>
 </div>
 
-<div class="form-group">
-    <input class="form-control" type="button" data-bind="click: toggleFilterVisibility, value: filterVisible() ? 'Hide Filter' : 'Show Filter'" />
-</div>
-
-<div data-bind="visible: filterVisible, foreach: headers">
+<div class="row">
+<div class="col-md-12" data-bind="visible: filterVisible, foreach: headers">
 <!-- ko if: filter -->
 <div class="col-md-2 well">
     <label data-bind="html: name"></label>
-    <div class="form-inline" data-bind="template: { name: $root.filterTemplateToUse, data: $data }"></div>
+    <div class="form-inline text-center" data-bind="template: { name: $root.filterTemplateToUse, data: $data }"></div>
 </div>
 <!-- /ko -->
 </div>
+</div>
 
-<div class="form-group" style="display:none" data-bind="visible: filterVisible">
-    <input class="form-control" type="button" data-bind="click: clearFilters" value="Clear All Filters" />
+<div class="form-group">
+    <div class="sort-container form-control">
+    <label for="sortby">Sorting by: </label>
+    <span id="sortby" data-bind="foreach: sortColumns">
+        <span class="label label-default" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
+    </span>
+    <span class="label label-primary" style="display:none" data-bind="visible: sortColumns().length > 1, click: function(data, event) { clearLabels(); }"><a href="">Clear All</a></span>
+    </div>
 </div>
 
 <div class="table-responsive">
@@ -119,11 +171,18 @@ float:left;
 </table>
 </div>
 
+<div class="form-group">
 Row count: <span data-bind="text: data().length"></span>
+</div>
 
 </div>
 </div>
-{% endblock main %}
+        </section>
+    </div>
+    {% endblock container %}
+</div>
+{% endblock content %}
+
   {% block scripts %}
     <script id="string-filter" type="text/html">
         <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
@@ -136,7 +195,7 @@ Row count: <span data-bind="text: data().length"></span>
                            optionsCaption: ''"></select>
     </script>
     <script id="numeric-filter" type="text/html">
-        <div class="form-group">
+        <div class="form-group filter-comparison">
             <select class="form-control" data-bind="value: filterComparison">
                 <option value="gt">&gt;</option>
                 <option value="ge">&ge;</option>
@@ -145,11 +204,11 @@ Row count: <span data-bind="text: data().length"></span>
                 <option value="eq">=</option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group filter-comparison">
             <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
         </div>
     </script>
-	<script src="{{ media_url('js/libs/knockout-2.3.0.js') }}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 	<script src="/dota2/apps/knowledgetrainer/knowledgetrainer.core.js"></script>
-	<script src="{{ media_url('js/herodata/herodata.js') }}"></script>
+	<script src="herodata.js"></script>
   {% endblock scripts %}

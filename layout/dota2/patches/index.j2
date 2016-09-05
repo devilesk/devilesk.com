@@ -19,7 +19,7 @@
 {% block main %}
 
 <ul class="listing clearfix">
-{% for res in resource.node.walk_resources_sorted_by_time() %}
+{% for res in resource.node.walk_resources_sorted_by_patch() %}
 <li>
     {{ render_excerpt(res) }}
 </li>

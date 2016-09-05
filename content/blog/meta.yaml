@@ -1,4 +1,5 @@
 extends: blog.j2
 default_block: post
 listable: true
+is_blog: true
 active_menu: page-blog

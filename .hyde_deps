@@ -2,6 +2,8 @@
 !!python/unicode 'about.html': [base.j2, macros.j2, root.j2, analytics.j2]
 !!python/unicode 'blog/angry-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
 !!python/unicode 'blog/atom.xml': [atom.j2, macros.j2]
+!!python/unicode 'blog/creating-a-dota-map-image.html': [blog.j2, analytics.j2, base.j2,
+  macros.j2, root.j2]
 !!python/unicode 'blog/excerpts.xml': [atom.j2, macros.j2]
 !!python/unicode 'blog/happy-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
 !!python/unicode 'blog/index.html': [listing.j2, analytics.j2, base.j2, macros.j2,
@@ -14,6 +16,8 @@
   base.j2, macros.j2, root.j2]
 !!python/unicode 'blog/sad-post.html': [blog.j2, macros.j2, analytics.j2, base.j2]
 !!python/unicode 'blog/tags/Interactive Dota Map.html': [tagged_posts.j2, analytics.j2,
+  base.j2, macros.j2, root.j2]
+!!python/unicode 'blog/tags/Source Filmmaker.html': [tagged_posts.j2, analytics.j2,
   base.j2, macros.j2, root.j2]
 !!python/unicode 'blog/tags/angry.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 !!python/unicode 'blog/tags/happy.html': [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
@@ -662,6 +666,8 @@
 !!python/unicode 'dota2/heroes/gyrocopter.html': [heropage.j2, analytics.j2, base.j2,
   macros.j2, root.j2]
 !!python/unicode 'dota2/heroes/herodata.html': [base.j2, macros.j2, root.j2, analytics.j2]
+!!python/unicode 'dota2/heroes/herodata/index.html': [base.j2, macros.j2, root.j2,
+  analytics.j2]
 !!python/unicode 'dota2/heroes/huskar.html': [heropage.j2, analytics.j2, base.j2,
   macros.j2, root.j2]
 !!python/unicode 'dota2/heroes/index.html': [basewide.j2, analytics.j2, base.j2, macros.j2,
