@@ -54,19 +54,12 @@
     {% endblock footer%}
 
     {% block js %}
-
     {% block jquery %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     {% endblock jquery %}
     {% block before_scripts %}{% endblock before_scripts %}
-    {% if site.config.mode == "production" %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
-    {% else %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
-    {% endif %}
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block scripts %}{% endblock scripts %}
-
     {% block analytics %}
     {% include "analytics.j2" %}
     {% endblock analytics %}

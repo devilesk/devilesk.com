@@ -7,7 +7,7 @@ header: Items
 ---
 
   {% block custom_css %}
-  <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
+  <link rel="stylesheet" href="{{ media_url('spritesheets/css/items_70x50_sprite_jpg.css') }}">
   <style type="text/css">
 .content {
   text-align: center;
@@ -104,7 +104,7 @@ hr {
         {% for item in column.items -%}
           <a class="shop-item" href="/dota2/items/all.html#{{ item }}">
             <div class="item-overlay overlay-hover"></div>
-            <div class="itemsprite itemsprite-{{ item }}" id="{{ item }}"></div>
+            <div class="items-sprite-70x50 items-sprite-{{ item }}" id="{{ item }}"></div>
           </a>
         {%- endfor %}
       </div>
@@ -159,8 +159,8 @@ $(function () {
 
 	get_data_for_popover_and_display = function () {
 		var el = $(this);
-		if (el.find('.itemsprite').attr('id') in item_data) {
-			el.attr('data-content', item_data[el.find('.itemsprite').attr('id')]);
+		if (el.find('.items-sprite-70x50').attr('id') in item_data) {
+			el.attr('data-content', item_data[el.find('.items-sprite-70x50').attr('id')]);
 			if (el.is(':hover')) {
 				el.popover('show');
 			}
@@ -300,7 +300,7 @@ $(function () {
       var searchVal = $(this).val().toLowerCase();
       $(".shop-item").removeClass('no-match');
       $(".shop-item").filter(function( index ) {
-        var itemId = $(this).find('.itemsprite').attr('id').toLowerCase();
+        var itemId = $(this).find('.items-sprite-70x50').attr('id').toLowerCase();
         var itemName = itemData['item_' + itemId].displayname.toLowerCase();
         return itemId.indexOf(searchVal) === -1 && itemName.indexOf(searchVal) === -1 && itemName.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
       }).addClass('no-match');
