@@ -1,0 +1,393 @@
+{
+    "menu": [
+        {
+            "id": "arc_warden",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "arc_warden",
+                    "name": "Arc Warden"
+                },
+                {
+                    "id": "batrider",
+                    "name": "Batrider"
+                },
+                {
+                    "id": "bounty_hunter",
+                    "name": "Bounty Hunter"
+                }
+            ]
+        },
+        {
+            "id": "centaur",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "centaur",
+                    "name": "Centaur Warrunner"
+                },
+                {
+                    "id": "drow_ranger",
+                    "name": "Drow Ranger"
+                }
+            ]
+        },
+        {
+            "id": "faceless_void",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                },
+                {
+                    "id": "juggernaut",
+                    "name": "Juggernaut"
+                }
+            ]
+        },
+        {
+            "id": "kunkka",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "kunkka",
+                    "name": "Kunkka"
+                }
+            ]
+        },
+        {
+            "id": "mirana",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "mirana",
+                    "name": "Mirana"
+                },
+                {
+                    "id": "morphling",
+                    "name": "Morphling"
+                },
+                {
+                    "id": "nyx_assassin",
+                    "name": "Nyx Assassin"
+                },
+                {
+                    "id": "omniknight",
+                    "name": "Omniknight"
+                },
+                {
+                    "id": "oracle",
+                    "name": "Oracle"
+                },
+                {
+                    "id": "obsidian_destroyer",
+                    "name": "Outworld Devourer"
+                }
+            ]
+        },
+        {
+            "id": "phantom_assassin",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "phantom_assassin",
+                    "name": "Phantom Assassin"
+                },
+                {
+                    "id": "riki",
+                    "name": "Riki"
+                }
+            ]
+        },
+        {
+            "id": "shadow_demon",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "shadow_demon",
+                    "name": "Shadow Demon"
+                }
+            ]
+        },
+        {
+            "id": "abyssal_underlord",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "abyssal_underlord",
+                    "name": "Underlord"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "arc_warden"
+                    ],
+                    "name": "Arc Warden",
+                    "notes": [
+                        {
+                            "note": "Spark Wraith no longer dispels (still slows)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arc Warden movement speed reduced by 10",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "batrider"
+                    ],
+                    "name": "Batrider",
+                    "notes": [
+                        {
+                            "note": "Flamebreak knockback no longer interrupts channeling spells (behaves like blinding light)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Flamebreak burn duration increased from 3\/4\/5\/6 to 4\/5\/6\/7 (total damage increased)",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bounty_hunter"
+                    ],
+                    "name": "Bounty Hunter",
+                    "notes": [
+                        {
+                            "note": "Track movement speed bonus reduced from 20% to 16\/18\/20%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "centaur"
+                    ],
+                    "name": "Centaur Warrunner",
+                    "notes": [
+                        {
+                            "note": "Fixed Return working on Centaur Illusions",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "drow_ranger"
+                    ],
+                    "name": "Drow Ranger",
+                    "notes": [
+                        {
+                            "note": "Drow Ranger strength gain reduced from 1.9 to 1.6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Faceless Void base armor reduced by 1",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "juggernaut"
+                    ],
+                    "name": "Juggernaut",
+                    "notes": [
+                        {
+                            "note": "Healing Ward manacost increased from 120\/125\/130\/135 to 140",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "kunkka"
+                    ],
+                    "name": "Kunkka",
+                    "notes": [
+                        {
+                            "note": "Torrent cooldown increased from 10 to 16\/14\/12\/10",
+                            "detail": []
+                        },
+                        {
+                            "note": "Ghostship Rum damage reduction changed from 50% to 40\/45\/50%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "mirana"
+                    ],
+                    "name": "Mirana",
+                    "notes": [
+                        {
+                            "note": "Starfall Scepter cooldown increased from 9 to 10",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "morphling"
+                    ],
+                    "name": "Morphling",
+                    "notes": [
+                        {
+                            "note": "Morph Replicate cast time increased from 0.25 to 0.35",
+                            "detail": []
+                        },
+                        {
+                            "note": "Morphling base damage reduced by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "nyx_assassin"
+                    ],
+                    "name": "Nyx Assassin",
+                    "notes": [
+                        {
+                            "note": "Nyx's Scepter Burrow cast time increased from 1 to 1.5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "omniknight"
+                    ],
+                    "name": "Omniknight",
+                    "notes": [
+                        {
+                            "note": "Purification cast range reduced from 700 to 575",
+                            "detail": []
+                        },
+                        {
+                            "note": "Purification cast point reduced from 0.25 to 0.2",
+                            "detail": []
+                        },
+                        {
+                            "note": "Purification cooldown reduced from 10 to 9",
+                            "detail": []
+                        },
+                        {
+                            "note": "Repel duration rescaled from 4\/6\/8\/10 to 5\/6\/7\/8",
+                            "detail": []
+                        },
+                        {
+                            "note": "Repel cooldown reduced from 14 to 20\/18\/16\/14",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "oracle"
+                    ],
+                    "name": "Oracle",
+                    "notes": [
+                        {
+                            "note": "Purifying Flames manacost increased from 50\/60\/70\/80 to 80\/85\/90\/95",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "obsidian_destroyer"
+                    ],
+                    "name": "Outworld Devourer",
+                    "notes": [
+                        {
+                            "note": "Outworld Devourer base damage reduced by 6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phantom_assassin"
+                    ],
+                    "name": "Phantom Assassin",
+                    "notes": [
+                        {
+                            "note": "Stifling Dagger cast range reduced from 825\/950\/1075\/1200 to 525\/750\/975\/1200 ",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "riki"
+                    ],
+                    "name": "Riki",
+                    "notes": [
+                        {
+                            "note": "Smoke Screen slow reduced from 19\/21\/23\/25% to 13\/17\/21\/25%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shadow_demon"
+                    ],
+                    "name": "Shadow Demon",
+                    "notes": [
+                        {
+                            "note": "Shadow Poison manacost increased from 40 to 55",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "abyssal_underlord"
+                    ],
+                    "name": "Underlord",
+                    "notes": [
+                        {
+                            "note": "Atrophy Aura attack damage reduction changed from 18\/26\/34\/42% to 10\/20\/30\/40%",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/24930",
+    "version": "6.88f",
+    "date": "2016-10-17"
+}

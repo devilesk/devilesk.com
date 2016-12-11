@@ -236,6 +236,7 @@ npc_dota_hero_abyssal_underlord:
     AbilityModifierSupportBonus: 0
     AbilityModifierSupportValue: 1
     ID: 5613
+    SpellImmunityType: SPELL_IMMUNITY_ENEMIES_NO
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
@@ -281,6 +282,7 @@ npc_dota_hero_abyssal_underlord:
     AbilityModifierSupportBonus: 0
     AbilityModifierSupportValue: 1
     ID: 5614
+    SpellImmunityType: SPELL_IMMUNITY_ENEMIES_YES
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
@@ -325,7 +327,7 @@ npc_dota_hero_abyssal_underlord:
       value: [900]
     - name: damage_reduction_pct
       tooltip: '%DAMAGE REDUCTION:'
-      value: [18, 26, 34, 42]
+      value: [10, 20, 30, 40]
     - name: bonus_damage_from_creep
       tooltip: 'BONUS DAMAGE(CREEP):'
       value: [5]
@@ -1112,7 +1114,7 @@ npc_dota_hero_arc_warden:
       value: [0.5]
     - name: move_speed_slow_pct
       tooltip: '%MOVEMENT SPEED SLOW:'
-      value: [35, 40, 45, 50]
+      value: [20, 30, 40, 50]
     - name: cast_range_tooltip
       tooltip: 'CAST RANGE:'
       value: [600, 700, 800, 900]
@@ -1281,7 +1283,7 @@ npc_dota_hero_arc_warden:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 295
+  movementspeed: 285
   movementturnrate: 0.4
   name: npc_dota_hero_arc_warden
   projectilespeed: 900
@@ -1384,7 +1386,7 @@ npc_dota_hero_axe:
       value: [0.45, 0.4, 0.35, 0.3]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0.45, 0.4, 0.35, 0.3]
-    damage: [90, 120, 150, 180]
+    damage: [75, 110, 145, 180]
     description: When attacked, Axe performs a helix counter attack, dealing pure
       damage to all nearby enemies.
     displayname: Counter Helix
@@ -1696,6 +1698,7 @@ npc_dota_hero_batrider:
     ID: 5320
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_NO
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: damage
       tooltip: 'EXTRA DAMAGE:'
@@ -1744,10 +1747,10 @@ npc_dota_hero_batrider:
       value: [25, 30, 35, 40]
     - name: damage_duration
       tooltip: 'BURN DURATION:'
-      value: [3, 4, 5, 6]
+      value: [4, 5, 6, 7]
     - name: damage_total_tooltip
       tooltip: 'TOTAL DAMAGE:'
-      value: [75, 120, 175, 240]
+      value: [100, 150, 210, 280]
     - name: explosion_radius
       tooltip: 'RADIUS:'
       value: [375, 375, 375, 375]
@@ -1764,7 +1767,7 @@ npc_dota_hero_batrider:
     - name: knockback_duration
       value: [0.25, 0.25, 0.25, 0.25]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT]
-    cooldown: [14]
+    cooldown: [17]
     damage: [0, 0, 0, 0]
     description: Hurls an explosive cocktail that explodes when it reaches the target
       location, knocking back, briefly stunning, and dealing damage over time to enemies
@@ -2467,7 +2470,7 @@ npc_dota_hero_bounty_hunter:
       value: [900, 900, 900]
     - name: bonus_move_speed_pct
       tooltip: '%BONUS SPEED:'
-      value: [20, 20, 20]
+      value: [16, 18, 20]
     - name: bonus_gold_radius
       value: [925, 925, 925]
     - name: bonus_gold_self
@@ -2495,7 +2498,7 @@ npc_dota_hero_bounty_hunter:
     level: 0
     lore: Using his elevated senses of sight and smell, Gondar's hits have quite a
       good chance of success.
-    manacost: [50]
+    manacost: [65]
     name: bounty_hunter_track
   - *id001
   abilitylayout: 4
@@ -3250,6 +3253,7 @@ npc_dota_hero_centaur:
     ID: 5517
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_NO
     abilitytype: DOTA_ABILITY_TYPE_ULTIMATE
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: duration
       tooltip: 'STAMPEDE DURATION:'
@@ -5021,8 +5025,8 @@ npc_dota_hero_doom_bringer:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: Empty
+    description: This slot will be replaced with abilities acquired using Devour.
+    displayname: Devoured Ability
     level: 0
     manacost: [0, 0, 0, 0]
     name: doom_bringer_empty1
@@ -5039,8 +5043,8 @@ npc_dota_hero_doom_bringer:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: Empty
+    description: This slot will be replaced with abilities acquired using Devour.
+    displayname: Devoured Ability
     level: 0
     manacost: [0, 0, 0, 0]
     name: doom_bringer_empty2
@@ -5464,8 +5468,8 @@ npc_dota_hero_drow_ranger:
   - *id001
   abilitylayout: 4
   armorphysical: -3
-  attackdamagemax: 29
-  attackdamagemin: 18
+  attackdamagemax: 25
+  attackdamagemin: 14
   attackpoint: 0.7
   attackrange: 625
   attackrate: 1.7
@@ -5476,7 +5480,7 @@ npc_dota_hero_drow_ranger:
   attributebasestrength: 17
   attributeintelligencegain: 1.4
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
-  attributestrengthgain: 1.9
+  attributestrengthgain: 1.6
   bio: 'Drow Ranger''s given name is Traxex--a name well suited to the short, trollish,
     rather repulsive Drow people. But Traxex herself is not a Drow. Her parents were
     travelers in a caravan set upon by bandits, whose noisy slaughter of innocents
@@ -5998,7 +6002,7 @@ npc_dota_hero_elder_titan:
   - AbilityCastPoint: [0.4, 0.4, 0.4, 0.4]
     AbilityCastRange: 500
     AbilityCastRangeBuffer: 250
-    AbilityChannelTime: 1.2
+    AbilityChannelTime: 1.3
     AbilityDuration: [0, 0, 0, 0]
     AbilityModifierSupportBonus: 0
     AbilityModifierSupportValue: 1
@@ -6009,7 +6013,7 @@ npc_dota_hero_elder_titan:
     attributes:
     - name: cast_time
       tooltip: 'CAST TIME:'
-      value: [1.6]
+      value: [1.7]
     - name: radius
       tooltip: 'RADIUS:'
       value: [500]
@@ -6915,7 +6919,7 @@ npc_dota_hero_faceless_void:
       value: [6, 8, 10, 12]
     - name: slow
       tooltip: '%SLOW PER COOLDOWN:'
-      value: [8]
+      value: [10]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET]
     cooldown: [40, 34, 28, 22]
     damage: [0, 0, 0, 0]
@@ -7000,9 +7004,9 @@ npc_dota_hero_faceless_void:
     name: faceless_void_chronosphere
   - *id001
   abilitylayout: 4
-  armorphysical: 1
-  attackdamagemax: 43
-  attackdamagemin: 37
+  armorphysical: 0
+  attackdamagemax: 39
+  attackdamagemin: 33
   attackpoint: 0.5
   attackrange: 150
   attackrate: 1.7
@@ -7462,7 +7466,7 @@ npc_dota_hero_huskar:
     - name: hurt_attrib_bonus
       value: [0.2, 0.4, 0.6, 0.8]
     - name: hurt_percent
-      value: [0.4]
+      value: [0.35]
     - name: tooltip_attrib_bonus
       tooltip: '%BONUS FROM ATTRIBUTE:'
       value: [5, 10, 15, 20]
@@ -7473,7 +7477,7 @@ npc_dota_hero_huskar:
     cooldown: [22, 18, 14, 10]
     damage: [0, 0, 0, 0]
     description: Unlocks the regenerative power of a friendly unit, with healing based
-      upon its primary attribute. If the target is below 40%%, it will heal faster.  Lasts
+      upon its primary attribute. If the target is below 35%%, it will heal faster.  Lasts
       16 seconds.
     displayname: Inner Vitality
     level: 0
@@ -7738,8 +7742,10 @@ npc_dota_hero_invoker:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: Empty
+    description: Casting Invoke will replace this slot with one of ten unique spells
+      based on Invoker's currently active <font color='#7998b5'>Quas</font>, <font
+      color='#d671a9'>Wex</font>, and <font color='#cabe68'>Exort</font> buffs.
+    displayname: Invoked Spell
     level: 0
     manacost: [0, 0, 0, 0]
     name: invoker_empty1
@@ -7756,8 +7762,10 @@ npc_dota_hero_invoker:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: Empty
+    description: Casting Invoke will replace this slot with one of ten unique spells
+      based on Invoker's currently active <font color='#7998b5'>Quas</font>, <font
+      color='#d671a9'>Wex</font>, and <font color='#cabe68'>Exort</font> buffs.
+    displayname: Invoked Spell
     level: 0
     manacost: [0, 0, 0, 0]
     name: invoker_empty2
@@ -8340,6 +8348,7 @@ npc_dota_hero_jakiro:
     ID: 5298
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_NO
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: path_delay
       tooltip: 'FORMATION DELAY:'
@@ -8553,7 +8562,7 @@ npc_dota_hero_juggernaut:
     level: 0
     lore: Of the rituals learned at the Isle of Masks, tending wounds with a bit of
       voodoo magic has proven to be quite useful.
-    manacost: [120, 125, 130, 135]
+    manacost: [140]
     name: juggernaut_healing_ward
   - AbilityCastPoint: [0, 0, 0, 0]
     AbilityCastRange: 0
@@ -8624,8 +8633,8 @@ npc_dota_hero_juggernaut:
   - *id001
   abilitylayout: 4
   armorphysical: 0
-  attackdamagemax: 28
-  attackdamagemin: 24
+  attackdamagemax: 26
+  attackdamagemin: 22
   attackpoint: 0.33
   attackrange: 150
   attackrate: 1.4
@@ -8688,7 +8697,7 @@ npc_dota_hero_keeper_of_the_light:
       value: [2, 3, 4, 5]
     - name: radius
       tooltip: 'WIDTH:'
-      value: [350, 350, 350, 350]
+      value: [375]
     - name: range
       tooltip: 'RANGE:'
       value: [1550]
@@ -8699,7 +8708,7 @@ npc_dota_hero_keeper_of_the_light:
     - name: vision_duration
       value: [3.34, 3.34, 3.34, 3.34]
     - name: channel_vision_radius
-      value: [350]
+      value: [375]
     - name: channel_vision_interval
       value: [0.5]
     - name: channel_vision_duration
@@ -8750,7 +8759,7 @@ npc_dota_hero_keeper_of_the_light:
     level: 0
     lore: Ezalor disrupts Primordial harmony, draining magical energy from those with
       poor constitution.
-    manacost: [75, 75, 75, 75]
+    manacost: [150]
     name: keeper_of_the_light_mana_leak
   - AbilityCastPoint: [0.3, 0.3, 0.3, 0.3]
     AbilityCastRange: [900, 900, 900, 900]
@@ -8798,7 +8807,7 @@ npc_dota_hero_keeper_of_the_light:
       value: [5, 4, 3]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_CHANNELLED, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET,
       DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
-    cooldown: [15, 15, 15]
+    cooldown: [15]
     damage: [0, 0, 0, 0]
     description: After a short delay, teleports the targeted friendly hero to your
       location.  If the targeted friendly hero takes player based damage during this
@@ -8830,7 +8839,7 @@ npc_dota_hero_keeper_of_the_light:
       value: [80, 80, 80]
     - name: knockback_distance
       tooltip: 'KNOCKBACK DISTANCE:'
-      value: [400]
+      value: [525]
     - name: knockback_height
       value: [50, 50, 50]
     - name: knockback_duration
@@ -8909,7 +8918,7 @@ npc_dota_hero_keeper_of_the_light:
       value: [2, 3, 4, 5]
     - name: radius
       tooltip: 'WIDTH:'
-      value: [350, 350, 350, 350]
+      value: [375]
     - name: range
       tooltip: 'RANGE:'
       value: [1550]
@@ -8920,7 +8929,7 @@ npc_dota_hero_keeper_of_the_light:
     - name: vision_duration
       value: [3.34, 3.34, 3.34, 3.34]
     - name: channel_vision_radius
-      value: [350]
+      value: [375]
     - name: channel_vision_interval
       value: [0.5]
     - name: channel_vision_duration
@@ -9033,8 +9042,8 @@ npc_dota_hero_kunkka:
       tooltip: 'DELAY:'
       value: [1.6, 1.6, 1.6, 1.6]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [10]
-    damage: [120, 180, 240, 300]
+    cooldown: [16, 14, 12, 10]
+    damage: [75, 150, 225, 300]
     description: Summons a rising torrent that, after a short delay, hurls enemy units
       into the sky, stunning, dealing damage and slowing movement speed.
     displayname: Torrent
@@ -9147,14 +9156,17 @@ npc_dota_hero_kunkka:
       value: [650]
     - name: ghostship_width_scepter
       value: [200]
+    - name: ghostship_absorb
+      tooltip: '%DAMAGE DELAYED:'
+      value: [40, 45, 50]
     behavior: [DOTA_ABILITY_BEHAVIOR_DIRECTIONAL, DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [60, 50, 40]
     damage: [400, 500, 600]
     description: Summons a ghostly ship that sails through the battle before smashing
       apart, damaging and stunning all enemies caught near the wreckage. Allied heroes
       touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus
-      movement speed and a delayed reaction to 50%% of all incoming damage.\n\nUpgradeable
-      by Aghanim's Scepter.
+      movement speed and a delayed reaction to incoming damage.\n\nUpgradeable by
+      Aghanim's Scepter.
     displayname: Ghostship
     level: 0
     lore: The final ship of the Claddish Navy is nothing but a phantom, but it is
@@ -9928,6 +9940,7 @@ npc_dota_hero_life_stealer:
     AbilityModifierSupportValue: 1
     ID: 5671
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: damage
       tooltip: 'ERUPT DAMAGE:'
@@ -9957,6 +9970,7 @@ npc_dota_hero_life_stealer:
     AbilityModifierSupportValue: 1
     ID: 5675
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: damage_tooltip
       tooltip: 'ERUPT DAMAGE:'
@@ -11559,6 +11573,7 @@ npc_dota_hero_meepo:
     ID: 5431
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_NO
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: radius
       tooltip: 'RADIUS:'
@@ -11586,6 +11601,7 @@ npc_dota_hero_meepo:
     ID: 5432
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_YES
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: slow
       tooltip: '%MOVE SLOW:'
@@ -11709,7 +11725,7 @@ npc_dota_hero_mirana:
       value: [425]
     - name: interval_scepter
       tooltip: 'SCEPTER INTERVAL:'
-      value: [8.0]
+      value: [10.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [12, 12, 12, 12]
     damage: [75, 150, 225, 300]
@@ -12115,7 +12131,7 @@ npc_dota_hero_morphling:
     level: 0
     manacost: [0, 0, 0, 0]
     name: morphling_morph
-  - AbilityCastPoint: 0.25
+  - AbilityCastPoint: 0.35
     AbilityCastRange: 0
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -12137,8 +12153,8 @@ npc_dota_hero_morphling:
   - *id001
   abilitylayout: 5
   armorphysical: -2
-  attackdamagemax: 22
-  attackdamagemin: 13
+  attackdamagemax: 18
+  attackdamagemin: 9
   attackpoint: 0.5
   attackrange: 350
   attackrate: 1.6
@@ -12147,7 +12163,7 @@ npc_dota_hero_morphling:
   attributebaseagility: 24
   attributebaseintelligence: 17
   attributebasestrength: 19
-  attributeintelligencegain: 1.5
+  attributeintelligencegain: 1.1
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
   attributestrengthgain: 2
   bio: For dark eons the comet circled. Held in thrall to a distant sun, bound by
@@ -13112,7 +13128,7 @@ npc_dota_hero_nyx_assassin:
       of razor-sharp spikes.
     manacost: [40, 40, 40, 40]
     name: nyx_assassin_spiked_carapace
-  - AbilityCastPoint: 1
+  - AbilityCastPoint: 1.5
     AbilityCastRange: 0
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -13130,8 +13146,6 @@ npc_dota_hero_nyx_assassin:
     - name: damage_reduction
       tooltip: '%BURROW DAMAGE REDUCTION:'
       value: [40]
-    - name: burrow_delay
-      value: [1]
     - name: impale_burn_range_increase_pct_tooltip
       value: [75]
     - name: mana_burn_burrow_range_tooltip
@@ -13429,9 +13443,9 @@ npc_dota_hero_obsidian_destroyer:
     name: obsidian_destroyer_sanity_eclipse
   - *id001
   abilitylayout: 4
-  armorphysical: 2
-  attackdamagemax: 35
-  attackdamagemin: 20
+  armorphysical: 0.5
+  attackdamagemax: 29
+  attackdamagemin: 14
   attackpoint: 0.46
   attackrange: 450
   attackrate: 1.7
@@ -13713,8 +13727,8 @@ npc_dota_hero_omniknight:
   AttackDamageType: DAMAGE_TYPE_ArmorPhysical
   HeroID: 57
   abilities:
-  - AbilityCastPoint: 0.25
-    AbilityCastRange: 700
+  - AbilityCastPoint: 0.2
+    AbilityCastRange: 575
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -13732,7 +13746,7 @@ npc_dota_hero_omniknight:
       tooltip: 'RADIUS:'
       value: [260]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AOE]
-    cooldown: [10]
+    cooldown: [9]
     damage: [0, 0, 0, 0]
     description: Instantly heals a friendly unit and damages all nearby enemy units.
     displayname: Purification
@@ -13741,7 +13755,7 @@ npc_dota_hero_omniknight:
       warriors.
     manacost: [100, 120, 140, 160]
     name: omniknight_purification
-  - AbilityCastPoint: 0.5
+  - AbilityCastPoint: 0.35
     AbilityCastRange: 500
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -13754,9 +13768,9 @@ npc_dota_hero_omniknight:
     attributes:
     - name: duration
       tooltip: 'DURATION:'
-      value: [6, 8, 10, 12]
+      value: [5, 6, 7, 8]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [14]
+    cooldown: [20, 18, 16, 14]
     damage: [0, 0, 0, 0]
     description: Creates a divine barrier around a target unit which grants them Spell
       Immunity and 100%% resistance to Magic Damage.
@@ -14005,7 +14019,7 @@ npc_dota_hero_oracle:
     level: 0
     lore: Like a hall of mirrors might amplify the light of a single candle, the shattered
       walls of the universe can transform the light of prophecy into a burning torch.
-    manacost: [50, 60, 70, 80]
+    manacost: [80, 85, 90, 95]
     name: oracle_purifying_flames
   - AbilityCastPoint: 0.3
     AbilityCastRange: 1000
@@ -14036,8 +14050,8 @@ npc_dota_hero_oracle:
   - *id001
   abilitylayout: 4
   armorphysical: 0
-  attackdamagemax: 28
-  attackdamagemin: 22
+  attackdamagemax: 22
+  attackdamagemin: 16
   attackpoint: 0.3
   attackrange: 620
   attackrate: 1.4
@@ -14131,7 +14145,7 @@ npc_dota_hero_phantom_assassin:
   HeroID: 44
   abilities:
   - AbilityCastPoint: [0.3, 0.3, 0.3, 0.3]
-    AbilityCastRange: 1200
+    AbilityCastRange: [525, 750, 975, 1200]
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [1, 2, 3, 4]
@@ -16110,7 +16124,7 @@ npc_dota_hero_riki:
       value: [40, 50, 60, 70]
     - name: movement_speed_reduction
       tooltip: '%MOVEMENT SLOW:'
-      value: [25]
+      value: [13, 17, 21, 25]
     - name: turn_reduction
       value: [0]
     - name: duration
@@ -16408,8 +16422,8 @@ npc_dota_hero_rubick:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: ''
+    description: Spells acquired with Spell Steal will replace this slot.
+    displayname: Stolen Spell
     level: 0
     manacost: [0, 0, 0, 0]
     name: rubick_empty1
@@ -16426,8 +16440,8 @@ npc_dota_hero_rubick:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: ''
+    description: Spells acquired with Spell Steal will replace this slot.
+    displayname: Stolen Spell
     level: 0
     manacost: [0, 0, 0, 0]
     name: rubick_empty2
@@ -16719,7 +16733,7 @@ npc_dota_hero_sand_king:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 300
+  movementspeed: 295
   movementturnrate: 0.5
   name: npc_dota_hero_sand_king
   projectilespeed: 900
@@ -16764,7 +16778,7 @@ npc_dota_hero_shadow_demon:
       tooltip: '%ILLUSION DAMAGE TAKEN:'
       value: [200.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
-    cooldown: [25, 22, 19, 16]
+    cooldown: [27, 24, 21, 18]
     damage: [0, 0, 0, 0]
     description: Banishes the targeted unit from the battlefield for a short duration.  Upon
       returning, two illusions of the banished unit are created under Shadow Demon's
@@ -16824,7 +16838,7 @@ npc_dota_hero_shadow_demon:
       tooltip: 'MAX STACKS TO MULTIPLY:'
       value: [5]
     - name: bonus_stack_damage
-      value: [50, 50, 50, 50]
+      value: [50.0]
     - name: radius
       tooltip: 'RADIUS:'
       value: [190]
@@ -16835,7 +16849,7 @@ npc_dota_hero_shadow_demon:
       value: [10, 10, 10, 10]
     behavior: [DOTA_ABILITY_BEHAVIOR_AOE, DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
     cooldown: [2.5]
-    damage: [50, 50, 50, 50]
+    damage: [26, 34, 42, 50]
     description: Deals damage in a line, and afflicts enemy units with a poison effect.
       The poison deals 1/2/4/8/16 times the stack damage based on the number of stacks
       on the target, up to 5 stacks. Additional stacks cause 50 damage each.  This
@@ -16845,7 +16859,7 @@ npc_dota_hero_shadow_demon:
     level: 0
     lore: The ever growing influence of the Shadow Demon can pollute the most valiant
       and pure of heroes.
-    manacost: [40]
+    manacost: [55]
     name: shadow_demon_shadow_poison
   - AbilityCastPoint: 0.3
     AbilityCastRange: 0
@@ -17421,7 +17435,7 @@ npc_dota_hero_shredder:
   attributeagilitygain: 1.3
   attributebaseagility: 16
   attributebaseintelligence: 21
-  attributebasestrength: 22
+  attributebasestrength: 21
   attributeintelligencegain: 2.4
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
   attributestrengthgain: 1.8
@@ -20795,6 +20809,7 @@ npc_dota_hero_treant:
     AbilityModifierSupportValue: 1
     ID: 5649
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: vision_aoe
       tooltip: 'TREE VISION RADIUS:'
@@ -21297,6 +21312,7 @@ npc_dota_hero_tusk:
     ID: 5672
     SpellImmunityType: SPELL_IMMUNITY_ENEMIES_YES
     abilitytype: DOTA_ABILITY_TYPE_BASIC
+    abilityunitdamagetype: DAMAGE_TYPE_MAGICAL
     attributes:
     - name: crit_multiplier
       value: [0]
@@ -22727,7 +22743,7 @@ npc_dota_hero_warlock:
       value: [600]
     - name: golem_hp_tooltip
       tooltip: 'GOLEM HEALTH:'
-      value: [900, 1200, 1500]
+      value: [1000, 1500, 2000]
     - name: golem_dmg_tooltip
       tooltip: 'GOLEM DAMAGE:'
       value: [75, 100, 125]
@@ -22742,7 +22758,7 @@ npc_dota_hero_warlock:
       value: [2]
     - name: golem_hp_tooltip_scepter
       tooltip: 'SCEPTER GOLEM HEALTH:'
-      value: [675, 900, 1125]
+      value: [750, 1125, 1500]
     - name: golem_dmg_tooltip_scepter
       tooltip: 'SCEPTER GOLEM DAMAGE:'
       value: [56, 75, 94]
@@ -23592,8 +23608,9 @@ npc_dota_hero_wisp:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: Empty
+    description: Calls the spirits closer to you. Can be toggled on and off. Only
+      available while Spirits is active.
+    displayname: Spirits In
     level: 0
     manacost: [0, 0, 0, 0]
     name: wisp_empty1
@@ -23610,8 +23627,9 @@ npc_dota_hero_wisp:
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
-    description: ''
-    displayname: Empty
+    description: Sends the spirits farther away from you. Can be toggled on and off.
+      Only available while Spirits is active.
+    displayname: Spirits Out
     level: 0
     manacost: [0, 0, 0, 0]
     name: wisp_empty2
@@ -23627,7 +23645,7 @@ npc_dota_hero_wisp:
     attributes:
     - name: cast_delay
       tooltip: 'CAST DELAY:'
-      value: [2.5, 2.25, 2]
+      value: [2.7, 2.35, 2]
     - name: return_time
       tooltip: 'RETURN TIME:'
       value: [12, 12, 12]

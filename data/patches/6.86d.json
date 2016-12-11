@@ -1,0 +1,91 @@
+{
+    "date": "2016-01-20",
+    "menu": [
+        {
+            "id": "chen",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "chen",
+                    "name": "Chen"
+                }
+            ]
+        },
+        {
+            "id": "invoker",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "invoker",
+                    "name": "Invoker"
+                }
+            ]
+        },
+        {
+            "id": "aether_lens",
+            "name": "Items",
+            "submenu": []
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "chen"
+                    ],
+                    "name": "Chen",
+                    "notes": [
+                        {
+                            "note": "Hand of God cooldown is no longer reduced by Aghanim's Scepter",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "invoker"
+                    ],
+                    "name": "Invoker",
+                    "notes": [
+                        {
+                            "note": "Invoker's base agility reduced from 20 to 14",
+                            "detail": []
+                        },
+                        {
+                            "note": "Deafening Blast manacost increased from 200 to 300",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "aether_lens"
+                    ],
+                    "name": "Aether Lens",
+                    "notes": [
+                        {
+                            "note": "Aether Lens now has a 550 gold recipe instead of a Cloak (no longer grants Magic Resistance)",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/20066\/",
+    "version": "6.86d"
+}

@@ -1,0 +1,46 @@
+{
+    "menu": [
+        {
+            "id": "invoker",
+            "name": "Heroes",
+            "submenu": []
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "invoker"
+                    ],
+                    "name": "Invoker",
+                    "notes": [
+                        {
+                            "note": "Deafening Blast's knockback is no longer a hard disable (affected units can cast abilities and items)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Deafening Blast's disarm portion rebalanced to keep same overall effectiveness as before (it previously applied disarm only after the knockback disable, numbers rescaled to keep same overall duration where they cannot attack)",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/20482\/",
+    "version": "6.86f",
+    "date": "2016-02-21"
+}

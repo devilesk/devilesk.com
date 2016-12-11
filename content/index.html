@@ -5,15 +5,17 @@
 		<meta name="description" content="devilesk's Personal website. Currently for Dota 2 content.">
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 		<link rel="shortcut icon" href="{{ media_url('/favicon.png') }}"/>
-		<link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
 		<style type="text/css">
 			html, body, #wrapper {
-				background-color: black;
+				background-color: #101010;
 				color:#121212;
 				text-align:center;
 				height:100%;
-				font-family: 'Cinzel', serif;
+				font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
 				margin:0;
+                font-size: 24px;
 			}
 			#wrapper, #container {
 				display:inline-block;
@@ -22,20 +24,24 @@
 			img {
 				display:block;
 			}
+            .dota {
+                font-family: 'Cinzel', serif;
+            }
 			a:link {
 				padding:10px;
 				transition: 0.5s ease;
-				color:#5d1f20;
+				color:#8a2729;
 				text-decoration:none;
 				display:inline-block;
 				font-weight:bold;
+        letter-spacing: 3px;
 			}
 			a:visited {
-				color:#5d1f20;
+				color:#8a2729;
 			}
 			a:hover {
 				transition: 0.5s ease;
-				color:white;
+				color: #ffe9ea;
 			}
 			h1 {
 				font-size:4em;
@@ -46,8 +52,7 @@
 	<body>
 		<div id="wrapper"></div>
 		<div id="container">
-			<img src="{{ media_url('/images/background-devilesk.png') }}" alt="devilesk">
-			<a href="/dota2/"><h1>DOTA 2</h1></a>
+			<a href="/dota2/" class="dota"><h1>DOTA 2</h1></a>
 			<div>
 				<a href="http://www.youtube.com/user/devilesk">YOUTUBE</a>
 				<a href="http://www.twitch.tv/devilesk">TWITCH</a>

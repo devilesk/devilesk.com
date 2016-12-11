@@ -691,12 +691,12 @@
   "Lore": "When a name is tolled from the bell of Vashundol, doom is sure to follow."
  }, 
  "doom_bringer_empty1": {
-  "Description": "", 
-  "DisplayName": "Empty"
+  "Description": "This slot will be replaced with abilities acquired using Devour.", 
+  "DisplayName": "Devoured Ability"
  }, 
  "doom_bringer_empty2": {
-  "Description": "", 
-  "DisplayName": "Empty"
+  "Description": "This slot will be replaced with abilities acquired using Devour.", 
+  "DisplayName": "Devoured Ability"
  }, 
  "doom_bringer_infernal_blade": {
   "Description": "Doom swings his burning sword, igniting the enemy. Stuns for %ministun_duration% seconds and applies a %burn_duration% second burn that deals %burn_damage% + %burn_damage_pct%%% of the target's Max HP as damage per second.", 
@@ -1183,7 +1183,7 @@
   "Lore": "The Sacred Warrior ignites his weaponry after marking it with his own blood - causing far greater pain than he himself feels."
  }, 
  "huskar_inner_vitality": {
-  "Description": "Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 40%%, it will heal faster.  Lasts 16 seconds.", 
+  "Description": "Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 35%%, it will heal faster.  Lasts 16 seconds.", 
   "DisplayName": "Inner Vitality", 
   "Lore": "While Huskar has little use for magic, this minor enchantment was learned from the Dazzle and the Dezun priests, to be used in times of great injury."
  }, 
@@ -1222,12 +1222,12 @@
   "Lore": "Endoleon's Malevolent Perturbation."
  }, 
  "invoker_empty1": {
-  "Description": "", 
-  "DisplayName": "Empty"
+  "Description": "Casting Invoke will replace this slot with one of ten unique spells based on Invoker's currently active <font color='#7998b5'>Quas</font>, <font color='#d671a9'>Wex</font>, and <font color='#cabe68'>Exort</font> buffs.", 
+  "DisplayName": "Invoked Spell"
  }, 
  "invoker_empty2": {
-  "Description": "", 
-  "DisplayName": "Empty"
+  "Description": "Casting Invoke will replace this slot with one of ten unique spells based on Invoker's currently active <font color='#7998b5'>Quas</font>, <font color='#d671a9'>Wex</font>, and <font color='#cabe68'>Exort</font> buffs.", 
+  "DisplayName": "Invoked Spell"
  }, 
  "invoker_exort": {
   "Description": "Allows manipulation of fire elements and grants a permanent intelligence bonus. Each <font color='#cabe68'>Exort</font> instance provides increased attack damage.", 
@@ -1287,7 +1287,7 @@
  "item_aether_lens": {
   "Description": "Passive: Increases spell cast range by %cast_range_bonus% and spell damage output by %spell_amp%%%", 
   "DisplayName": "Aether Lens", 
-  "Lore": ""
+  "Lore": "Polished with the incantation of his final breath, the gift of a dying mage to his sickly son."
  }, 
  "item_ancient_janggo": {
   "Description": "Active: Endurance - Gives bonus +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to allies in a %radius% radius.\\nPassive: Swiftness Aura - Gives bonus attack and movement speed to allies in a %radius% radius.\\n\\nMultiple instances of Swiftness Aura do not stack.", 
@@ -1347,7 +1347,7 @@
  "item_blight_stone": {
   "Description": "Passive: Your attacks reduce target's armor for %corruption_duration% seconds.\\n\\nBlight Stone is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.", 
   "DisplayName": "Blight Stone", 
-  "Lore": ""
+  "Lore": "An unnerving stone unearthed beneath the Fields of Endless Carnage."
  }, 
  "item_blink": {
   "Description": "Active: Blink - Teleport to a target point up to %blink_range% units away.  If damage is taken, Blink Dagger cannot be used for %blink_damage_cooldown% seconds.", 
@@ -1362,7 +1362,7 @@
  "item_bloodthorn": {
   "Description": "Active: Silences a target for %silence_duration% seconds and amplifies the damage it takes by %silence_damage_percent%%%. All attacks on the silenced target will have True Strike and land a crit on impact.\\nPassive: Critical Strike - Grants each attack a chance to deal additional damage. Critical Strike does not work against buildings.", 
   "DisplayName": "Bloodthorn", 
-  "Lore": ""
+  "Lore": "A reviled blade that bites deeper with each wriggle of its victim's final throes."
  }, 
  "item_boots": {
   "Description": "Flat movement speed bonuses from multiple pairs of boots do not stack.", 
@@ -1489,11 +1489,12 @@
  "item_dragon_lance": {
   "Description": "Passive: Increases attack range of ranged heroes by %base_attack_range%.", 
   "DisplayName": "Dragon Lance", 
-  "Lore": ""
+  "Lore": "The forward charge of the wyvern host grants no quarter."
  }, 
  "item_dust": {
   "Description": "Use: Reveals and slows invisible Heroes in a nearby area.", 
-  "DisplayName": "Dust of Appearance"
+  "DisplayName": "Dust of Appearance", 
+  "Lore": "One may hide visage, but never volume."
  }, 
  "item_eagle": {
   "DisplayName": "Eaglesong", 
@@ -1502,7 +1503,7 @@
  "item_echo_sabre": {
   "Description": "Passive: Causes melee attacks to attack twice in quick succession. The double attacks apply a %slow_duration% second %movement_slow%%% movement and attack speed slow on each strike.", 
   "DisplayName": "Echo Sabre", 
-  "Lore": ""
+  "Lore": "A deceptively swift blade imbued with resonant magic."
  }, 
  "item_enchanted_mango": {
   "Description": "Use: Consume the mango to instantly restore %replenish_amount% mana.\\n\\nHold Control to use Enchanted Mango on an allied hero.", 
@@ -1521,7 +1522,7 @@
  "item_faerie_fire": {
   "Description": "Use: Consume the Faerie Fire to instantly restore %hp_restore% HP", 
   "DisplayName": "Faerie Fire", 
-  "Lore": ""
+  "Lore": "The ethereal flames from the ever-burning ruins of Kindertree ignite across realities."
  }, 
  "item_flask": {
   "Description": "Use: Restores health to the target unit over time.  If the unit is attacked, the effect is lost.", 
@@ -1530,7 +1531,8 @@
  }, 
  "item_flying_courier": {
   "Description": "Upgrades your team's Animal Courier to a Flying Courier, granting it swift, unobstructed movement to carry items to and from your team's base.\\n\\nRequires a deployed Animal Courier.", 
-  "DisplayName": "Flying Courier"
+  "DisplayName": "Flying Courier", 
+  "Lore": "The faithful mount upon which soar the fortunes of battle."
  }, 
  "item_force_staff": {
   "Description": "Active: Force - Pushes any target unit %push_length% units in the direction it is facing.  Double click to instantly cast Force on yourself.", 
@@ -1620,16 +1622,16 @@
  "item_hurricane_pike": {
   "Description": "Active: When used on an enemy, it pushes you both away from each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Grants %bonus_attack_speed% Attack Speed during the attacks. Works like Force Staff when used on self or allies.\\nPassive: Increases attack range of ranged heroes by %base_attack_range%.", 
   "DisplayName": "Hurricane Pike", 
-  "Lore": ""
+  "Lore": "A legendary pike once held as royal sigil of the ancient wyvern riders."
  }, 
  "item_hyperstone": {
   "DisplayName": "Hyperstone", 
   "Lore": "A mystical, carved stone that boosts the fervor of the holder."
  }, 
  "item_infused_raindrop": {
-  "Description": "Passive: Consumes a charge to block %magic_damage_block% magic damage from damage instances over %min_damage% damage. Comes with %initial_charges% charges. When the charges are gone, the item disappear.", 
+  "Description": "Passive: Consumes a charge to block %magic_damage_block% magic damage from damage instances over %min_damage% damage. Comes with %initial_charges% charges. When the charges are gone, the item disappears.", 
   "DisplayName": "Infused Raindrop", 
-  "Lore": ""
+  "Lore": "Elemental protection from magical assaults."
  }, 
  "item_invis_sword": {
   "Description": "Active: Shadow Walk - Makes you invisible until the duration ends, or until you attack or cast a spell.  While Shadow Walk is active, you move %windwalk_movement_speed%%% faster and can move through units.  If attacking to end the invisibility, you gain %windwalk_bonus_damage% bonus damage on that attack.  Lasts %windwalk_duration% seconds.", 
@@ -1638,7 +1640,8 @@
  }, 
  "item_iron_talon": {
   "Description": "Active: Targets a non-player enemy unit to remove %creep_damage_pct%%% of its current HP.\\nPassive: Quell - Increases attack damage against non-hero units, based on whether the equipped hero is ranged or melee. Does not provide bonus damage against Roshan.", 
-  "DisplayName": "Iron Talon"
+  "DisplayName": "Iron Talon", 
+  "Lore": "A simple but effective weapon devised to quell a great Hellbear uprising."
  }, 
  "item_javelin": {
   "Description": "Passive: Pierce - Grants each attack a chance to deal bonus damage.", 
@@ -1916,7 +1919,7 @@
  "item_shadow_amulet": {
   "Description": "Active: Fade - Grants invisibility to you or a target allied hero after a %fade_time% second fade time. Moving breaks the invisibility. There is no cooldown when using this item on yourself.", 
   "DisplayName": "Shadow Amulet", 
-  "Lore": ""
+  "Lore": "A small talisman that clouds the senses of one's enemies when held perfectly still."
  }, 
  "item_sheepstick": {
   "Description": "Active: Hex - Turns a target unit into a harmless critter for %sheep_duration% seconds. Instantly destroys illusions.", 
@@ -1944,7 +1947,8 @@
  }, 
  "item_smoke_of_deceit": {
   "Description": "Use: Upon activation, the user and all nearby allied player-controlled units gain invisibility and bonus movement speed for a brief time.  Minimap icons will also be hidden.  Attacking, or moving within %visibility_radius% range of an enemy hero or tower, will break the invisibility.", 
-  "DisplayName": "Smoke of Deceit"
+  "DisplayName": "Smoke of Deceit", 
+  "Lore": "The charlatan wizard Myrddin's only true contribution to the arcane arts."
  }, 
  "item_sobi_mask": {
   "DisplayName": "Sage's Mask", 
@@ -1996,11 +2000,12 @@
  "item_tome_of_knowledge": {
   "Description": "Use: Grants you experience.", 
   "DisplayName": "Tome of Knowledge", 
-  "Lore": ""
+  "Lore": "That which raises beast to man and man to god."
  }, 
  "item_tpscroll": {
   "Description": "Use: Teleport - Teleports you to a target friendly building. Double-click to teleport to your team's base fountain.", 
-  "DisplayName": "Town Portal Scroll"
+  "DisplayName": "Town Portal Scroll", 
+  "Lore": "What a hero truly needs."
  }, 
  "item_tranquil_boots": {
   "Description": "Passive: Break - Whenever you attack or are attacked, the health regeneration and 30 Movement Speed are lost for 13 seconds.", 
@@ -2014,7 +2019,8 @@
  }, 
  "item_travel_boots_2": {
   "Description": "Active: Teleport - Teleports you to any allied structure or unit, including heroes. Double-click to teleport to your team's base fountain.\\n\\nFlat movement speed bonuses from multiple pairs of boots do not stack.", 
-  "DisplayName": "Boots of Travel"
+  "DisplayName": "Boots of Travel", 
+  "Lore": "Winged boots that grant omnipresence."
  }, 
  "item_ultimate_orb": {
   "DisplayName": "Ultimate Orb", 
@@ -2072,7 +2078,7 @@
  "item_wind_lace": {
   "Description": "Passive: Gives increased movement speed.", 
   "DisplayName": "Wind Lace", 
-  "Lore": ""
+  "Lore": "Hasten to battle on wind-touched heels"
  }, 
  "item_winter_cake": {
   "Description": "Use the cake to heal 400 health and 50 mana over 8 seconds", 
@@ -2224,7 +2230,7 @@
   "DisplayName": "Speed Aura"
  }, 
  "kunkka_ghostship": {
-  "Description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.\\n\\nUpgradeable by Aghanim's Scepter.", 
+  "Description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to incoming damage.\\n\\nUpgradeable by Aghanim's Scepter.", 
   "DisplayName": "Ghostship", 
   "Lore": "The final ship of the Claddish Navy is nothing but a phantom, but it is all too real to the enemies of the Admiral."
  }, 
@@ -4237,12 +4243,12 @@
   "DisplayName": "Spell Block"
  }, 
  "rubick_empty1": {
-  "Description": "", 
-  "DisplayName": ""
+  "Description": "Spells acquired with Spell Steal will replace this slot.", 
+  "DisplayName": "Stolen Spell"
  }, 
  "rubick_empty2": {
-  "Description": "", 
-  "DisplayName": ""
+  "Description": "Spells acquired with Spell Steal will replace this slot.", 
+  "DisplayName": "Stolen Spell"
  }, 
  "rubick_fade_bolt": {
   "Description": "Rubick creates a powerful stream of arcane energy that travels between enemy units, dealing damage and reducing their attack damage.  Each jump deals less damage.", 
@@ -5034,12 +5040,12 @@
   "Lore": "The oldest of the bookwurm\u2019s spells, this curse lends truth to the old saw: sometimes the enemy of my enemy is my enemy still."
  }, 
  "wisp_empty1": {
-  "Description": "", 
-  "DisplayName": "Empty"
+  "Description": "Calls the spirits closer to you. Can be toggled on and off. Only available while Spirits is active.", 
+  "DisplayName": "Spirits In"
  }, 
  "wisp_empty2": {
-  "Description": "", 
-  "DisplayName": "Empty"
+  "Description": "Sends the spirits farther away from you. Can be toggled on and off. Only available while Spirits is active.", 
+  "DisplayName": "Spirits Out"
  }, 
  "wisp_overcharge": {
   "Description": "Io gains bonus attack speed and damage reduction, at the cost of draining a percentage of its current health and mana per second.  If Io is Tethered to an ally, that unit also gains the bonuses.", 

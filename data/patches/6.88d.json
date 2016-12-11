@@ -1,0 +1,95 @@
+{
+    "menu": [
+        {
+            "id": "arc_warden",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "arc_warden",
+                    "name": "Arc Warden"
+                }
+            ]
+        },
+        {
+            "id": "faceless_void",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                }
+            ]
+        },
+        {
+            "id": "shadow_demon",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "shadow_demon",
+                    "name": "Shadow Demon"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "arc_warden"
+                    ],
+                    "name": "Arc Warden",
+                    "notes": [
+                        {
+                            "note": "Flux slow reduced from 35\/40\/45\/50% to 20\/30\/40\/50%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tempest Double now gives a 140 Gold\/XP bounty when killed",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Faceless Void base damage reduced by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shadow_demon"
+                    ],
+                    "name": "Shadow Demon",
+                    "notes": [
+                        {
+                            "note": "Disruption cooldown increased from 25\/22\/19\/16 to 27\/24\/21\/18",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/23972\/",
+    "version": "6.88d",
+    "date": "2016-09-02"
+}

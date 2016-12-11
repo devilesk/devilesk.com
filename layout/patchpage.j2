@@ -17,8 +17,8 @@ itemsprite-{{ id }}
 {% block custom_css %}
 <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
 <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
-<link rel="stylesheet" href="{{ media_url('css/patch.css') }}">
 <style type="text/css">
+a.anchor{display: block; visibility: hidden;}
 .group-icon {
     margin-right:10px;
     display:inline-block;
@@ -30,17 +30,17 @@ itemsprite-{{ id }}
 <div id="main" class="col-md-9" role="main">
     <nav class="post_nav">
     <a class="btn btn-default btn-xs backlink" href="{{ content_url(resource.node.url) }}">Back to list</a>
-    <a class="btn btn-default btn-xs prev{{' disabled' if not resource.prev_by_patch }}"
-        title="{{ resource.prev_by_patch.meta.patch }}"
-        {% if resource.prev_by_patch %}
-        href="{{ content_url(resource.prev_by_patch.url) }}"{% endif %}>
-        Previous
-    </a>
-
     <a class="btn btn-default btn-xs next{{' disabled' if not resource.next_by_patch }}"
         title="{{ resource.next_by_patch.meta.patch }}"
         {% if resource.next_by_patch %}
         href="{{ content_url(resource.next_by_patch.url) }}"{% endif %}>
+        Previous
+    </a>
+    
+    <a class="btn btn-default btn-xs prev{{' disabled' if not resource.prev_by_patch }}"
+        title="{{ resource.prev_by_patch.meta.patch }}"
+        {% if resource.prev_by_patch %}
+        href="{{ content_url(resource.prev_by_patch.url) }}"{% endif %}>
         Next
     </a>
     </nav>
@@ -99,10 +99,10 @@ itemsprite-{{ id }}
 </div>
 
 <div class="col-md-3">
-    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
         <ul class="nav bs-docs-sidenav">
             {% for item in data.menu %}
-            <li class="active">
+            <li>
                 <a href="#{{ item.id }}">{{ item.name }}</a>
                 <ul class="nav" data-bind="foreach: submenu">
                     {% for subitem in item.submenu %}
@@ -119,9 +119,16 @@ itemsprite-{{ id }}
 
 {% block scripts %}
 <script type="text/javascript">
-	$('body').scrollspy({
-		target: '.bs-docs-sidebar',
-		offset: 40
-	});
+    $(function () {
+        $('body').scrollspy({
+            target: '.bs-docs-sidebar',
+            offset: 40
+        });
+        $('.bs-docs-sidebar').affix({
+              offset: {
+                top: 124
+              }
+        });
+    });
 </script>
 {% endblock scripts %}

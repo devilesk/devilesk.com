@@ -1,0 +1,352 @@
+{
+    "menu": [
+        {
+            "id": "",
+            "name": "",
+            "submenu": []
+        },
+        {
+            "id": "alchemist",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "alchemist",
+                    "name": "Alchemist"
+                },
+                {
+                    "id": "arc_warden",
+                    "name": "Arc Warden"
+                },
+                {
+                    "id": "beastmaster",
+                    "name": "Beastmaster"
+                },
+                {
+                    "id": "bounty_hunter",
+                    "name": "Bounty Hunter"
+                }
+            ]
+        },
+        {
+            "id": "doom_bringer",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "doom_bringer",
+                    "name": "Doom"
+                }
+            ]
+        },
+        {
+            "id": "obsidian_destroyer",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "obsidian_destroyer",
+                    "name": "Outworld Devourer"
+                }
+            ]
+        },
+        {
+            "id": "phantom_assassin",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "phantom_assassin",
+                    "name": "Phantom Assassin"
+                }
+            ]
+        },
+        {
+            "id": "slardar",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "slardar",
+                    "name": "Slardar"
+                },
+                {
+                    "id": "storm_spirit",
+                    "name": "Storm Spirit"
+                }
+            ]
+        },
+        {
+            "id": "terrorblade",
+            "name": "Heroes T",
+            "submenu": [
+                {
+                    "id": "terrorblade",
+                    "name": "Terrorblade"
+                }
+            ]
+        },
+        {
+            "id": "vengefulspirit",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "vengefulspirit",
+                    "name": "Vengeful Spirit"
+                },
+                {
+                    "id": "visage",
+                    "name": "Visage"
+                }
+            ]
+        },
+        {
+            "id": "armlet",
+            "name": "Items A&ndash;B",
+            "submenu": [
+                {
+                    "id": "armlet",
+                    "name": "Armlet of Mordiggian"
+                }
+            ]
+        },
+        {
+            "id": "silver_edge",
+            "name": "Items S",
+            "submenu": [
+                {
+                    "id": "silver_edge",
+                    "name": "Silver Edge"
+                }
+            ]
+        },
+        {
+            "id": "wind_lace",
+            "name": "Items T&ndash;Z",
+            "submenu": [
+                {
+                    "id": "wind_lace",
+                    "name": "Wind Lace"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [],
+                    "name": "",
+                    "notes": [
+                        {
+                            "note": "Super Creep gold increase over time reduced from 2 to 1.5 per upgrade cycle",
+                            "detail": [
+                                "AoE Bounty Gold based on level reduced from 8\/7\/6\/4\/4 to 6\/5\/4\/3\/3 per level"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "alchemist"
+                    ],
+                    "name": "Alchemist",
+                    "notes": [
+                        {
+                            "note": "Greevil's Greed no longer benefits illusions",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "arc_warden"
+                    ],
+                    "name": "Arc Warden",
+                    "notes": [
+                        {
+                            "note": "Arc Warden base damage improved by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "beastmaster"
+                    ],
+                    "name": "Beastmaster",
+                    "notes": [
+                        {
+                            "note": "Beastmaster's Boar Poison no longer pierces Spell Immunity",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bounty_hunter"
+                    ],
+                    "name": "Bounty Hunter",
+                    "notes": [
+                        {
+                            "note": "Jinada slow reduced from 18\/22\/26\/30% to 15\/20\/25\/30%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "doom_bringer"
+                    ],
+                    "name": "Doom",
+                    "notes": [
+                        {
+                            "note": "Infernal Blade base damage reduced from 40 to 25\/30\/35\/40",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "obsidian_destroyer"
+                    ],
+                    "name": "Outworld Devourer",
+                    "notes": [
+                        {
+                            "note": "Essence Aura now uses Pseudo-Random Distribution",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phantom_assassin"
+                    ],
+                    "name": "Phantom Assassin",
+                    "notes": [
+                        {
+                            "note": "Stifling Dagger base damage increased from 60 to 75",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "slardar"
+                    ],
+                    "name": "Slardar",
+                    "notes": [
+                        {
+                            "note": "Slardar base movement speed reduced from 300 to 295",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "storm_spirit"
+                    ],
+                    "name": "Storm Spirit",
+                    "notes": [
+                        {
+                            "note": "Storm Spirit Intelligence increased from 23 + 2.6 to 24 + 3.0",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "terrorblade"
+                    ],
+                    "name": "Terrorblade",
+                    "notes": [
+                        {
+                            "note": "Metamorphosis no longer increases Base Attack Time",
+                            "detail": []
+                        },
+                        {
+                            "note": "Conjure Image damage taken reduced from 425% to 400%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "vengefulspirit"
+                    ],
+                    "name": "Vengeful Spirit",
+                    "notes": [
+                        {
+                            "note": "Vengeful Spirit Intelligence reduced from 15 + 1.75 to 13 + 1.5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "visage"
+                    ],
+                    "name": "Visage",
+                    "notes": [
+                        {
+                            "note": "Grave Chill cast range increased from 600 to 650",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "armlet"
+                    ],
+                    "name": "Armlet of Mordiggian",
+                    "notes": [
+                        {
+                            "note": "Armlet armor bonus when activated reduced from 5 to 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "silver_edge"
+                    ],
+                    "name": "Silver Edge",
+                    "notes": [
+                        {
+                            "note": "Silver Edge now has a 300 gold recipe",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "wind_lace"
+                    ],
+                    "name": "Wind Lace",
+                    "notes": [
+                        {
+                            "note": "Wind Lace cost increased from 225 to 235",
+                            "detail": []
+                        },
+                        {
+                            "note": "Wind Lace is no longer available in the Side Shop",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/21776\/",
+    "version": "6.87c",
+    "date": "2016-05-07"
+}

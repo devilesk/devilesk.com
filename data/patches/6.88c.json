@@ -1,0 +1,285 @@
+{
+    "menu": [
+        {
+            "id": "",
+            "name": "",
+            "submenu": []
+        },
+        {
+            "id": "bloodseeker",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "bloodseeker",
+                    "name": "Bloodseeker"
+                }
+            ]
+        },
+        {
+            "id": "drow_ranger",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "drow_ranger",
+                    "name": "Drow Ranger"
+                }
+            ]
+        },
+        {
+            "id": "elder_titan",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "elder_titan",
+                    "name": "Elder Titan"
+                },
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                }
+            ]
+        },
+        {
+            "id": "leshrac",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "leshrac",
+                    "name": "Leshrac"
+                },
+                {
+                    "id": "lina",
+                    "name": "Lina"
+                }
+            ]
+        },
+        {
+            "id": "mirana",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "mirana",
+                    "name": "Mirana"
+                },
+                {
+                    "id": "oracle",
+                    "name": "Oracle"
+                }
+            ]
+        },
+        {
+            "id": "shadow_demon",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "shadow_demon",
+                    "name": "Shadow Demon"
+                }
+            ]
+        },
+        {
+            "id": "shredder",
+            "name": "Heroes T",
+            "submenu": [
+                {
+                    "id": "shredder",
+                    "name": "Timbersaw"
+                },
+                {
+                    "id": "treant",
+                    "name": "Treant Protector"
+                }
+            ]
+        },
+        {
+            "id": "visage",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "visage",
+                    "name": "Visage"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [],
+                    "name": "",
+                    "notes": [
+                        {
+                            "note": "Lane creeps now give 35% of experience when denied by neutrals rather than 20% (normal player denies give 50% experience).",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "bloodseeker"
+                    ],
+                    "name": "Bloodseeker",
+                    "notes": [
+                        {
+                            "note": "Rupture damage increased from 26\/42\/60% to 30\/45\/60%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "drow_ranger"
+                    ],
+                    "name": "Drow Ranger",
+                    "notes": [
+                        {
+                            "note": "Gust cooldown increased from 13 to 16\/15\/14\/13",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "elder_titan"
+                    ],
+                    "name": "Elder Titan",
+                    "notes": [
+                        {
+                            "note": "Echo Stomped units no longer get targeted by towers or creeps (like nightmare)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Echo Stomp damage decreased from 85\/110\/135\/160 to 70\/100\/130\/160",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Chronosphere cooldown increased from 130\/115\/100 to 140\/125\/110",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "leshrac"
+                    ],
+                    "name": "Leshrac",
+                    "notes": [
+                        {
+                            "note": "Leshrac's movement speed increased from 320 to 325",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lina"
+                    ],
+                    "name": "Lina",
+                    "notes": [
+                        {
+                            "note": "Lina's Base Attack Time improved from 1.7 to 1.6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "mirana"
+                    ],
+                    "name": "Mirana",
+                    "notes": [
+                        {
+                            "note": "Starstorm Aghanim upgrade no longer releases a second meteor",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "oracle"
+                    ],
+                    "name": "Oracle",
+                    "notes": [
+                        {
+                            "note": "False Promise cooldown increased from 90\/60\/30 to 100\/65\/30",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shadow_demon"
+                    ],
+                    "name": "Shadow Demon",
+                    "notes": [
+                        {
+                            "note": "Disruption illusion damage taken increased from 150% to 200%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shredder"
+                    ],
+                    "name": "Timbersaw",
+                    "notes": [
+                        {
+                            "note": "Reactive Armor duration decreased from 14\/16\/18\/20 to 10\/13\/16\/19",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "treant"
+                    ],
+                    "name": "Treant Protector",
+                    "notes": [
+                        {
+                            "note": "Living Armor regeneration bonus increased from 4\/7\/10\/13 to 4\/8\/12\/16",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "visage"
+                    ],
+                    "name": "Visage",
+                    "notes": [
+                        {
+                            "note": "Stone Form stun delay reduced from 0.85 to 0.55",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/23584\/",
+    "version": "6.88c",
+    "date": "2016-08-19"
+}

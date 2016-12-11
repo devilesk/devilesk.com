@@ -191,7 +191,7 @@
   "id": 232, 
   "itemcost": 2300, 
   "level": 0, 
-  "lore": "", 
+  "lore": "Polished with the incantation of his final breath, the gift of a dying mage to his sickly son.", 
   "manacost": [], 
   "name": "item_aether_lens"
  }, 
@@ -956,7 +956,7 @@
   "id": 240, 
   "itemcost": 300, 
   "level": 0, 
-  "lore": "", 
+  "lore": "An unnerving stone unearthed beneath the Fields of Endless Carnage.", 
   "manacost": [], 
   "name": "item_blight_stone"
  }, 
@@ -1121,7 +1121,7 @@
    "orchid", 
    "malevolence"
   ], 
-  "ItemQuality": "rare", 
+  "ItemQuality": "epic", 
   "ItemShopTags": "int;attack_speed;damage;regen_mana;damage;hard_to_tag", 
   "attributes": [
    {
@@ -1196,7 +1196,7 @@
   "id": 250, 
   "itemcost": 7195, 
   "level": 0, 
-  "lore": "", 
+  "lore": "A reviled blade that bites deeper with each wriggle of its victim's final throes.", 
   "manacost": [
    100
   ], 
@@ -2584,7 +2584,7 @@
    }
   ], 
   "cooldown": [
-   2
+   4
   ], 
   "description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. Does not stack with other manabreak abilities.\\n\\nUpgradable.", 
   "displayname": "Diffusal Blade", 
@@ -2700,7 +2700,7 @@
    }
   ], 
   "cooldown": [
-   2
+   4
   ], 
   "description": "Active: Purge - If cast on an enemy, removes buffs from the target and slows it for %purge_slow_duration% seconds. If cast on an ally, Purge removes most debuffs.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals the same amount in physical damage. Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. Does not stack with other manabreak abilities.", 
   "displayname": "Diffusal Blade", 
@@ -2719,7 +2719,7 @@
    "dragon", 
    "lance"
   ], 
-  "ItemQuality": "epic", 
+  "ItemQuality": "artifact", 
   "ItemShopTags": "damage", 
   "attributes": [
    {
@@ -2733,7 +2733,7 @@
     "name": "bonus_strength", 
     "tooltip": "+$str", 
     "value": [
-     14
+     13
     ]
    }, 
    {
@@ -2750,7 +2750,7 @@
   "id": 236, 
   "itemcost": 1900, 
   "level": 0, 
-  "lore": "", 
+  "lore": "The forward charge of the wyvern host grants no quarter.", 
   "manacost": [], 
   "name": "item_dragon_lance"
  }, 
@@ -2800,7 +2800,7 @@
   "id": 40, 
   "itemcost": 180, 
   "level": 0, 
-  "lore": null, 
+  "lore": "One may hide visage, but never volume.", 
   "manacost": [
    5
   ], 
@@ -2837,7 +2837,7 @@
    "echo", 
    "sabre"
   ], 
-  "ItemQuality": "rare", 
+  "ItemQuality": "artifact", 
   "ItemShopTags": "int;attack_speed;damage;regen_mana;damage;hard_to_tag", 
   "attributes": [
    {
@@ -2911,7 +2911,7 @@
   "id": 252, 
   "itemcost": 2650, 
   "level": 0, 
-  "lore": "", 
+  "lore": "A deceptively swift blade imbued with resonant magic.", 
   "manacost": [
    0
   ], 
@@ -3135,7 +3135,7 @@
   "id": 237, 
   "itemcost": 75, 
   "level": 0, 
-  "lore": "", 
+  "lore": "The ethereal flames from the ever-burning ruins of Kindertree ignite across realities.", 
   "manacost": [], 
   "name": "item_faerie_fire"
  }, 
@@ -3200,7 +3200,7 @@
   "id": 84, 
   "itemcost": 150, 
   "level": 0, 
-  "lore": null, 
+  "lore": "The faithful mount upon which soar the fortunes of battle.", 
   "manacost": [], 
   "name": "item_flying_courier"
  }, 
@@ -4225,7 +4225,7 @@
    "fs;force", 
    "staff"
   ], 
-  "ItemQuality": "rare", 
+  "ItemQuality": "epic", 
   "ItemShopTags": "int;damage;attack_speed;hard_to_tag", 
   "attributes": [
    {
@@ -4311,7 +4311,7 @@
   "id": 263, 
   "itemcost": 4375, 
   "level": 0, 
-  "lore": "", 
+  "lore": "A legendary pike once held as royal sigil of the ancient wyvern riders.", 
   "manacost": [
    25
   ], 
@@ -4392,14 +4392,14 @@
    }
   ], 
   "cooldown": [
-   4
+   6
   ], 
-  "description": "Passive: Consumes a charge to block %magic_damage_block% magic damage from damage instances over %min_damage% damage. Comes with %initial_charges% charges. When the charges are gone, the item disappear.", 
+  "description": "Passive: Consumes a charge to block %magic_damage_block% magic damage from damage instances over %min_damage% damage. Comes with %initial_charges% charges. When the charges are gone, the item disappears.", 
   "displayname": "Infused Raindrop", 
   "id": 265, 
   "itemcost": 225, 
   "level": 0, 
-  "lore": "", 
+  "lore": "Elemental protection from magical assaults.", 
   "manacost": [], 
   "name": "item_infused_raindrop"
  }, 
@@ -4546,7 +4546,7 @@
   "id": 239, 
   "itemcost": 500, 
   "level": 0, 
-  "lore": null, 
+  "lore": "A simple but effective weapon devised to quell a great Hellbear uprising.", 
   "manacost": [
    0
   ], 
@@ -9814,7 +9814,7 @@
   "id": 215, 
   "itemcost": 1300, 
   "level": 0, 
-  "lore": "", 
+  "lore": "A small talisman that clouds the senses of one's enemies when held perfectly still.", 
   "manacost": [
    0
   ], 
@@ -10223,7 +10223,7 @@
   "id": 188, 
   "itemcost": 50, 
   "level": 0, 
-  "lore": null, 
+  "lore": "The charlatan wizard Myrddin's only true contribution to the arcane arts.", 
   "manacost": [], 
   "name": "item_smoke_of_deceit"
  }, 
@@ -10758,7 +10758,7 @@
   "id": 257, 
   "itemcost": 150, 
   "level": 0, 
-  "lore": "", 
+  "lore": "That which raises beast to man and man to god.", 
   "manacost": [], 
   "name": "item_tome_of_knowledge"
  }, 
@@ -10816,7 +10816,7 @@
   "id": 46, 
   "itemcost": 50, 
   "level": 0, 
-  "lore": null, 
+  "lore": "What a hero truly needs.", 
   "manacost": [
    75
   ], 
@@ -11003,7 +11003,7 @@
   "id": 220, 
   "itemcost": 4400, 
   "level": 0, 
-  "lore": null, 
+  "lore": "Winged boots that grant omnipresence.", 
   "manacost": [
    75
   ], 
@@ -11703,7 +11703,7 @@
   "id": 244, 
   "itemcost": 235, 
   "level": 0, 
-  "lore": "", 
+  "lore": "Hasten to battle on wind-touched heels", 
   "manacost": [], 
   "name": "item_wind_lace"
  }, 

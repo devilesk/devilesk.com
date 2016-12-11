@@ -128,6 +128,7 @@
   displayname: Blight Stone
   id: blight_stone
   itemcost: '300'
+  lore: An unnerving stone unearthed beneath the Fields of Endless Carnage.
 - cd: '12'
   description: 'Active: Blink - Teleport to a target point up to 1200 units away.  If
     damage is taken, Blink Dagger cannot be used for 3.0 seconds.'
@@ -159,6 +160,8 @@
   displayname: Bloodthorn
   id: bloodthorn
   itemcost: '7195'
+  lore: A reviled blade that bites deeper with each wriggle of its victim's final
+    throes.
   mana: '100'
 - attributes: + 45 Movement Speed
   description: Flat movement speed bonuses from multiple pairs of boots do not stack.
@@ -311,7 +314,7 @@
   lore: A wicked weapon, used in torturing political criminals.
 - attributes: '+ 25 / 35 Agility<br>+ 10 / 15 Intelligence<br>PURGE SLOW DURATION:
     4.0<br>PURGE CAST RANGE: 600'
-  cd: '2'
+  cd: '4'
   description: 'Active: Purge - If cast on an enemy, removes buffs from the target
     and slows it for 4.0 seconds. If cast on an ally, Purge removes most debuffs.<br>Passive:
     Manabreak - Each attack burns 40 mana from the target, and deals the same amount
@@ -349,6 +352,7 @@
   displayname: Dust of Appearance
   id: dust
   itemcost: '180'
+  lore: One may hide visage, but never volume.
   mana: '5'
 - attributes: + 25 Agility
   displayname: Eaglesong
@@ -366,6 +370,7 @@
   displayname: Echo Sabre
   id: echo_sabre
   itemcost: '2650'
+  lore: A deceptively swift blade imbued with resonant magic.
 - attributes: '+ 1.0 HP Regeneration<br>MANA RESTORED: 150'
   description: 'Use: Consume the mango to instantly restore 150 mana.<br><br>Hold
     Control to use Enchanted Mango on an allied hero.'
@@ -425,6 +430,7 @@
   displayname: Flying Courier
   id: flying_courier
   itemcost: '150'
+  lore: The faithful mount upon which soar the fortunes of battle.
 - attributes: + 10 Intelligence<br>+ 4 HP Regeneration
   cd: '20'
   description: 'Active: Force - Pushes any target unit 600 units in the direction
@@ -574,6 +580,7 @@
   displayname: Hurricane Pike
   id: hurricane_pike
   itemcost: '4375'
+  lore: A legendary pike once held as royal sigil of the ancient wyvern riders.
   mana: '25'
 - attributes: + 55 Attack Speed
   displayname: Hyperstone
@@ -581,12 +588,13 @@
   itemcost: '2000'
   lore: A mystical, carved stone that boosts the fervor of the holder.
 - attributes: 'MANA REGEN: 0.85<br>MAGIC DAMAGE BLOCK: 120<br>INITIAL CHARGES: 5'
-  cd: '4'
+  cd: '6'
   description: 'Passive: Consumes a charge to block 120 magic damage from damage instances
-    over 50 damage. Comes with 5 charges. When the charges are gone, the item disappear.'
+    over 50 damage. Comes with 5 charges. When the charges are gone, the item disappears.'
   displayname: Infused Raindrop
   id: infused_raindrop
   itemcost: '225'
+  lore: Elemental protection from magical assaults.
 - attributes: '+ 1 All Attributes<br>TREE DURATION: 20'
   cd: '0'
   description: 'Active: Targets the ground to plant a happy little tree that lasts
@@ -1043,6 +1051,8 @@
   displayname: Shadow Amulet
   id: shadow_amulet
   itemcost: '1300'
+  lore: A small talisman that clouds the senses of one's enemies when held perfectly
+    still.
 - attributes: '+ 22 Damage<br>+ 30 Attack Speed<br>SHADOW WALK DURATION: 14.0<br>SHADOW
     WALK DAMAGE: 175'
   cd: '28'
@@ -1109,6 +1119,7 @@
   displayname: Smoke of Deceit
   id: smoke_of_deceit
   itemcost: '50'
+  lore: The charlatan wizard Myrddin's only true contribution to the arcane arts.
 - attributes: '+ 10 Armor<br>+ 75% Mana Regeneration<br>+ 25% Evasion<br>SHINE ALLY
     BONUS ARMOR: 10<br>SHINE ALLY EVASION: 25%<br>SHINE ENEMY ARMOR LOSS: -10<br>SHINE
     ENEMY MISS CHANCE: 25%<br>SHINE DURATION: 7<br>SHINE CAST RANGE: 1000'
@@ -1169,12 +1180,14 @@
   displayname: Tome of Knowledge
   id: tome_of_knowledge
   itemcost: '150'
+  lore: That which raises beast to man and man to god.
 - cd: '70'
   description: 'Use: Teleport - Teleports you to a target friendly building. Double-click
     to teleport to your team''s base fountain.'
   displayname: Town Portal Scroll
   id: tpscroll
   itemcost: '50'
+  lore: What a hero truly needs.
   mana: '75'
 - attributes: + 85 Movement Speed<br>+ 3 Armor<br>+ 12 HP Regeneration
   cd: '13'
@@ -1249,6 +1262,7 @@
   displayname: Wind Lace
   id: wind_lace
   itemcost: '235'
+  lore: Hasten to battle on wind-touched heels
 - attributes: + 3 Strength<br>+ 6 Agility<br>+ 3 Intelligence<br>+ 3 Damage
   displayname: Wraith Band
   id: wraith_band

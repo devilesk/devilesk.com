@@ -1,0 +1,173 @@
+{
+    "menu": [
+        {
+            "id": "beastmaster",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "beastmaster",
+                    "name": "Beastmaster"
+                },
+                {
+                    "id": "bounty_hunter",
+                    "name": "Bounty Hunter"
+                }
+            ]
+        },
+        {
+            "id": "doom_bringer",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "doom_bringer",
+                    "name": "Doom"
+                }
+            ]
+        },
+        {
+            "id": "earth_spirit",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "earth_spirit",
+                    "name": "Earth Spirit"
+                }
+            ]
+        },
+        {
+            "id": "lion",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "lion",
+                    "name": "Lion"
+                }
+            ]
+        },
+        {
+            "id": "phoenix",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "phoenix",
+                    "name": "Phoenix"
+                }
+            ]
+        },
+        {
+            "id": "armlet",
+            "name": "Items",
+            "submenu": []
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "beastmaster"
+                    ],
+                    "name": "Beastmaster",
+                    "notes": [
+                        {
+                            "note": "Beastmaster Boar Attack Damage reduced from 15\/30\/45\/60 to 10\/25\/40\/55",
+                            "detail": []
+                        },
+                        {
+                            "note": "Call of the Wild Hawk\/Boar manacost increased from 15 to 25",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bounty_hunter"
+                    ],
+                    "name": "Bounty Hunter",
+                    "notes": [
+                        {
+                            "note": "Track self bonus gold reduced from 200\/275\/350 to 170\/260\/350",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "doom_bringer"
+                    ],
+                    "name": "Doom",
+                    "notes": [
+                        {
+                            "note": "Doom cooldown increased from 125 to 140",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "earth_spirit"
+                    ],
+                    "name": "Earth Spirit",
+                    "notes": [
+                        {
+                            "note": "Rolling Boulder slow duration reduced from 2 to 1.4\/1.6\/1.8\/2.0",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lion"
+                    ],
+                    "name": "Lion",
+                    "notes": [
+                        {
+                            "note": "Lion's base intelligence reduced by 2",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phoenix"
+                    ],
+                    "name": "Phoenix",
+                    "notes": [
+                        {
+                            "note": "Sun Ray cooldown increased from 20 to 26",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "armlet"
+                    ],
+                    "name": "Armlet of Mordiggian",
+                    "notes": [
+                        {
+                            "note": "Armlet health drain increased from 40 to 45 per second",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/21988\/",
+    "version": "6.87d",
+    "date": "2016-05-22"
+}

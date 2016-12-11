@@ -1,0 +1,173 @@
+{
+    "date": "2015-12-20",
+    "menu": [
+        {
+            "id": "",
+            "name": "",
+            "submenu": []
+        },
+        {
+            "id": "death_prophet",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "death_prophet",
+                    "name": "Death Prophet"
+                }
+            ]
+        },
+        {
+            "id": "faceless_void",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                }
+            ]
+        },
+        {
+            "id": "obsidian_destroyer",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "obsidian_destroyer",
+                    "name": "Outworld Devourer"
+                }
+            ]
+        },
+        {
+            "id": "pudge",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "pudge",
+                    "name": "Pudge"
+                },
+                {
+                    "id": "riki",
+                    "name": "Riki"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [],
+                    "name": "",
+                    "notes": [
+                        {
+                            "note": "Enabled Doom, Faceless Void, Death Prophet, Lone Druid and Winter Wyvern in Captain's Mode",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Rune mana reduction reduced from 50 to 40%",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "death_prophet"
+                    ],
+                    "name": "Death Prophet",
+                    "notes": [
+                        {
+                            "note": "Spirit Siphon duration increased from 4 to 5 seconds",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Time Dilation AoE increased from 650 to 725",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Dilation slow rescaled from 4\/6\/8\/10 to 7\/8\/9\/10%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Dilation duration rescaled from 6\/7\/8\/9 to 5.5\/7\/8.5\/10 seconds",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "obsidian_destroyer"
+                    ],
+                    "name": "Outworld Devourer",
+                    "notes": [
+                        {
+                            "note": "Arcane Orb Int steal increased from 0\/1\/2\/3 to 1\/2\/3\/4",
+                            "detail": []
+                        },
+                        {
+                            "note": "Astral Imprisonment cooldown rescaled from 20\/17\/14\/11 to 22\/18\/14\/10",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "pudge"
+                    ],
+                    "name": "Pudge",
+                    "notes": [
+                        {
+                            "note": "Meat Hook Scepter damage reduced from 175\/275\/375\/475 to 180\/270\/360\/450",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "riki"
+                    ],
+                    "name": "Riki",
+                    "notes": [
+                        {
+                            "note": "Cloak and Dagger backstab damage multiplier increased from 0.4\/0.6\/0.8\/1.0 to 0.5\/0.75\/1.0\/1.25 ",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tricks of the Trade now only affects heroes",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tricks of the Trade AoE increased from 450 to 475",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tricks of the Trade cooldown rescaled from 90\/80\/70 to 70",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/19780\/",
+    "version": "6.86b"
+}

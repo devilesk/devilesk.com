@@ -8,7 +8,6 @@ active_menu: page-items
 {% block custom_css %}
 <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
 <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
-<link rel="stylesheet" href="{{ media_url('css/patch.css') }}">
 <style type="text/css">
 .item_field {
     display:block;
@@ -108,7 +107,7 @@ img.item_manacost, img.item_cooldown {
 </div>
 
 <div class="col-md-3">
-  <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary">
+  <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
     <ul class="nav bs-docs-sidenav">
     {% for menu in itemtooltipmenu -%}
       <li class="active">
@@ -128,9 +127,16 @@ img.item_manacost, img.item_cooldown {
 
 {% block scripts %}
 <script type="text/javascript">
-    $('body').scrollspy({
-        target: '.bs-docs-sidebar',
-        offset: 40
+    $(function () {
+        $('body').scrollspy({
+            target: '.bs-docs-sidebar',
+            offset: 40
+        });
+        $('.bs-docs-sidebar').affix({
+              offset: {
+                top: 124
+              }
+        });
     });
 </script>
 {% endblock scripts %}

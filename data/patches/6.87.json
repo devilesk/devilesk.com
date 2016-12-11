@@ -1,0 +1,3545 @@
+{
+    "menu": [
+        {
+            "id": "general",
+            "name": "General",
+            "submenu": []
+        },
+        {
+            "id": "abaddon",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "abaddon",
+                    "name": "Abaddon"
+                },
+                {
+                    "id": "ancient_apparition",
+                    "name": "Ancient Apparition"
+                },
+                {
+                    "id": "arc_warden",
+                    "name": "Arc Warden"
+                },
+                {
+                    "id": "axe",
+                    "name": "Axe"
+                },
+                {
+                    "id": "bane",
+                    "name": "Bane"
+                },
+                {
+                    "id": "beastmaster",
+                    "name": "Beastmaster"
+                },
+                {
+                    "id": "bloodseeker",
+                    "name": "Bloodseeker"
+                },
+                {
+                    "id": "bounty_hunter",
+                    "name": "Bounty Hunter"
+                },
+                {
+                    "id": "brewmaster",
+                    "name": "Brewmaster"
+                },
+                {
+                    "id": "bristleback",
+                    "name": "Bristleback"
+                }
+            ]
+        },
+        {
+            "id": "centaur",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "centaur",
+                    "name": "Centaur Warrunner"
+                },
+                {
+                    "id": "chen",
+                    "name": "Chen"
+                },
+                {
+                    "id": "rattletrap",
+                    "name": "Clockwerk"
+                },
+                {
+                    "id": "crystal_maiden",
+                    "name": "Crystal Maiden"
+                },
+                {
+                    "id": "dazzle",
+                    "name": "Dazzle"
+                },
+                {
+                    "id": "death_prophet",
+                    "name": "Death Prophet"
+                },
+                {
+                    "id": "disruptor",
+                    "name": "Disruptor"
+                },
+                {
+                    "id": "dragon_knight",
+                    "name": "Dragon Knight"
+                },
+                {
+                    "id": "drow_ranger",
+                    "name": "Drow Ranger"
+                }
+            ]
+        },
+        {
+            "id": "earth_spirit",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "earth_spirit",
+                    "name": "Earth Spirit"
+                },
+                {
+                    "id": "earthshaker",
+                    "name": "Earthshaker"
+                },
+                {
+                    "id": "elder_titan",
+                    "name": "Elder Titan"
+                },
+                {
+                    "id": "enchantress",
+                    "name": "Enchantress"
+                },
+                {
+                    "id": "enigma",
+                    "name": "Enigma"
+                },
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                },
+                {
+                    "id": "gyrocopter",
+                    "name": "Gyrocopter"
+                },
+                {
+                    "id": "huskar",
+                    "name": "Huskar"
+                },
+                {
+                    "id": "invoker",
+                    "name": "Invoker"
+                },
+                {
+                    "id": "jakiro",
+                    "name": "Jakiro"
+                },
+                {
+                    "id": "juggernaut",
+                    "name": "Juggernaut"
+                }
+            ]
+        },
+        {
+            "id": "keeper_of_the_light",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "keeper_of_the_light",
+                    "name": "Keeper of the Light"
+                },
+                {
+                    "id": "kunkka",
+                    "name": "Kunkka"
+                },
+                {
+                    "id": "legion_commander",
+                    "name": "Legion Commander"
+                },
+                {
+                    "id": "lich",
+                    "name": "Lich"
+                },
+                {
+                    "id": "life_stealer",
+                    "name": "Lifestealer"
+                },
+                {
+                    "id": "lone_druid",
+                    "name": "Lone Druid"
+                },
+                {
+                    "id": "luna",
+                    "name": "Luna"
+                }
+            ]
+        },
+        {
+            "id": "magnataur",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "magnataur",
+                    "name": "Magnus"
+                },
+                {
+                    "id": "medusa",
+                    "name": "Medusa"
+                },
+                {
+                    "id": "meepo",
+                    "name": "Meepo"
+                },
+                {
+                    "id": "mirana",
+                    "name": "Mirana"
+                },
+                {
+                    "id": "morphling",
+                    "name": "Morphling"
+                },
+                {
+                    "id": "naga_siren",
+                    "name": "Naga Siren"
+                },
+                {
+                    "id": "furion",
+                    "name": "Nature's Prophet"
+                },
+                {
+                    "id": "necrolyte",
+                    "name": "Necrophos"
+                },
+                {
+                    "id": "nyx_assassin",
+                    "name": "Nyx Assassin"
+                },
+                {
+                    "id": "omniknight",
+                    "name": "Omniknight"
+                },
+                {
+                    "id": "oracle",
+                    "name": "Oracle"
+                },
+                {
+                    "id": "obsidian_destroyer",
+                    "name": "Outworld Devourer"
+                }
+            ]
+        },
+        {
+            "id": "phantom_assassin",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "phantom_assassin",
+                    "name": "Phantom Assassin"
+                },
+                {
+                    "id": "phoenix",
+                    "name": "Phoenix"
+                },
+                {
+                    "id": "puck",
+                    "name": "Puck"
+                },
+                {
+                    "id": "pugna",
+                    "name": "Pugna"
+                },
+                {
+                    "id": "razor",
+                    "name": "Razor"
+                },
+                {
+                    "id": "riki",
+                    "name": "Riki"
+                },
+                {
+                    "id": "rubick",
+                    "name": "Rubick"
+                }
+            ]
+        },
+        {
+            "id": "sand_king",
+            "name": "Heroes S",
+            "submenu": [
+                {
+                    "id": "sand_king",
+                    "name": "Sand King"
+                },
+                {
+                    "id": "shadow_demon",
+                    "name": "Shadow Demon"
+                },
+                {
+                    "id": "nevermore",
+                    "name": "Shadow Fiend"
+                },
+                {
+                    "id": "shadow_shaman",
+                    "name": "Shadow Shaman"
+                },
+                {
+                    "id": "silencer",
+                    "name": "Silencer"
+                },
+                {
+                    "id": "skywrath_mage",
+                    "name": "Skywrath Mage"
+                },
+                {
+                    "id": "sniper",
+                    "name": "Sniper"
+                },
+                {
+                    "id": "spectre",
+                    "name": "Spectre"
+                },
+                {
+                    "id": "storm_spirit",
+                    "name": "Storm Spirit"
+                },
+                {
+                    "id": "sven",
+                    "name": "Sven"
+                }
+            ]
+        },
+        {
+            "id": "terrorblade",
+            "name": "Heroes T",
+            "submenu": [
+                {
+                    "id": "terrorblade",
+                    "name": "Terrorblade"
+                },
+                {
+                    "id": "shredder",
+                    "name": "Timbersaw"
+                },
+                {
+                    "id": "tinker",
+                    "name": "Tinker"
+                },
+                {
+                    "id": "treant",
+                    "name": "Treant Protector"
+                },
+                {
+                    "id": "troll_warlord",
+                    "name": "Troll Warlord"
+                },
+                {
+                    "id": "tusk",
+                    "name": "Tusk"
+                }
+            ]
+        },
+        {
+            "id": "undying",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "undying",
+                    "name": "Undying"
+                },
+                {
+                    "id": "vengefulspirit",
+                    "name": "Vengeful Spirit"
+                },
+                {
+                    "id": "viper",
+                    "name": "Viper"
+                },
+                {
+                    "id": "visage",
+                    "name": "Visage"
+                },
+                {
+                    "id": "warlock",
+                    "name": "Warlock"
+                },
+                {
+                    "id": "weaver",
+                    "name": "Weaver"
+                },
+                {
+                    "id": "winter_wyvern",
+                    "name": "Winter Wyvern"
+                },
+                {
+                    "id": "skeleton_king",
+                    "name": "Wraith King"
+                },
+                {
+                    "id": "zuus",
+                    "name": "Zeus"
+                }
+            ]
+        },
+        {
+            "id": "abyssal_blade",
+            "name": "Items A&ndash;B",
+            "submenu": [
+                {
+                    "id": "abyssal_blade",
+                    "name": "Abyssal Blade"
+                },
+                {
+                    "id": "aether_lens",
+                    "name": "Aether Lens"
+                },
+                {
+                    "id": "courier",
+                    "name": "Animal Courier"
+                },
+                {
+                    "id": "armlet",
+                    "name": "Armlet of Mordiggian"
+                },
+                {
+                    "id": "blade_mail",
+                    "name": "Blade Mail"
+                },
+                {
+                    "id": "bloodstone",
+                    "name": "Bloodstone"
+                },
+                {
+                    "id": "butterfly",
+                    "name": "Butterfly"
+                }
+            ]
+        },
+        {
+            "id": "crimson_guard",
+            "name": "Items C&ndash;E",
+            "submenu": [
+                {
+                    "id": "crimson_guard",
+                    "name": "Crimson Guard"
+                },
+                {
+                    "id": "desolator",
+                    "name": "Desolator"
+                },
+                {
+                    "id": "diffusal_blade",
+                    "name": "Diffusal Blade"
+                },
+                {
+                    "id": "dragon_lance",
+                    "name": "Dragon Lance"
+                },
+                {
+                    "id": "ancient_janggo",
+                    "name": "Drum of Endurance"
+                },
+                {
+                    "id": "cyclone",
+                    "name": "Eul's Scepter of Divinity"
+                }
+            ]
+        },
+        {
+            "id": "flying_courier",
+            "name": "Items F&ndash;L",
+            "submenu": [
+                {
+                    "id": "flying_courier",
+                    "name": "Flying Courier"
+                },
+                {
+                    "id": "gem",
+                    "name": "Gem of True Sight"
+                },
+                {
+                    "id": "ghost",
+                    "name": "Ghost Scepter"
+                },
+                {
+                    "id": "glimmer_cape",
+                    "name": "Glimmer Cape"
+                },
+                {
+                    "id": "guardian_greaves",
+                    "name": "Guardian Greaves"
+                },
+                {
+                    "id": "heart",
+                    "name": "Heart of Tarrasque"
+                },
+                {
+                    "id": "heavens_halberd",
+                    "name": "Heaven's Halberd"
+                },
+                {
+                    "id": "hood_of_defiance",
+                    "name": "Hood of Defiance"
+                },
+                {
+                    "id": "sphere",
+                    "name": "Linken's Sphere"
+                },
+                {
+                    "id": "lotus_orb",
+                    "name": "Lotus Orb"
+                }
+            ]
+        },
+        {
+            "id": "mask_of_madness",
+            "name": "Items M&ndash;O",
+            "submenu": [
+                {
+                    "id": "mask_of_madness",
+                    "name": "Mask of Madness"
+                },
+                {
+                    "id": "medallion_of_courage",
+                    "name": "Medallion of Courage"
+                },
+                {
+                    "id": "ward_observer",
+                    "name": "Observer Ward"
+                },
+                {
+                    "id": "octarine_core",
+                    "name": "Octarine Core"
+                }
+            ]
+        },
+        {
+            "id": "pers",
+            "name": "Items P&ndash;R",
+            "submenu": [
+                {
+                    "id": "pers",
+                    "name": "Perseverance"
+                },
+                {
+                    "id": "pipe",
+                    "name": "Pipe of Insight"
+                },
+                {
+                    "id": "point_booster",
+                    "name": "Point Booster"
+                },
+                {
+                    "id": "refresher",
+                    "name": "Refresher Orb"
+                },
+                {
+                    "id": "ring_of_aquila",
+                    "name": "Ring of Aquila"
+                },
+                {
+                    "id": "ring_of_basilius",
+                    "name": "Ring of Basilius"
+                },
+                {
+                    "id": "ring_of_health",
+                    "name": "Ring of Health"
+                },
+                {
+                    "id": "ring_of_regen",
+                    "name": "Ring of Regen"
+                },
+                {
+                    "id": "rod_of_atos",
+                    "name": "Rod of Atos"
+                }
+            ]
+        },
+        {
+            "id": "sange",
+            "name": "Items S",
+            "submenu": [
+                {
+                    "id": "sange",
+                    "name": "Sange"
+                },
+                {
+                    "id": "sange_and_yasha",
+                    "name": "Sange and Yasha"
+                },
+                {
+                    "id": "shadow_amulet",
+                    "name": "Shadow Amulet"
+                },
+                {
+                    "id": "silver_edge",
+                    "name": "Silver Edge"
+                },
+                {
+                    "id": "basher",
+                    "name": "Skull Basher"
+                },
+                {
+                    "id": "smoke_of_deceit",
+                    "name": "Smoke of Deceit"
+                },
+                {
+                    "id": "soul_booster",
+                    "name": "Soul Booster"
+                }
+            ]
+        },
+        {
+            "id": "talisman_of_evasion",
+            "name": "Items T&ndash;Z",
+            "submenu": [
+                {
+                    "id": "talisman_of_evasion",
+                    "name": "Talisman of Evasion"
+                },
+                {
+                    "id": "tpscroll",
+                    "name": "Town Portal Scroll"
+                },
+                {
+                    "id": "vanguard",
+                    "name": "Vanguard"
+                },
+                {
+                    "id": "veil_of_discord",
+                    "name": "Veil of Discord"
+                },
+                {
+                    "id": "vladmir",
+                    "name": "Vladmir's Offering"
+                }
+            ]
+        },
+        {
+            "id": "bloodthorn",
+            "name": "New Items",
+            "submenu": [
+                {
+                    "id": "bloodthorn",
+                    "name": "Bloodthorn"
+                },
+                {
+                    "id": "echo_sabre",
+                    "name": "Echo Sabre"
+                },
+                {
+                    "id": "blight_stone",
+                    "name": "Blight Stone"
+                },
+                {
+                    "id": "infused_raindrop",
+                    "name": "Infused Raindrop"
+                },
+                {
+                    "id": "wind_lace",
+                    "name": "Wind Lace"
+                },
+                {
+                    "id": "tome_of_knowledge",
+                    "name": "Tome of Knowledge"
+                },
+                {
+                    "id": "hurricane_pike",
+                    "name": "Hurricane Pike"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [
+                        "general"
+                    ],
+                    "name": "General",
+                    "notes": [
+                        {
+                            "note": "Reworked Ranked All Pick. Before the picking phase begins, there is a 15 second voting phase to ban heroes. Each player votes for a different hero. Afterwards, half of the heroes that were voted on will be randomly selected and banned.",
+                            "detail": [
+                                "Two players cannot vote for the same hero. The game displays heroes as they are voted on, but not who voted. The number of bans is equal to half the total number of votes. If there is an odd number of votes, the number of bans is randomly rounded up or down.",
+                                "The random ban selection will choose at most 3 heroes from one specific team's votes, so it's more evenly split."
+                            ]
+                        },
+                        {
+                            "note": "Each team now has a Scan ability, available on the minimap UI.",
+                            "detail": [
+                                "Scans a targeted 900 AoE for 8 seconds. Indicates whether there are enemy heroes in that area during the 8 seconds.",
+                                "Starts on cooldown and has a global team-wide cooldown of 4.5 minutes",
+                                "Note: Does not consider units inside the Roshan Pit, but does consider Smoked units. Does not show how many heroes there are, just if there are any enemies. Enemies do not know when your team casts it."
+                            ]
+                        },
+                        {
+                            "note": "Starting HP increased from 180 to 200",
+                            "detail": []
+                        },
+                        {
+                            "note": "HP per strength increased from 19 to 20",
+                            "detail": []
+                        },
+                        {
+                            "note": "Hero base mana increased from 0 to 50",
+                            "detail": []
+                        },
+                        {
+                            "note": "Mana per int reduced from 13 to 12",
+                            "detail": []
+                        },
+                        {
+                            "note": "Intelligence now increases your spell damage by 1% per 16 Intelligence points.",
+                            "detail": [
+                                "For example, 100 intelligence gives roughly 6% bonus. Same rules for what is affected as Aether Lens's Spell Amplification."
+                            ]
+                        },
+                        {
+                            "note": "Stats hover on your hero now shows you your total Spell Amplification, including Aether Lens.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Lane Creep health upgrade increased from 10 to 12 HP",
+                            "detail": [
+                                "Lane Creeps upgrade every 7.5 minutes"
+                            ]
+                        },
+                        {
+                            "note": "Tier 2 towers damage now same as Tier 3",
+                            "detail": []
+                        },
+                        {
+                            "note": "Towers now grant an armor aura to allied heroes",
+                            "detail": [
+                                "Tier 1 grants 1 armor, Tier 2\/3\/4 grant 3 armor"
+                            ]
+                        },
+                        {
+                            "note": "Tower True Sight range reduced from 900 to 700",
+                            "detail": [
+                                "Same as the attack range"
+                            ]
+                        },
+                        {
+                            "note": "Initial Bounty Rune no longer gives experience",
+                            "detail": []
+                        },
+                        {
+                            "note": "Melee hero attack range increased from 128 to 150",
+                            "detail": []
+                        },
+                        {
+                            "note": "Lane Creep Aggro duration increased from 2 to 2.5",
+                            "detail": [
+                                "The amount of time creeps follow you when you attack a hero"
+                            ]
+                        },
+                        {
+                            "note": "Lane Creep Aggro cooldown increased from 2 to 2.5",
+                            "detail": []
+                        },
+                        {
+                            "note": "Melee Creep gold bounty reduced from 40 to 38",
+                            "detail": [
+                                "Super and Mega Melee Creep gold bounty also reduced by 2. Ranged Creep gold bounty unchanged."
+                            ]
+                        },
+                        {
+                            "note": "Melee and Ranged Creep gold bounty upgrade over time increased from 1 to 2",
+                            "detail": [
+                                "Lane Creeps upgrade every 7.5 minutes"
+                            ]
+                        },
+                        {
+                            "note": "Melee creep experience reduced from 62 to 45",
+                            "detail": []
+                        },
+                        {
+                            "note": "Ranged creep experience increased from 41 to 90",
+                            "detail": [
+                                "The same total XP per wave (3 melee and 1 range, 227 XP vs 225 XP)"
+                            ]
+                        },
+                        {
+                            "note": "Experience required to get to level 8 and 9 rescaled from 600\/1200 to 800\/1000",
+                            "detail": []
+                        },
+                        {
+                            "note": "Ethereal now blocks in-flight attack projectiles fully, rather than just ones launched before Ethereal",
+                            "detail": [
+                                "Previously, non-physical damage could sometimes go through"
+                            ]
+                        },
+                        {
+                            "note": "Evasion now uses Pseudo-Random Distribution",
+                            "detail": []
+                        },
+                        {
+                            "note": "Evasion is now calculated on impact rather than on launch",
+                            "detail": []
+                        },
+                        {
+                            "note": "Centaur Courser health reduced from 550 to 350",
+                            "detail": []
+                        },
+                        {
+                            "note": "Centaur Courser armor reduced by 1",
+                            "detail": []
+                        },
+                        {
+                            "note": "The large Centaur camp now spawns 2 Centaur Coursers instead of 1",
+                            "detail": []
+                        },
+                        {
+                            "note": "Roshan Magic Resistance reduced from 75% to 55%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Roshan HP increased from 7500 + 125\/min to 8000 + 175\/min",
+                            "detail": []
+                        },
+                        {
+                            "note": "Roshan experience bounty changed from 1789 to 750 + 20\/min",
+                            "detail": [
+                                "Compared to previously, Roshan gives less experience before the 52 minute mark and more after."
+                            ]
+                        },
+                        {
+                            "note": "Double Damage and Haste no longer have special rules for being dispelled by Spell Immunity",
+                            "detail": []
+                        },
+                        {
+                            "note": "The following buffs are now purgeable: Nightmare, Spawn Spiderlings, Malefice, Cold Snap, Corrosive Skin, and Leap movement speed buff",
+                            "detail": []
+                        },
+                        {
+                            "note": "Minor adjustments to cast range mechanics to reduce overly long cast ranges when the target is moving quickly",
+                            "detail": []
+                        },
+                        {
+                            "note": "Illusions now benefit from Damage Block",
+                            "detail": []
+                        },
+                        {
+                            "note": "Captains Mode Pick time from 40 to 30 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Captains Mode Bonus time from 110 to 130 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Captains Mode: Adjusted the order of bans in the 2nd ban phase (from 1st\/2nd\/1st\/2nd to 2nd\/1st\/2nd\/1st)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Captains Mode: Adjusted the order of picks in the final pick phase (from 2nd\/1st to 1st\/2nd)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Captains Mode: The overall pick\/ban order for the two teams is now:",
+                            "detail": [
+                                "Ban1: 1st\/2nd\/1st\/2nd",
+                                "Pick1: 1st\/2nd\/2nd\/1st",
+                                "Ban2: 2nd\/1st\/2nd\/1st",
+                                "Pick2: 2nd\/1st\/2nd\/1st",
+                                "Ban3: 2nd\/1st",
+                                "Pick3: 1st\/2nd"
+                            ]
+                        },
+                        {
+                            "note": "Removed Strong armor type, and moved affected units to Soft type, which is now renamed to Basic type",
+                            "detail": []
+                        },
+                        {
+                            "note": "Roshan armor type from Basic to Hero",
+                            "detail": []
+                        },
+                        {
+                            "note": "Dark Troll Summoner attack type from Pierce to Hero",
+                            "detail": []
+                        },
+                        {
+                            "note": "Thunderhide attack type from Basic to Hero",
+                            "detail": []
+                        },
+                        {
+                            "note": "Dark Troll Summoner damage reduced from 55-60 to 40-45",
+                            "detail": []
+                        },
+                        {
+                            "note": "Thunderhide attack damage reduced from 71-78 to 60-65",
+                            "detail": []
+                        },
+                        {
+                            "note": "Harpy Stormcrafter mana pool reduced from 540 to 400",
+                            "detail": []
+                        },
+                        {
+                            "note": "Satyr Tormenter mana pool reduced from 600 to 400",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "terrain"
+                    ],
+                    "name": "Terrain",
+                    "notes": [
+                        {
+                            "note": "Adjusted the position of the bottom Radiant Tier 2 tower and nearby trees",
+                            "detail": []
+                        },
+                        {
+                            "note": "Moved the ramp between the Dire Secret Shop and the Dire ancients further back a bit and made it narrower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Increased the width of the ramp behind the Radiant bottom Tier 2 tower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added a new ramp to the left of the bottom Dire Tier 1 tower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added a new ward spot in the middle of the Dire jungle",
+                            "detail": []
+                        },
+                        {
+                            "note": "Adjusted the spawn box of the right-most Radiant hard camp near the safe lane",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tier 3 Towers\/Rax moved very slightly back away from the ramp",
+                            "detail": []
+                        },
+                        {
+                            "note": "Adjusted the juke path in the clump of trees to the left of the Dire Tier 1 mid tower in the area closest to the ramp",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added a small hiding spot in the trees to the top left of the Radiant medium camp near middle",
+                            "detail": []
+                        },
+                        {
+                            "note": "Slightly reduced the spawn box of the Dire offlane Neutral camp",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added new paths to the trees on the left of the top Radiant Tier 1 tower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added pathable areas in the trees below the bottom Tier 2 Radiant tower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spaced out Radiant Tier 4 towers slightly",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added a small hiding spot to the trees above the bottom Radiant Tier 2 tower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Moved Radiant mid creep spawn point back a little",
+                            "detail": []
+                        },
+                        {
+                            "note": "Removed the tree on the Dire cliff right above the top Rune",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added two extra trees in the Radiant middle lane to the upper right of the Tier 1 tower",
+                            "detail": []
+                        },
+                        {
+                            "note": "Rearranged the clump of trees below the far right Radiant hard camp to modify visibility lines for heroes nearby",
+                            "detail": []
+                        },
+                        {
+                            "note": "Added a new hiding spot to the right of the Dire small camp",
+                            "detail": []
+                        },
+                        {
+                            "note": "Fixed Radiant offlane neutral camp units not always being visible with line of sight in front of them",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "abaddon"
+                    ],
+                    "name": "Abaddon",
+                    "notes": [
+                        {
+                            "note": "Curse of Avernus slow increased from 5\/10\/15\/20% to 8\/12\/16\/20%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ancient_apparition"
+                    ],
+                    "name": "Ancient Apparition",
+                    "notes": [
+                        {
+                            "note": "Cold Feet cooldown reduced from 15\/13\/11\/9 to 13\/11\/9\/7",
+                            "detail": []
+                        },
+                        {
+                            "note": "Cold Feet damage timing changed from 0.8\/1.6\/2.5\/3.4 to 0\/1\/2\/3",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "arc_warden"
+                    ],
+                    "name": "Arc Warden",
+                    "notes": [
+                        {
+                            "note": "Flux no longer slows magic immune units",
+                            "detail": []
+                        },
+                        {
+                            "note": "Flux is now purgeable",
+                            "detail": []
+                        },
+                        {
+                            "note": "Flux slow reduced from 50% to 35\/40\/45\/50%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Magnetic Field cooldown reduced from 50 to 35\/30\/25\/20",
+                            "detail": []
+                        },
+                        {
+                            "note": "Magnetic Field duration increased from 3.5\/4\/4.5\/5 to 3.5\/4.5\/5.5\/6.5",
+                            "detail": []
+                        },
+                        {
+                            "note": "Magnetic Field now only evades attacks done from outside of the field",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spark Wraith mana cost reduced from 100\/110\/120\/130 to constant 80",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spark Wraith activation delay reduced from 3 to 2",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spark Wraith now applies a 0.4\/0.5\/0.6\/0.7 second purge",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spark Wraith damage rescaled from 150\/200\/250\/300 to 100\/160\/220\/280",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tempest Double no longer has an HP\/Mana cost",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tempest Double ability\/item cooldowns now persist on the unit",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tempest Double no longer replicates items that drop on death",
+                            "detail": [
+                                "I.e. Gem and Divine Rapier"
+                            ]
+                        },
+                        {
+                            "note": "Tempest Double cooldown reduced from 65\/60\/55 to 50\/40\/30",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tempest Double duration reduced from 20 to 12\/13\/14",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tempest Double cast point increased from 0 to 0.15",
+                            "detail": []
+                        },
+                        {
+                            "note": "Strength growth increased from 1.9 to 2.3",
+                            "detail": []
+                        },
+                        {
+                            "note": "Intelligence growth increased from 2.1 to 2.6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "axe"
+                    ],
+                    "name": "Axe",
+                    "notes": [
+                        {
+                            "note": "Counter Helix damage type from Physical to Pure",
+                            "detail": []
+                        },
+                        {
+                            "note": "Counter Helix damage reduced from 100\/135\/170\/205 to 90\/120\/150\/180",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bane"
+                    ],
+                    "name": "Bane",
+                    "notes": [
+                        {
+                            "note": "Enfeeble mana cost reduced from 95\/105\/115\/125 to 95",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "beastmaster"
+                    ],
+                    "name": "Beastmaster",
+                    "notes": [
+                        {
+                            "note": "Call of the Wild Hawk's day vision reduced from 700\/1000\/1300\/1600 to 500\/750\/1000\/1250",
+                            "detail": []
+                        },
+                        {
+                            "note": "Call of the Wild Hawk's night vision reduced from 700\/800\/900\/1000 to 500\/650\/800\/950",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bloodseeker"
+                    ],
+                    "name": "Bloodseeker",
+                    "notes": [
+                        {
+                            "note": "Added Scepter to Bloodseeker",
+                            "detail": [
+                                "Grants 2 charges to Rupture with 40 second replenish."
+                            ]
+                        },
+                        {
+                            "note": "Rupture cast point improved from 0.6 to 0.4",
+                            "detail": []
+                        },
+                        {
+                            "note": "Strength growth increased from 2 to 2.4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bounty_hunter"
+                    ],
+                    "name": "Bounty Hunter",
+                    "notes": [
+                        {
+                            "note": "Shadow Walk mana cost increased from 50 to 65",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "brewmaster"
+                    ],
+                    "name": "Brewmaster",
+                    "notes": [
+                        {
+                            "note": "Replaced Earth Brewling's Pulverize with Demolish",
+                            "detail": [
+                                "Deals 150% bonus damage to buildings."
+                            ]
+                        },
+                        {
+                            "note": "Primal Split Earth & Storm damage type from Pierce to Hero",
+                            "detail": []
+                        },
+                        {
+                            "note": "Primal Split Brewlings' armor type from Strong to Hero",
+                            "detail": []
+                        },
+                        {
+                            "note": "Primal Split Earth attack damage reduced from 40\/80\/165 to 30\/60\/90",
+                            "detail": []
+                        },
+                        {
+                            "note": "Primal Split Storm attack damage reduced from 40\/80\/165 to 20\/40\/60",
+                            "detail": []
+                        },
+                        {
+                            "note": "Primal Split Fire attack damage rescaled from 77\/122\/154 to 80\/120\/160",
+                            "detail": [
+                                "Fire Brewling's attack type is already Hero"
+                            ]
+                        },
+                        {
+                            "note": "Storm Brewling's Wind Walk backstab damage increased from 100 to 100\/160\/220",
+                            "detail": [
+                                "Also benefits from attack type changes"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bristleback"
+                    ],
+                    "name": "Bristleback",
+                    "notes": [
+                        {
+                            "note": "Bristleback damage threshold reduced from 230 to 210",
+                            "detail": []
+                        },
+                        {
+                            "note": "Scepter Goo range increased from 600 to 700",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "centaur"
+                    ],
+                    "name": "Centaur Warrunner",
+                    "notes": [
+                        {
+                            "note": "Double Edge cooldown reduced from 8 to 6",
+                            "detail": []
+                        },
+                        {
+                            "note": "Stampede duration increased from 3.75 to 4.0",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "chen"
+                    ],
+                    "name": "Chen",
+                    "notes": [
+                        {
+                            "note": "Hand of God no longer fully heals his creeps",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "rattletrap"
+                    ],
+                    "name": "Clockwerk",
+                    "notes": [
+                        {
+                            "note": "Battery Assault damage increased from 20\/40\/60\/80 to 20\/45\/70\/95",
+                            "detail": []
+                        },
+                        {
+                            "note": "Minor cleanup to Power Cogs push back distance\/duration changed from 252\/0.84 to 250\/0.85",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "crystal_maiden"
+                    ],
+                    "name": "Crystal Maiden",
+                    "notes": [
+                        {
+                            "note": "Crystal Nova cooldown reduced from 12 to 12\/11\/10\/9",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Aura level 4 self regen increased from 6 to 8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "dazzle"
+                    ],
+                    "name": "Dazzle",
+                    "notes": [
+                        {
+                            "note": "Poison Touch range increased from 600 to 600\/650\/700\/750",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "death_prophet"
+                    ],
+                    "name": "Death Prophet",
+                    "notes": [
+                        {
+                            "note": "Spirit Siphon no longer grants vision",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spirit Siphon damage type from Pure to Magical and no longer goes through Spell Immunity",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spirit Siphon damage increased from 20 + 1\/2\/3\/4% to 25 + 1\/2.5\/4\/5.5%",
+                            "detail": [
+                                "Damage is roughly the same with basic Magic Resistance"
+                            ]
+                        },
+                        {
+                            "note": "Spirit Siphon duration increased from 5 to 6",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spirit Siphon buffer range reduced from 300 to 250",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base strength reduced from 19 to 18",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "disruptor"
+                    ],
+                    "name": "Disruptor",
+                    "notes": [
+                        {
+                            "note": "Kinetic Field AoE increased from 325 to 340",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "dragon_knight"
+                    ],
+                    "name": "Dragon Knight",
+                    "notes": [
+                        {
+                            "note": "Breathe Fire attack damage reduction increased from 20\/25\/30\/35% to 35%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Breathe Fire cooldown rescaled from 12 to 14\/13\/12\/11",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base damage increased by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "drow_ranger"
+                    ],
+                    "name": "Drow Ranger",
+                    "notes": [
+                        {
+                            "note": "Gust cast point improved from 0.4 to 0.25",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "earth_spirit"
+                    ],
+                    "name": "Earth Spirit",
+                    "notes": [
+                        {
+                            "note": "Boulder Smash knockback speed reduced from 1200 to 900",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base movement speed reduced from 305 to 295",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "earthshaker"
+                    ],
+                    "name": "Earthshaker",
+                    "notes": [
+                        {
+                            "note": "Reworked Scepter on Earthshaker",
+                            "detail": [
+                                "Enchant Totem becomes a 900 range ground target ability. Causes you to jump in the air and land at the target spot, casting enchant totem there.",
+                                "Self casting the ability will make it behave in the original form, without jumping."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "elder_titan"
+                    ],
+                    "name": "Elder Titan",
+                    "notes": [
+                        {
+                            "note": "Echo Stomp damage increased from 80\/90\/100\/110 to 85\/110\/135\/160",
+                            "detail": []
+                        },
+                        {
+                            "note": "Echo Stomp grace period for waking up units with damage increased from 0.65 to 0.8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "enchantress"
+                    ],
+                    "name": "Enchantress",
+                    "notes": [
+                        {
+                            "note": "Impetus damage reduced from 15\/20\/25% to 14\/18\/22%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Impetus max distance reduced from 2500 to 1750",
+                            "detail": [
+                                "Max Damage effectively reduced from 375\/500\/625 to 245\/315\/385"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "enigma"
+                    ],
+                    "name": "Enigma",
+                    "notes": [
+                        {
+                            "note": "Fixed Demonic Conversion not working on Beastmaster's Boar or Hawk",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Time Walk cast range increased from 625 to 675",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Walk cast point increased from 0.2 to 0.3",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Dilation cooldown increased from 36\/30\/24\/18 to 40\/34\/28\/22",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Dilation slow rescaled from 7\/8\/9\/10 to 8",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Lock no longer deals double damage inside Chronosphere",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Lock damage increased from 40\/50\/60\/70 damage to 50\/75\/100\/125",
+                            "detail": []
+                        },
+                        {
+                            "note": "Scepter no longer increases Chronosphere's duration",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "gyrocopter"
+                    ],
+                    "name": "Gyrocopter",
+                    "notes": [
+                        {
+                            "note": "Reworked Scepter on Gyrocopter",
+                            "detail": [
+                                "Adds a Side Gunner, fires an attack automatically at random enemy units within 600 AoE every 1.4 seconds. Same firing rules as Rocket Barrage, but does not attack while invisible and is disabled by Break.",
+                                "Fires while disabled, but not while hidden from the map, e.g. when affected by Astral Imprisonment or Disruption."
+                            ]
+                        },
+                        {
+                            "note": "Base damage reduced by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "huskar"
+                    ],
+                    "name": "Huskar",
+                    "notes": [
+                        {
+                            "note": "Berserker's Blood max attack speed increased from 196\/224\/252\/280 to 220\/260\/300\/340",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "invoker"
+                    ],
+                    "name": "Invoker",
+                    "notes": [
+                        {
+                            "note": "Invoked Spells cast point increased from 0 to 0.05",
+                            "detail": [
+                                "Invoker's 10 real abilities"
+                            ]
+                        },
+                        {
+                            "note": "Cold Snap is now dispellable",
+                            "detail": []
+                        },
+                        {
+                            "note": "Ghost Walk cooldown increased from 35 to 45",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tornado vision reduced from 600 to 200",
+                            "detail": [
+                                "The AoE of the ability"
+                            ]
+                        },
+                        {
+                            "note": "Forge Spirit Health\/Mana changed from Exort\/Quas based to Quas\/Exort based",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base intelligence reduced from 22 to 16",
+                            "detail": [
+                                "Base damage increased accordingly to remain the same"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "jakiro"
+                    ],
+                    "name": "Jakiro",
+                    "notes": [
+                        {
+                            "note": "Macropyre distance increased from 900 to 1400",
+                            "detail": []
+                        },
+                        {
+                            "note": "Macropyre is no longer unit targetable",
+                            "detail": []
+                        },
+                        {
+                            "note": "Macropyre Scepter duration increased from 20 to 30 seconds",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "juggernaut"
+                    ],
+                    "name": "Juggernaut",
+                    "notes": [
+                        {
+                            "note": "Healing Ward now follows Juggernaut by default",
+                            "detail": [
+                                "Like Frozen Sigil follows Tusk"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "keeper_of_the_light"
+                    ],
+                    "name": "Keeper of the Light",
+                    "notes": [
+                        {
+                            "note": "Movement speed increased from 315 to 335",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "kunkka"
+                    ],
+                    "name": "Kunkka",
+                    "notes": [
+                        {
+                            "note": "Torrent damage is now dealt evenly over 8 ticks",
+                            "detail": [
+                                "Previously, half of the damage was dealt at the start, and the other half was dealt evenly over 10 ticks."
+                            ]
+                        },
+                        {
+                            "note": "Torrent stun duration increased from 1.53 to 1.6",
+                            "detail": []
+                        },
+                        {
+                            "note": "Torrent mana cost reduced from 120 to 90\/100\/110\/120",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base armor increased by 2",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "legion_commander"
+                    ],
+                    "name": "Legion Commander",
+                    "notes": [
+                        {
+                            "note": "Duel no longer ignores Disarm and Ethereal states on either target",
+                            "detail": [
+                                "This also means that hexed units won't attack during Duel"
+                            ]
+                        },
+                        {
+                            "note": "Duel Scepter duration increased from 4.75\/5.5\/6.25 to 6\/7\/8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lich"
+                    ],
+                    "name": "Lich",
+                    "notes": [
+                        {
+                            "note": "Frost Blast and Chain Frost slows are now independent debuffs",
+                            "detail": [
+                                "This means the slows stack with each other"
+                            ]
+                        },
+                        {
+                            "note": "Chain Frost no longer jumps to Zombies",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "life_stealer"
+                    ],
+                    "name": "Lifestealer",
+                    "notes": [
+                        {
+                            "note": "Infest can now only target ancients with Level 2 and Level 3",
+                            "detail": []
+                        },
+                        {
+                            "note": "Strength growth increased from 2.4 to 3.0",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lone_druid"
+                    ],
+                    "name": "Lone Druid",
+                    "notes": [
+                        {
+                            "note": "Spirit Bear's Entangle now uses Pseudo-Random Distribution",
+                            "detail": []
+                        },
+                        {
+                            "note": "Battle Cry damage reduced from 90\/120\/150 to 70\/100\/130",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "luna"
+                    ],
+                    "name": "Luna",
+                    "notes": [
+                        {
+                            "note": "Agility growth increased from 2.8 to 3.3",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "magnataur"
+                    ],
+                    "name": "Magnus",
+                    "notes": [
+                        {
+                            "note": "Base HP regeneration increased from 0.25 to 0.75",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base damage increased by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "medusa"
+                    ],
+                    "name": "Medusa",
+                    "notes": [
+                        {
+                            "note": "Stone Gaze damage amplification increased from 30\/40\/50% to 50%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Stone Gaze duration rescaled from 6 to 5\/6\/7 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Stone Gaze slow reduced from 50 to 35%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "meepo"
+                    ],
+                    "name": "Meepo",
+                    "notes": [
+                        {
+                            "note": "Base damage increased by 4",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "mirana"
+                    ],
+                    "name": "Mirana",
+                    "notes": [
+                        {
+                            "note": "Added Scepter to Mirana",
+                            "detail": [
+                                "Passively triggers Starstorm every 8 seconds. If there are no units to affect, the spell waits until there is a nearby enemy.",
+                                "Does not trigger if the enemy does not see you. Passive procs are disabled by Break."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "morphling"
+                    ],
+                    "name": "Morphling",
+                    "notes": [
+                        {
+                            "note": "Replicate damage dealt increased from 50% to 80%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Hybrid cooldown reduced from 120 to 70",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "naga_siren"
+                    ],
+                    "name": "Naga Siren",
+                    "notes": [
+                        {
+                            "note": "Mirror Image illusion damage increased from 20\/25\/30\/35% to 25\/30\/35\/40%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Song of the Siren Scepter regeneration rate increased from 8 to 10%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Song of the Siren now affects units like Golems",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "furion"
+                    ],
+                    "name": "Nature's Prophet",
+                    "notes": [
+                        {
+                            "note": "Treants bounty increased from 14-20 to 18-24",
+                            "detail": []
+                        },
+                        {
+                            "note": "Treants vision reduced from 1000\/800 to 500",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "necrolyte"
+                    ],
+                    "name": "Necrophos",
+                    "notes": [
+                        {
+                            "note": "Reaper's Scythe respawn time penalty reduced from 30 to 10\/20\/30",
+                            "detail": []
+                        },
+                        {
+                            "note": "Reaper's Scythe damage factor increased from 0.4\/0.6\/0.9 to 0.6\/0.75\/0.9",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "nyx_assassin"
+                    ],
+                    "name": "Nyx Assassin",
+                    "notes": [
+                        {
+                            "note": "Fixed Spiked Carapace not preventing damage when a Spell Immune attacker damages you",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base HP regeneration increased from 2.5 to 3.5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "omniknight"
+                    ],
+                    "name": "Omniknight",
+                    "notes": [
+                        {
+                            "note": "Degen Aura no longer pierces Spell Immunity",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "oracle"
+                    ],
+                    "name": "Oracle",
+                    "notes": [
+                        {
+                            "note": "Added Scepter to Oracle",
+                            "detail": [
+                                "Reduces Purifying Flames cooldown from 2.25 seconds to 1.0 and lowers cast point from 0.3 to 0.1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "obsidian_destroyer"
+                    ],
+                    "name": "Outworld Devourer",
+                    "notes": [
+                        {
+                            "note": "Arcane Orb Intelligence Steal reduced from 2\/3\/4\/5 to 1\/2\/3\/4",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Orb mana cost increased from 100 to 100\/120\/140\/160",
+                            "detail": []
+                        },
+                        {
+                            "note": "Astral Imprisonment cast range reduced from 450\/500\/550\/600 to 225\/350\/475\/600",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phantom_assassin"
+                    ],
+                    "name": "Phantom Assassin",
+                    "notes": [
+                        {
+                            "note": "Stifling Dagger now does a real physical attack for 60 + 25\/40\/55\/70% of your attack damage. All attack effects work and behave as if your hero performed them.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Phantom Assassin turn rate increased from 0.4 to 0.6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "phoenix"
+                    ],
+                    "name": "Phoenix",
+                    "notes": [
+                        {
+                            "note": "Supernova Scepter now also increases the number of attacks needed to destroy the Supernova to 7\/10\/13",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "puck"
+                    ],
+                    "name": "Puck",
+                    "notes": [
+                        {
+                            "note": "Increased Illusory Orb speed by 1",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "pugna"
+                    ],
+                    "name": "Pugna",
+                    "notes": [
+                        {
+                            "note": "Nether Ward now treats Illusions as creeps for hit count calculation",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "razor"
+                    ],
+                    "name": "Razor",
+                    "notes": [
+                        {
+                            "note": "Static Link break distance increased by 100",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "riki"
+                    ],
+                    "name": "Riki",
+                    "notes": [
+                        {
+                            "note": "Added to Captain's Mode",
+                            "detail": []
+                        },
+                        {
+                            "note": "Blink Strike damage increased from 20\/40\/60\/80 to 60\/80\/100\/120",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tricks of the Trade cast point improved from 0.4 to 0.3",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tricks of the Trade cooldown reduced from 40 to 40\/35\/30",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "rubick"
+                    ],
+                    "name": "Rubick",
+                    "notes": [
+                        {
+                            "note": "Fade Bolt damage increased from 70\/140\/210\/280 to 75\/150\/225\/300",
+                            "detail": []
+                        },
+                        {
+                            "note": "Null Field increased from 5\/10\/15\/20% to 10\/14\/18\/22%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Turn rate increased from 0.5 to 0.7",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "sand_king"
+                    ],
+                    "name": "Sand King",
+                    "notes": [
+                        {
+                            "note": "Sand Storm max channel time rescaled from 20\/40\/60\/80 to 50",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shadow_demon"
+                    ],
+                    "name": "Shadow Demon",
+                    "notes": [
+                        {
+                            "note": "Disruption illusion damage increased from 30\/40\/50\/60 to 30\/45\/60\/75%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Soul Catcher cooldown reduced from 13 to 13\/12\/11\/10",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "nevermore"
+                    ],
+                    "name": "Shadow Fiend",
+                    "notes": [
+                        {
+                            "note": "Requiem of Souls damage lines travel distance rescaled from 975\/1000\/1025 to 1000",
+                            "detail": []
+                        },
+                        {
+                            "note": "Requiem of Souls Starting Width increased from 75\/100\/125 to 125",
+                            "detail": []
+                        },
+                        {
+                            "note": "Requiem of Souls End Width rescaled from 400\/425\/450 to 425",
+                            "detail": []
+                        },
+                        {
+                            "note": "Scepter now also increases Necromastery max souls from 15\/22\/29\/36 to 22\/30\/38\/46",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shadow_shaman"
+                    ],
+                    "name": "Shadow Shaman",
+                    "notes": [
+                        {
+                            "note": "Mass Serpent Wards splash mechanics reworked: Now deals 75% splash in 175 AoE",
+                            "detail": [
+                                "Previous Splash mechanic was as follows:",
+                                "- 100% splash damage in a 50\/75\/85 radius.",
+                                "- 40% splash damage in a 75\/100\/110 radius.",
+                                "- 20% splash damage in a 150\/200\/220 radius."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "silencer"
+                    ],
+                    "name": "Silencer",
+                    "notes": [
+                        {
+                            "note": "Last Word no longer slows",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Curse base duration reduced from 7 to 6",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Curse now slows movement speed by 9\/12\/15\/18%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Curse cooldown increased from 18\/16\/14\/12 to 20\/18\/16\/14",
+                            "detail": []
+                        },
+                        {
+                            "note": "Glaives of Wisdom damage rescaled from 30\/50\/70\/90% to 35\/50\/65\/80%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "skywrath_mage"
+                    ],
+                    "name": "Skywrath Mage",
+                    "notes": [
+                        {
+                            "note": "Mystic Flare Scepter duration increased from 2.4 to 12 seconds",
+                            "detail": [
+                                "Same damage per second."
+                            ]
+                        },
+                        {
+                            "note": "Mystic Flare Scepter cooldown increased from 20\/10\/0 to 20\/10\/5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "sniper"
+                    ],
+                    "name": "Sniper",
+                    "notes": [
+                        {
+                            "note": "Shrapnel damage increased from 12\/24\/36\/48 to 15\/30\/45\/60",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "spectre"
+                    ],
+                    "name": "Spectre",
+                    "notes": [
+                        {
+                            "note": "Spectral Dagger slow no longer goes through Spell Immunity",
+                            "detail": [
+                                "Path can still follow Spell Immune Heroes"
+                            ]
+                        },
+                        {
+                            "note": "Haunt cooldown increased from 120 to 140\/130\/120",
+                            "detail": []
+                        },
+                        {
+                            "note": "Haunt Illusions are no longer unstunnable",
+                            "detail": []
+                        },
+                        {
+                            "note": "Agility growth reduced from 2.2 to 1.8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "storm_spirit"
+                    ],
+                    "name": "Storm Spirit",
+                    "notes": [
+                        {
+                            "note": "Added Scepter to Storm Spirit",
+                            "detail": [
+                                "Causes Electric Vortex to be a 475 AoE ability around your hero.",
+                                "Requires vision over the units to affect them."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "sven"
+                    ],
+                    "name": "Sven",
+                    "notes": [
+                        {
+                            "note": "Base movement speed reduced from 295 to 290",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "terrorblade"
+                    ],
+                    "name": "Terrorblade",
+                    "notes": [
+                        {
+                            "note": "Base armor increased by 3",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shredder"
+                    ],
+                    "name": "Timbersaw",
+                    "notes": [
+                        {
+                            "note": "Whirling Death debuff duration increased from 11 to 14 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Reactive Armor regen and armor per stack increased from 1 to 1\/1.2\/1.4\/1.6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tinker"
+                    ],
+                    "name": "Tinker",
+                    "notes": [
+                        {
+                            "note": "Rearm mana cost reduced from 125\/225\/325 to 100\/200\/300",
+                            "detail": []
+                        },
+                        {
+                            "note": "Rearm can no longer refresh Pipe of Insight",
+                            "detail": []
+                        },
+                        {
+                            "note": "Base intelligence increased from 27 to 30",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "treant"
+                    ],
+                    "name": "Treant Protector",
+                    "notes": [
+                        {
+                            "note": "Nature's Guise tree search radius reduced from 375 to 350",
+                            "detail": []
+                        },
+                        {
+                            "note": "Nature's Guise tree search grace duration reduced from 1 to 0.75 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Nature's Guise movement speed increased from 10% to 14\/16\/18\/20%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Leech Seed cooldown reduced from 16\/14\/12\/10 to 16\/13\/10\/7",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "troll_warlord"
+                    ],
+                    "name": "Troll Warlord",
+                    "notes": [
+                        {
+                            "note": "Ranged Whirling Axes cooldown reduced from 20\/18\/16\/14 to 19\/16\/13\/10",
+                            "detail": []
+                        },
+                        {
+                            "note": "Fervor max stacks increased from 6 to 7",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tusk"
+                    ],
+                    "name": "Tusk",
+                    "notes": [
+                        {
+                            "note": "Walrus Kick cooldown reduced from 12 to 8",
+                            "detail": []
+                        },
+                        {
+                            "note": "Walrus Kick damage increased from 200 to 350",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "undying"
+                    ],
+                    "name": "Undying",
+                    "notes": [
+                        {
+                            "note": "Tombstone now treats Illusions as creeps for hit count calculation",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "vengefulspirit"
+                    ],
+                    "name": "Vengeful Spirit",
+                    "notes": [
+                        {
+                            "note": "Magic Missile stun rescaled from 1.45\/1.55\/1.65\/1.75 to 1.2\/1.4\/1.6\/1.8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "viper"
+                    ],
+                    "name": "Viper",
+                    "notes": [
+                        {
+                            "note": "Poison Attack is no longer an Attack Modifier",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "visage"
+                    ],
+                    "name": "Visage",
+                    "notes": [
+                        {
+                            "note": "Gravekeeper's Cloak recharge time reduced from 4 to 3 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Gravekeeper's Cloak minimum damage threshold increased from 2 to 15",
+                            "detail": []
+                        },
+                        {
+                            "note": "Stone Form stun delay reduced from 1 to 0.85",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "warlock"
+                    ],
+                    "name": "Warlock",
+                    "notes": [
+                        {
+                            "note": "Shadow Word cast range increased from 500 to 525\/600\/675\/750",
+                            "detail": []
+                        },
+                        {
+                            "note": "Fatal Bonds cooldown reduced from 25 to 24\/22\/20\/18",
+                            "detail": []
+                        },
+                        {
+                            "note": "Flaming Fists damage changed from 40% chance for 80\/115\/150 to 100% chance for 40\/50\/60",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "weaver"
+                    ],
+                    "name": "Weaver",
+                    "notes": [
+                        {
+                            "note": "Time Lapse now disjoints projectiles",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Lapse Scepter cooldown reduced from 20 to 16",
+                            "detail": []
+                        },
+                        {
+                            "note": "Weaver now loses unit collision immediately when casting Shukuchi rather than after fading",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "winter_wyvern"
+                    ],
+                    "name": "Winter Wyvern",
+                    "notes": [
+                        {
+                            "note": "Added Scepter to Winter Wyvern",
+                            "detail": [
+                                "Causes Arctic Burn to be a toggle and drains 40 mana per second. Activation mana cost is the same as the current, 120\/110\/100\/90.",
+                                "No longer has limit on number of attacks per target."
+                            ]
+                        },
+                        {
+                            "note": "Winter's Curse cooldown reduced from 120\/110\/100 to 90",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "skeleton_king"
+                    ],
+                    "name": "Wraith King",
+                    "notes": [
+                        {
+                            "note": "Mortal Strike now does a critical hit for double the value when attacking non-heroes",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "zuus"
+                    ],
+                    "name": "Zeus",
+                    "notes": [
+                        {
+                            "note": "Static Field damage reduced from 5\/7\/9\/11% to 4\/6\/8\/10%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Static Field no longer disables Blink Dagger",
+                            "detail": []
+                        },
+                        {
+                            "note": "Thundergod's Wrath damage reduced from 225\/350\/475 to 225\/325\/425",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "abyssal_blade"
+                    ],
+                    "name": "Abyssal Blade",
+                    "notes": [
+                        {
+                            "note": "Now requires Basher, Vanguard, and a 1550 recipe",
+                            "detail": [
+                                "Cost from 6750 to 6400",
+                                "Previously provided:",
+                                "+ 10 Strength",
+                                "+ 70 Damage",
+                                "Now provides:",
+                                "+ 10 Strength",
+                                "+ 10 Damage",
+                                "+ 250 Health",
+                                "+ 15 HP regeneration",
+                                "Damage Block: 100% to block 40\/20 damage for melee\/ranged wielders"
+                            ]
+                        },
+                        {
+                            "note": "Overwhelm mana cost from 150 to 75",
+                            "detail": []
+                        },
+                        {
+                            "note": "Overwhelm cooldown from 60 to 35",
+                            "detail": []
+                        },
+                        {
+                            "note": "Bash damage reduced from 120 to 85",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "aether_lens"
+                    ],
+                    "name": "Aether Lens",
+                    "notes": [
+                        {
+                            "note": "Aether Lens Spell Amplification reduced from 8% to 5%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "courier"
+                    ],
+                    "name": "Animal Courier",
+                    "notes": [
+                        {
+                            "note": "Respawn time reduced from 140 seconds to 120 seconds",
+                            "detail": [
+                                "Respawn time of Flying Courier is still 180 seconds."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "armlet"
+                    ],
+                    "name": "Armlet of Mordiggian",
+                    "notes": [
+                        {
+                            "note": "Unholy Strength now grants 5 armor",
+                            "detail": [
+                                "Armlet provides 5 armor, this is increased to 10 while active."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "blade_mail"
+                    ],
+                    "name": "Blade Mail",
+                    "notes": [
+                        {
+                            "note": "Now returns damage before any kind of reduction, and returns it in the same type as it was received",
+                            "detail": []
+                        },
+                        {
+                            "note": "No longer ignores Spell Immune enemies",
+                            "detail": [
+                                "It still cannot hurt Spell Immune targets if the original damage type cannot, like Magic"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "bloodstone"
+                    ],
+                    "name": "Bloodstone",
+                    "notes": [
+                        {
+                            "note": "Initial charges increased from 8 to 12",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "butterfly"
+                    ],
+                    "name": "Butterfly",
+                    "notes": [
+                        {
+                            "note": "Flutter cooldown reduced from 35 to 25",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "crimson_guard"
+                    ],
+                    "name": "Crimson Guard",
+                    "notes": [
+                        {
+                            "note": "Cooldown reduced from 60 to 50",
+                            "detail": []
+                        },
+                        {
+                            "note": "HP regeneration increased by 2",
+                            "detail": [
+                                "See Vanguard change"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "desolator"
+                    ],
+                    "name": "Desolator",
+                    "notes": [
+                        {
+                            "note": "Now requires Blight Stone instead of a 300 recipe.",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "diffusal_blade"
+                    ],
+                    "name": "Diffusal Blade",
+                    "notes": [
+                        {
+                            "note": "Purge cooldown increased from 0 to 2",
+                            "detail": []
+                        },
+                        {
+                            "note": "Mana burned by melee\/ranged illusions reduced from 25\/12 to 20\/10",
+                            "detail": []
+                        },
+                        {
+                            "note": "Mana burned by melee\/ranged heroes increased from 25 to 40",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "dragon_lance"
+                    ],
+                    "name": "Dragon Lance",
+                    "notes": [
+                        {
+                            "note": "Now requires Ogre Club and 2x Band of Elvenskin instead of Ogre Club and Quarterstaff.",
+                            "detail": [
+                                "Cost from 1875 to 1900",
+                                "Previously provided:",
+                                "+ 10 Strength",
+                                "+ 10 Damage",
+                                "+ 10 Attack Speed",
+                                "+ 130 Attack Range",
+                                "Now provides:",
+                                "+ 15 Strength",
+                                "+ 15 Agility",
+                                "+ 130 Attack Range"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ancient_janggo"
+                    ],
+                    "name": "Drum of Endurance",
+                    "notes": [
+                        {
+                            "note": "Now requires Bracer, Ring of Regeneration, Wind Lace, and a 700 recipe.",
+                            "detail": [
+                                "Cost from 1850 to 1775",
+                                "Previously provided:",
+                                "+ 9 Intelligence",
+                                "+ 9 Strength",
+                                "+ 9 Agility",
+                                "+ 3 Damage",
+                                "Now provides:",
+                                "+ 9 Intelligence",
+                                "+ 6 Strength",
+                                "+ 3 Agility",
+                                "+ 3 Damage",
+                                "+ 3 HP Regeneration"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "cyclone"
+                    ],
+                    "name": "Eul's Scepter of Divinity",
+                    "notes": [
+                        {
+                            "note": "Now requires Wind Lace instead of Sage's mask",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "flying_courier"
+                    ],
+                    "name": "Flying Courier",
+                    "notes": [
+                        {
+                            "note": "Cost reduced from 200 to 150",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "gem"
+                    ],
+                    "name": "Gem of True Sight",
+                    "notes": [
+                        {
+                            "note": "True Sight radius reduced from 1100 to 900",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ghost"
+                    ],
+                    "name": "Ghost Scepter",
+                    "notes": [
+                        {
+                            "note": "Ghost Form cooldown reduced from 30 to 25",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "glimmer_cape"
+                    ],
+                    "name": "Glimmer Cape",
+                    "notes": [
+                        {
+                            "note": "Mana cost reduced from 110 to 90",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "guardian_greaves"
+                    ],
+                    "name": "Guardian Greaves",
+                    "notes": [
+                        {
+                            "note": "Guardian Greaves recipe from 1650 to 1700",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "heart"
+                    ],
+                    "name": "Heart of Tarrasque",
+                    "notes": [
+                        {
+                            "note": "Strength bonus increased from 40 to 45",
+                            "detail": []
+                        },
+                        {
+                            "note": "Health bonus reduced from 300 to 250",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "heavens_halberd"
+                    ],
+                    "name": "Heaven's Halberd",
+                    "notes": [
+                        {
+                            "note": "Disarm duration on ranged targets increased from 4.5 to 5.5",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "hood_of_defiance"
+                    ],
+                    "name": "Hood of Defiance",
+                    "notes": [
+                        {
+                            "note": "Removed one Ring of Regen from Hood of Defiance",
+                            "detail": [
+                                "HP Regeneration updated to match Ring of Health and Recipe change"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "sphere"
+                    ],
+                    "name": "Linken's Sphere",
+                    "notes": [
+                        {
+                            "note": "Recipe cost reduced from 1325 to 1000",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lotus_orb"
+                    ],
+                    "name": "Lotus Orb",
+                    "notes": [
+                        {
+                            "note": "Now requires an Energy Booster instead of a 900 gold recipe",
+                            "detail": [
+                                "Now provides 250 mana"
+                            ]
+                        },
+                        {
+                            "note": "HP regeneration increased from 5 to 6",
+                            "detail": [
+                                "See Ring of Health change"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "mask_of_madness"
+                    ],
+                    "name": "Mask of Madness",
+                    "notes": [
+                        {
+                            "note": "Active damage amplification reduced from 30% to 25%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "medallion_of_courage"
+                    ],
+                    "name": "Medallion of Courage",
+                    "notes": [
+                        {
+                            "note": "Now requires Blight Stone instead of a recipe",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ward_observer"
+                    ],
+                    "name": "Observer Ward",
+                    "notes": [
+                        {
+                            "note": "Gold\/experience rescaled from 50\/100 to 100\/25",
+                            "detail": []
+                        },
+                        {
+                            "note": "Duration reduced from 7 to 6 minutes",
+                            "detail": []
+                        },
+                        {
+                            "note": "Restock interval reduced from 180 to 150 seconds",
+                            "detail": []
+                        },
+                        {
+                            "note": "Cost reduced from 75 to 65",
+                            "detail": [
+                                "These three changes are all adjusted in the same proportion"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "octarine_core"
+                    ],
+                    "name": "Octarine Core",
+                    "notes": [
+                        {
+                            "note": "No longer provides HP regeneration",
+                            "detail": []
+                        },
+                        {
+                            "note": "Mana regeneration reduced from 100% to 50%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "pers"
+                    ],
+                    "name": "Perseverance",
+                    "notes": [
+                        {
+                            "note": "HP regeneration increased from 5 to 6",
+                            "detail": [
+                                "See Ring of Health change"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "pipe"
+                    ],
+                    "name": "Pipe of Insight",
+                    "notes": [
+                        {
+                            "note": "Removed Pipe of Insight Barrier stack limit duration",
+                            "detail": [
+                                "HP Regeneration updated to match Ring of Health and Hood changes"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "point_booster"
+                    ],
+                    "name": "Point Booster",
+                    "notes": [
+                        {
+                            "note": "Point Booster health bonus reduced from 200 to 175 and mana bonus increased from 150 to 175",
+                            "detail": [
+                                "Items it builds into are updated accordingly"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "refresher"
+                    ],
+                    "name": "Refresher Orb",
+                    "notes": [
+                        {
+                            "note": "Refresher HP regeneration increased from 10 to 12",
+                            "detail": [
+                                "See Ring of Health change"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ring_of_aquila"
+                    ],
+                    "name": "Ring of Aquila",
+                    "notes": [
+                        {
+                            "note": "Armor reduced from 3 to 2",
+                            "detail": [
+                                "Only the aura gives armor now"
+                            ]
+                        },
+                        {
+                            "note": "Damage increased from 9 to 10",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ring_of_basilius"
+                    ],
+                    "name": "Ring of Basilius",
+                    "notes": [
+                        {
+                            "note": "Armor bonus reduced from 3 to 2",
+                            "detail": [
+                                "Only the aura gives armor now"
+                            ]
+                        },
+                        {
+                            "note": "Damage bonus increased from 6 to 7",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ring_of_health"
+                    ],
+                    "name": "Ring of Health",
+                    "notes": [
+                        {
+                            "note": "HP regeneration increased from 5 to 6",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "ring_of_regen"
+                    ],
+                    "name": "Ring of Regen",
+                    "notes": [
+                        {
+                            "note": "Cost reduced from 350 to 325",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "rod_of_atos"
+                    ],
+                    "name": "Rod of Atos",
+                    "notes": [
+                        {
+                            "note": "Removed chance to True Strike on the target",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "sange"
+                    ],
+                    "name": "Sange",
+                    "notes": [
+                        {
+                            "note": "Maim chance increased from 15% to 20%",
+                            "detail": [
+                                "Sange changes carry over to Heaven's Halberd"
+                            ]
+                        },
+                        {
+                            "note": "Maim slow reduced from 20% to 20\/10% for melee\/ranged wielders",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "sange_and_yasha"
+                    ],
+                    "name": "Sange and Yasha",
+                    "notes": [
+                        {
+                            "note": "Maim chance increased from 16% to 30%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Maim slow reduced from 32% to 26%\/13% for melee\/ranged wielders",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "shadow_amulet"
+                    ],
+                    "name": "Shadow Amulet",
+                    "notes": [
+                        {
+                            "note": "Cost reduced from 1400 to 1300",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "silver_edge"
+                    ],
+                    "name": "Silver Edge",
+                    "notes": [
+                        {
+                            "note": "Now requires Shadow Blade and Ultimate Orb instead of Shadow Blade, Sange, and a Recipe. Can be disassembled.",
+                            "detail": [
+                                "Cost from 5450 to 4800",
+                                "Previously provided:",
+                                "+ 16 Strength",
+                                "+ 32 Damage",
+                                "+ 30 Attack Speed",
+                                "Now provides:",
+                                "+ 30 Damage",
+                                "+ 30 Attack Speed",
+                                "+ 15 All Stats"
+                            ]
+                        },
+                        {
+                            "note": "Backstab damage reduction increased from 40 to 50%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "basher"
+                    ],
+                    "name": "Skull Basher",
+                    "notes": [
+                        {
+                            "note": "Bash damage reduced from 120 to 85",
+                            "detail": []
+                        },
+                        {
+                            "note": "Recipe cost reduced from 1000 to 750",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "smoke_of_deceit"
+                    ],
+                    "name": "Smoke of Deceit",
+                    "notes": [
+                        {
+                            "note": "Stock replenish time reduced from 12 to 11 minutes",
+                            "detail": []
+                        },
+                        {
+                            "note": "No longer has a cooldown attached to your hero when used",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "soul_booster"
+                    ],
+                    "name": "Soul Booster",
+                    "notes": [
+                        {
+                            "note": "No longer provides HP regeneration",
+                            "detail": []
+                        },
+                        {
+                            "note": "Mana regeneration reduced from 100% to 50%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "talisman_of_evasion"
+                    ],
+                    "name": "Talisman of Evasion",
+                    "notes": [
+                        {
+                            "note": "Cost reduced from 1800 to 1700",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tpscroll"
+                    ],
+                    "name": "Town Portal Scroll",
+                    "notes": [
+                        {
+                            "note": "Cost reduced from 75 to 50",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "vanguard"
+                    ],
+                    "name": "Vanguard",
+                    "notes": [
+                        {
+                            "note": "HP regeneration increased from 6 to 8",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "veil_of_discord"
+                    ],
+                    "name": "Veil of Discord",
+                    "notes": [
+                        {
+                            "note": "Now requires Helm of Iron Will, 2x Null Talisman, and a 400 Recipe.",
+                            "detail": [
+                                "Cost from 2270 to 2240",
+                                "Previously provided:",
+                                "+ 6 Strength",
+                                "+ 6 Agility",
+                                "+ 18 Intelligence",
+                                "+ 6 HP Regeneration",
+                                "+ 6 Damage",
+                                "+ 6 Armor",
+                                "Now provides:",
+                                "+ 6 Strength",
+                                "+ 6 Agility",
+                                "+ 12 Intelligence",
+                                "+ 6 HP Regeneration",
+                                "+ 6 Damage",
+                                "+ 6 Armor"
+                            ]
+                        },
+                        {
+                            "note": "Veil debuff is now dispellable",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "vladmir"
+                    ],
+                    "name": "Vladmir's Offering",
+                    "notes": [
+                        {
+                            "note": "Armor aura reduced from 5 to 4",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "new_items",
+            "name": "New Items",
+            "data": [
+                {
+                    "id": [
+                        "bloodthorn"
+                    ],
+                    "name": "Bloodthorn",
+                    "notes": [
+                        {
+                            "note": "New item formed from Orchid, Crystalys, and a Recipe",
+                            "detail": []
+                        },
+                        {
+                            "note": "Requires:",
+                            "detail": []
+                        },
+                        {
+                            "note": "Orchid (4075)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Crystalys (2120)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Recipe (1000)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Total: 7195",
+                            "detail": []
+                        },
+                        {
+                            "note": "Provides:",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 25 Intelligence",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 30 Attack Speed",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 60 Damage",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 150% Mana Regeneration",
+                            "detail": []
+                        },
+                        {
+                            "note": "Active: All attacks on the silenced target, including from allies, gain True Strike and a 1.35x critical hit",
+                            "detail": [
+                                "Still applies the same Silence mechanics from Orchid."
+                            ]
+                        },
+                        {
+                            "note": "Cooldown: 11",
+                            "detail": [
+                                "Orchid cooldown is 18"
+                            ]
+                        },
+                        {
+                            "note": "Passive: Grants a chance to land a critical hit",
+                            "detail": [
+                                "Same values as Crystalys: 20% chance to land a 175% damage critical hit."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "echo_sabre"
+                    ],
+                    "name": "Echo Sabre",
+                    "notes": [
+                        {
+                            "note": "New item formed from Oblivion Staff and Ogre Club",
+                            "detail": []
+                        },
+                        {
+                            "note": "Requires:",
+                            "detail": []
+                        },
+                        {
+                            "note": "Oblivion Staff (1650)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Ogre Club (1000)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Total: 2650",
+                            "detail": []
+                        },
+                        {
+                            "note": "Provides:",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 10 Strength",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 10 Intelligence",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 10 Attack Speed",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 15 Damage",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 75% Mana Regeneration",
+                            "detail": []
+                        },
+                        {
+                            "note": "Passive: Causes melee attacks to attack twice in quick succession. Your double attack applies a 0.6 second 100% MS\/AS slow. Has a 5 second cooldown.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Note: The passive only works on Melee Heroes.",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "blight_stone"
+                    ],
+                    "name": "Blight Stone",
+                    "notes": [
+                        {
+                            "note": "New item",
+                            "detail": []
+                        },
+                        {
+                            "note": "Costs: 300 gold",
+                            "detail": []
+                        },
+                        {
+                            "note": "Passive: Reduces armor by 2 on attack.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Available in the Side Shop.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Item is used in Desolator and Medallion of Courage.",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "infused_raindrop"
+                    ],
+                    "name": "Infused Raindrop",
+                    "notes": [
+                        {
+                            "note": "New consumable item, Infused Raindrops",
+                            "detail": []
+                        },
+                        {
+                            "note": "Costs: 225 gold",
+                            "detail": []
+                        },
+                        {
+                            "note": "Provides:",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 0.85 Mana Regeneration",
+                            "detail": []
+                        },
+                        {
+                            "note": "Passive: Comes with 5 charges, the item is destroyed when it reaches 0 charges. When you receive over 50 Magic Damage it procs, consuming a charge and blocking 120 Magic Damage. The proc has a 4 second cooldown.",
+                            "detail": [
+                                "Does not consume charges nor block any damage while on cooldown. Does not affect any damage below 50."
+                            ]
+                        },
+                        {
+                            "note": "Becomes available for purchase at the 3 minute mark",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "wind_lace"
+                    ],
+                    "name": "Wind Lace",
+                    "notes": [
+                        {
+                            "note": "New item",
+                            "detail": []
+                        },
+                        {
+                            "note": "Costs: 225 gold",
+                            "detail": []
+                        },
+                        {
+                            "note": "Provides:",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 20 Movement Speed",
+                            "detail": []
+                        },
+                        {
+                            "note": "Available in the Side Shop.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Item is used in Drums and Eul's.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Multiple instances don't stack.",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tome_of_knowledge"
+                    ],
+                    "name": "Tome of Knowledge",
+                    "notes": [
+                        {
+                            "note": "New consumable item",
+                            "detail": []
+                        },
+                        {
+                            "note": "Costs: 150 gold",
+                            "detail": []
+                        },
+                        {
+                            "note": "Use: Grants you 425 experience.",
+                            "detail": []
+                        },
+                        {
+                            "note": "Starts out of stock, increments stock every 10 minutes.",
+                            "detail": [
+                                "First one is available at the 10 minute mark."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "hurricane_pike"
+                    ],
+                    "name": "Hurricane Pike",
+                    "notes": [
+                        {
+                            "note": "New item formed from Force Staff, Dragon Lance, and a Recipe",
+                            "detail": []
+                        },
+                        {
+                            "note": "Requires:",
+                            "detail": []
+                        },
+                        {
+                            "note": "Force Staff (2225)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Dragon Lance (1900)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Recipe (250)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Total: 4375",
+                            "detail": []
+                        },
+                        {
+                            "note": "Provides:",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 20 Agility",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 15 Strength",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 10 Intelligence",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 4 HP Regeneration",
+                            "detail": []
+                        },
+                        {
+                            "note": "+ 130 Attack Range (ranged heroes only, does not stack)",
+                            "detail": []
+                        },
+                        {
+                            "note": "Active: When used on an enemy, it pushes you both away from each other 450 units each, and allows you to attack that target without range restrictions for 4 attacks for a maximum of 5 seconds. Does not give vision over the enemy. Works normally like Force Staff when used on self or allies.",
+                            "detail": [
+                                "Range restriction is not removed when used by a melee Hero"
+                            ]
+                        },
+                        {
+                            "note": "Cooldown: 14",
+                            "detail": [
+                                "Force Staff cooldown is 20"
+                            ]
+                        },
+                        {
+                            "note": "Cast range: 400 when used on enemies, 800 on allies or self.",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "https:\/\/www.dota2.com\/687",
+    "version": "6.87",
+    "date": "2016-04-25"
+}

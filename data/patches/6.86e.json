@@ -1,0 +1,69 @@
+{
+    "date": "2016-02-05",
+    "menu": [
+        {
+            "id": "earth_spirit",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "earth_spirit",
+                    "name": "Earth Spirit"
+                }
+            ]
+        },
+        {
+            "id": "lone_druid",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "lone_druid",
+                    "name": "Lone Druid"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "earth_spirit"
+                    ],
+                    "name": "Earth Spirit",
+                    "notes": [
+                        {
+                            "note": "Earth Spirit's Scepter Enchant Remnant cast range reduced from 600 to 125",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lone_druid"
+                    ],
+                    "name": "Lone Druid",
+                    "notes": [
+                        {
+                            "note": "Savage Roar cooldown increased from 28\/24\/20\/16 to 38\/32\/26\/20",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/20311\/",
+    "version": "6.86e"
+}

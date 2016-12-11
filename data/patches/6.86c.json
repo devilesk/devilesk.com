@@ -1,0 +1,327 @@
+{
+    "menu": [
+        {
+            "id": "",
+            "name": "",
+            "submenu": []
+        },
+        {
+            "id": "bane",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "bane",
+                    "name": "Bane"
+                }
+            ]
+        },
+        {
+            "id": "dark_seer",
+            "name": "Heroes C&ndash;D",
+            "submenu": [
+                {
+                    "id": "dark_seer",
+                    "name": "Dark Seer"
+                },
+                {
+                    "id": "dazzle",
+                    "name": "Dazzle"
+                },
+                {
+                    "id": "death_prophet",
+                    "name": "Death Prophet"
+                }
+            ]
+        },
+        {
+            "id": "faceless_void",
+            "name": "Heroes E&ndash;J",
+            "submenu": [
+                {
+                    "id": "faceless_void",
+                    "name": "Faceless Void"
+                },
+                {
+                    "id": "gyrocopter",
+                    "name": "Gyrocopter"
+                },
+                {
+                    "id": "invoker",
+                    "name": "Invoker"
+                }
+            ]
+        },
+        {
+            "id": "obsidian_destroyer",
+            "name": "Heroes M&ndash;O",
+            "submenu": [
+                {
+                    "id": "obsidian_destroyer",
+                    "name": "Outworld Devourer"
+                }
+            ]
+        },
+        {
+            "id": "riki",
+            "name": "Heroes P&ndash;R",
+            "submenu": [
+                {
+                    "id": "riki",
+                    "name": "Riki"
+                }
+            ]
+        },
+        {
+            "id": "tusk",
+            "name": "Heroes T",
+            "submenu": [
+                {
+                    "id": "tusk",
+                    "name": "Tusk"
+                }
+            ]
+        },
+        {
+            "id": "undying",
+            "name": "Heroes U&ndash;Z",
+            "submenu": [
+                {
+                    "id": "undying",
+                    "name": "Undying"
+                },
+                {
+                    "id": "winter_wyvern",
+                    "name": "Winter Wyvern"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": [
+                {
+                    "id": [],
+                    "name": "",
+                    "notes": [
+                        {
+                            "note": "Radiant Small Camp's spawn box is now smaller",
+                            "detail": []
+                        },
+                        {
+                            "note": "Fixed Lone Druid's HP not increasing when upgrading True Form",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "bane"
+                    ],
+                    "name": "Bane",
+                    "notes": [
+                        {
+                            "note": "Nightmare cooldown increased from 16\/15\/14\/13 to 22\/19\/16\/13",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "dark_seer"
+                    ],
+                    "name": "Dark Seer",
+                    "notes": [
+                        {
+                            "note": "Surge manacost increased from 20\/30\/40\/50 to 50",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "dazzle"
+                    ],
+                    "name": "Dazzle",
+                    "notes": [
+                        {
+                            "note": "Shallow Grave cast point increased from 0.35 to 0.4",
+                            "detail": []
+                        },
+                        {
+                            "note": "Shadow Wave manacost increased from 80\/90\/100\/110 to 90\/100\/110\/120",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "death_prophet"
+                    ],
+                    "name": "Death Prophet",
+                    "notes": [
+                        {
+                            "note": "Death Prophet base intelligence increased by 3",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spirit Siphon HP Drain increased from 1\/1.8\/2.6\/3.4% to 1\/2\/3\/4%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Spirit Siphon slow rescaled from 6\/10\/14\/18% to 5\/10\/15\/20%",
+                            "detail": []
+                        },
+                        {
+                            "note": "Exorcism duration increased from 30 to 35 seconds",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "faceless_void"
+                    ],
+                    "name": "Faceless Void",
+                    "notes": [
+                        {
+                            "note": "Time Walk cast range increased from 550 to 625",
+                            "detail": []
+                        },
+                        {
+                            "note": "Faceless Void strength gain increased from 1.6 to 1.8",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Dilation duration increased from 5.5\/7\/8.5\/10 to 6\/8\/10\/12",
+                            "detail": []
+                        },
+                        {
+                            "note": "Time Dilation cooldown increased from 34\/28\/22\/16 to 36\/30\/24\/18",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "gyrocopter"
+                    ],
+                    "name": "Gyrocopter",
+                    "notes": [
+                        {
+                            "note": "Call Down first missile damage decreased from 220\/285\/350 to 200\/275\/350",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "invoker"
+                    ],
+                    "name": "Invoker",
+                    "notes": [
+                        {
+                            "note": "Alacrity damage\/speed rescaled from 30\/40\/50\/60\/70\/80\/90 to 10\/25\/40\/55\/70\/85\/100",
+                            "detail": []
+                        },
+                        {
+                            "note": "Invoker base strength reduced by 2",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "obsidian_destroyer"
+                    ],
+                    "name": "Outworld Devourer",
+                    "notes": [
+                        {
+                            "note": "Arcane Orb int steal increased from 1\/2\/3\/4 to 2\/3\/4\/5",
+                            "detail": []
+                        },
+                        {
+                            "note": "Arcane Orb int steal duration increased from 40 to 50",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "riki"
+                    ],
+                    "name": "Riki",
+                    "notes": [
+                        {
+                            "note": "Tricks of the Trade cooldown reduced from 70 to 40",
+                            "detail": []
+                        },
+                        {
+                            "note": "Tricks of the Trade AoE increased from 475 to 500",
+                            "detail": []
+                        },
+                        {
+                            "note": "Blink Strike cast range increased from 700 to 800",
+                            "detail": []
+                        },
+                        {
+                            "note": "Blink Strike cast point reduced from 0.4 to 0.3",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "tusk"
+                    ],
+                    "name": "Tusk",
+                    "notes": [
+                        {
+                            "note": "Walrus Punch cooldown increased from 20\/16\/12 to 36\/24\/12",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "undying"
+                    ],
+                    "name": "Undying",
+                    "notes": [
+                        {
+                            "note": "Tombstone cooldown increased from 60 to 70",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "winter_wyvern"
+                    ],
+                    "name": "Winter Wyvern",
+                    "notes": [
+                        {
+                            "note": "Winter's Curse attack speed bonus increased from 50 to 70",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": []
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/19848\/",
+    "version": "6.86c",
+    "date": "2015-12-29"
+}

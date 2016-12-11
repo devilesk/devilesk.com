@@ -1,0 +1,112 @@
+{
+    "menu": [
+        {
+            "id": "bounty_hunter",
+            "name": "Heroes A&ndash;B",
+            "submenu": [
+                {
+                    "id": "bounty_hunter",
+                    "name": "Bounty Hunter"
+                }
+            ]
+        },
+        {
+            "id": "lich",
+            "name": "Heroes K&ndash;L",
+            "submenu": [
+                {
+                    "id": "lich",
+                    "name": "Lich"
+                }
+            ]
+        },
+        {
+            "id": "armlet",
+            "name": "Items A&ndash;B",
+            "submenu": [
+                {
+                    "id": "armlet",
+                    "name": "Armlet of Mordiggian"
+                },
+                {
+                    "id": "blade_mail",
+                    "name": "Blade Mail"
+                }
+            ]
+        }
+    ],
+    "sections": [
+        {
+            "id": "general",
+            "name": "General",
+            "data": []
+        },
+        {
+            "id": "heroes",
+            "name": "Heroes",
+            "data": [
+                {
+                    "id": [
+                        "bounty_hunter"
+                    ],
+                    "name": "Bounty Hunter",
+                    "notes": [
+                        {
+                            "note": "Jinada slow reduced from 25\/27\/29\/31% to 18\/22\/26\/30%",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "lich"
+                    ],
+                    "name": "Lich",
+                    "notes": [
+                        {
+                            "note": "Sacrifice Cooldown increased from 44\/36\/28\/20 to 60\/50\/40\/30",
+                            "detail": []
+                        },
+                        {
+                            "note": "Sacrifice Mana restore increased from 25\/40\/55\/70% to 30\/50\/70\/90%",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "items",
+            "name": "Items",
+            "data": [
+                {
+                    "id": [
+                        "armlet"
+                    ],
+                    "name": "Armlet of Mordiggian",
+                    "notes": [
+                        {
+                            "note": "Armlet's armor bonus is now granted after it is fully activated",
+                            "detail": []
+                        }
+                    ]
+                },
+                {
+                    "id": [
+                        "blade_mail"
+                    ],
+                    "name": "Blade Mail",
+                    "notes": [
+                        {
+                            "note": "Blade Mail cooldown increased from 13 to 18",
+                            "detail": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source": "http:\/\/store.steampowered.com\/news\/21660\/",
+    "version": "6.87b",
+    "date": "2016-04-29"
+}

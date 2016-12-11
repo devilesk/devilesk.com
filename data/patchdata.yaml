@@ -3216,7 +3216,7 @@
     - id: zuus
       name: Zeus
   - id: mjollnir
-    name: Mjollnir
+    name: Items
     submenu: []
   sections:
   - data: []
@@ -9228,7 +9228,7 @@
     - id: undying
       name: Undying
   - id: mekansm
-    name: Mekansm
+    name: Items
     submenu: []
   sections:
   - data:
@@ -10842,3 +10842,6323 @@
     name: Items
   source: http://store.steampowered.com/news/19087/
   version: 6.85b
+'6.86':
+  date: '2015-12-16'
+  menu:
+  - id: ''
+    name: General
+    submenu: []
+  - id: alchemist
+    name: Heroes A&ndash;B
+    submenu:
+    - id: alchemist
+      name: Alchemist
+    - id: bane
+      name: Bane
+    - id: batrider
+      name: Batrider
+    - id: beastmaster
+      name: Beastmaster
+    - id: bloodseeker
+      name: Bloodseeker
+    - id: bounty_hunter
+      name: Bounty Hunter
+    - id: brewmaster
+      name: Brewmaster
+    - id: bristleback
+      name: Bristleback
+    - id: broodmother
+      name: Broodmother
+  - id: centaur
+    name: Heroes C&ndash;D
+    submenu:
+    - id: centaur
+      name: Centaur Warrunner
+    - id: chaos_knight
+      name: Chaos Knight
+    - id: chen
+      name: Chen
+    - id: clinkz
+      name: Clinkz
+    - id: rattletrap
+      name: Clockwerk
+    - id: crystal_maiden
+      name: Crystal Maiden
+    - id: dark_seer
+      name: Dark Seer
+    - id: dazzle
+      name: Dazzle
+    - id: death_prophet
+      name: Death Prophet
+    - id: doom_bringer
+      name: Doom
+    - id: dragon_knight
+      name: Dragon Knight
+    - id: drow_ranger
+      name: Drow Ranger
+  - id: earth_spirit
+    name: Heroes E&ndash;J
+    submenu:
+    - id: earth_spirit
+      name: Earth Spirit
+    - id: elder_titan
+      name: Elder Titan
+    - id: ember_spirit
+      name: Ember Spirit
+    - id: enchantress
+      name: Enchantress
+    - id: enigma
+      name: Enigma
+    - id: faceless_void
+      name: Faceless Void
+    - id: gyrocopter
+      name: Gyrocopter
+    - id: huskar
+      name: Huskar
+    - id: invoker
+      name: Invoker
+    - id: jakiro
+      name: Jakiro
+  - id: keeper_of_the_light
+    name: Heroes K&ndash;L
+    submenu:
+    - id: keeper_of_the_light
+      name: Keeper of the Light
+    - id: kunkka
+      name: Kunkka
+    - id: legion_commander
+      name: Legion Commander
+    - id: life_stealer
+      name: Lifestealer
+    - id: lion
+      name: Lion
+    - id: lone_druid
+      name: Lone Druid
+    - id: luna
+      name: Luna
+    - id: lycan
+      name: Lycan
+  - id: magnataur
+    name: Heroes M&ndash;O
+    submenu:
+    - id: magnataur
+      name: Magnus
+    - id: medusa
+      name: Medusa
+    - id: meepo
+      name: Meepo
+    - id: mirana
+      name: Mirana
+    - id: morphling
+      name: Morphling
+    - id: naga_siren
+      name: Naga Siren
+    - id: furion
+      name: Nature's Prophet
+    - id: necrolyte
+      name: Necrophos
+    - id: night_stalker
+      name: Night Stalker
+    - id: nyx_assassin
+      name: Nyx Assassin
+    - id: ogre_magi
+      name: Ogre Magi
+    - id: oracle
+      name: Oracle
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: phantom_assassin
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phantom_assassin
+      name: Phantom Assassin
+    - id: phoenix
+      name: Phoenix
+    - id: puck
+      name: Puck
+    - id: pudge
+      name: Pudge
+    - id: pugna
+      name: Pugna
+    - id: queenofpain
+      name: Queen of Pain
+    - id: riki
+      name: Riki
+    - id: rubick
+      name: Rubick
+  - id: sand_king
+    name: Heroes S
+    submenu:
+    - id: sand_king
+      name: Sand King
+    - id: shadow_demon
+      name: Shadow Demon
+    - id: nevermore
+      name: Shadow Fiend
+    - id: shadow_shaman
+      name: Shadow Shaman
+    - id: silencer
+      name: Silencer
+    - id: skywrath_mage
+      name: Skywrath Mage
+    - id: slardar
+      name: Slardar
+    - id: storm_spirit
+      name: Storm Spirit
+    - id: sven
+      name: Sven
+  - id: templar_assassin
+    name: Heroes T
+    submenu:
+    - id: templar_assassin
+      name: Templar Assassin
+    - id: terrorblade
+      name: Terrorblade
+    - id: tidehunter
+      name: Tidehunter
+    - id: shredder
+      name: Timbersaw
+    - id: tinker
+      name: Tinker
+    - id: tiny
+      name: Tiny
+    - id: treant
+      name: Treant Protector
+    - id: troll_warlord
+      name: Troll Warlord
+    - id: tusk
+      name: Tusk
+  - id: undying
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: undying
+      name: Undying
+    - id: ursa
+      name: Ursa
+    - id: vengefulspirit
+      name: Vengeful Spirit
+    - id: venomancer
+      name: Venomancer
+    - id: visage
+      name: Visage
+    - id: warlock
+      name: Warlock
+    - id: weaver
+      name: Weaver
+    - id: windrunner
+      name: Windranger
+    - id: winter_wyvern
+      name: Winter Wyvern
+    - id: witch_doctor
+      name: Witch Doctor
+    - id: skeleton_king
+      name: Wraith King
+  - id: abyssal_blade
+    name: Items A&ndash;B
+    submenu:
+    - id: abyssal_blade
+      name: Abyssal Blade
+    - id: courier
+      name: Animal Courier
+    - id: arcane_boots
+      name: Arcane Boots
+    - id: assault
+      name: Assault Cuirass
+    - id: blade_mail
+      name: Blade Mail
+    - id: boots
+      name: Boots of Speed
+    - id: bottle
+      name: Bottle
+    - id: butterfly
+      name: Butterfly
+  - id: clarity
+    name: Items C&ndash;E
+    submenu:
+    - id: clarity
+      name: Clarity
+    - id: cloak
+      name: Cloak
+    - id: crimson_guard
+      name: Crimson Guard
+    - id: greater_crit
+      name: Daedalus
+    - id: diffusal_blade
+      name: Diffusal Blade
+    - id: ancient_janggo
+      name: Drum of Endurance
+    - id: ethereal_blade
+      name: Ethereal Blade
+  - id: flying_courier
+    name: Items F&ndash;L
+    submenu:
+    - id: flying_courier
+      name: Flying Courier
+    - id: glimmer_cape
+      name: Glimmer Cape
+    - id: heart
+      name: Heart of Tarrasque
+    - id: helm_of_the_dominator
+      name: Helm of the Dominator
+    - id: hood_of_defiance
+      name: Hood of Defiance
+    - id: branches
+      name: Iron Branch
+    - id: javelin
+      name: Javelin
+    - id: sphere
+      name: Linken's Sphere
+  - id: mantle
+    name: Items M&ndash;O
+    submenu:
+    - id: mantle
+      name: Mantle of Intelligence
+    - id: monkey_king_bar
+      name: Monkey King Bar
+    - id: necronomicon
+      name: Necronomicon
+    - id: ward_observer
+      name: Observer Ward
+    - id: octarine_core
+      name: Octarine Core
+    - id: orb_of_venom
+      name: Orb of Venom
+    - id: ward_observer_ward_sentry
+      name: Observer & Sentry Wards
+  - id: phase_boots
+    name: Items P&ndash;R
+    submenu:
+    - id: phase_boots
+      name: Phase Boots
+    - id: power_treads
+      name: Power Treads
+    - id: quelling_blade
+      name: Quelling Blade
+    - id: ring_of_protection
+      name: Ring of Protection
+    - id: rod_of_atos
+      name: Rod of Atos
+  - id: sange
+    name: Items S
+    submenu:
+    - id: sange
+      name: Sange
+    - id: sange_and_yasha
+      name: Sange and Yasha
+    - id: satanic
+      name: Satanic
+    - id: sheepstick
+      name: Scythe of Vyse
+    - id: silver_edge
+      name: Silver Edge
+    - id: basher
+      name: Skull Basher
+    - id: smoke_of_deceit
+      name: Smoke of Deceit
+  - id: tango
+    name: Items T&ndash;Z
+    submenu:
+    - id: tango
+      name: Tango
+    - id: tranquil_boots
+      name: Tranquil Boots
+    - id: ultimate_orb
+      name: Ultimate Orb
+    - id: vanguard
+      name: Vanguard
+    - id: veil_of_discord
+      name: Veil of Discord
+    - id: vitality_booster
+      name: Vitality Booster
+    - id: yasha
+      name: Yasha
+  - id: faerie_fire
+    name: New Items
+    submenu:
+    - id: faerie_fire
+      name: Faerie Fire
+    - id: dragon_lance
+      name: Dragon Lance
+    - id: aether_lens
+      name: Aether Lens
+    - id: iron_talon
+      name: Iron Talon
+  - id: ''
+    name: Terrain
+    submenu: []
+  sections:
+  - data:
+    - id: []
+      name: General
+      notes:
+      - detail:
+        - Causes all spell cooldowns to be reduced by 30% and mana costs to be reduced
+          by 50%. Lasts for 50 seconds.
+        note: Added Arcane Rune
+      - detail:
+        - I.e. every 7 minutes 30 seconds
+        note: Creep bounty increases by 1 gold per normal upgrade cycle
+      - detail:
+        - Towers and Siege units do approximately 13% more damage to heroes.
+        - E.g. Level 1 towers' damage against heroes effectively increased from 82.5
+          to 93.5.
+        note: Siege damage against heroes increased from 75% to 85%
+      - detail: []
+        note: Hero base HP increased from 150 to 180
+      - detail: []
+        note: Creeps now arrive slightly closer to the top dire tower and bottom Radiant
+          tower
+      - detail: []
+        note: Random Draft hero pool increased from 24 to 50
+      - detail: []
+        note: Added Random Draft to Ranked Matchmaking
+      - detail: []
+        note: Random Draft now uses the same picking mechanics as Ranked All Pick
+      - detail:
+        - This is the small neutral from the Centaur Camp.
+        note: Centaur Courser now has a stacking magic resistance aura (20% for units,
+          5% for heroes)
+      - detail:
+        - This is the small neutral from the Hellbear Camp.
+        note: Hellbear now has a stacking magic resistance aura (20% for units, 5%
+          for heroes)
+      - detail: []
+        note: Dragonhide Aura's stackable armor increased from 2 to 3
+      - detail: []
+        note: Ancient Dragons armor reduced by 1
+      - detail: []
+        note: Ancient neutrals now behave like normal neutrals and split experience
+          with all heroes in the AoE
+      - detail:
+        - Fireball
+        - =======
+        - Targets an area and hurls a fire blast towards it, igniting the 300 AoE
+          area for 10 seconds. Deals 85 damage per second.
+        - 'Cooldown: 10'
+        - 'Mana cost: 100'
+        - 'Cast Range: 1000.'
+        note: Added a new ability to Ancient Black Dragon, Fireball
+      - detail: []
+        note: Ancient Thunderhide's Frenzy is now unit targetable
+      - detail: []
+        note: Hill Troll Priest's Mana Aura increased from 2 to 3
+      - detail: []
+        note: Satyr Banisher's Purge cooldown reduced from 5 to 3 seconds
+      - detail: []
+        note: Satyr Tormenter's Unholy Aura HP regen increased from 4 to 6
+      - detail: []
+        note: Satyr Tormenter's Shockwave distance increased from 800 to 1200
+      - detail: []
+        note: Satyr Tormenter's Shockwave speed reduced from 1050 to 900
+      - detail: []
+        note: Satyr Tormenter's Shockwave damage increased 125 to 160
+      - detail: []
+        note: Dark Troll Summoner's and Hill Troll's attack range reduced from 500
+          to 400
+      - detail: []
+        note: Dark Troll Summoner's attack damage increased by 6
+      - detail: []
+        note: Roshan's base armor increased by 1
+      - detail: []
+        note: Roshan's Base Attack Time increased from 1.0 to 2.0
+      - detail:
+        - He still attacks at the same rate, but is affected less by negative attack
+          speed.
+        note: Roshan now has +100 Attack Speed
+      - detail: []
+        note: Added a Patrol command
+      - detail: []
+        note: You are now able to bring up the targeting cursor when silenced, and
+          instead get the error upon targeting rather than clicking the button
+      - detail:
+        - Abilities like Frost Nova, Storm Bolt, etc.
+        note: Single Target with AoE effects now have a new targeting UI
+      - detail: []
+        note: Ranked All Pick initial pre-picking time reduced from 15 to 5
+      - detail: []
+        note: Towers no longer have a very minor experience bounty (previously was
+          25 XP that split evenly in an area)
+      - detail:
+        - 'Removed the Light attack type and moved the following units to the Standard
+          attack type (effectively 40->50% vs structures): Centaur Conqueror, Hellbear,
+          Hellbear Smasher, Wildwind Ripper, Satyr Tormenter, Ancient Granite Golem,
+          Ancient Black Dragon, Forged Spirits, Spiderlings, and Warlock''s Golems.'
+        - 'Removed the Weak armor type and moved the following unit to the Soft armor
+          type (same as creeps): Beastmster''s Hawk'
+        - 'Combined the Basic and Strong Armor types (like various other neutrals
+          use): Kobold Soldier, Vhoul Assassin, Ghost, Hill Troll Berserker, Hill
+          Troll Priest, Harpy Scout, Harpy Stormcrafter, Beastmaster''s Boar, Undying''s
+          Tombstone, Pugna''s Netherward, Templar Assassin''s Psionic Trap, Techies''
+          Land Mine, Techies'' Stasis Trap, and Techies'' Remote Mine.'
+        note: Simplified some minor damage and armor types
+    id: general
+    name: General
+  - data:
+    - id:
+      - alchemist
+      name: Alchemist
+      notes:
+      - detail: []
+        note: Greevil's Greed Bounty Rune multiplier rescaled from 5x to 3/4/5/6x
+      - detail: []
+        note: Fixed Greevil's Greed granting full gold during Buyback gold penalty
+          phase
+    - id:
+      - bane
+      name: Bane
+      notes:
+      - detail: []
+        note: Movement speed reduced from 315 to 310
+    - id:
+      - batrider
+      name: Batrider
+      notes:
+      - detail: []
+        note: Base HP regeneration increased from 0.25 to 2.0
+      - detail: []
+        note: Flamebreak mana cost reduced from 140 to 110/120/130/140
+    - id:
+      - beastmaster
+      name: Beastmaster
+      notes:
+      - detail: []
+        note: Wild Axes no longer has unit targeting
+      - detail: []
+        note: Call of the Wild cooldown rescaled from 40 to 42/38/34/30
+    - id:
+      - bloodseeker
+      name: Bloodseeker
+      notes:
+      - detail: []
+        note: Blood Rite cooldown rescaled from 29/26/23/20 to 30/25/20/15
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Jinada movement and attack speed reduction increased from 25% to 25/27/29/31%
+    - id:
+      - brewmaster
+      name: Brewmaster
+      notes:
+      - detail: []
+        note: Drunken Haze cooldown reduced from 8 to 8/7/6/5
+      - detail: []
+        note: Primal Split's Dispel Magic damage to summons increased from 200 to
+          500
+      - detail: []
+        note: Primal Split's Dispel Magic cooldown reduced from 6 to 4
+      - detail: []
+        note: Primal Split's Wind Walk cooldown reduced from 7 to 5
+    - id:
+      - bristleback
+      name: Bristleback
+      notes:
+      - detail:
+        - Nasal Goo is no longer targeted, instead it applies Goo to all enemies around
+          you in 600 AoE when casted
+        note: Added Scepter to Bristleback
+      - detail: []
+        note: Nasal Goo mana cost reduced from 30 to 25
+      - detail: []
+        note: Quill Spray max damage increased from 400 to 450
+    - id:
+      - broodmother
+      name: Broodmother
+      notes:
+      - detail: []
+        note: Spawn Spiderlings damage reduced from 75/150/225/300 to 70/140/210/280
+    - id:
+      - centaur
+      name: Centaur Warrunner
+      notes:
+      - detail: []
+        note: Return damage increased from 30/42/54/66 to 30/45/60/75%
+    - id:
+      - chaos_knight
+      name: Chaos Knight
+      notes:
+      - detail: []
+        note: Reality Rift bonus damage increased from 60/80/100/120 to 60/100/140/180
+    - id:
+      - chen
+      name: Chen
+      notes:
+      - detail: []
+        note: Base strength increased from 20 to 23
+      - detail: []
+        note: Penitence mana cost reduced from 100 to 70
+      - detail: []
+        note: Penitence duration increased from 5/6/7/8 to 8
+    - id:
+      - clinkz
+      name: Clinkz
+      notes:
+      - detail: []
+        note: Agility growth increased from 3 to 3.3
+    - id:
+      - rattletrap
+      name: Clockwerk
+      notes:
+      - detail: []
+        note: Strength growth increased from 2.7 to 2.9
+      - detail: []
+        note: Power Cogs now spawn in a circle rather than a rectangle
+    - id:
+      - crystal_maiden
+      name: Crystal Maiden
+      notes:
+      - detail: []
+        note: Crystal Nova cooldown reduced from 13 to 12
+      - detail: []
+        note: Arcane Aura level 4 mana regen increased from 2.5/5 (allies/self) to
+          3/6
+    - id:
+      - dark_seer
+      name: Dark Seer
+      notes:
+      - detail: []
+        note: Base intelligence reduced from 27 to 25
+      - detail: []
+        note: Ion Shell is now purgeable
+    - id:
+      - dazzle
+      name: Dazzle
+      notes:
+      - detail: []
+        note: Poison Touch mana cost reduced from 100 to 70
+      - detail: []
+        note: Shallow Grave cast point increased from 0.3 to 0.35
+      - detail: []
+        note: Shallow Grave mana cost increased from 140/130/120/110 to 150
+      - detail: []
+        note: Weave no longer provides 800 flying vision. Now provides ground vision
+          for the AoE of the ability for 3 seconds
+    - id:
+      - death_prophet
+      name: Death Prophet
+      notes:
+      - detail:
+        - 'Due to hero redesigns, the following heroes have been removed from Captain''s
+          Mode for a short period: Death Prophet, Doom, Faceless Void, Lone Druid,
+          Riki and Winter Wyvern.'
+        - Most of these will return to Captain's Mode in a subsequent 6.86b/c patch.
+        note: Temporarily removed from Captain's Mode
+      - detail:
+        - Spirit Siphon
+        - =======
+        - Creates a spirit link between you and the target, draining 20 + 1/1.8/2.6/3.4%
+          Max HP per second and slowing movement speed by 6/10/14/18%. Lasts 4 seconds.
+        - 'Cast Range: 500'
+        - 'Buffer Distance: 300'
+        - Has 1/2/3/4 charges, 45 second replenish.
+        - A unit cannot be affected by multiple instances at the same time. Cannot
+          target Roshan.
+        - 'Mana cost: 70/65/60/55'
+        note: Replaced Witchcraft with a new ability, Spirit Siphon
+      - detail: []
+        note: Base movement speed increased from 280 to 310
+      - detail: []
+        note: Crypt Swarm cooldown reduced from 8 to 8/7/6/5
+      - detail: []
+        note: Silence cooldown reduced from 15 to 15/14/13/12
+      - detail: []
+        note: Exorcism spirit count increased from 8/14/21 to 8/16/24
+      - detail: []
+        note: Exorcism spawn rate decreased from 1 ghost per 0.1 seconds to 0.3 seconds
+    - id:
+      - doom_bringer
+      name: Doom
+      notes:
+      - detail:
+        - 'Due to hero redesigns, the following heroes have been removed from Captain''s
+          Mode for a short period: Death Prophet, Doom, Faceless Void, Lone Druid,
+          Riki and Winter Wyvern.'
+        - Most of these will return to Captain's Mode in a subsequent 6.86b/c patch.
+        note: Temporarily removed from Captain's Mode
+      - detail:
+        - Infernal Blade
+        - =======
+        - Passive/autocast attack ability. Ministuns for 0.3 seconds and applies a
+          4 second burn that deals 40 + 1.25/2.5/3.75/5% Max HP as magic damage.
+        - 'Cooldown: 16/12/8/4'
+        - 'Mana cost: 40'
+        note: Replaced Level Death with a new ability, Infernal Blade
+      - detail: []
+        note: Base Attack Time increased from 1.7 to 2.0
+      - detail: []
+        note: Scorched Earth damage/heal reduced from 12/23/34/45 to 10/20/30/40
+      - detail: []
+        note: Scorched Earth movement speed from 16% to 14%
+      - detail: []
+        note: Doom cooldown increased from 100 to 125
+    - id:
+      - dragon_knight
+      name: Dragon Knight
+      notes:
+      - detail: []
+        note: Dragon Blood HP regen increased from 2/3/4/5 to 3/6/9/12
+      - detail:
+        - Same AoE as the splash damage
+        note: Elder Dragon Form Frost AoE increased from 250 to 300
+    - id:
+      - drow_ranger
+      name: Drow Ranger
+      notes:
+      - detail: []
+        note: Added Scepter to Drow Ranger
+      - detail: []
+        note: Marksmanship now causes her attacks to splinter on the target and split
+          into two arrows affecting two random units in a 375 radius. The splintered
+          arrows deal 50% damage each. Primary target still takes full damage.
+      - detail: []
+        note: The split arrows act as normal attacks, carrying all attack modifiers.
+    - id:
+      - earth_spirit
+      name: Earth Spirit
+      notes:
+      - detail: []
+        note: Enabled Earth Spirit in Captain's Mode
+      - detail: []
+        note: Intelligence growth reduced from 2.4 to 2.1
+      - detail: []
+        note: Boulder Smash stun AoE reduced from 200 to 160
+      - detail: []
+        note: Geomagnetic Grip can now only pull allied heroes when using Scepter
+    - id:
+      - elder_titan
+      name: Elder Titan
+      notes:
+      - detail: []
+        note: Earth Splitter damage rescaled from 35% to 30/40/50%
+      - detail: []
+        note: Earth Splitter mana cost rescaled from 175 to 125/175/225
+      - detail: []
+        note: Earth Splitter's physical damage component is no longer reduced by Damage
+          Block
+    - id:
+      - ember_spirit
+      name: Ember Spirit
+      notes:
+      - detail: []
+        note: Fire Remnants no longer give vision
+    - id:
+      - enchantress
+      name: Enchantress
+      notes:
+      - detail: []
+        note: Enchant cooldown reduced from 30/25/20/15 to 30/24/18/12
+    - id:
+      - enigma
+      name: Enigma
+      notes:
+      - detail: []
+        note: Eidolon movement speed increased from 250/250/260/260 to 260/280/300/320
+      - detail: []
+        note: Malefice damage increased from 25/40/55/70 to 30/50/70/90
+      - detail: []
+        note: Black Hole cooldown reduced from 200/190/180 to 200/180/160
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail:
+        - 'Due to hero redesigns, the following heroes have been removed from Captain''s
+          Mode for a short period: Death Prophet, Doom, Faceless Void, Lone Druid,
+          Riki and Winter Wyvern.'
+        - Most of these will return to Captain's Mode in a subsequent 6.86b/c patch.
+        note: Temporarily removed from Captain's Mode
+      - detail:
+        - Time Dilation
+        - =======
+        - Applies a debuff to all nearby enemies (650 AoE) for 6/7/8/9 seconds. Causes
+          time to be frozen on all enemy abilities, causing their cooldowns to make
+          no progress while they have this debuff. Slows movement and attack speed
+          by 4/6/8/10% for each locked ability.
+        - 'Cooldown: 34/28/22/16'
+        - 'Mana cost: 50'
+        note: Replaced Backtrack with a new ability, Time Dilation
+      - detail: []
+        note: Timewalk no longer slows units
+      - detail: []
+        note: Timewalk now undoes any damage taken in the last 2 seconds
+      - detail: []
+        note: Timewalk cooldown rescaled from 19/17/15/13 to 24/18/12/6
+      - detail: []
+        note: Timewalk mana cost reduced from 90 to 40
+      - detail: []
+        note: Timewalk range reduced from 700/900/1100/1300 to 550
+      - detail: []
+        note: Timewalk cast point reduced from 0.35 to 0.2
+    - id:
+      - gyrocopter
+      name: Gyrocopter
+      notes:
+      - detail: []
+        note: Call Down's first missile damage reduced from 250/300/350 to 220/285/350
+    - id:
+      - huskar
+      name: Huskar
+      notes:
+      - detail: []
+        note: Berserker's Blood bonuses are provided linearly from full until 10%
+          HP (rather than stepwise at 7% increments)
+      - detail: []
+        note: Berserker's Blood maximum magic resistance reduced from 42/56/70/84%
+          to 20/30/40/50%
+    - id:
+      - invoker
+      name: Invoker
+      notes:
+      - detail: []
+        note: Invoker now starts with Invoke Level 1 at the beginning of the game
+      - detail: []
+        note: Invoke now has the standard 6/11/16 leveling
+      - detail: []
+        note: Level 25 invoker (since he is now missing an ability level) has an attribute
+          bonus ability that grants 6 all stats
+    - id:
+      - jakiro
+      name: Jakiro
+      notes:
+      - detail: []
+        note: Base damage increased by 7
+    - id:
+      - keeper_of_the_light
+      name: Keeper of the Light
+      notes:
+      - detail: []
+        note: Chakra Magic cooldown reduction increased from 2/3/4/5 to 3/4/5/6
+      - detail: []
+        note: Chakra Magic buff duration increased from 12 to 15 seconds
+      - detail: []
+        note: Chakra Magic now restores and increases mana capacity by 75/150/225/300
+    - id:
+      - kunkka
+      name: Kunkka
+      notes:
+      - detail:
+        - Ghost Ship now drags enemies within a 200 AoE of it towards the crash site.
+          It now starts from where you are, rather than behind you, lands in the same
+          position it normally would have.
+        - 'Enemies are still able to perform actions while being pulled by the Ghost
+          Ship. '
+        - Works similiar to Drow Ranger's Gust knockback
+        note: Added Scepter to Kunkka
+      - detail: []
+        note: Torrent now gives your team vision over target area immediately upon
+          cast, rather than just when triggering
+      - detail: []
+        note: Tidebringer is now an autocast ability, will only trigger if turned
+          on or cast directly on the target
+      - detail: []
+        note: Tidebringer damage bonus increased from 20/35/50/65 to 25/40/55/70
+      - detail: []
+        note: Tidebringer AoE from rescaled 500/500/500/600 to 450/500/550/600
+      - detail: []
+        note: Ghost Ship mana cost reduced from 150/200/250 to 125/175/225
+    - id:
+      - legion_commander
+      name: Legion Commander
+      notes:
+      - detail: []
+        note: Moment of Courage cooldown reduced from 2.7/2.1/1.5/0.9 to 2.6/2.0/1.4/0.8
+      - detail: []
+        note: Legion Commander's Scepter now makes you and your target immune to all
+          damage unless the source is between the Duel participants.
+      - detail: []
+        note: Legion Commander's Scepter duration is now 4.75/5.5/6.25
+    - id:
+      - life_stealer
+      name: Lifestealer
+      notes:
+      - detail: []
+        note: Rage attack speed bonus increased from 30/45/60/80 to 50/60/70/80
+      - detail: []
+        note: Feast damage and lifesteal increased from 4/5/6/7% to 4.5/5.5/6.5/7.5%
+      - detail: []
+        note: Infest cooldown reduced from 100 to 100/75/50
+    - id:
+      - lion
+      name: Lion
+      notes:
+      - detail: []
+        note: Earth Spike mana cost reduced from 100/120/145/170 to 100/120/140/160
+      - detail: []
+        note: Earth Spike duration increased from 1.02/1.52/2.02/2.52 to 1.1/1.6/2.1/2.6
+      - detail: []
+        note: Mana Drain reduced cooldown from 20/15/10/5 to 16/12/8/4
+    - id:
+      - lone_druid
+      name: Lone Druid
+      notes:
+      - detail:
+        - 'Due to hero redesigns, the following heroes have been removed from Captain''s
+          Mode for a short period: Death Prophet, Doom, Faceless Void, Lone Druid,
+          Riki and Winter Wyvern.'
+        - Most of these will return to Captain's Mode in a subsequent 6.86b/c patch.
+        note: Temporarily removed from Captain's Mode
+      - detail:
+        - Savage Roar
+        - =======
+        - Causes enemies in a 325 AoE around you or your bear to run away with 20%
+          movement speed bonus for 1.2/1.6/2/2.4 seconds towards their fountain.
+        - 'Cooldown: 28/24/20/16'
+        - 'Mana cost: 50'
+        - 'Note: An entangled hero will not be able to move still. Spirit Bear also
+          has this ability, but the cooldown is shared with your hero.'
+        note: Replaced Synergy with a new ability for Lone Druid, Savage Roar
+      - detail: []
+        note: Spirit Bear attack damage increased from 33 to 35/45/55/65
+      - detail: []
+        note: Spirit Bear movement speed increased from 320/320/330/340 to 320/330/340/350
+      - detail: []
+        note: Rabid duration increased from 10 to 18/22/26/30
+      - detail: []
+        note: Rabid movement speed increased from 5/10/15/20% to 10/15/20/25%
+      - detail: []
+        note: True Form Health Bonus increased from 250/400/600 to 300/600/900
+    - id:
+      - luna
+      name: Luna
+      notes:
+      - detail: []
+        note: Turn rate increased from 0.4 to 0.6
+      - detail: []
+        note: Eclipse Scepter beam interval reduced from 0.6 to 0.3
+    - id:
+      - lycan
+      name: Lycan
+      notes:
+      - detail: []
+        note: Lycan Wolves and Shapeshift no longer grant critical strike
+      - detail: []
+        note: Lycan Wolves now gain Cripple at level 2, granting a 20% chance to cripple
+          the target, causing it to take 8 damage per second and lose 40 Attack Speed
+          for 4 seconds.
+      - detail: []
+        note: Shapeshift now grants all units under your control a 40% chance for
+          1.4/1.6/1.8x critical strike
+    - id:
+      - magnataur
+      name: Magnus
+      notes:
+      - detail:
+        - Changes Empower to be an allied hero aura. Affects ranged heroes for half
+          cleave values and causes them to deal splash damage around the target in
+          a 200 AoE.
+        - Can still be cast on units, but does not stack.
+        note: Added Scepter to Magnus
+      - detail: []
+        note: Skewer distance increased from 750/900/1050/1200 to 900/1000/1100/1200
+      - detail: []
+        note: Skewer slow reduced from 40% to 25/30/35/40%
+      - detail: []
+        note: Skewer slow duration increased from 2.5 to 2.5/2.75/3/3.25 seconds
+    - id:
+      - medusa
+      name: Medusa
+      notes:
+      - detail: []
+        note: Mystic Snake no longer increases manasteal per jump
+      - detail: []
+        note: Mystic Snake manasteal is now 11/14/17/20% of total mana
+    - id:
+      - meepo
+      name: Meepo
+      notes:
+      - detail: []
+        note: Double Damage no longer affects all Meepo units
+    - id:
+      - mirana
+      name: Mirana
+      notes:
+      - detail: []
+        note: Attack range increased from 600 to 630
+      - detail: []
+        note: Starstorm radius increased from 625 to 650
+      - detail: []
+        note: Sacred Arrow now instantly kills the first unit it hits if it is a non-ancient
+          creep
+    - id:
+      - morphling
+      name: Morphling
+      notes:
+      - detail: []
+        note: Adaptive Strike base damage increased from 50/60/70/80 to 100
+      - detail: []
+        note: Adaptive Strike mana cost reduced from 100 to 100/90/80/70
+      - detail: []
+        note: Morph rate increased from 2/4/6/10 per second to 2/4/8/16
+      - detail:
+        - This change doesn't affect rate of change, just smoothness
+        note: Morph now shifts in intervals of 1 rather than 2
+      - detail: []
+        note: Hybrid cooldown reduced from 140 to 120
+    - id:
+      - naga_siren
+      name: Naga Siren
+      notes:
+      - detail: []
+        note: Base Intelligence increased from 18 + 1.95 to 21 + 2.0
+    - id:
+      - furion
+      name: Nature's Prophet
+      notes:
+      - detail: []
+        note: Base intelligence increased by 4
+      - detail:
+        - This means Greater Treant damage is increased from 84 to 96
+        note: Treant damage increased from 28 to 32
+    - id:
+      - necrolyte
+      name: Necrophos
+      notes:
+      - detail: []
+        note: Base armor increased by 1
+    - id:
+      - night_stalker
+      name: Night Stalker
+      notes:
+      - detail: []
+        note: Void slow at night reduced from 4 to 2.5/3/3.5/4 seconds
+    - id:
+      - nyx_assassin
+      name: Nyx Assassin
+      notes:
+      - detail: []
+        note: Nyx Impale duration increased from 1.27/1.77/2.27/2.77 to 1.6/2.0/2.4/2.8
+      - detail: []
+        note: Spiked Carapace cooldown reduced from 23/20/17/14 to 22/18/14/10
+    - id:
+      - ogre_magi
+      name: Ogre Magi
+      notes:
+      - detail: []
+        note: Base health regen increased from 2.5 to 3.5
+    - id:
+      - oracle
+      name: Oracle
+      notes:
+      - detail: []
+        note: Enabled Oracle in Captain's Mode
+      - detail: []
+        note: Fate's Edict cooldown rescaled from 12 to 16/13/10/7
+      - detail: []
+        note: Fate's Edict duration reduced from 3/4/5/6 to 3/3.5/4/4.5
+      - detail: []
+        note: Fate's Edict cast range rescaled from 700 to 500/600/700/800
+      - detail: []
+        note: Fortune's End mana cost reduced from 130 to 110
+      - detail:
+        - Does not root or hurt the ally, but purges and applies the effect in the
+          area
+        note: Fortune's End can now target allies
+      - detail:
+        - It previously continuously removed all debuffs including stuns
+        note: False Promise no longer continuously dispels after the initial cast
+      - detail: []
+        note: False Promise duration increased from 6/7/8 to 7/8/9
+      - detail: []
+        note: False Promise cooldown rescaled from 80/60/40 to 90/60/30
+      - detail: []
+        note: False Promise mana cost reduced from 200 to 100
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail:
+        - Astral Imprisonment now deals damage to enemies in an area around the target
+          when it ends. The target itself will also take damage, if it is an enemy.
+          Deals 75/150/225/300 magic damage. Affects a 400 area.
+        - You are only hurt once by this AoE with Scepter.
+        - No longer steals intelligence.
+        - Can now be targeted on creeps.
+        note: Reworked how Astral Imprisonment works
+      - detail: []
+        note: Astral Imprisonment cooldown rescaled from 18/16/14/12 to 20/17/14/11
+      - detail: []
+        note: Astral Imprisonment cast range rescaled from 500 to 450/500/550/600
+      - detail: []
+        note: Astral Imprisonment duration increased from 1/2/3/4 to 4
+      - detail: []
+        note: Essence Aura AoE reduced from 1000 to the standard 900 aura radius
+      - detail: []
+        note: Arcane Orb now steals 0/1/2/3 intelligence per hit for 40 seconds (heroes
+          only)
+      - detail: []
+        note: Outworld Devourer intelligence growth reduced from 3.3 to 2.7
+    - id:
+      - phantom_assassin
+      name: Phantom Assassin
+      notes:
+      - detail: []
+        note: Base Intelligence increased from 13 + 1 to 15 + 1.4
+    - id:
+      - phoenix
+      name: Phoenix
+      notes:
+      - detail: []
+        note: Sun Ray turn rate increased from 20 to 25
+      - detail: []
+        note: Supernova damage per second increased from 60/80/100 to 60/90/120
+    - id:
+      - puck
+      name: Puck
+      notes:
+      - detail: []
+        note: Illusory Orb mana cost reduced from 150 to 80/100/120/140
+      - detail: []
+        note: Illusory Orb cooldown increased from 11 to 14/13/12/11
+      - detail: []
+        note: Waning Rift cooldown reduced from 16 to 16/15/14/13
+      - detail: []
+        note: Waning Rift no longer only silences heroes
+    - id:
+      - pudge
+      name: Pudge
+      notes:
+      - detail:
+        - Reduces cooldown of Meat Hook to 4 seconds and increases damage from 360
+          to 475.
+        - 'Note: No longer grants previous Scepter bonuses.'
+        note: Reworked Scepter on Pudge
+      - detail: []
+        note: Dismember damage from 75/125/175 to 60/90/120 +30/40/50% of strength
+      - detail: []
+        note: Dismember now heals you for the damage it does
+    - id:
+      - pugna
+      name: Pugna
+      notes:
+      - detail: []
+        note: Decrepify no longer slows allies
+    - id:
+      - queenofpain
+      name: Queen of Pain
+      notes:
+      - detail: []
+        note: Scream of Pain damage reduced from 85/165/225/300 to 75/150/225/300
+      - detail: []
+        note: Sonic Wave travel speed reduced from 1100 to 900
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail:
+        - 'Due to hero redesigns, the following heroes have been removed from Captain''s
+          Mode for a short period: Death Prophet, Doom, Faceless Void, Lone Druid,
+          Riki and Winter Wyvern.'
+        - Most of these will return to Captain's Mode in a subsequent 6.86b/c patch.
+        note: Temporarily removed from Captain's Mode
+      - detail:
+        - Permanent Invisibility
+        - ============
+        - Riki grants 0.4/0.6/0.8/1.0 damage when attacking from behind.
+        - 'Invisibility Fade Time: 6/5/4/3 seconds'
+        - 'Note: No longer grants 6/8/10/12 HP regeneration'
+        note: Reworked Permanent Invisibility to include Backstab
+      - detail:
+        - 'Damage: 20/40/60/80'
+        - 'Cooldown: 16/12/8/4'
+        - 'Mana cost: 50'
+        note: Blink Strike back to basic ability without charges
+      - detail:
+        - Riki phases out of the world for up to 3/4/5 seconds, attacking every enemy
+          from behind in a 450 area around him. He attacks once when phasing out and
+          then once per second while being phased out.
+        - Can be cancelled any time.
+        - 'Cooldown: 90/80/70'
+        - 'Mana cost: 75'
+        - 'Cast Point: 0.4'
+        note: Added a new ultimate for Riki, Tricks of the Trade
+      - detail: []
+        note: Strength growth reduced from 2.0 to 1.6
+      - detail: []
+        note: Agility growth reduced from 2.9 to 2.2
+      - detail: []
+        note: Base armor reduced by 1
+      - detail: []
+        note: Smoke Screen no longer slows turn rates
+    - id:
+      - rubick
+      name: Rubick
+      notes:
+      - detail: []
+        note: Fade Bolt attack damage reduction increased from 14/20/26/32 to 20/25/30/35
+    - id:
+      - sand_king
+      name: Sand King
+      notes:
+      - detail:
+        - Doubles Burrowstrike cast range and applies Caustic Finale poison to heroes
+        - 'Note: No longer grants previous Scepter bonuses.'
+        note: Reworked Scepter on Sand King
+      - detail: []
+        note: Base strength increased from 18 to 21
+      - detail: []
+        note: Caustic Finale slow increased from 25% to 30%
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Disruption illusions duration from 5/6/7/8 to 6/8/10/12 seconds
+    - id:
+      - nevermore
+      name: Shadow Fiend
+      notes:
+      - detail:
+        - Requiem of Souls waves now return back to Shadow Fiend dealing 40% damage
+          on the way back.
+        - All of the damage the Requiem does to heroes on its way back heals you.
+        note: Added Scepter to Shadow Fiend
+      - detail: []
+        note: Base armor reduced by 1
+      - detail: []
+        note: Shadow Raze mana cost increased from 75 to 90
+    - id:
+      - shadow_shaman
+      name: Shadow Shaman
+      notes:
+      - detail: []
+        note: Shackles total damage increased from 120/180/240/300 to 120/200/280/360
+      - detail:
+        - Previously had 135/150/150 hp
+        note: Mass Serpent Wards require 2 hits to destroy
+    - id:
+      - silencer
+      name: Silencer
+      notes:
+      - detail:
+        - Arcane Curse
+        - =======
+        - Targets an area, causes enemies to take damage over time. Anytime they cast
+          a spell, the duration of the debuff is increased. If an enemy affected by
+          this debuff is silenced, the debuff will pause (no damage and no time elapses).
+        - 'Duration: 7 seconds'
+        - 'Stacking Duration: 4 seconds (anytime a spell is cast, this is added to
+          the duration)'
+        - 'DPS: 14/21/28/35'
+        - 'Cooldown: 18/16/14/12'
+        - 'Mana cost: 75/95/115/135'
+        - 'Radius: 425'
+        - Affects Creeps.
+        - 'Note: Spell cast means the same stuff as CotS rules were, stuff that procs
+          magic stick and isn''t an item.'
+        note: Replaced Curse of the Silent with a new ability, Arcane Curse
+      - detail: []
+        note: Glaives of Wisdom is no longer a Unique Attack Modifier
+    - id:
+      - skywrath_mage
+      name: Skywrath Mage
+      notes:
+      - detail: []
+        note: Concussive Shot mana cost reduced from 110 to 95
+    - id:
+      - slardar
+      name: Slardar
+      notes:
+      - detail: []
+        note: Amplify Damage now only reveals the target rather than the area around
+          it
+    - id:
+      - storm_spirit
+      name: Storm Spirit
+      notes:
+      - detail: []
+        note: Electric Vortex mana cost reduced from 100/110/120/130 to 85
+    - id:
+      - sven
+      name: Sven
+      notes:
+      - detail: []
+        note: Base damage increased by 4
+      - detail: []
+        note: God's Strength Scepter aura bonus damage increased from 50/75/100% to
+          75/100/125%
+    - id:
+      - templar_assassin
+      name: Templar Assassin
+      notes:
+      - detail: []
+        note: Refraction is now always visible
+    - id:
+      - terrorblade
+      name: Terrorblade
+      notes:
+      - detail: []
+        note: Enabled Terrorblade in Captain's Mode
+    - id:
+      - tidehunter
+      name: Tidehunter
+      notes:
+      - detail:
+        - Causes Gush to become a ground targeted wave ability that travels for 1800
+          range.
+        - 'AoE: 240'
+        - 'Projectile speed: 1500'
+        - 'Cooldown: 7'
+        note: Added Scepter to Tidehunter
+      - detail: []
+        note: Anchor Smash cast time reduced from 0.5 to 0.4
+      - detail: []
+        note: Ravage stun duration rescaled from 2.02/2.32/2.77 to 2.0/2.4/2.8
+    - id:
+      - shredder
+      name: Timbersaw
+      notes:
+      - detail: []
+        note: Whirling Death debuff duration increased from 7 to 11
+      - detail: []
+        note: Whirling Death mana cost decreased from 70/80/90/100 to 70
+      - detail: []
+        note: Reactive Armor duration rescaled from 16 to 14/16/18/20
+    - id:
+      - tinker
+      name: Tinker
+      notes:
+      - detail: []
+        note: Laser cast time improved from 0.53 to 0.4
+      - detail: []
+        note: Laser cast range increased from 550 to 650
+    - id:
+      - tiny
+      name: Tiny
+      notes:
+      - detail: []
+        note: Craggy Exterior now triggers on attacks landing, rather than on start
+    - id:
+      - treant
+      name: Treant Protector
+      notes:
+      - detail: []
+        note: Leech Seed mana cost reduced from 100/110/120/130 to 80/95/110/125
+      - detail: []
+        note: Overgrowth AoE increased from 675 to 800
+      - detail: []
+        note: Scepter Overgrowth damage and vision AoE increased from 700 to 800
+    - id:
+      - troll_warlord
+      name: Troll Warlord
+      notes:
+      - detail: []
+        note: Fervor reduced from 20/25/30/35 to 15/20/25/30
+      - detail: []
+        note: Fervor max stacks increased from 4 to 6
+      - detail: []
+        note: Ranged Whirling Axes cooldown reduced from 20/19/18/17 to 20/18/16/14
+    - id:
+      - tusk
+      name: Tusk
+      notes:
+      - detail: []
+        note: Movement speed reduced from 305 to 300
+      - detail: []
+        note: Ice Shards damage reduced from 70/140/210/280 to 60/120/180/240
+      - detail: []
+        note: Snowball can no longer pull units out of Blackhole or Chronosphere
+      - detail: []
+        note: Snowball gather radius reduced from 400 to 350
+    - id:
+      - undying
+      name: Undying
+      notes:
+      - detail: []
+        note: Tombstone Zombie damage reduced from 35 to 33
+      - detail: []
+        note: Tombstone bounty increased from 75/100/125/150 to 125/150/175/200
+      - detail: []
+        note: Tombstone no longer grants 44 XP
+    - id:
+      - ursa
+      name: Ursa
+      notes:
+      - detail:
+        - Allows you to cast your ultimate while disabled and reduces cooldown from
+          50/40/30 to 30/24/18 seconds.
+        note: Scepter added to Ursa
+      - detail: []
+        note: Enrage is no longer purgeable
+    - id:
+      - vengefulspirit
+      name: Vengeful Spirit
+      notes:
+      - detail:
+        - Causes you to spawn a Vengeance Illusion when you die. The Vengeance Illusion
+          deals 50% damage, takes 150% damage, and is able to use all of your abilities
+          (but not items). The Vengeance Illusion lasts until she revives.
+        - 'Note: Still grants previous Scepter bonuses to Netherswap.'
+        note: Added Scepter bonus to Vengeful Spirit
+    - id:
+      - venomancer
+      name: Venomancer
+      notes:
+      - detail: []
+        note: Venomous Gale cooldown reduced from 22 to 21/20/19/18
+    - id:
+      - visage
+      name: Visage
+      notes:
+      - detail: []
+        note: Stone Form AoE increased from 340 to 350
+    - id:
+      - warlock
+      name: Warlock
+      notes:
+      - detail: []
+        note: Base strength increased by 4
+      - detail: []
+        note: Shadow Word duration increased from 11 to 12 seconds
+    - id:
+      - weaver
+      name: Weaver
+      notes:
+      - detail: []
+        note: Base damage increased by 3
+      - detail: []
+        note: The Swarm Beetles' Base Attack Time improved from 1.4/1.25/1.1/0.95
+          to 1.25/1.1/0.95/0.8
+    - id:
+      - windrunner
+      name: Windranger
+      notes:
+      - detail: []
+        note: Shackleshot is now disjointable
+      - detail: []
+        note: Shackleshot speed increased from 1515 to 1650
+      - detail: []
+        note: Shackleshot angle reduced from 26 degrees to 23 degrees
+      - detail: []
+        note: Powershot speed no longer decreases by a small amount as it goes through
+          units
+    - id:
+      - winter_wyvern
+      name: Winter Wyvern
+      notes:
+      - detail:
+        - 'Due to hero redesigns, the following heroes have been removed from Captain''s
+          Mode for a short period: Death Prophet, Doom, Faceless Void, Lone Druid,
+          Riki and Winter Wyvern.'
+        - Most of these will return to Captain's Mode in a subsequent 6.86b/c patch.
+        note: Temporarily removed from Captain's Mode
+      - detail: []
+        note: Cold Embrace cooldown increased from 17/16/15/14 to 24/21/18/15
+      - detail: []
+        note: Arctic Burn slow reduced from 25/30/35/40% to 19/26/33/40%
+      - detail: []
+        note: Winter's Curse primary and secondary units are now immune to all damage
+          from their enemies
+      - detail: []
+        note: Winter's Curse secondary units now have 50 attack speed bonus
+      - detail: []
+        note: Winter's Curse AoE increased increased from 400 to 500
+      - detail: []
+        note: Winter's Curse cooldown increased from 110/100/90 to 120/110/100
+      - detail: []
+        note: Winter's Curse duration increased from 2.5/3/3.5 to 3.25/4/4.75
+      - detail: []
+        note: Fixed Winter's Curse lingering if the primary target died
+    - id:
+      - witch_doctor
+      name: Witch Doctor
+      notes:
+      - detail: []
+        note: Maledict mana cost reduced from 120 to 105/110/115/120
+      - detail: []
+        note: Maledict cast range increased from 525 to 575
+    - id:
+      - skeleton_king
+      name: Wraith King
+      notes:
+      - detail: []
+        note: Vampiric Aura can now be toggled to make the lifesteal for heroes only
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - abyssal_blade
+      name: Abyssal Blade
+      notes:
+      - detail: []
+        note: Bash damage increased from 60 to 120
+      - detail:
+        - 'The following items are related in their changes with bonus damage and
+          proc damage being modified: Abyssal Blade, Javelin, Monkey King Bar, and
+          Skull Basher'
+        note: 'Damage bonus decreased from 85 to 70 '
+    - id:
+      - courier
+      name: Animal Courier
+      notes:
+      - detail: []
+        note: Courier purchase cooldown increased from 7 seconds to 2 minutes
+      - detail: []
+        note: Animal Courier cost decreased from 120 to 100
+    - id:
+      - arcane_boots
+      name: Arcane Boots
+      notes:
+      - detail:
+        - 'This applies to the following:'
+        - Boots of Speed, Arcane Boots, Phase Boots, Power Treads and Tranquil Boots
+        note: Movement speed reduced by 5 and total cost reduced by 50 (see Boots
+          of Speed changes)
+    - id:
+      - assault
+      name: Assault Cuirass
+      notes:
+      - detail:
+        - Armor portion already affects buildings.
+        note: Attack speed aura bonus now affects buildings
+    - id:
+      - blade_mail
+      name: Blade Mail
+      notes:
+      - detail: []
+        note: Cooldown reduced from 15 to 13
+    - id:
+      - boots
+      name: Boots of Speed
+      notes:
+      - detail: []
+        note: Cost reduced from 450 to 400
+      - detail:
+        - 'This applies to the following:'
+        - Boots of Speed, Arcane Boots, Phase Boots, Power Treads and Tranquil Boots
+        note: Movement speed reduced by 5
+    - id:
+      - bottle
+      name: Bottle
+      notes:
+      - detail: []
+        note: Cost reduced from 700 to 660
+      - detail: []
+        note: Health regen per charge reduced from 110 to 90
+      - detail: []
+        note: Mana regen per charge reduced from 70 to 60
+      - detail: []
+        note: A charge now heals over 2.5 seconds instead of 3 seconds (total amount
+          is still 90/60)
+      - detail:
+        - As usual, if you use the item, you cannot sell it back for full price.
+        note: Added Bottle to Side Shop, starts with only 1 charge.
+    - id:
+      - butterfly
+      name: Butterfly
+      notes:
+      - detail: []
+        note: Flutter movement speed increased from 25 to 35%
+      - detail: []
+        note: Flutter duration reduced from 6 to 4 seconds
+    - id:
+      - clarity
+      name: Clarity
+      notes:
+      - detail:
+        - Same mana regen per second
+        note: Mana regeneration increased from 170 over 45 seconds to 190 over 50
+          seconds
+    - id:
+      - cloak
+      name: Cloak
+      notes:
+      - detail: []
+        note: Magic resistance reduced from 20% to 15%
+    - id:
+      - crimson_guard
+      name: Crimson Guard
+      notes:
+      - detail: []
+        note: Crimson Guard chance from 75% to block 40/20 to 100% to block 32/16
+      - detail: []
+        note: Cooldown reduced from 70 to 60
+    - id:
+      - greater_crit
+      name: Daedalus
+      notes:
+      - detail:
+        - Average damage increase from 35% to 36%
+        note: Critical Strike from 25% chance for 2.4x to 30% chance for 2.2x
+    - id:
+      - diffusal_blade
+      name: Diffusal Blade
+      notes:
+      - detail: []
+        note: Agility bonus increased from 20/35 to 25/35
+      - detail: []
+        note: Intelligence bonus increased from 6/10 to 10/15
+    - id:
+      - ancient_janggo
+      name: Drum of Endurance
+      notes:
+      - detail:
+        - Endurance is the active ability
+        note: Endurance bonus movement speed increased from 10% to 13%
+    - id:
+      - ethereal_blade
+      name: Ethereal Blade
+      notes:
+      - detail: []
+        note: Mana cost reduced from 150 to 100
+    - id:
+      - flying_courier
+      name: Flying Courier
+      notes:
+      - detail: []
+        note: Cost reduced from 220 to 200
+    - id:
+      - glimmer_cape
+      name: Glimmer Cape
+      notes:
+      - detail: []
+        note: Base magic resistance reduced from 20% to 15%
+    - id:
+      - heart
+      name: Heart of Tarrasque
+      notes:
+      - detail: []
+        note: HP regeneration increased from 4% to 4.75%
+    - id:
+      - helm_of_the_dominator
+      name: Helm of the Dominator
+      notes:
+      - detail:
+        - Dominate is the active ability
+        note: Dominate now sets the dominated creeps' base movement speed to 350
+    - id:
+      - hood_of_defiance
+      name: Hood of Defiance
+      notes:
+      - detail:
+        - Creates a spell shield on your hero that absorbs up to 325 magical damage.
+        - 'Duration: 12 seconds'
+        - 'Cooldown: 60 seconds'
+        - 'Mana cost: 75'
+        note: Hood of Defiance now has an active ability.
+    - id:
+      - branches
+      name: Iron Branch
+      notes:
+      - detail: []
+        note: Can now be used by targeting the ground, planting a happy little tree
+          that lasts 20 seconds. 200 Cast Range.
+    - id:
+      - javelin
+      name: Javelin
+      notes:
+      - detail:
+        - Pierce is the passive ability
+        note: Pierce improved from 20% to deal 40 damage to 25% to deal 85 bonus damage
+      - detail:
+        - 'The following items are related in their changes with bonus damage and
+          proc damage being modified: Abyssal Blade, Javelin, Monkey King Bar, and
+          Skull Basher'
+        note: Damage bonus reduced from 21 to 10
+    - id:
+      - sphere
+      name: Linken's Sphere
+      notes:
+      - detail: []
+        note: Cooldown reduced from 16 to 13
+      - detail: []
+        note: Damage bonus increased from 10 to 15
+    - id:
+      - mantle
+      name: Mantle of Intelligence
+      notes:
+      - detail: []
+        note: Removed from Side Shop
+    - id:
+      - monkey_king_bar
+      name: Monkey King Bar
+      notes:
+      - detail: []
+        note: Mini bash proc damage increased from 100 to 160
+      - detail:
+        - 'The following items are related in their changes with bonus damage and
+          proc damage being modified: Abyssal Blade, Javelin, Monkey King Bar, and
+          Skull Basher'
+        note: Damage bonus reduced from 88 to 66
+    - id:
+      - necronomicon
+      name: Necronomicon
+      notes:
+      - detail: []
+        note: Recipe cost reduced from 1250 to 1200
+      - detail: []
+        note: Necronomicon Archer attack range increased from 350/450/550 to 450/500/550
+    - id:
+      - ward_observer
+      name: Observer Ward
+      notes:
+      - detail: []
+        note: Experience bounty increased from 50 to 100
+    - id:
+      - octarine_core
+      name: Octarine Core
+      notes:
+      - detail: []
+        note: Now affects the replenish time of charged abilities
+    - id:
+      - orb_of_venom
+      name: Orb of Venom
+      notes:
+      - detail: []
+        note: Orb of Venom is no longer a Unique Attack Modifier
+    - id:
+      - phase_boots
+      name: Phase Boots
+      notes:
+      - detail: []
+        note: Phase active no longer cancels when casting
+      - detail:
+        - 'This applies to the following: Boots of Speed, Arcane Boots, Phase Boots,
+          Power Treads and Tranquil Boots'
+        note: Movement speed reduced by 5 and total cost reduced by 50 (see Boots
+          of Speed changes)
+    - id:
+      - power_treads
+      name: Power Treads
+      notes:
+      - detail:
+        - 'This applies to the following: Boots of Speed, Arcane Boots, Phase Boots,
+          Power Treads and Tranquil Boots'
+        note: Movement speed reduced by 5 and total cost reduced by 50 (see Boots
+          of Speed changes)
+    - id:
+      - quelling_blade
+      name: Quelling Blade
+      notes:
+      - detail: []
+        note: Cost reduced from 225 to 200
+    - id:
+      - ring_of_protection
+      name: Ring of Protection
+      notes:
+      - detail: []
+        note: Cost reduced from 200 to 175
+      - detail: []
+        note: Armor bonus reduced from 3 to 2
+    - id:
+      - rod_of_atos
+      name: Rod of Atos
+      notes:
+      - detail: []
+        note: Cripple cooldown increased from 10 to 12
+      - detail:
+        - This means that targets attacking that unit will not miss 40% of the time.
+        note: Cripple now grants units that attack the target 40% accuracy
+    - id:
+      - sange
+      name: Sange
+      notes:
+      - detail: []
+        note: Maim no longer pierces Spell Immunity
+    - id:
+      - sange_and_yasha
+      name: Sange and Yasha
+      notes:
+      - detail: []
+        note: Greater Maim no longer pierces Spell Immunity
+    - id:
+      - satanic
+      name: Satanic
+      notes:
+      - detail: []
+        note: Duration increased from 4 to 4.5
+    - id:
+      - sheepstick
+      name: Scythe of Vyse
+      notes:
+      - detail: []
+        note: Hex cooldown reduced from 30 to 25
+    - id:
+      - silver_edge
+      name: Silver Edge
+      notes:
+      - detail: []
+        note: Silver Edge debuff is no longer dispellable
+    - id:
+      - basher
+      name: Skull Basher
+      notes:
+      - detail: []
+        note: Strength bonus increased from 8 to 10
+      - detail: []
+        note: Bash damage increased from 60 to 120
+      - detail:
+        - 'The following items are related in their changes with bonus damage and
+          proc damage being modified: Abyssal Blade, Javelin, Monkey King Bar, and
+          Skull Basher'
+        note: Damage reduced from 25 to 10
+    - id:
+      - smoke_of_deceit
+      name: Smoke of Deceit
+      notes:
+      - detail: []
+        note: Cost reduced from 100 to 50
+    - id:
+      - tango
+      name: Tango
+      notes:
+      - detail: []
+        note: Boosted Tangoes now last for double the duration instead of providing
+          double the healing rate
+      - detail: []
+        note: Using Tango on Iron Branch trees provides double healing duration
+    - id:
+      - tranquil_boots
+      name: Tranquil Boots
+      notes:
+      - detail: []
+        note: Tranquil Boots armor reduced from 4 to 3
+      - detail:
+        - 'This applies to the following: Boots of Speed, Arcane Boots, Phase Boots,
+          Power Treads and Tranquil Boots'
+        note: Movement speed reduced by 5
+    - id:
+      - ultimate_orb
+      name: Ultimate Orb
+      notes:
+      - detail: []
+        note: Removed from Side Shop
+    - id:
+      - vanguard
+      name: Vanguard
+      notes:
+      - detail: []
+        note: Vanguard chance from 75% to block 40/20 to 100% to block 32/16
+    - id:
+      - veil_of_discord
+      name: Veil of Discord
+      notes:
+      - detail: []
+        note: Now requires 2x Robe of the Magi instead of a 900 recipe (Int bonus
+          increased by 12)
+    - id:
+      - vitality_booster
+      name: Vitality Booster
+      notes:
+      - detail: []
+        note: Added to Side Shop
+    - id:
+      - yasha
+      name: Yasha
+      notes:
+      - detail:
+        - Sange and Yasha and Manta are unchanged
+        note: Movement speed bonus reduced from 10% to 8%
+    - id:
+      - ward_observer
+      - ward_sentry
+      name: Observer & Sentry Wards
+      notes:
+      - detail:
+        - They also use a new UI for placement
+        note: Observer and Sentry Wards now have an AoE indicator before placing
+    id: items
+    name: Items
+  - data:
+    - id:
+      - faerie_fire
+      name: Faerie Fire
+      notes:
+      - detail:
+        - 'Costs: 75 gold'
+        - 'Provides: '
+        - + 2 Damage
+        - 'Use: Consume the Faerie Fire to restore 75 HP. Cooldown: 5 seconds.'
+        note: New consumable item, Faerie Fire
+    - id:
+      - dragon_lance
+      name: Dragon Lance
+      notes:
+      - detail:
+        - 'Requires:'
+        - Ogre Club (1000)
+        - Quarterstaff (875)
+        - 'Total: 1875'
+        - 'Provides:'
+        - + 10 Strength
+        - + 10 Attack Speed
+        - + 10 Damage
+        - + 130 Attack Range (ranged heroes only, does not stack)
+        - Can be disassembled.
+        note: New item formed from Ogre Club and Quarterstaff.
+    - id:
+      - aether_lens
+      name: Aether Lens
+      notes:
+      - detail:
+        - 'Requires:'
+        - Energy Booster (900)
+        - Ring of Health (850)
+        - Cloak (550)
+        - 'Total: 2300'
+        - 'Provides:'
+        - + 250 Mana
+        - + 8 HP Regeneration
+        - + 15 Magic Resistance
+        - + 200 Cast Range
+        - + 8% Spell Damage
+        - Cast range improvement affects targeted spells and distance related spells,
+          such as Venomous Gale. Does not affect AoE abilities like Poison Nova.
+        note: New item formed from Energy Booster, Ring of Health and Cloak.
+    - id:
+      - iron_talon
+      name: Iron Talon
+      notes:
+      - detail:
+        - 'Requires:'
+        - Quelling Blade (200)
+        - Ring of Protection (175)
+        - Recipe (125)
+        - 'Total: 500'
+        - 'Provides:'
+        - + 2 Armor
+        - Bonuses of Quelling Blade
+        - 'Active: Lets you target non-player enemy units to remove 40% of their current
+          HP. Cooldown: 14 seconds.'
+        - 'Note: Cannot target ancients. Has normal 4 second cooldown when used on
+          Trees.'
+        note: New item formed from Quelling Blade, Ring of Protection and a Recipe.
+    id: new_items
+    name: New Items
+  - data:
+    - id: []
+      name: Terrain
+      notes:
+      - detail: []
+        note: Added a new neutral hard camp for each team, near their respective Secret
+          Shops
+      - detail: []
+        note: Added a small ramp from the Radiant Secret Shop to the ward spot right
+          above it
+      - detail: []
+        note: Moved the Radiant hard camp closer to the Dire offlane
+      - detail: []
+        note: Swapped Medium and Hard camp in Radiant Jungle
+      - detail: []
+        note: Added a new pathway from Radiant mid to Radiant jungle
+      - detail: []
+        note: Added a ramp connecting the Radiant jungle to the area near Roshan
+      - detail: []
+        note: Created a walkable pathway to the Radiant rune ward
+      - detail: []
+        note: Created a new juke spot behind the Dire Secret Shop
+      - detail: []
+        note: Expanded Terrain around the top Tier 2 Radiant tower
+      - detail: []
+        note: Moved the bottom rune up a little bit
+      - detail: []
+        note: Radiant middle tier 1 tower has been moved back
+      - detail: []
+        note: Adjusted Radiant small camp spawn box
+      - detail: []
+        note: Added a new ward spot near the Radiant ancients (does not reveal top
+          rune)
+      - detail: []
+        note: Created a new pathway leading to the wardspot below the Radiant Secret
+          Shop
+      - detail: []
+        note: Moved the Radiant ramp leading to the top rune further away from the
+          rune (slightly closer to mid lane)
+      - detail: []
+        note: Moved the Dire ramp leading to the top rune closer up
+      - detail: []
+        note: Adjusted the terrain and the ramp going down from the Radiant Ancients
+          slightly
+      - detail: []
+        note: Improved jukability in the terrain around the Dire side shop
+      - detail: []
+        note: Added a path through the trees at Radiant offlane sideshop moving south
+          and added juke paths
+      - detail: []
+        note: Added a new ward spot to the right of the top tier 1 Radiant tower
+      - detail: []
+        note: Added a couple of trees to right of the ramp leading down from the Radiant
+          ancients (covering some vision to the left of it)
+      - detail: []
+        note: Dire is now able to enter the jungle through the middle Radiant ramp
+          and walk to the side without being in range to dispel their smoke
+      - detail: []
+        note: Added a new pathway above the top Dire side shop
+      - detail: []
+        note: Created a new pathway in the middle of the long column of trees at the
+          bottom Radiant Tier 2 area
+      - detail: []
+        note: Added a walkable path to the ward spot near bottom rune
+      - detail: []
+        note: Reduced the size of the pull camp box on the Dire safelane hard camp
+      - detail: []
+        note: Added a pathable walkway from the cliff above the top rune to the Dire
+          area to the right of it
+      - detail: []
+        note: Added a new pathway to the south of the bottom side shop
+      - detail: []
+        note: Added a couple of trees in the Dire base between the mid and top towers
+          along the ledge
+      - detail: []
+        note: Adjusted juke paths near the Radiant ward spot near the hard camp
+      - detail: []
+        note: Added a new juke spot to the south of the bottom Radiant hard camp
+      - detail: []
+        note: Added a hiding spot in the Dire middle lane near the edge of the Secret
+          Shop
+      - detail: []
+        note: Added some trees below the top Radiant T2 tower
+      - detail: []
+        note: Adjusted trees to the left of the Dire offlane (affecting visibility
+          of heroes coming from the left)
+      - detail: []
+        note: Added a pathway above the Radiant Ancient (leading up to the new ward
+          spot)
+      - detail: []
+        note: Adjusted Dire secret shop location slightly
+      - detail: []
+        note: Adjusted the terrain pathing a little bit around the loop where the
+          Radiant bottom left ward spot is
+      - detail: []
+        note: Adjusted tree layout of the high ground to the right of the Radiant
+          middle camp
+      - detail: []
+        note: Moved Radiant ramp to the bottom rune back a little bit
+      - detail: []
+        note: Added hiding spots in the clump of trees above the formerly Radiant
+          hard camp (now the Radiant medium camp)
+      - detail: []
+        note: Nudged the Radiant small camp down very slightly
+      - detail: []
+        note: Moved the Radiant mid medium camp down slightly and adjusted nearby
+          trees
+      - detail: []
+        note: Added a new hiding spot on the Dire bottom lane, in the area higher
+          ground to the right of the Dire Ancients
+      - detail: []
+        note: Adjusted the position of the Radiant middle ramp slightly
+      - detail: []
+        note: Added a new juke spot to the terrain to the right of the Radiant small
+          camp
+      - detail: []
+        note: Adjusted tree pathway and added a couple of hiding spots above the top
+          Dire T2 tower
+    id: terrain
+    name: Terrain
+  source: https://www.dota2.com/balanceofpower#GameplayUpdate686
+  version: '6.86'
+6.86b:
+  date: '2015-12-20'
+  menu:
+  - id: ''
+    name: ''
+    submenu: []
+  - id: death_prophet
+    name: Heroes C&ndash;D
+    submenu:
+    - id: death_prophet
+      name: Death Prophet
+  - id: faceless_void
+    name: Heroes E&ndash;J
+    submenu:
+    - id: faceless_void
+      name: Faceless Void
+  - id: obsidian_destroyer
+    name: Heroes M&ndash;O
+    submenu:
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: pudge
+    name: Heroes P&ndash;R
+    submenu:
+    - id: pudge
+      name: Pudge
+    - id: riki
+      name: Riki
+  sections:
+  - data:
+    - id: []
+      name: ''
+      notes:
+      - detail: []
+        note: Enabled Doom, Faceless Void, Death Prophet, Lone Druid and Winter Wyvern
+          in Captain's Mode
+      - detail: []
+        note: Arcane Rune mana reduction reduced from 50 to 40%
+    id: general
+    name: General
+  - data:
+    - id:
+      - death_prophet
+      name: Death Prophet
+      notes:
+      - detail: []
+        note: Spirit Siphon duration increased from 4 to 5 seconds
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Time Dilation AoE increased from 650 to 725
+      - detail: []
+        note: Time Dilation slow rescaled from 4/6/8/10 to 7/8/9/10%
+      - detail: []
+        note: Time Dilation duration rescaled from 6/7/8/9 to 5.5/7/8.5/10 seconds
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Arcane Orb Int steal increased from 0/1/2/3 to 1/2/3/4
+      - detail: []
+        note: Astral Imprisonment cooldown rescaled from 20/17/14/11 to 22/18/14/10
+    - id:
+      - pudge
+      name: Pudge
+      notes:
+      - detail: []
+        note: Meat Hook Scepter damage reduced from 175/275/375/475 to 180/270/360/450
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: 'Cloak and Dagger backstab damage multiplier increased from 0.4/0.6/0.8/1.0
+          to 0.5/0.75/1.0/1.25 '
+      - detail: []
+        note: Tricks of the Trade now only affects heroes
+      - detail: []
+        note: Tricks of the Trade AoE increased from 450 to 475
+      - detail: []
+        note: Tricks of the Trade cooldown rescaled from 90/80/70 to 70
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/19780/
+  version: 6.86b
+6.86c:
+  date: '2015-12-29'
+  menu:
+  - id: ''
+    name: ''
+    submenu: []
+  - id: bane
+    name: Heroes A&ndash;B
+    submenu:
+    - id: bane
+      name: Bane
+  - id: dark_seer
+    name: Heroes C&ndash;D
+    submenu:
+    - id: dark_seer
+      name: Dark Seer
+    - id: dazzle
+      name: Dazzle
+    - id: death_prophet
+      name: Death Prophet
+  - id: faceless_void
+    name: Heroes E&ndash;J
+    submenu:
+    - id: faceless_void
+      name: Faceless Void
+    - id: gyrocopter
+      name: Gyrocopter
+    - id: invoker
+      name: Invoker
+  - id: obsidian_destroyer
+    name: Heroes M&ndash;O
+    submenu:
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: riki
+    name: Heroes P&ndash;R
+    submenu:
+    - id: riki
+      name: Riki
+  - id: tusk
+    name: Heroes T
+    submenu:
+    - id: tusk
+      name: Tusk
+  - id: undying
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: undying
+      name: Undying
+    - id: winter_wyvern
+      name: Winter Wyvern
+  sections:
+  - data:
+    - id: []
+      name: ''
+      notes:
+      - detail: []
+        note: Radiant Small Camp's spawn box is now smaller
+      - detail: []
+        note: Fixed Lone Druid's HP not increasing when upgrading True Form
+    id: general
+    name: General
+  - data:
+    - id:
+      - bane
+      name: Bane
+      notes:
+      - detail: []
+        note: Nightmare cooldown increased from 16/15/14/13 to 22/19/16/13
+    - id:
+      - dark_seer
+      name: Dark Seer
+      notes:
+      - detail: []
+        note: Surge manacost increased from 20/30/40/50 to 50
+    - id:
+      - dazzle
+      name: Dazzle
+      notes:
+      - detail: []
+        note: Shallow Grave cast point increased from 0.35 to 0.4
+      - detail: []
+        note: Shadow Wave manacost increased from 80/90/100/110 to 90/100/110/120
+    - id:
+      - death_prophet
+      name: Death Prophet
+      notes:
+      - detail: []
+        note: Death Prophet base intelligence increased by 3
+      - detail: []
+        note: Spirit Siphon HP Drain increased from 1/1.8/2.6/3.4% to 1/2/3/4%
+      - detail: []
+        note: Spirit Siphon slow rescaled from 6/10/14/18% to 5/10/15/20%
+      - detail: []
+        note: Exorcism duration increased from 30 to 35 seconds
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Time Walk cast range increased from 550 to 625
+      - detail: []
+        note: Faceless Void strength gain increased from 1.6 to 1.8
+      - detail: []
+        note: Time Dilation duration increased from 5.5/7/8.5/10 to 6/8/10/12
+      - detail: []
+        note: Time Dilation cooldown increased from 34/28/22/16 to 36/30/24/18
+    - id:
+      - gyrocopter
+      name: Gyrocopter
+      notes:
+      - detail: []
+        note: Call Down first missile damage decreased from 220/285/350 to 200/275/350
+    - id:
+      - invoker
+      name: Invoker
+      notes:
+      - detail: []
+        note: Alacrity damage/speed rescaled from 30/40/50/60/70/80/90 to 10/25/40/55/70/85/100
+      - detail: []
+        note: Invoker base strength reduced by 2
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Arcane Orb int steal increased from 1/2/3/4 to 2/3/4/5
+      - detail: []
+        note: Arcane Orb int steal duration increased from 40 to 50
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: Tricks of the Trade cooldown reduced from 70 to 40
+      - detail: []
+        note: Tricks of the Trade AoE increased from 475 to 500
+      - detail: []
+        note: Blink Strike cast range increased from 700 to 800
+      - detail: []
+        note: Blink Strike cast point reduced from 0.4 to 0.3
+    - id:
+      - tusk
+      name: Tusk
+      notes:
+      - detail: []
+        note: Walrus Punch cooldown increased from 20/16/12 to 36/24/12
+    - id:
+      - undying
+      name: Undying
+      notes:
+      - detail: []
+        note: Tombstone cooldown increased from 60 to 70
+    - id:
+      - winter_wyvern
+      name: Winter Wyvern
+      notes:
+      - detail: []
+        note: Winter's Curse attack speed bonus increased from 50 to 70
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/19848/
+  version: 6.86c
+6.86d:
+  date: '2016-01-20'
+  menu:
+  - id: chen
+    name: Heroes C&ndash;D
+    submenu:
+    - id: chen
+      name: Chen
+  - id: invoker
+    name: Heroes E&ndash;J
+    submenu:
+    - id: invoker
+      name: Invoker
+  - id: aether_lens
+    name: Items
+    submenu: []
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - chen
+      name: Chen
+      notes:
+      - detail: []
+        note: Hand of God cooldown is no longer reduced by Aghanim's Scepter
+    - id:
+      - invoker
+      name: Invoker
+      notes:
+      - detail: []
+        note: Invoker's base agility reduced from 20 to 14
+      - detail: []
+        note: Deafening Blast manacost increased from 200 to 300
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - aether_lens
+      name: Aether Lens
+      notes:
+      - detail: []
+        note: Aether Lens now has a 550 gold recipe instead of a Cloak (no longer
+          grants Magic Resistance)
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/20066/
+  version: 6.86d
+6.86e:
+  date: '2016-02-05'
+  menu:
+  - id: earth_spirit
+    name: Heroes E&ndash;J
+    submenu:
+    - id: earth_spirit
+      name: Earth Spirit
+  - id: lone_druid
+    name: Heroes K&ndash;L
+    submenu:
+    - id: lone_druid
+      name: Lone Druid
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - earth_spirit
+      name: Earth Spirit
+      notes:
+      - detail: []
+        note: Earth Spirit's Scepter Enchant Remnant cast range reduced from 600 to
+          125
+    - id:
+      - lone_druid
+      name: Lone Druid
+      notes:
+      - detail: []
+        note: Savage Roar cooldown increased from 28/24/20/16 to 38/32/26/20
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/20311/
+  version: 6.86e
+6.86f:
+  date: '2016-02-21'
+  menu:
+  - id: invoker
+    name: Heroes
+    submenu: []
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - invoker
+      name: Invoker
+      notes:
+      - detail: []
+        note: Deafening Blast's knockback is no longer a hard disable (affected units
+          can cast abilities and items)
+      - detail: []
+        note: Deafening Blast's disarm portion rebalanced to keep same overall effectiveness
+          as before (it previously applied disarm only after the knockback disable,
+          numbers rescaled to keep same overall duration where they cannot attack)
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/20482/
+  version: 6.86f
+'6.87':
+  date: '2016-04-25'
+  menu:
+  - id: general
+    name: General
+    submenu: []
+  - id: abaddon
+    name: Heroes A&ndash;B
+    submenu:
+    - id: abaddon
+      name: Abaddon
+    - id: ancient_apparition
+      name: Ancient Apparition
+    - id: arc_warden
+      name: Arc Warden
+    - id: axe
+      name: Axe
+    - id: bane
+      name: Bane
+    - id: beastmaster
+      name: Beastmaster
+    - id: bloodseeker
+      name: Bloodseeker
+    - id: bounty_hunter
+      name: Bounty Hunter
+    - id: brewmaster
+      name: Brewmaster
+    - id: bristleback
+      name: Bristleback
+  - id: centaur
+    name: Heroes C&ndash;D
+    submenu:
+    - id: centaur
+      name: Centaur Warrunner
+    - id: chen
+      name: Chen
+    - id: rattletrap
+      name: Clockwerk
+    - id: crystal_maiden
+      name: Crystal Maiden
+    - id: dazzle
+      name: Dazzle
+    - id: death_prophet
+      name: Death Prophet
+    - id: disruptor
+      name: Disruptor
+    - id: dragon_knight
+      name: Dragon Knight
+    - id: drow_ranger
+      name: Drow Ranger
+  - id: earth_spirit
+    name: Heroes E&ndash;J
+    submenu:
+    - id: earth_spirit
+      name: Earth Spirit
+    - id: earthshaker
+      name: Earthshaker
+    - id: elder_titan
+      name: Elder Titan
+    - id: enchantress
+      name: Enchantress
+    - id: enigma
+      name: Enigma
+    - id: faceless_void
+      name: Faceless Void
+    - id: gyrocopter
+      name: Gyrocopter
+    - id: huskar
+      name: Huskar
+    - id: invoker
+      name: Invoker
+    - id: jakiro
+      name: Jakiro
+    - id: juggernaut
+      name: Juggernaut
+  - id: keeper_of_the_light
+    name: Heroes K&ndash;L
+    submenu:
+    - id: keeper_of_the_light
+      name: Keeper of the Light
+    - id: kunkka
+      name: Kunkka
+    - id: legion_commander
+      name: Legion Commander
+    - id: lich
+      name: Lich
+    - id: life_stealer
+      name: Lifestealer
+    - id: lone_druid
+      name: Lone Druid
+    - id: luna
+      name: Luna
+  - id: magnataur
+    name: Heroes M&ndash;O
+    submenu:
+    - id: magnataur
+      name: Magnus
+    - id: medusa
+      name: Medusa
+    - id: meepo
+      name: Meepo
+    - id: mirana
+      name: Mirana
+    - id: morphling
+      name: Morphling
+    - id: naga_siren
+      name: Naga Siren
+    - id: furion
+      name: Nature's Prophet
+    - id: necrolyte
+      name: Necrophos
+    - id: nyx_assassin
+      name: Nyx Assassin
+    - id: omniknight
+      name: Omniknight
+    - id: oracle
+      name: Oracle
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: phantom_assassin
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phantom_assassin
+      name: Phantom Assassin
+    - id: phoenix
+      name: Phoenix
+    - id: puck
+      name: Puck
+    - id: pugna
+      name: Pugna
+    - id: razor
+      name: Razor
+    - id: riki
+      name: Riki
+    - id: rubick
+      name: Rubick
+  - id: sand_king
+    name: Heroes S
+    submenu:
+    - id: sand_king
+      name: Sand King
+    - id: shadow_demon
+      name: Shadow Demon
+    - id: nevermore
+      name: Shadow Fiend
+    - id: shadow_shaman
+      name: Shadow Shaman
+    - id: silencer
+      name: Silencer
+    - id: skywrath_mage
+      name: Skywrath Mage
+    - id: sniper
+      name: Sniper
+    - id: spectre
+      name: Spectre
+    - id: storm_spirit
+      name: Storm Spirit
+    - id: sven
+      name: Sven
+  - id: terrorblade
+    name: Heroes T
+    submenu:
+    - id: terrorblade
+      name: Terrorblade
+    - id: shredder
+      name: Timbersaw
+    - id: tinker
+      name: Tinker
+    - id: treant
+      name: Treant Protector
+    - id: troll_warlord
+      name: Troll Warlord
+    - id: tusk
+      name: Tusk
+  - id: undying
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: undying
+      name: Undying
+    - id: vengefulspirit
+      name: Vengeful Spirit
+    - id: viper
+      name: Viper
+    - id: visage
+      name: Visage
+    - id: warlock
+      name: Warlock
+    - id: weaver
+      name: Weaver
+    - id: winter_wyvern
+      name: Winter Wyvern
+    - id: skeleton_king
+      name: Wraith King
+    - id: zuus
+      name: Zeus
+  - id: abyssal_blade
+    name: Items A&ndash;B
+    submenu:
+    - id: abyssal_blade
+      name: Abyssal Blade
+    - id: aether_lens
+      name: Aether Lens
+    - id: courier
+      name: Animal Courier
+    - id: armlet
+      name: Armlet of Mordiggian
+    - id: blade_mail
+      name: Blade Mail
+    - id: bloodstone
+      name: Bloodstone
+    - id: butterfly
+      name: Butterfly
+  - id: crimson_guard
+    name: Items C&ndash;E
+    submenu:
+    - id: crimson_guard
+      name: Crimson Guard
+    - id: desolator
+      name: Desolator
+    - id: diffusal_blade
+      name: Diffusal Blade
+    - id: dragon_lance
+      name: Dragon Lance
+    - id: ancient_janggo
+      name: Drum of Endurance
+    - id: cyclone
+      name: Eul's Scepter of Divinity
+  - id: flying_courier
+    name: Items F&ndash;L
+    submenu:
+    - id: flying_courier
+      name: Flying Courier
+    - id: gem
+      name: Gem of True Sight
+    - id: ghost
+      name: Ghost Scepter
+    - id: glimmer_cape
+      name: Glimmer Cape
+    - id: guardian_greaves
+      name: Guardian Greaves
+    - id: heart
+      name: Heart of Tarrasque
+    - id: heavens_halberd
+      name: Heaven's Halberd
+    - id: hood_of_defiance
+      name: Hood of Defiance
+    - id: sphere
+      name: Linken's Sphere
+    - id: lotus_orb
+      name: Lotus Orb
+  - id: mask_of_madness
+    name: Items M&ndash;O
+    submenu:
+    - id: mask_of_madness
+      name: Mask of Madness
+    - id: medallion_of_courage
+      name: Medallion of Courage
+    - id: ward_observer
+      name: Observer Ward
+    - id: octarine_core
+      name: Octarine Core
+  - id: pers
+    name: Items P&ndash;R
+    submenu:
+    - id: pers
+      name: Perseverance
+    - id: pipe
+      name: Pipe of Insight
+    - id: point_booster
+      name: Point Booster
+    - id: refresher
+      name: Refresher Orb
+    - id: ring_of_aquila
+      name: Ring of Aquila
+    - id: ring_of_basilius
+      name: Ring of Basilius
+    - id: ring_of_health
+      name: Ring of Health
+    - id: ring_of_regen
+      name: Ring of Regen
+    - id: rod_of_atos
+      name: Rod of Atos
+  - id: sange
+    name: Items S
+    submenu:
+    - id: sange
+      name: Sange
+    - id: sange_and_yasha
+      name: Sange and Yasha
+    - id: shadow_amulet
+      name: Shadow Amulet
+    - id: silver_edge
+      name: Silver Edge
+    - id: basher
+      name: Skull Basher
+    - id: smoke_of_deceit
+      name: Smoke of Deceit
+    - id: soul_booster
+      name: Soul Booster
+  - id: talisman_of_evasion
+    name: Items T&ndash;Z
+    submenu:
+    - id: talisman_of_evasion
+      name: Talisman of Evasion
+    - id: tpscroll
+      name: Town Portal Scroll
+    - id: vanguard
+      name: Vanguard
+    - id: veil_of_discord
+      name: Veil of Discord
+    - id: vladmir
+      name: Vladmir's Offering
+  - id: bloodthorn
+    name: New Items
+    submenu:
+    - id: bloodthorn
+      name: Bloodthorn
+    - id: echo_sabre
+      name: Echo Sabre
+    - id: blight_stone
+      name: Blight Stone
+    - id: infused_raindrop
+      name: Infused Raindrop
+    - id: wind_lace
+      name: Wind Lace
+    - id: tome_of_knowledge
+      name: Tome of Knowledge
+    - id: hurricane_pike
+      name: Hurricane Pike
+  sections:
+  - data:
+    - id:
+      - general
+      name: General
+      notes:
+      - detail:
+        - Two players cannot vote for the same hero. The game displays heroes as they
+          are voted on, but not who voted. The number of bans is equal to half the
+          total number of votes. If there is an odd number of votes, the number of
+          bans is randomly rounded up or down.
+        - The random ban selection will choose at most 3 heroes from one specific
+          team's votes, so it's more evenly split.
+        note: Reworked Ranked All Pick. Before the picking phase begins, there is
+          a 15 second voting phase to ban heroes. Each player votes for a different
+          hero. Afterwards, half of the heroes that were voted on will be randomly
+          selected and banned.
+      - detail:
+        - Scans a targeted 900 AoE for 8 seconds. Indicates whether there are enemy
+          heroes in that area during the 8 seconds.
+        - Starts on cooldown and has a global team-wide cooldown of 4.5 minutes
+        - 'Note: Does not consider units inside the Roshan Pit, but does consider
+          Smoked units. Does not show how many heroes there are, just if there are
+          any enemies. Enemies do not know when your team casts it.'
+        note: Each team now has a Scan ability, available on the minimap UI.
+      - detail: []
+        note: Starting HP increased from 180 to 200
+      - detail: []
+        note: HP per strength increased from 19 to 20
+      - detail: []
+        note: Hero base mana increased from 0 to 50
+      - detail: []
+        note: Mana per int reduced from 13 to 12
+      - detail:
+        - For example, 100 intelligence gives roughly 6% bonus. Same rules for what
+          is affected as Aether Lens's Spell Amplification.
+        note: Intelligence now increases your spell damage by 1% per 16 Intelligence
+          points.
+      - detail: []
+        note: Stats hover on your hero now shows you your total Spell Amplification,
+          including Aether Lens.
+      - detail:
+        - Lane Creeps upgrade every 7.5 minutes
+        note: Lane Creep health upgrade increased from 10 to 12 HP
+      - detail: []
+        note: Tier 2 towers damage now same as Tier 3
+      - detail:
+        - Tier 1 grants 1 armor, Tier 2/3/4 grant 3 armor
+        note: Towers now grant an armor aura to allied heroes
+      - detail:
+        - Same as the attack range
+        note: Tower True Sight range reduced from 900 to 700
+      - detail: []
+        note: Initial Bounty Rune no longer gives experience
+      - detail: []
+        note: Melee hero attack range increased from 128 to 150
+      - detail:
+        - The amount of time creeps follow you when you attack a hero
+        note: Lane Creep Aggro duration increased from 2 to 2.5
+      - detail: []
+        note: Lane Creep Aggro cooldown increased from 2 to 2.5
+      - detail:
+        - Super and Mega Melee Creep gold bounty also reduced by 2. Ranged Creep gold
+          bounty unchanged.
+        note: Melee Creep gold bounty reduced from 40 to 38
+      - detail:
+        - Lane Creeps upgrade every 7.5 minutes
+        note: Melee and Ranged Creep gold bounty upgrade over time increased from
+          1 to 2
+      - detail: []
+        note: Melee creep experience reduced from 62 to 45
+      - detail:
+        - The same total XP per wave (3 melee and 1 range, 227 XP vs 225 XP)
+        note: Ranged creep experience increased from 41 to 90
+      - detail: []
+        note: Experience required to get to level 8 and 9 rescaled from 600/1200 to
+          800/1000
+      - detail:
+        - Previously, non-physical damage could sometimes go through
+        note: Ethereal now blocks in-flight attack projectiles fully, rather than
+          just ones launched before Ethereal
+      - detail: []
+        note: Evasion now uses Pseudo-Random Distribution
+      - detail: []
+        note: Evasion is now calculated on impact rather than on launch
+      - detail: []
+        note: Centaur Courser health reduced from 550 to 350
+      - detail: []
+        note: Centaur Courser armor reduced by 1
+      - detail: []
+        note: The large Centaur camp now spawns 2 Centaur Coursers instead of 1
+      - detail: []
+        note: Roshan Magic Resistance reduced from 75% to 55%
+      - detail: []
+        note: Roshan HP increased from 7500 + 125/min to 8000 + 175/min
+      - detail:
+        - Compared to previously, Roshan gives less experience before the 52 minute
+          mark and more after.
+        note: Roshan experience bounty changed from 1789 to 750 + 20/min
+      - detail: []
+        note: Double Damage and Haste no longer have special rules for being dispelled
+          by Spell Immunity
+      - detail: []
+        note: 'The following buffs are now purgeable: Nightmare, Spawn Spiderlings,
+          Malefice, Cold Snap, Corrosive Skin, and Leap movement speed buff'
+      - detail: []
+        note: Minor adjustments to cast range mechanics to reduce overly long cast
+          ranges when the target is moving quickly
+      - detail: []
+        note: Illusions now benefit from Damage Block
+      - detail: []
+        note: Captains Mode Pick time from 40 to 30 seconds
+      - detail: []
+        note: Captains Mode Bonus time from 110 to 130 seconds
+      - detail: []
+        note: 'Captains Mode: Adjusted the order of bans in the 2nd ban phase (from
+          1st/2nd/1st/2nd to 2nd/1st/2nd/1st)'
+      - detail: []
+        note: 'Captains Mode: Adjusted the order of picks in the final pick phase
+          (from 2nd/1st to 1st/2nd)'
+      - detail:
+        - 'Ban1: 1st/2nd/1st/2nd'
+        - 'Pick1: 1st/2nd/2nd/1st'
+        - 'Ban2: 2nd/1st/2nd/1st'
+        - 'Pick2: 2nd/1st/2nd/1st'
+        - 'Ban3: 2nd/1st'
+        - 'Pick3: 1st/2nd'
+        note: 'Captains Mode: The overall pick/ban order for the two teams is now:'
+      - detail: []
+        note: Removed Strong armor type, and moved affected units to Soft type, which
+          is now renamed to Basic type
+      - detail: []
+        note: Roshan armor type from Basic to Hero
+      - detail: []
+        note: Dark Troll Summoner attack type from Pierce to Hero
+      - detail: []
+        note: Thunderhide attack type from Basic to Hero
+      - detail: []
+        note: Dark Troll Summoner damage reduced from 55-60 to 40-45
+      - detail: []
+        note: Thunderhide attack damage reduced from 71-78 to 60-65
+      - detail: []
+        note: Harpy Stormcrafter mana pool reduced from 540 to 400
+      - detail: []
+        note: Satyr Tormenter mana pool reduced from 600 to 400
+    - id:
+      - terrain
+      name: Terrain
+      notes:
+      - detail: []
+        note: Adjusted the position of the bottom Radiant Tier 2 tower and nearby
+          trees
+      - detail: []
+        note: Moved the ramp between the Dire Secret Shop and the Dire ancients further
+          back a bit and made it narrower
+      - detail: []
+        note: Increased the width of the ramp behind the Radiant bottom Tier 2 tower
+      - detail: []
+        note: Added a new ramp to the left of the bottom Dire Tier 1 tower
+      - detail: []
+        note: Added a new ward spot in the middle of the Dire jungle
+      - detail: []
+        note: Adjusted the spawn box of the right-most Radiant hard camp near the
+          safe lane
+      - detail: []
+        note: Tier 3 Towers/Rax moved very slightly back away from the ramp
+      - detail: []
+        note: Adjusted the juke path in the clump of trees to the left of the Dire
+          Tier 1 mid tower in the area closest to the ramp
+      - detail: []
+        note: Added a small hiding spot in the trees to the top left of the Radiant
+          medium camp near middle
+      - detail: []
+        note: Slightly reduced the spawn box of the Dire offlane Neutral camp
+      - detail: []
+        note: Added new paths to the trees on the left of the top Radiant Tier 1 tower
+      - detail: []
+        note: Added pathable areas in the trees below the bottom Tier 2 Radiant tower
+      - detail: []
+        note: Spaced out Radiant Tier 4 towers slightly
+      - detail: []
+        note: Added a small hiding spot to the trees above the bottom Radiant Tier
+          2 tower
+      - detail: []
+        note: Moved Radiant mid creep spawn point back a little
+      - detail: []
+        note: Removed the tree on the Dire cliff right above the top Rune
+      - detail: []
+        note: Added two extra trees in the Radiant middle lane to the upper right
+          of the Tier 1 tower
+      - detail: []
+        note: Rearranged the clump of trees below the far right Radiant hard camp
+          to modify visibility lines for heroes nearby
+      - detail: []
+        note: Added a new hiding spot to the right of the Dire small camp
+      - detail: []
+        note: Fixed Radiant offlane neutral camp units not always being visible with
+          line of sight in front of them
+    id: general
+    name: General
+  - data:
+    - id:
+      - abaddon
+      name: Abaddon
+      notes:
+      - detail: []
+        note: Curse of Avernus slow increased from 5/10/15/20% to 8/12/16/20%
+    - id:
+      - ancient_apparition
+      name: Ancient Apparition
+      notes:
+      - detail: []
+        note: Cold Feet cooldown reduced from 15/13/11/9 to 13/11/9/7
+      - detail: []
+        note: Cold Feet damage timing changed from 0.8/1.6/2.5/3.4 to 0/1/2/3
+    - id:
+      - arc_warden
+      name: Arc Warden
+      notes:
+      - detail: []
+        note: Flux no longer slows magic immune units
+      - detail: []
+        note: Flux is now purgeable
+      - detail: []
+        note: Flux slow reduced from 50% to 35/40/45/50%
+      - detail: []
+        note: Magnetic Field cooldown reduced from 50 to 35/30/25/20
+      - detail: []
+        note: Magnetic Field duration increased from 3.5/4/4.5/5 to 3.5/4.5/5.5/6.5
+      - detail: []
+        note: Magnetic Field now only evades attacks done from outside of the field
+      - detail: []
+        note: Spark Wraith mana cost reduced from 100/110/120/130 to constant 80
+      - detail: []
+        note: Spark Wraith activation delay reduced from 3 to 2
+      - detail: []
+        note: Spark Wraith now applies a 0.4/0.5/0.6/0.7 second purge
+      - detail: []
+        note: Spark Wraith damage rescaled from 150/200/250/300 to 100/160/220/280
+      - detail: []
+        note: Tempest Double no longer has an HP/Mana cost
+      - detail: []
+        note: Tempest Double ability/item cooldowns now persist on the unit
+      - detail:
+        - I.e. Gem and Divine Rapier
+        note: Tempest Double no longer replicates items that drop on death
+      - detail: []
+        note: Tempest Double cooldown reduced from 65/60/55 to 50/40/30
+      - detail: []
+        note: Tempest Double duration reduced from 20 to 12/13/14
+      - detail: []
+        note: Tempest Double cast point increased from 0 to 0.15
+      - detail: []
+        note: Strength growth increased from 1.9 to 2.3
+      - detail: []
+        note: Intelligence growth increased from 2.1 to 2.6
+    - id:
+      - axe
+      name: Axe
+      notes:
+      - detail: []
+        note: Counter Helix damage type from Physical to Pure
+      - detail: []
+        note: Counter Helix damage reduced from 100/135/170/205 to 90/120/150/180
+    - id:
+      - bane
+      name: Bane
+      notes:
+      - detail: []
+        note: Enfeeble mana cost reduced from 95/105/115/125 to 95
+    - id:
+      - beastmaster
+      name: Beastmaster
+      notes:
+      - detail: []
+        note: Call of the Wild Hawk's day vision reduced from 700/1000/1300/1600 to
+          500/750/1000/1250
+      - detail: []
+        note: Call of the Wild Hawk's night vision reduced from 700/800/900/1000 to
+          500/650/800/950
+    - id:
+      - bloodseeker
+      name: Bloodseeker
+      notes:
+      - detail:
+        - Grants 2 charges to Rupture with 40 second replenish.
+        note: Added Scepter to Bloodseeker
+      - detail: []
+        note: Rupture cast point improved from 0.6 to 0.4
+      - detail: []
+        note: Strength growth increased from 2 to 2.4
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Shadow Walk mana cost increased from 50 to 65
+    - id:
+      - brewmaster
+      name: Brewmaster
+      notes:
+      - detail:
+        - Deals 150% bonus damage to buildings.
+        note: Replaced Earth Brewling's Pulverize with Demolish
+      - detail: []
+        note: Primal Split Earth & Storm damage type from Pierce to Hero
+      - detail: []
+        note: Primal Split Brewlings' armor type from Strong to Hero
+      - detail: []
+        note: Primal Split Earth attack damage reduced from 40/80/165 to 30/60/90
+      - detail: []
+        note: Primal Split Storm attack damage reduced from 40/80/165 to 20/40/60
+      - detail:
+        - Fire Brewling's attack type is already Hero
+        note: Primal Split Fire attack damage rescaled from 77/122/154 to 80/120/160
+      - detail:
+        - Also benefits from attack type changes
+        note: Storm Brewling's Wind Walk backstab damage increased from 100 to 100/160/220
+    - id:
+      - bristleback
+      name: Bristleback
+      notes:
+      - detail: []
+        note: Bristleback damage threshold reduced from 230 to 210
+      - detail: []
+        note: Scepter Goo range increased from 600 to 700
+    - id:
+      - centaur
+      name: Centaur Warrunner
+      notes:
+      - detail: []
+        note: Double Edge cooldown reduced from 8 to 6
+      - detail: []
+        note: Stampede duration increased from 3.75 to 4.0
+    - id:
+      - chen
+      name: Chen
+      notes:
+      - detail: []
+        note: Hand of God no longer fully heals his creeps
+    - id:
+      - rattletrap
+      name: Clockwerk
+      notes:
+      - detail: []
+        note: Battery Assault damage increased from 20/40/60/80 to 20/45/70/95
+      - detail: []
+        note: Minor cleanup to Power Cogs push back distance/duration changed from
+          252/0.84 to 250/0.85
+    - id:
+      - crystal_maiden
+      name: Crystal Maiden
+      notes:
+      - detail: []
+        note: Crystal Nova cooldown reduced from 12 to 12/11/10/9
+      - detail: []
+        note: Arcane Aura level 4 self regen increased from 6 to 8
+    - id:
+      - dazzle
+      name: Dazzle
+      notes:
+      - detail: []
+        note: Poison Touch range increased from 600 to 600/650/700/750
+    - id:
+      - death_prophet
+      name: Death Prophet
+      notes:
+      - detail: []
+        note: Spirit Siphon no longer grants vision
+      - detail: []
+        note: Spirit Siphon damage type from Pure to Magical and no longer goes through
+          Spell Immunity
+      - detail:
+        - Damage is roughly the same with basic Magic Resistance
+        note: Spirit Siphon damage increased from 20 + 1/2/3/4% to 25 + 1/2.5/4/5.5%
+      - detail: []
+        note: Spirit Siphon duration increased from 5 to 6
+      - detail: []
+        note: Spirit Siphon buffer range reduced from 300 to 250
+      - detail: []
+        note: Base strength reduced from 19 to 18
+    - id:
+      - disruptor
+      name: Disruptor
+      notes:
+      - detail: []
+        note: Kinetic Field AoE increased from 325 to 340
+    - id:
+      - dragon_knight
+      name: Dragon Knight
+      notes:
+      - detail: []
+        note: Breathe Fire attack damage reduction increased from 20/25/30/35% to
+          35%
+      - detail: []
+        note: Breathe Fire cooldown rescaled from 12 to 14/13/12/11
+      - detail: []
+        note: Base damage increased by 4
+    - id:
+      - drow_ranger
+      name: Drow Ranger
+      notes:
+      - detail: []
+        note: Gust cast point improved from 0.4 to 0.25
+    - id:
+      - earth_spirit
+      name: Earth Spirit
+      notes:
+      - detail: []
+        note: Boulder Smash knockback speed reduced from 1200 to 900
+      - detail: []
+        note: Base movement speed reduced from 305 to 295
+    - id:
+      - earthshaker
+      name: Earthshaker
+      notes:
+      - detail:
+        - Enchant Totem becomes a 900 range ground target ability. Causes you to jump
+          in the air and land at the target spot, casting enchant totem there.
+        - Self casting the ability will make it behave in the original form, without
+          jumping.
+        note: Reworked Scepter on Earthshaker
+    - id:
+      - elder_titan
+      name: Elder Titan
+      notes:
+      - detail: []
+        note: Echo Stomp damage increased from 80/90/100/110 to 85/110/135/160
+      - detail: []
+        note: Echo Stomp grace period for waking up units with damage increased from
+          0.65 to 0.8
+    - id:
+      - enchantress
+      name: Enchantress
+      notes:
+      - detail: []
+        note: Impetus damage reduced from 15/20/25% to 14/18/22%
+      - detail:
+        - Max Damage effectively reduced from 375/500/625 to 245/315/385
+        note: Impetus max distance reduced from 2500 to 1750
+    - id:
+      - enigma
+      name: Enigma
+      notes:
+      - detail: []
+        note: Fixed Demonic Conversion not working on Beastmaster's Boar or Hawk
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Time Walk cast range increased from 625 to 675
+      - detail: []
+        note: Time Walk cast point increased from 0.2 to 0.3
+      - detail: []
+        note: Time Dilation cooldown increased from 36/30/24/18 to 40/34/28/22
+      - detail: []
+        note: Time Dilation slow rescaled from 7/8/9/10 to 8
+      - detail: []
+        note: Time Lock no longer deals double damage inside Chronosphere
+      - detail: []
+        note: Time Lock damage increased from 40/50/60/70 damage to 50/75/100/125
+      - detail: []
+        note: Scepter no longer increases Chronosphere's duration
+    - id:
+      - gyrocopter
+      name: Gyrocopter
+      notes:
+      - detail:
+        - Adds a Side Gunner, fires an attack automatically at random enemy units
+          within 600 AoE every 1.4 seconds. Same firing rules as Rocket Barrage, but
+          does not attack while invisible and is disabled by Break.
+        - Fires while disabled, but not while hidden from the map, e.g. when affected
+          by Astral Imprisonment or Disruption.
+        note: Reworked Scepter on Gyrocopter
+      - detail: []
+        note: Base damage reduced by 4
+    - id:
+      - huskar
+      name: Huskar
+      notes:
+      - detail: []
+        note: Berserker's Blood max attack speed increased from 196/224/252/280 to
+          220/260/300/340
+    - id:
+      - invoker
+      name: Invoker
+      notes:
+      - detail:
+        - Invoker's 10 real abilities
+        note: Invoked Spells cast point increased from 0 to 0.05
+      - detail: []
+        note: Cold Snap is now dispellable
+      - detail: []
+        note: Ghost Walk cooldown increased from 35 to 45
+      - detail:
+        - The AoE of the ability
+        note: Tornado vision reduced from 600 to 200
+      - detail: []
+        note: Forge Spirit Health/Mana changed from Exort/Quas based to Quas/Exort
+          based
+      - detail:
+        - Base damage increased accordingly to remain the same
+        note: Base intelligence reduced from 22 to 16
+    - id:
+      - jakiro
+      name: Jakiro
+      notes:
+      - detail: []
+        note: Macropyre distance increased from 900 to 1400
+      - detail: []
+        note: Macropyre is no longer unit targetable
+      - detail: []
+        note: Macropyre Scepter duration increased from 20 to 30 seconds
+    - id:
+      - juggernaut
+      name: Juggernaut
+      notes:
+      - detail:
+        - Like Frozen Sigil follows Tusk
+        note: Healing Ward now follows Juggernaut by default
+    - id:
+      - keeper_of_the_light
+      name: Keeper of the Light
+      notes:
+      - detail: []
+        note: Movement speed increased from 315 to 335
+    - id:
+      - kunkka
+      name: Kunkka
+      notes:
+      - detail:
+        - Previously, half of the damage was dealt at the start, and the other half
+          was dealt evenly over 10 ticks.
+        note: Torrent damage is now dealt evenly over 8 ticks
+      - detail: []
+        note: Torrent stun duration increased from 1.53 to 1.6
+      - detail: []
+        note: Torrent mana cost reduced from 120 to 90/100/110/120
+      - detail: []
+        note: Base armor increased by 2
+    - id:
+      - legion_commander
+      name: Legion Commander
+      notes:
+      - detail:
+        - This also means that hexed units won't attack during Duel
+        note: Duel no longer ignores Disarm and Ethereal states on either target
+      - detail: []
+        note: Duel Scepter duration increased from 4.75/5.5/6.25 to 6/7/8
+    - id:
+      - lich
+      name: Lich
+      notes:
+      - detail:
+        - This means the slows stack with each other
+        note: Frost Blast and Chain Frost slows are now independent debuffs
+      - detail: []
+        note: Chain Frost no longer jumps to Zombies
+    - id:
+      - life_stealer
+      name: Lifestealer
+      notes:
+      - detail: []
+        note: Infest can now only target ancients with Level 2 and Level 3
+      - detail: []
+        note: Strength growth increased from 2.4 to 3.0
+    - id:
+      - lone_druid
+      name: Lone Druid
+      notes:
+      - detail: []
+        note: Spirit Bear's Entangle now uses Pseudo-Random Distribution
+      - detail: []
+        note: Battle Cry damage reduced from 90/120/150 to 70/100/130
+    - id:
+      - luna
+      name: Luna
+      notes:
+      - detail: []
+        note: Agility growth increased from 2.8 to 3.3
+    - id:
+      - magnataur
+      name: Magnus
+      notes:
+      - detail: []
+        note: Base HP regeneration increased from 0.25 to 0.75
+      - detail: []
+        note: Base damage increased by 4
+    - id:
+      - medusa
+      name: Medusa
+      notes:
+      - detail: []
+        note: Stone Gaze damage amplification increased from 30/40/50% to 50%
+      - detail: []
+        note: Stone Gaze duration rescaled from 6 to 5/6/7 seconds
+      - detail: []
+        note: Stone Gaze slow reduced from 50 to 35%
+    - id:
+      - meepo
+      name: Meepo
+      notes:
+      - detail: []
+        note: Base damage increased by 4
+    - id:
+      - mirana
+      name: Mirana
+      notes:
+      - detail:
+        - Passively triggers Starstorm every 8 seconds. If there are no units to affect,
+          the spell waits until there is a nearby enemy.
+        - Does not trigger if the enemy does not see you. Passive procs are disabled
+          by Break.
+        note: Added Scepter to Mirana
+    - id:
+      - morphling
+      name: Morphling
+      notes:
+      - detail: []
+        note: Replicate damage dealt increased from 50% to 80%
+      - detail: []
+        note: Hybrid cooldown reduced from 120 to 70
+    - id:
+      - naga_siren
+      name: Naga Siren
+      notes:
+      - detail: []
+        note: Mirror Image illusion damage increased from 20/25/30/35% to 25/30/35/40%
+      - detail: []
+        note: Song of the Siren Scepter regeneration rate increased from 8 to 10%
+      - detail: []
+        note: Song of the Siren now affects units like Golems
+    - id:
+      - furion
+      name: Nature's Prophet
+      notes:
+      - detail: []
+        note: Treants bounty increased from 14-20 to 18-24
+      - detail: []
+        note: Treants vision reduced from 1000/800 to 500
+    - id:
+      - necrolyte
+      name: Necrophos
+      notes:
+      - detail: []
+        note: Reaper's Scythe respawn time penalty reduced from 30 to 10/20/30
+      - detail: []
+        note: Reaper's Scythe damage factor increased from 0.4/0.6/0.9 to 0.6/0.75/0.9
+    - id:
+      - nyx_assassin
+      name: Nyx Assassin
+      notes:
+      - detail: []
+        note: Fixed Spiked Carapace not preventing damage when a Spell Immune attacker
+          damages you
+      - detail: []
+        note: Base HP regeneration increased from 2.5 to 3.5
+    - id:
+      - omniknight
+      name: Omniknight
+      notes:
+      - detail: []
+        note: Degen Aura no longer pierces Spell Immunity
+    - id:
+      - oracle
+      name: Oracle
+      notes:
+      - detail:
+        - Reduces Purifying Flames cooldown from 2.25 seconds to 1.0 and lowers cast
+          point from 0.3 to 0.1
+        note: Added Scepter to Oracle
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Arcane Orb Intelligence Steal reduced from 2/3/4/5 to 1/2/3/4
+      - detail: []
+        note: Arcane Orb mana cost increased from 100 to 100/120/140/160
+      - detail: []
+        note: Astral Imprisonment cast range reduced from 450/500/550/600 to 225/350/475/600
+    - id:
+      - phantom_assassin
+      name: Phantom Assassin
+      notes:
+      - detail: []
+        note: Stifling Dagger now does a real physical attack for 60 + 25/40/55/70%
+          of your attack damage. All attack effects work and behave as if your hero
+          performed them.
+      - detail: []
+        note: Phantom Assassin turn rate increased from 0.4 to 0.6
+    - id:
+      - phoenix
+      name: Phoenix
+      notes:
+      - detail: []
+        note: Supernova Scepter now also increases the number of attacks needed to
+          destroy the Supernova to 7/10/13
+    - id:
+      - puck
+      name: Puck
+      notes:
+      - detail: []
+        note: Increased Illusory Orb speed by 1
+    - id:
+      - pugna
+      name: Pugna
+      notes:
+      - detail: []
+        note: Nether Ward now treats Illusions as creeps for hit count calculation
+    - id:
+      - razor
+      name: Razor
+      notes:
+      - detail: []
+        note: Static Link break distance increased by 100
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: Added to Captain's Mode
+      - detail: []
+        note: Blink Strike damage increased from 20/40/60/80 to 60/80/100/120
+      - detail: []
+        note: Tricks of the Trade cast point improved from 0.4 to 0.3
+      - detail: []
+        note: Tricks of the Trade cooldown reduced from 40 to 40/35/30
+    - id:
+      - rubick
+      name: Rubick
+      notes:
+      - detail: []
+        note: Fade Bolt damage increased from 70/140/210/280 to 75/150/225/300
+      - detail: []
+        note: Null Field increased from 5/10/15/20% to 10/14/18/22%
+      - detail: []
+        note: Turn rate increased from 0.5 to 0.7
+    - id:
+      - sand_king
+      name: Sand King
+      notes:
+      - detail: []
+        note: Sand Storm max channel time rescaled from 20/40/60/80 to 50
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Disruption illusion damage increased from 30/40/50/60 to 30/45/60/75%
+      - detail: []
+        note: Soul Catcher cooldown reduced from 13 to 13/12/11/10
+    - id:
+      - nevermore
+      name: Shadow Fiend
+      notes:
+      - detail: []
+        note: Requiem of Souls damage lines travel distance rescaled from 975/1000/1025
+          to 1000
+      - detail: []
+        note: Requiem of Souls Starting Width increased from 75/100/125 to 125
+      - detail: []
+        note: Requiem of Souls End Width rescaled from 400/425/450 to 425
+      - detail: []
+        note: Scepter now also increases Necromastery max souls from 15/22/29/36 to
+          22/30/38/46
+    - id:
+      - shadow_shaman
+      name: Shadow Shaman
+      notes:
+      - detail:
+        - 'Previous Splash mechanic was as follows:'
+        - '- 100% splash damage in a 50/75/85 radius.'
+        - '- 40% splash damage in a 75/100/110 radius.'
+        - '- 20% splash damage in a 150/200/220 radius.'
+        note: 'Mass Serpent Wards splash mechanics reworked: Now deals 75% splash
+          in 175 AoE'
+    - id:
+      - silencer
+      name: Silencer
+      notes:
+      - detail: []
+        note: Last Word no longer slows
+      - detail: []
+        note: Arcane Curse base duration reduced from 7 to 6
+      - detail: []
+        note: Arcane Curse now slows movement speed by 9/12/15/18%
+      - detail: []
+        note: Arcane Curse cooldown increased from 18/16/14/12 to 20/18/16/14
+      - detail: []
+        note: Glaives of Wisdom damage rescaled from 30/50/70/90% to 35/50/65/80%
+    - id:
+      - skywrath_mage
+      name: Skywrath Mage
+      notes:
+      - detail:
+        - Same damage per second.
+        note: Mystic Flare Scepter duration increased from 2.4 to 12 seconds
+      - detail: []
+        note: Mystic Flare Scepter cooldown increased from 20/10/0 to 20/10/5
+    - id:
+      - sniper
+      name: Sniper
+      notes:
+      - detail: []
+        note: Shrapnel damage increased from 12/24/36/48 to 15/30/45/60
+    - id:
+      - spectre
+      name: Spectre
+      notes:
+      - detail:
+        - Path can still follow Spell Immune Heroes
+        note: Spectral Dagger slow no longer goes through Spell Immunity
+      - detail: []
+        note: Haunt cooldown increased from 120 to 140/130/120
+      - detail: []
+        note: Haunt Illusions are no longer unstunnable
+      - detail: []
+        note: Agility growth reduced from 2.2 to 1.8
+    - id:
+      - storm_spirit
+      name: Storm Spirit
+      notes:
+      - detail:
+        - Causes Electric Vortex to be a 475 AoE ability around your hero.
+        - Requires vision over the units to affect them.
+        note: Added Scepter to Storm Spirit
+    - id:
+      - sven
+      name: Sven
+      notes:
+      - detail: []
+        note: Base movement speed reduced from 295 to 290
+    - id:
+      - terrorblade
+      name: Terrorblade
+      notes:
+      - detail: []
+        note: Base armor increased by 3
+    - id:
+      - shredder
+      name: Timbersaw
+      notes:
+      - detail: []
+        note: Whirling Death debuff duration increased from 11 to 14 seconds
+      - detail: []
+        note: Reactive Armor regen and armor per stack increased from 1 to 1/1.2/1.4/1.6
+    - id:
+      - tinker
+      name: Tinker
+      notes:
+      - detail: []
+        note: Rearm mana cost reduced from 125/225/325 to 100/200/300
+      - detail: []
+        note: Rearm can no longer refresh Pipe of Insight
+      - detail: []
+        note: Base intelligence increased from 27 to 30
+    - id:
+      - treant
+      name: Treant Protector
+      notes:
+      - detail: []
+        note: Nature's Guise tree search radius reduced from 375 to 350
+      - detail: []
+        note: Nature's Guise tree search grace duration reduced from 1 to 0.75 seconds
+      - detail: []
+        note: Nature's Guise movement speed increased from 10% to 14/16/18/20%
+      - detail: []
+        note: Leech Seed cooldown reduced from 16/14/12/10 to 16/13/10/7
+    - id:
+      - troll_warlord
+      name: Troll Warlord
+      notes:
+      - detail: []
+        note: Ranged Whirling Axes cooldown reduced from 20/18/16/14 to 19/16/13/10
+      - detail: []
+        note: Fervor max stacks increased from 6 to 7
+    - id:
+      - tusk
+      name: Tusk
+      notes:
+      - detail: []
+        note: Walrus Kick cooldown reduced from 12 to 8
+      - detail: []
+        note: Walrus Kick damage increased from 200 to 350
+    - id:
+      - undying
+      name: Undying
+      notes:
+      - detail: []
+        note: Tombstone now treats Illusions as creeps for hit count calculation
+    - id:
+      - vengefulspirit
+      name: Vengeful Spirit
+      notes:
+      - detail: []
+        note: Magic Missile stun rescaled from 1.45/1.55/1.65/1.75 to 1.2/1.4/1.6/1.8
+    - id:
+      - viper
+      name: Viper
+      notes:
+      - detail: []
+        note: Poison Attack is no longer an Attack Modifier
+    - id:
+      - visage
+      name: Visage
+      notes:
+      - detail: []
+        note: Gravekeeper's Cloak recharge time reduced from 4 to 3 seconds
+      - detail: []
+        note: Gravekeeper's Cloak minimum damage threshold increased from 2 to 15
+      - detail: []
+        note: Stone Form stun delay reduced from 1 to 0.85
+    - id:
+      - warlock
+      name: Warlock
+      notes:
+      - detail: []
+        note: Shadow Word cast range increased from 500 to 525/600/675/750
+      - detail: []
+        note: Fatal Bonds cooldown reduced from 25 to 24/22/20/18
+      - detail: []
+        note: Flaming Fists damage changed from 40% chance for 80/115/150 to 100%
+          chance for 40/50/60
+    - id:
+      - weaver
+      name: Weaver
+      notes:
+      - detail: []
+        note: Time Lapse now disjoints projectiles
+      - detail: []
+        note: Time Lapse Scepter cooldown reduced from 20 to 16
+      - detail: []
+        note: Weaver now loses unit collision immediately when casting Shukuchi rather
+          than after fading
+    - id:
+      - winter_wyvern
+      name: Winter Wyvern
+      notes:
+      - detail:
+        - Causes Arctic Burn to be a toggle and drains 40 mana per second. Activation
+          mana cost is the same as the current, 120/110/100/90.
+        - No longer has limit on number of attacks per target.
+        note: Added Scepter to Winter Wyvern
+      - detail: []
+        note: Winter's Curse cooldown reduced from 120/110/100 to 90
+    - id:
+      - skeleton_king
+      name: Wraith King
+      notes:
+      - detail: []
+        note: Mortal Strike now does a critical hit for double the value when attacking
+          non-heroes
+    - id:
+      - zuus
+      name: Zeus
+      notes:
+      - detail: []
+        note: Static Field damage reduced from 5/7/9/11% to 4/6/8/10%
+      - detail: []
+        note: Static Field no longer disables Blink Dagger
+      - detail: []
+        note: Thundergod's Wrath damage reduced from 225/350/475 to 225/325/425
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - abyssal_blade
+      name: Abyssal Blade
+      notes:
+      - detail:
+        - Cost from 6750 to 6400
+        - 'Previously provided:'
+        - + 10 Strength
+        - + 70 Damage
+        - 'Now provides:'
+        - + 10 Strength
+        - + 10 Damage
+        - + 250 Health
+        - + 15 HP regeneration
+        - 'Damage Block: 100% to block 40/20 damage for melee/ranged wielders'
+        note: Now requires Basher, Vanguard, and a 1550 recipe
+      - detail: []
+        note: Overwhelm mana cost from 150 to 75
+      - detail: []
+        note: Overwhelm cooldown from 60 to 35
+      - detail: []
+        note: Bash damage reduced from 120 to 85
+    - id:
+      - aether_lens
+      name: Aether Lens
+      notes:
+      - detail: []
+        note: Aether Lens Spell Amplification reduced from 8% to 5%
+    - id:
+      - courier
+      name: Animal Courier
+      notes:
+      - detail:
+        - Respawn time of Flying Courier is still 180 seconds.
+        note: Respawn time reduced from 140 seconds to 120 seconds
+    - id:
+      - armlet
+      name: Armlet of Mordiggian
+      notes:
+      - detail:
+        - Armlet provides 5 armor, this is increased to 10 while active.
+        note: Unholy Strength now grants 5 armor
+    - id:
+      - blade_mail
+      name: Blade Mail
+      notes:
+      - detail: []
+        note: Now returns damage before any kind of reduction, and returns it in the
+          same type as it was received
+      - detail:
+        - It still cannot hurt Spell Immune targets if the original damage type cannot,
+          like Magic
+        note: No longer ignores Spell Immune enemies
+    - id:
+      - bloodstone
+      name: Bloodstone
+      notes:
+      - detail: []
+        note: Initial charges increased from 8 to 12
+    - id:
+      - butterfly
+      name: Butterfly
+      notes:
+      - detail: []
+        note: Flutter cooldown reduced from 35 to 25
+    - id:
+      - crimson_guard
+      name: Crimson Guard
+      notes:
+      - detail: []
+        note: Cooldown reduced from 60 to 50
+      - detail:
+        - See Vanguard change
+        note: HP regeneration increased by 2
+    - id:
+      - desolator
+      name: Desolator
+      notes:
+      - detail: []
+        note: Now requires Blight Stone instead of a 300 recipe.
+    - id:
+      - diffusal_blade
+      name: Diffusal Blade
+      notes:
+      - detail: []
+        note: Purge cooldown increased from 0 to 2
+      - detail: []
+        note: Mana burned by melee/ranged illusions reduced from 25/12 to 20/10
+      - detail: []
+        note: Mana burned by melee/ranged heroes increased from 25 to 40
+    - id:
+      - dragon_lance
+      name: Dragon Lance
+      notes:
+      - detail:
+        - Cost from 1875 to 1900
+        - 'Previously provided:'
+        - + 10 Strength
+        - + 10 Damage
+        - + 10 Attack Speed
+        - + 130 Attack Range
+        - 'Now provides:'
+        - + 15 Strength
+        - + 15 Agility
+        - + 130 Attack Range
+        note: Now requires Ogre Club and 2x Band of Elvenskin instead of Ogre Club
+          and Quarterstaff.
+    - id:
+      - ancient_janggo
+      name: Drum of Endurance
+      notes:
+      - detail:
+        - Cost from 1850 to 1775
+        - 'Previously provided:'
+        - + 9 Intelligence
+        - + 9 Strength
+        - + 9 Agility
+        - + 3 Damage
+        - 'Now provides:'
+        - + 9 Intelligence
+        - + 6 Strength
+        - + 3 Agility
+        - + 3 Damage
+        - + 3 HP Regeneration
+        note: Now requires Bracer, Ring of Regeneration, Wind Lace, and a 700 recipe.
+    - id:
+      - cyclone
+      name: Eul's Scepter of Divinity
+      notes:
+      - detail: []
+        note: Now requires Wind Lace instead of Sage's mask
+    - id:
+      - flying_courier
+      name: Flying Courier
+      notes:
+      - detail: []
+        note: Cost reduced from 200 to 150
+    - id:
+      - gem
+      name: Gem of True Sight
+      notes:
+      - detail: []
+        note: True Sight radius reduced from 1100 to 900
+    - id:
+      - ghost
+      name: Ghost Scepter
+      notes:
+      - detail: []
+        note: Ghost Form cooldown reduced from 30 to 25
+    - id:
+      - glimmer_cape
+      name: Glimmer Cape
+      notes:
+      - detail: []
+        note: Mana cost reduced from 110 to 90
+    - id:
+      - guardian_greaves
+      name: Guardian Greaves
+      notes:
+      - detail: []
+        note: Guardian Greaves recipe from 1650 to 1700
+    - id:
+      - heart
+      name: Heart of Tarrasque
+      notes:
+      - detail: []
+        note: Strength bonus increased from 40 to 45
+      - detail: []
+        note: Health bonus reduced from 300 to 250
+    - id:
+      - heavens_halberd
+      name: Heaven's Halberd
+      notes:
+      - detail: []
+        note: Disarm duration on ranged targets increased from 4.5 to 5.5
+    - id:
+      - hood_of_defiance
+      name: Hood of Defiance
+      notes:
+      - detail:
+        - HP Regeneration updated to match Ring of Health and Recipe change
+        note: Removed one Ring of Regen from Hood of Defiance
+    - id:
+      - sphere
+      name: Linken's Sphere
+      notes:
+      - detail: []
+        note: Recipe cost reduced from 1325 to 1000
+    - id:
+      - lotus_orb
+      name: Lotus Orb
+      notes:
+      - detail:
+        - Now provides 250 mana
+        note: Now requires an Energy Booster instead of a 900 gold recipe
+      - detail:
+        - See Ring of Health change
+        note: HP regeneration increased from 5 to 6
+    - id:
+      - mask_of_madness
+      name: Mask of Madness
+      notes:
+      - detail: []
+        note: Active damage amplification reduced from 30% to 25%
+    - id:
+      - medallion_of_courage
+      name: Medallion of Courage
+      notes:
+      - detail: []
+        note: Now requires Blight Stone instead of a recipe
+    - id:
+      - ward_observer
+      name: Observer Ward
+      notes:
+      - detail: []
+        note: Gold/experience rescaled from 50/100 to 100/25
+      - detail: []
+        note: Duration reduced from 7 to 6 minutes
+      - detail: []
+        note: Restock interval reduced from 180 to 150 seconds
+      - detail:
+        - These three changes are all adjusted in the same proportion
+        note: Cost reduced from 75 to 65
+    - id:
+      - octarine_core
+      name: Octarine Core
+      notes:
+      - detail: []
+        note: No longer provides HP regeneration
+      - detail: []
+        note: Mana regeneration reduced from 100% to 50%
+    - id:
+      - pers
+      name: Perseverance
+      notes:
+      - detail:
+        - See Ring of Health change
+        note: HP regeneration increased from 5 to 6
+    - id:
+      - pipe
+      name: Pipe of Insight
+      notes:
+      - detail:
+        - HP Regeneration updated to match Ring of Health and Hood changes
+        note: Removed Pipe of Insight Barrier stack limit duration
+    - id:
+      - point_booster
+      name: Point Booster
+      notes:
+      - detail:
+        - Items it builds into are updated accordingly
+        note: Point Booster health bonus reduced from 200 to 175 and mana bonus increased
+          from 150 to 175
+    - id:
+      - refresher
+      name: Refresher Orb
+      notes:
+      - detail:
+        - See Ring of Health change
+        note: Refresher HP regeneration increased from 10 to 12
+    - id:
+      - ring_of_aquila
+      name: Ring of Aquila
+      notes:
+      - detail:
+        - Only the aura gives armor now
+        note: Armor reduced from 3 to 2
+      - detail: []
+        note: Damage increased from 9 to 10
+    - id:
+      - ring_of_basilius
+      name: Ring of Basilius
+      notes:
+      - detail:
+        - Only the aura gives armor now
+        note: Armor bonus reduced from 3 to 2
+      - detail: []
+        note: Damage bonus increased from 6 to 7
+    - id:
+      - ring_of_health
+      name: Ring of Health
+      notes:
+      - detail: []
+        note: HP regeneration increased from 5 to 6
+    - id:
+      - ring_of_regen
+      name: Ring of Regen
+      notes:
+      - detail: []
+        note: Cost reduced from 350 to 325
+    - id:
+      - rod_of_atos
+      name: Rod of Atos
+      notes:
+      - detail: []
+        note: Removed chance to True Strike on the target
+    - id:
+      - sange
+      name: Sange
+      notes:
+      - detail:
+        - Sange changes carry over to Heaven's Halberd
+        note: Maim chance increased from 15% to 20%
+      - detail: []
+        note: Maim slow reduced from 20% to 20/10% for melee/ranged wielders
+    - id:
+      - sange_and_yasha
+      name: Sange and Yasha
+      notes:
+      - detail: []
+        note: Maim chance increased from 16% to 30%
+      - detail: []
+        note: Maim slow reduced from 32% to 26%/13% for melee/ranged wielders
+    - id:
+      - shadow_amulet
+      name: Shadow Amulet
+      notes:
+      - detail: []
+        note: Cost reduced from 1400 to 1300
+    - id:
+      - silver_edge
+      name: Silver Edge
+      notes:
+      - detail:
+        - Cost from 5450 to 4800
+        - 'Previously provided:'
+        - + 16 Strength
+        - + 32 Damage
+        - + 30 Attack Speed
+        - 'Now provides:'
+        - + 30 Damage
+        - + 30 Attack Speed
+        - + 15 All Stats
+        note: Now requires Shadow Blade and Ultimate Orb instead of Shadow Blade,
+          Sange, and a Recipe. Can be disassembled.
+      - detail: []
+        note: Backstab damage reduction increased from 40 to 50%
+    - id:
+      - basher
+      name: Skull Basher
+      notes:
+      - detail: []
+        note: Bash damage reduced from 120 to 85
+      - detail: []
+        note: Recipe cost reduced from 1000 to 750
+    - id:
+      - smoke_of_deceit
+      name: Smoke of Deceit
+      notes:
+      - detail: []
+        note: Stock replenish time reduced from 12 to 11 minutes
+      - detail: []
+        note: No longer has a cooldown attached to your hero when used
+    - id:
+      - soul_booster
+      name: Soul Booster
+      notes:
+      - detail: []
+        note: No longer provides HP regeneration
+      - detail: []
+        note: Mana regeneration reduced from 100% to 50%
+    - id:
+      - talisman_of_evasion
+      name: Talisman of Evasion
+      notes:
+      - detail: []
+        note: Cost reduced from 1800 to 1700
+    - id:
+      - tpscroll
+      name: Town Portal Scroll
+      notes:
+      - detail: []
+        note: Cost reduced from 75 to 50
+    - id:
+      - vanguard
+      name: Vanguard
+      notes:
+      - detail: []
+        note: HP regeneration increased from 6 to 8
+    - id:
+      - veil_of_discord
+      name: Veil of Discord
+      notes:
+      - detail:
+        - Cost from 2270 to 2240
+        - 'Previously provided:'
+        - + 6 Strength
+        - + 6 Agility
+        - + 18 Intelligence
+        - + 6 HP Regeneration
+        - + 6 Damage
+        - + 6 Armor
+        - 'Now provides:'
+        - + 6 Strength
+        - + 6 Agility
+        - + 12 Intelligence
+        - + 6 HP Regeneration
+        - + 6 Damage
+        - + 6 Armor
+        note: Now requires Helm of Iron Will, 2x Null Talisman, and a 400 Recipe.
+      - detail: []
+        note: Veil debuff is now dispellable
+    - id:
+      - vladmir
+      name: Vladmir's Offering
+      notes:
+      - detail: []
+        note: Armor aura reduced from 5 to 4
+    id: items
+    name: Items
+  - data:
+    - id:
+      - bloodthorn
+      name: Bloodthorn
+      notes:
+      - detail: []
+        note: New item formed from Orchid, Crystalys, and a Recipe
+      - detail: []
+        note: 'Requires:'
+      - detail: []
+        note: Orchid (4075)
+      - detail: []
+        note: Crystalys (2120)
+      - detail: []
+        note: Recipe (1000)
+      - detail: []
+        note: 'Total: 7195'
+      - detail: []
+        note: 'Provides:'
+      - detail: []
+        note: + 25 Intelligence
+      - detail: []
+        note: + 30 Attack Speed
+      - detail: []
+        note: + 60 Damage
+      - detail: []
+        note: + 150% Mana Regeneration
+      - detail:
+        - Still applies the same Silence mechanics from Orchid.
+        note: 'Active: All attacks on the silenced target, including from allies,
+          gain True Strike and a 1.35x critical hit'
+      - detail:
+        - Orchid cooldown is 18
+        note: 'Cooldown: 11'
+      - detail:
+        - 'Same values as Crystalys: 20% chance to land a 175% damage critical hit.'
+        note: 'Passive: Grants a chance to land a critical hit'
+    - id:
+      - echo_sabre
+      name: Echo Sabre
+      notes:
+      - detail: []
+        note: New item formed from Oblivion Staff and Ogre Club
+      - detail: []
+        note: 'Requires:'
+      - detail: []
+        note: Oblivion Staff (1650)
+      - detail: []
+        note: Ogre Club (1000)
+      - detail: []
+        note: 'Total: 2650'
+      - detail: []
+        note: 'Provides:'
+      - detail: []
+        note: + 10 Strength
+      - detail: []
+        note: + 10 Intelligence
+      - detail: []
+        note: + 10 Attack Speed
+      - detail: []
+        note: + 15 Damage
+      - detail: []
+        note: + 75% Mana Regeneration
+      - detail: []
+        note: 'Passive: Causes melee attacks to attack twice in quick succession.
+          Your double attack applies a 0.6 second 100% MS/AS slow. Has a 5 second
+          cooldown.'
+      - detail: []
+        note: 'Note: The passive only works on Melee Heroes.'
+    - id:
+      - blight_stone
+      name: Blight Stone
+      notes:
+      - detail: []
+        note: New item
+      - detail: []
+        note: 'Costs: 300 gold'
+      - detail: []
+        note: 'Passive: Reduces armor by 2 on attack.'
+      - detail: []
+        note: Available in the Side Shop.
+      - detail: []
+        note: Item is used in Desolator and Medallion of Courage.
+    - id:
+      - infused_raindrop
+      name: Infused Raindrop
+      notes:
+      - detail: []
+        note: New consumable item, Infused Raindrops
+      - detail: []
+        note: 'Costs: 225 gold'
+      - detail: []
+        note: 'Provides:'
+      - detail: []
+        note: + 0.85 Mana Regeneration
+      - detail:
+        - Does not consume charges nor block any damage while on cooldown. Does not
+          affect any damage below 50.
+        note: 'Passive: Comes with 5 charges, the item is destroyed when it reaches
+          0 charges. When you receive over 50 Magic Damage it procs, consuming a charge
+          and blocking 120 Magic Damage. The proc has a 4 second cooldown.'
+      - detail: []
+        note: Becomes available for purchase at the 3 minute mark
+    - id:
+      - wind_lace
+      name: Wind Lace
+      notes:
+      - detail: []
+        note: New item
+      - detail: []
+        note: 'Costs: 225 gold'
+      - detail: []
+        note: 'Provides:'
+      - detail: []
+        note: + 20 Movement Speed
+      - detail: []
+        note: Available in the Side Shop.
+      - detail: []
+        note: Item is used in Drums and Eul's.
+      - detail: []
+        note: Multiple instances don't stack.
+    - id:
+      - tome_of_knowledge
+      name: Tome of Knowledge
+      notes:
+      - detail: []
+        note: New consumable item
+      - detail: []
+        note: 'Costs: 150 gold'
+      - detail: []
+        note: 'Use: Grants you 425 experience.'
+      - detail:
+        - First one is available at the 10 minute mark.
+        note: Starts out of stock, increments stock every 10 minutes.
+    - id:
+      - hurricane_pike
+      name: Hurricane Pike
+      notes:
+      - detail: []
+        note: New item formed from Force Staff, Dragon Lance, and a Recipe
+      - detail: []
+        note: 'Requires:'
+      - detail: []
+        note: Force Staff (2225)
+      - detail: []
+        note: Dragon Lance (1900)
+      - detail: []
+        note: Recipe (250)
+      - detail: []
+        note: 'Total: 4375'
+      - detail: []
+        note: 'Provides:'
+      - detail: []
+        note: + 20 Agility
+      - detail: []
+        note: + 15 Strength
+      - detail: []
+        note: + 10 Intelligence
+      - detail: []
+        note: + 4 HP Regeneration
+      - detail: []
+        note: + 130 Attack Range (ranged heroes only, does not stack)
+      - detail:
+        - Range restriction is not removed when used by a melee Hero
+        note: 'Active: When used on an enemy, it pushes you both away from each other
+          450 units each, and allows you to attack that target without range restrictions
+          for 4 attacks for a maximum of 5 seconds. Does not give vision over the
+          enemy. Works normally like Force Staff when used on self or allies.'
+      - detail:
+        - Force Staff cooldown is 20
+        note: 'Cooldown: 14'
+      - detail: []
+        note: 'Cast range: 400 when used on enemies, 800 on allies or self.'
+    id: new_items
+    name: New Items
+  source: https://www.dota2.com/687
+  version: '6.87'
+6.87b:
+  date: '2016-04-29'
+  menu:
+  - id: bounty_hunter
+    name: Heroes A&ndash;B
+    submenu:
+    - id: bounty_hunter
+      name: Bounty Hunter
+  - id: lich
+    name: Heroes K&ndash;L
+    submenu:
+    - id: lich
+      name: Lich
+  - id: armlet
+    name: Items A&ndash;B
+    submenu:
+    - id: armlet
+      name: Armlet of Mordiggian
+    - id: blade_mail
+      name: Blade Mail
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Jinada slow reduced from 25/27/29/31% to 18/22/26/30%
+    - id:
+      - lich
+      name: Lich
+      notes:
+      - detail: []
+        note: Sacrifice Cooldown increased from 44/36/28/20 to 60/50/40/30
+      - detail: []
+        note: Sacrifice Mana restore increased from 25/40/55/70% to 30/50/70/90%
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - armlet
+      name: Armlet of Mordiggian
+      notes:
+      - detail: []
+        note: Armlet's armor bonus is now granted after it is fully activated
+    - id:
+      - blade_mail
+      name: Blade Mail
+      notes:
+      - detail: []
+        note: Blade Mail cooldown increased from 13 to 18
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/21660/
+  version: 6.87b
+6.87c:
+  date: '2016-05-07'
+  menu:
+  - id: ''
+    name: ''
+    submenu: []
+  - id: alchemist
+    name: Heroes A&ndash;B
+    submenu:
+    - id: alchemist
+      name: Alchemist
+    - id: arc_warden
+      name: Arc Warden
+    - id: beastmaster
+      name: Beastmaster
+    - id: bounty_hunter
+      name: Bounty Hunter
+  - id: doom_bringer
+    name: Heroes C&ndash;D
+    submenu:
+    - id: doom_bringer
+      name: Doom
+  - id: obsidian_destroyer
+    name: Heroes M&ndash;O
+    submenu:
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: phantom_assassin
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phantom_assassin
+      name: Phantom Assassin
+  - id: slardar
+    name: Heroes S
+    submenu:
+    - id: slardar
+      name: Slardar
+    - id: storm_spirit
+      name: Storm Spirit
+  - id: terrorblade
+    name: Heroes T
+    submenu:
+    - id: terrorblade
+      name: Terrorblade
+  - id: vengefulspirit
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: vengefulspirit
+      name: Vengeful Spirit
+    - id: visage
+      name: Visage
+  - id: armlet
+    name: Items A&ndash;B
+    submenu:
+    - id: armlet
+      name: Armlet of Mordiggian
+  - id: silver_edge
+    name: Items S
+    submenu:
+    - id: silver_edge
+      name: Silver Edge
+  - id: wind_lace
+    name: Items T&ndash;Z
+    submenu:
+    - id: wind_lace
+      name: Wind Lace
+  sections:
+  - data:
+    - id: []
+      name: ''
+      notes:
+      - detail:
+        - AoE Bounty Gold based on level reduced from 8/7/6/4/4 to 6/5/4/3/3 per level
+        note: Super Creep gold increase over time reduced from 2 to 1.5 per upgrade
+          cycle
+    id: general
+    name: General
+  - data:
+    - id:
+      - alchemist
+      name: Alchemist
+      notes:
+      - detail: []
+        note: Greevil's Greed no longer benefits illusions
+    - id:
+      - arc_warden
+      name: Arc Warden
+      notes:
+      - detail: []
+        note: Arc Warden base damage improved by 4
+    - id:
+      - beastmaster
+      name: Beastmaster
+      notes:
+      - detail: []
+        note: Beastmaster's Boar Poison no longer pierces Spell Immunity
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Jinada slow reduced from 18/22/26/30% to 15/20/25/30%
+    - id:
+      - doom_bringer
+      name: Doom
+      notes:
+      - detail: []
+        note: Infernal Blade base damage reduced from 40 to 25/30/35/40
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Essence Aura now uses Pseudo-Random Distribution
+    - id:
+      - phantom_assassin
+      name: Phantom Assassin
+      notes:
+      - detail: []
+        note: Stifling Dagger base damage increased from 60 to 75
+    - id:
+      - slardar
+      name: Slardar
+      notes:
+      - detail: []
+        note: Slardar base movement speed reduced from 300 to 295
+    - id:
+      - storm_spirit
+      name: Storm Spirit
+      notes:
+      - detail: []
+        note: Storm Spirit Intelligence increased from 23 + 2.6 to 24 + 3.0
+    - id:
+      - terrorblade
+      name: Terrorblade
+      notes:
+      - detail: []
+        note: Metamorphosis no longer increases Base Attack Time
+      - detail: []
+        note: Conjure Image damage taken reduced from 425% to 400%
+    - id:
+      - vengefulspirit
+      name: Vengeful Spirit
+      notes:
+      - detail: []
+        note: Vengeful Spirit Intelligence reduced from 15 + 1.75 to 13 + 1.5
+    - id:
+      - visage
+      name: Visage
+      notes:
+      - detail: []
+        note: Grave Chill cast range increased from 600 to 650
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - armlet
+      name: Armlet of Mordiggian
+      notes:
+      - detail: []
+        note: Armlet armor bonus when activated reduced from 5 to 4
+    - id:
+      - silver_edge
+      name: Silver Edge
+      notes:
+      - detail: []
+        note: Silver Edge now has a 300 gold recipe
+    - id:
+      - wind_lace
+      name: Wind Lace
+      notes:
+      - detail: []
+        note: Wind Lace cost increased from 225 to 235
+      - detail: []
+        note: Wind Lace is no longer available in the Side Shop
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/21776/
+  version: 6.87c
+6.87d:
+  date: '2016-05-22'
+  menu:
+  - id: beastmaster
+    name: Heroes A&ndash;B
+    submenu:
+    - id: beastmaster
+      name: Beastmaster
+    - id: bounty_hunter
+      name: Bounty Hunter
+  - id: doom_bringer
+    name: Heroes C&ndash;D
+    submenu:
+    - id: doom_bringer
+      name: Doom
+  - id: earth_spirit
+    name: Heroes E&ndash;J
+    submenu:
+    - id: earth_spirit
+      name: Earth Spirit
+  - id: lion
+    name: Heroes K&ndash;L
+    submenu:
+    - id: lion
+      name: Lion
+  - id: phoenix
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phoenix
+      name: Phoenix
+  - id: armlet
+    name: Items
+    submenu: []
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - beastmaster
+      name: Beastmaster
+      notes:
+      - detail: []
+        note: Beastmaster Boar Attack Damage reduced from 15/30/45/60 to 10/25/40/55
+      - detail: []
+        note: Call of the Wild Hawk/Boar manacost increased from 15 to 25
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Track self bonus gold reduced from 200/275/350 to 170/260/350
+    - id:
+      - doom_bringer
+      name: Doom
+      notes:
+      - detail: []
+        note: Doom cooldown increased from 125 to 140
+    - id:
+      - earth_spirit
+      name: Earth Spirit
+      notes:
+      - detail: []
+        note: Rolling Boulder slow duration reduced from 2 to 1.4/1.6/1.8/2.0
+    - id:
+      - lion
+      name: Lion
+      notes:
+      - detail: []
+        note: Lion's base intelligence reduced by 2
+    - id:
+      - phoenix
+      name: Phoenix
+      notes:
+      - detail: []
+        note: Sun Ray cooldown increased from 20 to 26
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - armlet
+      name: Armlet of Mordiggian
+      notes:
+      - detail: []
+        note: Armlet health drain increased from 40 to 45 per second
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/21988/
+  version: 6.87d
+'6.88':
+  date: '2016-06-12'
+  menu:
+  - id: abaddon
+    name: Heroes A&ndash;B
+    submenu:
+    - id: abaddon
+      name: Abaddon
+    - id: antimage
+      name: Anti-Mage
+    - id: arc_warden
+      name: Arc Warden
+    - id: bane
+      name: Bane
+    - id: beastmaster
+      name: Beastmaster
+    - id: bloodseeker
+      name: Bloodseeker
+    - id: bounty_hunter
+      name: Bounty Hunter
+    - id: brewmaster
+      name: Brewmaster
+  - id: centaur
+    name: Heroes C&ndash;D
+    submenu:
+    - id: centaur
+      name: Centaur Warrunner
+    - id: chaos_knight
+      name: Chaos Knight
+    - id: clinkz
+      name: Clinkz
+    - id: rattletrap
+      name: Clockwerk
+    - id: crystal_maiden
+      name: Crystal Maiden
+    - id: death_prophet
+      name: Death Prophet
+    - id: disruptor
+      name: Disruptor
+    - id: doom_bringer
+      name: Doom
+    - id: drow_ranger
+      name: Drow Ranger
+  - id: earth_spirit
+    name: Heroes E&ndash;J
+    submenu:
+    - id: earth_spirit
+      name: Earth Spirit
+    - id: earthshaker
+      name: Earthshaker
+    - id: enigma
+      name: Enigma
+    - id: gyrocopter
+      name: Gyrocopter
+    - id: invoker
+      name: Invoker
+    - id: wisp
+      name: Io
+    - id: jakiro
+      name: Jakiro
+  - id: keeper_of_the_light
+    name: Heroes K&ndash;L
+    submenu:
+    - id: keeper_of_the_light
+      name: Keeper of the Light
+    - id: kunkka
+      name: Kunkka
+    - id: legion_commander
+      name: Legion Commander
+    - id: lich
+      name: Lich
+    - id: life_stealer
+      name: Lifestealer
+    - id: lina
+      name: Lina
+    - id: luna
+      name: Luna
+  - id: magnataur
+    name: Heroes M&ndash;O
+    submenu:
+    - id: magnataur
+      name: Magnus
+    - id: medusa
+      name: Medusa
+    - id: meepo
+      name: Meepo
+    - id: morphling
+      name: Morphling
+    - id: naga_siren
+      name: Naga Siren
+    - id: necrolyte
+      name: Necrophos
+    - id: nyx_assassin
+      name: Nyx Assassin
+    - id: ogre_magi
+      name: Ogre Magi
+    - id: omniknight
+      name: Omniknight
+    - id: oracle
+      name: Oracle
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: phantom_assassin
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phantom_assassin
+      name: Phantom Assassin
+    - id: phoenix
+      name: Phoenix
+    - id: pudge
+      name: Pudge
+    - id: pugna
+      name: Pugna
+    - id: razor
+      name: Razor
+    - id: riki
+      name: Riki
+  - id: sand_king
+    name: Heroes S
+    submenu:
+    - id: sand_king
+      name: Sand King
+    - id: shadow_demon
+      name: Shadow Demon
+    - id: nevermore
+      name: Shadow Fiend
+    - id: shadow_shaman
+      name: Shadow Shaman
+    - id: silencer
+      name: Silencer
+    - id: skywrath_mage
+      name: Skywrath Mage
+    - id: slardar
+      name: Slardar
+    - id: slark
+      name: Slark
+    - id: sniper
+      name: Sniper
+    - id: spirit_breaker
+      name: Spirit Breaker
+    - id: storm_spirit
+      name: Storm Spirit
+  - id: templar_assassin
+    name: Heroes T
+    submenu:
+    - id: templar_assassin
+      name: Templar Assassin
+    - id: terrorblade
+      name: Terrorblade
+    - id: tiny
+      name: Tiny
+    - id: treant
+      name: Treant Protector
+    - id: troll_warlord
+      name: Troll Warlord
+  - id: undying
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: undying
+      name: Undying
+    - id: ursa
+      name: Ursa
+    - id: venomancer
+      name: Venomancer
+    - id: viper
+      name: Viper
+    - id: visage
+      name: Visage
+    - id: warlock
+      name: Warlock
+    - id: weaver
+      name: Weaver
+    - id: windrunner
+      name: Windranger
+    - id: winter_wyvern
+      name: Winter Wyvern
+    - id: skeleton_king
+      name: Wraith King
+    - id: zuus
+      name: Zeus
+  - id: armlet
+    name: Items A&ndash;B
+    submenu:
+    - id: armlet
+      name: Armlet of Mordiggian
+    - id: bloodthorn
+      name: Bloodthorn
+    - id: butterfly
+      name: Butterfly
+  - id: crimson_guard
+    name: Items C&ndash;E
+    submenu:
+    - id: crimson_guard
+      name: Crimson Guard
+    - id: dragon_lance
+      name: Dragon Lance
+  - id: hurricane_pike
+    name: Items F&ndash;L
+    submenu:
+    - id: hurricane_pike
+      name: Hurricane Pike
+  - id: rod_of_atos
+    name: Items P&ndash;R
+    submenu:
+    - id: rod_of_atos
+      name: Rod of Atos
+  - id: smoke_of_deceit
+    name: Items S
+    submenu:
+    - id: smoke_of_deceit
+      name: Smoke of Deceit
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - abaddon
+      name: Abaddon
+      notes:
+      - detail: []
+        note: Mist Coil cast point reduced from 0.452 to 0.35
+    - id:
+      - antimage
+      name: Anti-Mage
+      notes:
+      - detail: []
+        note: Mana Void ministun duration increased from 0.15 to 0.3
+    - id:
+      - arc_warden
+      name: Arc Warden
+      notes:
+      - detail: []
+        note: Flux cooldown reduced from 20 to 18
+      - detail: []
+        note: Tempest Double duration increased from 12/13/14 to 12/14/16
+      - detail: []
+        note: Tempest Double cooldown reduced from 50/40/30 to 40/35/30
+    - id:
+      - bane
+      name: Bane
+      notes:
+      - detail: []
+        note: Brain Sap cooldown reduced from 14 to 14/13/12/11
+    - id:
+      - beastmaster
+      name: Beastmaster
+      notes:
+      - detail: []
+        note: Primal Roar damage reduced from 200/250/300 to 150/225/300
+    - id:
+      - bloodseeker
+      name: Bloodseeker
+      notes:
+      - detail: []
+        note: Rupture damage increased from 20/40/60% to 26/42/60%
+      - detail: []
+        note: Blood Rite cooldown reduced from 30/25/20/15 to 25/21/17/13
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Track self gold reduced from 170/260/350 to 150/250/350
+    - id:
+      - brewmaster
+      name: Brewmaster
+      notes:
+      - detail: []
+        note: Brewmaster's Earth attack range increased from 128 to 150
+      - detail: []
+        note: Brewmaster's Fire attack increased range from 128 to 150
+      - detail: []
+        note: Brewmaster's Fire armor increased from 0 to 0/3/6
+      - detail: []
+        note: Primal Split duration increased from 15/17/19 to 16/18/20
+    - id:
+      - centaur
+      name: Centaur Warrunner
+      notes:
+      - detail: []
+        note: Double Edge cooldown reduced from 6 to 5
+      - detail: []
+        note: Centaur Strength gain increased from 3.8 to 4.0
+    - id:
+      - chaos_knight
+      name: Chaos Knight
+      notes:
+      - detail: []
+        note: Phantasm cooldown reduced from 140 to 130
+    - id:
+      - clinkz
+      name: Clinkz
+      notes:
+      - detail: []
+        note: Attack range increased from 630 to 640
+    - id:
+      - rattletrap
+      name: Clockwerk
+      notes:
+      - detail: []
+        note: Rocket Flare radius increased from 575 to 600
+      - detail: []
+        note: Power Cogs cast point improved from 0.3 to 0.2
+      - detail: []
+        note: Power Cogs radius increased from 200 to 215
+    - id:
+      - crystal_maiden
+      name: Crystal Maiden
+      notes:
+      - detail: []
+        note: Crystal Nova radius increased from 400 to 425
+      - detail: []
+        note: Frost Bite cast range increased from 500 to 525
+    - id:
+      - death_prophet
+      name: Death Prophet
+      notes:
+      - detail: []
+        note: Spirit Siphon base health drain reduced from 25 to 16
+    - id:
+      - disruptor
+      name: Disruptor
+      notes:
+      - detail: []
+        note: Static Storm silence no longer lingers for 0.5 seconds after the duration
+          is over
+    - id:
+      - doom_bringer
+      name: Doom
+      notes:
+      - detail: []
+        note: Doom cooldown increased from 140 to 145
+    - id:
+      - drow_ranger
+      name: Drow Ranger
+      notes:
+      - detail: []
+        note: Turn rate improved from 0.6 to 0.7
+      - detail: []
+        note: Frost Arrows slow increased from 15/30/45/60% to 16/32/48/64%
+    - id:
+      - earth_spirit
+      name: Earth Spirit
+      notes:
+      - detail: []
+        note: Magnetize cooldown increased from 80 to 100/90/80
+    - id:
+      - earthshaker
+      name: Earthshaker
+      notes:
+      - detail: []
+        note: Echo Slam radius increased from 575 to 600
+    - id:
+      - enigma
+      name: Enigma
+      notes:
+      - detail: []
+        note: Black Hole damage type from Magical to Pure and pierces Spell Immunity
+      - detail: []
+        note: Black Hole damage reduced from 55/110/165 to 50/100/150
+    - id:
+      - gyrocopter
+      name: Gyrocopter
+      notes:
+      - detail: []
+        note: Gyrocopter's Scepter Side Gunner attack interval improved from 1.4 to
+          1.2
+    - id:
+      - invoker
+      name: Invoker
+      notes:
+      - detail: []
+        note: Forge Spirit damage decreased from 29/38/47/56/65/74/83 to 22/32/42/52/62/72/82
+    - id:
+      - wisp
+      name: Io
+      notes:
+      - detail: []
+        note: Tether movement speed bonus reduced from 14/15/16/17 to 13/14/15/16%
+    - id:
+      - jakiro
+      name: Jakiro
+      notes:
+      - detail: []
+        note: Ice Path duration increased from 1/1.4/1.8/2.2 to 1/1.5/2/2.5
+    - id:
+      - keeper_of_the_light
+      name: Keeper of the Light
+      notes:
+      - detail: []
+        note: Chakra Magic cooldown reduced from 19/18/17/16 to 17/16/15/14
+      - detail: []
+        note: Intelligence increased from 22 to 25
+    - id:
+      - kunkka
+      name: Kunkka
+      notes:
+      - detail: []
+        note: Torrent slow duration increased from 1/2/3/4 to 1.75/2.5/3.25/4
+      - detail: []
+        note: Tidebringer bonus damage increased from 25/40/55/70 to 25/45/65/85
+    - id:
+      - legion_commander
+      name: Legion Commander
+      notes:
+      - detail: []
+        note: Overwhelming Odds damage per hero increased from 20/35/50/65 to 20/40/60/80
+      - detail: []
+        note: Moment of Courage cooldown reduced from 2.6/2/1.4/0.8 to 2.3/1.8/1.3/0.8
+    - id:
+      - lich
+      name: Lich
+      notes:
+      - detail: []
+        note: Scepter now improves Chain Frost slow from 30 to 50%
+      - detail: []
+        note: Ice Armor attack speed slow from 20 to 30 (matches movement slow)
+    - id:
+      - life_stealer
+      name: Lifestealer
+      notes:
+      - detail: []
+        note: Base attack time increased from 1.7 to 1.85
+    - id:
+      - lina
+      name: Lina
+      notes:
+      - detail: []
+        note: Dragon Slave cooldown reduced from 8.5 to 8
+    - id:
+      - luna
+      name: Luna
+      notes:
+      - detail: []
+        note: Lucent Beam stun duration increased from 0.6 to 0.8
+      - detail: []
+        note: Movement speed increased from 330 to 335
+    - id:
+      - magnataur
+      name: Magnus
+      notes:
+      - detail: []
+        note: Empower cleave radius increased from 200 to 225
+      - detail: []
+        note: Strength gain increased from 2.75 to 2.9
+    - id:
+      - medusa
+      name: Medusa
+      notes:
+      - detail: []
+        note: Intelligence gain increased from 1.85 to 2.1
+    - id:
+      - meepo
+      name: Meepo
+      notes:
+      - detail: []
+        note: Geostrike damage per second increased from 8/16/24/32 to 10/20/30/40
+    - id:
+      - morphling
+      name: Morphling
+      notes:
+      - detail: []
+        note: Hybrid cooldown reduced from 70 to 60
+      - detail: []
+        note: Agility gain increased from 3.4 to 3.7
+    - id:
+      - naga_siren
+      name: Naga Siren
+      notes:
+      - detail: []
+        note: Strength gain increased from 2.3 to 2.5
+    - id:
+      - necrolyte
+      name: Necrophos
+      notes:
+      - detail: []
+        note: Heartstopper Aura range reduced from 1200 to 900
+      - detail: []
+        note: Heartstopper HP drain increased from 0.6/0.9/1.2/1.5 to 0.6/1/1.4/1.8%
+    - id:
+      - nyx_assassin
+      name: Nyx Assassin
+      notes:
+      - detail: []
+        note: Movement speed increased from 300 to 305
+    - id:
+      - ogre_magi
+      name: Ogre Magi
+      notes:
+      - detail: []
+        note: Ignite manacost reduced from 95/105/115/125 to 90
+      - detail: []
+        note: Multicast interval increased from 0.4 to 0.5
+    - id:
+      - omniknight
+      name: Omniknight
+      notes:
+      - detail: []
+        note: Strength increased from 20 + 2.65 to 22 + 2.8
+    - id:
+      - oracle
+      name: Oracle
+      notes:
+      - detail: []
+        note: Purifying Flames cast range increased from 750 to 800
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Essence Aura mana bonus increased from 75/150/225/300 to 125/200/275/350
+      - detail: []
+        note: Arcane Orb Intelligence steal duration increased from 50 to 60
+    - id:
+      - phantom_assassin
+      name: Phantom Assassin
+      notes:
+      - detail: []
+        note: Phantom Strike can now target Spell Immune heroes
+    - id:
+      - phoenix
+      name: Phoenix
+      notes:
+      - detail: []
+        note: Sunray base damage reduced from 15/20/25/30 to 10/15/20/25
+    - id:
+      - pudge
+      name: Pudge
+      notes:
+      - detail: []
+        note: Rot slow increased from 27% to 30%
+      - detail: []
+        note: Dismember cooldown reduced from 30 to 30/25/20
+    - id:
+      - pugna
+      name: Pugna
+      notes:
+      - detail: []
+        note: Intelligence growth increased from 4 to 4.5
+      - detail: []
+        note: Nether Blast cooldown reduced from 5.5 to 5
+    - id:
+      - razor
+      name: Razor
+      notes:
+      - detail: []
+        note: Eye of the Storm damage per strike increased from 37/50/63 to 40/55/70
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: Smoke Screen manacost increased from 75/80/85/90 to 90
+    - id:
+      - sand_king
+      name: Sand King
+      notes:
+      - detail: []
+        note: Epicenter cooldown reduced from 140/120/100 to 120/110/100
+      - detail: []
+        note: Strength increased from 21 to 22
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Disruption illusion duration increased from 6/8/10/12 to 8/10/12/14
+    - id:
+      - nevermore
+      name: Shadow Fiend
+      notes:
+      - detail: []
+        note: Movement speed increased from 305 to 310
+      - detail: []
+        note: Necromastery Max Souls increased from 15/22/29/36 to 18/24/30/36
+      - detail: []
+        note: ''
+    - id:
+      - shadow_shaman
+      name: Shadow Shaman
+      notes:
+      - detail: []
+        note: Mass Serpent Wards splash radius increased from 75% to 100%
+      - detail: []
+        note: Mass Serpent Wards attack damage increased from 40-45/55-60/70-75 to
+          40-45/60-65/80-85
+    - id:
+      - silencer
+      name: Silencer
+      notes:
+      - detail: []
+        note: Agility increased from 16 to 22
+    - id:
+      - skywrath_mage
+      name: Skywrath Mage
+      notes:
+      - detail: []
+        note: Concussive Shot impact AoE increased from 200 to 250
+    - id:
+      - slardar
+      name: Slardar
+      notes:
+      - detail: []
+        note: Movement speed reduced from 295 to 290
+    - id:
+      - slark
+      name: Slark
+      notes:
+      - detail: []
+        note: Pounce damage reduced from 50/100/150/200 to 40/80/120/160
+    - id:
+      - sniper
+      name: Sniper
+      notes:
+      - detail: []
+        note: Shrapnel damage increased from 15/30/45/60 to 15/35/55/75
+    - id:
+      - spirit_breaker
+      name: Spirit Breaker
+      notes:
+      - detail: []
+        note: Greater Bash increased damage from 22/28/34/40% to 22/30/38/46%
+    - id:
+      - storm_spirit
+      name: Storm Spirit
+      notes:
+      - detail: []
+        note: Overload damage increased from 30/50/70/90 to 40/60/80/100
+      - detail: []
+        note: Overload AoE increased from 275 to 300
+    - id:
+      - templar_assassin
+      name: Templar Assassin
+      notes:
+      - detail: []
+        note: Psi Blades Spill Width increased from 68 to 75
+      - detail: []
+        note: Psionic Trap max movement slow increased from 50% to 60%
+    - id:
+      - terrorblade
+      name: Terrorblade
+      notes:
+      - detail: []
+        note: Conjure Image manacost reduced from 80 to 70
+      - detail: []
+        note: Conjure Image duration increased from 32 to 34
+    - id:
+      - tiny
+      name: Tiny
+      notes:
+      - detail: []
+        note: Toss cooldown reduced from 9 to 8
+    - id:
+      - treant
+      name: Treant Protector
+      notes:
+      - detail: []
+        note: Base damage increased by 6
+    - id:
+      - troll_warlord
+      name: Troll Warlord
+      notes:
+      - detail: []
+        note: Berserker's Rage no longer provides 100 Health Bonus
+      - detail: []
+        note: Strength increased from 17 to 20
+      - detail: []
+        note: Berserker's Rage armor bonus increased from 3 to 6
+      - detail: []
+        note: Berserker's Rage base attack time improved from 1.55 to 1.5
+      - detail: []
+        note: Ranged Whirling Axes travel distance increased from 945 to 1000
+    - id:
+      - undying
+      name: Undying
+      notes:
+      - detail: []
+        note: Intelligence gain increased from 2.5 to 2.8
+      - detail: []
+        note: Decay cast range increased from 625 to 650
+      - detail: []
+        note: Decay duration increased from 40 to 45
+    - id:
+      - ursa
+      name: Ursa
+      notes:
+      - detail: []
+        note: Fury Swipes debuff duration increased from 15 to 20
+      - detail: []
+        note: Base HP Regen increased from 0.25 to 0.75
+    - id:
+      - venomancer
+      name: Venomancer
+      notes:
+      - detail: []
+        note: Intelligence increased from 15 + 1.75 to 17 + 1.8
+      - detail: []
+        note: Plague Wards damage increased from 10/19/29/38 to 13/22/31/40
+    - id:
+      - viper
+      name: Viper
+      notes:
+      - detail: []
+        note: Viper Strike Scepter cooldown reduced from 12 to 10
+      - detail: []
+        note: Strength gain increased from 1.9 to 2.1
+    - id:
+      - visage
+      name: Visage
+      notes:
+      - detail: []
+        note: Gravekeeper's Cloak armor bonus per layer increased from 1/2/3/5 to
+          1.5/3/4.5/6
+      - detail: []
+        note: Gravekeeper's Cloak magic resistance bonus per layer increased from
+          3/6/12/16% to 5/10/15/20%
+    - id:
+      - warlock
+      name: Warlock
+      notes:
+      - detail: []
+        note: 'Golem HP increased from 900/1200/1500 to 900/1350/1800 '
+      - detail: []
+        note: Fatal Bonds no longer gets reduced by Damage Block
+    - id:
+      - weaver
+      name: Weaver
+      notes:
+      - detail: []
+        note: Base damage increased by 2
+    - id:
+      - windrunner
+      name: Windranger
+      notes:
+      - detail: []
+        note: Windrun cooldown reduced from 15 to 14
+    - id:
+      - winter_wyvern
+      name: Winter Wyvern
+      notes:
+      - detail: []
+        note: Winter's Curse cooldown reduced from 90 to 80
+    - id:
+      - skeleton_king
+      name: Wraith King
+      notes:
+      - detail: []
+        note: Wraithfire Blast damage over time increased from 15/30/40/50 to 20/35/50/65
+    - id:
+      - zuus
+      name: Zeus
+      notes:
+      - detail: []
+        note: Arc Lightning cooldown reduced from 1.75 to 1.6
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - armlet
+      name: Armlet of Mordiggian
+      notes:
+      - detail: []
+        note: Recipe cost increased from 500 to 550
+    - id:
+      - bloodthorn
+      name: Bloodthorn
+      notes:
+      - detail: []
+        note: Critical Strike multiplier increased from 1.35 to 1.45
+    - id:
+      - butterfly
+      name: Butterfly
+      notes:
+      - detail: []
+        note: Agility increased from 30 to 35
+    - id:
+      - crimson_guard
+      name: Crimson Guard
+      notes:
+      - detail: []
+        note: Cooldown reduced from 50 to 46
+    - id:
+      - dragon_lance
+      name: Dragon Lance
+      notes:
+      - detail: []
+        note: Strength and Agility reduced from 15 to 14
+      - detail: []
+        note: Attack Range bonus increased from 130 to 140
+    - id:
+      - hurricane_pike
+      name: Hurricane Pike
+      notes:
+      - detail: []
+        note: Attack Range bonus increased from 130 to 140
+      - detail: []
+        note: Active now grants 100 Attack Speed for the 4 attacks it provides on
+          the target
+    - id:
+      - rod_of_atos
+      name: Rod of Atos
+      notes:
+      - detail: []
+        note: Cooldown reduced from 12 to 10
+    - id:
+      - smoke_of_deceit
+      name: Smoke of Deceit
+      notes:
+      - detail: []
+        note: Now has a 1 second cooldown on use (to prevent accidental usage)
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/22385/
+  version: '6.88'
+6.88b:
+  date: '2016-07-12'
+  menu:
+  - id: ''
+    name: ''
+    submenu: []
+  - id: beastmaster
+    name: Heroes A&ndash;B
+    submenu:
+    - id: beastmaster
+      name: Beastmaster
+    - id: bloodseeker
+      name: Bloodseeker
+    - id: brewmaster
+      name: Brewmaster
+  - id: centaur
+    name: Heroes C&ndash;D
+    submenu:
+    - id: centaur
+      name: Centaur Warrunner
+    - id: death_prophet
+      name: Death Prophet
+  - id: elder_titan
+    name: Heroes E&ndash;J
+    submenu:
+    - id: elder_titan
+      name: Elder Titan
+    - id: faceless_void
+      name: Faceless Void
+  - id: legion_commander
+    name: Heroes K&ndash;L
+    submenu:
+    - id: legion_commander
+      name: Legion Commander
+  - id: magnataur
+    name: Heroes M&ndash;O
+    submenu:
+    - id: magnataur
+      name: Magnus
+    - id: meepo
+      name: Meepo
+    - id: ogre_magi
+      name: Ogre Magi
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: pudge
+    name: Heroes P&ndash;R
+    submenu:
+    - id: pudge
+      name: Pudge
+    - id: riki
+      name: Riki
+  - id: sand_king
+    name: Heroes S
+    submenu:
+    - id: sand_king
+      name: Sand King
+    - id: nevermore
+      name: Shadow Fiend
+    - id: silencer
+      name: Silencer
+    - id: sniper
+      name: Sniper
+  - id: terrorblade
+    name: Heroes T
+    submenu:
+    - id: terrorblade
+      name: Terrorblade
+    - id: shredder
+      name: Timbersaw
+    - id: treant
+      name: Treant Protector
+  - id: visage
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: visage
+      name: Visage
+    - id: warlock
+      name: Warlock
+    - id: zuus
+      name: Zeus
+  sections:
+  - data:
+    - id: []
+      name: ''
+      notes:
+      - detail: []
+        note: Lane Creeps now give 20% of XP when denied by neutrals rather than 0%
+          (normal player denies give 50% XP)
+    id: general
+    name: General
+  - data:
+    - id:
+      - beastmaster
+      name: Beastmaster
+      notes:
+      - detail: []
+        note: Beastmaster Boar XP bounty increased from 59 to 60/70/80/90
+    - id:
+      - bloodseeker
+      name: Bloodseeker
+      notes:
+      - detail: []
+        note: Thirst bonus rescaled from 10/20/30/40% to 16/24/32/40%
+    - id:
+      - brewmaster
+      name: Brewmaster
+      notes:
+      - detail: []
+        note: Brewmaster Boulder damage increased from 50 to 50/100/150
+      - detail: []
+        note: Brewmaster Dispel Magic damage to illusions and summoned units increased
+          from 500 to 850
+    - id:
+      - centaur
+      name: Centaur Warrunner
+      notes:
+      - detail: []
+        note: Stampede slow duration increased from 1.5 to 1.8
+    - id:
+      - death_prophet
+      name: Death Prophet
+      notes:
+      - detail: []
+        note: Death Prophet base strength reduced by 1
+      - detail: []
+        note: Spirit Siphon base health drain reduced from 16 to 14
+    - id:
+      - elder_titan
+      name: Elder Titan
+      notes:
+      - detail: []
+        note: Astral Spirit vision reduced from 450 to 400
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Time Dilation manacost increased from 50 to 75
+    - id:
+      - legion_commander
+      name: Legion Commander
+      notes:
+      - detail: []
+        note: Press the Attack's attack speed bonus increased from 60/80/100/120 to
+          65/90/115/140
+    - id:
+      - magnataur
+      name: Magnus
+      notes:
+      - detail: []
+        note: Empower cleave AoE increased from 225 to 240
+    - id:
+      - meepo
+      name: Meepo
+      notes:
+      - detail: []
+        note: Meepo agility growth increased from 1.9 to 2.2
+    - id:
+      - ogre_magi
+      name: Ogre Magi
+      notes:
+      - detail: []
+        note: Bloodlust manacost reduced from 75 to 50
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Astral Imprisonment damage increased from 75/150/225/300 to 100/175/250/325
+      - detail: []
+        note: Arcane Orb intelligence duration increased from 60 to 80
+    - id:
+      - pudge
+      name: Pudge
+      notes:
+      - detail: []
+        note: Dismember strength based damage increased from 30/40/50 to 30/45/60%
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: Riki's Blink Strike damage reduced from 60/80/100/120 to 55/70/85/100
+    - id:
+      - sand_king
+      name: Sand King
+      notes:
+      - detail: []
+        note: Sand Storm cooldown reduced from 40/30/20/10 to 34/26/18/10
+      - detail: []
+        note: Epicenter manacost reduced from 175/250/325 to 150/225/300
+    - id:
+      - nevermore
+      name: Shadow Fiend
+      notes:
+      - detail: []
+        note: Shadow Fiend movement speed increased from 310 to 315
+    - id:
+      - silencer
+      name: Silencer
+      notes:
+      - detail: []
+        note: Arcane Curse damage increased from 14/21/28/35 to 14/22/30/38
+    - id:
+      - sniper
+      name: Sniper
+      notes:
+      - detail: []
+        note: Sniper turn rate improved from 0.6 to 0.7
+      - detail: []
+        note: Sniper night vision increased from 1000 to 1100
+    - id:
+      - terrorblade
+      name: Terrorblade
+      notes:
+      - detail: []
+        note: Metamorphosis manacost increased from 50 to 100
+      - detail: []
+        note: Metamorphosis no longer lingers after reincarnation/death
+    - id:
+      - shredder
+      name: Timbersaw
+      notes:
+      - detail: []
+        note: Timbersaw strength gain reduced from 2.1 to 1.8
+    - id:
+      - treant
+      name: Treant Protector
+      notes:
+      - detail: []
+        note: Living Armor cooldown reduced from 32/26/20/14 to 30/24/18/12
+    - id:
+      - visage
+      name: Visage
+      notes:
+      - detail: []
+        note: Stone Form cooldown reduced from 26 to 20
+    - id:
+      - warlock
+      name: Warlock
+      notes:
+      - detail: []
+        note: Warlock Golems HP increased from 900/1350/1800 to 1000/1500/2000
+    - id:
+      - zuus
+      name: Zeus
+      notes:
+      - detail: []
+        note: Lightning Bolt ministun increased from 0.1 to 0.2
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/22824/
+  version: 6.88b
+6.88c:
+  date: '2016-08-19'
+  menu:
+  - id: ''
+    name: ''
+    submenu: []
+  - id: bloodseeker
+    name: Heroes A&ndash;B
+    submenu:
+    - id: bloodseeker
+      name: Bloodseeker
+  - id: drow_ranger
+    name: Heroes C&ndash;D
+    submenu:
+    - id: drow_ranger
+      name: Drow Ranger
+  - id: elder_titan
+    name: Heroes E&ndash;J
+    submenu:
+    - id: elder_titan
+      name: Elder Titan
+    - id: faceless_void
+      name: Faceless Void
+  - id: leshrac
+    name: Heroes K&ndash;L
+    submenu:
+    - id: leshrac
+      name: Leshrac
+    - id: lina
+      name: Lina
+  - id: mirana
+    name: Heroes M&ndash;O
+    submenu:
+    - id: mirana
+      name: Mirana
+    - id: oracle
+      name: Oracle
+  - id: shadow_demon
+    name: Heroes S
+    submenu:
+    - id: shadow_demon
+      name: Shadow Demon
+  - id: shredder
+    name: Heroes T
+    submenu:
+    - id: shredder
+      name: Timbersaw
+    - id: treant
+      name: Treant Protector
+  - id: visage
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: visage
+      name: Visage
+  sections:
+  - data:
+    - id: []
+      name: ''
+      notes:
+      - detail: []
+        note: Lane creeps now give 35% of experience when denied by neutrals rather
+          than 20% (normal player denies give 50% experience).
+    id: general
+    name: General
+  - data:
+    - id:
+      - bloodseeker
+      name: Bloodseeker
+      notes:
+      - detail: []
+        note: Rupture damage increased from 26/42/60% to 30/45/60%
+    - id:
+      - drow_ranger
+      name: Drow Ranger
+      notes:
+      - detail: []
+        note: Gust cooldown increased from 13 to 16/15/14/13
+    - id:
+      - elder_titan
+      name: Elder Titan
+      notes:
+      - detail: []
+        note: Echo Stomped units no longer get targeted by towers or creeps (like
+          nightmare)
+      - detail: []
+        note: Echo Stomp damage decreased from 85/110/135/160 to 70/100/130/160
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Chronosphere cooldown increased from 130/115/100 to 140/125/110
+    - id:
+      - leshrac
+      name: Leshrac
+      notes:
+      - detail: []
+        note: Leshrac's movement speed increased from 320 to 325
+    - id:
+      - lina
+      name: Lina
+      notes:
+      - detail: []
+        note: Lina's Base Attack Time improved from 1.7 to 1.6
+    - id:
+      - mirana
+      name: Mirana
+      notes:
+      - detail: []
+        note: Starstorm Aghanim upgrade no longer releases a second meteor
+    - id:
+      - oracle
+      name: Oracle
+      notes:
+      - detail: []
+        note: False Promise cooldown increased from 90/60/30 to 100/65/30
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Disruption illusion damage taken increased from 150% to 200%
+    - id:
+      - shredder
+      name: Timbersaw
+      notes:
+      - detail: []
+        note: Reactive Armor duration decreased from 14/16/18/20 to 10/13/16/19
+    - id:
+      - treant
+      name: Treant Protector
+      notes:
+      - detail: []
+        note: Living Armor regeneration bonus increased from 4/7/10/13 to 4/8/12/16
+    - id:
+      - visage
+      name: Visage
+      notes:
+      - detail: []
+        note: Stone Form stun delay reduced from 0.85 to 0.55
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/23584/
+  version: 6.88c
+6.88d:
+  date: '2016-09-02'
+  menu:
+  - id: arc_warden
+    name: Heroes A&ndash;B
+    submenu:
+    - id: arc_warden
+      name: Arc Warden
+  - id: faceless_void
+    name: Heroes E&ndash;J
+    submenu:
+    - id: faceless_void
+      name: Faceless Void
+  - id: shadow_demon
+    name: Heroes S
+    submenu:
+    - id: shadow_demon
+      name: Shadow Demon
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - arc_warden
+      name: Arc Warden
+      notes:
+      - detail: []
+        note: Flux slow reduced from 35/40/45/50% to 20/30/40/50%
+      - detail: []
+        note: Tempest Double now gives a 140 Gold/XP bounty when killed
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Faceless Void base damage reduced by 4
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Disruption cooldown increased from 25/22/19/16 to 27/24/21/18
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/23972/
+  version: 6.88d
+6.88e:
+  date: '2016-10-02'
+  menu:
+  - id: ''
+    name: ''
+    submenu: []
+  - id: arc_warden
+    name: Heroes A&ndash;B
+    submenu:
+    - id: arc_warden
+      name: Arc Warden
+    - id: axe
+      name: Axe
+    - id: batrider
+      name: Batrider
+    - id: bounty_hunter
+      name: Bounty Hunter
+  - id: drow_ranger
+    name: Heroes C&ndash;D
+    submenu:
+    - id: drow_ranger
+      name: Drow Ranger
+  - id: elder_titan
+    name: Heroes E&ndash;J
+    submenu:
+    - id: elder_titan
+      name: Elder Titan
+    - id: faceless_void
+      name: Faceless Void
+    - id: huskar
+      name: Huskar
+    - id: wisp
+      name: Io
+    - id: juggernaut
+      name: Juggernaut
+  - id: keeper_of_the_light
+    name: Heroes K&ndash;L
+    submenu:
+    - id: keeper_of_the_light
+      name: Keeper of the Light
+    - id: kunkka
+      name: Kunkka
+  - id: mirana
+    name: Heroes M&ndash;O
+    submenu:
+    - id: mirana
+      name: Mirana
+    - id: morphling
+      name: Morphling
+    - id: omniknight
+      name: Omniknight
+    - id: oracle
+      name: Oracle
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: phantom_assassin
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phantom_assassin
+      name: Phantom Assassin
+    - id: riki
+      name: Riki
+  - id: sand_king
+    name: Heroes S
+    submenu:
+    - id: sand_king
+      name: Sand King
+    - id: shadow_demon
+      name: Shadow Demon
+  - id: shredder
+    name: Heroes T
+    submenu:
+    - id: shredder
+      name: Timbersaw
+  - id: diffusal_blade
+    name: Items C&ndash;E
+    submenu:
+    - id: diffusal_blade
+      name: Diffusal Blade
+    - id: dragon_lance
+      name: Dragon Lance
+  - id: infused_raindrop
+    name: Items F&ndash;L
+    submenu:
+    - id: infused_raindrop
+      name: Infused Raindrop
+  sections:
+  - data:
+    - id: []
+      name: ''
+      notes:
+      - detail: []
+        note: Illusions attack damage reduction against buildings increased from 25%
+          to 30%
+    id: general
+    name: General
+  - data:
+    - id:
+      - arc_warden
+      name: Arc Warden
+      notes:
+      - detail: []
+        note: Tempest Double gold and XP bounty increased from 140 to 160
+    - id:
+      - axe
+      name: Axe
+      notes:
+      - detail: []
+        note: Counter Helix damage reduced from 90/120/150/180 to 75/110/145/180
+    - id:
+      - batrider
+      name: Batrider
+      notes:
+      - detail: []
+        note: Flamebreak cooldown increased from 14 to 17
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Track manacost increased from 50 to 65
+    - id:
+      - drow_ranger
+      name: Drow Ranger
+      notes:
+      - detail: []
+        note: Drow base damage reduced by 4
+    - id:
+      - elder_titan
+      name: Elder Titan
+      notes:
+      - detail: []
+        note: Echo Stomp channel time increased from 1.2 to 1.3
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Time Dilation now only freezes abilities that are on cooldown, rather
+          than also affecting abilities cast afterwards
+      - detail: []
+        note: Time Dilation slow per frozen ability increased from 8% to 10%
+    - id:
+      - huskar
+      name: Huskar
+      notes:
+      - detail: []
+        note: Inner Vitality bonus regeneration threshhold reduced from 40% to 35%
+    - id:
+      - wisp
+      name: Io
+      notes:
+      - detail: []
+        note: Relocate delay increased from 2.5/2.25/2 to 2.7/2.35/2
+    - id:
+      - juggernaut
+      name: Juggernaut
+      notes:
+      - detail: []
+        note: Juggernaut base damage reduced by 2
+    - id:
+      - keeper_of_the_light
+      name: Keeper of the Light
+      notes:
+      - detail: []
+        note: Mana Leak manacost increased from 75 to 150
+      - detail: []
+        note: Illuminate radius increased from 350 to 375
+      - detail: []
+        note: Blinding Light knockback distance increased from 400 to 525
+    - id:
+      - kunkka
+      name: Kunkka
+      notes:
+      - detail: []
+        note: Torrent damage reduced from 120/180/240/300 to 75/150/225/300
+    - id:
+      - mirana
+      name: Mirana
+      notes:
+      - detail: []
+        note: Starstorm Scepter cooldown increased from 8 to 9
+    - id:
+      - morphling
+      name: Morphling
+      notes:
+      - detail: []
+        note: Morphling intelligence gain reduced from 1.5 to 1.1
+    - id:
+      - omniknight
+      name: Omniknight
+      notes:
+      - detail: []
+        note: Repel cast point improved from 0.5 to 0.35
+      - detail: []
+        note: Repel duration reduced from 6/8/10/12 to 4/6/8/10
+    - id:
+      - oracle
+      name: Oracle
+      notes:
+      - detail: []
+        note: Oracle base damage reduced by 6
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Outworld Devourer base armor reduced by 1.5
+    - id:
+      - phantom_assassin
+      name: Phantom Assassin
+      notes:
+      - detail: []
+        note: Stifling Dagger cast range reduced from 1200 to 825/950/1075/1200
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: Smokescreen slow reduced from 25% to 19/21/23/25%
+    - id:
+      - sand_king
+      name: Sand King
+      notes:
+      - detail: []
+        note: Sand King movement speed reduced by 5
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Shadow Poison initial damage reduced from 50 to 26/34/42/50
+    - id:
+      - shredder
+      name: Timbersaw
+      notes:
+      - detail: []
+        note: Timbersaw base strength reduced by 1
+    id: heroes
+    name: Heroes
+  - data:
+    - id:
+      - diffusal_blade
+      name: Diffusal Blade
+      notes:
+      - detail: []
+        note: Diffusal Blade cooldown increased from 2 to 4
+    - id:
+      - dragon_lance
+      name: Dragon Lance
+      notes:
+      - detail: []
+        note: Dragon Lance strength reduced from 14 to 13
+    - id:
+      - infused_raindrop
+      name: Infused Raindrop
+      notes:
+      - detail: []
+        note: Infused Raindrop cooldown increased from 4 to 6
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/24629/
+  version: 6.88e
+6.88f:
+  date: '2016-10-17'
+  menu:
+  - id: arc_warden
+    name: Heroes A&ndash;B
+    submenu:
+    - id: arc_warden
+      name: Arc Warden
+    - id: batrider
+      name: Batrider
+    - id: bounty_hunter
+      name: Bounty Hunter
+  - id: centaur
+    name: Heroes C&ndash;D
+    submenu:
+    - id: centaur
+      name: Centaur Warrunner
+    - id: drow_ranger
+      name: Drow Ranger
+  - id: faceless_void
+    name: Heroes E&ndash;J
+    submenu:
+    - id: faceless_void
+      name: Faceless Void
+    - id: juggernaut
+      name: Juggernaut
+  - id: kunkka
+    name: Heroes K&ndash;L
+    submenu:
+    - id: kunkka
+      name: Kunkka
+  - id: mirana
+    name: Heroes M&ndash;O
+    submenu:
+    - id: mirana
+      name: Mirana
+    - id: morphling
+      name: Morphling
+    - id: nyx_assassin
+      name: Nyx Assassin
+    - id: omniknight
+      name: Omniknight
+    - id: oracle
+      name: Oracle
+    - id: obsidian_destroyer
+      name: Outworld Devourer
+  - id: phantom_assassin
+    name: Heroes P&ndash;R
+    submenu:
+    - id: phantom_assassin
+      name: Phantom Assassin
+    - id: riki
+      name: Riki
+  - id: shadow_demon
+    name: Heroes S
+    submenu:
+    - id: shadow_demon
+      name: Shadow Demon
+  - id: abyssal_underlord
+    name: Heroes U&ndash;Z
+    submenu:
+    - id: abyssal_underlord
+      name: Underlord
+  sections:
+  - data: []
+    id: general
+    name: General
+  - data:
+    - id:
+      - arc_warden
+      name: Arc Warden
+      notes:
+      - detail: []
+        note: Spark Wraith no longer dispels (still slows)
+      - detail: []
+        note: Arc Warden movement speed reduced by 10
+    - id:
+      - batrider
+      name: Batrider
+      notes:
+      - detail: []
+        note: Flamebreak knockback no longer interrupts channeling spells (behaves
+          like blinding light)
+      - detail: []
+        note: Flamebreak burn duration increased from 3/4/5/6 to 4/5/6/7 (total damage
+          increased)
+    - id:
+      - bounty_hunter
+      name: Bounty Hunter
+      notes:
+      - detail: []
+        note: Track movement speed bonus reduced from 20% to 16/18/20%
+    - id:
+      - centaur
+      name: Centaur Warrunner
+      notes:
+      - detail: []
+        note: Fixed Return working on Centaur Illusions
+    - id:
+      - drow_ranger
+      name: Drow Ranger
+      notes:
+      - detail: []
+        note: Drow Ranger strength gain reduced from 1.9 to 1.6
+    - id:
+      - faceless_void
+      name: Faceless Void
+      notes:
+      - detail: []
+        note: Faceless Void base armor reduced by 1
+    - id:
+      - juggernaut
+      name: Juggernaut
+      notes:
+      - detail: []
+        note: Healing Ward manacost increased from 120/125/130/135 to 140
+    - id:
+      - kunkka
+      name: Kunkka
+      notes:
+      - detail: []
+        note: Torrent cooldown increased from 10 to 16/14/12/10
+      - detail: []
+        note: Ghostship Rum damage reduction changed from 50% to 40/45/50%
+    - id:
+      - mirana
+      name: Mirana
+      notes:
+      - detail: []
+        note: Starfall Scepter cooldown increased from 9 to 10
+    - id:
+      - morphling
+      name: Morphling
+      notes:
+      - detail: []
+        note: Morph Replicate cast time increased from 0.25 to 0.35
+      - detail: []
+        note: Morphling base damage reduced by 4
+    - id:
+      - nyx_assassin
+      name: Nyx Assassin
+      notes:
+      - detail: []
+        note: Nyx's Scepter Burrow cast time increased from 1 to 1.5
+    - id:
+      - omniknight
+      name: Omniknight
+      notes:
+      - detail: []
+        note: Purification cast range reduced from 700 to 575
+      - detail: []
+        note: Purification cast point reduced from 0.25 to 0.2
+      - detail: []
+        note: Purification cooldown reduced from 10 to 9
+      - detail: []
+        note: Repel duration rescaled from 4/6/8/10 to 5/6/7/8
+      - detail: []
+        note: Repel cooldown reduced from 14 to 20/18/16/14
+    - id:
+      - oracle
+      name: Oracle
+      notes:
+      - detail: []
+        note: Purifying Flames manacost increased from 50/60/70/80 to 80/85/90/95
+    - id:
+      - obsidian_destroyer
+      name: Outworld Devourer
+      notes:
+      - detail: []
+        note: Outworld Devourer base damage reduced by 6
+    - id:
+      - phantom_assassin
+      name: Phantom Assassin
+      notes:
+      - detail: []
+        note: 'Stifling Dagger cast range reduced from 825/950/1075/1200 to 525/750/975/1200 '
+    - id:
+      - riki
+      name: Riki
+      notes:
+      - detail: []
+        note: Smoke Screen slow reduced from 19/21/23/25% to 13/17/21/25%
+    - id:
+      - shadow_demon
+      name: Shadow Demon
+      notes:
+      - detail: []
+        note: Shadow Poison manacost increased from 40 to 55
+    - id:
+      - abyssal_underlord
+      name: Underlord
+      notes:
+      - detail: []
+        note: Atrophy Aura attack damage reduction changed from 18/26/34/42% to 10/20/30/40%
+    id: heroes
+    name: Heroes
+  - data: []
+    id: items
+    name: Items
+  source: http://store.steampowered.com/news/24930
+  version: 6.88f

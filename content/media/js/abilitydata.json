@@ -454,10 +454,10 @@
     "name": "damage_reduction_pct", 
     "tooltip": "%DAMAGE REDUCTION:", 
     "value": [
-     18, 
-     26, 
-     34, 
-     42
+     10, 
+     20, 
+     30, 
+     40
     ]
    }, 
    {
@@ -654,6 +654,7 @@
   "AbilityModifierSupportBonus": 0, 
   "AbilityModifierSupportValue": 1, 
   "ID": 5613, 
+  "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
   "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
@@ -768,6 +769,7 @@
   "AbilityModifierSupportBonus": 0, 
   "AbilityModifierSupportValue": 1, 
   "ID": 5614, 
+  "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
   "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
@@ -2357,9 +2359,9 @@
     "name": "move_speed_slow_pct", 
     "tooltip": "%MOVEMENT SPEED SLOW:", 
     "value": [
-     35, 
+     20, 
+     30, 
      40, 
-     45, 
      50
     ]
    }, 
@@ -2921,9 +2923,9 @@
    0.3
   ], 
   "damage": [
-   90, 
-   120, 
-   150, 
+   75, 
+   110, 
+   145, 
    180
   ], 
   "description": "When attacked, Axe performs a helix counter attack, dealing pure damage to all nearby enemies.", 
@@ -3728,20 +3730,20 @@
     "name": "damage_duration", 
     "tooltip": "BURN DURATION:", 
     "value": [
-     3, 
      4, 
      5, 
-     6
+     6, 
+     7
     ]
    }, 
    {
     "name": "damage_total_tooltip", 
     "tooltip": "TOTAL DAMAGE:", 
     "value": [
-     75, 
-     120, 
-     175, 
-     240
+     100, 
+     150, 
+     210, 
+     280
     ]
    }, 
    {
@@ -3811,7 +3813,7 @@
    "DOTA_ABILITY_BEHAVIOR_POINT"
   ], 
   "cooldown": [
-   14
+   17
   ], 
   "damage": [
    0, 
@@ -3951,6 +3953,7 @@
   "ID": 5320, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "damage", 
@@ -5989,8 +5992,8 @@
     "name": "bonus_move_speed_pct", 
     "tooltip": "%BONUS SPEED:", 
     "value": [
-     20, 
-     20, 
+     16, 
+     18, 
      20
     ]
    }, 
@@ -6062,7 +6065,7 @@
   "level": 0, 
   "lore": "Using his elevated senses of sight and smell, Gondar's hits have quite a good chance of success.", 
   "manacost": [
-   50
+   65
   ], 
   "name": "bounty_hunter_track"
  }, 
@@ -8369,6 +8372,7 @@
   "ID": 5517, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
   "abilitytype": "DOTA_ABILITY_TYPE_ULTIMATE", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "duration", 
@@ -12883,8 +12887,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "Empty", 
+  "description": "This slot will be replaced with abilities acquired using Devour.", 
+  "displayname": "Devoured Ability", 
   "level": 0, 
   "manacost": [
    0, 
@@ -12936,8 +12940,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "Empty", 
+  "description": "This slot will be replaced with abilities acquired using Devour.", 
+  "displayname": "Devoured Ability", 
   "level": 0, 
   "manacost": [
    0, 
@@ -15187,7 +15191,7 @@
   ], 
   "AbilityCastRange": 500, 
   "AbilityCastRangeBuffer": 250, 
-  "AbilityChannelTime": 1.2, 
+  "AbilityChannelTime": 1.3, 
   "AbilityDuration": [
    0, 
    0, 
@@ -15205,7 +15209,7 @@
     "name": "cast_time", 
     "tooltip": "CAST TIME:", 
     "value": [
-     1.6
+     1.7
     ]
    }, 
    {
@@ -15277,7 +15281,7 @@
   "AbilityCastPoint": 0, 
   "AbilityCastRange": 500, 
   "AbilityCastRangeBuffer": 250, 
-  "AbilityChannelTime": 1.2, 
+  "AbilityChannelTime": 1.3, 
   "AbilityDuration": [
    0, 
    0, 
@@ -15295,7 +15299,7 @@
     "name": "cast_time", 
     "tooltip": "CAST TIME:", 
     "value": [
-     1.6
+     1.7
     ]
    }, 
    {
@@ -16984,7 +16988,7 @@
     "name": "slow", 
     "tooltip": "%SLOW PER COOLDOWN:", 
     "value": [
-     8
+     10
     ]
    }
   ], 
@@ -21795,7 +21799,7 @@
    {
     "name": "hurt_percent", 
     "value": [
-     0.4
+     0.35
     ]
    }, 
    {
@@ -21835,7 +21839,7 @@
    0, 
    0
   ], 
-  "description": "Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 40%%, it will heal faster.  Lasts 16 seconds.", 
+  "description": "Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 35%%, it will heal faster.  Lasts 16 seconds.", 
   "displayname": "Inner Vitality", 
   "level": 0, 
   "lore": "While Huskar has little use for magic, this minor enchantment was learned from the Dazzle and the Dezun priests, to be used in times of great injury.", 
@@ -22596,8 +22600,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "Empty", 
+  "description": "Casting Invoke will replace this slot with one of ten unique spells based on Invoker's currently active <font color='#7998b5'>Quas</font>, <font color='#d671a9'>Wex</font>, and <font color='#cabe68'>Exort</font> buffs.", 
+  "displayname": "Invoked Spell", 
   "level": 0, 
   "manacost": [
    0, 
@@ -22649,8 +22653,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "Empty", 
+  "description": "Casting Invoke will replace this slot with one of ten unique spells based on Invoker's currently active <font color='#7998b5'>Quas</font>, <font color='#d671a9'>Wex</font>, and <font color='#cabe68'>Exort</font> buffs.", 
+  "displayname": "Invoked Spell", 
   "level": 0, 
   "manacost": [
    0, 
@@ -23706,6 +23710,7 @@
   "ID": 5298, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "path_delay", 
@@ -24192,10 +24197,7 @@
   "level": 0, 
   "lore": "Of the rituals learned at the Isle of Masks, tending wounds with a bit of voodoo magic has proven to be quite useful.", 
   "manacost": [
-   120, 
-   125, 
-   130, 
-   135
+   140
   ], 
   "name": "juggernaut_healing_ward"
  }, 
@@ -24360,7 +24362,7 @@
     "name": "knockback_distance", 
     "tooltip": "KNOCKBACK DISTANCE:", 
     "value": [
-     400
+     525
     ]
    }, 
    {
@@ -24652,10 +24654,7 @@
     "name": "radius", 
     "tooltip": "WIDTH:", 
     "value": [
-     350, 
-     350, 
-     350, 
-     350
+     375
     ]
    }, 
    {
@@ -24692,7 +24691,7 @@
    {
     "name": "channel_vision_radius", 
     "value": [
-     350
+     375
     ]
    }, 
    {
@@ -24887,10 +24886,7 @@
   "level": 0, 
   "lore": "Ezalor disrupts Primordial harmony, draining magical energy from those with poor constitution.", 
   "manacost": [
-   75, 
-   75, 
-   75, 
-   75
+   150
   ], 
   "name": "keeper_of_the_light_mana_leak"
  }, 
@@ -24939,8 +24935,6 @@
    "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
   ], 
   "cooldown": [
-   15, 
-   15, 
    15
   ], 
   "damage": [
@@ -25073,10 +25067,7 @@
     "name": "radius", 
     "tooltip": "WIDTH:", 
     "value": [
-     350, 
-     350, 
-     350, 
-     350
+     375
     ]
    }, 
    {
@@ -25113,7 +25104,7 @@
    {
     "name": "channel_vision_radius", 
     "value": [
-     350
+     375
     ]
    }, 
    {
@@ -25375,6 +25366,15 @@
     "value": [
      200
     ]
+   }, 
+   {
+    "name": "ghostship_absorb", 
+    "tooltip": "%DAMAGE DELAYED:", 
+    "value": [
+     40, 
+     45, 
+     50
+    ]
    }
   ], 
   "behavior": [
@@ -25392,7 +25392,7 @@
    500, 
    600
   ], 
-  "description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to 50%% of all incoming damage.\\n\\nUpgradeable by Aghanim's Scepter.", 
+  "description": "Summons a ghostly ship that sails through the battle before smashing apart, damaging and stunning all enemies caught near the wreckage. Allied heroes touched by the Ghostship are given a swig of The Admiral's Rum, receiving bonus movement speed and a delayed reaction to incoming damage.\\n\\nUpgradeable by Aghanim's Scepter.", 
   "displayname": "Ghostship", 
   "level": 0, 
   "lore": "The final ship of the Claddish Navy is nothing but a phantom, but it is all too real to the enemies of the Admiral.", 
@@ -25607,12 +25607,15 @@
    "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
   ], 
   "cooldown": [
+   16, 
+   14, 
+   12, 
    10
   ], 
   "damage": [
-   120, 
-   180, 
-   240, 
+   75, 
+   150, 
+   225, 
    300
   ], 
   "description": "Summons a rising torrent that, after a short delay, hurls enemy units into the sky, stunning, dealing damage and slowing movement speed.", 
@@ -26830,6 +26833,7 @@
   "AbilityModifierSupportValue": 1, 
   "ID": 5671, 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "damage", 
@@ -26901,6 +26905,7 @@
   "AbilityModifierSupportValue": 1, 
   "ID": 5675, 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "damage_tooltip", 
@@ -30864,6 +30869,7 @@
   "ID": 5432, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "slow", 
@@ -30926,6 +30932,7 @@
   "ID": 5431, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "radius", 
@@ -31280,7 +31287,7 @@
     "name": "interval_scepter", 
     "tooltip": "SCEPTER INTERVAL:", 
     "value": [
-     8.0
+     10.0
     ]
    }
   ], 
@@ -31687,7 +31694,7 @@
   "name": "morphling_morph_agi"
  }, 
  "morphling_morph_replicate": {
-  "AbilityCastPoint": 0.25, 
+  "AbilityCastPoint": 0.35, 
   "AbilityCastRange": 0, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -34221,7 +34228,7 @@
   "name": "night_stalker_void"
  }, 
  "nyx_assassin_burrow": {
-  "AbilityCastPoint": 1, 
+  "AbilityCastPoint": 1.5, 
   "AbilityCastRange": 0, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -34259,12 +34266,6 @@
     "tooltip": "%BURROW DAMAGE REDUCTION:", 
     "value": [
      40
-    ]
-   }, 
-   {
-    "name": "burrow_delay", 
-    "value": [
-     1
     ]
    }, 
    {
@@ -35879,8 +35880,8 @@
   "name": "omniknight_guardian_angel"
  }, 
  "omniknight_purification": {
-  "AbilityCastPoint": 0.25, 
-  "AbilityCastRange": 700, 
+  "AbilityCastPoint": 0.2, 
+  "AbilityCastRange": 575, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -35924,7 +35925,7 @@
    "DOTA_ABILITY_BEHAVIOR_AOE"
   ], 
   "cooldown": [
-   10
+   9
   ], 
   "damage": [
    0, 
@@ -35945,7 +35946,7 @@
   "name": "omniknight_purification"
  }, 
  "omniknight_repel": {
-  "AbilityCastPoint": 0.5, 
+  "AbilityCastPoint": 0.35, 
   "AbilityCastRange": 500, 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
@@ -35970,10 +35971,10 @@
     "name": "duration", 
     "tooltip": "DURATION:", 
     "value": [
+     5, 
      6, 
-     8, 
-     10, 
-     12
+     7, 
+     8
     ]
    }
   ], 
@@ -35981,6 +35982,9 @@
    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   ], 
   "cooldown": [
+   20, 
+   18, 
+   16, 
    14
   ], 
   "damage": [
@@ -36315,10 +36319,10 @@
   "level": 0, 
   "lore": "Like a hall of mirrors might amplify the light of a single candle, the shattered walls of the universe can transform the light of prophecy into a burning torch.", 
   "manacost": [
-   50, 
-   60, 
-   70, 
-   80
+   80, 
+   85, 
+   90, 
+   95
   ], 
   "name": "oracle_purifying_flames"
  }, 
@@ -36564,7 +36568,12 @@
    0.3, 
    0.3
   ], 
-  "AbilityCastRange": 1200, 
+  "AbilityCastRange": [
+   525, 
+   750, 
+   975, 
+   1200
+  ], 
   "AbilityCastRangeBuffer": 250, 
   "AbilityChannelTime": [
    0, 
@@ -40501,6 +40510,9 @@
     "name": "movement_speed_reduction", 
     "tooltip": "%MOVEMENT SLOW:", 
     "value": [
+     13, 
+     17, 
+     21, 
      25
     ]
    }, 
@@ -41794,8 +41806,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "", 
+  "description": "Spells acquired with Spell Steal will replace this slot.", 
+  "displayname": "Stolen Spell", 
   "level": 0, 
   "manacost": [
    0, 
@@ -41847,8 +41859,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "", 
+  "description": "Spells acquired with Spell Steal will replace this slot.", 
+  "displayname": "Stolen Spell", 
   "level": 0, 
   "manacost": [
    0, 
@@ -43309,10 +43321,10 @@
    "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
   ], 
   "cooldown": [
-   25, 
-   22, 
-   19, 
-   16
+   27, 
+   24, 
+   21, 
+   18
   ], 
   "damage": [
    0, 
@@ -43380,10 +43392,7 @@
    {
     "name": "bonus_stack_damage", 
     "value": [
-     50, 
-     50, 
-     50, 
-     50
+     50.0
     ]
    }, 
    {
@@ -43422,9 +43431,9 @@
    2.5
   ], 
   "damage": [
-   50, 
-   50, 
-   50, 
+   26, 
+   34, 
+   42, 
    50
   ], 
   "description": "Deals damage in a line, and afflicts enemy units with a poison effect. The poison deals 1/2/4/8/16 times the stack damage based on the number of stacks on the target, up to 5 stacks. Additional stacks cause 50 damage each.  This deferred damage is dealt when Shadow Poison's duration is expired, or the Release sub-ability is used.", 
@@ -43432,7 +43441,7 @@
   "level": 0, 
   "lore": "The ever growing influence of the Shadow Demon can pollute the most valiant and pure of heroes.", 
   "manacost": [
-   40
+   55
   ], 
   "name": "shadow_demon_shadow_poison"
  }, 
@@ -51118,6 +51127,7 @@
   "AbilityModifierSupportValue": 1, 
   "ID": 5649, 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "vision_aoe", 
@@ -52457,6 +52467,7 @@
   "ID": 5672, 
   "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_YES", 
   "abilitytype": "DOTA_ABILITY_TYPE_BASIC", 
+  "abilityunitdamagetype": "DAMAGE_TYPE_MAGICAL", 
   "attributes": [
    {
     "name": "crit_multiplier", 
@@ -55497,9 +55508,9 @@
     "name": "golem_hp_tooltip", 
     "tooltip": "GOLEM HEALTH:", 
     "value": [
-     900, 
-     1200, 
-     1500
+     1000, 
+     1500, 
+     2000
     ]
    }, 
    {
@@ -55540,9 +55551,9 @@
     "name": "golem_hp_tooltip_scepter", 
     "tooltip": "SCEPTER GOLEM HEALTH:", 
     "value": [
-     675, 
-     900, 
-     1125
+     750, 
+     1125, 
+     1500
     ]
    }, 
    {
@@ -56956,8 +56967,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "Empty", 
+  "description": "Calls the spirits closer to you. Can be toggled on and off. Only available while Spirits is active.", 
+  "displayname": "Spirits In", 
   "level": 0, 
   "manacost": [
    0, 
@@ -57009,8 +57020,8 @@
    0, 
    0
   ], 
-  "description": "", 
-  "displayname": "Empty", 
+  "description": "Sends the spirits farther away from you. Can be toggled on and off. Only available while Spirits is active.", 
+  "displayname": "Spirits Out", 
   "level": 0, 
   "manacost": [
    0, 
@@ -57149,8 +57160,8 @@
     "name": "cast_delay", 
     "tooltip": "CAST DELAY:", 
     "value": [
-     2.5, 
-     2.25, 
+     2.7, 
+     2.35, 
      2
     ]
    }, 

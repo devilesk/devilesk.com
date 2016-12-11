@@ -154,7 +154,7 @@
     {% for ability in herodata[resource.meta.hero].abilities -%}
     {% if ability.name != 'attribute_bonus' %}
     <div class="ability panel panel-default">
-      <div class="abilityname panel-heading"><strong>{{ ability.displayname }}</strong></div>
+      <div class="abilityname panel-heading">{{ ability.displayname }}</div>
       <div class="panel-body">
         {% if ability.behavior %}<span class="col-md-6"><strong>Ability: </strong>{{ get_ability_behavior(ability.behavior) }}</span>{% endif %}
         {% if ability.abilityunitdamagetype %}<span class="col-md-6"><strong>Damage: </strong>{{ get_damage_type(ability.name, ability.abilityunitdamagetype) }}</span>{% endif %}
