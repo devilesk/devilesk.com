@@ -17,7 +17,7 @@ context:
         sitenews: yaml/sitenews.yaml
         patches: yaml/patches.yaml
         apps: yaml/apps.yaml
-deploy_root: /srv/www/devilesk.com
+deploy_root: /var/www/devilesk.com
 media_root: media
 media_url: /media
 meta:
