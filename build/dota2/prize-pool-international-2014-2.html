@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Prize Pool for The International 2014</title>
+
+        <meta name="author" content="devilesk">
+		<meta name="description" content="A chart of how much is being added to the Dota 2 International 2014 prize pool every half an hour.">
+        <link rel="shortcut icon" href="/media/favicon.png">
+        <style type="text/css">
+            html,body
+            {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .stretchedToMargin {
+                display: block;
+                position:absolute;
+                height:auto;
+                bottom:0;
+                top:0;
+                left:0;
+                right:0;
+                margin: 20px;
+                background-color: green;
+            }
+            .stretch_goal {
+                display:none;
+                z-index:100;
+                background-color:#EEE;
+                padding:3px;
+                color:black;
+            }
+            .stretch_goal_value {
+                color:#AA00FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container" class="stretchedToMargin"></div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.1/highcharts.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.1/modules/exporting.js"></script>
+        <script type="text/javascript">
+$(function () {
+    function pad(number, length){
+        var str = "" + number
+        while (str.length < length) {
+            str = '0'+str
+        }
+        return str
+    }
+    time_zone = new Date().getTimezoneOffset()
+    time_zone = ((time_zone<0? '+':'-')+ // Note the reversed sign!
+              pad(parseInt(Math.abs(time_zone/60)), 2)+
+              pad(Math.abs(time_zone%60), 2))
+          
+    $.getJSON("/media/json/prize_pool_data.json", function (data) {
+        var prize_pool_data = [],
+            d = data.data,
+            offset = new Date().getTimezoneOffset() * 60 * 1000;
+        for (var i = 1; i < d.length; i++) {
+            date = Date.UTC(d[i][1], d[i][2] - 1, d[i][3], d[i][4], d[i][5], d[i][6]) - offset;
+            value = d[i][0] - d[i-1][0];
+            prize_pool_data.push([date, value])
+        }
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'x',
+                type: 'column'
+            },
+            title: {
+                text: 'The International 2014 Prize Pool'
+            },
+            subtitle: {
+                text: 'Half hour prize pool growth',
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    month: '%e. %b',
+                    year: '%b'
+                },
+                title: {
+                    text: 'Date & Time (GMT' + time_zone + ')'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Prize Pool Growth ($)'
+                },
+                min: 0
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '${point.y} on {point.x:%m/%d %I:%M%P}'
+            },
+            plotOptions: {
+                series: {
+                    color: '#7D26CD',
+                    cropThreshold: 2000,
+                    pointPadding: 0,
+                    groupPadding: 0,
+                    borderWidth: 0, 
+                    shadow: false
+                }
+            },
+            series: [{
+                name: 'Prize Pool',
+                data: prize_pool_data
+            }]
+        });
+    });
+});
+        </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39435120-1', 'devilesk.com');
+  ga('send', 'pageview');
+
+</script>
+    </body>
+</html>

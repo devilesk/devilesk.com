@@ -9,12 +9,12 @@ from jinja2 import (
 from commando.util import getLoggerWithNullHandler
 logger = getLoggerWithNullHandler('hyde.engine')
 
-with open('/home/sites/devilesk.com/data/asset_manifest.yaml', 'r') as f:
+with open('data/asset_manifest.yaml', 'r') as f:
     asset_manifest = yaml.load(f.read())
 
 @contextfunction
 def revisioned_media_url(context, path, safe=None):
-    p = '/home/sites/devilesk.com/content' + context['site'].media_url(path, safe)
+    p = '../content' + context['site'].media_url(path, safe)
     if p in asset_manifest:
         k = p.rfind(".")
         hash = asset_manifest[p]
@@ -73,7 +73,7 @@ def format_tooltip(text, attributes):
         a = x.to_dict()
         mapping['%' + a['name'] + '%'] = ', '.join([str(v) for v in a['value']])
 
-    for k, v in mapping.iteritems():
+    for k, v in mapping.items():
         text = text.replace(k, v)
     text = text.replace('%%', '%')
     return text

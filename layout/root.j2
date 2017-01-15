@@ -1,6 +1,6 @@
 {% from "macros.j2" import render_nav with context %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     {% block starthead %}{% endblock starthead %}
@@ -44,12 +44,6 @@
         <img width="80" height="80" src="{{ media_url('images/footer.png') }}">
         <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
         <p>Copyright &copy; 2016 <a href="http://devilesk.com">devilesk.com</a></p>
-        {# <p>Theme 
-            <select id="theme-select" class="form-control" style="display: inline;width: auto;height: auto;padding: 0;font-size: inherit;">
-                <option value="dark">dark</option>
-                <option value="light">light</option>
-            </select>
-        </p> #}
     </footer>
     {% endblock footer%}
 
@@ -58,7 +52,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     {% endblock jquery %}
     {% block before_scripts %}{% endblock before_scripts %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    {% if site.config.mode == "production" %}
+    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
+    {% else %}
+    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
+    {% endif %}
     {% block scripts %}{% endblock scripts %}
     {% block analytics %}
     {% include "analytics.j2" %}

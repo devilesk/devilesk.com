@@ -3,7 +3,9 @@ context:
     data:
         tweet_via: devilesk
     providers:
+        tooltipdata: data/tooltipdata.yaml
         herodata: data/herodata.yaml
+        herodatalist: data/herodatalist.yaml
         herostat: data/herodata_stats.yaml
         shoplayout: data/shoplayout.yaml
         herolore: data/herolore.yaml
@@ -17,7 +19,7 @@ context:
         sitenews: yaml/sitenews.yaml
         patches: yaml/patches.yaml
         apps: yaml/apps.yaml
-deploy_root: /var/www/dev.devilesk.com
+deploy_root: build
 media_root: media
 media_url: /media
 meta:

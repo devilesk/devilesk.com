@@ -3,7 +3,9 @@ context:
     data:
         tweet_via: devilesk
     providers:
+        tooltipdata: data/tooltipdata.yaml
         herodata: data/herodata.yaml
+        herodatalist: data/herodatalist.yaml
         herostat: data/herodata_stats.yaml
         shoplayout: data/shoplayout.yaml
         herolore: data/herolore.yaml

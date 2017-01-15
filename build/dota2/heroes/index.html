@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+
+    <title>Dota 2 Heroes</title>
+    <meta name="description" content="Listing of all heroes currently in Dota 2.">
+    <meta name="author" content="devilesk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+            <link rel="stylesheet" href="/media/bootstrap/css/bootstrap.css">
+            <link rel="stylesheet" href="/media/spritesheets/css/portraits_64x84_sprite_jpg.css">
+<style type="text/css">
+.attribute-section {
+}
+.hero-block {
+	margin-top: 5px;
+	margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    margin-left: 20px;
+    border-left: 2px solid;
+}
+.hero-block.strength::before {
+    content: "STRENGTH";
+}
+.hero-block.agility::before {
+    content: "AGILITY";
+}
+.hero-block.intelligence::before {
+    content: "INTELLIGENCE";
+}
+.hero-block::before {
+    transform: rotate(-90deg);
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: -75px;
+    width: 115px;
+    text-align: right;
+    font-style: italic;
+}
+.hero {
+    width:68px;
+    display: inline-block;
+	margin: 2px;
+	text-decoration: none;
+    overflow: hidden;
+}
+.hero-overlay {
+	width: 64px;
+	height: 84px;
+	position:absolute;
+}
+.hero div {
+	box-shadow: inset 0 0 10px #000000;
+}
+.hero div:hover {
+	transform: scale(1.1);
+}
+.header-wrapper {
+	text-align:center;
+}
+.header-wrapper > img {
+    width: 32px;
+}
+.header-wrapper > span {
+	font-size:16px;
+	font-weight:bold;
+}
+</style>
+
+    	    </head>
+<body id="index">
+    <div class="wrapper">
+                    <div class="navbar navbar-default main_nav">
+	<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/dota2"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="top-nav-menu nav navbar-nav">
+			<li class="dropdown ">
+                  <a href="/dota2/apps" class="dropdown-toggle" data-toggle="dropdown">WEB APPS <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="/dota2/apps">Web Apps Home</a></li>
+                    <li class="divider mobile-only"></li>
+                    <li class="dropdown-header">Trivia</li>
+                    <li><a href="/dota2/apps/abilitymatching">Ability Matching</a></li>
+                                            <li><a href="/dota2/apps/ability-trivia">Ability Trivia</a></li>
+                                            <li><a href="/dota2/apps/ability-name-trivia">Ability Name Trivia</a></li>
+                                            <li><a href="/dota2/apps/hero-name-trivia">Hero Name Trivia</a></li>
+                                            <li><a href="/dota2/apps/item-cost-trivia">Item Cost Trivia</a></li>
+                                            <li><a href="/dota2/apps/item-name-trivia">Item Name Trivia</a></li>
+                                            <li class="divider"></li><li class="dropdown-header">Maps</li>
+                    <li><a href="/dota2/apps/drawablemap">Drawable Map</a></li>
+                                            <li><a href="/dota2/apps/interactivemap">Interactive Map</a></li>
+                                            <li class="divider"></li><li class="dropdown-header">Other</li>
+                    <li><a href="/dota2/apps/hero-calculator">Hero Calculator</a></li>
+                                            <li><a href="/dota2/apps/hero-selection-trainer">Hero Selection Trainer</a></li>
+                                            <li><a href="/dota2/apps/item-scramble">Item Scramble</a></li>
+                                            <li><a href="/dota2/apps/layout-editor">Layout Editor</a></li>
+                                            <li><a href="/dota2/apps/replay/viewer">Replay Viewer</a></li>
+                                            <li><a href="/dota2/apps/tread-switch-trainer">Tread Switch Trainer</a></li>
+                                                              </ul>
+                </li>
+                <li class="dropdown active">
+                  <a href="/dota2/heroes" class="dropdown-toggle" data-toggle="dropdown">HEROES <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="/dota2/heroes">Heroes Home</a></li>
+                    <li class="divider mobile-only"></li>
+                    <li><a href="/dota2/apps/chart">Stat Chart</a></li>
+                                            <li><a href="/dota2/heroes/herodata">Stat Table</a></li>
+                                            <li><a href="/dota2/heroes/lore">Lore</a></li>
+                                            <li><a href="/dota2/heroes/patchhistory">Patch History</a></li>
+                                            <li><a href="/dota2/heroes/unitdata">Unit Stat Table</a></li>
+                                                              </ul>
+                </li>
+                                <li class=""><a href="/dota2/items">ITEMS</a></li><li class="dropdown ">
+                  <a href="/dota2/guides" class="dropdown-toggle" data-toggle="dropdown">GUIDES <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="/dota2/guides">Guides Home</a></li>
+                    <li class="divider mobile-only"></li>
+                    <li><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=123364976">Comprehensive Dota 2 Guide</a></li>
+                                            <li><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=126386524">Basic Advice to Improve Your Games</a></li>
+                                            <li><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=125563122">Beginner's Guide to Items</a></li>
+                                                              </ul>
+                </li>
+                                <li class=""><a href="/blog">BLOG</a></li>		  </ul>
+		</div>
+	</div>
+</div>
+                
+        <div class="container">
+<ol class="breadcrumb">
+                                                                                                                                                                                            <li class="breadcrumb-item"><a href="/"></a></li>
+                                            <li class="breadcrumb-item"><a href="/dota2/">Home</a></li>
+                                <li class="breadcrumb-item active">Heroes</li>
+            </ol>
+
+</div>
+<div class="container-fluid">
+    <div id="main" role="main">
+    <header class="banner clearfix">
+                    <h2 class="text-center">Heroes</h2>            </header>
+    <section class="content">
+        <div class="col-md-12 attribute-section">
+            <div class="hero-block strength">
+                <a class="hero" href="/dota2/heroes/abaddon">
+                    <div class="portraits-sprite-npc_dota_hero_abaddon portraits-sprite-64x84" title="Abaddon"></div>
+                </a><a class="hero" href="/dota2/heroes/alchemist">
+                    <div class="portraits-sprite-npc_dota_hero_alchemist portraits-sprite-64x84" title="Alchemist"></div>
+                </a><a class="hero" href="/dota2/heroes/axe">
+                    <div class="portraits-sprite-npc_dota_hero_axe portraits-sprite-64x84" title="Axe"></div>
+                </a><a class="hero" href="/dota2/heroes/beastmaster">
+                    <div class="portraits-sprite-npc_dota_hero_beastmaster portraits-sprite-64x84" title="Beastmaster"></div>
+                </a><a class="hero" href="/dota2/heroes/brewmaster">
+                    <div class="portraits-sprite-npc_dota_hero_brewmaster portraits-sprite-64x84" title="Brewmaster"></div>
+                </a><a class="hero" href="/dota2/heroes/bristleback">
+                    <div class="portraits-sprite-npc_dota_hero_bristleback portraits-sprite-64x84" title="Bristleback"></div>
+                </a><a class="hero" href="/dota2/heroes/centaur">
+                    <div class="portraits-sprite-npc_dota_hero_centaur portraits-sprite-64x84" title="Centaur Warrunner"></div>
+                </a><a class="hero" href="/dota2/heroes/chaos_knight">
+                    <div class="portraits-sprite-npc_dota_hero_chaos_knight portraits-sprite-64x84" title="Chaos Knight"></div>
+                </a><a class="hero" href="/dota2/heroes/rattletrap">
+                    <div class="portraits-sprite-npc_dota_hero_rattletrap portraits-sprite-64x84" title="Clockwerk"></div>
+                </a><a class="hero" href="/dota2/heroes/doom_bringer">
+                    <div class="portraits-sprite-npc_dota_hero_doom_bringer portraits-sprite-64x84" title="Doom"></div>
+                </a><a class="hero" href="/dota2/heroes/dragon_knight">
+                    <div class="portraits-sprite-npc_dota_hero_dragon_knight portraits-sprite-64x84" title="Dragon Knight"></div>
+                </a><a class="hero" href="/dota2/heroes/earth_spirit">
+                    <div class="portraits-sprite-npc_dota_hero_earth_spirit portraits-sprite-64x84" title="Earth Spirit"></div>
+                </a><a class="hero" href="/dota2/heroes/earthshaker">
+                    <div class="portraits-sprite-npc_dota_hero_earthshaker portraits-sprite-64x84" title="Earthshaker"></div>
+                </a><a class="hero" href="/dota2/heroes/elder_titan">
+                    <div class="portraits-sprite-npc_dota_hero_elder_titan portraits-sprite-64x84" title="Elder Titan"></div>
+                </a><a class="hero" href="/dota2/heroes/huskar">
+                    <div class="portraits-sprite-npc_dota_hero_huskar portraits-sprite-64x84" title="Huskar"></div>
+                </a><a class="hero" href="/dota2/heroes/wisp">
+                    <div class="portraits-sprite-npc_dota_hero_wisp portraits-sprite-64x84" title="Io"></div>
+                </a><a class="hero" href="/dota2/heroes/kunkka">
+                    <div class="portraits-sprite-npc_dota_hero_kunkka portraits-sprite-64x84" title="Kunkka"></div>
+                </a><a class="hero" href="/dota2/heroes/legion_commander">
+                    <div class="portraits-sprite-npc_dota_hero_legion_commander portraits-sprite-64x84" title="Legion Commander"></div>
+                </a><a class="hero" href="/dota2/heroes/life_stealer">
+                    <div class="portraits-sprite-npc_dota_hero_life_stealer portraits-sprite-64x84" title="Lifestealer"></div>
+                </a><a class="hero" href="/dota2/heroes/lycan">
+                    <div class="portraits-sprite-npc_dota_hero_lycan portraits-sprite-64x84" title="Lycan"></div>
+                </a><a class="hero" href="/dota2/heroes/magnataur">
+                    <div class="portraits-sprite-npc_dota_hero_magnataur portraits-sprite-64x84" title="Magnus"></div>
+                </a><a class="hero" href="/dota2/heroes/night_stalker">
+                    <div class="portraits-sprite-npc_dota_hero_night_stalker portraits-sprite-64x84" title="Night Stalker"></div>
+                </a><a class="hero" href="/dota2/heroes/omniknight">
+                    <div class="portraits-sprite-npc_dota_hero_omniknight portraits-sprite-64x84" title="Omniknight"></div>
+                </a><a class="hero" href="/dota2/heroes/phoenix">
+                    <div class="portraits-sprite-npc_dota_hero_phoenix portraits-sprite-64x84" title="Phoenix"></div>
+                </a><a class="hero" href="/dota2/heroes/pudge">
+                    <div class="portraits-sprite-npc_dota_hero_pudge portraits-sprite-64x84" title="Pudge"></div>
+                </a><a class="hero" href="/dota2/heroes/sand_king">
+                    <div class="portraits-sprite-npc_dota_hero_sand_king portraits-sprite-64x84" title="Sand King"></div>
+                </a><a class="hero" href="/dota2/heroes/slardar">
+                    <div class="portraits-sprite-npc_dota_hero_slardar portraits-sprite-64x84" title="Slardar"></div>
+                </a><a class="hero" href="/dota2/heroes/spirit_breaker">
+                    <div class="portraits-sprite-npc_dota_hero_spirit_breaker portraits-sprite-64x84" title="Spirit Breaker"></div>
+                </a><a class="hero" href="/dota2/heroes/sven">
+                    <div class="portraits-sprite-npc_dota_hero_sven portraits-sprite-64x84" title="Sven"></div>
+                </a><a class="hero" href="/dota2/heroes/tidehunter">
+                    <div class="portraits-sprite-npc_dota_hero_tidehunter portraits-sprite-64x84" title="Tidehunter"></div>
+                </a><a class="hero" href="/dota2/heroes/shredder">
+                    <div class="portraits-sprite-npc_dota_hero_shredder portraits-sprite-64x84" title="Timbersaw"></div>
+                </a><a class="hero" href="/dota2/heroes/tiny">
+                    <div class="portraits-sprite-npc_dota_hero_tiny portraits-sprite-64x84" title="Tiny"></div>
+                </a><a class="hero" href="/dota2/heroes/treant">
+                    <div class="portraits-sprite-npc_dota_hero_treant portraits-sprite-64x84" title="Treant Protector"></div>
+                </a><a class="hero" href="/dota2/heroes/tusk">
+                    <div class="portraits-sprite-npc_dota_hero_tusk portraits-sprite-64x84" title="Tusk"></div>
+                </a><a class="hero" href="/dota2/heroes/abyssal_underlord">
+                    <div class="portraits-sprite-npc_dota_hero_abyssal_underlord portraits-sprite-64x84" title="Underlord"></div>
+                </a><a class="hero" href="/dota2/heroes/undying">
+                    <div class="portraits-sprite-npc_dota_hero_undying portraits-sprite-64x84" title="Undying"></div>
+                </a><a class="hero" href="/dota2/heroes/skeleton_king">
+                    <div class="portraits-sprite-npc_dota_hero_skeleton_king portraits-sprite-64x84" title="Wraith King"></div>
+                </a>            </div>
+        </div>
+
+        <div class="col-md-12 attribute-section">
+            <div class="hero-block agility">
+                <a class="hero" href="/dota2/heroes/antimage">
+                    <div class="portraits-sprite-npc_dota_hero_antimage portraits-sprite-64x84" title="Anti-Mage"></div>
+                </a><a class="hero" href="/dota2/heroes/arc_warden">
+                    <div class="portraits-sprite-npc_dota_hero_arc_warden portraits-sprite-64x84" title="Arc Warden"></div>
+                </a><a class="hero" href="/dota2/heroes/bloodseeker">
+                    <div class="portraits-sprite-npc_dota_hero_bloodseeker portraits-sprite-64x84" title="Bloodseeker"></div>
+                </a><a class="hero" href="/dota2/heroes/bounty_hunter">
+                    <div class="portraits-sprite-npc_dota_hero_bounty_hunter portraits-sprite-64x84" title="Bounty Hunter"></div>
+                </a><a class="hero" href="/dota2/heroes/broodmother">
+                    <div class="portraits-sprite-npc_dota_hero_broodmother portraits-sprite-64x84" title="Broodmother"></div>
+                </a><a class="hero" href="/dota2/heroes/clinkz">
+                    <div class="portraits-sprite-npc_dota_hero_clinkz portraits-sprite-64x84" title="Clinkz"></div>
+                </a><a class="hero" href="/dota2/heroes/drow_ranger">
+                    <div class="portraits-sprite-npc_dota_hero_drow_ranger portraits-sprite-64x84" title="Drow Ranger"></div>
+                </a><a class="hero" href="/dota2/heroes/ember_spirit">
+                    <div class="portraits-sprite-npc_dota_hero_ember_spirit portraits-sprite-64x84" title="Ember Spirit"></div>
+                </a><a class="hero" href="/dota2/heroes/faceless_void">
+                    <div class="portraits-sprite-npc_dota_hero_faceless_void portraits-sprite-64x84" title="Faceless Void"></div>
+                </a><a class="hero" href="/dota2/heroes/gyrocopter">
+                    <div class="portraits-sprite-npc_dota_hero_gyrocopter portraits-sprite-64x84" title="Gyrocopter"></div>
+                </a><a class="hero" href="/dota2/heroes/juggernaut">
+                    <div class="portraits-sprite-npc_dota_hero_juggernaut portraits-sprite-64x84" title="Juggernaut"></div>
+                </a><a class="hero" href="/dota2/heroes/lone_druid">
+                    <div class="portraits-sprite-npc_dota_hero_lone_druid portraits-sprite-64x84" title="Lone Druid"></div>
+                </a><a class="hero" href="/dota2/heroes/luna">
+                    <div class="portraits-sprite-npc_dota_hero_luna portraits-sprite-64x84" title="Luna"></div>
+                </a><a class="hero" href="/dota2/heroes/medusa">
+                    <div class="portraits-sprite-npc_dota_hero_medusa portraits-sprite-64x84" title="Medusa"></div>
+                </a><a class="hero" href="/dota2/heroes/meepo">
+                    <div class="portraits-sprite-npc_dota_hero_meepo portraits-sprite-64x84" title="Meepo"></div>
+                </a><a class="hero" href="/dota2/heroes/mirana">
+                    <div class="portraits-sprite-npc_dota_hero_mirana portraits-sprite-64x84" title="Mirana"></div>
+                </a><a class="hero" href="/dota2/heroes/monkey_king">
+                    <div class="portraits-sprite-npc_dota_hero_monkey_king portraits-sprite-64x84" title="Monkey King"></div>
+                </a><a class="hero" href="/dota2/heroes/morphling">
+                    <div class="portraits-sprite-npc_dota_hero_morphling portraits-sprite-64x84" title="Morphling"></div>
+                </a><a class="hero" href="/dota2/heroes/naga_siren">
+                    <div class="portraits-sprite-npc_dota_hero_naga_siren portraits-sprite-64x84" title="Naga Siren"></div>
+                </a><a class="hero" href="/dota2/heroes/nyx_assassin">
+                    <div class="portraits-sprite-npc_dota_hero_nyx_assassin portraits-sprite-64x84" title="Nyx Assassin"></div>
+                </a><a class="hero" href="/dota2/heroes/phantom_assassin">
+                    <div class="portraits-sprite-npc_dota_hero_phantom_assassin portraits-sprite-64x84" title="Phantom Assassin"></div>
+                </a><a class="hero" href="/dota2/heroes/phantom_lancer">
+                    <div class="portraits-sprite-npc_dota_hero_phantom_lancer portraits-sprite-64x84" title="Phantom Lancer"></div>
+                </a><a class="hero" href="/dota2/heroes/razor">
+                    <div class="portraits-sprite-npc_dota_hero_razor portraits-sprite-64x84" title="Razor"></div>
+                </a><a class="hero" href="/dota2/heroes/riki">
+                    <div class="portraits-sprite-npc_dota_hero_riki portraits-sprite-64x84" title="Riki"></div>
+                </a><a class="hero" href="/dota2/heroes/nevermore">
+                    <div class="portraits-sprite-npc_dota_hero_nevermore portraits-sprite-64x84" title="Shadow Fiend"></div>
+                </a><a class="hero" href="/dota2/heroes/slark">
+                    <div class="portraits-sprite-npc_dota_hero_slark portraits-sprite-64x84" title="Slark"></div>
+                </a><a class="hero" href="/dota2/heroes/sniper">
+                    <div class="portraits-sprite-npc_dota_hero_sniper portraits-sprite-64x84" title="Sniper"></div>
+                </a><a class="hero" href="/dota2/heroes/spectre">
+                    <div class="portraits-sprite-npc_dota_hero_spectre portraits-sprite-64x84" title="Spectre"></div>
+                </a><a class="hero" href="/dota2/heroes/templar_assassin">
+                    <div class="portraits-sprite-npc_dota_hero_templar_assassin portraits-sprite-64x84" title="Templar Assassin"></div>
+                </a><a class="hero" href="/dota2/heroes/terrorblade">
+                    <div class="portraits-sprite-npc_dota_hero_terrorblade portraits-sprite-64x84" title="Terrorblade"></div>
+                </a><a class="hero" href="/dota2/heroes/troll_warlord">
+                    <div class="portraits-sprite-npc_dota_hero_troll_warlord portraits-sprite-64x84" title="Troll Warlord"></div>
+                </a><a class="hero" href="/dota2/heroes/ursa">
+                    <div class="portraits-sprite-npc_dota_hero_ursa portraits-sprite-64x84" title="Ursa"></div>
+                </a><a class="hero" href="/dota2/heroes/vengefulspirit">
+                    <div class="portraits-sprite-npc_dota_hero_vengefulspirit portraits-sprite-64x84" title="Vengeful Spirit"></div>
+                </a><a class="hero" href="/dota2/heroes/venomancer">
+                    <div class="portraits-sprite-npc_dota_hero_venomancer portraits-sprite-64x84" title="Venomancer"></div>
+                </a><a class="hero" href="/dota2/heroes/viper">
+                    <div class="portraits-sprite-npc_dota_hero_viper portraits-sprite-64x84" title="Viper"></div>
+                </a><a class="hero" href="/dota2/heroes/weaver">
+                    <div class="portraits-sprite-npc_dota_hero_weaver portraits-sprite-64x84" title="Weaver"></div>
+                </a>            </div>
+        </div>
+
+        <div class="col-md-12 attribute-section">
+            <div class="hero-block intelligence">
+                <a class="hero" href="/dota2/heroes/ancient_apparition">
+                    <div class="portraits-sprite-npc_dota_hero_ancient_apparition portraits-sprite-64x84" title="Ancient Apparition"></div>
+                </a><a class="hero" href="/dota2/heroes/bane">
+                    <div class="portraits-sprite-npc_dota_hero_bane portraits-sprite-64x84" title="Bane"></div>
+                </a><a class="hero" href="/dota2/heroes/batrider">
+                    <div class="portraits-sprite-npc_dota_hero_batrider portraits-sprite-64x84" title="Batrider"></div>
+                </a><a class="hero" href="/dota2/heroes/chen">
+                    <div class="portraits-sprite-npc_dota_hero_chen portraits-sprite-64x84" title="Chen"></div>
+                </a><a class="hero" href="/dota2/heroes/crystal_maiden">
+                    <div class="portraits-sprite-npc_dota_hero_crystal_maiden portraits-sprite-64x84" title="Crystal Maiden"></div>
+                </a><a class="hero" href="/dota2/heroes/dark_seer">
+                    <div class="portraits-sprite-npc_dota_hero_dark_seer portraits-sprite-64x84" title="Dark Seer"></div>
+                </a><a class="hero" href="/dota2/heroes/dazzle">
+                    <div class="portraits-sprite-npc_dota_hero_dazzle portraits-sprite-64x84" title="Dazzle"></div>
+                </a><a class="hero" href="/dota2/heroes/death_prophet">
+                    <div class="portraits-sprite-npc_dota_hero_death_prophet portraits-sprite-64x84" title="Death Prophet"></div>
+                </a><a class="hero" href="/dota2/heroes/disruptor">
+                    <div class="portraits-sprite-npc_dota_hero_disruptor portraits-sprite-64x84" title="Disruptor"></div>
+                </a><a class="hero" href="/dota2/heroes/enchantress">
+                    <div class="portraits-sprite-npc_dota_hero_enchantress portraits-sprite-64x84" title="Enchantress"></div>
+                </a><a class="hero" href="/dota2/heroes/enigma">
+                    <div class="portraits-sprite-npc_dota_hero_enigma portraits-sprite-64x84" title="Enigma"></div>
+                </a><a class="hero" href="/dota2/heroes/invoker">
+                    <div class="portraits-sprite-npc_dota_hero_invoker portraits-sprite-64x84" title="Invoker"></div>
+                </a><a class="hero" href="/dota2/heroes/jakiro">
+                    <div class="portraits-sprite-npc_dota_hero_jakiro portraits-sprite-64x84" title="Jakiro"></div>
+                </a><a class="hero" href="/dota2/heroes/keeper_of_the_light">
+                    <div class="portraits-sprite-npc_dota_hero_keeper_of_the_light portraits-sprite-64x84" title="Keeper of the Light"></div>
+                </a><a class="hero" href="/dota2/heroes/leshrac">
+                    <div class="portraits-sprite-npc_dota_hero_leshrac portraits-sprite-64x84" title="Leshrac"></div>
+                </a><a class="hero" href="/dota2/heroes/lich">
+                    <div class="portraits-sprite-npc_dota_hero_lich portraits-sprite-64x84" title="Lich"></div>
+                </a><a class="hero" href="/dota2/heroes/lina">
+                    <div class="portraits-sprite-npc_dota_hero_lina portraits-sprite-64x84" title="Lina"></div>
+                </a><a class="hero" href="/dota2/heroes/lion">
+                    <div class="portraits-sprite-npc_dota_hero_lion portraits-sprite-64x84" title="Lion"></div>
+                </a><a class="hero" href="/dota2/heroes/furion">
+                    <div class="portraits-sprite-npc_dota_hero_furion portraits-sprite-64x84" title="Nature's Prophet"></div>
+                </a><a class="hero" href="/dota2/heroes/necrolyte">
+                    <div class="portraits-sprite-npc_dota_hero_necrolyte portraits-sprite-64x84" title="Necrophos"></div>
+                </a><a class="hero" href="/dota2/heroes/ogre_magi">
+                    <div class="portraits-sprite-npc_dota_hero_ogre_magi portraits-sprite-64x84" title="Ogre Magi"></div>
+                </a><a class="hero" href="/dota2/heroes/oracle">
+                    <div class="portraits-sprite-npc_dota_hero_oracle portraits-sprite-64x84" title="Oracle"></div>
+                </a><a class="hero" href="/dota2/heroes/obsidian_destroyer">
+                    <div class="portraits-sprite-npc_dota_hero_obsidian_destroyer portraits-sprite-64x84" title="Outworld Devourer"></div>
+                </a><a class="hero" href="/dota2/heroes/puck">
+                    <div class="portraits-sprite-npc_dota_hero_puck portraits-sprite-64x84" title="Puck"></div>
+                </a><a class="hero" href="/dota2/heroes/pugna">
+                    <div class="portraits-sprite-npc_dota_hero_pugna portraits-sprite-64x84" title="Pugna"></div>
+                </a><a class="hero" href="/dota2/heroes/queenofpain">
+                    <div class="portraits-sprite-npc_dota_hero_queenofpain portraits-sprite-64x84" title="Queen of Pain"></div>
+                </a><a class="hero" href="/dota2/heroes/rubick">
+                    <div class="portraits-sprite-npc_dota_hero_rubick portraits-sprite-64x84" title="Rubick"></div>
+                </a><a class="hero" href="/dota2/heroes/shadow_demon">
+                    <div class="portraits-sprite-npc_dota_hero_shadow_demon portraits-sprite-64x84" title="Shadow Demon"></div>
+                </a><a class="hero" href="/dota2/heroes/shadow_shaman">
+                    <div class="portraits-sprite-npc_dota_hero_shadow_shaman portraits-sprite-64x84" title="Shadow Shaman"></div>
+                </a><a class="hero" href="/dota2/heroes/silencer">
+                    <div class="portraits-sprite-npc_dota_hero_silencer portraits-sprite-64x84" title="Silencer"></div>
+                </a><a class="hero" href="/dota2/heroes/skywrath_mage">
+                    <div class="portraits-sprite-npc_dota_hero_skywrath_mage portraits-sprite-64x84" title="Skywrath Mage"></div>
+                </a><a class="hero" href="/dota2/heroes/storm_spirit">
+                    <div class="portraits-sprite-npc_dota_hero_storm_spirit portraits-sprite-64x84" title="Storm Spirit"></div>
+                </a><a class="hero" href="/dota2/heroes/techies">
+                    <div class="portraits-sprite-npc_dota_hero_techies portraits-sprite-64x84" title="Techies"></div>
+                </a><a class="hero" href="/dota2/heroes/tinker">
+                    <div class="portraits-sprite-npc_dota_hero_tinker portraits-sprite-64x84" title="Tinker"></div>
+                </a><a class="hero" href="/dota2/heroes/visage">
+                    <div class="portraits-sprite-npc_dota_hero_visage portraits-sprite-64x84" title="Visage"></div>
+                </a><a class="hero" href="/dota2/heroes/warlock">
+                    <div class="portraits-sprite-npc_dota_hero_warlock portraits-sprite-64x84" title="Warlock"></div>
+                </a><a class="hero" href="/dota2/heroes/windrunner">
+                    <div class="portraits-sprite-npc_dota_hero_windrunner portraits-sprite-64x84" title="Windranger"></div>
+                </a><a class="hero" href="/dota2/heroes/winter_wyvern">
+                    <div class="portraits-sprite-npc_dota_hero_winter_wyvern portraits-sprite-64x84" title="Winter Wyvern"></div>
+                </a><a class="hero" href="/dota2/heroes/witch_doctor">
+                    <div class="portraits-sprite-npc_dota_hero_witch_doctor portraits-sprite-64x84" title="Witch Doctor"></div>
+                </a><a class="hero" href="/dota2/heroes/zuus">
+                    <div class="portraits-sprite-npc_dota_hero_zuus portraits-sprite-64x84" title="Zeus"></div>
+                </a>            </div>
+        </div>
+
+        <div class="col-md-offset-4 col-md-4">
+            <div class="form-group">
+                <label>Search:</label>
+                <input type="text" id="search" class="form-control"></input>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+        
+                    <div class="push"></div>
+            </div>
+
+        <footer>
+        <img width="80" height="80" src="/media/images/footer.png">
+        <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
+        <p>Copyright &copy; 2016 <a href="http://devilesk.com">devilesk.com</a></p>
+    </footer>
+    
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="/media/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript">
+    $(function () {
+        $('#search').keyup(function () {
+            var searchVal = $(this).val().toLowerCase();
+            $(".hero").removeClass('no-match');
+            $(".hero").filter(function( index ) {
+                var s = $(this).find('.portraits-sprite-64x84').attr('title').toLowerCase();
+                return $(this).attr('href').toLowerCase().indexOf(searchVal) === -1 && s.indexOf(searchVal) === -1 && s.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
+            }).addClass('no-match');
+        });
+    });
+</script>
+            
+    </body>
+</html>

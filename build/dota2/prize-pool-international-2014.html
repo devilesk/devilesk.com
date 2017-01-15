@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Prize Pool for The International 2014</title>
+
+        <meta name="author" content="devilesk">
+		<meta name="description" content="A chart of the Dota 2 International 2014 prize pool over time. Updated every half an hour.">
+        <link rel="shortcut icon" href="/media/favicon.png">
+        <style type="text/css">
+            html,body
+            {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .stretchedToMargin {
+                display: block;
+                position:absolute;
+                height:auto;
+                bottom:0;
+                top:0;
+                left:0;
+                right:0;
+                margin: 20px;
+                background-color: green;
+            }
+            .stretch_goal {
+                display:none;
+                z-index:100;
+                background-color:#EEE;
+                padding:3px;
+                color:black;
+            }
+            .stretch_goal_value {
+                color:#AA00FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container" class="stretchedToMargin"></div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.1/highcharts.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.1/modules/exporting.js"></script>
+        <script type="text/javascript">
+$(function () {
+    function pad(number, length){
+        var str = "" + number
+        while (str.length < length) {
+            str = '0'+str
+        }
+        return str
+    }
+    time_zone = new Date().getTimezoneOffset()
+    time_zone = ((time_zone<0? '+':'-')+ // Note the reversed sign!
+              pad(parseInt(Math.abs(time_zone/60)), 2)+
+              pad(Math.abs(time_zone%60), 2))
+          
+    $.getJSON("/media/json/prize_pool_data.json", function (data) {
+        var prize_pool_data = [],
+            d = data.data,
+            offset = new Date().getTimezoneOffset() * 60 * 1000;
+            
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 6, 0, 0) - offset, 1600000])
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 8, 0, 0) - offset, 1800000])
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 9, 0, 0) - offset, 1856205])
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 9, 30, 0) - offset, 1894858])
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 10, 0, 0) - offset, 1933828])
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 10, 30, 0) - offset, 1974142])
+        prize_pool_data.push([Date.UTC(2014, 4, 10, 11, 0, 0) - offset, 2006970])
+        for (var i = 0; i < d.length; i++) {
+            date = Date.UTC(d[i][1], d[i][2] - 1, d[i][3], d[i][4], d[i][5], d[i][6]) - offset;
+            prize_pool_data.push([date, d[i][0]])
+        }
+        //prize_pool_data.push([Date.UTC(2014, 6, 11, 11, 0, 0) - offset, 4000000])
+        var stretch_goals = [
+            [1800000, 'Evolving Battle Point Booster', 'Grants a new Battle Point Booster that improves as your compendium level increases.'],
+            [2000000, 'Loading Screen Treasure', 'Grants three Treasures that contain Loading Screens. Extra Treasures available as rewards based on Compendium levels.'],
+            [2200000, 'Arcana Vote', 'Unlocks the ability to vote on which hero should receive the next Arcana.'],
+            [2400000, 'Special Edition HUD', 'Grants a new Compendium-themed HUD.'],
+            [2600000, 'Solo Championship Vote', 'Unlocks the ability to vote on the participants of an 8 player Solo Championship at The International.'],
+            [2900000, 'New Game Mode', 'Unlocks the All Random Deathmatch game mode (available to all players, not just Compendium owners).'],
+            [3200000, 'Immortal Treasures', 'Grants a Treasure containing Valve created Immortal Items. Every 10 compendium levels grants you an extra Treasure.'],
+            [3500000, 'Chat Emoticons', 'Grants access to special emoticons that can be used in Dota 2 chat.'],
+            [4000000, 'Mini-Pudge Courier', 'Grants a special Mini Pudge courier. Level 50 compendium owners have an alternate skin.'],
+            [4500000, 'New Music', 'Grants a new music pack for Dota 2.'],
+            [5000000, 'New Matchmaking', 'Unlocks a 1v1 mid-lane-only Match-making option (available to all players, not just Compendium owners).'],
+            [5500000, 'Environmental Effects', 'Grants new environment effects in the Dota map.'],
+            [6000000, 'Base Customization', 'Grants an item that allows Compendium owners to customize a building in their base.'],
+            [6400000, 'Techies Unusual Taunt', 'Performs a special Taunt animation with added visual effects.<br>Techies will also Taunt enemies in their Death Cam when killed by you.<br>Item will be granted to all Compendium Owners when Techies is released after The International.'],
+            [6800000, 'Daily Hero Challenge', 'Earn 25 compendium points every day by winning a game with the Hero we choose for you.'],
+            [7200000, 'Alternate Voice', 'Vote for the Hero you’d like to receive a new, alternate voice & dialogue pack.<br>When the recording is complete, you will be granted an item that unlocks the new voice.'],
+            [7600000, 'Favorite Hero Challenge', 'Start training for the next International.<br>Select one of your Least Played heroes and we’ll provide a GPM/XPM analysis tool during the game to help you compare your performance with previous games.<br>Win 10 games before July 28th and you’ll earn compendium points.'],
+            [8000000, 'Model Update Vote', 'Vote for the Hero you\'d like to receive a reworked model.'],
+            [8400000, 'Multi-Kill Banner', 'You\'ll receive an item that customizes your Multi-Kill Banner.'],
+            [8800000, 'Afterparty Broadcast', 'Live Broadcasting of the after party with special guest Darude.'],
+            [9200000, 'New Upgraded Creeps', 'Unlocks new models for your creeps after you\'ve killed the enemy barracks.<br>(Available to all players, not just Compendium Owners)'],
+            [9600000, 'A->Z Challenge Support', 'A new quest system will be added to track your progress, and earn you rewards as you win with all the Dota Heroes.<br>(Available to all players, not just Compendium Owners)'],
+            [10000000, 'Victory Prediction Taunt', 'Unlocks the ability for you to perform a voice taunt with your Hero in the early stages of the game.<br>Keeps track of how many successful predictions you\'ve made in a row.']
+        ]
+        subtitle = ''
+        for (var i=0;i<stretch_goals.length;i++) {
+            if (prize_pool_data[prize_pool_data.length-1][1] < stretch_goals[stretch_goals.length - i - 1][0]) {
+                subtitle = '<span class="subtitle_stretch_goal_value" id="subtitle_stretch_goal_value_' + stretch_goals[stretch_goals.length - i - 1][0] + '">Next stretch goal unlocked at $' + stretch_goals[stretch_goals.length - i - 1][0] + '</span><div class="stretch_goal" id="subtitle_stretch_goal_text_' + stretch_goals[stretch_goals.length - i - 1][0] + '"><div>' + stretch_goals[stretch_goals.length - i - 1][1] + '</div><div>' + stretch_goals[stretch_goals.length - i - 1][2] + '</div></div>';
+            }
+        }
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'x',
+                type: 'spline',
+                events: {
+                    redraw: function() {
+                        bind_hover();
+                    }
+                }
+            },
+            title: {
+                text: 'The International 2014 Prize Pool'
+            },
+            subtitle: {
+                text: subtitle,
+                style: { "color": "#AA00FF" },
+                useHTML: true
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    month: '%e. %b',
+                    year: '%b'
+                },
+                title: {
+                    text: 'Date & Time (GMT' + time_zone + ')'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Prize Pool Amount ($)'
+                },
+                tickInterval: 100000,
+                labels: {
+                    useHTML: true,
+                    formatter: function() {
+                        for (var i=0;i<stretch_goals.length;i++) {
+                            if (stretch_goals[i][0] == this.value) {
+                                return '<span class="stretch_goal_value" id="stretch_goal_value_' + this.value + '">' + this.value + '</span><div class="stretch_goal" id="stretch_goal_text_' + this.value + '"><div>' + stretch_goals[i][1] + '</div><div>' + stretch_goals[i][2] + '</div></div>';
+                            }
+                        }
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '${point.y} on {point.x:%m/%d %I:%M%P}'
+            },
+            plotOptions: {
+                series: {
+                    color: '#7D26CD'
+                }
+            },
+            series: [{
+                name: 'Prize Pool',
+                data: prize_pool_data
+            }]
+        });
+        function bind_hover() {
+            $( ".stretch_goal_value" ).hover(
+                function() {
+                    stretch_goal_text_id = $(this).attr('id').replace('stretch_goal_value_','stretch_goal_text_');
+                    $('#' + stretch_goal_text_id).show();
+                },
+                function() {
+                    stretch_goal_text_id = $(this).attr('id').replace('stretch_goal_value_','stretch_goal_text_');
+                    $('#' + stretch_goal_text_id).hide();
+                }
+            );
+            $( ".subtitle_stretch_goal_value" ).hover(
+                function() {
+                    stretch_goal_text_id = $(this).attr('id').replace('subtitle_stretch_goal_value_','subtitle_stretch_goal_text_');
+                    $('#' + stretch_goal_text_id).show();
+                },
+                function() {
+                    stretch_goal_text_id = $(this).attr('id').replace('subtitle_stretch_goal_value_','subtitle_stretch_goal_text_');
+                    $('#' + stretch_goal_text_id).hide();
+                }
+            );
+        }
+        
+        bind_hover();
+    });
+});
+        </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39435120-1', 'devilesk.com');
+  ga('send', 'pageview');
+
+</script>
+    </body>
+</html>

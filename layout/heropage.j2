@@ -143,10 +143,28 @@
             </tbody>
         </table>
     </div>
+    <div class="col-md-12">
+        <table class="table table-condensed">
+            <thead>
+                <th>Level</th>
+                <th colspan="2">Talents</th>
+            </thead>
+            <tbody>
+                {% for talentgroup in herodata[resource.meta.hero].talents -%}
+                <tr>
+                <td>{{ loop.index0 * 5 + 10 }}</td>
+                {% for talent in talentgroup -%}
+                    <td>{{ tooltipdata[talent.name].DisplayName }}</td>
+                {%- endfor %}
+                </tr>
+                {%- endfor %}
+            </tbody>
+        </table>
+    </div>
     <div class="hero-bio col-md-12">
-        {% if herodata[resource.meta.hero].bio and herodata[resource.meta.hero].bio != '' %}
+        {% if tooltipdata[resource.meta.hero].bio and tooltipdata[resource.meta.hero].bio != '' %}
             <div class="text-center"><strong>Bio</strong></div>
-            <small>{{ paragraphs(herodata[resource.meta.hero].bio.replace('--', '&mdash;')) }}</small>
+            <small>{{ paragraphs(tooltipdata[resource.meta.hero].bio.replace('--', '&mdash;')) }}</small>
         {% endif %}
     </div>
 </div>
@@ -161,7 +179,7 @@
       </div>
       <div class="panel-body">
         <div class="col-md-2"><img class="abilityportrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
-        <div class="col-md-10">{{ format_tooltip(ability.description.replace('\\n', '<br>'), ability.attributes) }}</div>
+        <div class="col-md-10">{{ format_tooltip(tooltipdata[ability.name].Description.replace('\\n', '<br>'), ability.attributes) }}</div>
       </div>
       <table class="abilitydata table">
         <tbody>
