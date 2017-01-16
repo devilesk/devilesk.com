@@ -9,7 +9,15 @@
     {% endblock fonts %}
     
     {% block css %}
-    <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+    {% if site.config.mode == "production" %}
+    <link rel="stylesheet" href="{{ media_url_rev('css/site.min.css') }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ media_url_rev('css/site.css') }}">
+    {% endif %}
     {% endblock css %}
     {% block page_head %}{% endblock page_head %}
 {% endblock head %}
@@ -38,18 +46,12 @@
 {% endblock content %}
 
 {% block js %}
-    {% block jquery %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    {% endblock jquery %}
-    {% block before_scripts %}{% endblock before_scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    {% if site.config.mode == "production" %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
-    {% else %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
-    {% endif %}
     {% block scripts %}
-    <script src="{{ media_url('js/index.js') }}"></script>
+    {% if site.config.mode == "production" %}
+    <script src="{{ media_url_rev('js/index.min.js') }}"></script>
+    {% else %}
+    <script src="{{ media_url_rev('js/index.js') }}"></script>
+    {% endif %}
     {% endblock scripts %}
     {% block analytics %}
     {% include "includes/analytics.j2" %}

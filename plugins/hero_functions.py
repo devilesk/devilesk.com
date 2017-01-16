@@ -9,23 +9,6 @@ from jinja2 import (
 from commando.util import getLoggerWithNullHandler
 logger = getLoggerWithNullHandler('hyde.engine')
 
-with open('data/asset_manifest.yaml', 'r') as f:
-    asset_manifest = yaml.load(f.read())
-
-@contextfunction
-def revisioned_media_url(context, path, safe=None):
-    p = '../content' + context['site'].media_url(path, safe)
-    if p in asset_manifest:
-        k = p.rfind(".")
-        hash = asset_manifest[p]
-        revisioned_path = p[:k] + "." + hash + "." + p[k+1:]
-        logger.info("%s, %s, %s", p, hash, revisioned_path)
-        return revisioned_path
-    else:
-        logger.info("%s", p)
-        return p
-    
-
 def get_damage_type(ability, ability_type):
     if ability == 'elder_titan_echo_stomp' or ability == 'elder_titan_earth_splitter':
         return 'Physical/Magical'
@@ -140,10 +123,9 @@ class Hero:
         self.data = data
 
 
-class MyJinjaLoader(Plugin):
+class HeroFunctionsPlugin(Plugin):
  
     def template_loaded(self, template):
-        template.env.globals['revisioned_media_url'] = revisioned_media_url
         template.env.globals['quoted'] = quoted
         template.env.globals['get_health'] = get_health
         template.env.globals['get_mana'] = get_mana

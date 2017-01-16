@@ -36,19 +36,3 @@ header: Lore
   </div>
 </div>
 {% endblock container %}
-
-{% block scripts %}
-<script type="text/javascript">
-    $(function () {
-        $('body').scrollspy({
-            target: '.bs-docs-sidebar',
-            offset: 40
-        });
-        $('.bs-docs-sidebar').affix({
-              offset: {
-                top: 124
-              }
-        });
-    });
-</script>
-{% endblock scripts %}

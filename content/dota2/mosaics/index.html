@@ -5,15 +5,8 @@ description: Dota 2 Mosaics. Gallery of mosaics made up of ability icons.
 header: Mosaics
 ---
 
-{% block page_head %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
-{% endblock page_head %}
-
 {% block main %}
-<div class="row">
+<div class="row mosaics-page">
     <div class="col-sm-12 col-md-12">
         
 <div class="slick-carousel"></div>
@@ -88,8 +81,9 @@ header: Mosaics
 {%- endblock %}
 
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script> 
-<script src="mosaics.js"></script> 
-{%- endblock %}
+{% if site.config.mode == "production" %}
+<script src="{{ media_url_rev('js/mosaics/index.min.js') }}"></script>
+{% else %}
+<script src="{{ media_url_rev('js/mosaics/index.js') }}"></script>
+{% endif %}
+{% endblock scripts %}

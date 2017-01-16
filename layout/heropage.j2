@@ -18,11 +18,11 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     {% if herodata[resource.meta.hero].team.lower() == 'good' %}
-                    <img src="{{ media_url('/images/pip_radiant.png') }}">
+                    <img src="{{ media_url_rev('/images/pip_radiant.png') }}">
                     <span>Radiant</span>
                     {%- endif %}
                     {% if herodata[resource.meta.hero].team.lower() == 'bad' %}
-                    <img src="{{ media_url('/images/pip_dire.png') }}">
+                    <img src="{{ media_url_rev('/images/pip_dire.png') }}">
                     <span>Dire</span>
                     {%- endif %}
                 </div>
@@ -30,19 +30,19 @@
         </div>
         <div class="col-md-12 form-group">
             <div class="col-xs-4">
-                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_STRENGTH' %}opacity:.33;{%- endif %}" src="{{ media_url('/images/pip_str.png') }}">
+                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_STRENGTH' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_str.png') }}">
                 <div class="text-center">
                     <span>{{ herodata[resource.meta.hero].attributebasestrength }}</span> + <span>{{ herodata[resource.meta.hero].attributestrengthgain }}</span>
                 </div>
             </div>
             <div class="col-xs-4">
-                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_AGILITY' %}opacity:.33;{%- endif %}" src="{{ media_url('/images/pip_agi.png') }}">
+                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_AGILITY' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_agi.png') }}">
                 <div class="text-center">
                     <span>{{ herodata[resource.meta.hero].attributebaseagility }}</span> + <span>{{ herodata[resource.meta.hero].attributeagilitygain }}</span>
                 </div>
             </div>
             <div class="col-xs-4">
-                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_INTELLECT' %}opacity:.33;{%- endif %}" src="{{ media_url('/images/pip_int.png') }}">
+                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_INTELLECT' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_int.png') }}">
                 <div class="text-center">
                     <span>{{ herodata[resource.meta.hero].attributebaseintelligence }}</span> + <span>{{ herodata[resource.meta.hero].attributeintelligencegain }}</span>
                 </div>

@@ -1,5 +1,5 @@
 ---
-extends: basewide.j2
+extends: base.j2
 title: Dota 2 Heroes
 description: Listing of all heroes currently in Dota 2.
 active_menu: page-heroes
@@ -8,7 +8,7 @@ container_fluid: true
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="{{ media_url('spritesheets/css/portraits_64x84_sprite_jpg.css') }}">
+<link rel="stylesheet" href="{{ media_url_rev('spritesheets/css/portraits_64x84_sprite_jpg.css') }}">
 {% endblock page_head %}
 
 {% block container %}

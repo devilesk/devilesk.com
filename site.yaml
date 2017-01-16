@@ -37,7 +37,8 @@ plugins:
 - hyde.ext.plugins.text.SyntextPlugin
 - hyde.ext.plugins.text.TextlinksPlugin
 - hyde.ext.plugins.js.UglifyPlugin
-- plugins.hero_functions.MyJinjaLoader
+- plugins.hero_functions.HeroFunctionsPlugin
+- plugins.asset_rev.AssetRevPlugin
 sorter:
     time:
         attr:

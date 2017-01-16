@@ -1,5 +1,5 @@
 ---
-extends: basewide.j2
+extends: base.j2
 title: Dota 2 Heroes
 description: Dota 2 Hero Patch History. Changelog notes for every hero starting from patch 6.48 to 6.81
 active_menu: page-heroes
@@ -8,7 +8,7 @@ container_fluid: true
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<link rel="stylesheet" href="{{ media_url_rev('css/heroes.css') }}">
   {% endblock page_head %}
 
 {% block container %}

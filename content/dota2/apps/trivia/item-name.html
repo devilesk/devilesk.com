@@ -1,39 +1,8 @@
 ---
-extends: base.j2
+extends: trivia.j2
 title: Dota 2 Item Name Trivia
 description: Dota 2 Item Name Trivia. Given a random item portrait, choose the right item name.
 active_menu: page-webapps
 header: Item Name Trivia
+trivia: item-name
 ---
-
-{% block main %}
-<div class="trivia-app">
-    <p class="text-center"><img id="item" class="img-rounded" />
-    </p>
-    <div class="row text-center">
-        <div id='buttons' class="col-md-offset-3 col-md-6 text-center">
-            <button class="btn btn-default btn-block" id="answer_0"></button>
-            <button class="btn btn-default btn-block" id="answer_1"></button>
-            <button class="btn btn-default btn-block" id="answer_2"></button>
-            <button class="btn btn-default btn-block" id="answer_3"></button>
-            <button class="btn btn-default btn-block" id="answer_4"></button>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div>
-            <h4 id='streak'>Current Streak: 0</h4>
-        </div>
-        <div>
-            <h4 id='longeststreak'>Longest Streak: 0</h4>
-        </div>
-        <div id="ans_msg_container">
-            <div id='ans_msg'></div>
-        </div>
-    </div>
-</div>
-{% endblock main %}
-
-{% block scripts %}
-<script src="{{ media_url('js/trivia.common.js') }}"></script>
-<script src="{{ media_url('js/item-name-trivia/item-name-trivia.js') }}"></script>
-{% endblock scripts %}

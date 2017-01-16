@@ -7,7 +7,7 @@ header: Unit Data
 ---
 
   {% block page_head %}
-  <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+  <link rel="stylesheet" href="{{ media_url_rev('css/heroes.css') }}">
   {% endblock page_head %}
 {% block main %}
 
@@ -121,6 +121,6 @@ Row count: <span data-bind="text: data().length"></span>
             <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
         </div>
     </script>
-	<script src="{{ media_url('js/libs/knockout-2.3.0.js') }}"></script>
-	<script src="{{ media_url('js/herodata/unitdata.js') }}"></script>
+	<script src="{{ media_url_rev('js/libs/knockout-2.3.0.js') }}"></script>
+	<script src="{{ media_url_rev('js/herodata/unitdata.js') }}"></script>
   {% endblock scripts %}

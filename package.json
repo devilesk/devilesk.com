@@ -4,8 +4,17 @@
   "description": "devilesk.com",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass src/scss/site.scss build/media/css/site.css",
-    "postcss": "node scripts/postcss.js"
+    "browserify": "node scripts/browserify.js",
+    "sass": "node-sass src/scss/site.scss content/media/css/site.css",
+    "postcss": "node scripts/postcss.js",
+    "build:js": "npm run browserify",
+    "build:css": "npm run sass && npm run postcss",
+    "build": "npm run build:js && npm run build:css",
+    "hyde:dev": "hyde gen -c site.yaml",
+    "hyde:prod": "hyde gen -c site-prod.yaml",
+    "assetrev": "gulp asset-rev",
+    "gen:dev": "npm run build && npm run assetrev && npm run hyde:dev",
+    "gen:prod": "npm run build && npm run assetrev && npm run hyde:prod"
   },
   "repository": {
     "type": "git",
@@ -16,12 +25,19 @@
   "homepage": "https://bitbucket.org/devilesk/devilesk#readme",
   "devDependencies": {
     "autoprefixer": "^6.6.1",
+    "browserify": "^13.3.0",
+    "factor-bundle": "^2.5.0",
     "gulp": "^3.9.1",
+    "gulp-rev-all": "^0.9.7",
+    "js-yaml": "^3.7.0",
     "node-sass": "^4.3.0",
-    "photoswipe": "^4.1.1",
     "postcss": "^5.2.10"
   },
   "dependencies": {
-    "dota-datafiles": "^0.2.0"
+    "bootstrap": "^3.3.7",
+    "dota-datafiles": "^0.2.0",
+    "jquery": "^3.1.1",
+    "photoswipe": "^4.1.1",
+    "slick-carousel": "^1.6.0"
   }
 }

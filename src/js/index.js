@@ -1,3 +1,6 @@
+var $ = require('jquery');
+require('bootstrap');
+
 $(function () {
     // initialize sidebar if it exists
     if ($('.bs-docs-sidebar').length) {

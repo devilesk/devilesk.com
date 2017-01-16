@@ -6,8 +6,8 @@ active_menu: page-items
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
-<link rel="stylesheet" href="{{ media_url('css/items.css') }}">
+<link rel="stylesheet" href="{{ media_url_rev('css/heroes.css') }}">
+<link rel="stylesheet" href="{{ media_url_rev('css/items.css') }}">
 {% endblock page_head %}
 
 {% block container %}
@@ -71,19 +71,3 @@ active_menu: page-items
   </div>
 </div>
 {% endblock container %}
-
-{% block scripts %}
-<script type="text/javascript">
-    $(function () {
-        $('body').scrollspy({
-            target: '.bs-docs-sidebar',
-            offset: 40
-        });
-        $('.bs-docs-sidebar').affix({
-              offset: {
-                top: 124
-              }
-        });
-    });
-</script>
-{% endblock scripts %}

@@ -1,6 +1,7 @@
 import os
 import sys
 import yaml
+import shutil
 from subprocess import call
 import generate_patch_data
 import generate_hero_lore
@@ -17,6 +18,15 @@ def force_symlink(file1, file2):
             
 def main():
         
+    config_path = os.path.join(sys.path[0], "../site.yaml")
+    if len(sys.argv) > 1 and 'production' in sys.argv:
+        config_path = os.path.join(sys.path[0], "../site-prod.yaml")
+    
+    with open(config_path, 'r') as f:
+        config = yaml.load(f.read())
+    
+    print(config['deploy_root'])
+    
     if len(sys.argv) > 1 and 'generate' in sys.argv:
         generate_hero_lore.main()
         generate_item_tooltips.main()
@@ -25,6 +35,9 @@ def main():
         generate_heroitem_keys.main()
     
     if len(sys.argv) > 1 and 'deploy' in sys.argv:
+        # build js and css
+        call(["npm", "run", "build"])
+        
         hyde_args = ["hyde"]
         if len(sys.argv) > 1 and 'verbose' in sys.argv:
             hyde_args.append("-v")
@@ -33,10 +46,13 @@ def main():
         
         if len(sys.argv) > 1 and 'regen' in sys.argv:
             hyde_args.append("-r")
-
+            shutil.rmtree(config['deploy_root'])
+            print('deploy_root cleaned')
+            
         if len(sys.argv) > 1 and 'production' in sys.argv:
             hyde_args.append("-c")
-            hyde_args.append(os.path.join(sys.path[0], "../site-prod.yaml"))
+            config_path = os.path.join(sys.path[0], "../site-prod.yaml")
+            hyde_args.append(config_path)
             print('using site-prod.yaml')
 
         print('calling hyde gen with args', hyde_args)
@@ -44,15 +60,12 @@ def main():
         #call(hyde_args, cwd='/home/sites/devilesk.com')
         call(hyde_args, cwd=os.path.join(sys.path[0], '..'))
 
+        # link asset directories
+        os.makedirs(os.path.join(sys.path[0], "../build/media/images/mosaics"), exist_ok=True)
         force_symlink(os.path.join(sys.path[0], "../dota-mosaic/mosaics"), os.path.join(sys.path[0], "../build/media/images/mosaics/mosaics"))
         force_symlink(os.path.join(sys.path[0], "../dota-mosaic/thumbnails"), os.path.join(sys.path[0], "../build/media/images/mosaics/thumbnails"))
         force_symlink(os.path.join(sys.path[0], "../dota-webassets/dist"), os.path.join(sys.path[0], "../build/media/spritesheets"))
         force_symlink(os.path.join(sys.path[0], "../node_modules/dota-datafiles/dist"), os.path.join(sys.path[0], "../build/media/dota-json"))
-
-        call(["npm", "run", "sass"])
-        force_symlink(os.path.join(sys.path[0], "../css"), os.path.join(sys.path[0], "../build/media/css"))
-        
-        force_symlink(os.path.join(sys.path[0], "../js"), os.path.join(sys.path[0], "../build/media/js"))
         
         print('site deployed')
         
