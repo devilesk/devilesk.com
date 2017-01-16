@@ -1,0 +1,107 @@
+---
+extends: base.j2
+title: Dota 2 Community
+description: Community
+active_menu: page-community
+header: Community
+---
+
+  {% block page_head %}
+<style type="text/css">
+.reddit_link_more, .stream_link_more {
+  display:none;
+}
+#workshop img {
+  max-width:100%;
+}
+.box {
+  padding-bottom:10px;
+  border-bottom:1px solid #979aa2;
+}
+.box:last-child {
+  border-bottom:none;
+}
+.pagination {
+    margin: 0;
+    margin-bottom: 20px;
+}
+</style>
+  {% endblock page_head %}
+  {% block container %}
+  <div style="display:inline-block;width:100%">
+  <div class="col-md-6">
+<div class="box">
+	<h3>Top Dota 2 Reddit Threads</h3>
+<ul id="pager_reddit" class="pagination pagination-sm">
+  <li class="prev disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li class="next"><a href="#">&raquo;</a></li>
+</ul>
+	<div id="reddit-list" class="list-group">
+
+	</div>
+</div>
+<div class="box">
+<h3>Top Youtube Video</h3>
+<div id="youtube-video">
+</div>
+</div>
+<div class="box">
+<h3>Twitter</h3>
+<div id="box-timeline">
+<div class="dark-theme">
+<a width="600" data-link-color="#428bca" data-chrome="noheader transparent" data-border-color="#202126" class="twitter-timeline" href="https://twitter.com/search?q=%23dota+OR+%23dota2" data-widget-id="337341777382100992">Tweets about "#dota OR #dota2"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<div class="light-theme" style="display:none">
+<a data-chrome="noheader transparent" class="twitter-timeline" href="https://twitter.com/search?q=%23dota+OR+%23dota2" data-widget-id="475821512742547456">Tweets about "#dota OR #dota2"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="box" style="display:none">
+	<h3>Match Ticker</h3>
+<table style="width:100%">
+<tbody id="matchticker">
+</tbody>
+</table>
+</div>
+<div class="box">
+	<h3>Live Twitch Streams</h3>
+<ul id="pager_streams" class="pagination pagination-sm">
+  <li class="prev disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">6</a></li>
+  <li><a href="#">7</a></li>
+  <li><a href="#">8</a></li>
+  <li><a href="#">9</a></li>
+  <li><a href="#">10</a></li>
+  <li class="next"><a href="#">&raquo;</a></li>
+</ul>
+	<div id="streams-list" class="list-group">
+  
+	</div>
+<a style="text-align:right;display:block" href="{{ content_url('/dota2/community/streams') }}">Full list...</a>
+</div>
+<div id="dotablog" class="box">
+</div>
+<div id="workshop" class="box">
+</div>
+</div>
+
+</div>
+  {% endblock container %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/community/community.js') }}"></script>
+  {% endblock scripts %}

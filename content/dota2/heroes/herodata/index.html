@@ -6,7 +6,7 @@ active_menu: page-heroes
 header: Stats Table
 ---
 
-  {% block custom_css %}
+  {% block page_head %}
   <link rel="stylesheet" href="{{ media_url('css/heroes_32x18_sprite.css') }}">
 <style type="text/css">
 .portraitsprite {
@@ -69,7 +69,7 @@ table {
 	background-color:#131415 !important;
 }
 </style>
-  {% endblock custom_css %}
+  {% endblock page_head %}
   
 {% block content %}
 {% block breadcrumbs %}{{ super() }}{% endblock breadcrumbs %}

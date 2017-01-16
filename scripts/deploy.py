@@ -8,6 +8,13 @@ import generate_item_tooltips
 import generate_hero_data
 import generate_heroitem_keys
 
+def force_symlink(file1, file2):
+    try:
+        os.symlink(file1, file2)
+    except FileExistsError:
+        os.remove(file2)
+        os.symlink(file1, file2)
+            
 def main():
         
     if len(sys.argv) > 1 and 'generate' in sys.argv:
@@ -36,8 +43,13 @@ def main():
 
         #call(hyde_args, cwd='/home/sites/devilesk.com')
         call(hyde_args, cwd=os.path.join(sys.path[0], '..'))
+
+        force_symlink(os.path.join(sys.path[0], "../dota-mosaic/mosaics"), os.path.join(sys.path[0], "../build/media/images/mosaics/mosaics"))
+        force_symlink(os.path.join(sys.path[0], "../dota-mosaic/thumbnails"), os.path.join(sys.path[0], "../build/media/images/mosaics/thumbnails"))
+        force_symlink(os.path.join(sys.path[0], "../dota-webassets/dist"), os.path.join(sys.path[0], "../build/media/spritesheets"))
+        force_symlink(os.path.join(sys.path[0], "../bootstrap/dist"), os.path.join(sys.path[0], "../build/media/bootstrap"))
+        force_symlink(os.path.join(sys.path[0], "../node_modules/dota-datafiles/dist"), os.path.join(sys.path[0], "../build/media/dota-json"))
         
         print('site deployed')
-        
 if __name__ == '__main__':
     main()

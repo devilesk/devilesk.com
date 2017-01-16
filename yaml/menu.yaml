@@ -80,21 +80,6 @@
     name: ITEMS
     type: node
     url: dota2/items
--   css_class: page-guides
-    description: Guides Home
-    name: GUIDES
-    submenu:
-    -   ext_url: http://steamcommunity.com/sharedfiles/filedetails/?id=123364976
-        name: Comprehensive Dota 2 Guide
-        type: page
-    -   ext_url: http://steamcommunity.com/sharedfiles/filedetails/?id=126386524
-        name: Basic Advice to Improve Your Games
-        type: page
-    -   ext_url: http://steamcommunity.com/sharedfiles/filedetails/?id=125563122
-        name: Beginner's Guide to Items
-        type: page
-    type: node
-    url: dota2/guides
 -   css_class: page-blog
     description: Blog Home
     name: BLOG

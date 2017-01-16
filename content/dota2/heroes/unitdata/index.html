@@ -1,0 +1,154 @@
+---
+extends: base.j2
+title: Dota 2 Unit Data
+description: Dota 2 Unit Stats Sortable Table. Up-to-date unit information taken directly from Dota 2 game files.
+active_menu: page-heroes
+header: Unit Data
+---
+
+  {% block page_head %}
+  <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
+<style type="text/css">
+.portraitsprite {
+margin: auto;
+}
+.form-inline .form-control {
+width: 100%;
+}
+@media (min-width: 768px) {
+.form-inline .form-group {
+width: 45%;
+}
+}
+.well {
+padding: 5px;
+margin: 3px;
+margin-bottom: 6px;
+}
+.glyphicon {
+top: 2px;
+}
+.dropdown-menu {
+min-width: 320px;
+}
+li.table-columns {
+width:50%;
+float:left;
+}
+</style>
+  {% endblock page_head %}
+{% block main %}
+
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="row">
+<div class="col-md-4 form-group form-inline hidden">
+<label for="herolevel">Hero Level</label>
+<select id="herolevel" class="form-control" data-bind="value: level, foreach: new Array(25)">
+	<option data-bind="text: $index()+1"></option>
+</select>
+</div>
+
+<div class="col-md-4 form-group form-inline hidden">
+<label for="bonuslevel">Bonus Attribute Level</label>
+<select id="bonuslevel" class="form-control" data-bind="value: bonus, foreach: new Array(11)">
+	<option data-bind="text: $index()"></option>
+</select>
+</div>
+
+<div class="col-md-4 form-group form-inline">
+<label style="display:block" for="columns">Show Columns</label>
+<div class="dropdown" style="display:inline-block">
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Columns <span class="caret"></span></button>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-bind="foreach: headers">
+	<li class="table-columns" role="presentation"><a href="#" role="menuitem" tabindex="-1" data-bind="css: {showColumn: $parent.headers()[$index()].display(), hideColumn: !$parent.headers()[$index()].display()}, click: function(data, event) { $parent.toggleColumn($index, data, event); }, html: $data.name"></a></li>
+</ul>
+</div>
+<button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { hideAllColumns() }">Hide All</button>
+<button type="button" class="btn btn-default" data-toggle="dropdown" data-bind="click: function (data, event) { resetColumns() }">Reset</button>
+</div>
+</div>
+
+<div>
+<div class="form-group">
+<label for="sortby">Sorting by: </label>
+<span id="sortby" data-bind="foreach: sortColumns">
+	<span class="label" data-bind="html: $parent.labelHTML($index, $parent.headers()[$data]), click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></span>
+</span>
+<span class="label" style="display:none" data-bind="visible: sortColumns().length > 1, click: function(data, event) { clearLabels(); }"><a href="">Clear All</a></span>
+</div>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" data-bind="checked: multiSort">
+    Enable sorting on multiple columns. You can also hold shift while clicking column headers.
+  </label>
+</div>
+</div>
+
+<div class="form-group">
+    <input class="form-control" type="button" data-bind="click: toggleFilterVisibility, value: filterVisible() ? 'Hide Filter' : 'Show Filter'" />
+</div>
+
+<div data-bind="visible: filterVisible, foreach: headers">
+<!-- ko if: filter -->
+<div class="col-md-2 well">
+    <label data-bind="html: name"></label>
+    <div class="form-inline" data-bind="template: { name: $root.filterTemplateToUse, data: $data }"></div>
+</div>
+<!-- /ko -->
+</div>
+
+<div class="form-group" style="display:none" data-bind="visible: filterVisible">
+    <input class="form-control" type="button" data-bind="click: clearFilters" value="Clear All Filters" />
+</div>
+
+<div class="table-responsive">
+<table class="table highlight-row">
+<thead>
+<tr data-bind="foreach: headers">
+	<th data-bind="css: { 'text-right': $root.headers()[$index()].align == 'right', 'text-center': $root.headers()[$index()].align == 'center' }, visible: $parent.headers()[$index()].display()"><a href="#" data-bind="html: $parent.headerHTML($index, $data), click: function(data, event) { $parent.columnClick($index, data, event); }"></a></th>
+</tr>
+</thead>
+<tbody data-bind="foreach: data">
+<tr data-bind="foreach: $data">
+	<td data-bind="css: { 'text-right': $root.headers()[$index()].align == 'right', 'text-center': $root.headers()[$index()].align == 'center' }, html: $data, visible: $root.headers()[$index()].display()"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Row count: <span data-bind="text: data().length"></span>
+
+</div>
+</div>
+{% endblock main %}
+  {% block scripts %}
+    <script id="string-filter" type="text/html">
+        <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
+    </script>
+    <script id="select-filter" type="text/html">
+        <select class="form-control" data-bind="options: filterOptions,
+                           optionsText: 'text',
+                           optionsValue: 'value',
+                           value: filterValue,
+                           optionsCaption: ''"></select>
+    </script>
+    <script id="numeric-filter" type="text/html">
+        <div class="form-group">
+            <select class="form-control" data-bind="value: filterComparison">
+                <option value="gt">&gt;</option>
+                <option value="ge">&ge;</option>
+                <option value="lt">&lt;</option>
+                <option value="le">&le;</option>
+                <option value="eq">=</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
+        </div>
+    </script>
+	<script src="{{ media_url('js/libs/knockout-2.3.0.js') }}"></script>
+	<script src="{{ media_url('js/herodata/unitdata.js') }}"></script>
+  {% endblock scripts %}

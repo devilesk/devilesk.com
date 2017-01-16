@@ -1,0 +1,57 @@
+---
+extends: base.j2
+title: Dota 2 Hero Lore
+description: Full list of all Dota 2 hero lore bios.
+active_menu: page-heroes
+header: Lore
+---
+
+{% block page_head %}
+{% endblock page_head %}
+
+{% block container %}
+<div class="col-md-9">
+{% for hero in herolore -%}
+  <div class="hero_section">
+    <h2 id="{{ hero.id }}">{{ hero.displayname }}</h2>
+    {% for paragraph in hero.bio -%}
+      <p>{{ paragraph }}</p>
+    {%- endfor %}
+  </div>
+{%- endfor %}
+</div>
+
+<div class="col-md-3">
+  <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+    <ul class="nav bs-docs-sidenav">
+    {% for menu in heroloremenu -%}
+      <li>
+        <a href="#{{ menu.data[0].id }}">{{ menu.name }}</a>
+        <ul class="nav" data-bind="foreach: data">
+        {% for item in menu.data -%}
+          <li><a href="#{{ item.id }}">{{ item.displayname }}</a></li>
+        {%- endfor %}
+        </ul>
+      </li>
+    {%- endfor %}
+    </ul>
+    <a class="back-to-top" href="#top">Back to top</a>
+  </div>
+</div>
+{% endblock container %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function () {
+        $('body').scrollspy({
+            target: '.bs-docs-sidebar',
+            offset: 40
+        });
+        $('.bs-docs-sidebar').affix({
+              offset: {
+                top: 124
+              }
+        });
+    });
+</script>
+{% endblock scripts %}

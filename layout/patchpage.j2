@@ -14,7 +14,7 @@ itemsprite-{{ id }}
 {% block title %}Patch {{ resource.meta.patch }} Notes{% endblock title %}
 {% block description %}Dota 2 Patch {{ resource.meta.patch }} Notes & Changelog. Information about changes to heroes, items, and general gameplay.{% endblock description %}
 
-{% block custom_css %}
+{% block page_head %}
 <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
 <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
 <style type="text/css">
@@ -24,7 +24,7 @@ a.anchor{display: block; visibility: hidden;}
     display:inline-block;
 }
 </style>
-{% endblock custom_css %}
+{% endblock page_head %}
 
 {% block container %}
 <div id="main" class="col-md-9" role="main">

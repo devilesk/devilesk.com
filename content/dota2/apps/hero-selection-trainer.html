@@ -6,7 +6,7 @@ active_menu: page-webapps
 header: Hero Selection Trainer
 ---
 
-  {% block custom_css %}
+  {% block page_head %}
   <link rel="stylesheet" href="{{ media_url('css/heroes_64x36_sprite.css') }}">
 <style type="text/css">
 .hero {
@@ -35,7 +35,7 @@ cursor:pointer;
     margin-right:auto;
 }
 </style>
-  {% endblock custom_css %}
+  {% endblock page_head %}
   {% block main %}
 <div class="hero_wrapper col-md-12">
   <div class="hero_page col-md-4">

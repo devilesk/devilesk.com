@@ -5,7 +5,7 @@ description: List of all Dota 2 items.
 active_menu: page-items
 ---
 
-{% block custom_css %}
+{% block page_head %}
 <link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
 <link rel="stylesheet" href="{{ media_url('css/items.css') }}">
 <style type="text/css">
@@ -61,7 +61,7 @@ img.item_manacost, img.item_cooldown {
 	box-shadow: inset 0 0 10px #000000;
 }
 </style>
-{% endblock custom_css %}
+{% endblock page_head %}
 
 {% block container %}
 <div class="col-md-9">

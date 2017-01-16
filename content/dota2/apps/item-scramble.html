@@ -6,7 +6,7 @@ active_menu: page-webapps
 header: Item Scramble
 ---
 
-  {% block custom_css %}
+  {% block page_head %}
 <style type="text/css">
 .component {
     cursor:move;
@@ -29,7 +29,7 @@ header: Item Scramble
     opacity:.5;
 }
 </style>
-  {% endblock custom_css %}
+  {% endblock page_head %}
   {% block main %}
     <div id="upgrades-container"></div>
     <div id="components-container"></div>

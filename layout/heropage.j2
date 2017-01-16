@@ -1,13 +1,13 @@
 {% extends "base.j2" %}
 {% from "macros.j2" import getValueString %}
 
-{% block custom_css %}
+{% block page_head %}
 <style type="text/css">
 .hero-bio p{
     text-indent: 15px;
 }
 </style>
-{% endblock custom_css %}
+{% endblock page_head %}
     
 {% block header %}
     {% if resource.meta.header %}

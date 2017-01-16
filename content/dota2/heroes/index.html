@@ -6,7 +6,7 @@ active_menu: page-heroes
 header: Heroes
 ---
 
-{% block custom_css %}
+{% block page_head %}
 <link rel="stylesheet" href="{{ media_url('spritesheets/css/portraits_64x84_sprite_jpg.css') }}">
 <style type="text/css">
 .attribute-section {
@@ -29,14 +29,16 @@ header: Heroes
     content: "INTELLIGENCE";
 }
 .hero-block::before {
-    transform: rotate(-90deg);
-    display: block;
+    left: -15px;
     position: absolute;
-    top: 48px;
-    left: -75px;
-    width: 115px;
-    text-align: right;
-    font-style: italic;
+    top: 50%;
+    line-height: 0px;
+    text-align: center;
+    font-weight: bold;
+    -ms-transform: translateX(-50%) rotate(90deg);
+    -webkit-transform: translateX(-50%) rotate(90deg);
+    transform: translateX(-50%) rotate(-90deg);
+    white-space: nowrap;
 }
 .hero {
     width:68px;
@@ -67,7 +69,7 @@ header: Heroes
 	font-weight:bold;
 }
 </style>
-{% endblock custom_css %}
+{% endblock page_head %}
 
 {% block container %}
 <div id="main" role="main">

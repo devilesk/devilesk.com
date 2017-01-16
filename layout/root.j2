@@ -3,27 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% block starthead %}{% endblock starthead %}
+    {% block head %}
     <meta charset="{{ resource.meta.charset }}">
-
     <title>{% block title %}{{ resource.meta.title }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ resource.meta.description }}{% endblock description %}">
     <meta name="author" content="{{ resource.meta.author }}">
     <meta name="viewport" content="{{ resource.meta.viewport }}">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
-    {% block css %}
-    {% if site.config.mode == "production" %}
-    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-    {% else %}
-    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.css') }}">
-    {% endif %}
-    {% endblock css %}
-    {% block custom_css %}{% endblock custom_css %}
-
-    {% block headjs %}
-	{% endblock headjs %}
-    {% block endhead %}{% endblock endhead %}
+    {% endblock head %}
 </head>
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
     <div class="wrapper">
@@ -48,21 +34,6 @@
     {% endblock footer%}
 
     {% block js %}
-    {% block jquery %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    {% endblock jquery %}
-    {% block before_scripts %}{% endblock before_scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    {% if site.config.mode == "production" %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
-    {% else %}
-    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
-    {% endif %}
-    {% block scripts %}{% endblock scripts %}
-    {% block analytics %}
-    {% include "analytics.j2" %}
-    {% endblock analytics %}
-
     {% endblock js %}
 </body>
 </html>

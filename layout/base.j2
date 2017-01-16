@@ -1,5 +1,21 @@
 {% extends "root.j2" %}
 
+{% block head %}
+    {{ super() }}
+    {% block fonts %}
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    {% endblock fonts %}
+    
+    {% block css %}
+    {% if site.config.mode == "production" %}
+    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.css') }}">
+    {% endif %}
+    {% endblock css %}
+    {% block page_head %}{% endblock page_head %}
+{% endblock head %}
+
 {% block content %}
 {% block breadcrumbs %}
 <div class="container">
@@ -23,3 +39,20 @@
     {% endblock container %}
 </div>
 {% endblock content %}
+
+{% block js %}
+    {% block jquery %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    {% endblock jquery %}
+    {% block before_scripts %}{% endblock before_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    {% if site.config.mode == "production" %}
+    <script src="{{ media_url('bootstrap/js/bootstrap.min.js') }}"></script>
+    {% else %}
+    <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
+    {% endif %}
+    {% block scripts %}{% endblock scripts %}
+    {% block analytics %}
+    {% include "analytics.j2" %}
+    {% endblock analytics %}
+{% endblock js %}

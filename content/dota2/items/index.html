@@ -6,7 +6,7 @@ active_menu: page-items
 header: Items
 ---
 
-  {% block custom_css %}
+  {% block page_head %}
   <link rel="stylesheet" href="{{ media_url('spritesheets/css/items_70x50_sprite_jpg.css') }}">
   <style type="text/css">
 .content {
@@ -93,7 +93,7 @@ hr {
 	margin-bottom: 10px;
 }
   </style>
-  {% endblock custom_css %}
+  {% endblock page_head %}
 {% block main %}
 {% for section in shoplayout -%}
   <div class="shop-section">
