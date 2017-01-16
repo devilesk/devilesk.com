@@ -54,6 +54,16 @@
         url: /dota2/apps/tread-switch-trainer
     type: node
     url: dota2/apps
+-   css_class: page-interactivemap
+    description: Interactive Map
+    name: MAP
+    type: node
+    url: dota2/apps/interactivemap
+-   css_class: page-hero-calculator
+    description: Hero Calculator
+    name: CALCULATOR
+    type: node
+    url: dota2/apps/hero-calculator
 -   css_class: page-heroes
     description: Heroes Home
     name: HEROES
