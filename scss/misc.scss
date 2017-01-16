@@ -1,0 +1,32 @@
+.no-match {
+    opacity: 0.1;
+}
+.media > a {
+    text-decoration: none;
+    display: block;
+    padding-bottom: 15px;
+    color: $text-color;
+    
+    &:hover {
+        color: lighten($text-color, 20%);
+    }
+}
+.media-left > img {
+    width: 90px;
+}
+.overlay-hover:hover {
+	opacity: .15;
+}
+.overlay-hover {
+	background: linear-gradient(to bottom, white, black);
+	opacity: 0;
+}
+table.highlight-row tbody tr:hover {
+    background-color: #1c1d1f;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -180px; /* the bottom margin is the negative value of the footer's height */
+}
