@@ -1,7 +1,8 @@
 {% extends "base.j2" %}
-{% from "macros.j2" import render_excerpt with context  %}
-{% block main %}
 
+{% from "macros/render_excerpt.j2" import render_excerpt with context  %}
+
+{% block main %}
 <ul class="listing clearfix">
 {% for res in resource.node.walk_resources_sorted_by_time() %}
 <li>
@@ -9,18 +10,4 @@
 </li>
 {% endfor %}
 </ul>
-{% endblock %}
-{% block scripts %}
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'devileskdota';
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-{% endblock %}
+{% endblock main %}

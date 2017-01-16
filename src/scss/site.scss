@@ -1,0 +1,120 @@
+@import 'variables';
+@import '../../bootstrap-sass/assets/stylesheets/bootstrap-custom';
+@import 'footer';
+@import 'misc';
+@import 'gist';
+@import 'sidebar';
+@import 'blog';
+@import 'abilitymatching';
+@import 'herodata';
+@import 'heroes';
+@import 'patchhistory';
+@import 'items';
+@import 'itemsall';
+
+// dota2/index.html
+// dota2/mosaics/index.html
+.slick-slide > img {
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+.slick-carousel, .slick-carousel-nav {
+    margin: 25px;
+}
+
+.hero-page {
+    .hero-bio p{
+        text-indent: 15px;
+    }
+}
+
+.patch-page {
+    a.anchor {
+        display: block;
+        visibility: hidden;
+    }
+    .group-icon {
+        margin-right: 10px;
+        display: inline-block;
+    }
+}
+
+// dota2/apps/item-scramble.html
+.item-scramble {
+    .component {
+        cursor:move;
+        opacity:1;
+    }
+    #components-container {
+        position:relative;
+        min-height:400px;
+    }
+    #components-container > div {
+        float:left;
+        position:absolute;
+    }
+    #upgrades-container {
+        height:64px;
+        background-color:#1c1d1f;
+        margin-bottom:10px;
+    }
+    .combined {
+        opacity:.5;
+    }
+}
+
+// dota2/apps/hero-selection-trainer.html
+.hero-selection-trainer {
+    .hero {
+        margin:1px;
+        width:73px;
+        display:inline-block;
+    }
+    .hero:hover {
+        cursor:hand;
+        cursor:pointer;
+    }
+    #info {
+        padding-top:10px;
+        text-align:center;
+        display:inline-block;
+    }
+    #hero_name {
+        min-height:1.1em;
+    }
+    #start, #stop {
+        margin-top:20px;
+    }
+    #start, #stop, #layout {
+        width:250px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+// dota2/apps/trivia/ability.html
+// dota2/apps/trivia/item-cost.html
+// dota2/apps/trivia/item-name.html
+// dota2/apps/trivia/hero-name.html
+// dota2/apps/trivia/ability-name.html
+.trivia-app {
+    .btn {
+        line-height:3em;
+        font-weight:bold;
+    }
+    @media (max-width: 767px) {
+        .btn {
+            line-height:1em;
+        }
+        #hero {
+            display:none;
+        }
+        h4 {
+            font-size:14px;
+        }
+        header {
+            display:none;
+        }
+    }
+}

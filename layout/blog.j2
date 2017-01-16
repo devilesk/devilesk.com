@@ -1,9 +1,7 @@
 {% extends "base.j2" %}
-{% block page_head %}
-<link rel="stylesheet" href="{{ media_url('css/blog.css') }}">
-{% endblock %}
+
 {% block main -%}
-<article class="post">
+<article class="post blog">
 <nav class="post_nav">
 <a class="btn btn-default btn-xs backlink" href="{{ content_url(resource.node.url) }}">Back to list</a>
 <a class="btn btn-default btn-xs prev{{' disabled' if not resource.prev_by_time }}"
@@ -64,22 +62,5 @@ Tagged with:
 </nav>
 </article>
 <hr>
-<div id="disqus_thread"></div>
-{%- endblock %}
-{% block scripts %}
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'devileskdota';
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script type="text/javascript">
-$('link[href*="gist-embed"]').remove();
-</script>  
-{%- endblock %}
+{% include 'includes/disqus.j2' %}
+{%- endblock main %}

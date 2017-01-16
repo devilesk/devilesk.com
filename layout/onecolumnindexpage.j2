@@ -1,13 +1,6 @@
 {% extends "base.j2" %}
-
-{% block page_head %}
-<style type="text/css">
-
-</style>
-{% endblock page_head %}
                 
 {% block main %}
-
 <div class="col-md-12">
     {% for group in resource.meta.data -%}
         <h4>{{ group.header }}</h4>
@@ -26,5 +19,4 @@
         {%- endfor %}
     {%- endfor %}
 </div>
-
 {%- endblock %}

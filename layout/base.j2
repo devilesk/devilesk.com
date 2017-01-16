@@ -1,5 +1,7 @@
 {% extends "root.j2" %}
 
+{% from "macros/breadcrumb.j2" import breadcrumb with context  %}
+
 {% block head %}
     {{ super() }}
     {% block fonts %}
@@ -15,11 +17,10 @@
 {% block content %}
 {% block breadcrumbs %}
 <div class="container">
-{% from "macros.j2" import breadcrumb with context  %}
 {{ breadcrumb(resource) }}
 </div>
 {% endblock breadcrumbs %}
-<div class="container">
+<div class="{{ 'container' if not resource.meta.container_fluid }}{{ 'container-fluid' if resource.meta.container_fluid }}">
     {% block container %}
     <div id="main" role="main">
         <header class="banner clearfix">
@@ -47,8 +48,10 @@
     {% else %}
     <script src="{{ media_url('bootstrap/js/bootstrap.js') }}"></script>
     {% endif %}
-    {% block scripts %}{% endblock scripts %}
+    {% block scripts %}
+    <script src="{{ media_url('js/index.js') }}"></script>
+    {% endblock scripts %}
     {% block analytics %}
-    {% include "analytics.j2" %}
+    {% include "includes/analytics.j2" %}
     {% endblock analytics %}
 {% endblock js %}

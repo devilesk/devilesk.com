@@ -1,0 +1,29 @@
+.blog {
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        padding-bottom: 30px;
+    }
+
+    .tags {
+        list-style: none;
+        padding: 0;
+    }
+
+    .tags li {
+        display: inline;
+        position: relative;
+        padding-right: 2px;
+    }
+
+    .tags li:after {
+        content: ", ";
+        position: absolute;
+        right: 2px;
+    }
+
+    .tags li:last-child:after {
+        content: "";
+    }
+}

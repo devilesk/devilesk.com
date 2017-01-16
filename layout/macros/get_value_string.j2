@@ -1,0 +1,6 @@
+{% macro get_value_string(values) -%}
+{% for item in values[:-1] -%}
+{{ item }} / 
+{% endfor %}
+{{ values[-1] }}
+{% endmacro %}

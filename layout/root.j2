@@ -1,17 +1,18 @@
-{% from "macros.j2" import render_nav with context %}
+{% from "macros/render_nav.j2" import render_nav with context %}
 
 <!DOCTYPE html>
 <html>
 <head>
-    {% block head %}
+{% block head %}
     <meta charset="{{ resource.meta.charset }}">
     <title>{% block title %}{{ resource.meta.title }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ resource.meta.description }}{% endblock description %}">
     <meta name="author" content="{{ resource.meta.author }}">
     <meta name="viewport" content="{{ resource.meta.viewport }}">
-    {% endblock head %}
+{% endblock head %}
 </head>
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+{% block body %}
     <div class="wrapper">
         {% block nav %}
             {{ render_nav(menu, 'main_nav') }}
@@ -35,5 +36,6 @@
 
     {% block js %}
     {% endblock js %}
+{% endblock body %}
 </body>
 </html>

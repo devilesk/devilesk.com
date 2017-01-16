@@ -2,7 +2,7 @@
 
 {% set data = patchdata[resource.meta.patch] %}
 
-{% macro getClass(data, type) -%}
+{% macro get_class(data, type) -%}
 {% set id = data.replace(type + '_', '') %}
 {%- if id in herokeys -%}
 herosprite-{{ id }}
@@ -14,20 +14,8 @@ itemsprite-{{ id }}
 {% block title %}Patch {{ resource.meta.patch }} Notes{% endblock title %}
 {% block description %}Dota 2 Patch {{ resource.meta.patch }} Notes & Changelog. Information about changes to heroes, items, and general gameplay.{% endblock description %}
 
-{% block page_head %}
-<link rel="stylesheet" href="{{ media_url('css/heroes.css') }}">
-<link rel="stylesheet" href="{{ media_url('css/items.css') }}">
-<style type="text/css">
-a.anchor{display: block; visibility: hidden;}
-.group-icon {
-    margin-right:10px;
-    display:inline-block;
-}
-</style>
-{% endblock page_head %}
-
 {% block container %}
-<div id="main" class="col-md-9" role="main">
+<div id="main patch-page" class="col-md-9" role="main">
     <nav class="post_nav">
     <a class="btn btn-default btn-xs backlink" href="{{ content_url(resource.node.url) }}">Back to list</a>
     <a class="btn btn-default btn-xs next{{' disabled' if not resource.next_by_patch }}"
@@ -71,7 +59,7 @@ a.anchor{display: block; visibility: hidden;}
                     {% elif section.id == 'items' %}
                         <div class="group-icon img-rounded item itemsprite itemsprite-{{ id }}" title="{{ group.name }}"></div>
                     {% elif section.id not in herokeys and section.id not in itemkeys %}
-                        <div class="group-icon img-rounded {{ getClass(id, section.id) }}" title="{{ group.name }}"></div>
+                        <div class="group-icon img-rounded {{ get_class(id, section.id) }}" title="{{ group.name }}"></div>
                     {% endif %}
                 {% endfor %}
                 
@@ -116,19 +104,3 @@ a.anchor{display: block; visibility: hidden;}
     </div>
 </div>
 {% endblock container %}
-
-{% block scripts %}
-<script type="text/javascript">
-    $(function () {
-        $('body').scrollspy({
-            target: '.bs-docs-sidebar',
-            offset: 40
-        });
-        $('.bs-docs-sidebar').affix({
-              offset: {
-                top: 124
-              }
-        });
-    });
-</script>
-{% endblock scripts %}

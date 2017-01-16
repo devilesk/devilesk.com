@@ -15,11 +15,11 @@ var plugin = autoprefixer({
     ]
 });
 
-fs.readFile('css/site.css', (err, css) => {
+fs.readFile('build/media/css/site.css', (err, css) => {
     postcss([plugin])
-        .process(css, { from: 'css/site.css', to: 'css/site.min.css' })
+        .process(css, { from: 'build/media/css/site.css', to: 'build/media/css/site.min.css' })
         .then(result => {
-            fs.writeFile('css/site.min.css', result.css);
-            if ( result.map ) fs.writeFile('css/site.min.css.map', result.map);
+            fs.writeFile('build/media/css/site.min.css', result.css);
+            if ( result.map ) fs.writeFile('build/media/css/site.min.css.map', result.map);
         });
 });

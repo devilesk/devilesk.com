@@ -1,0 +1,31 @@
+{% macro breadcrumb(res) %}
+{% if res.url != '/dota2/index.html' -%}
+<ol class="breadcrumb">
+    {% set stop = False %}
+    {% set crumbs = [] %}
+    {% for node in res.node.rwalk() %}
+        {% set p = node.get_resource('index.html') %}
+        {% if p and not stop -%}
+            {% if p.url == '/dota2/index.html' -%}
+                {% set stop = True %}
+            {% endif %}
+            {% do crumbs.insert(0, p) %}
+        {% endif %}
+    {% endfor %}
+    {% if res.name != 'index.html' -%}
+        {% do crumbs.append(res) %}
+    {% endif %}
+    {% for p in crumbs %}
+        {% if p.url == res.url -%}
+            <li class="breadcrumb-item active">{{ p.meta.header }}</li>
+        {% else %}
+            {% if p.url == '/dota2/index.html' -%}
+                <li class="breadcrumb-item"><a href="{{ p.url.rstrip('index.html') }}">Home</a></li>
+            {% else %}
+                <li class="breadcrumb-item"><a href="{{ p.url.rstrip('index.html') }}">{{ p.meta.header }}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ol>
+{% endif %}
+{% endmacro %}

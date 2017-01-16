@@ -4,7 +4,7 @@
   "description": "devilesk.com",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass scss/site.scss css/site.css",
+    "sass": "node-sass src/scss/site.scss build/media/css/site.css",
     "postcss": "node scripts/postcss.js"
   },
   "repository": {
