@@ -15,14 +15,15 @@
   lore: The lost blade of the Commander of the Abyss, this edge cuts into an enemy's
     soul.
   mana: '75'
-- description: 'Passive: Reincarnation - Brings you to life with full health and mana
-    5.0 seconds after you die, at the location where you died. Reincarnation must
-    be used within 5 minutes or Aegis of the Immortal disappears. If it expires, it
-    will heal you over 5 seconds (dispels on damage).'
-  displayname: Aegis of the Immortal
-  id: aegis
-  itemcost: '0'
-  lore: The Immortal was said to own a shield that protected him from death itself.
+- attributes: '+ 250 Mana<br>+ 8 HP Regeneration<br>+ 220 Cast Range<br>SPELL DAMAGE
+    AMP: 5%'
+  description: 'Passive: Increases spell cast range by 220 and spell damage output
+    by 5%'
+  displayname: Aether Lens
+  id: aether_lens
+  itemcost: '2350'
+  lore: Polished with the incantation of his final breath, the gift of a dying mage
+    to his sickly son.
 - attributes: + 10 All Attributes<br>+ 175 Health<br>+ 175 Mana
   description: 'Passive: Ultimate Upgrade - Upgrades the ultimate, and some abilities,
     of certain heroes.'
@@ -229,14 +230,6 @@
   id: chainmail
   itemcost: '550'
   lore: A medium weave of metal chains.
-- attributes: 'HEALTH RESTORED: 2500<br>MANA RESTORED: 1500'
-  cd: '40'
-  description: 'Use: Consume to instantly restore health and mana.'
-  displayname: Cheese
-  id: cheese
-  itemcost: '1000'
-  lore: Made from the milk of a long lost Furbolg vendor, it restores the vitality
-    of those who taste it.
 - attributes: + 2 All Attributes
   displayname: Circlet
   id: circlet
@@ -334,6 +327,12 @@
   id: rapier
   itemcost: '6200'
   lore: So powerful, it cannot have a single owner.
+- attributes: + 14 Agility<br>+ 12 Strength<br>+ 140 Attack Range
+  description: 'Passive: Increases attack range of ranged heroes by 140.'
+  displayname: Dragon Lance
+  id: dragon_lance
+  itemcost: '1900'
+  lore: The forward charge of the wyvern host grants no quarter.
 - attributes: '+ 6 Intelligence<br>+ 6 Strength<br>+ 3 Agility<br>+ 3 Damage<br>+
     50% Mana Regeneration<br>AURA MOVE SPEED: 20<br>ENDURANCE ATTACK SPEED: 25<br>ENDURANCE
     MOVE SPEED: 13%<br>ENDURANCE DURATION: 6<br>AURA/ENDURANCE RADIUS: 900'
@@ -422,6 +421,14 @@
   id: skadi
   itemcost: '5675'
   lore: Extremely rare artifact, guarded by the azure dragons.
+- attributes: '+ 2 Damage<br>HEALTH RESTORED: 75'
+  cd: '5'
+  description: 'Use: Consume the Faerie Fire to instantly restore 75 HP'
+  displayname: Faerie Fire
+  id: faerie_fire
+  itemcost: '75'
+  lore: The ethereal flames from the ever-burning ruins of Kindertree ignite across
+    realities.
 - description: Upgrades your team's Animal Courier to a Flying Courier, granting it
     swift, unobstructed movement to carry items to and from your team's base.<br><br>Requires
     a deployed Animal Courier.
@@ -600,6 +607,16 @@
   itemcost: '50'
   lore: A seemingly ordinary branch, its ironlike qualities are bestowed upon the
     bearer.
+- attributes: 'QUELL MELEE DAMAGE: 24<br>QUELL RANGED DAMAGE: 7<br>CAST RANGE: 350<br>CAST
+    RANGE ON WARDS: 450<br>+ 2 Armor'
+  cd: '20'
+  description: 'Active: Targets a non-player enemy unit to remove 40% of its current
+    HP.<br>Passive: Quell - Increases attack damage against non-hero units, based
+    on whether the equipped hero is ranged or melee.'
+  displayname: Iron Talon
+  id: iron_talon
+  itemcost: '500'
+  lore: A simple but effective weapon devised to quell a great Hellbear uprising.
 - attributes: '+ 10 Damage<br>CHANCE TO PIERCE: 25%<br>PIERCE DAMAGE: 85'
   description: 'Passive: Pierce - Grants each attack a chance to deal bonus damage.'
   displayname: Javelin

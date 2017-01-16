@@ -10,7 +10,7 @@ def main():
     with open(os.path.join(sys.path[0], '../node_modules/dota-datafiles/dist/itemdata.json'), 'r') as f:
         itemdata = json.loads(f.read())
 
-    with open(os.path.join(sys.path[0], '../content/media/js/items.json'), 'r') as f:
+    with open(os.path.join(sys.path[0], '../node_modules/dota-datafiles/dist/items.json'), 'r') as f:
         items = json.loads(f.read())['data'].keys()
 
     ability_vars = {
