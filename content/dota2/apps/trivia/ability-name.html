@@ -1,0 +1,30 @@
+---
+extends: base.j2
+title: Dota 2 Ability Name Trivia
+description: Dota 2 Ability Name Trivia.
+active_menu: page-webapps
+header: Ability Name Trivia
+---
+
+  {% block main %}
+			<p class="text-center"><img id="item" class="img-rounded" /></p>
+			<div class="row text-center">
+				<div id='buttons' class="col-md-offset-3 col-md-6 text-center">
+				<button class="btn btn-default btn-block" id="answer_0"></button>
+				<button class="btn btn-default btn-block" id="answer_1"></button>
+				<button class="btn btn-default btn-block" id="answer_2"></button>
+				<button class="btn btn-default btn-block" id="answer_3"></button>
+				<button class="btn btn-default btn-block" id="answer_4"></button>
+				</div>
+			</div>
+			<div class="row text-center">
+			<div><h4 id='streak'>Current Streak: 0</h4></div>
+			<div><h4 id='longeststreak'>Longest Streak: 0</h4></div>
+			<div id="ans_msg_container"><div id='ans_msg'></div></div>
+			</div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="{{ media_url('js/trivia.common.js') }}"></script>
+	<script src="{{ media_url('js/ability-name-trivia/ability-name-trivia.js') }}"></script>
+  {% endblock scripts %}

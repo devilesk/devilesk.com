@@ -1,0 +1,59 @@
+.attribute-section {
+}
+.hero-block {
+	margin-top: 5px;
+	margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+    margin-left: 20px;
+    border-left: 2px solid;
+}
+.hero-block.strength::before {
+    content: "STRENGTH";
+}
+.hero-block.agility::before {
+    content: "AGILITY";
+}
+.hero-block.intelligence::before {
+    content: "INTELLIGENCE";
+}
+.hero-block::before {
+    left: -15px;
+    position: absolute;
+    top: 50%;
+    line-height: 0px;
+    text-align: center;
+    font-weight: bold;
+    -ms-transform: translateX(-50%) rotate(90deg);
+    -webkit-transform: translateX(-50%) rotate(90deg);
+    transform: translateX(-50%) rotate(-90deg);
+    white-space: nowrap;
+}
+.hero {
+    width:68px;
+    display: inline-block;
+	margin: 2px;
+	text-decoration: none;
+    overflow: hidden;
+}
+.hero-overlay {
+	width: 64px;
+	height: 84px;
+	position:absolute;
+}
+.hero div {
+	box-shadow: inset 0 0 10px #000000;
+}
+.hero div:hover {
+	transform: scale(1.1);
+}
+.header-wrapper {
+	text-align:center;
+}
+.header-wrapper > img {
+    width: 32px;
+}
+.header-wrapper > span {
+	font-size:16px;
+	font-weight:bold;
+}

@@ -6,94 +6,10 @@ active_menu: page-items
 header: Items
 ---
 
-  {% block page_head %}
-  <link rel="stylesheet" href="{{ media_url('spritesheets/css/items_70x50_sprite_jpg.css') }}">
-  <style type="text/css">
-.content {
-  text-align: center;
-}
-.item-overlay {
-	width: 70px;
-	height: 50px;
-	position:absolute;
-}
-.shop-section {
-  display: inline-block;
-  margin-right: 30px;
-}
-.shop-column {
-	float: left;
-	width: 80px;
-}	
-.shop-item {
-	display: inline-block;
-}
-.shop-item div {
-  box-shadow: inset 0 0 5px #000000;
-}
-.shop:hover {
-  cursor:pointer;
-  cursor:hand;
-}
-.shop {
-  border-radius:10px;
-}
-.header-wrapper {
-	padding:0px 0px 10px 5px;
-	text-align:center;
-}
+{% block page_head %}
+<link rel="stylesheet" href="{{ media_url('spritesheets/css/items_70x50_sprite_jpg.css') }}">
+{% endblock page_head %}
 
-.item_field {
-	display:block;
-}
-#item_name {
-	font-weight:bold;
-	display:inline;
-}
-#item_cost {
-	margin-left:10px;
-	display:inline;
-	background-image:url("/media/images/gold.png");
-	padding:0px 0px 0px 27px;
-	background-repeat:no-repeat;
-}
-
-#item_manacost {
-	margin-right:10px;
-	display:inline;
-	background-image:url("/media/images/manacost.png");
-	padding:0px 0px 0px 20px;
-	background-repeat:no-repeat;
-}
-#item_cooldown {
-	margin-right:10px;
-	display:inline;
-	background-image:url("/media/images/cooldown.png");
-	padding:0px 0px 0px 20px;
-	background-repeat:no-repeat;
-}
-#item_cdmana {
-	padding:10px 0px 0px 0px;
-}
-
-#item_lore {
-	font-size:8pt;
-	font-style:italic;
-}
-
-.popover {
-	max-width: 800px;
-	width: 300px;
-}
-.tooltip-inner {
-	color:white;
-}
-hr {
-	margin-top: 5px;
-	margin-bottom: 10px;
-}
-  </style>
-  {% endblock page_head %}
 {% block main %}
 {% for section in shoplayout -%}
   <div class="shop-section">

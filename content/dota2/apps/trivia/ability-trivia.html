@@ -1,0 +1,39 @@
+---
+extends: base.j2
+title: Dota 2 Ability Trivia
+description: Dota 2 Ability Trivia.
+active_menu: page-webapps
+header: Ability Trivia
+---
+
+  {% block main %}
+          	<div id="start_container">
+		<p>Answer a question about about a randomly selected hero ability.</p>
+		<p>Each round consists of 25 questions.</p>
+		<button class="btn btn-default btn-block" id="start">Play</button>
+	</div>
+	<div id="question_container" class="text-center" style="display:none">
+		<h4 id="name"></h4>
+		<p class="text-center"><img id="hero" class="img-rounded" /><img id="ability" class="img-rounded" style="margin-left:10px"/></p>
+		<h4 id="tooltip"></h4>
+		<div class="row text-center">
+			<div id='buttons' class="col-md-offset-3 col-md-6 text-center">
+			<button class="btn btn-default btn-block" id="answer_0"></button>
+			<button class="btn btn-default btn-block" id="answer_1"></button>
+			<button class="btn btn-default btn-block" id="answer_2"></button>
+			<button class="btn btn-default btn-block" id="answer_3"></button>
+			</div>
+		</div>
+	</div>
+		<div id="score_container" class="row text-center" style="display:none;">
+		<div><h4 id='progress'>Progress: 0</h4></div>
+		<div><h4 id='correct'>Correct: 0</h4></div>
+		<div><h4 id='streak'>Current Streak: 0</h4></div>
+		<div id="ans_msg_container"><div id='ans_msg'></div></div>
+		</div>
+  {% endblock main %}
+  
+    {% block scripts %}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="{{ media_url('js/ability-trivia/ability-trivia.js') }}"></script>
+  {% endblock scripts %}

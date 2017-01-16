@@ -1,0 +1,10 @@
+footer, .push {
+	text-align:center;
+	height: 150px; /* .push must be the same height as .footer */
+	font-size:8pt;
+    margin-top:30px;
+}
+footer > img {
+	display:block;
+	margin:auto;
+}

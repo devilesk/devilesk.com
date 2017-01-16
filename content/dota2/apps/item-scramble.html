@@ -6,30 +6,6 @@ active_menu: page-webapps
 header: Item Scramble
 ---
 
-  {% block page_head %}
-<style type="text/css">
-.component {
-    cursor:move;
-    opacity:1;
-}
-#components-container {
-    position:relative;
-    min-height:400px;
-}
-#components-container > div {
-    float:left;
-    position:absolute;
-}
-#upgrades-container {
-    height:64px;
-    background-color:#1c1d1f;
-    margin-bottom:10px;
-}
-.combined {
-    opacity:.5;
-}
-</style>
-  {% endblock page_head %}
   {% block main %}
     <div id="upgrades-container"></div>
     <div id="components-container"></div>

@@ -47,9 +47,14 @@ def main():
         force_symlink(os.path.join(sys.path[0], "../dota-mosaic/mosaics"), os.path.join(sys.path[0], "../build/media/images/mosaics/mosaics"))
         force_symlink(os.path.join(sys.path[0], "../dota-mosaic/thumbnails"), os.path.join(sys.path[0], "../build/media/images/mosaics/thumbnails"))
         force_symlink(os.path.join(sys.path[0], "../dota-webassets/dist"), os.path.join(sys.path[0], "../build/media/spritesheets"))
-        force_symlink(os.path.join(sys.path[0], "../bootstrap/dist"), os.path.join(sys.path[0], "../build/media/bootstrap"))
         force_symlink(os.path.join(sys.path[0], "../node_modules/dota-datafiles/dist"), os.path.join(sys.path[0], "../build/media/dota-json"))
+
+        call(["npm", "run", "sass"])
+        force_symlink(os.path.join(sys.path[0], "../css"), os.path.join(sys.path[0], "../build/media/css"))
+        
+        force_symlink(os.path.join(sys.path[0], "../js"), os.path.join(sys.path[0], "../build/media/js"))
         
         print('site deployed')
+        
 if __name__ == '__main__':
     main()

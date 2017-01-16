@@ -7,11 +7,7 @@
     {% endblock fonts %}
     
     {% block css %}
-    {% if site.config.mode == "production" %}
-    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.min.css') }}">
-    {% else %}
-    <link rel="stylesheet" href="{{ media_url('bootstrap/css/bootstrap.css') }}">
-    {% endif %}
+    <link rel="stylesheet" href="{{ media_url('css/site.css') }}">
     {% endblock css %}
     {% block page_head %}{% endblock page_head %}
 {% endblock head %}

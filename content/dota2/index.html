@@ -9,30 +9,6 @@ description: devilesk Dota 2
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
-<style type="text/css">
-#box-timeline {
-	border: 1px solid #202126;
-	display: inline-block;
-}
-#banner {
-	overflow: hidden;
-	opacity: .5;
-}
-.patches .list-group-item {
-	float: left;
-}
-.panel-body > p {
-    margin: 0;
-}
-.slick-slide > img {
-    padding: 5px;
-    width: 100%;
-    cursor: pointer;
-}
-.slick-carousel {
-    margin: 25px;
-}
-</style>
 {% endblock page_head %}
 
 {% block main %}
@@ -105,21 +81,6 @@ description: devilesk Dota 2
     </div>
 </div>
 
-    </div>
-    {%- endblock %}
-    
-    {% block sitenews %}
-    <div class="col-sm-6 col-md-6 site-news">
-        <h3>Site Updates</h3>
-        <div class="site-news-container">
-            {% for news in sitenews -%}
-            <div class="panel panel-default">
-                <div class="panel-body">
-                {% filter markdown|typogrify -%}{{ news }}{%- endfilter %}
-                </div>
-            </div>
-            {%- endfor %}
-        </div>
     </div>
     {%- endblock %}
     {% block patches %}
