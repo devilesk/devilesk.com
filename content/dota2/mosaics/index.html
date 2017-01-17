@@ -3,6 +3,7 @@ extends: base.j2
 title: Dota 2 Mosaics
 description: Dota 2 Mosaics. Gallery of mosaics made up of ability icons.
 header: Mosaics
+page_script: mosaics/index
 ---
 
 {% block main %}
@@ -79,11 +80,3 @@ header: Mosaics
 
 </div>
 {%- endblock %}
-
-{% block scripts %}
-{% if site.config.mode == "production" %}
-<script src="{{ media_url_rev('js/mosaics/index.min.js') }}"></script>
-{% else %}
-<script src="{{ media_url_rev('js/mosaics/index.js') }}"></script>
-{% endif %}
-{% endblock scripts %}

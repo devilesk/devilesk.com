@@ -1,7 +1,7 @@
 {% extends "base.j2" %}
 
 {% block main %}
-<div class="trivia-app {{ resource.meta.trivia }}">
+<div class="{{ resource.meta.trivia }}">
     <h3 class="text-center" id="item-name"></h3>
     <p class="text-center"><img id="item" class="img-rounded" />
     </p>
@@ -27,7 +27,3 @@
     </div>
 </div>
 {% endblock main %}
-
-{% block scripts %}
-<script src="{{ media_url_rev('js/apps/trivia.js') }}"></script>
-{% endblock scripts %}

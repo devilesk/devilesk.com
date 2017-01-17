@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "browserify": "node scripts/browserify.js",
-    "sass": "node-sass src/scss/site.scss content/media/css/site.css",
+    "sass": "node scripts/sass.js",
     "postcss": "node scripts/postcss.js",
+    "cleancss": "cleancss assets/css/site.min.css -o assets/css/site.min.css",
+    "copy:spritesheet": "rm -r assets/spritesheets && cp -r dota-webassets/dist assets/spritesheets",
+    "copy:mosaic": "rm -r assets/images/mosaics/mosaics && rm -r assets/images/mosaics/thumbnails && cp -r dota-mosaic/mosaics assets/images/mosaics/mosaics && cp -r dota-mosaic/thumbnails assets/images/mosaics/thumbnails",
+    "clean:build": "rm -r build",
     "build:js": "npm run browserify",
-    "build:css": "npm run sass && npm run postcss",
+    "build:css": "npm run sass && npm run postcss && npm run cleancss",
     "build": "npm run build:js && npm run build:css",
     "hyde:dev": "hyde gen -c site.yaml",
     "hyde:prod": "hyde gen -c site-prod.yaml",
@@ -27,10 +31,11 @@
   "devDependencies": {
     "autoprefixer": "^6.6.1",
     "browserify": "^13.3.0",
+    "browserify-shim": "^3.8.12",
+    "clean-css": "^3.4.23",
     "factor-bundle": "^2.5.0",
     "gulp": "^3.9.1",
     "gulp-rev-all": "^0.9.7",
-    "js-yaml": "^3.7.0",
     "node-sass": "^4.3.0",
     "postcss": "^5.2.10"
   },
@@ -40,5 +45,18 @@
     "jquery": "^3.1.1",
     "photoswipe": "^4.1.1",
     "slick-carousel": "^1.6.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "exports": "bootstrap",
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
   }
 }

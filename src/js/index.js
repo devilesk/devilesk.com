@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var $ = jQuery = require('jquery');
 require('bootstrap');
 
 $(function () {
@@ -29,4 +29,15 @@ $(function () {
     }
     
     $('link[href*="gist-embed"]').remove();
+    
+    if ($('#search-heroes').length) {
+        $('#search-heroes').keyup(function () {
+            var searchVal = $(this).val().toLowerCase();
+            $(".hero").removeClass('no-match');
+            $(".hero").filter(function( index ) {
+                var s = $(this).find('.portraits-sprite-64x84').attr('title').toLowerCase();
+                return $(this).attr('href').toLowerCase().indexOf(searchVal) === -1 && s.indexOf(searchVal) === -1 && s.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
+            }).addClass('no-match');
+        });
+    }
 });

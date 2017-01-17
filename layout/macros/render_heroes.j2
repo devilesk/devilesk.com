@@ -1,0 +1,41 @@
+{% macro render_heroes(herodatalist, link_hero_page=False) -%}
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="form-group">
+            <label>Search:</label>
+            <input type="text" id="search-heroes" class="form-control"></input>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 attribute-section">
+        <div class="hero-block strength">
+            {% for hero in herodatalist|selectattr('attributeprimary', 'equalto', 'DOTA_ATTRIBUTE_STRENGTH')|sort(attribute='displayname') -%}
+            {{ '<a href="/dota2/heroes/' ~ hero.name|replace('npc_dota_hero_', '') ~ '"' if link_hero_page else '<div' }} class="hero">
+                <div class="portraits-sprite-{{ hero.name }} portraits-sprite-64x84" title="{{ hero.displayname }}"></div>
+            {{ '</a>' if link_hero_page else '</div>' }}
+            {%- endfor %}
+        </div>
+    </div>
+
+    <div class="col-md-12 attribute-section">
+        <div class="hero-block agility">
+            {% for hero in herodatalist|selectattr('attributeprimary', 'equalto', 'DOTA_ATTRIBUTE_AGILITY')|sort(attribute='displayname') -%}
+            {{ '<a href="/dota2/heroes/' ~ hero.name|replace('npc_dota_hero_', '') ~ '"' if link_hero_page else '<div' }} class="hero">
+                <div class="portraits-sprite-{{ hero.name }} portraits-sprite-64x84" title="{{ hero.displayname }}"></div>
+            {{ '</a>' if link_hero_page else '</div>' }}
+            {%- endfor %}
+        </div>
+    </div>
+
+    <div class="col-md-12 attribute-section">
+        <div class="hero-block intelligence">
+            {% for hero in herodatalist|selectattr('attributeprimary', 'equalto', 'DOTA_ATTRIBUTE_INTELLECT')|sort(attribute='displayname') -%}
+            {{ '<a href="/dota2/heroes/' ~ hero.name|replace('npc_dota_hero_', '') ~ '"' if link_hero_page else '<div' }} class="hero">
+                <div class="portraits-sprite-{{ hero.name }} portraits-sprite-64x84" title="{{ hero.displayname }}"></div>
+            {{ '</a>' if link_hero_page else '</div>' }}
+            {%- endfor %}
+        </div>
+    </div>
+</div>
+{%- endmacro %}

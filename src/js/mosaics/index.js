@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var $ = jQuery = require('jquery');
 require('bootstrap');
 
 $(function () {

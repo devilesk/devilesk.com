@@ -1,5 +1,6 @@
 @import 'variables';
 @import '../../bootstrap-sass/assets/stylesheets/bootstrap-custom';
+@import 'mosaic/mosaic';
 @import 'footer';
 @import 'misc';
 @import 'gist';
@@ -8,9 +9,13 @@
 @import 'abilitymatching';
 @import 'herodata';
 @import 'heroes';
-@import 'patchhistory';
+//@import 'patchhistory';
 @import 'items';
 @import 'itemsall';
+
+.container-fluid header {
+    @extend .container;
+}
 
 // dota2/index.html
 // dota2/mosaics/index.html
@@ -41,7 +46,7 @@
 }
 
 // dota2/apps/item-scramble.html
-.item-scramble {
+.page-item-scramble {
     .component {
         cursor:move;
         opacity:1;
@@ -65,7 +70,7 @@
 }
 
 // dota2/apps/hero-selection-trainer.html
-.hero-selection-trainer {
+.page-hero-selection-trainer {
     .hero {
         margin:1px;
         width:73px;
@@ -98,7 +103,7 @@
 // dota2/apps/trivia/item-name.html
 // dota2/apps/trivia/hero-name.html
 // dota2/apps/trivia/ability-name.html
-.trivia-app {
+.page-trivia-app {
     .btn {
         line-height:3em;
         font-weight:bold;

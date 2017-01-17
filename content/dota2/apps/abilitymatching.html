@@ -4,6 +4,7 @@ title: Dota 2 Ability Matching
 description: Dota 2 Hero Ability Matching.
 active_menu: page-webapps
 header: Ability Matching
+page_script: apps/abilitymatching
 ---
 
 {% block main %}
@@ -17,9 +18,9 @@ header: Ability Matching
 	<div id='abilitybox_start'></div>
 </div>
 {% endblock main %}
-  {% block scripts %}
+
+{% block scripts %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 	<script src="{{ media_url_rev('js/libs/jquery-ui-1.10.2.custom.js') }}"></script>
 	<script src="{{ media_url_rev('js/libs/jquery.ui.touch-punch.min.js') }}"></script>
-	<script src="{{ media_url_rev('js/apps/abilitymatching.js') }}"></script>
-  {% endblock scripts %}
+{% endblock scripts %}

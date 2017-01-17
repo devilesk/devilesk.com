@@ -1,6 +1,19 @@
 {% extends "root.j2" %}
 
 {% from "macros/breadcrumb.j2" import breadcrumb with context  %}
+{% from "macros/render_heroes.j2" import render_heroes with context  %}
+
+{% if resource.meta.page_script %}
+{% set page_script = resource.meta.page_script %}
+{% else %}
+{% set page_script = 'index' %}
+{% endif %}
+
+{% if site.config.mode == "production" %}
+{% set page_script = 'js/' ~ page_script ~ '.min.js' %}
+{% else %}
+{% set page_script = 'js/' ~ page_script ~ '.js' %}
+{% endif %}
 
 {% block head %}
     {{ super() }}
@@ -9,10 +22,6 @@
     {% endblock fonts %}
     
     {% block css %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
     {% if site.config.mode == "production" %}
     <link rel="stylesheet" href="{{ media_url_rev('css/site.min.css') }}">
     {% else %}
@@ -48,10 +57,11 @@
 {% block js %}
     {% block scripts %}
     {% if site.config.mode == "production" %}
-    <script src="{{ media_url_rev('js/index.min.js') }}"></script>
+    <script src="{{ media_url_rev('js/common.min.js') }}"></script>
     {% else %}
-    <script src="{{ media_url_rev('js/index.js') }}"></script>
+    <script src="{{ media_url_rev('js/common.js') }}"></script>
     {% endif %}
+    <script src="{{ media_url_rev(page_script) }}"></script>
     {% endblock scripts %}
     {% block analytics %}
     {% include "includes/analytics.j2" %}

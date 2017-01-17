@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var $ = jQuery = require('jquery');
 var PhotoSwipe = require('photoswipe');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
 require('slick-carousel');

@@ -1,5 +1,5 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({26:[function(require,module,exports){
-var $ = require('jquery');
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({28:[function(require,module,exports){
+var $ = jQuery = require('jquery');
 require('bootstrap');
 
 $(function () {
@@ -11,8 +11,8 @@ $(function () {
         require('./page');
     }
 });
-},{"./carousel":24,"./page":27,"bootstrap":1,"jquery":14}],27:[function(require,module,exports){
-var $ = require('jquery');
+},{"./carousel":26,"./page":29,"bootstrap":1,"jquery":14}],29:[function(require,module,exports){
+var $ = jQuery = require('jquery');
 var PhotoSwipe = require('photoswipe');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
 require('slick-carousel');
@@ -137,8 +137,8 @@ var hashData = parseHash();
 if (hashData.pid && hashData.gid) {
     openGallery(hashData.gid, hashData.pid);
 }
-},{"./heroes":25,"jquery":14,"photoswipe":16,"photoswipe/dist/photoswipe-ui-default":15,"slick-carousel":17}],24:[function(require,module,exports){
-var $ = require('jquery');
+},{"./heroes":27,"jquery":14,"photoswipe":16,"photoswipe/dist/photoswipe-ui-default":15,"slick-carousel":17}],26:[function(require,module,exports){
+var $ = jQuery = require('jquery');
 var PhotoSwipe = require('photoswipe');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
 require('slick-carousel');
@@ -217,7 +217,7 @@ var items = heroes.map(function(hero) {
         h: 1080
     }
 });
-},{"./heroes":25,"jquery":14,"photoswipe":16,"photoswipe/dist/photoswipe-ui-default":15,"slick-carousel":17}],25:[function(require,module,exports){
+},{"./heroes":27,"jquery":14,"photoswipe":16,"photoswipe/dist/photoswipe-ui-default":15,"slick-carousel":17}],27:[function(require,module,exports){
 module.exports = ['abaddon', 'abyssal_underlord', 'alchemist', 'ancient_apparition', 'antimage', 'arc_warden', 'axe', 'bane', 'batrider', 'beastmaster', 'bloodseeker', 'bounty_hunter', 'brewmaster', 'bristleback', 'broodmother', 'centaur', 'chaos_knight', 'chen', 'clinkz', 'crystal_maiden', 'dark_seer', 'dazzle', 'death_prophet', 'disruptor', 'doom_bringer', 'dragon_knight', 'drow_ranger', 'earthshaker', 'earth_spirit', 'elder_titan', 'ember_spirit', 'enchantress', 'enigma', 'faceless_void', 'furion', 'gyrocopter', 'huskar', 'invoker', 'jakiro', 'juggernaut', 'keeper_of_the_light', 'kunkka', 'legion_commander', 'leshrac', 'lich', 'life_stealer', 'lina', 'lion', 'lone_druid', 'luna', 'lycan', 'magnataur', 'medusa', 'meepo', 'mirana', 'morphling', 'naga_siren', 'necrolyte', 'nevermore', 'night_stalker', 'nyx_assassin', 'obsidian_destroyer', 'ogre_magi', 'omniknight', 'oracle', 'phantom_assassin', 'phantom_lancer', 'phoenix', 'puck', 'pudge', 'pugna', 'queenofpain', 'rattletrap', 'razor', 'riki', 'rubick', 'sand_king', 'shadow_demon', 'shadow_shaman', 'shredder', 'silencer', 'skeleton_king', 'skywrath_mage', 'slardar', 'slark', 'sniper', 'spectre', 'spirit_breaker', 'storm_spirit', 'sven', 'techies', 'templar_assassin', 'terrorblade', 'tidehunter', 'tinker', 'tiny', 'treant', 'troll_warlord', 'tusk', 'undying', 'ursa', 'vengefulspirit', 'venomancer', 'viper', 'visage', 'warlock', 'weaver', 'windrunner', 'winter_wyvern', 'wisp', 'witch_doctor', 'zuus_alt1'];
 },{}],17:[function(require,module,exports){
 /*
@@ -7695,4 +7695,4 @@ return PhotoSwipeUI_Default;
 
 });
 
-},{}]},{},[26]);
+},{}]},{},[28]);

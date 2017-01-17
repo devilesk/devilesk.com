@@ -1,5 +1,5 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({23:[function(require,module,exports){
-var $ = require('jquery');
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({24:[function(require,module,exports){
+var $ = jQuery = require('jquery');
 require('bootstrap');
 
 $(function () {
@@ -30,5 +30,16 @@ $(function () {
     }
     
     $('link[href*="gist-embed"]').remove();
+    
+    if ($('#search-heroes').length) {
+        $('#search-heroes').keyup(function () {
+            var searchVal = $(this).val().toLowerCase();
+            $(".hero").removeClass('no-match');
+            $(".hero").filter(function( index ) {
+                var s = $(this).find('.portraits-sprite-64x84').attr('title').toLowerCase();
+                return $(this).attr('href').toLowerCase().indexOf(searchVal) === -1 && s.indexOf(searchVal) === -1 && s.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
+            }).addClass('no-match');
+        });
+    }
 });
-},{"bootstrap":1,"jquery":14}]},{},[23]);
+},{"bootstrap":1,"jquery":14}]},{},[24]);

@@ -4,20 +4,20 @@ var env = process.argv.indexOf('production') !== -1 ? 'production' : 'developmen
 
 var files = [
     './src/js/index.js',
+    './src/js/items.js',
+    './src/js/heroes/patchhistory.js',
     './src/js/apps/trivia.js',
     './src/js/mosaics/index.js'
 ];
 
-var root = (env === 'production' ? 'build' : 'content');
-
 var outputs = [
-    '/media/js/index.js',
-    '/media/js/apps/trivia.js',
-    '/media/js/mosaics/index.js'
-].map(function (file) {
-    return root + file;
-});
+    'assets/js/index.js',
+    'assets/js/items.js',
+    'assets/js/heroes/patchhistory.js',
+    'assets/js/apps/trivia.js',
+    'assets/js/mosaics/index.js'
+];
 
 var b = browserify(files);
 b.plugin('factor-bundle', { outputs: outputs });
-b.bundle().pipe(fs.createWriteStream(root + '/media/js/common.js'));
+b.bundle().pipe(fs.createWriteStream('assets/js/common.js'));

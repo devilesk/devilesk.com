@@ -1,5 +1,4 @@
 {% from "macros/render_nav.j2" import render_nav with context %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
     <meta name="viewport" content="{{ resource.meta.viewport }}">
 {% endblock head %}
 </head>
-<body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+<body class="{{ resource.meta.id if resource.meta.id else resource.slug }}">
 {% block body %}
     <div class="wrapper">
         {% block nav %}
