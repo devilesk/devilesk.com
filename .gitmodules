@@ -1,6 +1,18 @@
 [submodule "dota-mosaic"]
-	path = dota-mosaic
+	path = libs/dota-mosaic
 	url = https://github.com/devilesk/dota-mosaic.git
 [submodule "dota-webassets"]
-	path = dota-webassets
+	path = libs/dota-webassets
 	url = https://github.com/devilesk/dota-webassets.git
+[submodule "apps/dota-hero-calculator"]
+	path = apps/dota-hero-calculator
+	url = https://github.com/devilesk/dota-hero-calculator.git
+[submodule "apps/dota-interactive-map"]
+	path = apps/dota-interactive-map
+	url = https://github.com/devilesk/dota-interactive-map.git
+[submodule "apps/dota-drawable-map"]
+	path = apps/dota-drawable-map
+	url = https://github.com/devilesk/dota-drawable-map.git
+[submodule "apps/dota-hero-layout-editor"]
+	path = apps/dota-hero-layout-editor
+	url = https://github.com/devilesk/dota-hero-layout-editor.git
