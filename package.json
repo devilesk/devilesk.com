@@ -21,7 +21,9 @@
     "data": "python scripts/generate.py",
     "gen:dev": "npm run data && npm run build && npm run assetrev && npm run hyde:dev",
     "gen:prod": "npm run data && npm run build && npm run assetrev && npm run hyde:prod",
-    "app:hero-calculator": "cat apps/dota-hero-calculator/src/template/template_data.yaml apps/dota-hero-calculator/src/template/.index.html > content/dota2/apps/hero-calculator/index.html"
+    "app:hero-calculator": "cat apps/dota-hero-calculator/src/template/template_data.yaml apps/dota-hero-calculator/src/template/.index.html > content/dota2/apps/hero-calculator/index.html",
+    "app:interactivemap": "cat apps/dota-interactive-map/src/template/template_data.yaml apps/dota-interactive-map/src/template/.index.html > content/dota2/apps/interactivemap/index.html",
+    "app:all": "npm run app:hero-calculator && npm run app:interactivemap"
   },
   "repository": {
     "type": "git",

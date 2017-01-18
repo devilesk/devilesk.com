@@ -55,6 +55,7 @@
 {% endblock content %}
 
 {% block js %}
+    {{ super() }}
     {% block scripts %}
     {% if site.config.mode == "production" %}
     <script src="{{ media_url_rev('js/common.min.js') }}"></script>
@@ -63,7 +64,4 @@
     {% endif %}
     <script src="{{ media_url_rev(page_script) }}"></script>
     {% endblock scripts %}
-    {% block analytics %}
-    {% include "includes/analytics.j2" %}
-    {% endblock analytics %}
 {% endblock js %}
