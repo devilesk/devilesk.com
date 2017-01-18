@@ -1,6 +1,6 @@
-{% macro render_nav(menu, cls=None) -%}
+{% macro render_nav(menu, cls=None, attr=None) -%}
 {% if menu -%}
-<div class="navbar navbar-default {{cls if cls }}">
+<div class="navbar navbar-default {{cls if cls }}" {{attr if attr }}>
 	<div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

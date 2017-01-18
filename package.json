@@ -8,6 +8,7 @@
     "sass": "node scripts/sass.js",
     "postcss": "node scripts/postcss.js",
     "cleancss": "cleancss assets/css/site.min.css -o assets/css/site.min.css",
+    "copy:dota-json": "rm -r assets/dota-json && cp -r node_modules/dota-datafiles/dist assets/dota-json",
     "copy:spritesheet": "rm -r assets/spritesheets && cp -r libs/dota-webassets/dist assets/spritesheets",
     "copy:mosaic": "rm -r assets/images/mosaics/mosaics && rm -r assets/images/mosaics/thumbnails && cp -r libs/dota-mosaic/mosaics assets/images/mosaics/mosaics && cp -r libs/dota-mosaic/thumbnails assets/images/mosaics/thumbnails",
     "clean:build": "rm -r build",
@@ -19,7 +20,8 @@
     "assetrev": "gulp asset-rev",
     "data": "python scripts/generate.py",
     "gen:dev": "npm run data && npm run build && npm run assetrev && npm run hyde:dev",
-    "gen:prod": "npm run data && npm run build && npm run assetrev && npm run hyde:prod"
+    "gen:prod": "npm run data && npm run build && npm run assetrev && npm run hyde:prod",
+    "app:hero-calculator": "cat apps/dota-hero-calculator/src/template/template_data.yaml apps/dota-hero-calculator/src/template/.index.html > content/dota2/apps/hero-calculator/index.html"
   },
   "repository": {
     "type": "git",

@@ -64,11 +64,6 @@
     name: ITEMS
     type: node
     url: dota2/items
--   css_class: page-blog
-    description: Blog Home
-    name: BLOG
-    type: node
-    url: blog
 -   css_class: page-triviaapps
     description: Trivia Home
     name: TRIVIA
@@ -93,3 +88,8 @@
         url: /dota2/apps/trivia/item-name
     type: node
     url: dota2/apps/trivia
+-   css_class: page-blog
+    description: Blog Home
+    name: BLOG
+    type: node
+    url: blog

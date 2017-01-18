@@ -3,7 +3,7 @@
 {% from "macros/render_excerpt.j2" import render_excerpt with context  %}
 
 {% block main %}
-<ul class="listing clearfix">
+<ul class="listing clearfix list-unstyled">
 {% for res in resource.node.walk_resources_sorted_by_time() %}
 <li>
     {{ render_excerpt(res) }}

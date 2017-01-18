@@ -1,62 +1,68 @@
 -
-    -   name: Ability Matching
-        description: Click and drag ability icons into the right slot.
-        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/juggernaut_omni_slash_hp1.png'
-        url: /dota2/apps/abilitymatching
-    -   name: Ability Trivia
-        description: Answer 25 randomly generated questions about ability property values.
-        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_unstable_concoction_hp1.png'
-        url: /dota2/apps/ability-trivia
-    -   name: Ability Name Trivia
-        description: Name randomly selected abilities.
-        image: 'http://cdn.dota2.com/apps/dota2/images/abilities/naga_siren_ensnare_hp1.png'
-        url: /dota2/apps/ability-name-trivia
-    -   name: Hero Name Trivia
-        description: Name randomly selected heroes.
-        image: 'http://media.steampowered.com/apps/dota2/images/heroes/pugna_hphover.png'
-        url: /dota2/apps/hero-name-trivia
-    -   name: Item Name Trivia
-        description: Name randomly selected items.
-        image: 'http://cdn.dota2.com/apps/dota2/images/items/mask_of_madness_lg.png'
-        url: /dota2/apps/item-name-trivia
-    -   name: Item Cost Trivia
-        description: Choose the correct cost of randomly selected items.
-        image: 'http://cdn.dota2.com/apps/dota2/images/items/poor_mans_shield_lg.png'
-        url: /dota2/apps/item-cost-trivia
-    -   name: Tread Switch Trainer
-        description: Practice your tread switching skills.
-        image: 'http://cdn.dota2.com/apps/dota2/images/items/power_treads_lg.png'
-        url: /dota2/apps/tread-switch-trainer
-    -   name: Layout Editor
-        description: Create custom hero selection layouts.
-        image: '/media/images/layouteditor.jpg'
-        url: /dota2/apps/layout-editor
+    -
+        -   name: Interactive Map
+            description: A high resolution Dota 2 map you can interact with. View neutral camp spawn box sizes, place and see ward sight ranges, measure distances, and see tower sight ranges.
+            image: '/media/images/map_icon.png'
+            url: /dota2/apps/interactivemap
+        -   name: Hero Calculator
+            description: A hero calculator that takes into account level, items, skills, and stats. Choose hero level, items, and skills and see detailed information about a hero's stats.
+            image: '/media/images/herocalc_icon.png'
+            url: /dota2/apps/hero-calculator
+    -
+        -   name: Drawable Map
+            description: A Dota 2 map you can draw on. Choose your brush color and size, place or paint hero icons, upload and share your drawing to imgur, or save it and continue drawing later.
+            image: '/media/images/minimap_icon.png'
+            url: /dota2/apps/drawablemap
 -
-    -   name: Drawable Map
-        description: A Dota 2 map you can draw on. Choose your brush color and size, place or paint hero icons, upload and share your drawing to imgur, or save it and continue drawing later.
-        image: '/media/images/minimap_icon.png'
-        url: /dota2/apps/drawablemap
-    -   name: Interactive Map
-        description: A high resolution Dota 2 map you can interact with. There are several overlays you can turn on and off including building locations, jungle camp locations, ward locations, and more.
-        image: '/media/images/map_icon.png'
-        url: /dota2/apps/interactivemap
-    -   name: Interactive Map 3
-        description: A high resolution Dota 2 map you can interact with. View neutral camp spawn box sizes, place and see ward sight ranges, measure distances, and see tower sight ranges.
-        image: '/media/images/map_icon.png'
-        url: /dota2/apps/interactivemap3
-    -   name: Hero Calculator
-        description: A hero calculator that takes into account level, items, skills, and stats. Choose hero level, items, and skills and see detailed information about a hero's stats.
-        image: '/media/images/herocalc_icon.png'
-        url: /dota2/apps/hero-calculator
-    -   name: Hero Selection Trainer
-        description: A timed game to help you learn where each hero is on the hero selection screen.
-        image: 'http://media.steampowered.com/apps/dota2/images/heroes/chen_hphover.png'
-        url: /dota2/apps/hero-selection-trainer
-    -   name: Item Scramble
-        description: A puzzle game solved by dragging together all the given component items to form upgrade items.
-        image: 'http://cdn.dota2.com/apps/dota2/images/items/mekansm_lg.png'
-        url: /dota2/apps/item-scramble
-    -   name: Replay Viewer
-        description: A Dota 2 replay viewer. Parse and play .dem replay files in browser.
-        image: '/media/images/replay_viewer_thumbnail.jpg'
-        url: /dota2/apps/replay/viewer
+    -
+        -   name: Ability Matching
+            description: Click and drag ability icons into the right slot.
+            image: 'http://cdn.dota2.com/apps/dota2/images/abilities/juggernaut_omni_slash_hp1.png'
+            url: /dota2/apps/abilitymatching
+        -   name: Tread Switch Trainer
+            description: Practice your tread switching skills.
+            image: 'http://cdn.dota2.com/apps/dota2/images/items/power_treads_lg.png'
+            url: /dota2/apps/tread-switch-trainer
+    -
+        -   name: Item Scramble
+            description: A puzzle game solved by dragging together all the given component items to form upgrade items.
+            image: 'http://cdn.dota2.com/apps/dota2/images/items/mekansm_lg.png'
+            url: /dota2/apps/item-scramble
+-
+    -
+        -   name: Ability Trivia
+            description: Answer 25 randomly generated questions about ability property values.
+            image: 'http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_unstable_concoction_hp1.png'
+            url: /dota2/apps/ability-trivia
+        -   name: Ability Name Trivia
+            description: Name randomly selected abilities.
+            image: 'http://cdn.dota2.com/apps/dota2/images/abilities/naga_siren_ensnare_hp1.png'
+            url: /dota2/apps/ability-name-trivia
+        -   name: Hero Name Trivia
+            description: Name randomly selected heroes.
+            image: 'http://media.steampowered.com/apps/dota2/images/heroes/pugna_hphover.png'
+            url: /dota2/apps/hero-name-trivia
+    -
+        -   name: Item Name Trivia
+            description: Name randomly selected items.
+            image: 'http://cdn.dota2.com/apps/dota2/images/items/mask_of_madness_lg.png'
+            url: /dota2/apps/item-name-trivia
+        -   name: Item Cost Trivia
+            description: Choose the correct cost of randomly selected items.
+            image: 'http://cdn.dota2.com/apps/dota2/images/items/poor_mans_shield_lg.png'
+            url: /dota2/apps/item-cost-trivia
+-
+    -
+        -   name: Hero Selection Trainer
+            description: A timed game to help you learn where each hero is on the hero selection screen.
+            image: 'http://media.steampowered.com/apps/dota2/images/heroes/chen_hphover.png'
+            url: /dota2/apps/hero-selection-trainer
+        -   name: Replay Viewer
+            description: A Dota 2 replay viewer. Parse and play .dem replay files in browser.
+            image: '/media/images/replay_viewer_thumbnail.jpg'
+            url: /dota2/apps/replay/viewer
+    -
+        -   name: Layout Editor
+            description: Create custom hero selection layouts.
+            image: '/media/images/layouteditor.jpg'
+            url: /dota2/apps/layout-editor

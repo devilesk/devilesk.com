@@ -1,0 +1,29 @@
+---
+extends: base.j2
+title: Dota 2 Trivia Apps
+description: devilesk Dota 2
+active_menu: page-triviaapps
+header: Trivia
+---
+                
+{% block main %}
+<div class="row">
+    {% for column in apps[2] -%}
+    <div class="col-md-6">
+        {% for item in column -%}
+        <div class="media">
+            <a href="{{ content_url(item.url) }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</div>
+{%- endblock %}

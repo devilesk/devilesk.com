@@ -145,7 +145,7 @@ $(function () {
 	}
 	
 	var itemData;
-	$.getJSON("/media/js/itemdata.json", function (data) {
+	$.getJSON("/media/dota-json/itemdata.json", function (data) {
 		itemData = data;
 		for (i in itemData) {
 			var item = itemData[i];

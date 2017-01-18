@@ -84,13 +84,13 @@ var triviaModules = {
 }
 
 $.when(
-    $.getJSON("/media/js/herodata.json", function(herodata) {
+    $.getJSON("/media/dota-json/herodata.json", function(herodata) {
         herodata = data;
     }),
-    $.getJSON("/media/js/items.json", function(items) {
+    $.getJSON("/media/dota-json/items.json", function(items) {
         items = data;
     }),
-    $.getJSON("/media/js/itemdata.json", function(itemdata) {
+    $.getJSON("/media/dota-json/itemdata.json", function(itemdata) {
         itemdata = data;
     })
 ).then(function() {

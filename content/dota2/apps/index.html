@@ -7,21 +7,84 @@ header: Web Apps
 ---
                 
 {% block main %}
-{% for column in apps -%}
-<div class="col-md-6">
-	{% for item in column -%}
-    <div class="media">
-        <a href="{{ content_url(item.url) }}">
-            <div class="media-left">
-                <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{ item.name }}</h4>
-                {{ item.description }}
-            </div>
-        </a>
+<div class="row">
+    <h3 class="col-md-12">Tool</h3>
+    {% for column in apps[0] -%}
+    <div class="col-md-6">
+        {% for item in column -%}
+        <div class="media">
+            <a href="{{ content_url(item.url) }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
+        {%- endfor %}
     </div>
-	{%- endfor %}
+    {%- endfor %}
 </div>
-{%- endfor %}
+<div class="row">
+    <h3 class="col-md-12">Fun</h3>
+    {% for column in apps[1] -%}
+    <div class="col-md-6">
+        {% for item in column -%}
+        <div class="media">
+            <a href="{{ content_url(item.url) }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</div>
+<div class="row">
+    <h3 class="col-md-12">Trivia</h3>
+    {% for column in apps[2] -%}
+    <div class="col-md-6">
+        {% for item in column -%}
+        <div class="media">
+            <a href="{{ content_url(item.url) }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</div>
+<div class="row">
+    <h3 class="col-md-12">Outdated/Obselete</h3>
+    {% for column in apps[3] -%}
+    <div class="col-md-6">
+        {% for item in column -%}
+        <div class="media">
+            <a href="{{ content_url(item.url) }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</div>
 {%- endblock %}
