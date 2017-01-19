@@ -1,17 +1,15 @@
----
-extends: root.j2
-title: Dota 2 Drawable Map
-description: Dota 2 Drawable Map. Create, save, and share drawings on an interactive Dota 2 map.
-active_menu: page-webapps
-header: Drawable Map
----
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dota 2 Drawable Map</title>
+    <meta name="description" content="Dota 2 Drawable Map. Create, save, and share drawings on an interactive Dota 2 map.">
+    <meta name="author" content="devilesk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block head %}
-{{ super() }}
-<link rel="stylesheet" href="app-b21fe97.min.css" type="text/css">
-{% endblock head %}
-
-{% block body %}
+<link rel="stylesheet" href="app-563eb93.min.css" type="text/css">
+</head>
+<body class="index">
     <div id="toolbar">
         <div class="tool-setting brush-tool-group" title="Stroke Size">
             <i class="fa fa-arrows-v tool-icon"></i>
@@ -242,12 +240,11 @@ header: Drawable Map
         <a id="share-link-message" href="#" target="_blank"></a>
     </div>
     
-    {% block js %}
-        {{ super() }}
+                                        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
         <script>
             var map_tile_path = "tiles/";
         </script>
-        <script src="bundle-b21fe97.min.js"></script>
-    {% endblock js %}
-{% endblock body %}
+        <script src="bundle-563eb93.min.js"></script>
+    </body>
+</html>

@@ -1,22 +1,81 @@
----
-extends: base.j2
-title: Dota 2 Hero Calculator
-description: Dota 2 Hero Calculator. A hero calculator that takes into account level, items, skills, and stats. Choose hero level, items, and skills and see detailed information about a hero's stats.
-active_menu: page-hero-calculator
-header: Hero Calculator
----
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>Dota 2 Hero Calculator</title>
+    <meta name="description" content="Dota 2 Hero Calculator. A hero calculator that takes into account level, items, skills, and stats. Choose hero level, items, and skills and see detailed information about a hero's stats.">
+    <meta name="author" content="devilesk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block page_head %}
-<link rel="stylesheet" href="app-a861b58.min.css" type="text/css">
-{% endblock page_head %}
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        
+            <link rel="stylesheet" href="">
+            <link rel="stylesheet" href="app-7eda498.min.css" type="text/css">
+</head>
+<body class="index">
+    <div class="wrapper">
+        <div class="navbar navbar-default main_nav" data-bind="visible: !sideView()">
+	<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/dota2"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="top-nav-menu nav navbar-nav">
+			<li class="dropdown ">
+                  <a href="/dota2/apps" class="dropdown-toggle" data-toggle="dropdown">WEB APPS <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="/dota2/apps">Web Apps Home</a></li>
+                    <li class="divider mobile-only"></li>
+                    <li><a href="/dota2/apps/drawablemap">Drawable Map</a></li>
+                                            <li><a href="/dota2/apps/interactivemap">Interactive Map</a></li>
+                                            <li><a href="/dota2/apps/hero-calculator">Hero Calculator</a></li>
+                                            <li><a href="/dota2/apps/hero-selection-trainer">Hero Selection Trainer</a></li>
+                                            <li><a href="/dota2/apps/item-scramble">Item Scramble</a></li>
+                                            <li><a href="/dota2/apps/layout-editor">Layout Editor</a></li>
+                                            <li><a href="/dota2/apps/replay/viewer">Replay Viewer</a></li>
+                                            <li><a href="/dota2/apps/tread-switch-trainer">Tread Switch Trainer</a></li>
+                                                              </ul>
+                </li>
+                                <li class=""><a href="/dota2/apps/interactivemap">MAP</a></li>                <li class="active"><a href="/dota2/apps/hero-calculator">CALCULATOR</a></li><li class="dropdown ">
+                  <a href="/dota2/heroes" class="dropdown-toggle" data-toggle="dropdown">HEROES <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="/dota2/heroes">Heroes Home</a></li>
+                    <li class="divider mobile-only"></li>
+                    <li><a href="/dota2/apps/chart">Stat Chart</a></li>
+                                            <li><a href="/dota2/heroes/herodata">Stat Table</a></li>
+                                            <li><a href="/dota2/heroes/lore">Lore</a></li>
+                                            <li><a href="/dota2/heroes/patchhistory">Patch History</a></li>
+                                            <li><a href="/dota2/heroes/unitdata">Unit Stat Table</a></li>
+                                                              </ul>
+                </li>
+                                <li class=""><a href="/dota2/items">ITEMS</a></li><li class="dropdown ">
+                  <a href="/dota2/apps/trivia" class="dropdown-toggle" data-toggle="dropdown">TRIVIA <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="mobile-only"><a href="/dota2/apps/trivia">Trivia Home</a></li>
+                    <li class="divider mobile-only"></li>
+                    <li><a href="/dota2/apps/abilitymatching">Ability Matching</a></li>
+                                            <li><a href="/dota2/apps/trivia/ability">Ability Trivia</a></li>
+                                            <li><a href="/dota2/apps/trivia/ability-name">Ability Name Trivia</a></li>
+                                            <li><a href="/dota2/apps/trivia/hero-name">Hero Name Trivia</a></li>
+                                            <li><a href="/dota2/apps/trivia/item-cost">Item Cost Trivia</a></li>
+                                            <li><a href="/dota2/apps/trivia/item-name">Item Name Trivia</a></li>
+                                                              </ul>
+                </li>
+                                <li class=""><a href="/blog">BLOG</a></li>		  </ul>
+		</div>
+	</div>
+</div>
+        
+        <div class="container" data-bind="visible: !(sideView())">
+<ol class="breadcrumb">
+                                                                                        <li class="breadcrumb-item active">Hero Calculator</li>
+            </ol>
 
-{% block nav %}
-{{ render_nav(menu, 'main_nav', 'data-bind="visible: !sideView()"') if render_nav }}
-{% endblock nav %}
-
-{% block content %}
-<div class="container" data-bind="visible: !(sideView())">
-{{ breadcrumb(resource) if breadcrumb }}
 </div>
 <div class="container" data-bind="css: { container: !(sideView()), 'col-md-12': sideView() }">
     <header class="banner clearfix" data-bind="visible: !(sideView())">
@@ -310,20 +369,29 @@ header: Hero Calculator
 </div>
 </script>
 </div>
-{% endblock content %}
+        
+                    <div class="push"></div>
+            </div>
 
-{% block scripts %}
-<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+        <footer>
+        <img width="80" height="80" src="">
+        <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
+        <p>Copyright &copy; 2017 <a href="http://devilesk.com">devilesk.com</a></p>
+    </footer>
+    
+                                    
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-var appConfig = { abilityTooltipPath: "/media/js/abilitytooltipdata.json" };
+var appConfig = { abilityTooltipPath: "/media/dota-json/abilitytooltipdata.json" };
 window.HeroCalcData = {};
 $.when(
-    $.getJSON("/media/js/herodata.json", function (data) {HeroCalcData.heroData = data;}),
-    $.getJSON("/media/js/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
-    $.getJSON("/media/js/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-a861b58.min.js"})
+    $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
+    $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
+    $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
+    $.ajax({dataType: "script", cache: true, url: "bundle-7eda498.min.js"})
 ).done(function () { DotaHeroCalculator(appConfig); });
 </script>
-{% endblock scripts %}
+</body>
+</html>

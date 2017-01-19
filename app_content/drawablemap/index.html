@@ -1,0 +1,253 @@
+---
+extends: root.j2
+title: Dota 2 Drawable Map
+description: Dota 2 Drawable Map. Create, save, and share drawings on an interactive Dota 2 map.
+active_menu: page-webapps
+header: Drawable Map
+---
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="app-563eb93.min.css" type="text/css">
+{% endblock head %}
+
+{% block body %}
+    <div id="toolbar">
+        <div class="tool-setting brush-tool-group" title="Stroke Size">
+            <i class="fa fa-arrows-v tool-icon"></i>
+            <span class="tool-label show-wide">Size</span>
+            <input type="text" class="tool-control" id="brush-stroke-width" maxlength="4">
+        </div>
+        <div class="tool-setting brush-tool-group" title="Stroke Color">
+            <div class="tool-icon" id="brush-stroke-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div id="brush-stroke-color-preview" class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <input type="text" class="tool-control" id="brush-stroke-color-picker">
+        </div>
+        <div class="tool-setting brush-tool-group" title="Stroke Opacity">
+            <span class="tool-label">Opacity</span>
+            <input class="tool-control" id="brush-stroke-opacity">
+        </div>
+        
+        <div class="tool-setting icon-tool-group" title="Icon Size">
+            <span class="tool-label">Size</span>
+            <input type="text" class="tool-control" id="marker-size" maxlength="4">
+        </div>
+        <div class="tool-setting icon-tool-group" title="Icon Opacity">
+            <div class="tool-icon" id="marker-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <i class="fa fa-adjust tool-icon"></i>
+            <span class="tool-label show-wide">Opacity</span>    
+            <input class="tool-control" id="marker-opacity">
+        </div>
+        <div class="tool-setting icon-tool-group">
+            <i class="fa fa-map-marker tool-icon" title="Icon Image"></i>
+            <select id="marker-image-dropdown" class="tool-control">
+            </select>
+        </div>
+        <div id="marker-list" class="tool-setting icon-tool-group">
+            
+        </div>
+
+        <div class="tool-setting line-tool-group" title="Stroke Size">
+            <i class="fa fa-arrows-v tool-icon"></i>
+            <span class="tool-label show-wide">Size</span>
+            <input type="text" class="tool-control" id="line-stroke-width" maxlength="4">
+        </div>
+        <div class="tool-setting line-tool-group" title="Stroke Color">
+            <div class="tool-icon" id="line-stroke-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div id="line-stroke-color-preview" class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <input type="text" class="tool-control" id="line-stroke-color-picker">
+        </div>
+        <div class="tool-setting line-tool-group" title="Stroke Opacity">
+            <span class="tool-label">Opacity</span>
+            <input class="tool-control" id="line-stroke-opacity">
+        </div>
+
+        <div class="tool-setting polygon-tool-group" title="Stroke Size">
+            <i class="fa fa-arrows-v tool-icon"></i>
+            <span class="tool-label show-wide">Size</span>
+            <input type="text" class="tool-control" id="polygon-stroke-width" maxlength="4">
+        </div>
+        <div class="tool-setting polygon-tool-group" title="Stroke Color">
+            <div class="tool-icon" id="polygon-stroke-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div id="polygon-stroke-color-preview" class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <input type="text" class="tool-control" id="polygon-stroke-color-picker">
+        </div>
+        <div class="tool-setting polygon-tool-group" title="Stroke Opacity">
+            <span class="tool-label">Opacity</span>
+            <input class="tool-control" id="polygon-stroke-opacity">
+        </div>
+        <div class="tool-setting polygon-tool-group" title="Fill Color">
+            <div class="tool-icon" id="polygon-fill-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div id="polygon-fill-color-preview" class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <input type="text" class="tool-control" id="polygon-fill-color-picker">
+        </div>
+        <div class="tool-setting polygon-tool-group" title="Fill Opacity">
+            <span class="tool-label">Opacity</span>
+            <input class="tool-control" id="polygon-fill-opacity">
+        </div>
+
+        <div class="tool-setting regularpolygon-tool-group" title="Stroke Size">
+            <i class="fa fa-arrows-v tool-icon"></i>
+            <span class="tool-label show-wide">Size</span>
+            <input type="text" class="tool-control" id="regularpolygon-stroke-width" maxlength="4">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Stroke Color">
+            <div class="tool-icon" id="regularpolygon-stroke-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div id="regularpolygon-stroke-color-preview" class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <input type="text" class="tool-control" id="regularpolygon-stroke-color-picker">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Stroke Opacity">
+            <span class="tool-label">Opacity</span>
+            <input class="tool-control" id="regularpolygon-stroke-opacity">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Fill Color">
+            <div class="tool-icon" id="regularpolygon-fill-opacity-icon">
+                <div class="opacity-preview-background">
+                    <div id="regularpolygon-fill-color-preview" class="opacity-preview-icon"></div>
+                </div>
+            </div>
+            <input type="text" class="tool-control" id="regularpolygon-fill-color-picker">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Fill Opacity">
+            <span class="tool-label">Opacity</span>
+            <input class="tool-control" id="regularpolygon-fill-opacity">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Side Count">
+            <span class="tool-label show-wide">Side Count</span>
+            <input type="text" class="tool-control" id="regularpolygon-side-count" maxlength="4">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Snap">
+            <label class="show-wide" for="regularpolygon-snap">Snap</label>
+            <input type="checkbox" class="tool-control" id="regularpolygon-snap" checked>
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Snap Angle">
+            <span class="tool-label show-wide">Snap Angle</span>
+            <input type="text" class="tool-control" id="regularpolygon-snap-angle" maxlength="4">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Irregular">
+            <label class="show-wide" for="regularpolygon-irregular">Irregular</label>
+            <input type="checkbox" class="tool-control" id="regularpolygon-irregular">
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Fixed Radius">
+            <label class="show-wide" for="regularpolygon-fixed-radius">Fixed Radius</label>
+            <input type="checkbox" class="tool-control" id="regularpolygon-fixed-radius" checked>
+        </div>
+        <div class="tool-setting regularpolygon-tool-group" title="Radius">
+            <span class="tool-label show-wide">Radius</span>
+            <input type="text" class="tool-control" id="regularpolygon-radius" maxlength="4">
+        </div>
+        
+        <div class="tool-setting modify-tool-group">
+            <span class="tool-label show-wide">Mode</span>
+            <fieldset class="tool-radiogroup">
+                <label for="modify-reshape"><i class="fa fa-arrows"></i><span class="tool-field-label"> Reshape</span></label>
+                <input type="radio" name="modify-tool-radio" id="modify-reshape" class="modify-tool-radiobutton" value="reshape" checked>
+                <label for="modify-rotate"><i class="fa fa-rotate-right"></i><span class="tool-field-label"> Rotate</span></label>
+                <input type="radio" name="modify-tool-radio" id="modify-rotate" class="modify-tool-radiobutton" value="rotate">
+                <label for="modify-scale"><i class="fa fa-expand"></i><span class="tool-field-label"> Scale</span></label>
+                <input type="radio" name="modify-tool-radio" id="modify-scale" class="modify-tool-radiobutton" value="scale">
+                <label for="modify-skew"><i class="fa fa-compress"></i><span class="tool-field-label"> Skew</span></label>
+                <input type="radio" name="modify-tool-radio" id="modify-skew" class="modify-tool-radiobutton" value="skew">
+                <label for="modify-drag"><i class="fa fa-arrows-alt"></i><span class="tool-field-label"> Drag</span></label>
+                <input type="radio" name="modify-tool-radio" id="modify-drag" class="modify-tool-radiobutton" value="drag">
+            </fieldset>
+        </div>
+        <div class="tool-setting modify-tool-group">
+            <button id="modify-delete" class="tool-button" title="Delete (Del)"><i class="fa fa-trash"></i></button>
+        </div>
+        
+        <div class="tool-setting selectfeature-tool-group">
+            <span class="tool-label">Distance</span>
+            <input type="text" class="tool-control" id="selectfeature-distance" disabled>
+        </div>
+        
+        <div class="tool-setting measure-tool-group">
+            <span class="tool-label">Distance</span>
+            <input type="text" class="tool-control" id="measure-distance" disabled>
+        </div>
+        <div class="tool-setting measure-tool-group">
+            <button id="measure-cancel" class="tool-button tool-input-button" title="Clear">Clear</button>
+        </div>
+    </div>
+    <div id="map">
+        <div id="controls-container" class="controls-container">
+            <a id="controls-max" class="controls-button maximizeDiv olButton olAlphaImg" href="#">
+                <i class="fa fa-cog"></i>
+            </a>
+            <a id="controls-min" class="controls-button minimizeDiv olButton olAlphaImg" href="#">&times;</a>
+            <div class="zoom-container">
+                <button id="zoom-out" class="tool-button" title="Zoom Out"><i class="fa fa-search-minus"></i></button>
+                <button id="zoom-in" class="tool-button" title="Zoom In"><i class="fa fa-search-plus"></i></button>
+            </div>
+            <div class="controls">
+                <fieldset id="map-tools">
+                    <label for="pan-tool"><i class="fa fa-arrows"></i><span class="tool-field-label"> Pan</span></label>
+                    <input type="radio" name="tool-radio" id="pan-tool" class="tool-radiobutton" value="none" checked>
+                    <label for="brush-tool"><i class="fa fa-paint-brush"></i><span class="tool-field-label"> Brush</span></label>
+                    <input type="radio" name="tool-radio" id="brush-tool" class="tool-radiobutton" value="brush">
+                    <label for="icon-tool"><i class="fa fa-map-marker"></i><span class="tool-field-label"> Icon</span></label>
+                    <input type="radio" name="tool-radio" id="icon-tool" class="tool-radiobutton" value="icon">
+                    <label for="line-tool"><div class="line-icon"></div><span class="tool-field-label"> Line</span></label>
+                    <input type="radio" name="tool-radio" id="line-tool" class="tool-radiobutton" value="line">
+                    <label for="polygon-tool"><i class="fa fa-star-o"></i><span class="tool-field-label"> Polygon</span></label>
+                    <input type="radio" name="tool-radio" id="polygon-tool" class="tool-radiobutton" value="polygon">
+                    <label for="regularpolygon-tool"><i class="fa fa-square-o"></i><span class="tool-field-label"> Shape</span></label>
+                    <input type="radio" name="tool-radio" id="regularpolygon-tool" class="tool-radiobutton" value="regularpolygon">
+                    <label for="modify-tool"><i class="fa fa-pencil-square-o"></i><span class="tool-field-label"> Edit</span></label>
+                    <input type="radio" name="tool-radio" id="modify-tool" class="tool-radiobutton" value="modify">
+                    <label for="selectfeature-tool"><i class="fa fa-hand-pointer-o"></i><span class="tool-field-label"> Select</span></label>
+                    <input type="radio" name="tool-radio" id="selectfeature-tool" class="tool-radiobutton" value="selectfeature">
+                    <label for="measure-tool"><i class="fa fa-line-chart"></i><span class="tool-field-label"> Measure</span></label>
+                    <input type="radio" name="tool-radio" id="measure-tool" class="tool-radiobutton" value="measure">
+                </fieldset>
+                <button id="export" class="tool-button" title="Download drawing as a png image">Download</button>
+                <div id="save-container" class="link-container">
+                    <button id="save" class="tool-button" title="Create a link to this drawing">Save</button>
+                    <button id="save-link" class="tool-button link-button"><i class="fa fa-link"></i></button>
+                </div>
+                <div id="share-container" class="link-container">
+                    <button id="share" class="tool-button" title="Upload drawing to imgur.com">Share</button>
+                    <button id="share-link" class="tool-button link-button"><i class="fa fa-link"></i></button>
+                </div>
+                <div id="undo-redo-setting" class="setting">
+                    <button id="draw-undo" class="tool-button" title="Undo (Ctrl+X)"><i class="fa fa-undo"></i></button>
+                    <button id="draw-redo" class="tool-button" title="Redo (Ctrl+Y)"><i class="fa fa-repeat"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="save-link-modal" class="link-modal" title="Save Link">
+        <a id="save-link-message" href="#" target="_blank"></a>
+    </div>
+    <div id="share-link-modal" class="link-modal" title="Share Link">
+        <a id="share-link-message" href="#" target="_blank"></a>
+    </div>
+    
+    {% block js %}
+        {{ super() }}
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+        <script>
+            var map_tile_path = "tiles/";
+        </script>
+        <script src="bundle-563eb93.min.js"></script>
+    {% endblock js %}
+{% endblock body %}
