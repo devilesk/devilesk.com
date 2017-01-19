@@ -7,16 +7,7 @@ header: Hero Calculator
 ---
 
 {% block page_head %}
-<!-- @if NODE_ENV='dev' -->
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="css/hero-calculator.shop.css" />
-<link rel="stylesheet" type="text/css" href="css/items_50x36_sprite_jpg.css" />
-<link rel="stylesheet" type="text/css" href="css/hero-calculator.common.css" />
-<link rel="stylesheet" type="text/css" href="css/hero-calculator.theme.dark.css" />
-<!-- @endif -->
-<!-- @if NODE_ENV='prod' -->
-<link rel="stylesheet" type="text/css" href="css/app.min.css" />
-<!-- @endif -->
+<link rel="stylesheet" href="app-a861b58.min.css" type="text/css">
 {% endblock page_head %}
 
 {% block nav %}
@@ -325,7 +316,6 @@ header: Hero Calculator
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- @if NODE_ENV='dev' -->
 <script>
 var appConfig = { abilityTooltipPath: "/media/js/abilitytooltipdata.json" };
 window.HeroCalcData = {};
@@ -333,20 +323,7 @@ $.when(
     $.getJSON("/media/js/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/js/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/js/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle.js"})
-).done(function () { console.log('window', HeroCalcData); DotaHeroCalculator(appConfig); });
-</script>
-<!-- @endif -->
-<!-- @if NODE_ENV='prod' -->
-<script>
-var appConfig = { abilityTooltipPath: "<!-- @echo abilityTooltipPath -->" };
-window.HeroCalcData = {};
-$.when(
-    $.getJSON("<!-- @echo heroDataPath -->", function (data) {HeroCalcData.heroData = data;}),
-    $.getJSON("<!-- @echo itemDataPath -->", function (data) {HeroCalcData.itemData = data;}),
-    $.getJSON("<!-- @echo unitDataPath -->", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "<!-- @echo scriptPath -->"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-a861b58.min.js"})
 ).done(function () { DotaHeroCalculator(appConfig); });
 </script>
-<!-- @endif -->
 {% endblock scripts %}

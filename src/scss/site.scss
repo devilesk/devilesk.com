@@ -1,5 +1,5 @@
 @import 'variables';
-@import '../../bootstrap-sass/assets/stylesheets/bootstrap-custom';
+@import '../../libs/bootstrap-sass/assets/stylesheets/bootstrap-custom';
 @import 'mosaic/mosaic';
 @import 'footer';
 @import 'misc';
@@ -15,6 +15,10 @@
 
 .container-fluid header {
     @extend .container;
+}
+
+.btn {
+    transition: background-color 200ms,color 200ms,linear;
 }
 
 // dota2/index.html

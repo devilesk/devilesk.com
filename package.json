@@ -19,11 +19,14 @@
     "hyde:prod": "hyde gen -c site-prod.yaml",
     "assetrev": "gulp asset-rev",
     "data": "python scripts/generate.py",
-    "gen:dev": "npm run data && npm run build && npm run assetrev && npm run hyde:dev",
-    "gen:prod": "npm run data && npm run build && npm run assetrev && npm run hyde:prod",
-    "app:hero-calculator": "cat apps/dota-hero-calculator/src/template/template_data.yaml apps/dota-hero-calculator/src/template/.index.html > content/dota2/apps/hero-calculator/index.html",
-    "app:interactivemap": "cat apps/dota-interactive-map/src/template/template_data.yaml apps/dota-interactive-map/src/template/.index.html > content/dota2/apps/interactivemap/index.html",
-    "app:all": "npm run app:hero-calculator && npm run app:interactivemap"
+    "gen:dev": "npm run data && npm run build && npm run assetrev && npm run app:all && npm run hyde:dev && npm run copyapps",
+    "gen:prod": "npm run data && npm run build && npm run assetrev && npm run app:all && npm run hyde:prod && npm run copyapps -- production",
+    "app:hero-calculator": "cat apps/dota-hero-calculator/src/template/template_data.yaml apps/dota-hero-calculator/dist/index.j2 > content/dota2/apps/hero-calculator/index.html",
+    "app:interactivemap": "cat apps/dota-interactive-map/src/template/template_data.yaml apps/dota-interactive-map/dist/index.j2 > content/dota2/apps/interactivemap/index.html",
+    "app:drawablemap": "cat apps/dota-drawable-map/src/template/template_data.yaml apps/dota-drawable-map/dist/index.j2 > content/dota2/apps/drawablemap/index.html",
+    "app:hero-layout-editor": "cat apps/dota-hero-layout-editor/src/template/template_data.yaml apps/dota-hero-layout-editor/src/template/index.j2 > content/dota2/apps/layout-editor/index.html",
+    "app:all": "npm run app:hero-calculator && npm run app:interactivemap && npm run app:drawablemap && npm run app:hero-layout-editor",
+    "copyapps": "node scripts/apps.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +50,7 @@
     "bootstrap": "^3.3.7",
     "dota-datafiles": "^0.3.0",
     "jquery": "^3.1.1",
+    "js-yaml": "^3.7.0",
     "photoswipe": "^4.1.1",
     "slick-carousel": "^1.6.0"
   },
