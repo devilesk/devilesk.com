@@ -1,38 +1,38 @@
 .hyde_deps: []
-404.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2, base.j2, macros/render_heroes.j2,
-  includes/analytics.j2]
-50x.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2, base.j2, macros/render_heroes.j2,
-  includes/analytics.j2]
+404.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2,
+  macros/render_nav.j2]
+50x.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2,
+  macros/render_nav.j2]
 about.html: [base.j2, macros.j2, root.j2, analytics.j2]
 blog/angry-post.html: [blog.j2, macros.j2, analytics.j2, base.j2]
-blog/atom.xml: [macros/render_excerpt.j2, atom.j2]
-blog/creating-a-dota-map-image.html: [blog.j2, root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  includes/disqus.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
+blog/atom.xml: [atom.j2, macros/render_excerpt.j2]
+blog/creating-a-dota-map-image.html: [root.j2, blog.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, includes/disqus.j2, macros/render_heroes.j2, macros/render_nav.j2]
 blog/excerpts.xml: [atom.j2, macros.j2]
 blog/happy-post.html: [blog.j2, macros.j2, analytics.j2, base.j2]
-blog/index.html: [listing.j2, root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2, macros/render_excerpt.j2]
-blog/interactive-map-lane-view-update.html: [blog.j2, root.j2, macros/breadcrumb.j2,
-  macros/render_nav.j2, includes/disqus.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
-blog/interactive-map-tower-vision-update.html: [blog.j2, root.j2, macros/breadcrumb.j2,
-  macros/render_nav.j2, includes/disqus.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
-blog/interactive-map-ward-vision-update.html: [blog.j2, root.j2, macros/breadcrumb.j2,
-  macros/render_nav.j2, includes/disqus.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
+blog/index.html: [root.j2, listing.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_excerpt.j2, macros/render_heroes.j2, macros/render_nav.j2]
+blog/interactive-map-lane-view-update.html: [root.j2, blog.j2, includes/analytics.j2,
+  macros/breadcrumb.j2, base.j2, includes/disqus.j2, macros/render_heroes.j2, macros/render_nav.j2]
+blog/interactive-map-tower-vision-update.html: [root.j2, blog.j2, includes/analytics.j2,
+  macros/breadcrumb.j2, base.j2, includes/disqus.j2, macros/render_heroes.j2, macros/render_nav.j2]
+blog/interactive-map-ward-vision-update.html: [root.j2, blog.j2, includes/analytics.j2,
+  macros/breadcrumb.j2, base.j2, includes/disqus.j2, macros/render_heroes.j2, macros/render_nav.j2]
 blog/sad-post.html: [blog.j2, macros.j2, analytics.j2, base.j2]
-blog/tags/Interactive Dota Map.html: [root.j2, macros/breadcrumb.j2, tagged_posts.j2,
-  macros/render_nav.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
-blog/tags/Source Filmmaker.html: [root.j2, macros/breadcrumb.j2, tagged_posts.j2,
-  macros/render_nav.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
+blog/tags/Interactive Dota Map.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2, tagged_posts.j2]
+blog/tags/Source Filmmaker.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2, tagged_posts.j2]
 blog/tags/angry.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 blog/tags/happy.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-blog/tags/interactive dota map.html: [root.j2, macros/breadcrumb.j2, tagged_posts.j2,
-  macros/render_nav.j2, base.j2, macros/render_heroes.j2, includes/analytics.j2]
-blog/tags/interactive map.html: [root.j2, macros/breadcrumb.j2, tagged_posts.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
+blog/tags/interactive dota map.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2, tagged_posts.j2]
+blog/tags/interactive map.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2, tagged_posts.j2]
 blog/tags/sad.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 blog/tags/thoughts.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-blog/tags/update.html: [root.j2, macros/breadcrumb.j2, tagged_posts.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
+blog/tags/update.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, tagged_posts.j2]
 blog\angry-post.html: [blog.j2, macros.j2, analytics.j2, base.j2]
 blog\atom.xml: [atom.j2, macros.j2]
 blog\excerpts.xml: [atom.j2, macros.j2]
@@ -55,8 +55,8 @@ bootstrap\js\bootstrap.min.js: []
 css\custom.css: []
 dota2/.navbar.html: [macros.j2]
 dota2/a-z-challenge-list.html: [base.j2, macros.j2, analytics.j2]
-dota2/all-hero-challenge-list.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
+dota2/all-hero-challenge-list.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/apps/.hero-calculator/changelog.txt: []
 dota2/apps/.hero-calculator/hero-calculator.abilities.js: []
 dota2/apps/.hero-calculator/hero-calculator.abilitydata.js: []
@@ -92,8 +92,8 @@ dota2/apps/.interactivemap2/theme/default/style.tidy.css: []
 dota2/apps/.interactivemap2/tiles/2/main.py: []
 dota2/apps/ability-name-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
 dota2/apps/ability-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
-dota2/apps/abilitymatching.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
+dota2/apps/abilitymatching.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/apps/abilitytrivia.html: [base.j2, macros.j2, analytics.j2]
 dota2/apps/abilitytrivia2.html: [base.j2, macros.j2, analytics.j2]
 dota2/apps/drawablemap/.hyde_deps: []
@@ -121,10 +121,10 @@ dota2/apps/hero-calculator/jquery-ui-1.10.3.custom.js: []
 dota2/apps/hero-calculator/report.php: []
 dota2/apps/hero-calculator/templates.html: []
 dota2/apps/hero-name-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
-dota2/apps/hero-selection-trainer.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
-dota2/apps/index.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2, base.j2,
-  macros/render_heroes.j2, includes/analytics.j2]
+dota2/apps/hero-selection-trainer.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2]
 dota2/apps/interactivemap/SVGPan2.js: []
 dota2/apps/interactivemap/drawing4.svg: []
 dota2/apps/interactivemap/index.html: [includes/analytics.j2, macros/render_nav.j2,
@@ -146,41 +146,41 @@ dota2/apps/interactivemap2/theme/default/style.tidy.css: []
 dota2/apps/interactivemap2/tiles/2/main.py: []
 dota2/apps/item-cost-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
 dota2/apps/item-name-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
-dota2/apps/item-scramble.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
+dota2/apps/item-scramble.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/apps/layout-editor/index.html: [root.j2, includes/analytics.j2, macros/render_nav.j2]
 dota2/apps/player-cards.php: []
 dota2/apps/player-cards/get_player_items.php: []
 dota2/apps/player-cards/item_schema.json: []
 dota2/apps/player-cards/player_cards_from_schema.json: []
-dota2/apps/tread-switch-trainer.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
-dota2/apps/trivia/ability-name.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2, trivia.j2]
-dota2/apps/trivia/ability.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
-dota2/apps/trivia/hero-name.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2, trivia.j2]
-dota2/apps/trivia/index.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2]
-dota2/apps/trivia/item-cost.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2, trivia.j2]
-dota2/apps/trivia/item-name.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  base.j2, macros/render_heroes.j2, includes/analytics.j2, trivia.j2]
+dota2/apps/tread-switch-trainer.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/trivia/ability-name.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, trivia.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/trivia/ability.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/trivia/hero-name.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, trivia.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/trivia/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/trivia/item-cost.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, trivia.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/apps/trivia/item-name.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, trivia.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/archive/apps/interactivemap/SVGPan2.js: []
 dota2/archive/apps/interactivemap/drawing4.svg: []
-dota2/archive/apps/interactivemap/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/archive/apps/interactivemap/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/archive/apps/interactivemap/map.js: []
 dota2/archive/castpoints.html: []
-dota2/archive/community/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/archive/community/live-games.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/archive/community/streams.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/archive/guides/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/archive/community/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/archive/community/live-games.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/archive/community/streams.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/archive/guides/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/archive/prize-pool-international-2014-2.html: []
 dota2/archive/prize-pool-international-2014-3.html: []
 dota2/archive/prize-pool-international-2014.html: []
@@ -408,291 +408,250 @@ dota2/heroes/6.81/windrunner.html: [macros.j2, base.j2, heropage.j2, analytics.j
 dota2/heroes/6.81/wisp.html: [macros.j2, base.j2, heropage.j2, analytics.j2]
 dota2/heroes/6.81/witch_doctor.html: [macros.j2, base.j2, heropage.j2, analytics.j2]
 dota2/heroes/6.81/zuus.html: [macros.j2, base.j2, heropage.j2, analytics.j2]
-dota2/heroes/abaddon.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/abyssal_underlord.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/alchemist.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/ancient_apparition.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/antimage.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/arc_warden.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/axe.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/bane.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/batrider.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/beastmaster.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/bloodseeker.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/bounty_hunter.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/brewmaster.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/bristleback.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/broodmother.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/centaur.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/chaos_knight.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/chart/index.html: [macros/breadcrumb.j2, macros/render_heroes.j2, includes/analytics.j2,
-  root.j2, base.j2, macros/render_nav.j2]
-dota2/heroes/chen.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/clinkz.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/crystal_maiden.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/dark_seer.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/dazzle.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/death_prophet.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/disruptor.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/doom_bringer.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/dragon_knight.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/drow_ranger.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/earth_spirit.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/earthshaker.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/elder_titan.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/ember_spirit.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/enchantress.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/enigma.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/faceless_void.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/furion.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/gyrocopter.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/heroes/abaddon.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/abyssal_underlord.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/alchemist.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/ancient_apparition.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/antimage.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/arc_warden.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/axe.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/bane.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/batrider.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/beastmaster.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/bloodseeker.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/bounty_hunter.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/brewmaster.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/bristleback.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/broodmother.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/centaur.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/chaos_knight.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/chart/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/chen.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/clinkz.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/crystal_maiden.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/dark_seer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/dazzle.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/death_prophet.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/disruptor.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/doom_bringer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/dragon_knight.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/drow_ranger.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/earth_spirit.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/earthshaker.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/elder_titan.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/ember_spirit.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/enchantress.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/enigma.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/faceless_void.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/furion.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/gyrocopter.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/heroes/herodata.html: [base.j2, macros.j2, root.j2, analytics.j2]
-dota2/heroes/herodata/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/huskar.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2,
-  macros/breadcrumb.j2, root.j2]
-dota2/heroes/invoker.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/jakiro.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/juggernaut.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/keeper_of_the_light.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/kunkka.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/legion_commander.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/leshrac.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/lich.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/life_stealer.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/lina.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/lion.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/lone_druid.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/heroes/herodata/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/huskar.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/invoker.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/jakiro.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/juggernaut.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/keeper_of_the_light.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/kunkka.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/legion_commander.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/leshrac.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/lich.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/life_stealer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/lina.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/lion.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/lone_druid.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/heroes/lore.html: [root.j2, analytics.j2, base.j2, macros.j2]
-dota2/heroes/lore/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/luna.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/lycan.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/magnataur.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/medusa.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/meepo.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/mirana.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/monkey_king.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/morphling.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/naga_siren.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/necrolyte.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/nevermore.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/night_stalker.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/nyx_assassin.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/obsidian_destroyer.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/ogre_magi.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/omniknight.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/oracle.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/heroes/lore/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/luna.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/lycan.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/magnataur.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/medusa.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/meepo.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/mirana.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/monkey_king.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/morphling.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/naga_siren.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/necrolyte.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/nevermore.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/night_stalker.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/nyx_assassin.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/obsidian_destroyer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/ogre_magi.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/omniknight.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/oracle.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/heroes/patchhistory.html: [analytics.j2, base.j2, basewide.j2, root.j2, macros.j2]
-dota2/heroes/patchhistory/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/phantom_assassin.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/phantom_lancer.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/phoenix.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/puck.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/pudge.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/pugna.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/queenofpain.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/rattletrap.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/razor.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/riki.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/rubick.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/sand_king.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/shadow_demon.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/shadow_shaman.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/shredder.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/silencer.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/skeleton_king.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/skywrath_mage.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/slardar.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/slark.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/sniper.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/spectre.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/spirit_breaker.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/storm_spirit.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/sven.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/techies.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/templar_assassin.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/terrorblade.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/tidehunter.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/tinker.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/tiny.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/treant.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/troll_warlord.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/tusk.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/undying.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/heroes/patchhistory/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/phantom_assassin.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/phantom_lancer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/phoenix.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/puck.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/pudge.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/pugna.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/queenofpain.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/rattletrap.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/razor.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/riki.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/rubick.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/sand_king.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/shadow_demon.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/shadow_shaman.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/shredder.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/silencer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/skeleton_king.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/skywrath_mage.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/slardar.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/slark.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/sniper.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/spectre.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/spirit_breaker.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/storm_spirit.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/sven.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/techies.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/templar_assassin.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/terrorblade.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/tidehunter.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/tinker.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/tiny.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/treant.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/troll_warlord.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/tusk.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/undying.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/heroes/unitdata.html: [root.j2, analytics.j2, base.j2, macros.j2]
-dota2/heroes/unitdata/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/ursa.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/vengefulspirit.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/venomancer.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/viper.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/visage.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/warlock.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/weaver.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/windrunner.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/winter_wyvern.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/wisp.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/heroes/witch_doctor.html: [macros/get_value_string.j2, macros/render_nav.j2,
-  heropage.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2,
-  root.j2]
-dota2/heroes/zuus.html: [macros/get_value_string.j2, macros/render_nav.j2, heropage.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/index.html: [root.j2, macros/breadcrumb.j2, macros/render_nav.j2, base.j2, macros/render_heroes.j2,
-  includes/analytics.j2]
+dota2/heroes/unitdata/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/ursa.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/vengefulspirit.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/venomancer.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/viper.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/visage.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/warlock.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/weaver.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/windrunner.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/winter_wyvern.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/wisp.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/witch_doctor.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/heroes/zuus.html: [root.j2, macros/get_value_string.j2, includes/analytics.j2,
+  heropage.j2, macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2]
 dota2/international/2014/blank.json: []
 dota2/international/2014/edit.html: []
 dota2/international/2014/format.css: []
@@ -701,88 +660,88 @@ dota2/international/2014/index.html: []
 dota2/international/2014/knockout-sortable.min.js: []
 dota2/international/2014/phase2.html: []
 dota2/international/2014/phase2.json: []
-dota2/international/2014/prizepool/index.html: [onecolumnindexpage.j2, macros/render_nav.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/international/2014/prizepool/index.html: [onecolumnindexpage.j2, root.j2, includes/analytics.j2,
+  macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/international/2014/save.php: []
 dota2/international/2014/test.json: []
 dota2/international/2014/ti4data.json: []
 dota2/international/2014/ti4results.json: []
-dota2/international/2015/prizepool/index.html: [onecolumnindexpage.j2, macros/render_nav.j2,
-  base.j2, includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/international/index.html: [onecolumnindexpage.j2, macros/render_nav.j2, base.j2,
-  includes/analytics.j2, macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/items/all.html: [macros/render_nav.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2,
-  macros/breadcrumb.j2, root.j2]
-dota2/items/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2,
-  macros/breadcrumb.j2, root.j2]
-dota2/mosaics/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2,
-  macros/breadcrumb.j2, root.j2]
+dota2/international/2015/prizepool/index.html: [onecolumnindexpage.j2, root.j2, includes/analytics.j2,
+  macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/international/index.html: [onecolumnindexpage.j2, root.j2, includes/analytics.j2,
+  macros/breadcrumb.j2, base.j2, macros/render_heroes.j2, macros/render_nav.j2]
+dota2/items/all.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2]
+dota2/items/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2]
+dota2/mosaics/index.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2]
 dota2/mosaics/mosaics.js: []
 dota2/navbar.html: [macros.j2]
-dota2/patches/6.79.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.80.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.81.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.81b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.82.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.82b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.82c.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.83.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.83b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.83c.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.84.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.84b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.84c.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.85.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.85b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.86.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.86b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.86c.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.86d.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.86e.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.86f.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.87.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.87b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.87c.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.87d.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.88.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.88b.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.88c.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.88d.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.88e.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/6.88f.html: [patchpage.j2, macros/render_nav.j2, base.j2, includes/analytics.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
-dota2/patches/index.html: [macros/render_nav.j2, base.j2, includes/analytics.j2, patches.j2,
-  macros/render_heroes.j2, macros/breadcrumb.j2, root.j2]
+dota2/patches/6.79.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.80.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.81.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.81b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.82.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.82b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.82c.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.83.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.83b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.83c.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.84.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.84b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.84c.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.85.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.85b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.86.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.86b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.86c.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.86d.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.86e.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.86f.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.87.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.87b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.87c.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.87d.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.88.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.88b.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.88c.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.88d.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.88e.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/6.88f.html: [root.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2,
+  macros/render_heroes.j2, macros/render_nav.j2, patchpage.j2]
+dota2/patches/index.html: [root.j2, includes/analytics.j2, patches.j2, macros/breadcrumb.j2,
+  base.j2, macros/render_heroes.j2, macros/render_nav.j2]
 dota2/patches2/6.79.html: [analytics.j2, base.j2, macros.j2, root.j2, patchpage.j2]
 dota2/patches2/6.80.html: [analytics.j2, base.j2, macros.j2, root.j2, patchpage.j2]
 dota2/patches2/6.81.html: [analytics.j2, base.j2, macros.j2, root.j2, patchpage.j2]
@@ -987,7 +946,7 @@ drawablemap/index.html: [macros/render_nav.j2, root.j2, includes/analytics.j2]
 google326eace8919d7810.html: []
 hero-calculator/index.html: [macros/breadcrumb.j2, macros/render_heroes.j2, includes/analytics.j2,
   macros/render_nav.j2, root.j2, base.j2]
-index.html: [root.j2, includes/analytics.j2, macros/render_nav.j2]
+index.html: [macros/render_nav.j2, root.j2, includes/analytics.j2]
 index2.html: [base.j2, macros.j2, analytics.j2]
 interactivemap/index.html: [macros/render_nav.j2, includes/analytics.j2, root.j2]
 itemcost.html: [base.j2, macros.j2, root.j2, analytics.j2]
