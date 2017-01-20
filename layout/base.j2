@@ -33,9 +33,11 @@
 
 {% block content %}
 {% block breadcrumbs %}
+{% if not resource.meta.no_breadcrumbs %}
 <div class="container">
 {{ breadcrumb(resource) }}
 </div>
+{% endif %}
 {% endblock breadcrumbs %}
 <div class="{{ 'container' if not resource.meta.container_fluid }}{{ 'container-fluid' if resource.meta.container_fluid }}">
     {% block container %}

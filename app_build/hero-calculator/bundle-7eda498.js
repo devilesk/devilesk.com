@@ -25468,7 +25468,7 @@ var App = function (appConfig) {
         }
     });
 
-    var lastUpdate = "2017-01-19 20:30:23 UTC";
+    var lastUpdate = "2017-01-20 13:52:07 UTC";
     $('#last-update').text(lastUpdate);
 
     var rollbar = require('./rollbar');

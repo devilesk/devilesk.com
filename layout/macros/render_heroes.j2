@@ -1,13 +1,5 @@
 {% macro render_heroes(herodatalist, link_hero_page=False) -%}
 <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-        <div class="form-group">
-            <label>Search:</label>
-            <input type="text" id="search-heroes" class="form-control"></input>
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-md-12 attribute-section">
         <div class="hero-block strength">
             {% for hero in herodatalist|selectattr('attributeprimary', 'equalto', 'DOTA_ATTRIBUTE_STRENGTH')|sort(attribute='displayname') -%}

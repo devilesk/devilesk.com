@@ -14,7 +14,7 @@ function TriviaModule(herodata, itemlistdata, itemdata) {
             var a = herodata[h].abilities.filter(function(item) {
                 return item.name == abilities[i];
             })[0];
-            if (a.name != "attribute_bonus" && a.displayname && a.displayname != '' && a.displayname != 'Empty' && a.description && a.description != '') {
+            if (a.name != "attribute_bonus" && a.displayname && a.displayname != '' && a.displayname != 'Empty') {
                 if (!(abilities[i] in abilitydata)) {
                     if ((a.behavior.indexOf("DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE") == -1 && a.behavior.indexOf("DOTA_ABILITY_BEHAVIOR_HIDDEN") == -1) ||
                         (ability_include.indexOf(a.name) != -1)) {

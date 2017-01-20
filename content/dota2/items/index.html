@@ -12,15 +12,18 @@ id: page-items
 <link rel="stylesheet" href="{{ media_url_rev('spritesheets/css/items_70x50_sprite_jpg.css') }}">
 {% endblock page_head %}
 
-{% block main %}
+{% block header %}
 <div class="row">
-    <div class="col-md-offset-4 col-md-4">
+    <h2 class="col-md-6">Items</h2>
+    <h2 class="col-md-6">
         <div class="form-group">
-            <label>Search:</label>
-            <input type="text" id="search-items" class="form-control"></input>
+            <input type="text" id="search-items" class="form-control" placeholder="Filter...">
         </div>
-    </div>
+    </h2>
 </div>
+{% endblock header %}
+
+{% block main %}
 <div class="row">
     {% for section in shoplayout -%}
     <div class="shop-section">

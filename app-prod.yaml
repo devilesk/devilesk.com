@@ -1,0 +1,21 @@
+base_url: /
+context:
+    data:
+        tweet_via: devilesk
+    providers:
+        menu: yaml/menu.yaml
+content_root: app_content
+deploy_root: app_www
+media_root: media
+media_url: /media
+meta:
+    author: devilesk
+    charset: utf-8
+    created: 2010-01-01 00:00:00
+    nodemeta: meta.yaml
+    viewport: width=device-width, initial-scale=1.0
+mode: production
+plugins:
+- hyde.ext.plugins.meta.MetaPlugin
+- hyde.ext.plugins.meta.AutoExtendPlugin
+- plugins.asset_rev.AssetRevPlugin

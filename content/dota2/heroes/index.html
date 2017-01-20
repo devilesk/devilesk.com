@@ -11,6 +11,17 @@ container_fluid: true
 <link rel="stylesheet" href="{{ media_url_rev('spritesheets/css/portraits_64x84_sprite_jpg.css') }}">
 {% endblock page_head %}
 
+{% block header %}
+<div class="row">
+    <h2 class="col-md-6">Heroes</h2>
+    <h2 class="col-md-6">
+        <div class="form-group">
+            <input type="text" id="search-heroes" class="form-control" placeholder="Filter...">
+        </div>
+    </h2>
+</div>
+{% endblock header %}
+
 {% block main %}
 {{ render_heroes(herodatalist, true) }}
 {% endblock main %}

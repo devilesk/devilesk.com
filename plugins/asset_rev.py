@@ -14,7 +14,7 @@ with open('rev-manifest.json', 'r') as f:
 
 @contextfunction
 def media_url_rev(context, path, safe=None):
-    if path in asset_manifest:
+    if path in asset_manifest and context['site'].config.mode == 'production':
         path = asset_manifest[path]
     return context['site'].media_url(path, safe)
     

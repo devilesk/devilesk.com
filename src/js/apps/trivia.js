@@ -1,5 +1,6 @@
 var $ = jQuery = require('jquery');
 require('bootstrap');
+var shuffle = require('../util/shuffle');
 
 function TriviaCore() {
     var self = this;
@@ -8,48 +9,29 @@ function TriviaCore() {
     this.streak = 0;
     this.longeststreak = 0;
     this.items = [];
-    this.shuffle = function shuffle(array) {
-        var counter = array.length,
-            temp, index;
-
-        // While there are elements in the array
-        while (counter > 0) {
-            // Pick a random index
-            index = Math.floor(Math.random() * counter);
-
-            // Decrease counter by 1
-            counter--;
-
-            // And swap the last element with it
-            temp = array[counter];
-            array[counter] = array[index];
-            array[index] = temp;
-        }
-
-        return array;
-    };
-    this.getAnswer = function(item) {}
-    this.generateQuestion = function() {
+    this.shuffle = shuffle;
+    this.getAnswer = function (item) {}
+    this.generateQuestion = function () {
         var items_shuffled = this.shuffle(this.items.slice(0));
         var answers_shuffled = this.shuffle(this.answers.slice(0));
         this.answer = this.getAnswer(items_shuffled[0]);
         this.buildQuestion(items_shuffled, answers_shuffled);
     }
-    this.buildQuestion = function(items_shuffled, answers_shuffled) {}
-    this.onCorrectAnswer = function() {
+    this.buildQuestion = function (items_shuffled, answers_shuffled) {}
+    this.onCorrectAnswer = function () {
         this.streak += 1;
         $('#ans_msg').html('<h3><span class=\"label label-success\">Correct!</span></h3>');
         this.generateQuestion();
     }
-    this.onWrongAnswer = function() {
+    this.onWrongAnswer = function () {
         $('#ans_msg').html('<h3><span class=\"label label-danger\">Wrong!</span></h3>');
         this.streak = 0;
     }
-    this.onStreakUpdate = function() {
+    this.onStreakUpdate = function () {
         this.longeststreak = this.streak;
         $('#longeststreak').text('Longest Streak: ' + this.longeststreak);
     }
-    this.onClickEnd = function() {
+    this.onClickEnd = function (e) {
         $('#ans_msg').stop(false, true, true);
         $('#ans_msg').show();
         $('#ans_msg').fadeOut(2000);
@@ -58,8 +40,8 @@ function TriviaCore() {
         e.stopImmediatePropagation()
         $(this).blur();
     }
-    this.init = function(btns) {
-        btns.click(function(e) {
+    this.init = function (btns) {
+        btns.click(function (e) {
             if ($(this).text() == self.answer) {
                 self.onCorrectAnswer();
             } else {
@@ -68,7 +50,7 @@ function TriviaCore() {
             if (self.streak > self.longeststreak) {
                 self.onStreakUpdate();
             }
-            self.onClickEnd();
+            self.onClickEnd(e);
         });
         self.generateQuestion();
     }
@@ -84,16 +66,16 @@ var triviaModules = {
 }
 
 $.when(
-    $.getJSON("/media/dota-json/herodata.json", function(herodata) {
+    $.getJSON("/media/dota-json/herodata.json", function (data) {
         herodata = data;
     }),
-    $.getJSON("/media/dota-json/items.json", function(items) {
+    $.getJSON("/media/dota-json/items.json", function (data) {
         items = data;
     }),
-    $.getJSON("/media/dota-json/itemdata.json", function(itemdata) {
+    $.getJSON("/media/dota-json/itemdata.json", function (data) {
         itemdata = data;
     })
-).then(function() {
+).then(function () {
     var triviaModule;
     var keys = Object.keys(triviaModules);
     for (var i = 0; i < keys.length; i++) {

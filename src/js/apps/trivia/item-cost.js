@@ -1,7 +1,7 @@
 var $ = require('jquery');
 
 function TriviaModule(herodata, itemlistdata, itemdata) {
-    var itemdata = {}
+    var data = {};
     var itemlist = Object.keys(itemlistdata.data);
     var items = itemlist.map(function(item) {
         return 'item_' + item;
@@ -13,7 +13,7 @@ function TriviaModule(herodata, itemlistdata, itemdata) {
         }
     });
     for (var i = 0; i < items.length; i++) {
-        itemdata[items[i]] = {
+        data[items[i]] = {
             cost: itemdata[items[i]].itemcost,
             name: itemdata[items[i]].ItemRecipe ? itemdata[itemdata[items[i]].ItemResult].displayname + ' Recipe' : itemdata[items[i]].displayname
         }
@@ -21,13 +21,13 @@ function TriviaModule(herodata, itemlistdata, itemdata) {
 
     this.items = items;
     this.getAnswer = function(item) {
-        return itemdata[item].cost;
+        return data[item].cost;
     }
     this.buildQuestion = function(items_shuffled, answers_shuffled) {
         $('#item').attr('src', 'http://cdn.dota2.com/apps/dota2/images/items/' + items_shuffled[0].replace('item_', '') + '_lg.png');
-        $('#item-name').html(itemdata[items_shuffled[0]].name);
+        $('#item-name').html(data[items_shuffled[0]].name);
         for (var i = 0; i < answers_shuffled.length; i++) {
-            $('#answer_' + answers_shuffled[i]).html(itemdata[items_shuffled[i]].cost).blur();
+            $('#answer_' + answers_shuffled[i]).html(data[items_shuffled[i]].cost).blur();
         }
     }
 }
