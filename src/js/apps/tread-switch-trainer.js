@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 $(function () {
 	
 	var types = ['str','int','agi'],

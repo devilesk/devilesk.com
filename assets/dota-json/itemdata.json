@@ -207,6 +207,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "drum", 
    "of", 
@@ -305,6 +306,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "mana;mb;arcane", 
    "boots"
@@ -443,7 +445,7 @@
   "cooldown": [
    0
   ], 
-  "description": "Active: Toggle Unholy Strength - When active, Unholy Strength grants +%unholy_bonus_damage% damage and +%unholy_bonus_strength% strength, but drains %unholy_health_drain_per_second_tooltip% health per second.  You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated.", 
+  "description": "Active: Toggle Unholy Strength - When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second_tooltip% health per second.  You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated.", 
   "displayname": "Armlet of Mordiggian", 
   "id": 151, 
   "itemcost": 2370, 
@@ -454,6 +456,7 @@
  }, 
  "item_assault": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "ac;assault", 
    "cuirass"
@@ -1396,6 +1399,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": "buckler", 
   "ItemQuality": "rare", 
   "ItemShopTags": "armor;boost_armor", 
@@ -1723,6 +1727,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemQuality": "epic", 
   "ItemShopTags": "armor;boost_armor;regen_health;block;health_pool", 
   "attributes": [
@@ -2734,6 +2739,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 1050, 
   "ItemAliases": [
    "dust", 
    "of", 
@@ -3268,6 +3274,7 @@
  }, 
  "item_gem": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "gem", 
    "of", 
@@ -3481,6 +3488,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "guardian", 
    "greaves"
@@ -3657,6 +3665,7 @@
  }, 
  "item_headdress": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityCastRange": 900, 
   "ItemAliases": "headdress", 
   "ItemQuality": "rare", 
   "ItemShopTags": "str;int;agi;regen_health", 
@@ -4657,6 +4666,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 1200, 
   "AbilitySharedCooldown": "magicwand", 
   "ItemAliases": [
    "magic", 
@@ -4703,6 +4713,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 1200, 
   "AbilitySharedCooldown": "magicwand", 
   "ItemAliases": [
    "magic", 
@@ -5073,6 +5084,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": "mechanism;mekansm", 
   "ItemQuality": "rare", 
   "ItemShopTags": "agi;int;str;armor;boost_health", 
@@ -6350,6 +6362,7 @@
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE", 
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "pipe", 
    "of", 
@@ -6711,6 +6724,7 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
    "DOTA_ABILITY_BEHAVIOR_TOGGLE"
   ], 
+  "AbilityCastRange": 700, 
   "ItemAliases": "radiance", 
   "ItemQuality": "epic", 
   "ItemShopTags": "damage", 
@@ -8582,6 +8596,7 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
    "DOTA_ABILITY_BEHAVIOR_TOGGLE"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "roa;ring", 
    "of", 
@@ -8660,6 +8675,7 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
    "DOTA_ABILITY_BEHAVIOR_TOGGLE"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "rob;ring", 
    "of", 
@@ -9427,6 +9443,7 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
    "DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
   ], 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "shiva's", 
    "guard"
@@ -9703,6 +9720,7 @@
    "DOTA_ABILITY_BEHAVIOR_NO_TARGET", 
    "DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
   ], 
+  "AbilityCastRange": 1200, 
   "ItemAliases": [
    "smoke", 
    "of", 
@@ -10282,7 +10300,7 @@
   "cooldown": [
    0
   ], 
-  "description": "Use: Grants you %xp_bonus% experience plus %xp_per_use% per tome comsumed by your team.", 
+  "description": "Use: Grants you %xp_bonus% experience plus %xp_per_use% per tome consumed by your team.", 
   "displayname": "Tome of Knowledge", 
   "id": 257, 
   "itemcost": 150, 
@@ -10886,6 +10904,7 @@
  }, 
  "item_vladmir": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE", 
+  "AbilityCastRange": 900, 
   "ItemAliases": [
    "vladmir's", 
    "offering;vlads"

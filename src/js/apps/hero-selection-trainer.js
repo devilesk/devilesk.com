@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 $(function () {
     $.getJSON("/media/js/heroes.json", function (data) {
         var items = data.data;

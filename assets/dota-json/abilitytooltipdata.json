@@ -626,7 +626,7 @@
   "lore": "Calling upon his connection to the land, the Earth Spirit draws loose stone to him, which forms a protective ball that he can use to roll short distances."
  }, 
  "earth_spirit_stone_caller": {
-  "description": "Call a Stone Remnant to the target location.  Stones Remnants have no vision and are invulnerable, and can be used with Earth Spirit's abilities.  Calling a Stone Remnant consumes a charge, which recharge over time.", 
+  "description": "Call a Stone Remnant to the target location.  Stone Remnants have no vision and are invulnerable, and can be used with Earth Spirit's abilities.  Calling a Stone Remnant consumes a charge, which recharge over time.", 
   "lore": "Earth Spirit calls forth a remnant of his stone army, long buried with him in the dark embrace of the Earth."
  }, 
  "earthshaker_aftershock": {
@@ -1196,7 +1196,7 @@
   "lore": "In the scorched barren of Misrule, Lina learned to manipulate the fiery breath of the Desert Wyrm as a form of entertainment."
  }, 
  "lina_fiery_soul": {
-  "description": "Grants bonus attack and movement speed each time Lina casts a spell. Stacks with itself. Lasts %duration_tooltip% seconds.", 
+  "description": "Grants bonus attack and movement speed each time Lina casts a spell. Stacks with itself. Lasts %fiery_soul_stack_duration% seconds.", 
   "lore": "Dancing flames embody Lina's playful nature, bringing out her true blazing self."
  }, 
  "lina_laguna_blade": {
@@ -1378,7 +1378,7 @@
  }, 
  "monkey_king_primal_spring_early": {}, 
  "monkey_king_tree_dance": {
-  "description": "Monkey King jumps to a tree and perches atop it. While perched, he gains the Primal Spring ability\u2014a channeled leap attack. If Monkey King's tree is destroyed, he falls and is stunned for 4 seconds. Taking damage from player controlled units or Roshan while on the ground puts Tree Dance on cooldown.", 
+  "description": "Monkey King jumps to a tree and perches atop it. While perched, he gains the Primal Spring ability-a channeled leap attack. If Monkey King's tree is destroyed, he falls and is stunned for 4 seconds. Taking damage from player controlled units or Roshan while on the ground puts Tree Dance on cooldown.", 
   "lore": "Sun Wukong dances nimbly along the treetop canopy, always just out of arm's reach."
  }, 
  "monkey_king_untransform": {
@@ -1425,7 +1425,7 @@
   "description": "On death, Mud Golems shatter into 2 Shard Golems. Shard Golems have %shard_health_tooltip% health, deal %shard_damage_tooltip% damage per attack, and live for %shard_duration_tooltip% seconds."
  }, 
  "mudgolem_cloak_aura": {
-  "description": "This creature protects its allies with a Magic Resistance aura. Creeps are better protected."
+  "description": "This creature protects its allies with a Magic resistance aura. Creeps are better protected."
  }, 
  "naga_siren_ensnare": {
   "description": "Interrupts the target and traps them in place, preventing movement or blinking.", 
@@ -2051,7 +2051,7 @@
   "lore": "Taking potshots at steepstalkers in his childhood has been thoroughly refined into perfect leads on enemy combatants."
  }, 
  "sniper_shrapnel": {
-  "description": "Consumes a charge to launch a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area. Shrapnel charges restore every %dcharge_restore_time% seconds.", 
+  "description": "Consumes a charge to launch a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area. Shrapnel charges restore every %charge_restore_time% seconds.", 
   "lore": "Kardel's modular rifle also fires incendiary rounds, useful for assaulting entrenched locations."
  }, 
  "sniper_take_aim": {
