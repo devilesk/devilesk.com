@@ -50,8 +50,8 @@
 - attributes: + 9 Damage<br>+ 25 Attack Speed<br>+ 5 Armor<br>+ 7 HP Regeneration
   cd: '0'
   description: 'Active: Toggle Unholy Strength - When active, Unholy Strength grants
-    +31 damage and +25 strength, but drains 45 health per second.  You cannot die
-    from the health drain when Unholy Strength is activated, nor from the strength
+    +31 damage, +25 strength and +4 armor, but drains 45 health per second.  You cannot
+    die from the health drain when Unholy Strength is activated, nor from the strength
     loss when Unholy Strength is deactivated.'
   displayname: Armlet of Mordiggian
   id: armlet
@@ -1187,7 +1187,7 @@
 - attributes: 'XP BONUS BASE: 500<br>XP BONUS PER USE: 100<br>Tomes Used by Owner''s
     Team: 0'
   cd: '0'
-  description: 'Use: Grants you 500 experience plus 100 per tome comsumed by your
+  description: 'Use: Grants you 500 experience plus 100 per tome consumed by your
     team.'
   displayname: Tome of Knowledge
   id: tome_of_knowledge

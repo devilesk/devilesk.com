@@ -10,8 +10,11 @@ def main():
 
     print('start...')
 
-    with open(os.path.join(sys.path[0], '../data/herodata.yaml'), 'r') as f:
-        herodata = yaml.load(f.read())
+    with open(os.path.join(sys.path[0], '../node_modules/dota-datafiles/dist/herodata.json'), 'r') as f:
+        herodata = json.loads(f.read())
+        
+    with open(os.path.join(sys.path[0], '../data/herodata.yaml'), 'w') as f:
+        f.write(yaml.safe_dump(herodata))
 
     print('loaded')
 
