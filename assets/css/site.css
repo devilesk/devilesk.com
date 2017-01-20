@@ -6412,12 +6412,18 @@ footer > img {
   text-decoration: none;
   display: block;
   padding-bottom: 15px;
-  color: #b0b2b7; }
+  color: #b0b2b7;
+  transition: background-color 200ms,color 200ms,linear; }
   .media > a:hover {
     color: #e5e6e8; }
 
 .media-left > img {
-  width: 90px; }
+  width: 90px;
+  box-shadow: 1px 1px 2px 1px black; }
+
+.media-left,
+.media > .pull-left {
+  padding-right: 20px; }
 
 .overlay-hover:hover {
   opacity: .15; }
@@ -7693,12 +7699,10 @@ table.highlight-row tbody tr:hover {
   background-color: #131415 !important; }
 
 .hero-block {
-  margin-top: 5px;
-  margin-bottom: 10px;
   position: relative;
   padding-left: 10px;
-  margin-left: 20px;
-  border-left: 2px solid; }
+  border-left: 2px solid;
+  margin: 15px 30px; }
 
 .hero-block.strength::before {
   content: "STRENGTH"; }
@@ -7752,11 +7756,6 @@ table.highlight-row tbody tr:hover {
 .page-items .content {
   text-align: center; }
 
-.page-items .item-overlay {
-  width: 70px;
-  height: 50px;
-  position: absolute; }
-
 .page-items .shop-section {
   display: inline-block;
   margin-right: 30px; }
@@ -7772,8 +7771,11 @@ table.highlight-row tbody tr:hover {
   box-shadow: inset 0 0 5px #000000; }
 
 .page-items .shop:hover {
+  cursor: pointer; }
+
+.page-items .shop-item:hover {
   cursor: pointer;
-  cursor: hand; }
+  transform: scale(1.1); }
 
 .page-items .shop {
   border-radius: 10px; }
@@ -7879,13 +7881,26 @@ table.highlight-row tbody tr:hover {
 .page-items-all .item {
   box-shadow: inset 0 0 10px #000000; }
 
+.page-block {
+  padding: 25px; }
+
+.page-block-header {
+  margin-top: 0;
+  margin-bottom: 30px; }
+
+.post_nav {
+  margin-top: 20px; }
+
 .btn {
   transition: background-color 200ms,color 200ms,linear; }
 
+.slick-slide {
+  margin: 5px; }
+
 .slick-slide > img {
-  padding: 5px;
   width: 100%;
-  cursor: pointer; }
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px black; }
 
 .slick-carousel, .slick-carousel-nav {
   margin: 25px; }
@@ -7900,6 +7915,15 @@ table.highlight-row tbody tr:hover {
 .patch-page .group-icon {
   margin-right: 10px;
   display: inline-block; }
+
+.patch-page .group-icon {
+  box-shadow: 2px 2px 2px 1px black; }
+
+.patch-page .patch-group {
+  margin-bottom: 40px; }
+  .patch-page .patch-group .group-name {
+    margin: 0;
+    font-size: 20px; }
 
 .page-item-scramble .component {
   cursor: move;

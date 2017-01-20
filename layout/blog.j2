@@ -3,15 +3,15 @@
 {% block main -%}
 <article class="post blog">
 <nav class="post_nav">
-<a class="btn btn-default btn-xs backlink" href="{{ content_url(resource.node.url) }}">Back to list</a>
-<a class="btn btn-default btn-xs prev{{' disabled' if not resource.prev_by_time }}"
+{# <a class="btn btn-default btn-sm backlink" href="{{ content_url(resource.node.url) }}">Back to list</a> #}
+<a class="btn btn-default btn-sm prev{{' disabled' if not resource.prev_by_time }}"
     title="{{ resource.prev_by_time.meta.title }}"
     {% if resource.prev_by_time %}
     href="{{ content_url(resource.prev_by_time.url) }}"{% endif %}>
     Newer
 </a>
 
-<a class="btn btn-default btn-xs next{{' disabled' if not resource.next_by_time }}"
+<a class="btn btn-default btn-sm pull-right next{{' disabled' if not resource.next_by_time }}"
     title="{{ resource.next_by_time.meta.title }}"
     {% if resource.next_by_time %}
     href="{{ content_url(resource.next_by_time.url) }}"{% endif %}>

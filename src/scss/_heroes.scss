@@ -1,12 +1,10 @@
 .attribute-section {
 }
 .hero-block {
-	margin-top: 5px;
-	margin-bottom: 10px;
     position: relative;
     padding-left: 10px;
-    margin-left: 20px;
     border-left: 2px solid;
+    margin: 15px 30px
 }
 .hero-block.strength::before {
     content: "STRENGTH";

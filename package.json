@@ -19,8 +19,8 @@
     "hyde:prod": "hyde gen -c site-prod.yaml",
     "assetrev": "gulp asset-rev",
     "data": "python scripts/generate.py",
-    "gen:dev": "npm run data && npm run build && npm run assetrev && npm run app:all && npm run hyde:dev && npm run copyapps",
-    "gen:prod": "npm run data && npm run build && npm run assetrev && npm run app:all && npm run hyde:prod && npm run copyapps -- production",
+    "gen:dev": "npm run data && npm run build && npm run assetrev && npm run hyde:dev",
+    "gen:prod": "npm run data && npm run build && npm run assetrev && npm run hyde:prod",
 
     "app:build:hero-calculator": "cd apps/dota-hero-calculator && npm run build",
     "app:build:interactivemap": "cd apps/dota-interactive-map && npm run build",

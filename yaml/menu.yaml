@@ -14,6 +14,9 @@
     -   name: Hero Selection Trainer
         type: page
         url: /dota2/apps/hero-selection-trainer
+    -   name: Ability Matching
+        type: page
+        url: /dota2/apps/abilitymatching
     -   name: Item Scramble
         type: page
         url: /dota2/apps/item-scramble
@@ -68,9 +71,6 @@
     description: Trivia Home
     name: TRIVIA
     submenu:
-    -   name: Ability Matching
-        type: page
-        url: /dota2/apps/abilitymatching
     -   name: Ability Trivia
         type: page
         url: /dota2/apps/trivia/ability

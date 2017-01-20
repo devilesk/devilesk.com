@@ -13,8 +13,24 @@
 @import 'items';
 @import 'itemsall';
 
+.navbar-default {
+    box-shadow: 0px 0px 2px 1px black;
+}
+
 .container-fluid header {
     @extend .container;
+}
+
+.page-block {
+    padding: 25px;
+}
+.page-block-header {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.post_nav {
+    margin-top: 20px;
 }
 
 .btn {
@@ -23,10 +39,13 @@
 
 // dota2/index.html
 // dota2/mosaics/index.html
+.slick-slide {
+    margin: 5px;
+}
 .slick-slide > img {
-    padding: 5px;
     width: 100%;
     cursor: pointer;
+    box-shadow: 2px 2px 2px 2px black;
 }
 .slick-carousel, .slick-carousel-nav {
     margin: 25px;
@@ -46,6 +65,17 @@
     .group-icon {
         margin-right: 10px;
         display: inline-block;
+    }
+    .group-icon {
+        box-shadow: 2px 2px 2px 1px black;
+    }
+    .patch-group {
+        margin-bottom: 40px;
+        
+        .group-name {
+            margin: 0;
+            font-size: 20px;
+        }
     }
 }
 

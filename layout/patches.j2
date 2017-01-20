@@ -12,7 +12,7 @@
 
 {% block main %}
 
-<ul class="listing clearfix">
+<ul class="listing clearfix list-unstyled">
 {% for res in resource.node.walk_resources_sorted_by_patch() %}
 <li>
     {{ render_patch_excerpt(res) }}

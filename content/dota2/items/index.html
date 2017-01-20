@@ -30,7 +30,6 @@ id: page-items
         <div class="shop shop-{{ column.id }}" id="{{ column.id }}"></div><br>
             {% for item in column.items -%}
             <a class="shop-item" href="/dota2/items/all.html#{{ item }}">
-                <div class="item-overlay overlay-hover"></div>
                 <div class="items-sprite-70x50 items-sprite-{{ item }}" id="{{ item }}"></div>
             </a>
             {%- endfor %}
