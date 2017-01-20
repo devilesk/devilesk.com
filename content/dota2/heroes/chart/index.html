@@ -1,0 +1,60 @@
+---
+extends: base.j2
+title: Dota 2 Hero Chart
+description: Dota 2 hero stats and properties chart. Based on the latest hero information taken directly from Dota 2 game files.
+active_menu: page-heroes
+header: Stats Table
+id: page-herochart
+page_script: heroes/chart
+---
+
+{% block css %}
+<style type="text/css">
+#chart-container {
+  padding: 20px;
+}
+#chart-title {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+.right-pad {
+  margin-right: 20px;
+}
+</style>
+{% endblock css %}
+
+{% block body %}
+    <div id="chart-container">
+        <label>Y Axis:</label>
+        <select id="yaxis-dropdown" class="right-pad" data-bind="options: attributes,
+                           optionsValue: 'id',
+                           optionsText: 'name',
+                           value: selectedY"></select>
+        <label>X Axis:</label>
+        <select id="xaxis-dropdown" class="right-pad" data-bind="options: attributes,
+                           optionsValue: 'id',
+                           optionsText: 'name',
+                           value: selectedX"></select>
+        <label>Hero Level:</label>
+        <select id="level-dropdown" class="right-pad" data-bind="value: selectedLevel, foreach: new Array(25)">
+            <option data-bind="text: $index() + 1, value: $index() + 1"></option>
+        </select>
+        <div id="chart-title"></div>
+        <canvas id="myChart"></canvas>
+        <label>Heroes:</label>
+        <button id="toggle-on" data-bind="click: toggleOn">Show All</button>
+        <button id="toggle-off" class="right-pad" data-bind="click: toggleOff">Hide All</button>
+        <label>Legend:</label>
+        <button id="toggle-legend" data-bind="click: toggleLegend, text: showLegend() ? 'Hide' : 'Show'"></button>
+    </div>
+      
+    {% block js %}
+        {{ super() }}
+        {% block scripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        {{ super() }}
+        {% endblock scripts %}
+    {% endblock js %}
+{% endblock body %}

@@ -20,7 +20,7 @@
     "watch": "npm run watch:js & npm run watch:css",
     "hyde:dev": "hyde gen -c site.yaml",
     "hyde:prod": "hyde gen -c site-prod.yaml",
-    "assetrev": "rm -r content/media && gulp asset-rev",
+    "assetrev": "rm -r content/media && gulp assetrev",
     "data": "python scripts/generate.py",
     "gen:dev": "npm run data && npm run build && npm run assetrev && npm run hyde:dev",
     "gen:prod": "npm run data && npm run build && npm run assetrev && npm run hyde:prod",

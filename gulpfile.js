@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var RevAll = require('gulp-rev-all');
 
-gulp.task('asset-rev', function () {
+gulp.task('assetrev', function () {
 
   return gulp
     .src(['assets/**'])
