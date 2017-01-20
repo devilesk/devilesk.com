@@ -15,6 +15,9 @@ var files = [
     './src/js/heroes/patchhistory.js',
     './src/js/apps/trivia.js',
     './src/js/apps/abilityTrivia.js',
+    './src/js/apps/abilitymatching.js',
+    './src/js/apps/hero-selection-trainer.js',
+    './src/js/apps/tread-switch-trainer.js',
     './src/js/mosaics/index.js'
 ];
 
@@ -24,6 +27,9 @@ var outputs = [
     'assets/js/heroes/patchhistory.js',
     'assets/js/apps/trivia.js',
     'assets/js/apps/abilityTrivia.js',
+    'assets/js/apps/abilitymatching.js',
+    'assets/js/apps/hero-selection-trainer.js',
+    'assets/js/apps/tread-switch-trainer.js',
     'assets/js/mosaics/index.js'
 ];
 

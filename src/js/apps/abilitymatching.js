@@ -1,5 +1,7 @@
+var $ = require('jquery');
+
 $(function () {
-    $.getJSON("/media/js/herodata.json", function (data) {
+    $.getJSON("/media/dota-json/herodata.json", function (data) {
         var heroes = Object.keys(data),
             herodata = data;
             
@@ -15,7 +17,7 @@ $(function () {
             $('#abilitybox_end').empty();
             $('#heroportrait').empty();
             $('#heroname').empty();
-			imgCount = _.filter(data.abilities, function (ability) { 
+			imgCount = data.abilities.filter(function (ability) { 
 				return ability.name != 'attribute_bonus' && ability.displayname != 'Empty' && ability.displayname != ''
 			}).length + 1;
 			

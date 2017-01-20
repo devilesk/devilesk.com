@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 $(function() {
     var NUM_ITEMS = 5,
         itemBasic = [],
@@ -8,7 +10,7 @@ $(function() {
         componentsList,
         answer;
 
-    $.getJSON("/media/js/itemdata.json", function(itemdata) {
+    $.getJSON("/media/dota-json/itemdata.json", function(itemdata) {
         delete itemdata['item_ward_dispenser'];
         delete itemdata['item_recipe_ward_dispenser'];
         
@@ -24,9 +26,11 @@ $(function() {
                     result.push('recipe');
                 }
             } else {
-                result = result.concat(_.reduce(_.map(itemdata[recipes[i]].ItemRequirements, getAllComponents), function(memo, l) {
-                    return memo.concat(l);
-                }, []));
+                result = result.concat(
+                    itemdata[recipes[i]].ItemRequirements.map(getAllComponents).reduce(function(memo, l) {
+                        return memo.concat(l);
+                    }, [])
+                );
             }
             return result;
         }
@@ -42,7 +46,7 @@ $(function() {
             if (itemdata[i].ItemRecipe) {
                 itemUpgrade.push({
                     "name": itemdata[i].ItemResult.replace('item_', ''),
-                    "components": _.map(itemdata[i].ItemRequirements, function(item) {
+                    "components": itemdata[i].ItemRequirements.map(function(item) {
                         return item.indexOf('item_recipe_') == -1 ? item.replace('item_', '') : 'recipe';
                     }),
                     "cost": itemdata[itemdata[i].ItemResult].itemcost,
@@ -57,7 +61,7 @@ $(function() {
             }
         }
         for (var i = 0; i < itemUpgrade.length; i++) {
-            var key = _.reduce(itemUpgrade[i].allComponents.sort(), function(memo, item) {
+            var key = itemUpgrade[i].allComponents.sort().reduce(function(memo, item) {
                 return memo + item;
             }, '');
             hashMapUpgrade[key] = itemUpgrade[i].name;
@@ -93,7 +97,7 @@ $(function() {
             return item.name;
         });
         answer = _.pluck(items, 'name');
-        components = _.reduce(items, function(memo, item) {
+        components = items.reduce(function(memo, item) {
             return memo.concat(item.allComponents);
         }, []);
         componentsList = [];
@@ -107,11 +111,13 @@ $(function() {
             $component.draggable({
                 snap: true,
                 stop: function(event, ui) {
+                    var self = this;
+                    
                     var snapped = $(this).data('ui-draggable').snapElements;
                     var snappedStart = $(this).data('snap-state');
 
                     // get difference between new snap state and old snap state
-                    snapDiff = _.pluck(_.filter(snapped, function(element, index) {
+                    snapDiff = _.pluck(snapped.filter(function(element, index) {
                         return !snapped[index].snapping == snappedStart[index].snapping;
                     }), 'item');
 
@@ -119,12 +125,12 @@ $(function() {
                     $(this).data('snap-state', $(this).data('ui-draggable').snapElements);
 
                     // update state of other components
-                    _.each(snapDiff, function(element) {
-                        updateSnapped(this, element);
-                    }, this);
+                    snapDiff.forEach(function(element) {
+                        updateSnapped(self, element);
+                    });
 
                     // get list of upgrade items
-                    var componentItems = _.map(componentsList, function(item) {
+                    var componentItems = componentsList.map(function(item) {
                         return item[0]
                     });
                     var completedUpgrades = [];
@@ -142,7 +148,7 @@ $(function() {
                         return $(this).data('upgradeName');
                     }).get();
                     if (completedUpgrades.length > 0) {
-                        _.each(completedUpgrades, function(item) {
+                        completedUpgrades.forEach(function(item) {
                             if (upgrades.indexOf(item) == -1) {
                                 var $upgrade = $('<img>').attr('src', 'http://cdn.dota2.com/apps/dota2/images/items/' + item + '_lg.png').addClass('upgrade').data('upgradeName', item);
                                 $('#upgrades-container').append($upgrade.hide().fadeIn(500));
@@ -161,7 +167,7 @@ $(function() {
                     }
 
                     // get list of unused components
-                    var singleComponents = _.reduce(componentsList, function(memo, item) {
+                    var singleComponents = componentsList.reduce(function(memo, item) {
                         if (!getUpgrade(item[0])) {
                             memo.push(item);
                         }
@@ -169,7 +175,7 @@ $(function() {
                     }, []);
 
                     // update combined class
-                    _.each(componentsList, function(element) {
+                    componentsList.forEach(function(element) {
                         if (singleComponents.indexOf(element) == -1) {
                             element.addClass('combined');
                         } else {
@@ -179,7 +185,7 @@ $(function() {
 
                     // check if finished
                     //if (_.difference(answer, completedUpgrades).length == 0 || (singleComponents.length == 0 && _.every(completedUpgrades, function(item) {
-                    if ((singleComponents.length == 0 && _.every(completedUpgrades, function(item) {
+                    if ((singleComponents.length == 0 && completedUpgrades.every(function(item) {
                             return _.find(itemUpgrade, function(i) {
                                 return i.name == item;
                             });
@@ -197,8 +203,8 @@ $(function() {
         }
 
         // init each component's snap state
-        _.each(componentsList, function($component) {
-            $component.data('snap-state', _.reduce(componentsList, function(memo, item) {
+        componentsList.forEach(function($component) {
+            $component.data('snap-state', componentsList.reduce(function(memo, item) {
                 if ($component != item) {
                     memo.push({
                         'item': item[0],
@@ -251,11 +257,11 @@ $(function() {
     }
 
     function getUpgrade(element) {
-        var items = _.map(getAllSnappedTo(element, [], []), function(item) {
+        var items = getAllSnappedTo(element, [], []).map(function(item) {
             return $(item).data('componentName');
         });
         items = items.sort();
-        var key = _.reduce(items, function(memo, item) {
+        var key = items.reduce(function(memo, item) {
             return memo + item;
         }, '');
         return hashMapUpgrade[key];
