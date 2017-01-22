@@ -1,9 +1,11 @@
 var $ = jQuery = require('jquery');
 var PhotoSwipe = require('photoswipe');
+var shuffle = require('../util/shuffle');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
 require('slick-carousel');
 
 var heroes = require('./heroes');
+heroes = shuffle(heroes);
 
 var slides = [];
 heroes.forEach(function(hero, index) {
@@ -15,6 +17,8 @@ heroes.forEach(function(hero, index) {
     $('.slick-carousel').append($thumbnail);
 });
 var carousel = $('.slick-carousel').slick({
+    prevArrow:"<button class='btn btn-xs btn-default prev'><span class='glyphicon glyphicon-menu-left'></span></button>",
+    nextArrow:"<button class='btn btn-xs btn-default next'><span class='glyphicon glyphicon-menu-right'></span></button>",
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 5,
@@ -39,6 +43,11 @@ var carousel = $('.slick-carousel').slick({
             }
         }
     ]
+});
+
+$('.slick-carousel').on('lazyLoaded', function(event, slick, direction){
+    console.log('lazyLoaded');
+    $('.slick-carousel').addClass('mosaics-carousel-initialized');
 });
 
 carousel.on('click', '.slick-slide', function(e) {

@@ -26,17 +26,13 @@
     </div>
 
     {% block footer %}
-    <footer>
-        <img width="80" height="80" src="{{ media_url_rev('images/footer.png') }}">
-        <p><a href="mailto:admin@devilesk.com">admin@devilesk.com</a></p>
-        <p>Copyright &copy; 2017 <a href="http://devilesk.com">devilesk.com</a></p>
-    </footer>
+    {% include "includes/footer.j2" %}
     {% endblock footer%}
-
+    
+    {% block analytics %}
+    {% include "includes/analytics.j2" %}
+    {% endblock analytics %}
     {% block js %}
-        {% block analytics %}
-        {% include "includes/analytics.j2" %}
-        {% endblock analytics %}
     {% endblock js %}
 {% endblock body %}
 </body>

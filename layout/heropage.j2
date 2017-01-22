@@ -3,166 +3,163 @@
 {% from "macros/get_value_string.j2" import get_value_string %}
     
 {% block header %}
+<div class="container">
     {% if resource.meta.header %}
-    <h2>{{ resource.meta.header }}<small style="margin-left:20px">{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}Melee{%- endif %}{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}Ranged{%- endif %}{% if herodata[resource.meta.hero].role and herodata[resource.meta.hero].role != '' %}, {{ herodata[resource.meta.hero].role.replace(',', ', ') }}{%- endif %}</small></h2>
+    <h2 class="pull-left">{{ resource.meta.header }}</h2>
+    <h2 class="pull-left hero_roles"><small>{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}Melee{%- endif %}{% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}Ranged{%- endif %}{% if herodata[resource.meta.hero].role and herodata[resource.meta.hero].role != '' %}, {{ herodata[resource.meta.hero].role.replace(',', ', ') }}{%- endif %}</small></h2>
     {% endif %}
+</div>
 {% endblock header %}
                 
 {% block main %}
-<div class="hero-page">
-    <div class="col-md-4">
+<div class="hero-page row">
+    <div class="col-md-4 col-md-push-8">
         <div class="row">
-            <div class="col-md-12">
-                <div class="col-lg-8">
-                    <img class="img-rounded" src="http://media.steampowered.com/apps/dota2/images/heroes/{{ resource.meta.hero.replace('npc_dota_hero_', '') }}_lg.png">
+            <div class="col-md-12 text-center">
+                <div class="col-lg-8 form-group">
+                    <img class="hero_portrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/heroes/{{ resource.meta.hero.replace('npc_dota_hero_', '') }}_lg.png">
                 </div>
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-4 form-group">
                     {% if herodata[resource.meta.hero].team.lower() == 'good' %}
                     <img src="{{ media_url_rev('/images/pip_radiant.png') }}">
-                    <span>Radiant</span>
+                    <div>Radiant</div>
                     {%- endif %}
                     {% if herodata[resource.meta.hero].team.lower() == 'bad' %}
                     <img src="{{ media_url_rev('/images/pip_dire.png') }}">
-                    <span>Dire</span>
+                    <div>Dire</div>
                     {%- endif %}
                 </div>
             </div>
         </div>
         <div class="col-md-12 form-group">
-            <div class="col-xs-4">
-                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_STRENGTH' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_str.png') }}">
-                <div class="text-center">
+            <div class="col-xs-4 text-center">
+                <img style="{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_STRENGTH' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_str.png') }}">
+                <div>
                     <span>{{ herodata[resource.meta.hero].attributebasestrength }}</span> + <span>{{ herodata[resource.meta.hero].attributestrengthgain }}</span>
                 </div>
             </div>
-            <div class="col-xs-4">
-                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_AGILITY' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_agi.png') }}">
-                <div class="text-center">
+            <div class="col-xs-4 text-center">
+                <img style="{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_AGILITY' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_agi.png') }}">
+                <div>
                     <span>{{ herodata[resource.meta.hero].attributebaseagility }}</span> + <span>{{ herodata[resource.meta.hero].attributeagilitygain }}</span>
                 </div>
             </div>
-            <div class="col-xs-4">
-                <img style="display:block;margin:auto;{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_INTELLECT' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_int.png') }}">
-                <div class="text-center">
+            <div class="col-xs-4 text-center">
+                <img style="{% if herodata[resource.meta.hero].attributeprimary != 'DOTA_ATTRIBUTE_INTELLECT' %}opacity:.33;{%- endif %}" src="{{ media_url_rev('/images/pip_int.png') }}">
+                <div>
                     <span>{{ herodata[resource.meta.hero].attributebaseintelligence }}</span> + <span>{{ herodata[resource.meta.hero].attributeintelligencegain }}</span>
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>Movement Speed</td>
-                        <td class="text-right">{{ herodata[resource.meta.hero].movementspeed }}</td>
-                    </tr>
-                    <tr>
-                        <td>Turn Rate</td>
-                        <td class="text-right">{{ herodata[resource.meta.hero].movementturnrate }}</td>
-                    </tr>
-                    <tr>
-                        <td>Day/Night Sight Range</td>
-                        <td class="text-right">{{ herodata[resource.meta.hero].visiondaytimerange }}/{{ herodata[resource.meta.hero].visionnighttimerange }}</td>
-                    </tr>
-                    <tr>
-                        <td>Attack Range</td>
-                        <td class="text-right">{{ herodata[resource.meta.hero].attackrange }}</td>
-                    </tr>
-                    <tr>
-                        <td>Missile Speed</td>
-                        {% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}
-                        <td class="text-right">&mdash;</td>
-                        {%- endif %}
-                        {% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}
-                        <td class="text-right">{{ herodata[resource.meta.hero].projectilespeed }}</td>
-                        {%- endif %}
-                    </tr>
-                    <tr>
-                        <td>Attack Point</td>
-                        <td class="text-right">{{ herodata[resource.meta.hero].attackpoint }}</td>
-                    </tr>
-                    <tr>
-                        <td>Base Attack Time</td>
-                        <td class="text-right">{{ herodata[resource.meta.hero].attackrate }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-12">
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>Level</th>
-                        <th class="text-right">1</th>
-                        <th class="text-right">16</th>
-                        <th class="text-right">25</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Health</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['1']['health'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['16']['health'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['25']['health'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mana</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['1']['mana'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['16']['mana'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['25']['mana'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Min Damage</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['1']['damagemin'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['16']['damagemin'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['25']['damagemin'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Max Damage</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['1']['damagemax'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['16']['damagemax'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['25']['damagemax'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Armor</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['1']['armor'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['16']['armor'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['25']['armor'] }}</td>
-                    </tr>
-                    <tr>
-                        <td><small>Attacks / Second</small></td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['1']['attackspersecond'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['16']['attackspersecond'] }}</td>
-                        <td class="text-right">{{ herostat[resource.meta.hero]['25']['attackspersecond'] }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-12">
-            <table class="table table-condensed">
-                <thead>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Movement Speed</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].movementspeed }}</td>
+                </tr>
+                <tr>
+                    <td>Turn Rate</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].movementturnrate }}</td>
+                </tr>
+                <tr>
+                    <td>Day/Night Sight Range</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].visiondaytimerange }}/{{ herodata[resource.meta.hero].visionnighttimerange }}</td>
+                </tr>
+                <tr>
+                    <td>Attack Range</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].attackrange }}</td>
+                </tr>
+                <tr>
+                    <td>Missile Speed</td>
+                    {% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_MELEE_ATTACK' %}
+                    <td class="text-right">&mdash;</td>
+                    {%- endif %}
+                    {% if herodata[resource.meta.hero].attacktype == 'DOTA_UNIT_CAP_RANGED_ATTACK' %}
+                    <td class="text-right">{{ herodata[resource.meta.hero].projectilespeed }}</td>
+                    {%- endif %}
+                </tr>
+                <tr>
+                    <td>Attack Point</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].attackpoint }}</td>
+                </tr>
+                <tr>
+                    <td>Base Attack Time</td>
+                    <td class="text-right">{{ herodata[resource.meta.hero].attackrate }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
                     <th>Level</th>
-                    <th colspan="2">Talents</th>
-                </thead>
-                <tbody>
-                    {% for talentgroup in herodata[resource.meta.hero].talents -%}
-                    <tr>
-                    <td>{{ loop.index0 * 5 + 10 }}</td>
-                    {% for talent in talentgroup -%}
-                        <td>{{ tooltipdata[talent.name].DisplayName }}</td>
-                    {%- endfor %}
-                    </tr>
-                    {%- endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="hero-bio col-md-12">
-            {% if tooltipdata[resource.meta.hero].bio and tooltipdata[resource.meta.hero].bio != '' %}
+                    <th class="text-right">1</th>
+                    <th class="text-right">16</th>
+                    <th class="text-right">25</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Health</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['1']['health'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['16']['health'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['25']['health'] }}</td>
+                </tr>
+                <tr>
+                    <td>Mana</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['1']['mana'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['16']['mana'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['25']['mana'] }}</td>
+                </tr>
+                <tr>
+                    <td>Min Damage</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['1']['damagemin'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['16']['damagemin'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['25']['damagemin'] }}</td>
+                </tr>
+                <tr>
+                    <td>Max Damage</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['1']['damagemax'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['16']['damagemax'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['25']['damagemax'] }}</td>
+                </tr>
+                <tr>
+                    <td>Armor</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['1']['armor'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['16']['armor'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['25']['armor'] }}</td>
+                </tr>
+                <tr>
+                    <td><small>Attacks / Second</small></td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['1']['attackspersecond'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['16']['attackspersecond'] }}</td>
+                    <td class="text-right">{{ herostat[resource.meta.hero]['25']['attackspersecond'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-condensed">
+            <thead>
+                <th>Level</th>
+                <th colspan="2">Talents</th>
+            </thead>
+            <tbody>
+                {% for talentgroup in herodata[resource.meta.hero].talents -%}
+                <tr>
+                <td>{{ loop.index0 * 5 + 10 }}</td>
+                {% for talent in talentgroup -%}
+                    <td>{{ tooltipdata[talent.name].DisplayName }}</td>
+                {%- endfor %}
+                </tr>
+                {%- endfor %}
+            </tbody>
+        </table>
+        <div class="hero-bio">
+            {% if tooltipdata[resource.meta.hero].Bio and tooltipdata[resource.meta.hero].Bio != '' %}
                 <div class="text-center"><strong>Bio</strong></div>
-                <small>{{ paragraphs(tooltipdata[resource.meta.hero].bio.replace('--', '&mdash;')) }}</small>
+                <small>{{ paragraphs(tooltipdata[resource.meta.hero].Bio.replace('--', '&mdash;')) }}</small>
             {% endif %}
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 col-md-pull-4">
         {% for ability in herodata[resource.meta.hero].abilities -%}
         {% if ability.name != 'attribute_bonus' %}
         <div class="ability panel panel-default">
@@ -172,36 +169,49 @@
             {% if ability.abilityunitdamagetype %}<span class="col-md-6"><strong>Damage: </strong>{{ get_damage_type(ability.name, ability.abilityunitdamagetype) }}</span>{% endif %}
           </div>
           <div class="panel-body">
-            <div class="col-md-2"><img class="abilityportrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
+            <div class="col-md-2"><img class="ability_portrait img-rounded" src="http://media.steampowered.com/apps/dota2/images/abilities/{{ ability.name }}_hp2.png"></div>
             <div class="col-md-10">{{ format_tooltip(tooltipdata[ability.name].Description.replace('\\n', '<br>'), ability.attributes) }}</div>
           </div>
-          <table class="abilitydata table">
-            <tbody>
-            {% if ability.cooldown and any(ability.cooldown) %}
-              <tr>
-                <td>COOLDOWN:</td>
-                <td>{{ get_value_string(ability.cooldown) }}</td>
-              </tr>
-            {%- endif %}
-            {% if ability.manacost and any(ability.manacost) %}
-              <tr>
-                <td>MANA COST:</td>
-                <td>{{ get_value_string(ability.manacost) }}</td>
-              </tr>
-            {%- endif %}
-            {% for attribute in ability.attributes -%}
-            {% if attribute.tooltip %}
-              <tr>
-                <td>{{ attribute.tooltip.replace('\\n', '<br>') }}</td>
-                <td>{{ get_value_string(attribute.value) }}</td>
-              </tr>
-            {%- endif %}
-            {%- endfor %}
-            </tbody>
-          </table>
+            <table class="abilitydata table">
+                <tbody>
+                    {% if ability.cooldown and any(ability.cooldown) %}
+                    <tr>
+                        <td>COOLDOWN:</td>
+                        <td>{{ get_value_string(ability.cooldown) }}</td>
+                    </tr>
+                    {%- endif %}
+                    {% if ability.manacost and any(ability.manacost) %}
+                    <tr>
+                        <td>MANA COST:</td>
+                        <td>{{ get_value_string(ability.manacost) }}</td>
+                    </tr>
+                    {%- endif %}
+                {% for attribute in ability.attributes -%}
+                    {% if attribute.tooltip %}
+                    <tr>
+                        <td>{{ attribute.tooltip.replace('\\n', '<br>') }}</td>
+                        <td>{{ get_value_string(attribute.value) }}</td>
+                    </tr>
+                    {%- endif %}
+                {%- endfor %}
+                </tbody>
+            </table>
         </div>
         {%- endif %}
         {%- endfor %}
+    </div>
+    <div class="col-md-12 patch-history">
+        <h3>Patch History</h3>
+        <table class="patch-history-table table">
+            <tbody>
+            {% for row in heropatchdata[resource.meta.hero.replace('npc_dota_hero_', '')] %}
+                <tr class="patch-history-{{ row[1] }}">
+                <td>{{ row[0] }}</td>
+                <td>{{ row[2] }}</td>
+                </tr>
+            {%- endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {%- endblock main %}

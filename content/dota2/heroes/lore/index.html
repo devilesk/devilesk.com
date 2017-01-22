@@ -7,32 +7,34 @@ header: Lore
 ---
 
 {% block container %}
-<div class="col-md-9">
-{% for hero in herolore -%}
-  <div class="hero_section">
-    <h2 id="{{ hero.id }}">{{ hero.displayname }}</h2>
-    {% for paragraph in hero.bio -%}
-      <p>{{ paragraph }}</p>
+<div class="row">
+    <div class="col-md-9">
+    {% for hero in herolore -%}
+      <div class="hero_section">
+        <h2 id="{{ hero.id }}">{{ hero.displayname }}</h2>
+        {% for paragraph in hero.bio -%}
+          <p>{{ paragraph }}</p>
+        {%- endfor %}
+      </div>
     {%- endfor %}
-  </div>
-{%- endfor %}
-</div>
+    </div>
 
-<div class="col-md-3">
-  <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
-    <ul class="nav bs-docs-sidenav">
-    {% for menu in heroloremenu -%}
-      <li>
-        <a href="#{{ menu.data[0].id }}">{{ menu.name }}</a>
-        <ul class="nav" data-bind="foreach: data">
-        {% for item in menu.data -%}
-          <li><a href="#{{ item.id }}">{{ item.displayname }}</a></li>
+    <div class="col-md-3">
+      <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+        <ul class="nav bs-docs-sidenav">
+        {% for menu in heroloremenu -%}
+          <li>
+            <a href="#{{ menu.data[0].id }}">{{ menu.name }}</a>
+            <ul class="nav" data-bind="foreach: data">
+            {% for item in menu.data -%}
+              <li><a href="#{{ item.id }}">{{ item.displayname }}</a></li>
+            {%- endfor %}
+            </ul>
+          </li>
         {%- endfor %}
         </ul>
-      </li>
-    {%- endfor %}
-    </ul>
-    <a class="back-to-top" href="#top">Back to top</a>
-  </div>
+        <a class="back-to-top" href="#top">Back to top</a>
+      </div>
+    </div>
 </div>
 {% endblock container %}

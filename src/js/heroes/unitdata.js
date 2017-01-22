@@ -1,3 +1,6 @@
+var $ = jQuery = require('jquery');
+require('bootstrap');
+
 $(function () {
     var heroData = {};
     
@@ -300,7 +303,7 @@ $(function () {
     };
   }
 
-  $.getJSON("/media/js/unitdata.json", function (data) {
+  $.getJSON("/media/dota-json/unitdata.json", function (data) {
     heroData = data;
     ko.applyBindings(new TableViewModel());
   });

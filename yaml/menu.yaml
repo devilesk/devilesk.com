@@ -1,34 +1,6 @@
 -   css_class: page-webapps
     description: Web Apps Home
     name: WEB APPS
-    submenu:
-    -   name: Drawable Map
-        type: page
-        url: /dota2/apps/drawablemap
-    -   name: Interactive Map
-        type: page
-        url: /dota2/apps/interactivemap
-    -   name: Hero Calculator
-        type: page
-        url: /dota2/apps/hero-calculator
-    -   name: Hero Selection Trainer
-        type: page
-        url: /dota2/apps/hero-selection-trainer
-    -   name: Ability Matching
-        type: page
-        url: /dota2/apps/abilitymatching
-    -   name: Item Scramble
-        type: page
-        url: /dota2/apps/item-scramble
-    -   name: Layout Editor
-        type: page
-        url: /dota2/apps/layout-editor
-    -   name: Replay Viewer
-        type: page
-        url: /dota2/apps/replay/viewer
-    -   name: Tread Switch Trainer
-        type: page
-        url: /dota2/apps/tread-switch-trainer
     type: node
     url: dota2/apps
 -   css_class: page-interactivemap
@@ -70,22 +42,6 @@
 -   css_class: page-triviaapps
     description: Trivia Home
     name: TRIVIA
-    submenu:
-    -   name: Ability Trivia
-        type: page
-        url: /dota2/apps/trivia/ability
-    -   name: Ability Name Trivia
-        type: page
-        url: /dota2/apps/trivia/ability-name
-    -   name: Hero Name Trivia
-        type: page
-        url: /dota2/apps/trivia/hero-name
-    -   name: Item Cost Trivia
-        type: page
-        url: /dota2/apps/trivia/item-cost
-    -   name: Item Name Trivia
-        type: page
-        url: /dota2/apps/trivia/item-name
     type: node
     url: dota2/apps/trivia
 -   css_class: page-blog

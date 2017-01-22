@@ -1,4 +1,5 @@
-var $ = require('jquery');
+var $ = jQuery = require('jquery');
+require('bootstrap');
 var KTLIB = require('../ktlib');
 var QueryString = require('../util/queryString');
 var query_string = QueryString.query_string;
@@ -25,7 +26,7 @@ $(function () {
       var loadedCount = 0;
       heroes.forEach(function (hero) {
         var img = new Image();
-        img.src = 'http://dev.devilesk.com/media/images/miniheroes/' + hero + '.png';
+        img.src = '/media/images/miniheroes/' + hero + '.png';
         icons[hero] = img;
         img.onload = checkLoaded;
       });

@@ -106,7 +106,7 @@ header: Hero Layout Editor
                         <input type="button" id="export-layout" value="Export" data-bind="click: exportLayout" title="Generates layout file download." />
                         <a id="download-link" class="btn" download="fulldeck_layout.txt" data-bind="attr: { href: downloadLink}, visible: downloadLink() != ''" title="Exported layout file download link." style="display:none">Download</a>
                     </div>
-                    <div class="control-group bottom-buffer">
+                    <div class="control-group bottom-buffer" style="display:none">
                         <input type="button" id="share-layout" value="Share" data-bind="click: shareLayout" title="Generates a shareable link to this layout." />
                         <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input type="text" id="share-link" class="ui-spinner-input" value="" data-bind="value: shareLink, visible: shareId() != ''" title="Shared layout file link." onclick="this.select()"/></span>
                     </div>

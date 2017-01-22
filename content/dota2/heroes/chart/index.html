@@ -8,7 +8,7 @@ id: page-herochart
 page_script: heroes/chart
 ---
 
-{% block css %}
+{% block page_head %}
 <style type="text/css">
 #chart-container {
   padding: 20px;
@@ -22,9 +22,9 @@ page_script: heroes/chart
   margin-right: 20px;
 }
 </style>
-{% endblock css %}
+{% endblock page_head %}
 
-{% block body %}
+{% block main %}
     <div id="chart-container">
         <label>Y Axis:</label>
         <select id="yaxis-dropdown" class="right-pad" data-bind="options: attributes,
@@ -48,13 +48,10 @@ page_script: heroes/chart
         <label>Legend:</label>
         <button id="toggle-legend" data-bind="click: toggleLegend, text: showLegend() ? 'Hide' : 'Show'"></button>
     </div>
-      
-    {% block js %}
-        {{ super() }}
-        {% block scripts %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-        {{ super() }}
-        {% endblock scripts %}
-    {% endblock js %}
-{% endblock body %}
+{% endblock main %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+{{ super() }}
+{% endblock scripts %}

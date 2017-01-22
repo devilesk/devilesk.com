@@ -4,12 +4,13 @@ title: Dota 2 Hero Stats Table
 description: Dota 2 Hero Stats Sortable Table. Based on the latest hero information taken directly from Dota 2 game files.
 active_menu: page-heroes
 header: Stats Table
+page_script: heroes/herodata
 id: page-herodata
 ---
 
-  {% block page_head %}
-  <link rel="stylesheet" href="{{ media_url_rev('css/heroes_32x18_sprite.css') }}">
-  {% endblock page_head %}
+{% block page_head %}
+<link rel="stylesheet" href="{{ media_url_rev('spritesheets/css/heroes_32x18_sprite_jpg.css') }}">
+{% endblock page_head %}
   
 {% block content %}
 {% block breadcrumbs %}{{ super() }}{% endblock breadcrumbs %}
@@ -123,7 +124,7 @@ Row count: <span data-bind="text: data().length"></span>
 </div>
 {% endblock content %}
 
-  {% block scripts %}
+{% block scripts %}
     <script id="string-filter" type="text/html">
         <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
     </script>
@@ -149,6 +150,5 @@ Row count: <span data-bind="text: data().length"></span>
         </div>
     </script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-	<script src="/dota2/apps/knowledgetrainer/knowledgetrainer.core.js"></script>
-	<script src="herodata.js"></script>
-  {% endblock scripts %}
+	{{ super() }}
+{% endblock scripts %}

@@ -13,8 +13,24 @@
 @import 'items';
 @import 'itemsall';
 
+.social-icon {
+    fill: currentColor;
+}
+
+.hero_portrait, .ability_portrait {
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.hero_roles {
+    margin-left: 20px;
+}
+
+.hero_section {
+    margin-bottom: 60px;
+}
+
 .navbar-default {
-    box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .container-fluid header {
@@ -45,15 +61,49 @@
 .slick-slide > img {
     width: 100%;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 2px black;
+    box-shadow: 0px 1px 1px 1px black;
 }
-.slick-carousel, .slick-carousel-nav {
+.slick-carousel-nav {
     margin: 25px;
+}
+.slick-carousel {
+    margin: 25px 40px;
+}
+.slick-arrow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border: 1px solid #242628;
+    
+    &.prev {
+        left: -40px;
+    }
+    
+    &.next {
+        right: -40px;
+    }
+}
+.mosaics-carousel {
+    opacity: 0;
+    
+    &.mosaics-carousel-initialized {
+        opacity: 1;
+        transition: opacity 0.25s ease-in, min-height 0.25s ease-in;
+        min-height: inherit;
+    }
+    min-height: 124px;
 }
 
 .hero-page {
     .hero-bio p{
         text-indent: 15px;
+    }
+}
+
+.page-patches {
+    time {
+        display: block;
+        margin-top: $line-height-computed;
     }
 }
 
@@ -67,7 +117,7 @@
         display: inline-block;
     }
     .group-icon {
-        box-shadow: 2px 2px 2px 1px black;
+        box-shadow: 0px 1px 1px 1px black;
     }
     .patch-group {
         margin-bottom: 40px;
@@ -114,21 +164,8 @@
         cursor:hand;
         cursor:pointer;
     }
-    #info {
-        padding-top:10px;
-        text-align:center;
-        display:inline-block;
-    }
     #hero_name {
-        min-height:1.1em;
-    }
-    #start, #stop {
-        margin-top:20px;
-    }
-    #start, #stop, #layout {
-        width:250px;
-        margin-left:auto;
-        margin-right:auto;
+        min-height:2.2em;
     }
 }
 

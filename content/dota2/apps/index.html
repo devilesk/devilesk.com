@@ -8,7 +8,7 @@ header: Web Apps
                 
 {% block main %}
 <div class="row">
-    <h3 class="col-md-12">Tools</h3>
+    <h3 class="col-md-12" id="tools">Tools</h3>
     {% for column in apps[0] -%}
     <div class="col-md-6">
         {% for item in column -%}
@@ -29,7 +29,7 @@ header: Web Apps
     <hr class="col-md-12">
 </div>
 <div class="row">
-    <h3 class="col-md-12">Fun</h3>
+    <h3 class="col-md-12" id="fun">Fun</h3>
     {% for column in apps[1] -%}
     <div class="col-md-6">
         {% for item in column -%}
@@ -50,7 +50,7 @@ header: Web Apps
     <hr class="col-md-12">
 </div>
 <div class="row">
-    <h3 class="col-md-12">Trivia</h3>
+    <h3 class="col-md-12" id="trivia">Trivia</h3>
     {% for column in apps[2] -%}
     <div class="col-md-6">
         {% for item in column -%}
@@ -71,7 +71,7 @@ header: Web Apps
     <hr class="col-md-12">
 </div>
 <div class="row">
-    <h3 class="col-md-12">Archive</h3>
+    <h3 class="col-md-12" id="archive">Archive</h3>
     {% for column in apps[3] -%}
     <div class="col-md-6">
         {% for item in column -%}

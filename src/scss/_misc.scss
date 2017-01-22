@@ -34,5 +34,5 @@ table.highlight-row tbody tr:hover {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -180px; /* the bottom margin is the negative value of the footer's height */
+	margin: 0 auto #{-($footer-height + $footer-top-margin)}; /* the bottom margin is the negative value of the footer's height */
 }

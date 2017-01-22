@@ -4,11 +4,9 @@ title: Dota 2 Unit Data
 description: Dota 2 Unit Stats Sortable Table. Up-to-date unit information taken directly from Dota 2 game files.
 active_menu: page-heroes
 header: Unit Data
+page_script: heroes/unitdata
 ---
 
-  {% block page_head %}
-  <link rel="stylesheet" href="{{ media_url_rev('css/heroes.css') }}">
-  {% endblock page_head %}
 {% block main %}
 
 <div class="row">
@@ -96,7 +94,8 @@ Row count: <span data-bind="text: data().length"></span>
 </div>
 </div>
 {% endblock main %}
-  {% block scripts %}
+
+{% block scripts %}
     <script id="string-filter" type="text/html">
         <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
     </script>
@@ -121,6 +120,6 @@ Row count: <span data-bind="text: data().length"></span>
             <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
         </div>
     </script>
-	<script src="{{ media_url_rev('js/libs/knockout-2.3.0.js') }}"></script>
-	<script src="{{ media_url_rev('js/herodata/unitdata.js') }}"></script>
-  {% endblock scripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    {{ super() }}
+{% endblock scripts %}

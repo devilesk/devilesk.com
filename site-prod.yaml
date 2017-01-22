@@ -2,9 +2,11 @@ base_url: /
 context:
     data:
         tweet_via: devilesk
+        github_site_repo: https://github.com/devilesk/devilesk.com
     providers:
         tooltipdata: data/tooltipdata.yaml
         herodata: data/herodata.yaml
+        heropatchdata: data/heropatchdata.yaml
         herodatalist: data/herodatalist.yaml
         herostat: data/herodata_stats.yaml
         shoplayout: data/shoplayout.yaml

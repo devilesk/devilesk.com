@@ -1,10 +1,22 @@
 footer, .push {
-	text-align:center;
-	height: 150px; /* .push must be the same height as .footer */
-	font-size:8pt;
-    margin-top:30px;
+    text-align:center;
+    height: $footer-height; /* .push must be the same height as .footer */
+    font-size: 14px;
+    margin-top: $footer-top-margin;
 }
-footer > img {
-	display:block;
-	margin:auto;
+footer {
+    .social-link {
+        display: inline-block;
+        vertical-align: text-top;
+        padding-left: 5px;
+    }
+    a {
+        color: $text-color;
+        
+        &:hover {
+            color: darken($text-color, 20%);
+        }
+    }
+    border-top: 1px solid #242628;
+    padding: 20px;
 }

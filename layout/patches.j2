@@ -3,10 +3,14 @@
 {% macro render_patch_excerpt(res, class=None) %}
 {% refer to res.relative_path as post %}
 <article {{'class='~class if class }}>
-<h3><a href="{{ content_url(res.url.rstrip('.html')) }}">{{ res.meta.patch }}</a></h3>
+<div class="col-xs-6 col-sm-2">
+    <h3><a href="{{ content_url(res.url.rstrip('.html')) }}">{{ res.meta.patch }}</a></h3>
+</div>
+<div class="col-xs-6 col-sm-2">
 <time datetime="{{ res.meta.created.strftime('%Y-%m-%d') }}">
     {{ res.meta.created.strftime('%a, %d %b %Y') }}
 </time>
+</div>
 </article>
 {% endmacro %}
 
@@ -15,7 +19,7 @@
 <ul class="listing clearfix list-unstyled">
 {% for res in resource.node.walk_resources_sorted_by_patch() %}
 <li>
-    {{ render_patch_excerpt(res) }}
+    {{ render_patch_excerpt(res, 'row') }}
 </li>
 {% endfor %}
 </ul>

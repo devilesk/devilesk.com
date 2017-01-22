@@ -1,4 +1,5 @@
-var $ = require('jquery');
+var $ = jQuery = require('jquery');
+require('bootstrap');
 
 $(function () {
     $.getJSON("/media/dota-json/herodata.json", function (data) {

@@ -16,6 +16,12 @@ def main():
     with open(os.path.join(sys.path[0], '../data/herodata.yaml'), 'w') as f:
         f.write(yaml.safe_dump(herodata))
 
+    with open(os.path.join(sys.path[0], '../data/heropatchdata.json'), 'r') as f:
+        heropatchdata = json.loads(f.read())
+        
+    with open(os.path.join(sys.path[0], '../data/heropatchdata.yaml'), 'w') as f:
+        f.write(yaml.safe_dump(heropatchdata))
+
     print('loaded')
 
     data = {}

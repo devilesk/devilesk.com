@@ -9,173 +9,181 @@ id: page-hero-selection-trainer
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="{{ media_url_rev('css/heroes_64x36_sprite.css') }}">
+<link rel="stylesheet" href="{{ media_url_rev('spritesheets/css/heroes_64x36_sprite_jpg.css') }}">
 {% endblock page_head %}
 
 {% block main %}
-<div class="hero_wrapper col-md-12">
-  <div class="hero_page col-md-4">
-    <div class="hero_section">
-      <div class="hero heroes-sprite-earthshaker heroes-sprite-64x36" title="Earthshaker" id="h_earthshaker"></div>
-      <div class="hero heroes-sprite-sven heroes-sprite-64x36" title="Sven" id="h_sven"></div>
-      <div class="hero heroes-sprite-tiny heroes-sprite-64x36" title="Tiny" id="h_tiny"></div>
-      <div class="hero heroes-sprite-kunkka heroes-sprite-64x36" title="Kunkka" id="h_kunkka"></div>
-      <div class="hero heroes-sprite-beastmaster heroes-sprite-64x36" title="Beastmaster" id="h_beastmaster"></div>
-      <br>
-      <div class="hero heroes-sprite-dragon_knight heroes-sprite-64x36" title="Dragon Knight" id="h_dragon_knight"></div>
-      <div class="hero heroes-sprite-rattletrap heroes-sprite-64x36" title="Clockwerk" id="h_rattletrap"></div>
-      <div class="hero heroes-sprite-omniknight heroes-sprite-64x36" title="Omniknight" id="h_omniknight"></div>
-      <div class="hero heroes-sprite-huskar heroes-sprite-64x36" title="Huskar" id="h_huskar"></div>
-      <div class="hero heroes-sprite-alchemist heroes-sprite-64x36" title="Alchemist" id="h_alchemist"></div>
-      <br>
-      <div class="hero heroes-sprite-brewmaster heroes-sprite-64x36" title="Brewmaster" id="h_brewmaster"></div>
-      <div class="hero heroes-sprite-treant heroes-sprite-64x36" title="Treant Protector" id="h_treant"></div>
-      <div class="hero heroes-sprite-wisp heroes-sprite-64x36" title="Io" id="h_wisp"></div>
-      <div class="hero heroes-sprite-centaur heroes-sprite-64x36" title="Centaur Warrunner" id="h_centaur"></div>
-      <div class="hero heroes-sprite-shredder heroes-sprite-64x36" title="Timbersaw" id="h_shredder"></div>
-      <br>
-      <div class="hero heroes-sprite-bristleback heroes-sprite-64x36" title="Bristleback" id="h_bristleback"></div>
-      <div class="hero heroes-sprite-tusk heroes-sprite-64x36" title="Tusk" id="h_tusk"></div>
-      <div class="hero heroes-sprite-elder_titan heroes-sprite-64x36" title="Elder Titan" id="h_elder_titan"></div>
-      <div class="hero heroes-sprite-legion_commander heroes-sprite-64x36" title="Legion Commander" id="h_legion_commander"></div>
-      <div class="hero heroes-sprite-earth_spirit heroes-sprite-64x36" title="Earth Spirit" id="h_earth_spirit"></div>
-      <br>
-      <div class="hero heroes-sprite-phoenix heroes-sprite-64x36" title="Phoenix" id="h_phoenix"></div>
+<div class="row">
+    <div id="info" class="col-md-3 col-md-push-9">
+        <h2 id="hero_name"></h2>
+        <span id="minutes">00</span>:<span id="seconds">00</span>.<span id="hundredthseconds">0</span>
+        <div style="margin-top:20px"><h4 id='progress'>Progress: </h4></div>
+        <div><h4 id='streak'>Current Streak: 0</h4></div>
+        <div><h4 id='longeststreak'>Longest Streak: 0</h4></div>
+        <div><h4 id='incorrect'>Incorrect: 0</h4></div>
+        <div class="form-group">
+            <label for="layout">Layout</label>
+            <select id="layout" class="form-control" disabled>
+              <option value="normal">All Pick</option>
+              <option value="captain" selected>Captain's Mode</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button id="start" class="btn btn-default btn-block">Start</button>
+        </div>
+        <div class="form-group">
+            <button id="stop" class="btn btn-default btn-block" style="display:none">Quit</button>
+        </div>
     </div>
-    <div class="hero_section">
-      <div class="hero heroes-sprite-axe heroes-sprite-64x36" title="Axe" id="h_axe"></div>
-      <div class="hero heroes-sprite-pudge heroes-sprite-64x36" title="Pudge" id="h_pudge"></div>
-      <div class="hero heroes-sprite-sand_king heroes-sprite-64x36" title="Sand King" id="h_sand_king"></div>
-      <div class="hero heroes-sprite-slardar heroes-sprite-64x36" title="Slardar" id="h_slardar"></div>
-      <div class="hero heroes-sprite-tidehunter heroes-sprite-64x36" title="Tidehunter" id="h_tidehunter"></div>
-      <br>
-      <div class="hero heroes-sprite-skeleton_king heroes-sprite-64x36" title="Wraith King" id="h_skeleton_king"></div>
-      <div class="hero heroes-sprite-life_stealer heroes-sprite-64x36" title="Lifestealer" id="h_life_stealer"></div>
-      <div class="hero heroes-sprite-night_stalker heroes-sprite-64x36" title="Night Stalker" id="h_night_stalker"></div>
-      <div class="hero heroes-sprite-doom_bringer heroes-sprite-64x36" title="Doom" id="h_doom_bringer"></div>
-      <div class="hero heroes-sprite-spirit_breaker heroes-sprite-64x36" title="Spirit Breaker" id="h_spirit_breaker"></div>
-      <br>
-      <div class="hero heroes-sprite-lycan heroes-sprite-64x36" title="Lycan" id="h_lycan"></div>
-      <div class="hero heroes-sprite-chaos_knight heroes-sprite-64x36" title="Chaos Knight" id="h_chaos_knight"></div>
-      <div class="hero heroes-sprite-undying heroes-sprite-64x36" title="Undying" id="h_undying"></div>
-      <div class="hero heroes-sprite-magnataur heroes-sprite-64x36" title="Magnus" id="h_magnataur"></div>
-      <div class="hero heroes-sprite-abaddon heroes-sprite-64x36" title="Abaddon" id="h_abaddon"></div>
-      <div class="hero heroes-sprite-abyssal_underlord heroes-sprite-64x36" title="Underlord" id="h_abyssal_underlord"></div>
+    <div class="hero_wrapper col-md-9 col-md-pull-3">
+        <div class="hero_page col-md-4">
+            <div class="hero_section">
+              <div class="hero heroes-sprite-earthshaker heroes-sprite-64x36" title="Earthshaker" id="h_earthshaker"></div>
+              <div class="hero heroes-sprite-sven heroes-sprite-64x36" title="Sven" id="h_sven"></div>
+              <div class="hero heroes-sprite-tiny heroes-sprite-64x36" title="Tiny" id="h_tiny"></div>
+              <div class="hero heroes-sprite-kunkka heroes-sprite-64x36" title="Kunkka" id="h_kunkka"></div>
+              <div class="hero heroes-sprite-beastmaster heroes-sprite-64x36" title="Beastmaster" id="h_beastmaster"></div>
+              <br>
+              <div class="hero heroes-sprite-dragon_knight heroes-sprite-64x36" title="Dragon Knight" id="h_dragon_knight"></div>
+              <div class="hero heroes-sprite-rattletrap heroes-sprite-64x36" title="Clockwerk" id="h_rattletrap"></div>
+              <div class="hero heroes-sprite-omniknight heroes-sprite-64x36" title="Omniknight" id="h_omniknight"></div>
+              <div class="hero heroes-sprite-huskar heroes-sprite-64x36" title="Huskar" id="h_huskar"></div>
+              <div class="hero heroes-sprite-alchemist heroes-sprite-64x36" title="Alchemist" id="h_alchemist"></div>
+              <br>
+              <div class="hero heroes-sprite-brewmaster heroes-sprite-64x36" title="Brewmaster" id="h_brewmaster"></div>
+              <div class="hero heroes-sprite-treant heroes-sprite-64x36" title="Treant Protector" id="h_treant"></div>
+              <div class="hero heroes-sprite-wisp heroes-sprite-64x36" title="Io" id="h_wisp"></div>
+              <div class="hero heroes-sprite-centaur heroes-sprite-64x36" title="Centaur Warrunner" id="h_centaur"></div>
+              <div class="hero heroes-sprite-shredder heroes-sprite-64x36" title="Timbersaw" id="h_shredder"></div>
+              <br>
+              <div class="hero heroes-sprite-bristleback heroes-sprite-64x36" title="Bristleback" id="h_bristleback"></div>
+              <div class="hero heroes-sprite-tusk heroes-sprite-64x36" title="Tusk" id="h_tusk"></div>
+              <div class="hero heroes-sprite-elder_titan heroes-sprite-64x36" title="Elder Titan" id="h_elder_titan"></div>
+              <div class="hero heroes-sprite-legion_commander heroes-sprite-64x36" title="Legion Commander" id="h_legion_commander"></div>
+              <div class="hero heroes-sprite-earth_spirit heroes-sprite-64x36" title="Earth Spirit" id="h_earth_spirit"></div>
+              <br>
+              <div class="hero heroes-sprite-phoenix heroes-sprite-64x36" title="Phoenix" id="h_phoenix"></div>
+            </div>
+            <div class="hero_section">
+              <div class="hero heroes-sprite-axe heroes-sprite-64x36" title="Axe" id="h_axe"></div>
+              <div class="hero heroes-sprite-pudge heroes-sprite-64x36" title="Pudge" id="h_pudge"></div>
+              <div class="hero heroes-sprite-sand_king heroes-sprite-64x36" title="Sand King" id="h_sand_king"></div>
+              <div class="hero heroes-sprite-slardar heroes-sprite-64x36" title="Slardar" id="h_slardar"></div>
+              <div class="hero heroes-sprite-tidehunter heroes-sprite-64x36" title="Tidehunter" id="h_tidehunter"></div>
+              <br>
+              <div class="hero heroes-sprite-skeleton_king heroes-sprite-64x36" title="Wraith King" id="h_skeleton_king"></div>
+              <div class="hero heroes-sprite-life_stealer heroes-sprite-64x36" title="Lifestealer" id="h_life_stealer"></div>
+              <div class="hero heroes-sprite-night_stalker heroes-sprite-64x36" title="Night Stalker" id="h_night_stalker"></div>
+              <div class="hero heroes-sprite-doom_bringer heroes-sprite-64x36" title="Doom" id="h_doom_bringer"></div>
+              <div class="hero heroes-sprite-spirit_breaker heroes-sprite-64x36" title="Spirit Breaker" id="h_spirit_breaker"></div>
+              <br>
+              <div class="hero heroes-sprite-lycan heroes-sprite-64x36" title="Lycan" id="h_lycan"></div>
+              <div class="hero heroes-sprite-chaos_knight heroes-sprite-64x36" title="Chaos Knight" id="h_chaos_knight"></div>
+              <div class="hero heroes-sprite-undying heroes-sprite-64x36" title="Undying" id="h_undying"></div>
+              <div class="hero heroes-sprite-magnataur heroes-sprite-64x36" title="Magnus" id="h_magnataur"></div>
+              <div class="hero heroes-sprite-abaddon heroes-sprite-64x36" title="Abaddon" id="h_abaddon"></div>
+              <div class="hero heroes-sprite-abyssal_underlord heroes-sprite-64x36" title="Underlord" id="h_abyssal_underlord"></div>
+            </div>
+        </div>
+        <div class="hero_page col-md-4">
+            <div class="hero_section">
+              <div class="hero heroes-sprite-antimage heroes-sprite-64x36" title="Anti-Mage" id="h_antimage"></div>
+              <div class="hero heroes-sprite-drow_ranger heroes-sprite-64x36" title="Drow Ranger" id="h_drow_ranger"></div>
+              <div class="hero heroes-sprite-juggernaut heroes-sprite-64x36" title="Juggernaut" id="h_juggernaut"></div>
+              <div class="hero heroes-sprite-mirana heroes-sprite-64x36" title="Mirana" id="h_mirana"></div>
+              <div class="hero heroes-sprite-morphling heroes-sprite-64x36" title="Morphling" id="h_morphling"></div>
+              <br>
+              <div class="hero heroes-sprite-phantom_lancer heroes-sprite-64x36" title="Phantom Lancer" id="h_phantom_lancer"></div>
+              <div class="hero heroes-sprite-vengefulspirit heroes-sprite-64x36" title="Vengeful Spirit" id="h_vengefulspirit"></div>
+              <div class="hero heroes-sprite-riki heroes-sprite-64x36" title="Riki" id="h_riki"></div>
+              <div class="hero heroes-sprite-sniper heroes-sprite-64x36" title="Sniper" id="h_sniper"></div>
+              <div class="hero heroes-sprite-templar_assassin heroes-sprite-64x36" title="Templar Assassin" id="h_templar_assassin"></div>
+              <br>
+              <div class="hero heroes-sprite-luna heroes-sprite-64x36" title="Luna" id="h_luna"></div>
+              <div class="hero heroes-sprite-bounty_hunter heroes-sprite-64x36" title="Bounty Hunter" id="h_bounty_hunter"></div>
+              <div class="hero heroes-sprite-ursa heroes-sprite-64x36" title="Ursa" id="h_ursa"></div>
+              <div class="hero heroes-sprite-gyrocopter heroes-sprite-64x36" title="Gyrocopter" id="h_gyrocopter"></div>
+              <div class="hero heroes-sprite-lone_druid heroes-sprite-64x36" title="Lone Druid" id="h_lone_druid"></div>
+              <br>
+              <div class="hero heroes-sprite-naga_siren heroes-sprite-64x36" title="Naga Siren" id="h_naga_siren"></div>
+              <div class="hero heroes-sprite-troll_warlord heroes-sprite-64x36" title="Troll Warlord" id="h_troll_warlord"></div>
+              <div class="hero heroes-sprite-ember_spirit heroes-sprite-64x36" title="Ember Spirit" id="h_ember_spirit"></div>
+            </div>
+            <div class="hero_section">
+              <div class="hero heroes-sprite-bloodseeker heroes-sprite-64x36" title="Bloodseeker" id="h_bloodseeker"></div>
+              <div class="hero heroes-sprite-nevermore heroes-sprite-64x36" title="Shadow Fiend" id="h_nevermore"></div>
+              <div class="hero heroes-sprite-razor heroes-sprite-64x36" title="Razor" id="h_razor"></div>
+              <div class="hero heroes-sprite-venomancer heroes-sprite-64x36" title="Venomancer" id="h_venomancer"></div>
+              <div class="hero heroes-sprite-faceless_void heroes-sprite-64x36" title="Faceless Void" id="h_faceless_void"></div>
+              <br>
+              <div class="hero heroes-sprite-phantom_assassin heroes-sprite-64x36" title="Phantom Assassin" id="h_phantom_assassin"></div>
+              <div class="hero heroes-sprite-viper heroes-sprite-64x36" title="Viper" id="h_viper"></div>
+              <div class="hero heroes-sprite-clinkz heroes-sprite-64x36" title="Clinkz" id="h_clinkz"></div>
+              <div class="hero heroes-sprite-broodmother heroes-sprite-64x36" title="Broodmother" id="h_broodmother"></div>
+              <div class="hero heroes-sprite-weaver heroes-sprite-64x36" title="Weaver" id="h_weaver"></div>
+              <br>
+              <div class="hero heroes-sprite-spectre heroes-sprite-64x36" title="Spectre" id="h_spectre"></div>
+              <div class="hero heroes-sprite-meepo heroes-sprite-64x36" title="Meepo" id="h_meepo"></div>
+              <div class="hero heroes-sprite-nyx_assassin heroes-sprite-64x36" title="Nyx Assassin" id="h_nyx_assassin"></div>
+              <div class="hero heroes-sprite-slark heroes-sprite-64x36" title="Slark" id="h_slark"></div>
+              <div class="hero heroes-sprite-medusa heroes-sprite-64x36" title="Medusa" id="h_medusa"></div>
+              <br>
+              <div class="hero heroes-sprite-terrorblade heroes-sprite-64x36" title="Terrorblade" id="h_terrorblade"></div>
+              <div class="hero heroes-sprite-arc_warden heroes-sprite-64x36" title="Arc Warden" id="h_arc_warden"></div>
+            </div>
+        </div>
+        <div class="hero_page col-md-4">
+            <div class="hero_section">
+              <div class="hero heroes-sprite-crystal_maiden heroes-sprite-64x36" title="Crystal Maiden" id="h_crystal_maiden"></div>
+              <div class="hero heroes-sprite-puck heroes-sprite-64x36" title="Puck" id="h_puck"></div>
+              <div class="hero heroes-sprite-storm_spirit heroes-sprite-64x36" title="Storm Spirit" id="h_storm_spirit"></div>
+              <div class="hero heroes-sprite-windrunner heroes-sprite-64x36" title="Windranger" id="h_windrunner"></div>
+              <div class="hero heroes-sprite-zuus heroes-sprite-64x36" title="Zeus" id="h_zuus"></div>
+              <br>
+              <div class="hero heroes-sprite-lina heroes-sprite-64x36" title="Lina" id="h_lina"></div>
+              <div class="hero heroes-sprite-shadow_shaman heroes-sprite-64x36" title="Shadow Shaman" id="h_shadow_shaman"></div>
+              <div class="hero heroes-sprite-tinker heroes-sprite-64x36" title="Tinker" id="h_tinker"></div>
+              <div class="hero heroes-sprite-furion heroes-sprite-64x36" title="Nature's Prophet" id="h_furion"></div>
+              <div class="hero heroes-sprite-enchantress heroes-sprite-64x36" title="Enchantress" id="h_enchantress"></div>
+              <br>
+              <div class="hero heroes-sprite-jakiro heroes-sprite-64x36" title="Jakiro" id="h_jakiro"></div>
+              <div class="hero heroes-sprite-chen heroes-sprite-64x36" title="Chen" id="h_chen"></div>
+              <div class="hero heroes-sprite-silencer heroes-sprite-64x36" title="Silencer" id="h_silencer"></div>
+              <div class="hero heroes-sprite-ogre_magi heroes-sprite-64x36" title="Ogre Magi" id="h_ogre_magi"></div>
+              <div class="hero heroes-sprite-rubick heroes-sprite-64x36" title="Rubick" id="h_rubick"></div>
+              <br>
+              <div class="hero heroes-sprite-disruptor heroes-sprite-64x36" title="Disruptor" id="h_disruptor"></div>
+              <div class="hero heroes-sprite-keeper_of_the_light heroes-sprite-64x36" title="Keeper of the Light" id="h_keeper_of_the_light"></div>
+              <div class="hero heroes-sprite-skywrath_mage heroes-sprite-64x36" title="Skywrath Mage" id="h_skywrath_mage"></div>
+              <div class="hero heroes-sprite-oracle heroes-sprite-64x36" title="Oracle" id="h_oracle"></div>
+              <div class="hero heroes-sprite-techies heroes-sprite-64x36" title="Techies" id="h_techies"></div>
+            </div>
+            <div class="hero_section">
+              <div class="hero heroes-sprite-bane heroes-sprite-64x36" title="Bane" id="h_bane"></div>
+              <div class="hero heroes-sprite-lich heroes-sprite-64x36" title="Lich" id="h_lich"></div>
+              <div class="hero heroes-sprite-lion heroes-sprite-64x36" title="Lion" id="h_lion"></div>
+              <div class="hero heroes-sprite-witch_doctor heroes-sprite-64x36" title="Witch Doctor" id="h_witch_doctor"></div>
+              <div class="hero heroes-sprite-enigma heroes-sprite-64x36" title="Enigma" id="h_enigma"></div>
+              <br>
+              <div class="hero heroes-sprite-necrolyte heroes-sprite-64x36" title="Necrophos" id="h_necrolyte"></div>
+              <div class="hero heroes-sprite-warlock heroes-sprite-64x36" title="Warlock" id="h_warlock"></div>
+              <div class="hero heroes-sprite-queenofpain heroes-sprite-64x36" title="Queen of Pain" id="h_queenofpain"></div>
+              <div class="hero heroes-sprite-death_prophet heroes-sprite-64x36" title="Death Prophet" id="h_death_prophet"></div>
+              <div class="hero heroes-sprite-pugna heroes-sprite-64x36" title="Pugna" id="h_pugna"></div>
+              <br>
+              <div class="hero heroes-sprite-dazzle heroes-sprite-64x36" title="Dazzle" id="h_dazzle"></div>
+              <div class="hero heroes-sprite-leshrac heroes-sprite-64x36" title="Leshrac" id="h_leshrac"></div>
+              <div class="hero heroes-sprite-batrider heroes-sprite-64x36" title="Batrider" id="h_batrider"></div>
+              <div class="hero heroes-sprite-dark_seer heroes-sprite-64x36" title="Dark Seer" id="h_dark_seer"></div>
+              <div class="hero heroes-sprite-ancient_apparition heroes-sprite-64x36" title="Ancient Apparition" id="h_ancient_apparition"></div>
+              <br>
+              <div class="hero heroes-sprite-invoker heroes-sprite-64x36" title="Invoker" id="h_invoker"></div>
+              <div class="hero heroes-sprite-obsidian_destroyer heroes-sprite-64x36" title="Outworld Devourer" id="h_obsidian_destroyer"></div>
+              <div class="hero heroes-sprite-shadow_demon heroes-sprite-64x36" title="Shadow Demon" id="h_shadow_demon"></div>
+              <div class="hero heroes-sprite-visage heroes-sprite-64x36" title="Visage" id="h_visage"></div>
+              <div class="hero heroes-sprite-winter_wyvern heroes-sprite-64x36" title="Winter Wyvern" id="h_winter_wyvern"></div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="hero_page col-md-4">
-    <div class="hero_section">
-      <div class="hero heroes-sprite-antimage heroes-sprite-64x36" title="Anti-Mage" id="h_antimage"></div>
-      <div class="hero heroes-sprite-drow_ranger heroes-sprite-64x36" title="Drow Ranger" id="h_drow_ranger"></div>
-      <div class="hero heroes-sprite-juggernaut heroes-sprite-64x36" title="Juggernaut" id="h_juggernaut"></div>
-      <div class="hero heroes-sprite-mirana heroes-sprite-64x36" title="Mirana" id="h_mirana"></div>
-      <div class="hero heroes-sprite-morphling heroes-sprite-64x36" title="Morphling" id="h_morphling"></div>
-      <br>
-      <div class="hero heroes-sprite-phantom_lancer heroes-sprite-64x36" title="Phantom Lancer" id="h_phantom_lancer"></div>
-      <div class="hero heroes-sprite-vengefulspirit heroes-sprite-64x36" title="Vengeful Spirit" id="h_vengefulspirit"></div>
-      <div class="hero heroes-sprite-riki heroes-sprite-64x36" title="Riki" id="h_riki"></div>
-      <div class="hero heroes-sprite-sniper heroes-sprite-64x36" title="Sniper" id="h_sniper"></div>
-      <div class="hero heroes-sprite-templar_assassin heroes-sprite-64x36" title="Templar Assassin" id="h_templar_assassin"></div>
-      <br>
-      <div class="hero heroes-sprite-luna heroes-sprite-64x36" title="Luna" id="h_luna"></div>
-      <div class="hero heroes-sprite-bounty_hunter heroes-sprite-64x36" title="Bounty Hunter" id="h_bounty_hunter"></div>
-      <div class="hero heroes-sprite-ursa heroes-sprite-64x36" title="Ursa" id="h_ursa"></div>
-      <div class="hero heroes-sprite-gyrocopter heroes-sprite-64x36" title="Gyrocopter" id="h_gyrocopter"></div>
-      <div class="hero heroes-sprite-lone_druid heroes-sprite-64x36" title="Lone Druid" id="h_lone_druid"></div>
-      <br>
-      <div class="hero heroes-sprite-naga_siren heroes-sprite-64x36" title="Naga Siren" id="h_naga_siren"></div>
-      <div class="hero heroes-sprite-troll_warlord heroes-sprite-64x36" title="Troll Warlord" id="h_troll_warlord"></div>
-      <div class="hero heroes-sprite-ember_spirit heroes-sprite-64x36" title="Ember Spirit" id="h_ember_spirit"></div>
-    </div>
-    <div class="hero_section">
-      <div class="hero heroes-sprite-bloodseeker heroes-sprite-64x36" title="Bloodseeker" id="h_bloodseeker"></div>
-      <div class="hero heroes-sprite-nevermore heroes-sprite-64x36" title="Shadow Fiend" id="h_nevermore"></div>
-      <div class="hero heroes-sprite-razor heroes-sprite-64x36" title="Razor" id="h_razor"></div>
-      <div class="hero heroes-sprite-venomancer heroes-sprite-64x36" title="Venomancer" id="h_venomancer"></div>
-      <div class="hero heroes-sprite-faceless_void heroes-sprite-64x36" title="Faceless Void" id="h_faceless_void"></div>
-      <br>
-      <div class="hero heroes-sprite-phantom_assassin heroes-sprite-64x36" title="Phantom Assassin" id="h_phantom_assassin"></div>
-      <div class="hero heroes-sprite-viper heroes-sprite-64x36" title="Viper" id="h_viper"></div>
-      <div class="hero heroes-sprite-clinkz heroes-sprite-64x36" title="Clinkz" id="h_clinkz"></div>
-      <div class="hero heroes-sprite-broodmother heroes-sprite-64x36" title="Broodmother" id="h_broodmother"></div>
-      <div class="hero heroes-sprite-weaver heroes-sprite-64x36" title="Weaver" id="h_weaver"></div>
-      <br>
-      <div class="hero heroes-sprite-spectre heroes-sprite-64x36" title="Spectre" id="h_spectre"></div>
-      <div class="hero heroes-sprite-meepo heroes-sprite-64x36" title="Meepo" id="h_meepo"></div>
-      <div class="hero heroes-sprite-nyx_assassin heroes-sprite-64x36" title="Nyx Assassin" id="h_nyx_assassin"></div>
-      <div class="hero heroes-sprite-slark heroes-sprite-64x36" title="Slark" id="h_slark"></div>
-      <div class="hero heroes-sprite-medusa heroes-sprite-64x36" title="Medusa" id="h_medusa"></div>
-      <br>
-      <div class="hero heroes-sprite-terrorblade heroes-sprite-64x36" title="Terrorblade" id="h_terrorblade"></div>
-      <div class="hero heroes-sprite-arc_warden heroes-sprite-64x36" title="Arc Warden" id="h_arc_warden"></div>
-    </div>
-  </div>
-  <div class="hero_page col-md-4">
-    <div class="hero_section">
-      <div class="hero heroes-sprite-crystal_maiden heroes-sprite-64x36" title="Crystal Maiden" id="h_crystal_maiden"></div>
-      <div class="hero heroes-sprite-puck heroes-sprite-64x36" title="Puck" id="h_puck"></div>
-      <div class="hero heroes-sprite-storm_spirit heroes-sprite-64x36" title="Storm Spirit" id="h_storm_spirit"></div>
-      <div class="hero heroes-sprite-windrunner heroes-sprite-64x36" title="Windranger" id="h_windrunner"></div>
-      <div class="hero heroes-sprite-zuus heroes-sprite-64x36" title="Zeus" id="h_zuus"></div>
-      <br>
-      <div class="hero heroes-sprite-lina heroes-sprite-64x36" title="Lina" id="h_lina"></div>
-      <div class="hero heroes-sprite-shadow_shaman heroes-sprite-64x36" title="Shadow Shaman" id="h_shadow_shaman"></div>
-      <div class="hero heroes-sprite-tinker heroes-sprite-64x36" title="Tinker" id="h_tinker"></div>
-      <div class="hero heroes-sprite-furion heroes-sprite-64x36" title="Nature's Prophet" id="h_furion"></div>
-      <div class="hero heroes-sprite-enchantress heroes-sprite-64x36" title="Enchantress" id="h_enchantress"></div>
-      <br>
-      <div class="hero heroes-sprite-jakiro heroes-sprite-64x36" title="Jakiro" id="h_jakiro"></div>
-      <div class="hero heroes-sprite-chen heroes-sprite-64x36" title="Chen" id="h_chen"></div>
-      <div class="hero heroes-sprite-silencer heroes-sprite-64x36" title="Silencer" id="h_silencer"></div>
-      <div class="hero heroes-sprite-ogre_magi heroes-sprite-64x36" title="Ogre Magi" id="h_ogre_magi"></div>
-      <div class="hero heroes-sprite-rubick heroes-sprite-64x36" title="Rubick" id="h_rubick"></div>
-      <br>
-      <div class="hero heroes-sprite-disruptor heroes-sprite-64x36" title="Disruptor" id="h_disruptor"></div>
-      <div class="hero heroes-sprite-keeper_of_the_light heroes-sprite-64x36" title="Keeper of the Light" id="h_keeper_of_the_light"></div>
-      <div class="hero heroes-sprite-skywrath_mage heroes-sprite-64x36" title="Skywrath Mage" id="h_skywrath_mage"></div>
-      <div class="hero heroes-sprite-oracle heroes-sprite-64x36" title="Oracle" id="h_oracle"></div>
-      <div class="hero heroes-sprite-techies heroes-sprite-64x36" title="Techies" id="h_techies"></div>
-    </div>
-    <div class="hero_section">
-      <div class="hero heroes-sprite-bane heroes-sprite-64x36" title="Bane" id="h_bane"></div>
-      <div class="hero heroes-sprite-lich heroes-sprite-64x36" title="Lich" id="h_lich"></div>
-      <div class="hero heroes-sprite-lion heroes-sprite-64x36" title="Lion" id="h_lion"></div>
-      <div class="hero heroes-sprite-witch_doctor heroes-sprite-64x36" title="Witch Doctor" id="h_witch_doctor"></div>
-      <div class="hero heroes-sprite-enigma heroes-sprite-64x36" title="Enigma" id="h_enigma"></div>
-      <br>
-      <div class="hero heroes-sprite-necrolyte heroes-sprite-64x36" title="Necrophos" id="h_necrolyte"></div>
-      <div class="hero heroes-sprite-warlock heroes-sprite-64x36" title="Warlock" id="h_warlock"></div>
-      <div class="hero heroes-sprite-queenofpain heroes-sprite-64x36" title="Queen of Pain" id="h_queenofpain"></div>
-      <div class="hero heroes-sprite-death_prophet heroes-sprite-64x36" title="Death Prophet" id="h_death_prophet"></div>
-      <div class="hero heroes-sprite-pugna heroes-sprite-64x36" title="Pugna" id="h_pugna"></div>
-      <br>
-      <div class="hero heroes-sprite-dazzle heroes-sprite-64x36" title="Dazzle" id="h_dazzle"></div>
-      <div class="hero heroes-sprite-leshrac heroes-sprite-64x36" title="Leshrac" id="h_leshrac"></div>
-      <div class="hero heroes-sprite-batrider heroes-sprite-64x36" title="Batrider" id="h_batrider"></div>
-      <div class="hero heroes-sprite-dark_seer heroes-sprite-64x36" title="Dark Seer" id="h_dark_seer"></div>
-      <div class="hero heroes-sprite-ancient_apparition heroes-sprite-64x36" title="Ancient Apparition" id="h_ancient_apparition"></div>
-      <br>
-      <div class="hero heroes-sprite-invoker heroes-sprite-64x36" title="Invoker" id="h_invoker"></div>
-      <div class="hero heroes-sprite-obsidian_destroyer heroes-sprite-64x36" title="Outworld Devourer" id="h_obsidian_destroyer"></div>
-      <div class="hero heroes-sprite-shadow_demon heroes-sprite-64x36" title="Shadow Demon" id="h_shadow_demon"></div>
-      <div class="hero heroes-sprite-visage heroes-sprite-64x36" title="Visage" id="h_visage"></div>
-      <div class="hero heroes-sprite-winter_wyvern heroes-sprite-64x36" title="Winter Wyvern" id="h_winter_wyvern"></div>
-    </div>
-  </div>
-</div>
-
-<div id="info" class="col-md-12">
-    <h2 id="hero_name"></h2>
-    <span id="minutes">00</span>:<span id="seconds">00</span>.<span id="hundredthseconds">0</span>
-    <div style="margin-top:20px"><h4 id='progress'>Progress: </h4></div>
-    <div><h4 id='streak'>Current Streak: 0</h4></div>
-    <div><h4 id='longeststreak'>Longest Streak: 0</h4></div>
-    <div><h4 id='incorrect'>Incorrect: 0</h4></div>
-        <label for="layout" style="margin-top:20px">Layout</label> <select id="layout" class="form-control" disabled>
-          <option value="normal">All Pick</option>
-          <option value="captain" selected>Captain's Mode</option>
-        </select>
-        <button id="start" class="btn btn-default btn-block">Start</button>
-        <button id="stop" class="btn btn-default btn-block" style="display:none">Quit</button>
 </div>
 {% endblock main %}

@@ -1,3 +1,7 @@
+var $ = jQuery = require('jquery');
+require('bootstrap');
+var KTLIB = require('../ktlib');
+
 $(function() {
   var attributes = KTLIB.attributes;
   var attributeOptions = KTLIB.attributeOptions;

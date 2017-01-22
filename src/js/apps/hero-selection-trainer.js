@@ -1,4 +1,5 @@
-var $ = require('jquery');
+var $ = jQuery = require('jquery');
+require('bootstrap');
 var shuffle = require('../util/shuffle');
 
 $(function () {

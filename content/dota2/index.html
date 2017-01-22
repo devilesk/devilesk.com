@@ -80,7 +80,7 @@ page_script: mosaics/index
     <div class="row">
         <div class="col-md-6">
             <div class="well page-block">
-                <h3 class="page-block-header">Tools</h3>
+                <h3 class="page-block-header">Tools<a href="/dota2/apps#tools" class="btn btn-default btn-xs glyphicon glyphicon-menu-right pull-right"></a></h3>
                 {% for column in apps[0] -%}
                 {% for item in column -%}
                 <div class="media">
@@ -101,13 +101,33 @@ page_script: mosaics/index
         
         <div class="col-md-6">
             <div class="well page-block">
-                <h3 class="page-block-header">Patches</h3>
+                <h3 class="page-block-header">Patches<a href="/dota2/patches" class="btn btn-default btn-xs glyphicon glyphicon-menu-right pull-right"></a></h3>
                 <div class="patches-container row list-unstyled">
                     {% for patch in patches -%}
                     <div class="col-xs-4 col-sm-2">
                         <a href="/dota2/patches/{{ patch }}">{{ patch }}</a>
                     </div>
                     {%- endfor %}
+                </div>
+            </div>
+            <div class="well page-block">
+                <h3 class="page-block-header">Resources</h3>
+                <ul class="list-inline list-unstyled">
+                    <li class="">
+                        <a href="/dota2/heroes">
+                            <h4 class="media-heading">Heroes</h4>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/dota2/lore">
+                            <h4 class="media-heading">Lore</h4>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/dota2/items">
+                            <h4 class="media-heading">Items</h4>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

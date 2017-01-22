@@ -57,7 +57,6 @@
 {% endblock content %}
 
 {% block js %}
-    {{ super() }}
     {% block scripts %}
     {% if site.config.mode == "production" %}
     <script src="{{ media_url_rev('js/common.min.js') }}"></script>

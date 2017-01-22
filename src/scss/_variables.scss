@@ -3,6 +3,8 @@ $bootstrap-sass-asset-helper: false !default;
 // Variables
 // --------------------------------------------------
 
+$footer-height: 75px;
+$footer-top-margin: 30px;
 $header-img: "/media/images/header.png";
 $color-131415: #131415;
 $color-1c1d1f: #1c1d1f;
@@ -376,7 +378,7 @@ $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             #777 !default;
 $navbar-default-bg:                $color-202123;
-$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-border:            transparent;
 
 // Navbar links
 $navbar-default-link-color:                $gray-base;
@@ -550,7 +552,7 @@ $popover-bg:                          lighten($body-bg, 5%);
 //** Popover maximum width
 $popover-max-width:                   276px !default;
 //** Popover border color
-$popover-border-color:                rgba(0,0,0,.2) !default;
+$popover-border-color:                #242628;
 //** Popover fallback border color
 $popover-fallback-border-color:       #ccc !default;
 
