@@ -1,0 +1,58 @@
+<html>
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+var heroes= [{name:"npc_dota_hero_antimage",id:1},{name:"npc_dota_hero_axe",id:2},{name:"npc_dota_hero_bane",id:3},{name:"npc_dota_hero_bloodseeker",id:4},{name:"npc_dota_hero_crystal_maiden",id:5},{name:"npc_dota_hero_drow_ranger",id:6},{name:"npc_dota_hero_earthshaker",id:7},{name:"npc_dota_hero_juggernaut",id:8},{name:"npc_dota_hero_mirana",id:9},{name:"npc_dota_hero_nevermore",id:11},{name:"npc_dota_hero_morphling",id:10},{name:"npc_dota_hero_phantom_lancer",id:12},{name:"npc_dota_hero_puck",id:13},{name:"npc_dota_hero_pudge",id:14},{name:"npc_dota_hero_razor",id:15},{name:"npc_dota_hero_sand_king",id:16},{name:"npc_dota_hero_storm_spirit",id:17},{name:"npc_dota_hero_sven",id:18},{name:"npc_dota_hero_tiny",id:19},{name:"npc_dota_hero_vengefulspirit",id:20},{name:"npc_dota_hero_windrunner",id:21},{name:"npc_dota_hero_zuus",id:22},{name:"npc_dota_hero_kunkka",id:23},{name:"npc_dota_hero_lina",id:25},{name:"npc_dota_hero_lich",id:31},{name:"npc_dota_hero_lion",id:26},{name:"npc_dota_hero_shadow_shaman",id:27},{name:"npc_dota_hero_slardar",id:28},{name:"npc_dota_hero_tidehunter",id:29},{name:"npc_dota_hero_witch_doctor",id:30},{name:"npc_dota_hero_riki",id:32},{name:"npc_dota_hero_enigma",id:33},{name:"npc_dota_hero_tinker",id:34},{name:"npc_dota_hero_sniper",id:35},{name:"npc_dota_hero_necrolyte",id:36},{name:"npc_dota_hero_warlock",id:37},{name:"npc_dota_hero_beastmaster",id:38},{name:"npc_dota_hero_queenofpain",id:39},{name:"npc_dota_hero_venomancer",id:40},{name:"npc_dota_hero_faceless_void",id:41},{name:"npc_dota_hero_skeleton_king",id:42},{name:"npc_dota_hero_death_prophet",id:43},{name:"npc_dota_hero_phantom_assassin",id:44},{name:"npc_dota_hero_pugna",id:45},{name:"npc_dota_hero_templar_assassin",id:46},{name:"npc_dota_hero_viper",id:47},{name:"npc_dota_hero_luna",id:48},{name:"npc_dota_hero_dragon_knight",id:49},{name:"npc_dota_hero_dazzle",id:50},{name:"npc_dota_hero_rattletrap",id:51},{name:"npc_dota_hero_leshrac",id:52},{name:"npc_dota_hero_furion",id:53},{name:"npc_dota_hero_life_stealer",id:54},{name:"npc_dota_hero_dark_seer",id:55},{name:"npc_dota_hero_clinkz",id:56},{name:"npc_dota_hero_omniknight",id:57},{name:"npc_dota_hero_enchantress",id:58},{name:"npc_dota_hero_huskar",id:59},{name:"npc_dota_hero_night_stalker",id:60},{name:"npc_dota_hero_broodmother",id:61},{name:"npc_dota_hero_bounty_hunter",id:62},{name:"npc_dota_hero_weaver",id:63},{name:"npc_dota_hero_jakiro",id:64},{name:"npc_dota_hero_batrider",id:65},{name:"npc_dota_hero_chen",id:66},{name:"npc_dota_hero_spectre",id:67},{name:"npc_dota_hero_doom_bringer",id:69},{name:"npc_dota_hero_ancient_apparition",id:68},{name:"npc_dota_hero_ursa",id:70},{name:"npc_dota_hero_spirit_breaker",id:71},{name:"npc_dota_hero_gyrocopter",id:72},{name:"npc_dota_hero_alchemist",id:73},{name:"npc_dota_hero_invoker",id:74},{name:"npc_dota_hero_silencer",id:75},{name:"npc_dota_hero_obsidian_destroyer",id:76},{name:"npc_dota_hero_lycan",id:77},{name:"npc_dota_hero_brewmaster",id:78},{name:"npc_dota_hero_shadow_demon",id:79},{name:"npc_dota_hero_lone_druid",id:80},{name:"npc_dota_hero_chaos_knight",id:81},{name:"npc_dota_hero_meepo",id:82},{name:"npc_dota_hero_treant",id:83},{name:"npc_dota_hero_ogre_magi",id:84},{name:"npc_dota_hero_undying",id:85},{name:"npc_dota_hero_rubick",id:86},{name:"npc_dota_hero_disruptor",id:87},{name:"npc_dota_hero_nyx_assassin",id:88},{name:"npc_dota_hero_naga_siren",id:89},{name:"npc_dota_hero_keeper_of_the_light",id:90},{name:"npc_dota_hero_wisp",id:91},{name:"npc_dota_hero_visage",id:92},{name:"npc_dota_hero_slark",id:93},{name:"npc_dota_hero_medusa",id:94},{name:"npc_dota_hero_troll_warlord",id:95},{name:"npc_dota_hero_centaur",id:96},{name:"npc_dota_hero_magnataur",id:97},{name:"npc_dota_hero_shredder",id:98},{name:"npc_dota_hero_bristleback",id:99},{name:"npc_dota_hero_tusk",id:100},{name:"npc_dota_hero_skywrath_mage",id:101},{name:"npc_dota_hero_abaddon",id:102},{name:"npc_dota_hero_elder_titan",id:103},{name:"npc_dota_hero_legion_commander",id:104},{name:"npc_dota_hero_ember_spirit",id:106},{name:"npc_dota_hero_earth_spirit",id:107},{name:"npc_dota_hero_terrorblade",id:109},{name:"npc_dota_hero_phoenix",id:110},{name:"npc_dota_hero_techies",id:105}];
+var chero = ["CDOTA_Unit_Hero_Abaddon","CDOTA_Unit_Hero_Alchemist","CDOTA_Unit_Hero_AncientApparition","CDOTA_Unit_Hero_AntiMage","CDOTA_Unit_Hero_Axe","CDOTA_Unit_Hero_Bane","CDOTA_Unit_Hero_Batrider","CDOTA_Unit_Hero_Beastmaster","CDOTA_Unit_Hero_Bloodseeker","CDOTA_Unit_Hero_BountyHunter","CDOTA_Unit_Hero_Brewmaster","CDOTA_Unit_Hero_Bristleback","CDOTA_Unit_Hero_Broodmother","CDOTA_Unit_Hero_Centaur","CDOTA_Unit_Hero_ChaosKnight","CDOTA_Unit_Hero_Chen","CDOTA_Unit_Hero_Clinkz","CDOTA_Unit_Hero_CrystalMaiden","CDOTA_Unit_Hero_DarkSeer","CDOTA_Unit_Hero_Dazzle","CDOTA_Unit_Hero_DeathProphet","CDOTA_Unit_Hero_Disruptor","CDOTA_Unit_Hero_DoomBringer","CDOTA_Unit_Hero_DragonKnight","CDOTA_Unit_Hero_DrowRanger","CDOTA_Unit_Hero_Earthshaker","CDOTA_Unit_Hero_Elder_Titan","CDOTA_Unit_Hero_EmberSpirit","CDOTA_Unit_Hero_Enchantress","CDOTA_Unit_Hero_Enigma","CDOTA_Unit_Hero_FacelessVoid","CDOTA_Unit_Hero_Furion","CDOTA_Unit_Hero_Gyrocopter","CDOTA_Unit_Hero_Huskar","CDOTA_Unit_Hero_Invoker","CDOTA_Unit_Hero_Jakiro","CDOTA_Unit_Hero_Juggernaut","CDOTA_Unit_Hero_KeeperOfTheLight","CDOTA_Unit_Hero_Kunkka","CDOTA_Unit_Hero_Legion_Commander","CDOTA_Unit_Hero_Leshrac","CDOTA_Unit_Hero_Lich","CDOTA_Unit_Hero_Life_Stealer","CDOTA_Unit_Hero_Lina","CDOTA_Unit_Hero_Lion","CDOTA_Unit_Hero_LoneDruid","CDOTA_Unit_Hero_Luna","CDOTA_Unit_Hero_Lycan","CDOTA_Unit_Hero_Magnataur","CDOTA_Unit_Hero_Medusa","CDOTA_Unit_Hero_Meepo","CDOTA_Unit_Hero_Mirana","CDOTA_Unit_Hero_Morphling","CDOTA_Unit_Hero_Naga_Siren","CDOTA_Unit_Hero_Necrolyte","CDOTA_Unit_Hero_Nevermore","CDOTA_Unit_Hero_NightStalker","CDOTA_Unit_Hero_Nyx_Assassin","CDOTA_Unit_Hero_Obsidian_Destroyer","CDOTA_Unit_Hero_Ogre_Magi","CDOTA_Unit_Hero_Omniknight","CDOTA_Unit_Hero_PhantomAssassin","CDOTA_Unit_Hero_PhantomLancer","CDOTA_Unit_Hero_Puck","CDOTA_Unit_Hero_Pudge","CDOTA_Unit_Hero_Pugna","CDOTA_Unit_Hero_QueenOfPain","CDOTA_Unit_Hero_Rattletrap","CDOTA_Unit_Hero_Razor","CDOTA_Unit_Hero_Riki","CDOTA_Unit_Hero_Rubick","CDOTA_Unit_Hero_SandKing","CDOTA_Unit_Hero_Shadow_Demon","CDOTA_Unit_Hero_ShadowShaman","CDOTA_Unit_Hero_Shredder","CDOTA_Unit_Hero_Silencer","CDOTA_Unit_Hero_SkeletonKing","CDOTA_Unit_Hero_Skywrath_Mage","CDOTA_Unit_Hero_Slardar","CDOTA_Unit_Hero_Slark","CDOTA_Unit_Hero_Sniper","CDOTA_Unit_Hero_Spectre","CDOTA_Unit_Hero_SpiritBreaker","CDOTA_Unit_Hero_StormSpirit","CDOTA_Unit_Hero_Sven","CDOTA_Unit_Hero_TemplarAssassin","CDOTA_Unit_Hero_Tidehunter","CDOTA_Unit_Hero_Tinker","CDOTA_Unit_Hero_Tiny","CDOTA_Unit_Hero_Treant","CDOTA_Unit_Hero_TrollWarlord","CDOTA_Unit_Hero_Tusk","CDOTA_Unit_Hero_Undying","CDOTA_Unit_Hero_Ursa","CDOTA_Unit_Hero_VengefulSpirit","CDOTA_Unit_Hero_Venomancer","CDOTA_Unit_Hero_Viper","CDOTA_Unit_Hero_Visage","CDOTA_Unit_Hero_Warlock","CDOTA_Unit_Hero_Weaver","CDOTA_Unit_Hero_Windrunner","CDOTA_Unit_Hero_Wisp","CDOTA_Unit_Hero_WitchDoctor","CDOTA_Unit_Hero_Zuus","CDOTA_Unit_Hero_Terrorblade","CDOTA_Unit_Hero_Techies","CDOTA_Unit_Hero_Phoenix","CDOTA_Unit_Hero_EarthSpirit"];
+console.log(heroes);
+console.log(chero.length,chero);
+max = 0;
+for (var i = 0; i < heroes.length; i++) {
+    if (heroes[i].id > max) {
+        max = heroes[i].id;
+    }
+}
+result = [];
+for (var i = 0; i < max + 1; i++) {
+    result.push("EMPTY");
+}
+
+String.prototype.toUnderscore = function(){
+	return this.replace(/([A-Z])/g, function($1){return "_"+$1.toLowerCase();});
+};
+var spriteloc=spriteloc={abaddon:{x:0,y:0},alchemist:{x:0,y:33},ancient_apparition:{x:0,y:66},antimage:{x:0,y:99},axe:{x:0,y:132},bane:{x:0,y:165},batrider:{x:0,y:198},beastmaster:{x:0,y:231},bloodseeker:{x:0,y:264},bm_earth:{x:0,y:297},bm_fire:{x:0,y:330},bm_storm:{x:33,y:0},bounty_hunter:{x:33,y:33},brewmaster:{x:33,y:66},bristleback:{x:33,y:99},broodmother:{x:33,y:132},centaur:{x:33,y:165},chaos_knight:{x:33,y:198},chen:{x:33,y:231},clinkz:{x:33,y:264},crystal_maiden:{x:33,y:297},dark_seer:{x:33,y:330},dazzle:{x:66,y:0},death_prophet:{x:66,y:33},disruptor:{x:66,y:66},doom:{x:66,y:99},doom_bringer:{x:66,y:132},dragon_knight:{x:66,y:165},drow:{x:66,y:198},drow_ranger:{x:66,y:231},earthshaker:{x:66,y:264},earth_spirit:{x:66,y:297},elder_titan:{x:66,y:330},ember_spirit:{x:99,y:0},enchantress:{x:99,y:33},enigma:{x:99,y:66},faceless_void:{x:99,y:99},furion:{x:99,y:132},gyrocopter:{x:99,y:165},huskar:{x:99,y:198},invoker:{x:99,y:231},jakiro:{x:99,y:264},juggernaut:{x:99,y:297},keeper_of_the_light:{x:99,y:330},kunkka:{x:132,y:0},lanaya:{x:132,y:33},legion_commander:{x:132,y:66},legion_commander_alt1:{x:132,y:99},leshrac:{x:132,y:132},lich:{x:132,y:165},life_stealer:{x:132,y:198},lina:{x:132,y:231},lina_alt1:{x:132,y:264},lion:{x:132,y:297},lone_druid:{x:132,y:330},luna:{x:165,y:0},lycan:{x:165,y:33},magnataur:{x:165,y:66},medusa:{x:165,y:99},meepo:{x:165,y:132},mirana:{x:165,y:165},morphling:{x:165,y:198},naga_siren:{x:165,y:231},necrolyte:{x:165,y:264},nevermore:{x:165,y:297},night_stalker:{x:165,y:330},nyx_assassin:{x:198,y:0},obsidian_destroyer:{x:198,y:33},ogre_magi:{x:198,y:66},omniknight:{x:198,y:99},phantom_assassin:{x:198,y:132},phantom_lancer:{x:198,y:165},phoenix:{x:198,y:198},puck:{x:198,y:231},pudge:{x:198,y:264},pugna:{x:198,y:297},queenofpain:{x:198,y:330},rattletrap:{x:231,y:0},razor:{x:231,y:33},riki:{x:231,y:66},rikimaru:{x:231,y:99},rubick:{x:231,y:132},sandking:{x:231,y:165},sand_king:{x:231,y:198},shadow_demon:{x:231,y:231},shadow_shaman:{x:231,y:264},shredder:{x:231,y:297},silencer:{x:231,y:330},skeleton_king:{x:264,y:0},skywrath_mage:{x:264,y:33},slardar:{x:264,y:66},slark:{x:264,y:99},sniper:{x:264,y:132},spectre:{x:264,y:165},spirit_break:{x:264,y:198},spirit_breaker:{x:264,y:231},storm_spirit:{x:264,y:264},sven:{x:264,y:297},techies:{x:264,y:330},techies_alt1:{x:297,y:0},templar_assassin:{x:297,y:33},terrorblade:{x:297,y:66},terrorblade_alt1:{x:297,y:99},tidehunter:{x:297,y:132},tinker:{x:297,y:165},tiny:{x:297,y:198},treant:{x:297,y:231},troll_warlord:{x:297,y:264},tusk:{x:297,y:297},undying:{x:297,y:330},ursa:{x:330,y:0},vengefulspirit:{x:330,y:33},venomancer:{x:330,y:66},viper:{x:330,y:99},visage:{x:330,y:132},warlock:{x:330,y:165},weaver:{x:330,y:198},windrunner:{x:330,y:231},wisp:{x:330,y:264},witch_doctor:{x:330,y:297},zuus:{x:330,y:330}};
+var cherodata = {};
+for (var i = 0; i < chero.length; i++) {
+    var h = chero[i].replace('CDOTA_Unit_Hero_', '').replace(/_/g, '').toUnderscore().toLowerCase().trim();
+    h = h.substring(1, h.length);
+    if (Object.keys(spriteloc).indexOf(h) == -1) {
+        console.log(h);
+        if (Object.keys(spriteloc).indexOf(h.replace(/_/g, '')) == -1) {
+            console.log(h.replace(/_/g, ''));
+        }
+        else {
+            cherodata['npc_dota_hero_' + h.replace(/_/g, '')] = chero[i];
+        }
+    }
+    else {
+        cherodata['npc_dota_hero_' + h] = chero[i];
+    }
+}
+
+console.log(Object.keys(cherodata).length, cherodata);
+
+for (var i = 0; i < heroes.length; i++) {
+    result[heroes[i].id] = cherodata[heroes[i].name];
+}
+console.log(max, JSON.stringify(result));
+items = [];
+$.getJSON("/media/js/itemdata.json", function (data) {
+    console.log(data);
+    for (i in data) {
+        items.push(i);
+    }
+    console.log(JSON.stringify(items));
+});
+</script>
+</body>
+</html>

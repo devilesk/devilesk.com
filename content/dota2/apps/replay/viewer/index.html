@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Dota 2 Replay Viewer</title>
+    <meta name="description" content="Dota 2 Replay Viewer. Parse and play .dem Dota 2 replay files in your browser.">
+    <meta name="author" content="devilesk">
+    <link rel="stylesheet" href="/media/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <style>
+        .chrome-icon {
+            background-image: url('google-chrome-icon.png');
+            background-repeat: no-repeat;
+            padding-left: 32px;
+            padding-top: 8px;
+            padding-bottom: 16px;
+            margin-left: 5px;
+        }
+        body {
+            font-family: arial;
+            margin: 0;
+            padding: none;
+        }
+        #slider {
+            width: 100%;
+            margin-top: 5px;
+        }
+        .ui-slider-tick {
+            position: absolute;
+            width: 2px;
+            height: 16px;
+            /*z-index: -1;*/
+            
+            font-size: 10px;
+            padding-top: 9px;
+            background-color: rgb(170, 170, 170);
+        }
+        .emscripten {
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        div.emscripten {
+            text-align: center;
+        }
+        div.emscripten_border {
+            border: 1px solid black;
+        }
+        /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+        
+        canvas.emscripten {
+            border: 0px none;
+        }
+        #emscripten_logo {
+            display: inline-block;
+            margin: 0;
+        }
+        .spinner {
+            height: 30px;
+            width: 30px;
+            margin: 0;
+            margin-top: 20px;
+            margin-left: 20px;
+            display: inline-block;
+            vertical-align: top;
+            -webkit-animation: rotation .8s linear infinite;
+            -moz-animation: rotation .8s linear infinite;
+            -o-animation: rotation .8s linear infinite;
+            animation: rotation 0.8s linear infinite;
+            border-left: 5px solid rgb(235, 235, 235);
+            border-right: 5px solid rgb(235, 235, 235);
+            border-bottom: 5px solid rgb(235, 235, 235);
+            border-top: 5px solid rgb(120, 120, 120);
+            border-radius: 100%;
+            background-color: rgb(189, 215, 46);
+        }
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        @-moz-keyframes rotation {
+            from {
+                -moz-transform: rotate(0deg);
+            }
+            to {
+                -moz-transform: rotate(360deg);
+            }
+        }
+        @-o-keyframes rotation {
+            from {
+                -o-transform: rotate(0deg);
+            }
+            to {
+                -o-transform: rotate(360deg);
+            }
+        }
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        #status {
+            /*display: inline-block;
+        vertical-align: top;
+        margin-top: 30px;
+        margin-left: 20px;*/
+            
+            font-weight: bold;
+            color: rgb(120, 120, 120);
+        }
+        #progress {
+            height: 20px;
+            width: 30px;
+        }
+        #controls {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+        }
+        #output {
+            width: 100%;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 10px;
+            display: block;
+            background-color: black;
+            color: white;
+            font-family: 'Lucida Console', Monaco, monospace;
+            outline: none;
+        }
+        #playback-speed {
+            min-width: 24px;
+            text-align: right;
+            display: inline-block;
+        }
+        .control-spacer {
+            margin-left: 15px;
+        }
+        #record-label {
+            min-width: 40px;
+            display: inline-block;
+        }
+        label {
+            margin-left: 3px;
+        }
+        label > input[type=radio],
+        label > input[type=checkbox] {
+            margin-right: 2px;
+        }
+        .boxsizingBorder {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        #dropbox {
+            border: 10px dashed #ccc;
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            line-height: 300px;
+            text-align: center;
+        }
+        #dropbox.hover {
+            border: 10px dashed #333;
+        }
+        #top-bar {
+            padding-bottom:5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='top-bar'>
+        <div class="spinner" id='spinner'></div>
+        <div class="emscripten" id="status">Downloading...</div>
+        <div id='controls'>
+            <div id="parser-settings">
+                <div style="float:left;width:100%;margin-bottom:5px;"> Parse Setting:
+                    <label for="parseSetting0">
+                        <input type="radio" id="parseSetting0" name="parseSetting" value=0 checked>Full</label>
+                    <label for="parseSetting1">
+                        <input type="radio" id="parseSetting1" name="parseSetting" value=1>Fast</label>
+                    <label for="parseSetting2">
+                        <input type="radio" id="parseSetting2" name="parseSetting" value=2>Custom</label>
+                </div>
+                <div style="float:left;margin-bottom:5px;"> Custom Parse:
+                    <label for="parseCreep">
+                        <input type="checkbox" id="parseCreep" checked disabled>Creeps</label>
+                    <label for="parseHero">
+                        <input type="checkbox" id="parseHero" checked disabled>Heroes</label>
+                    <label for="parseCourier">
+                        <input type="checkbox" id="parseCourier" checked disabled>Couriers</label>
+                    <label for="parseWard">
+                        <input type="checkbox" id="parseWard" checked disabled>Wards</label>
+                    <label for="parseBuilding">
+                        <input type="checkbox" id="parseBuilding" checked disabled>Buildings</label>
+                    <label for="parseItem">
+                        <input type="checkbox" id="parseItem" checked disabled>Items</label>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div id="file-input-container" style="display:none;margin-bottom:5px;">
+                <input type="file" id="file-input" value="" autocomplete="off" >
+                <div id="dropbox">Drop a replay file here</div>
+            </div>
+            <div id="replay-controls" style="display:none">
+                <div id="replay-file-name"></div>
+                <div style="float:left;width:100%;margin-bottom:5px;"> Show:
+                    <label for="showBackground">
+                        <input type="checkbox" id="showBackground" checked>Map</label>
+                    <label for="showCreep">
+                        <input type="checkbox" id="showCreep" checked>Creeps</label>
+                    <label for="showHero">
+                        <input type="checkbox" id="showHero" checked>Heroes</label>
+                    <label for="showCourier">
+                        <input type="checkbox" id="showCourier" checked>Couriers</label>
+                    <label for="showWard">
+                        <input type="checkbox" id="showWard" checked>Wards</label>
+                    <label for="showBuilding">
+                        <input type="checkbox" id="showBuilding" checked>Buildings</label>
+                    <label for="showPlayerInfo">
+                        <input type="checkbox" id="showPlayerInfo" checked>Player Info</label>
+                    <label for="showGraphs">
+                        <input type="checkbox" id="showGraphs">Gold & Exp Graphs</label>
+                    <label for="showDraft">
+                        <input type="checkbox" id="showDraft" checked>Draft</label>
+                </div>
+                <div style="float:left;margin-bottom:5px;"> <span>Skip to:</span>
+                    <button id="skipPregame" type="button" class="btn btn-default btn-xs">Pregame</button>
+                    <button id="skipStart" type="button" class="btn btn-default btn-xs">Start</button>
+                    <button id="skipEnd" type="button" class="btn btn-default btn-xs">End</button> <span class="control-spacer">Playback:</span>
+                    <button id="speed-slower" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-fast-backward"></span>
+                    </button>
+                    <button id="play-pause" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pause"></span>
+                    </button>
+                    <button id="speed-faster" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-fast-forward"></span>
+                    </button>
+                    <div id="playback-speed">1x</div>
+                    <button id="record" type="button" class="btn btn-default btn-xs control-spacer"> <span id="record-icon" class="glyphicon glyphicon-record"></span>
+                        <div id="record-label">Record</div>
+                    </button> <span style="margin-left:5px" class="glyphicon glyphicon-floppy-save"><span style="margin-left:3px">Save:</span></span>
+                    <button id="save-webm" type="button" class="btn btn-default btn-xs" disabled>.webm</button>
+                    <button id="save-gif" type="button" class="btn btn-default btn-xs" disabled>.gif</button>
+                    <button id="share" type="button" class="btn btn-default btn-xs control-spacer" onclick="imgurUpload();"> <span class="glyphicon glyphicon-camera"></span> Take imgur screenshot </button><span id="sharelink" style="margin-left:5px"></span> </div>
+                <div style="clear:both"></div>
+            </div> <span style="display:none"><input type="checkbox" id="resize">Resize canvas</span> <span style="display:none"><input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer &nbsp;&nbsp;&nbsp;</span> <span style="display:none"><input type="button" value="Fullscreen" onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, 
+                                                                            document.getElementById('resize').checked)">
+  </span>
+            <div id="slider"></div>
+        </div>
+        <div class="emscripten">
+            <progress value="0" max="100" id="progress" hidden=1></progress>
+        </div>
+    </div>
+    <div class="emscripten_border">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+    </div>
+    <textarea id="output" rows="8" class="boxsizingBorder"></textarea>
+    <p style="padding:5px 15px;"> Full parse ~30s and fast parse ~15s depending on replay size. </p>
+    <p style="padding:5px 15px;"> Works best in <span class="chrome-icon">Google Chrome</span>. </p>
+    <p style="padding:5px 15px;"> Made with <a href="https://github.com/AliceStats/Alice">Alice</a> replay parser. </p>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="/media/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="alice-animate.min.js"></script>
+    <script type="text/javascript">
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39435120-1', 'devilesk.com');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>

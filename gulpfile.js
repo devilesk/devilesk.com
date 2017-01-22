@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var RevAll = require('gulp-rev-all');
+var imagemin = require('gulp-imagemin');
 
 gulp.task('assetrev', function () {
 

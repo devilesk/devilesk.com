@@ -2,6 +2,14 @@
 
 {% from "macros/render_excerpt.j2" import render_excerpt with context  %}
 
+{% block header %}
+<h2>Blog
+    <a class="btn btn-default pull-right" href="/blog/atom.xml">
+        <svg height="32" class="" viewBox="0 0 10 16" version="1.1" width="20" aria-hidden="true" ><path fill-rule="evenodd" d="M2 13H0v-2c1.11 0 2 .89 2 2zM0 3v1a9 9 0 0 1 9 9h1C10 7.48 5.52 3 0 3zm0 4v1c2.75 0 5 2.25 5 5h1c0-3.31-2.69-6-6-6z"></path></svg>
+    </a>
+</h2>
+{% endblock header %}
+
 {% block main %}
 <ul class="listing clearfix list-unstyled">
 {% for res in resource.node.walk_resources_sorted_by_time() %}

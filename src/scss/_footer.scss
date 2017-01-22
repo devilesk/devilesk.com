@@ -5,6 +5,12 @@ footer, .push {
     margin-top: $footer-top-margin;
 }
 footer {
+    .footer-logo {
+        width: 32px;
+        height: 32px;
+        background: url($footer-img);
+        margin: auto;
+    }
     .social-link {
         display: inline-block;
         vertical-align: text-top;

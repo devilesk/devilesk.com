@@ -100,6 +100,13 @@
     }
 }
 
+.page-blog {
+    header svg {
+        vertical-align: bottom;
+        fill: currentColor;
+    }
+}
+
 .page-patches {
     time {
         display: block;
