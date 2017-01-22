@@ -13,3 +13,19 @@ gulp.task('assetrev', function () {
     .pipe(gulp.dest('.'));
 
 });
+
+gulp.task('imagemin', ['imagemin-blog'], function () {
+
+    return gulp.src('assets/images/*.png')
+        .pipe(imagemin())
+        .pipe(gulp.dest('assets/images'))
+
+});
+
+gulp.task('imagemin-blog', function () {
+
+    return gulp.src('assets/images/blog/**/*.png')
+        .pipe(imagemin())
+        .pipe(gulp.dest('assets/images/blog'))
+
+});
