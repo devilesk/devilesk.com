@@ -1074,8 +1074,10 @@ dota2\items\index.html: [base.j2, macros.j2, analytics.j2]
 dota2\items\items.css: []
 dota2\patches\6.79.html: [base.j2, macros.j2, analytics.j2]
 dota2\patches\6.80.html: [base.j2, macros.j2, analytics.j2]
-drawablemap/index.html: [macros/render_nav.j2, root.j2, includes/analytics.j2]
+drawablemap/index.html: [macros/render_nav.j2, includes/analytics.j2, root.j2, includes/footer.j2]
 google326eace8919d7810.html: []
+hero-calculator-table/index.html: [root.j2, macros/render_nav.j2, includes/footer.j2,
+  macros/render_heroes.j2, includes/analytics.j2, macros/breadcrumb.j2, base.j2]
 hero-calculator/index.html: [macros/breadcrumb.j2, macros/render_heroes.j2, includes/analytics.j2,
   macros/render_nav.j2, root.j2, base.j2]
 index.html: [includes/analytics.j2, root.j2, macros/render_nav.j2, includes/footer.j2]

@@ -1,0 +1,203 @@
+---
+extends: base.j2
+title: Dota 2 Hero Stat Table
+description: Dota 2 Hero Stat Table. Sortable and filterable hero information taken directly from Dota 2 game files.
+active_menu: page-hero-stat-table
+header: Hero Stat Table
+---
+
+{% block page_head %}
+<link rel="stylesheet" href="app-c191780.min.css" type="text/css">
+{% endblock page_head %}
+
+{% block content %}
+<div class="container-fluid">
+        <div id="main" role="main">
+        <header class="banner clearfix">
+                            <h2>Hero Stat Table<div class="form-group pull-right">
+                <input style="display:none" class="btn btn-default" type="button" data-bind="visible: loaded, click: exportCSV" value="Export as CSV" />
+                </div></h2>
+        </header>
+        <section class="content">
+        <h4 id="spinner">Loading...</h4>
+    <div class="row" style="display:none" data-bind="visible: loaded">
+    <div class="col-md-12" data-bind="css: { 'col-lg-8': displayShop() && !shopPopout() }">
+        <div class="row">
+            <div class="col-md-12 form-inline">
+                <div class="form-group option-group herolevel-group">
+                    <input id="herolevel" data-bind="spinner: selectedHeroLevel, spinnerOptions: { min: 1, max: 25 }">
+                    <label id="herolevel-label" for="herolevel">Hero Level</label>
+                </div>
+                
+                <div class="form-group">
+                <div class="form-control" id="rowcount-label">
+                <label>Row count </label><span data-bind="text: rowCount()"></span>
+                </div>
+                </div>
+                
+                <div class="form-group">
+                <label class="btn btn-default option-button" data-bind="css: { active: filterVisible }">
+                <input type="checkbox" data-bind="checked: filterVisible">
+                Row Filters
+                </label>
+                </div>
+                
+                <div class="form-group">
+                <label class="btn btn-default option-button" data-bind="css: { active: columnsVisible }">
+                <input type="checkbox" data-bind="checked: columnsVisible">
+                Column Display
+                </label>
+                </div>
+                
+                <div class="form-group">
+                <label class="btn btn-default option-button" data-bind="css: { active: multiSort }" title="">
+                <input type="checkbox" data-bind="checked: multiSort, disable: shiftKey">
+                Multi-column sorting <span id="multiSort-tooltip" class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" title="Holding shift also enables this."></span>
+                </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" data-bind="visible: filterVisible">
+            <div class="col-md-12 form-inline">
+                <div class="form-group">
+                <input class="btn btn-default option-button" type="button" data-bind="click: clearFilters" value="Clear All Row Filters" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-12" data-bind="visible: filterVisible, foreach: headers">
+        <!-- ko if: filter -->
+        <div class="col-xs-6 col-sm-3 col-md-2 well">
+            <label class="header-tooltip" data-toggle="tooltip" data-bind="html: $data.header, attr: { title: $data.title }">
+            </label>
+            <div class="form-inline text-center" data-bind="template: { name: $root.filterTemplateToUse, data: $data }"></div>
+        </div>
+        <!-- /ko -->
+        </div>
+        </div>
+        
+        <div class="row" data-bind="visible: columnsVisible">
+            <div class="col-md-12 form-inline">
+                
+                <div class="form-group">
+                <input class="btn btn-default option-button" type="button" data-toggle="button" data-bind="click: hideAllColumns" value="Hide All Columns" />
+                </div>
+                
+                <div class="form-group">
+                <input class="btn btn-default option-button" type="button" data-toggle="button" data-bind="click: resetColumns" value="Reset Columns" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 form-inline" data-bind="visible: columnsVisible, foreach: headers"><div class="form-group header-group">
+                <label class="btn btn-default btn-block" data-bind="css: { active: display }" title="">
+                <input type="checkbox" data-bind="checked: display">
+                <div class="header-tooltip" data-toggle="tooltip", data-bind="html: $data.header, attr: { title: $data.title }"></div>
+                </label>
+                </div></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <div class="sort-container form-control">
+                <label for="sortby">Sorting by </label>
+                <span id="sortby" data-bind="foreach: sortColumns">
+                    <a class="label label-default" data-bind="html: $parent.headers()[$data].header, click: function(data, event) { $parent.sortLabelClick($index, data, event); }"></a>
+                </span>
+                <a class="label label-primary" style="display:none" data-bind="visible: sortColumns().length > 1, click: function(data, event) { clearLabels(); }" href="">Clear All</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 form-inline">
+                <div class="form-group pull-right">
+                    <button class="btn btn-default btn-xs shop-button glyphicon glyphicon-plus pull-right" data-bind="toggle: displayShop, visible: !displayShop() && !shopPopout()" title="Maximize shop"></button>
+                    <button class="btn btn-default btn-xs shop-button glyphicon glyphicon-new-window pull-right hidden-xs" data-bind="click: shopPopout, visible: !displayShop() && !shopPopout()" title="Popout shop"></button>
+                    <strong style="cursor:pointer" class="pull-right shop-button" data-bind="toggle: displayShop, visible: !displayShop() && !shopPopout()">Shop</strong>
+                </div>
+                
+                <div class="form-group" data-bind="visible: inventory.items().length" >
+                    <div id="inventory" class="inventory hover-cursor" data-bind="template: { name: 'item-template', foreach: inventory.items }"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped">
+            <tr class="header-row" data-bind="foreach: headers">
+                <th data-bind="css: { 'up': $root.sortDirections()[$index()]() == -1 && $root.sortColumns.indexOf($index()) != -1, 'down': $root.sortDirections()[$index()]() == 1 && $root.sortColumns.indexOf($index()) != -1, 'text-right': $root.headers()[$index()].align == 'right', 'text-center': $root.headers()[$index()].align == 'center' }, visible: $parent.headers()[$index()].display(), attr: { title: $data.title }" data-toggle="tooltip"><a href="#" data-bind="html: $parent.headerHTML($index, $data), click: function(data, event) { $parent.columnClick($index, data, event); }"></a></th>
+            </tr>
+                <!-- ko foreach: heroes -->
+                <tr data-bind="visible: rowVisible, foreach: $parent.headers">
+                    <td data-bind="html: $root.getData($parent, $index()), class: $root.getCellClass($data, $parent)"></td>
+                </tr>
+                <!-- /ko -->
+            </table>
+        </div>
+    </div>
+    <div id="shop-dialog" data-bind="component: { name: 'shop', params: $root}, css: {'popped-out': shopPopout()}"></div>
+    </div>
+</div>
+        </section>
+    </div>
+    
+<script type="text/html" id="item-template">
+    <div class="pull-left" style="margin-right:10px">
+        <div class="btn-group">
+            <img class="img-rounded" data-bind="css: { item_disabled: !enabled(), item_active: $parent.inventory.getActiveBorder($data) == 1, item_inactive: $parent.inventory.getActiveBorder($data) == 0 }, attr:{ src: $parent.inventory.getItemImage($data) }, click: function(data, event) { $parent.inventory.toggleItem($index, data, event); }, event: { dblclick: $parent.inventory.removeItem }"/>
+            <div style="float:left" data-bind="visible: $parent.inventory.getItemSizeLabel($data) != ''">
+                <div data-bind="html: $parent.inventory.getItemSizeLabel($data)" style="position:absolute;left:0;bottom:0;color:white;opacity:.5;background-color:black;padding:0px 2px"></div>
+                <div data-bind="html: $parent.inventory.getItemSizeLabel($data)" style="position:absolute;left:0;bottom:0;color:white;padding:0px 2px"></div>
+            </div>
+            <div class="btn-group-vertical">
+                <button class="btn btn-default btn-xs" title="Remove Item" data-bind="click: $parent.inventory.removeItem">&times;</button>
+                <button class="btn btn-default btn-xs" title="Disable/Enable Item" data-bind="click: $parent.inventory.toggleMuteItem, html: enabled() ? 'o' : '-', attr: {title: enabled() ? 'Disable Item' : 'Enable Item'}">o</button>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="string-filter" type="text/html">
+    <input class="form-control filter-input" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
+</script>
+<script id="select-filter" type="text/html">
+    <select class="form-control filter-input" data-bind="options: filterOptions,
+                       optionsText: 'text',
+                       optionsValue: 'value',
+                       value: filterValue,
+                       optionsCaption: ''"></select>
+</script>
+<script id="numeric-filter" type="text/html">
+    <div class="form-group filter-comparison">
+        <select class="form-control" data-bind="value: filterComparison">
+            <option value="gt">&gt;</option>
+            <option value="ge">&ge;</option>
+            <option value="lt">&lt;</option>
+            <option value="le">&le;</option>
+            <option value="eq">=</option>
+        </select>
+    </div>
+    <div class="form-group filter-comparison">
+        <input class="form-control" type="text" data-bind="value: filterValue, valueUpdate: 'keyup'" />
+    </div>
+</script>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+var appConfig = { abilityTooltipPath: "/media/dota-json/abilitytooltipdata.json" };
+window.HeroCalcData = {};
+$.when(
+    $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
+    $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
+    $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
+    $.ajax({dataType: "script", cache: true, url: "bundle-c191780.min.js"})
+).done(function () { DotaHeroCalculatorTable(appConfig); });
+</script>
+{% endblock scripts %}
