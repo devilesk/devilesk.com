@@ -3,51 +3,50 @@ extends: base.j2
 title: Dota 2 Hero Chart
 description: Dota 2 hero stats and properties chart. Based on the latest hero information taken directly from Dota 2 game files.
 active_menu: page-heroes
-header: Stats Table
+header: Hero Chart
 id: page-herochart
 page_script: heroes/chart
+container_fluid: true
 ---
 
-{% block page_head %}
-<style type="text/css">
-#chart-container {
-  padding: 20px;
-}
-#chart-title {
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-}
-.right-pad {
-  margin-right: 20px;
-}
-</style>
-{% endblock page_head %}
-
 {% block main %}
-    <div id="chart-container">
-        <label>Y Axis:</label>
-        <select id="yaxis-dropdown" class="right-pad" data-bind="options: attributes,
-                           optionsValue: 'id',
-                           optionsText: 'name',
-                           value: selectedY"></select>
-        <label>X Axis:</label>
-        <select id="xaxis-dropdown" class="right-pad" data-bind="options: attributes,
-                           optionsValue: 'id',
-                           optionsText: 'name',
-                           value: selectedX"></select>
-        <label>Hero Level:</label>
-        <select id="level-dropdown" class="right-pad" data-bind="value: selectedLevel, foreach: new Array(25)">
-            <option data-bind="text: $index() + 1, value: $index() + 1"></option>
-        </select>
-        <div id="chart-title"></div>
-        <canvas id="myChart"></canvas>
-        <label>Heroes:</label>
-        <button id="toggle-on" data-bind="click: toggleOn">Show All</button>
-        <button id="toggle-off" class="right-pad" data-bind="click: toggleOff">Hide All</button>
-        <label>Legend:</label>
-        <button id="toggle-legend" data-bind="click: toggleLegend, text: showLegend() ? 'Hide' : 'Show'"></button>
+<div id="chart-container">
+    <div class="form-inline form-group">
+        <div class="form-group">
+            <label>Y Axis:</label>
+            <select id="yaxis-dropdown" class="form-control" data-bind="options: attributes,
+                               optionsValue: 'id',
+                               optionsText: 'name',
+                               value: selectedY"></select>
+        </div>
+        <div class="form-group">
+            <label>X Axis:</label>
+            <select id="xaxis-dropdown" class="form-control" data-bind="options: attributes,
+                               optionsValue: 'id',
+                               optionsText: 'name',
+                               value: selectedX"></select>
+        </div>
+        <div class="form-group">
+            <label>Hero Level:</label>
+            <select id="level-dropdown" class="form-control" data-bind="value: selectedLevel, foreach: new Array(25)">
+                <option data-bind="text: $index() + 1, value: $index() + 1"></option>
+            </select>
+        </div>
     </div>
+    <div class="form-group text-center"><strong id="chart-title"></strong></div>
+    <canvas id="myChart"></canvas>
+    <div class="form-inline text-center">
+        <div class="form-group">
+            <label>Heroes:</label>
+            <button id="toggle-on" class="btn btn-default" data-bind="click: toggleOn">Show All</button>
+            <button id="toggle-off" class="btn btn-default" data-bind="click: toggleOff">Hide All</button>
+        </div>
+        <div class="form-group">
+            <label>Legend:</label>
+            <button id="toggle-legend" class="btn btn-default" data-bind="click: toggleLegend, text: showLegend() ? 'Hide' : 'Show'"></button>
+        </div>
+    </div>
+</div>
 {% endblock main %}
 
 {% block scripts %}

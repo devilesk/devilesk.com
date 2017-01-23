@@ -31,7 +31,7 @@ var slides = [];
 heroes.forEach(function(hero) {
     var $thumbnail = $('<div>');
     var $mainSlide = $('<div>');
-    var $mainImage = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg">')
+    var $mainImage = $('<img data-lazy="/media/images/mosaics/mosaics/' + hero + '.jpg">')
     var $thumbnailImg = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg">')
     $thumbnail.data('hero', hero);
     $mainSlide.data('hero', hero);
@@ -52,6 +52,8 @@ var carousel = $('.slick-carousel').slick({
 });
 
 var carouselNav = $('.slick-carousel-nav').slick({
+    prevArrow:"<button class='btn btn-xs btn-default prev'><span class='glyphicon glyphicon-menu-left'></span></button>",
+    nextArrow:"<button class='btn btn-xs btn-default next'><span class='glyphicon glyphicon-menu-right'></span></button>",
     infinite: true,
     lazyLoad: 'ondemand',
     slidesToShow: 10,

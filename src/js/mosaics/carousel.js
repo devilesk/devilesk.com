@@ -83,6 +83,7 @@ var items = heroes.map(function(hero) {
     return {
         src: '/media/images/mosaics/mosaics/' + hero + '.jpg',
         w: 1920,
-        h: 1080
+        h: 1080,
+        title: '<a href="/dota2/mosaics">Go to mosaic gallery page &#187;</a>'
     }
 });

@@ -3987,7 +3987,7 @@ var ModalControl = require('./controls/modalControl');
 var aboutModal = new ModalControl('about', 'about-open', 'about-close');
 var helpModal = new ModalControl('help', 'help-open', 'help-close');
 
-var buildDate = "2017-01-19 20:31:21 UTC";
+var buildDate = "2017-01-23 03:33:10 UTC";
 document.getElementById('buildDate').innerHTML = buildDate;
 
 var releaseTag = "4.0.0";

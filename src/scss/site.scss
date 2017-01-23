@@ -107,6 +107,34 @@
     }
 }
 
+.page-unitdata {
+    .form-inline .form-control {
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .form-inline .form-group {
+            width: 45%;
+        }
+    }
+    .well {
+        padding: 5px;
+        margin: 3px;
+        margin-bottom: 6px;
+    }
+    .glyphicon {
+        top: 2px;
+    }
+    .content {
+        .dropdown-menu {
+            min-width: 320px;
+        }
+    }
+    li.table-columns {
+        width:50%;
+        float:left;
+    }
+}
+
 .page-patches {
     time {
         display: block;

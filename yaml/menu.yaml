@@ -16,22 +16,6 @@
 -   css_class: page-heroes
     description: Heroes Home
     name: HEROES
-    submenu:
-    -   name: Stat Chart
-        type: page
-        url: /dota2/heroes/chart
-    -   name: Stat Table
-        type: page
-        url: /dota2/heroes/stat-table
-    -   name: Lore
-        type: page
-        url: /dota2/heroes/lore
-    -   name: Patch History
-        type: page
-        url: /dota2/heroes/patchhistory
-    -   name: Unit Stat Table
-        type: page
-        url: /dota2/heroes/unitdata
     type: node
     url: dota2/heroes
 -   css_class: page-items

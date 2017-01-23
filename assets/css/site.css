@@ -7962,6 +7962,28 @@ table.highlight-row tbody tr:hover {
   vertical-align: bottom;
   fill: currentColor; }
 
+.page-unitdata .form-inline .form-control {
+  width: 100%; }
+
+@media (min-width: 768px) {
+  .page-unitdata .form-inline .form-group {
+    width: 45%; } }
+
+.page-unitdata .well {
+  padding: 5px;
+  margin: 3px;
+  margin-bottom: 6px; }
+
+.page-unitdata .glyphicon {
+  top: 2px; }
+
+.page-unitdata .content .dropdown-menu {
+  min-width: 320px; }
+
+.page-unitdata li.table-columns {
+  width: 50%;
+  float: left; }
+
 .page-patches time {
   display: block;
   margin-top: 30px; }
