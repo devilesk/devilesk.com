@@ -23,5 +23,21 @@ container_fluid: true
 {% endblock header %}
 
 {% block main %}
+<div class="container">
+    <ul class="list-unstyled list-inline">
+        <li>
+            <a href="/dota2/heroes/herodata">Hero Data Table</a>
+        </li>
+        <li>
+            <a href="/dota2/heroes/herodata">Unit Data Table</a>
+        </li>
+        <li>
+            <a href="/dota2/heroes/herodata">Hero Stat Chart</a>
+        </li>
+        <li>
+            <a href="/dota2/heroes/lore">Lore</a>
+        </li>
+    </ul>
+</div>
 {{ render_heroes(herodatalist, true) }}
 {% endblock main %}
