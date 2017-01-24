@@ -1,5 +1,18 @@
 var $ = jQuery = require('jquery');
+require('jquery-ui/ui/version');
+require('jquery-ui/ui/ie');
+require('jquery-ui/ui/data');
+require('jquery-ui/ui/plugin');
+require('jquery-ui/ui/safe-active-element');
+require('jquery-ui/ui/safe-blur');
+require('jquery-ui/ui/scroll-parent');
+require('jquery-ui/ui/widget');
+require('jquery-ui/ui/widgets/mouse');
+require('jquery-ui/ui/widgets/draggable');
+require('jquery-ui/ui/widgets/droppable');
+require('../lib/jquery.ui.touch-punch');
 require('bootstrap');
+var _ = require('underscore');
 
 $(function () {
     $.getJSON("/media/dota-json/herodata.json", function (data) {

@@ -104,6 +104,11 @@
       "depends": [
         "jquery:jQuery"
       ]
+    },
+    "./src/js/lib/jquery.ui.touch-punch": {
+      "depends": [
+        "jquery:jQuery"
+      ]
     }
   }
 }

@@ -13,6 +13,16 @@
 @import 'items';
 @import 'itemsall';
 
+.submenu {
+    @extend .breadcrumb, .well;
+    margin-top: 15px;
+    padding: 8px 15px;
+    
+    & > li + li:before {
+        content: "| ";
+    }
+}
+
 .social-icon {
     fill: currentColor;
 }

@@ -23,10 +23,11 @@ blog/interactive-map-ward-vision-update.html: [macros/breadcrumb.j2, macros/rend
   base.j2, macros/render_nav.j2, includes/analytics.j2, includes/footer.j2, blog.j2,
   root.j2, includes/disqus.j2]
 blog/sad-post.html: [blog.j2, macros.j2, analytics.j2, base.j2]
-blog/tags/Interactive Dota Map.html: [includes/analytics.j2, tagged_posts.j2, root.j2,
-  macros/breadcrumb.j2, macros/render_heroes.j2, macros/render_nav.j2, base.j2, includes/footer.j2]
-blog/tags/Source Filmmaker.html: [includes/analytics.j2, tagged_posts.j2, root.j2,
-  macros/breadcrumb.j2, macros/render_heroes.j2, macros/render_nav.j2, base.j2, includes/footer.j2]
+blog/tags/Interactive Dota Map.html: [macros/render_heroes.j2, macros/breadcrumb.j2,
+  macros/render_nav.j2, base.j2, tagged_posts.j2, includes/footer.j2, includes/analytics.j2,
+  root.j2]
+blog/tags/Source Filmmaker.html: [macros/render_heroes.j2, macros/breadcrumb.j2, macros/render_nav.j2,
+  base.j2, tagged_posts.j2, includes/footer.j2, includes/analytics.j2, root.j2]
 blog/tags/angry.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 blog/tags/happy.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 blog/tags/interactive dota map.html: [macros/breadcrumb.j2, macros/render_heroes.j2,
@@ -36,8 +37,8 @@ blog/tags/interactive map.html: [macros/breadcrumb.j2, macros/render_heroes.j2, 
   macros/render_nav.j2, includes/analytics.j2, includes/footer.j2, root.j2, tagged_posts.j2]
 blog/tags/sad.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
 blog/tags/thoughts.html: [macros.j2, base.j2, tagged_posts.j2, analytics.j2]
-blog/tags/update.html: [includes/analytics.j2, tagged_posts.j2, root.j2, macros/breadcrumb.j2,
-  macros/render_heroes.j2, macros/render_nav.j2, base.j2, includes/footer.j2]
+blog/tags/update.html: [macros/render_heroes.j2, macros/breadcrumb.j2, macros/render_nav.j2,
+  base.j2, tagged_posts.j2, includes/footer.j2, includes/analytics.j2, root.j2]
 blog\angry-post.html: [blog.j2, macros.j2, analytics.j2, base.j2]
 blog\atom.xml: [atom.j2, macros.j2]
 blog\excerpts.xml: [atom.j2, macros.j2]
@@ -97,8 +98,8 @@ dota2/apps/.interactivemap2/theme/default/style.tidy.css: []
 dota2/apps/.interactivemap2/tiles/2/main.py: []
 dota2/apps/ability-name-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
 dota2/apps/ability-trivia.html: [analytics.j2, base.j2, macros.j2, root.j2]
-dota2/apps/abilitymatching.html: [macros/breadcrumb.j2, macros/render_heroes.j2, base.j2,
-  macros/render_nav.j2, includes/analytics.j2, includes/footer.j2, root.j2]
+dota2/apps/abilitymatching.html: [macros/render_heroes.j2, macros/breadcrumb.j2, macros/render_nav.j2,
+  base.j2, includes/footer.j2, includes/analytics.j2, root.j2]
 dota2/apps/abilitytrivia.html: [base.j2, macros.j2, analytics.j2]
 dota2/apps/abilitytrivia2.html: [base.j2, macros.j2, analytics.j2]
 dota2/apps/drawablemap/.hyde_deps: []
@@ -547,8 +548,8 @@ dota2/heroes/herodata/index.html: [macros/breadcrumb.j2, macros/render_heroes.j2
 dota2/heroes/huskar.html: [macros/breadcrumb.j2, macros/render_heroes.j2, base.j2,
   macros/render_nav.j2, includes/analytics.j2, includes/footer.j2, root.j2, macros/get_value_string.j2,
   heropage.j2]
-dota2/heroes/index.html: [includes/analytics.j2, root.j2, macros/breadcrumb.j2, macros/render_heroes.j2,
-  macros/render_nav.j2, base.j2, includes/footer.j2]
+dota2/heroes/index.html: [macros/render_heroes.j2, macros/render_nav.j2, base.j2,
+  root.j2, macros/breadcrumb.j2, includes/analytics.j2, includes/footer.j2]
 dota2/heroes/invoker.html: [macros/breadcrumb.j2, macros/render_heroes.j2, base.j2,
   macros/render_nav.j2, includes/analytics.j2, includes/footer.j2, root.j2, macros/get_value_string.j2,
   heropage.j2]
