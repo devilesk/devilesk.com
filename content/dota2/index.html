@@ -101,16 +101,6 @@ page_script: mosaics/index
         
         <div class="col-md-6">
             <div class="well page-block">
-                <h3 class="page-block-header">Patches<a href="/dota2/patches" class="btn btn-default btn-xs glyphicon glyphicon-menu-right pull-right"></a></h3>
-                <div class="patches-container row list-unstyled">
-                    {% for patch in patches -%}
-                    <div class="col-xs-4 col-sm-2">
-                        <a href="/dota2/patches/{{ patch }}">{{ patch }}</a>
-                    </div>
-                    {%- endfor %}
-                </div>
-            </div>
-            <div class="well page-block">
                 <h3 class="page-block-header">Resources</h3>
                 <div class="row">
                     <ul class="col-md-6 list-unstyled">
@@ -147,6 +137,16 @@ page_script: mosaics/index
                             </a>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <div class="well page-block">
+                <h3 class="page-block-header">Patches<a href="/dota2/patches" class="btn btn-default btn-xs glyphicon glyphicon-menu-right pull-right"></a></h3>
+                <div class="patches-container row list-unstyled">
+                    {% for patch in patches -%}
+                    <div class="col-xs-4 col-sm-2">
+                        <a href="/dota2/patches/{{ patch }}">{{ patch }}</a>
+                    </div>
+                    {%- endfor %}
                 </div>
             </div>
         </div>
