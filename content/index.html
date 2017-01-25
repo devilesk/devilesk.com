@@ -9,7 +9,7 @@ description: devilesk's personal website and Dota 2 content.
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <style type="text/css">
-        html, body, #wrapper {
+        html, body {
             background-color: #101010;
             color:#121212;
             text-align:center;
@@ -18,12 +18,17 @@ description: devilesk's personal website and Dota 2 content.
             margin:0;
             font-size: 24px;
         }
-        #wrapper, #container {
-            display:inline-block;
-            vertical-align:middle;
+        body {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
         }
-        img {
-            display:block;
+        #container {
+            flex: 1;
         }
         .dota {
             font-family: 'Cinzel', serif;
@@ -35,7 +40,7 @@ description: devilesk's personal website and Dota 2 content.
             text-decoration:none;
             display:inline-block;
             font-weight:bold;
-    letter-spacing: 3px;
+            letter-spacing: 3px;
         }
         a:visited {
             color:#8a2729;
@@ -48,11 +53,15 @@ description: devilesk's personal website and Dota 2 content.
             font-size:4em;
             letter-spacing:.2em;
         }
+        @media only screen and (max-width : 768px) {
+            h1 {
+                font-size:2em;
+            }
+        }
     </style>
 {% endblock head %}
 
 {% block body %}
-<div id="wrapper"></div>
 <div id="container">
     <a href="/dota2/" class="dota"><h1>DOTA 2</h1></a>
     <div>
