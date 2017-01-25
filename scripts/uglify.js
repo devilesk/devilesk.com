@@ -1,7 +1,7 @@
 var fs = require('fs');
 var UglifyJS = require("uglify-js");
 var files = require('./manifest').outputs;
-
+files.push('assets/js/common.js');
 files.forEach(function (src) {
     var result = UglifyJS.minify(src, {
         compress: {drop_console: true}
