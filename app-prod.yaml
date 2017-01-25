@@ -6,7 +6,7 @@ context:
     providers:
         menu: yaml/menu.yaml
 content_root: app_content
-deploy_root: app_www
+deploy_root: app_deploy
 media_root: media
 media_url: /media
 meta:
