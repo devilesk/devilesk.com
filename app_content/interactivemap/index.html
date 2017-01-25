@@ -8,7 +8,7 @@ header: Interactive Map
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="app-5cefa1d.min.css" type="text/css">
+<link rel="stylesheet" href="app-87d3ff2.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -274,10 +274,13 @@ header: Interactive Map
             <a href="https://github.com/devilesk/dota-interactive-map">GitHub</a>
         </div>
     </div>
+    <div class="coordinates-container">
+        <div id="coordinates"></div>
+    </div>
     
     {% block js %}
         {{ super() }}
-        <script src="bundle-5cefa1d.min.js"></script>
+        <script src="bundle-87d3ff2.min.js"></script>
         <script>InteractiveMap("http://devilesk.com/media/images/map/", "img/map_data.png")</script>
     {% endblock js %}
 {% endblock body %}
