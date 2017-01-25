@@ -1077,18 +1077,19 @@ dota2\items\index.html: [base.j2, macros.j2, analytics.j2]
 dota2\items\items.css: []
 dota2\patches\6.79.html: [base.j2, macros.j2, analytics.j2]
 dota2\patches\6.80.html: [base.j2, macros.j2, analytics.j2]
-drawablemap/index.html: [includes/analytics.j2, macros/render_nav.j2, root.j2, includes/footer.j2]
+drawablemap/index.html: [includes/analytics.j2, includes/footer.j2, macros/render_nav.j2,
+  root.j2]
 google326eace8919d7810.html: []
-hero-calculator-table/index.html: [base.j2, macros/breadcrumb.j2, macros/render_nav.j2,
-  includes/analytics.j2, macros/render_heroes.j2, includes/footer.j2, root.j2]
-hero-calculator/index.html: [macros/render_heroes.j2, base.j2, includes/analytics.j2,
-  macros/breadcrumb.j2, root.j2, macros/render_nav.j2, includes/footer.j2]
+hero-calculator-table/index.html: [base.j2, includes/footer.j2, macros/breadcrumb.j2,
+  root.j2, macros/render_heroes.j2, includes/analytics.j2, macros/render_nav.j2]
+hero-calculator/index.html: [root.j2, base.j2, includes/analytics.j2, macros/render_heroes.j2,
+  macros/render_nav.j2, macros/breadcrumb.j2, includes/footer.j2]
 index.html: [includes/footer.j2, includes/analytics.j2, root.j2, macros/render_nav.j2]
 index2.html: [base.j2, macros.j2, analytics.j2]
-interactivemap/index.html: [root.j2, macros/render_nav.j2, includes/analytics.j2,
+interactivemap/index.html: [macros/render_nav.j2, includes/analytics.j2, root.j2,
   includes/footer.j2]
 itemcost.html: [base.j2, macros.j2, root.j2, analytics.j2]
-layout-editor/index.html: [includes/analytics.j2, root.j2, macros/render_nav.j2, includes/footer.j2]
+layout-editor/index.html: [includes/analytics.j2, root.j2, includes/footer.j2, macros/render_nav.j2]
 media/bootstrap/css/bootstrap-theme.css: []
 media/bootstrap/css/bootstrap-theme.css.map: []
 media/bootstrap/css/bootstrap-theme.min.css: []
