@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "browserify": "node scripts/browserify.js",
+    "uglify": "node scripts/uglify.js",
     "sass": "node scripts/sass.js",
     "postcss": "node scripts/postcss.js",
     "cleancss": "cleancss assets/css/site.min.css -o assets/css/site.min.css",
@@ -12,7 +13,7 @@
     "copy:spritesheet": "rm -r assets/spritesheets && cp -r libs/dota-webassets/dist assets/spritesheets",
     "copy:mosaic": "rm -r assets/images/mosaics/mosaics && rm -r assets/images/mosaics/thumbnails && cp -r libs/dota-mosaic/mosaics assets/images/mosaics/mosaics && cp -r libs/dota-mosaic/thumbnails assets/images/mosaics/thumbnails",
     "clean:build": "rm -r build",
-    "build:js": "npm run browserify",
+    "build:js": "npm run browserify -- production && npm run uglify",
     "build:css": "npm run sass && npm run postcss && npm run cleancss",
     "build": "npm run build:js && npm run build:css",
     "watch:js": "node scripts/browserify.js -- development watch",
@@ -24,8 +25,8 @@
     "assets:rev": "rm -r content/media && gulp assetrev",
     "assets": "npm run assets:update && npm run assets:rev",
     "data": "python scripts/generate.py",
-    "gen:dev": "npm run assets && npm run data && npm run build && npm run hyde:dev",
-    "gen:prod": "npm run assets && npm run data && npm run build && npm run hyde:prod",
+    "gen:dev": "npm run build && npm run assets && npm run data && npm run hyde:dev",
+    "gen:prod": "npm run build && npm run assets && npm run data && npm run hyde:prod",
     "app:build:hero-calculator": "cd apps/dota-hero-calculator && npm run build",
     "app:build:hero-calculator-table": "cd apps/dota-hero-calculator-table && npm run build",
     "app:build:interactivemap": "cd apps/dota-interactive-map && npm run build",
@@ -77,6 +78,7 @@
     "node-sass": "^4.3.0",
     "nodemon": "^1.11.0",
     "postcss": "^5.2.10",
+    "uglify-js": "^2.7.5",
     "watchify": "^3.8.0"
   },
   "dependencies": {
