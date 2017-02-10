@@ -154,7 +154,7 @@
 - attributes: '+ 25 Intelligence<br>+ 30 Attack Speed<br>+ 60 Damage<br>+ 150% Mana
     Regeneration<br>CRITICAL CHANCE: 20%<br>CRITICAL DAMAGE: 175%<br>SILENCE INCREASED
     DAMAGE: 30.0%<br>SILENCE DURATION: 5.0<br>SILENCE CRITICAL DAMAGE: 145.0%'
-  cd: '11'
+  cd: '13'
   description: 'Active: Silences a target for 5.0 seconds and amplifies the damage
     it takes by 30.0%. All attacks on the silenced target will have True Strike and
     land a crit on impact.<br>Passive: Critical Strike - Grants each attack a chance
@@ -236,8 +236,8 @@
   itemcost: '165'
   lore: An elegant circlet designed for human princesses.
 - attributes: 'TOTAL MANA RESTORED: 190<br>DURATION: 50'
-  description: 'Use: Restores mana to the target unit over time.  If the unit is attacked,
-    the effect is lost.'
+  description: 'Use: Restores mana to the target unit over time.  If the unit is attacked
+    by an enemy hero or Roshan, the effect is lost.'
   displayname: Clarity
   id: clarity
   itemcost: '50'
@@ -327,7 +327,7 @@
   id: rapier
   itemcost: '6200'
   lore: So powerful, it cannot have a single owner.
-- attributes: + 14 Agility<br>+ 12 Strength<br>+ 140 Attack Range
+- attributes: + 13 Agility<br>+ 12 Strength<br>+ 140 Attack Range
   description: 'Passive: Increases attack range of ranged heroes by 140.'
   displayname: Dragon Lance
   id: dragon_lance
@@ -517,7 +517,7 @@
   lore: Creates a soothing aura that restores allies in battle.
 - attributes: 'DURATION: 8<br>HEALTH RESTORED: 400'
   description: 'Use: Restores health to the target unit over time.  If the unit is
-    attacked, the effect is lost.'
+    attacked by an enemy hero or Roshan, the effect is lost.'
   displayname: Healing Salve
   id: flask
   itemcost: '110'
@@ -531,11 +531,11 @@
   id: heart
   itemcost: '5500'
   lore: Preserved heart of an extinct monster, it bolsters the bearer's fortitude.
-- attributes: '+ 25% Evasion<br>+ 25 Damage<br>+ 20 Strength<br>MAIM CHANCE: 24%<br>MOVEMENT
+- attributes: '+ 25% Evasion<br>+ 25 Damage<br>+ 20 Strength<br>MAIM CHANCE: 35%<br>MOVEMENT
     SLOW MELEE: -20%<br>ATTACK SLOW MELEE: -20<br>MOVEMENT SLOW RANGED: -10%<br>ATTACK
     SLOW RANGED: -10<br>MAIM DURATION: 5.0<br>DISARM RANGED DURATION: 5.5<br>DISARM
     MELEE DURATION: 3.0<br>DISARM CAST RANGE: 600'
-  cd: '30'
+  cd: '22'
   description: 'Active: Disarm - Prevents a target from attacking. Lasts 3.0 seconds
     on melee targets, and 5.5 seconds on ranged targets.<br>Passive: Lesser Maim -
     Each attack has a chance to slow the enemy''s movement and attack speed for 5.0
@@ -551,7 +551,7 @@
   id: helm_of_iron_will
   itemcost: '900'
   lore: The helmet of a legendary warrior who fell in battle.
-- attributes: '+ 6 All Attributes<br>+ 10 Attack Speed<br>AURA ATTACK SPEED: 10<br>AURA
+- attributes: '+ 4 All Attributes<br>+ 10 Attack Speed<br>AURA ATTACK SPEED: 10<br>AURA
     HEALTH REGEN: 8<br>DOMINATED HEALTH MINIMUM: 1400<br>CREEP MOVEMENT SPEED: 425'
   cd: '60'
   description: 'Active: Dominate - Take control of a non-hero, non-ancient target
@@ -1001,7 +1001,7 @@
   id: sobi_mask
   itemcost: '325'
   lore: A mask commonly used by mages and warlocks for various rituals.
-- attributes: '+ 10 Damage<br>+ 16 Strength<br>MAIM CHANCE: 24%<br>MOVEMENT SLOW MELEE:
+- attributes: '+ 10 Damage<br>+ 16 Strength<br>MAIM CHANCE: 30%<br>MOVEMENT SLOW MELEE:
     -20%<br>ATTACK SLOW MELEE: -20<br>MOVEMENT SLOW RANGED: -10%<br>ATTACK SLOW RANGED:
     -10<br>MAIM DURATION: 5.0'
   description: 'Passive: Lesser Maim - Each attack has a chance to slow the enemy''s
@@ -1011,7 +1011,7 @@
   itemcost: '2050'
   lore: Sange is an unusually accurate weapon, seeking weak points automatically.
 - attributes: '+ 16 Damage<br>+ 16 Strength<br>+ 16 Agility<br>+ 16 Attack Speed<br>+
-    16% Movement Speed<br>MAIM CHANCE: 30%<br>MOVEMENT SLOW MELEE: -26%<br>ATTACK
+    16% Movement Speed<br>MAIM CHANCE: 35%<br>MOVEMENT SLOW MELEE: -26%<br>ATTACK
     SLOW MELEE: -26<br>MOVEMENT SLOW RANGED: -13%<br>ATTACK SLOW RANGED: -13<br>MAIM
     DURATION: 5.0'
   description: 'Passive: Greater Maim - Each attack has a chance to slow the enemy''s
@@ -1052,7 +1052,7 @@
     to an allied hero.'
   displayname: Sentry Ward
   id: ward_sentry
-  itemcost: '200'
+  itemcost: '100'
   lore: A form of plant originally grown in the garden of a fearful king.
 - attributes: '+ 20 Attack Speed<br>FADE TIME: 1.25'
   cd: '7'
@@ -1091,12 +1091,12 @@
   lore: Said to have belonged to a goddess, today it retains much of its former power.
   mana: '100'
 - attributes: '+ 30 Damage<br>+ 30 Attack Speed<br>+ 15 All Attributes<br>SHADOW WALK
-    DURATION: 14.0<br>BONUS ATTACK DAMAGE: 225<br>ENEMY DAMAGE REDUCTION: -50%<br>REDUCTION
+    DURATION: 14.0<br>BONUS ATTACK DAMAGE: 200<br>ENEMY DAMAGE REDUCTION: -50%<br>REDUCTION
     DURATION: 5.0'
   cd: '24'
   description: 'Active: Shadow Walk - Makes you invisible until the duration ends,
     or until you attack or cast a spell.  While invisible, you move 20% faster and
-    can move through units.  Attacking to end the invisibility will deal 225 bonus
+    can move through units.  Attacking to end the invisibility will deal 200 bonus
     damage to the target, disable their passive abilities, and reduce their damage
     output.'
   displayname: Silver Edge
@@ -1131,13 +1131,13 @@
   id: smoke_of_deceit
   itemcost: '50'
   lore: The charlatan wizard Myrddin's only true contribution to the arcane arts.
-- attributes: '+ 10 Armor<br>+ 75% Mana Regeneration<br>+ 25% Evasion<br>SHINE ALLY
-    BONUS ARMOR: 10<br>SHINE ALLY EVASION: 25%<br>SHINE ENEMY ARMOR LOSS: -10<br>SHINE
+- attributes: '+ 12 Armor<br>+ 75% Mana Regeneration<br>+ 25% Evasion<br>SHINE ALLY
+    BONUS ARMOR: 12<br>SHINE ALLY EVASION: 25%<br>SHINE ENEMY ARMOR LOSS: -12<br>SHINE
     ENEMY MISS CHANCE: 25%<br>SHINE DURATION: 7<br>SHINE CAST RANGE: 1000'
   cd: '7'
   description: 'Active: Shine - Temporarily removes the armor and evasion from Solar
-    Crest. When cast on an ally it grants them 10 armor and 25% evasion. When cast
-    on an enemy, it removes 10 of their armor and blinds them, causing them to miss
+    Crest. When cast on an ally it grants them 12 armor and 25% evasion. When cast
+    on an enemy, it removes 12 of their armor and blinds them, causing them to miss
     25% of their attacks. Cannot target magic immune enemies.'
   displayname: Solar Crest
   id: solar_crest
@@ -1184,10 +1184,10 @@
   id: tango
   itemcost: '125'
   lore: Forage to survive on the battlefield.
-- attributes: 'XP BONUS BASE: 500<br>XP BONUS PER USE: 100<br>Tomes Used by Owner''s
+- attributes: 'XP BONUS BASE: 500<br>XP BONUS PER USE: 135<br>Tomes Used by Owner''s
     Team: 0'
   cd: '0'
-  description: 'Use: Grants you 500 experience plus 100 per tome consumed by your
+  description: 'Use: Grants you 500 experience plus 135 per tome consumed by your
     team.'
   displayname: Tome of Knowledge
   id: tome_of_knowledge

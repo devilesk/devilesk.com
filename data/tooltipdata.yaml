@@ -1711,8 +1711,8 @@ item_circlet:
   DisplayName: Circlet
   Lore: An elegant circlet designed for human princesses.
 item_clarity:
-  Description: 'Use: Restores mana to the target unit over time.  If the unit is attacked,
-    the effect is lost.'
+  Description: 'Use: Restores mana to the target unit over time.  If the unit is attacked
+    by an enemy hero or Roshan, the effect is lost.'
   DisplayName: Clarity
   Lore: Clear water that enhances the ability to meditate.
 item_claymore:
@@ -1846,7 +1846,7 @@ item_faerie_fire:
     realities.
 item_flask:
   Description: 'Use: Restores health to the target unit over time.  If the unit is
-    attacked, the effect is lost.'
+    attacked by an enemy hero or Roshan, the effect is lost.'
   DisplayName: Healing Salve
   Lore: A magical salve that can quickly mend even the deepest of wounds.
 item_flying_courier:
@@ -3290,9 +3290,10 @@ necrolyte_reapers_scythe:
   Lore: The amount of death and suffering in the air increases the power of Necrophos's
     plague magic.
 necrolyte_sadist:
-  Description: Necrophos slips into the realm that separates the living from the dead,
-    emitting an aura that slows enemies around him. He takes additional magic damage
-    in this form, but his restorative powers are amplified.
+  Description: Necrophos slips into the realm that separates the living from the dead.
+    Unable to attack or be attacked, he emits an aura that slows enemies around him.
+    He takes additional magic damage in this form, but his restorative powers are
+    amplified.
   DisplayName: Ghost Shroud
   Lore: Rotund'jere uses the souls of his victims as bridge from life to afterlife.
 necronomicon_archer_aoe:
@@ -6684,6 +6685,10 @@ special_bonus_agility_20:
   DisplayName: +20 Agility
 special_bonus_agility_25:
   DisplayName: +25 Agility
+special_bonus_agility_30:
+  DisplayName: +30 Agility
+special_bonus_agility_40:
+  DisplayName: +40 Agility
 special_bonus_agility_8:
   DisplayName: +8 Agility
 special_bonus_all_stats_10:
@@ -6754,6 +6759,10 @@ special_bonus_attack_damage_45:
   DisplayName: +45 Damage
 special_bonus_attack_damage_50:
   DisplayName: +50 Damage
+special_bonus_attack_damage_55:
+  DisplayName: +55 Damage
+special_bonus_attack_damage_60:
+  DisplayName: +60 Damage
 special_bonus_attack_damage_65:
   DisplayName: +65 Damage
 special_bonus_attack_damage_75:
@@ -6818,6 +6827,8 @@ special_bonus_cast_range_250:
   DisplayName: +250 Cast Range
 special_bonus_cast_range_300:
   DisplayName: +300 Cast Range
+special_bonus_cast_range_400:
+  DisplayName: +400 Cast Range
 special_bonus_cast_range_50:
   DisplayName: +50 Cast Range
 special_bonus_cast_range_60:
@@ -6846,6 +6857,8 @@ special_bonus_evasion_15:
   DisplayName: 15% Evasion
 special_bonus_evasion_20:
   DisplayName: 20% Evasion
+special_bonus_evasion_25:
+  DisplayName: 25% Evasion
 special_bonus_exp_boost_10:
   DisplayName: +10% XP Gain
 special_bonus_exp_boost_15:
@@ -6856,6 +6869,8 @@ special_bonus_exp_boost_25:
   DisplayName: +25% XP Gain
 special_bonus_exp_boost_30:
   DisplayName: +30% XP Gain
+special_bonus_exp_boost_35:
+  DisplayName: +35% XP Gain
 special_bonus_exp_boost_5:
   DisplayName: +5% XP Gain
 special_bonus_gold_income_10:
@@ -6884,6 +6899,8 @@ special_bonus_hp_175:
   DisplayName: +175 Health
 special_bonus_hp_200:
   DisplayName: +200 Health
+special_bonus_hp_225:
+  DisplayName: +225 Health
 special_bonus_hp_250:
   DisplayName: +250 Health
 special_bonus_hp_275:
@@ -6896,6 +6913,10 @@ special_bonus_hp_400:
   DisplayName: +400 Health
 special_bonus_hp_500:
   DisplayName: +500 Health
+special_bonus_hp_600:
+  DisplayName: +600 Health
+special_bonus_hp_700:
+  DisplayName: +700 Health
 special_bonus_hp_regen_10:
   DisplayName: +10 Health Regen
 special_bonus_hp_regen_14:
@@ -6906,6 +6927,8 @@ special_bonus_hp_regen_20:
   DisplayName: +20 Health Regen
 special_bonus_hp_regen_25:
   DisplayName: +25 Health Regen
+special_bonus_hp_regen_30:
+  DisplayName: +30 Health Regen
 special_bonus_hp_regen_4:
   DisplayName: +4 Health Regen
 special_bonus_hp_regen_40:
@@ -6966,6 +6989,8 @@ special_bonus_magic_resistance_25:
   DisplayName: +25% Magic Resistance
 special_bonus_magic_resistance_30:
   DisplayName: +30% Magic Resistance
+special_bonus_magic_resistance_35:
+  DisplayName: +35% Magic Resistance
 special_bonus_magic_resistance_5:
   DisplayName: +5% Magic Resistance
 special_bonus_magic_resistance_6:
@@ -6990,6 +7015,10 @@ special_bonus_movement_speed_45:
   DisplayName: +45 Movement Speed
 special_bonus_movement_speed_50:
   DisplayName: +50 Movement Speed
+special_bonus_movement_speed_60:
+  DisplayName: +60 Movement Speed
+special_bonus_movement_speed_75:
+  DisplayName: +75 Movement Speed
 special_bonus_mp_100:
   DisplayName: +100 Mana
 special_bonus_mp_125:
@@ -7010,6 +7039,8 @@ special_bonus_mp_400:
   DisplayName: +400 Mana
 special_bonus_mp_500:
   DisplayName: +500 Mana
+special_bonus_mp_600:
+  DisplayName: +600 Mana
 special_bonus_mp_regen_1:
   DisplayName: +1 Mana Regen
 special_bonus_mp_regen_10:
@@ -7022,6 +7053,8 @@ special_bonus_mp_regen_3:
   DisplayName: +3 Mana Regen
 special_bonus_mp_regen_4:
   DisplayName: +4 Mana Regen
+special_bonus_mp_regen_5:
+  DisplayName: +5 Mana Regen
 special_bonus_mp_regen_6:
   DisplayName: +6 Mana Regen
 special_bonus_mp_regen_8:
@@ -7038,6 +7071,8 @@ special_bonus_respawn_reduction_35:
   DisplayName: -35s Respawn Time
 special_bonus_respawn_reduction_40:
   DisplayName: -40s Respawn Time
+special_bonus_respawn_reduction_45:
+  DisplayName: -45s Respawn Time
 special_bonus_respawn_reduction_50:
   DisplayName: -50s Respawn Time
 special_bonus_respawn_reduction_60:
@@ -7097,19 +7132,27 @@ special_bonus_undefined:
 special_bonus_unique_abaddon:
   DisplayName: +200 Aphotic Shield Health
 special_bonus_unique_alchemist:
-  DisplayName: -4 Acid Spray Armor
+  DisplayName: -5 Acid Spray Armor
+special_bonus_unique_alchemist_2:
+  DisplayName: +80 Unstable Concoction Damage
 special_bonus_unique_ancient_apparition_1:
   DisplayName: 3 Charges of Cold Feet
 special_bonus_unique_ancient_apparition_2:
   DisplayName: +80 Chilling Touch Damage
+special_bonus_unique_ancient_apparition_3:
+  DisplayName: -1s Ice Vortex Cooldown
 special_bonus_unique_antimage:
-  DisplayName: -2s Blink Cooldown
+  DisplayName: -1s Blink Cooldown
+special_bonus_unique_antimage_2:
+  DisplayName: -50s Mana Void Cooldown
 special_bonus_unique_arc_warden:
   DisplayName: +175 Spark Wraith Damage
+special_bonus_unique_arc_warden_2:
+  DisplayName: +20 Flux DPS
 special_bonus_unique_axe:
   DisplayName: +100 Battle Hunger DPS
 special_bonus_unique_bane_1:
-  DisplayName: +120 Enfeeble Damage Reduction
+  DisplayName: +75 Enfeeble Damage Reduction
 special_bonus_unique_bane_2:
   DisplayName: +200 Brain Sap Damage/Heal
 special_bonus_unique_batrider_1:
@@ -7117,19 +7160,33 @@ special_bonus_unique_batrider_1:
 special_bonus_unique_batrider_2:
   DisplayName: +200 Flamebreak AoE/Knockback
 special_bonus_unique_beastmaster:
-  DisplayName: +175 Wild Axes Damage
+  DisplayName: +250 Wild Axes Damage
 special_bonus_unique_bloodseeker:
   DisplayName: -7s Bloodrite Cooldown
+special_bonus_unique_bloodseeker_2:
+  DisplayName: +75 Blood Rite Damage
+special_bonus_unique_bloodseeker_3:
+  DisplayName: +14% Rupture Damage
 special_bonus_unique_bounty_hunter:
   DisplayName: -5s Jinada Cooldown
+special_bonus_unique_bounty_hunter_2:
+  DisplayName: +75 Shuriken Toss Damage
 special_bonus_unique_brewmaster:
-  DisplayName: +14 Primal Split Unit Armor
+  DisplayName: +20 Primal Split Unit Armor
+special_bonus_unique_brewmaster_2:
+  DisplayName: +75 Thunder Clap Damage
 special_bonus_unique_bristleback:
   DisplayName: +4 Max Goo Stacks
+special_bonus_unique_bristleback_2:
+  DisplayName: +20 Quill Stack Damage
 special_bonus_unique_broodmother_1:
   DisplayName: +8 Max Webs
 special_bonus_unique_broodmother_2:
   DisplayName: +200 Spiders Health
+special_bonus_unique_broodmother_3:
+  DisplayName: +60 Spawn Spiderling Damage
+special_bonus_unique_broodmother_4:
+  DisplayName: +8 Spiderlings Attack Damage
 special_bonus_unique_centaur_1:
   DisplayName: Gains Return Aura
 special_bonus_unique_centaur_2:
@@ -7140,52 +7197,74 @@ special_bonus_unique_chen_1:
   DisplayName: +2 Holy Persuation Max Count
 special_bonus_unique_chen_2:
   DisplayName: +200 Hand of God Heal
+special_bonus_unique_chen_3:
+  DisplayName: -10s Test of Faith Cooldown
 special_bonus_unique_clinkz_1:
   DisplayName: +30 Searing Arrows Damage
 special_bonus_unique_clinkz_2:
   DisplayName: +70 Strafe Attack Speed
 special_bonus_unique_clockwerk:
   DisplayName: +10s Battery Assault Duration
+special_bonus_unique_clockwerk_2:
+  DisplayName: +75 Rocket Flare Damage
 special_bonus_unique_crystal_maiden_1:
   DisplayName: +1.5s Frostbite Duration
 special_bonus_unique_crystal_maiden_2:
-  DisplayName: +200 Crystal Nova Damage
+  DisplayName: +250 Crystal Nova Damage
 special_bonus_unique_dark_seer:
-  DisplayName: +70 Ion Shell Damage
+  DisplayName: +80 Ion Shell Damage
+special_bonus_unique_dark_seer_2:
+  DisplayName: +75 Vacuum AoE
 special_bonus_unique_dazzle_1:
   DisplayName: -6s Poison Touch Cooldown
 special_bonus_unique_dazzle_2:
   DisplayName: +60 Shadow Wave Heal
 special_bonus_unique_death_prophet:
   DisplayName: +6 Exorcism Spirits
+special_bonus_unique_death_prophet_2:
+  DisplayName: -1s Crypt Swarm Cooldown
 special_bonus_unique_disruptor:
   DisplayName: +4 Thunder Strike Hits
+special_bonus_unique_disruptor_2:
+  DisplayName: -3s Kinetic Field Cooldown
 special_bonus_unique_doom_1:
   DisplayName: +2% Infernal Blade Damage
 special_bonus_unique_doom_2:
   DisplayName: Devour Can Target Ancients
+special_bonus_unique_doom_3:
+  DisplayName: +80 Devour Bonus Gold
+special_bonus_unique_doom_4:
+  DisplayName: +15 Scorched Earth Damage/Heal
+special_bonus_unique_doom_5:
+  DisplayName: +35 Doom DPS
 special_bonus_unique_dragon_knight:
   DisplayName: 2x Dragon Blood HP Regen/Armor
 special_bonus_unique_drow_ranger_1:
   DisplayName: +6% Precision Aura Damage
 special_bonus_unique_drow_ranger_2:
-  DisplayName: +350 Gust Distance/Knockback
+  DisplayName: +400 Gust Distance/Knockback
 special_bonus_unique_drow_ranger_3:
   DisplayName: +25 Marksmanship Agility
 special_bonus_unique_earth_spirit:
   DisplayName: +300 Rolling Boulder Damage
 special_bonus_unique_earthshaker:
   DisplayName: -2s Enchant Totem Cooldown
+special_bonus_unique_earthshaker_2:
+  DisplayName: +40 Echo Damage
 special_bonus_unique_elder_titan:
-  DisplayName: +80 Astral Spirit Hero Attack
+  DisplayName: +100 Astral Spirit Hero Attack
+special_bonus_unique_elder_titan_2:
+  DisplayName: +30 Echo Stomp Damage
 special_bonus_unique_ember_spirit_1:
   DisplayName: +500 Flame Guard Absorption
 special_bonus_unique_ember_spirit_2:
   DisplayName: +2s Searing Chains
 special_bonus_unique_enchantress_1:
-  DisplayName: +8s Nature's Attendants Duration
+  DisplayName: +10s Nature's Attendants Duration
 special_bonus_unique_enchantress_2:
-  DisplayName: +10 Nature's Attendants Wisps
+  DisplayName: +12 Nature's Attendants Wisps
+special_bonus_unique_enchantress_3:
+  DisplayName: +60 Untouchable Slow
 special_bonus_unique_enigma:
   DisplayName: +8 Demonic Conversion Eidolons
 special_bonus_unique_faceless_void:
@@ -7198,20 +7277,26 @@ special_bonus_unique_gyrocopter_2:
   DisplayName: +4 Flak Cannon Attacks
 special_bonus_unique_huskar:
   DisplayName: +400 Life Break Cast Range
+special_bonus_unique_huskar_2:
+  DisplayName: +5 Burning Spears DPS
 special_bonus_unique_invoker_1:
   DisplayName: +1 Forged Spirit Summoned
 special_bonus_unique_invoker_2:
   DisplayName: AoE Deafening Blast
 special_bonus_unique_invoker_3:
-  DisplayName: -15s Tornado Cooldown
+  DisplayName: -18s Tornado Cooldown
 special_bonus_unique_jakiro:
   DisplayName: +1.25s Ice Path Duration
+special_bonus_unique_jakiro_2:
+  DisplayName: +25 Dual Breath Burn Damage
 special_bonus_unique_juggernaut:
   DisplayName: +175 Blade Fury DPS
 special_bonus_unique_keeper_of_the_light:
   DisplayName: +200 Illuminate Damage/Heal
 special_bonus_unique_kunkka:
   DisplayName: +200 Torrent AoE
+special_bonus_unique_kunkka_2:
+  DisplayName: +40 Torrent Damage
 special_bonus_unique_legion_commander:
   DisplayName: +40 Duel Damage Bonus
 special_bonus_unique_leshrac_1:
@@ -7219,21 +7304,27 @@ special_bonus_unique_leshrac_1:
 special_bonus_unique_leshrac_2:
   DisplayName: +2s Lightning Storm Slow Duration
 special_bonus_unique_lich_1:
-  DisplayName: +25 Frost Armor Structure Armor
+  DisplayName: +35 Frost Armor Structure Armor
 special_bonus_unique_lich_2:
   DisplayName: Attacks Apply 30% MS and AS Slow
+special_bonus_unique_lich_3:
+  DisplayName: -3s Frost Blast Cooldown
 special_bonus_unique_lifestealer:
   DisplayName: +1s Rage Duration
 special_bonus_unique_lina_1:
   DisplayName: -4s Dragon Slave Cooldown
 special_bonus_unique_lina_2:
   DisplayName: +1 Firey Soul Max Stacks
+special_bonus_unique_lina_3:
+  DisplayName: +60 Light Strike Array Damage
 special_bonus_unique_lion:
   DisplayName: +3 Mana Drain Multi Target
+special_bonus_unique_lion_2:
+  DisplayName: '+80 Earth Spike Damage '
 special_bonus_unique_lone_druid_1:
   DisplayName: +30 Spirit Bear Damage
 special_bonus_unique_lone_druid_2:
-  DisplayName: +7 Spirit Bear Armor
+  DisplayName: +12 Spirit Bear Armor
 special_bonus_unique_lone_druid_3:
   DisplayName: +1.5s Entangle Duration
 special_bonus_unique_lone_druid_4:
@@ -7248,22 +7339,32 @@ special_bonus_unique_lycan_2:
   DisplayName: +2 Wolves Summoned
 special_bonus_unique_magnus:
   DisplayName: -4s Shockwave Cooldown
+special_bonus_unique_magnus_2:
+  DisplayName: +15% Empower Damage/Cleave
 special_bonus_unique_medusa:
   DisplayName: +1s Stone Gaze Stun
+special_bonus_unique_medusa_2:
+  DisplayName: +1 Split Shot target
 special_bonus_unique_meepo:
   DisplayName: -3s Poof Cooldown
 special_bonus_unique_mirana_1:
   DisplayName: +100 Leap Attack Speed
 special_bonus_unique_mirana_2:
   DisplayName: +2 Multishot Sacred Arrows
+special_bonus_unique_mirana_3:
+  DisplayName: -4s Sacred Arrow cooldown
 special_bonus_unique_monkey_king:
   DisplayName: +100% Boundless Strike Crit
+special_bonus_unique_monkey_king_2:
+  DisplayName: +75 Jingu Mastery Damage
 special_bonus_unique_morphling_1:
   DisplayName: +400 Waveform Range
 special_bonus_unique_morphling_2:
-  DisplayName: +30% Replicate Damage
+  DisplayName: +50% Replicate Damage
 special_bonus_unique_naga_siren:
   DisplayName: +1 Mirror Image Illusion
+special_bonus_unique_naga_siren_2:
+  DisplayName: -3s Ensnare Cooldown
 special_bonus_unique_necrophos:
   DisplayName: -1s Death Pulse Cooldown
 special_bonus_unique_nevermore_1:
@@ -7271,9 +7372,11 @@ special_bonus_unique_nevermore_1:
 special_bonus_unique_nevermore_2:
   DisplayName: -7s Shadow Raze Cooldown
 special_bonus_unique_night_stalker:
-  DisplayName: -6s Crippling Fear Cooldown
+  DisplayName: -8s Crippling Fear Cooldown
 special_bonus_unique_nyx:
   DisplayName: 200% Spiked Carapace Damage
+special_bonus_unique_nyx_2:
+  DisplayName: +50 Impale Damage
 special_bonus_unique_ogre_magi:
   DisplayName: +40 Bloodlust AS
 special_bonus_unique_omniknight_1:
@@ -7288,12 +7391,18 @@ special_bonus_unique_phantom_assassin:
   DisplayName: Double Strike Stifling Dagger
 special_bonus_unique_phantom_lancer:
   DisplayName: +600 Phantom Rush Range
+special_bonus_unique_phantom_lancer_2:
+  DisplayName: +75 Spirit Lance Damage
 special_bonus_unique_phoenix_1:
   DisplayName: +2 Supernova Hit Count
 special_bonus_unique_phoenix_2:
   DisplayName: +1s Supernova Stun Duration
+special_bonus_unique_phoenix_3:
+  DisplayName: +50 Fire Spirits DPS
 special_bonus_unique_puck:
-  DisplayName: '+75% Illusory Orb Distance/Speed '
+  DisplayName: +75% Illusory Orb Distance/Speed
+special_bonus_unique_puck_2:
+  DisplayName: -3s Waning Rift Cooldown
 special_bonus_unique_pudge_1:
   DisplayName: +1.75 Flesh Heap Stack Str
 special_bonus_unique_pudge_2:
@@ -7301,9 +7410,15 @@ special_bonus_unique_pudge_2:
 special_bonus_unique_pugna_1:
   DisplayName: +50% Life Drain Heal
 special_bonus_unique_pugna_2:
-  DisplayName: +100 Nether Blast Damage
+  DisplayName: +125 Nether Blast Damage
+special_bonus_unique_pugna_3:
+  DisplayName: +0.5 Netherward Damage Per Mana
+special_bonus_unique_queen_of_pain:
+  DisplayName: -3s Shadow Strike Cooldown
 special_bonus_unique_razor:
-  DisplayName: '+14 Static Link Damage Steal '
+  DisplayName: +14 Static Link Damage Steal
+special_bonus_unique_razor_2:
+  DisplayName: +130 Unstable Current Damage
 special_bonus_unique_riki_1:
   DisplayName: +0.4 Backstab Multiplier
 special_bonus_unique_riki_2:
@@ -7312,16 +7427,18 @@ special_bonus_unique_rubick:
   DisplayName: +400 Telekinesis Land Distance
 special_bonus_unique_sand_king:
   DisplayName: +4 Epicenter Pulses
+special_bonus_unique_sand_king_2:
+  DisplayName: +50 Sand Storm DPS
 special_bonus_unique_shadow_demon_1:
   DisplayName: +400 Demonic Purge Damage
 special_bonus_unique_shadow_demon_2:
-  DisplayName: -1s Shadow Poison Cooldown
+  DisplayName: -6s Soul Catcher Cooldown
 special_bonus_unique_shadow_shaman_1:
   DisplayName: +1 Serpent Wards Attacks HP
 special_bonus_unique_shadow_shaman_2:
   DisplayName: +3s Shackles Duration
 special_bonus_unique_silencer:
-  DisplayName: +20% Curse Slow
+  DisplayName: +25% Curse Slow
 special_bonus_unique_skywrath:
   DisplayName: -4s Ancient Seal Cooldown
 special_bonus_unique_slardar:
@@ -7341,7 +7458,7 @@ special_bonus_unique_spirit_breaker_2:
 special_bonus_unique_storm_spirit:
   DisplayName: +0.75s Electric Vortex
 special_bonus_unique_sven:
-  DisplayName: -5s Storm Hammer Cooldown
+  DisplayName: -6s Storm Hammer Cooldown
 special_bonus_unique_techies:
   DisplayName: +400 Blast Off Damage
 special_bonus_unique_templar_assassin:
@@ -7349,7 +7466,7 @@ special_bonus_unique_templar_assassin:
 special_bonus_unique_terrorblade:
   DisplayName: -30s Sunder Cooldown
 special_bonus_unique_tidehunter:
-  DisplayName: -5 Gush Armor
+  DisplayName: -6 Gush Armor
 special_bonus_unique_timbersaw:
   DisplayName: +6% Whirling Death Attribute Reduction
 special_bonus_unique_tinker:
@@ -7362,10 +7479,14 @@ special_bonus_unique_troll_warlord:
   DisplayName: -7s Whirling Axes Cooldown
 special_bonus_unique_tusk:
   DisplayName: +150% Walrus Punch Crit
+special_bonus_unique_tusk_2:
+  DisplayName: +150 Snowball Damage
 special_bonus_unique_underlord:
   DisplayName: +0.4s Pit of Malice Root
 special_bonus_unique_undying:
-  DisplayName: +40 Tombstone Zombie Damage
+  DisplayName: +50 Tombstone Zombie Damage
+special_bonus_unique_undying_2:
+  DisplayName: -2s Decay Cooldown
 special_bonus_unique_ursa:
   DisplayName: +10 Fury Swipes Damage
 special_bonus_unique_vengeful_spirit_1:
@@ -7388,12 +7509,16 @@ special_bonus_unique_warlock_1:
   DisplayName: Magic Immunity for Chaotic Offering Golems
 special_bonus_unique_warlock_2:
   DisplayName: +15 Chaotic Offering Golems Armor
+special_bonus_unique_warlock_3:
+  DisplayName: -4s Shadow Word Cooldown
 special_bonus_unique_weaver_1:
   DisplayName: +30 Shukuchi Damage
 special_bonus_unique_weaver_2:
   DisplayName: +200 Shukuchi Movement Speed
 special_bonus_unique_windranger:
-  DisplayName: -5s Powershot Cooldown
+  DisplayName: -6s Powershot Cooldown
+special_bonus_unique_windranger_2:
+  DisplayName: +25% Windrun Slow
 special_bonus_unique_winter_wyvern_1:
   DisplayName: +15% Arctic Burn Slow
 special_bonus_unique_winter_wyvern_2:
@@ -7408,6 +7533,8 @@ special_bonus_unique_wraith_king_1:
   DisplayName: No Reincarnation Manacost
 special_bonus_unique_wraith_king_2:
   DisplayName: +20% Vampiric Aura Lifesteal
+special_bonus_unique_wraith_king_3:
+  DisplayName: +50 Wraithfire Blast DPS
 special_bonus_unique_zeus:
   DisplayName: +1.5% Static Field Damage
 special_bonus_vision_200:
