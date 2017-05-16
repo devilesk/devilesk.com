@@ -20,7 +20,7 @@
   "Lore": "The curse that slows an enemy, speeds an ally."
  },
  "abyssal_underlord_atrophy_aura": {
-  "Description": "Nearby enemy units are weakened, losing a portion of their base damage. If a unit dies while under this effect, Underlord gains bonus damage.",
+  "Description": "Nearby enemy units are weakened, losing a portion of their base damage. If a unit dies while under this effect, Underlord gains bonus damage.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Atrophy Aura",
   "Lore": "To merely stand in the presence of the Underlord is to feel the conviction of battle sapped from one's soul."
  },
@@ -95,7 +95,7 @@
   "DisplayName": "Release"
  },
  "ancient_apparition_ice_vortex": {
-  "Description": "Creates a vortex of icy energy that slows movement speed and increases magic damage done in its range.  Lasts 16 seconds.",
+  "Description": "Creates a vortex of icy energy that slows movement speed and increases magic damage done in its range. Lasts 16 seconds.",
   "DisplayName": "Ice Vortex",
   "Lore": "Frozen, caustic winds are at the whim of Kaldr, chilling the field of battle."
  },
@@ -144,7 +144,7 @@
   "DisplayName": "Attribute Bonus"
  },
  "axe_battle_hunger": {
-  "Description": "Enrages an enemy unit, causing it to be slowed and take damage over time until it kills another unit or the duration ends. Axe gains movement speed for each unit affected with Battle Hunger.",
+  "Description": "Enrages an enemy unit, causing it to be slowed and take damage over time until it kills another unit or the duration ends. Axe gains movement speed for each unit affected with Battle Hunger.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Battle Hunger",
   "Lore": "Ordinary heroes cannot withstand Mogul Khan's rage for battle, such that it injures them until it is satisfied."
  },
@@ -159,7 +159,7 @@
   "Lore": "Axe is the only reinforcement this army needs."
  },
  "axe_culling_blade": {
-  "Description": "Axe spots a weakness and strikes, instantly killing an enemy unit with low health, or dealing moderate damage otherwise. When an enemy hero is killed with Culling Blade, its cooldown is reset, and Axe and nearby allied units gain bonus movement speed.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Axe spots a weakness and strikes, instantly killing an enemy unit with low health, or dealing moderate damage otherwise. When an enemy hero is killed with Culling Blade, its cooldown is reset, and Axe and nearby allied units gain bonus movement speed.",
   "DisplayName": "Culling Blade",
   "Lore": "Mogul Khan is the embodiment of battle and fury, launching into a gruesome fatality against those who dare engage the Axe in combat."
  },
@@ -172,7 +172,7 @@
   "DisplayName": "Backdoor Protection"
  },
  "bane_brain_sap": {
-  "Description": "Feasts on the vital energies of an enemy unit, healing Bane and dealing damage.",
+  "Description": "Feasts on the vital energies of an enemy unit, healing Bane and dealing damage.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Brain Sap",
   "Lore": "Atropos finds no greater pleasure than to harvest the fear he creates."
  },
@@ -182,7 +182,7 @@
   "Lore": "Even the mightiest of warriors crumble before the terror of Atropos."
  },
  "bane_fiends_grip": {
-  "Description": "CHANNELED - Grips an enemy unit, disabling it and causing heavy damage over time, while stealing mana every second based on the unit's maximum mana.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "CHANNELED - Grips an enemy unit, disabling it and causing heavy damage over time, while stealing mana every %fiend_grip_tick_interval% seconds based on the unit's maximum mana.",
   "DisplayName": "Fiend's Grip",
   "Lore": "Victims of Atropos are frequently torn apart by vivid conjurations of their own nightmares."
  },
@@ -345,7 +345,7 @@
   "Lore": ""
  },
  "brewmaster_earth_pulverize": {
-  "Description": "Deals %bonus_building_damage%%% bonus damage to buildings.",
+  "Description": "Deals bonus damage to buildings.",
   "DisplayName": "Demolish",
   "Lore": ""
  },
@@ -428,7 +428,7 @@
   "Lore": "Black Arachnia continues to raise her young, even amidst the field of combat.  The brood quickly learns how to support their mother."
  },
  "broodmother_spin_web": {
-  "Description": "Spins a large web that renders Broodmother invisible, grants a passive movement speed increase, gives free movement, and boosts regeneration while in its vicinity. Spin Web charges restore every %dcharge_restore_time% seconds. If damage is taken, free movement is disabled and the movement speed increase is halved for %damage_time% seconds. Spin Web can be cast from anywhere as long as the new web touches an existing web. Webs never expire, and can be manually destroyed. When the maximum limit of webs is exceeded, the oldest web disappears.",
+  "Description": "Spins a large web that renders Broodmother invisible, grants a passive movement speed increase, gives free movement, and boosts regeneration while in its vicinity. Spin Web charges restore every %charge_restore_time% seconds. If damage is taken, free movement is disabled and the movement speed increase is halved for %damage_time% seconds. Spin Web can be cast from anywhere as long as the new web touches an existing web. Webs never expire, and can be manually destroyed. When the maximum limit of webs is exceeded, the oldest web disappears.",
   "DisplayName": "Spin Web",
   "Lore": "Weaving a bed of silken fibers, Arachnia's web both protects her and her offspring, as well as giving advancing opponents a sense of forboding."
  },
@@ -475,7 +475,7 @@
   "Lore": "Chaos Knight's unwieldy power bludgeons those who stand before him, crushing the thickest of armors."
  },
  "chaos_knight_phantasm": {
-  "Description": "Summons several phantasmal copies of the Chaos Knight from alternate dimensions. There is a 50%% chance an extra phantasm will be summoned. The phantasms deal full damage, but take double damage.\\n\\nUpgradeable by Aghanim's Scepter.\\nDISPEL TYPE: Basic Dispel",
+  "Description": "Summons several phantasmal copies of the Chaos Knight from alternate dimensions. There is a 50%% chance an extra phantasm will be summoned. The phantasms deal %outgoing_damage_tooltip%%% damage, but take %incoming_damage_tooltip%%% damage.\\n\\nUpgradeable by Aghanim's Scepter.\\nDISPEL TYPE: Basic Dispel",
   "DisplayName": "Phantasm",
   "Lore": "Drawing on his battles fought across many worlds and many times, phantasms of the Chaos Knight rise up to quell all who oppose him."
  },
@@ -628,12 +628,12 @@
   "Lore": "While it is a simplistic and routine rite among Shadow Priests, the Shadow Wave is also the most critical for success."
  },
  "dazzle_shallow_grave": {
-  "Description": "An ally blessed with Shallow Grave, no matter how close to death, cannot die while under its protection.",
+  "Description": "An ally blessed with Shallow Grave, no matter how close to death, cannot die while under its protection.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Shallow Grave",
   "Lore": "Only a seasoned acolyte of the Shadow can properly perform the rite of preventing death."
  },
  "dazzle_weave": {
-  "Description": "Applies a buff that increases the armor of allied heroes while decreasing the armor of enemy heroes in the target area over time.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Applies a buff that increases the armor of allied heroes while decreasing the armor of enemy heroes in the target area over time.",
   "DisplayName": "Weave",
   "Lore": "His ethereal journey into the Nothl realm has allowed Dazzle to mend together the powers of light and dark, creating shifting waves of enchantments."
  },
@@ -727,7 +727,7 @@
   "Lore": "Davion's combination of dragon talents and knightly skills makes him a vicious opponent in melee combat."
  },
  "dragon_knight_elder_dragon_form": {
-  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his speed, and Dragon Tail's range, while granting him new powers.\\n<font color=\\\"#9acd32\\\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal 20 poison damage per second for 5 seconds. Works on structures.\\n<font color=\\\"#ff0000\\\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a 300 radius, with Corrosive Breath added to the targets.\\n<font color=\\\"#87ceeb\\\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by 30%% and attack speed by 20 of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the targets.",
+  "Description": "Dragon Knight takes the form of one of three powerful elder dragons, increasing his speed, and Dragon Tail's range, while granting him new powers.\\n<font color=\\\"#9acd32\\\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal 20 poison damage per second for 5 seconds. Works on structures.\\n<font color=\\\"#ff0000\\\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a 300 radius, with Corrosive Breath added to the targets.\\n<font color=\\\"#87ceeb\\\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by 30%% and attack speed by 30 of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the targets.",
   "DisplayName": "Elder Dragon Form",
   "Lore": "The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm."
  },
@@ -736,7 +736,7 @@
   "DisplayName": "Frost Breath"
  },
  "drow_ranger_frost_arrows": {
-  "Description": "Adds a freezing effect to Drow's attacks, slowing enemy movement.  Lasts %frost_arrows_hero_duration_tooltip% seconds on Heroes, and %frost_arrows_creep_duration% seconds on creeps.\\n\\nFrost Arrows is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.",
+  "Description": "Adds a freezing effect to Drow's attacks, slowing enemy movement.  Lasts %frost_arrows_hero_duration_tooltip% seconds on Heroes, and %frost_arrows_creep_duration% seconds on creeps.",
   "DisplayName": "Frost Arrows",
   "Lore": "Ice-encased arrows pierce the silence, chilling their victims to the core."
  },
@@ -850,7 +850,7 @@
   "Lore": "With blazing speed does a spirit fly!"
  },
  "ember_spirit_fire_remnant": {
-  "Description": "Ember Spirit generates Fire Remnant charges every %dcharge_restore_time% seconds, with a max of %max_charges% charges. Releasing a charge sends a Fire Remnant that runs to the target location at 2.5x Ember Spirit's speed.  Using Activate Fire Remnant, Ember Spirit can dash out to his Remnants, exploding them for area of effect damage.  The targeted Remnant will be arrived at last.",
+  "Description": "Ember Spirit generates Fire Remnant charges every %charge_restore_time% seconds, with a max of %max_charges% charges. Releasing a charge sends a Fire Remnant that runs to the target location at 2.5x Ember Spirit's speed.  Using Activate Fire Remnant, Ember Spirit can dash out to his Remnants, exploding them for area of effect damage.  The targeted Remnant will be arrived at last.",
   "DisplayName": "Fire Remnant",
   "Lore": "By the spirit's power are Xin's teachings spread anew."
  },
@@ -1284,7 +1284,7 @@
   "Lore": ""
  },
  "item_abyssal_blade": {
-  "Description": "Active: Overwhelm - Stuns a target enemy unit for %dstun_duration% seconds. Pierces Spell Immunity.\\nPassive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.\\nPassive: Damage Block - Grants the wielder a %block_chance%%% chance to block damage from incoming attacks based on whether the equipped hero is melee or ranged.",
+  "Description": "Active: Overwhelm - Stuns a target enemy unit for %stun_duration% seconds. Pierces Spell Immunity.\\nPassive: Bash - Grants each attack a chance to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage, based on whether the equipped hero is ranged or melee.\\nPassive: Damage Block - Grants the wielder a %block_chance%%% chance to block damage from incoming attacks based on whether the equipped hero is melee or ranged.",
   "DisplayName": "Abyssal Blade",
   "Lore": "The lost blade of the Commander of the Abyss, this edge cuts into an enemy's soul."
  },
@@ -1328,7 +1328,7 @@
   "Lore": "A valued accessory for improving vitality."
  },
  "item_bfury": {
-  "Description": "Active: Chop Tree/Ward - Destroy a target tree or ward. Chop cast range is increased when targetting wards.\\nPassive: Quell - Increases attack damage against non-hero units, based on whether the equipped hero is ranged or melee. Does not provide bonus damage against Roshan.\\nPassive: Cleave - Deals a percent of attack damage in a %cleave_radius% area around the target. Ranged units cannot Cleave.",
+  "Description": "Active: Chop Tree/Ward - Destroy a target tree or ward. Chop cast range is increased when targetting wards.\\nPassive: Quell - Increases attack damage against non-hero units, based on whether the equipped hero is ranged or melee. Does not provide bonus damage against Roshan.\\nPassive: Cleave - Deals a percent of attack damage in an area around the target. Ranged units cannot Cleave.",
   "DisplayName": "Battle Fury",
   "Lore": "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
  },
@@ -1351,7 +1351,7 @@
   "Lore": "The damage of these small, concealable blades should not be underestimated."
  },
  "item_blight_stone": {
-  "Description": "Passive: Your attacks reduce target's armor for %corruption_duration% seconds.\\n\\nBlight Stone is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.",
+  "Description": "Passive: Your attacks reduce target's armor for %corruption_duration% seconds.",
   "DisplayName": "Blight Stone",
   "Lore": "An unnerving stone unearthed beneath the Fields of Endless Carnage."
  },
@@ -1478,7 +1478,7 @@
   "Lore": "One of the oldest weapons forged by the Demon-Smith Abzidian, it killed its maker when he tested its edge."
  },
  "item_desolator": {
-  "Description": "Passive: Corruption - Your attacks reduce target's armor for 15 seconds.\\n\\nDesolator is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.",
+  "Description": "Passive: Corruption - Your attacks reduce target's armor for 15 seconds.",
   "DisplayName": "Desolator",
   "Lore": "A wicked weapon, used in torturing political criminals."
  },
@@ -1488,7 +1488,7 @@
   "Lore": "An enchanted blade that allows the user to cut straight into the enemy's soul."
  },
  "item_diffusal_blade_2": {
-  "Description": "Active: Purge - Targets an enemy, removing from the target and slowing it for %purge_slow_duration% seconds.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. Does not stack with other manabreak abilities.\\n\\nDISPEL TYPE: Basic Dispel",
+  "Description": "Active: Purge - Targets an enemy, removing buffs from the target and slowing it for %purge_slow_duration% seconds.\\nPassive: Manabreak - Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. Does not stack with other manabreak abilities.\\n\\nDISPEL TYPE: Basic Dispel",
   "DisplayName": "Diffusal Blade",
   "Lore": "An enchanted blade that allows the user to cut straight into the enemy's soul."
  },
@@ -1507,7 +1507,7 @@
   "Lore": "Capturing the majestic call of an eagle, this mystical horn brings limitless dexterity to those who hear it."
  },
  "item_echo_sabre": {
-  "Description": "Passive: Causes melee attacks to attack twice in quick succession. The double attacks apply a %slow_duration% second %movement_slow%%% movement and attack speed slow on each strike.",
+  "Description": "Passive: Causes melee attacks to attack twice in quick succession. The double attacks apply a %slow_duration% second %movement_slow%%% movement slow on each strike.",
   "DisplayName": "Echo Sabre",
   "Lore": "A deceptively swift blade imbued with resonant magic."
  },
@@ -1657,7 +1657,7 @@
   "Lore": "The jewel at its center still reflects a pale image of its creator."
  },
  "item_maelstrom": {
-  "Description": "Passive: Chain Lightning - Grants a chance on attack to release a bolt of electricity that leaps between %dchain_strikes% targets, dealing %dchain_damage% magical damage to each.",
+  "Description": "Passive: Chain Lightning - Grants a chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets, dealing %chain_damage% magical damage to each.",
   "DisplayName": "Maelstrom",
   "Lore": "A hammer forged for the gods themselves, Maelstrom allows its user to harness the power of lightning."
  },
@@ -1700,7 +1700,7 @@
   "Lore": "A hammer forged of pure mithril."
  },
  "item_mjollnir": {
-  "Description": "Active: Static Charge - Places a charged shield on a target unit which has a %dstatic_chance%%% chance to release a shocking bolt at a nearby attacker and %dstatic_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a bolt of electricity that leaps between %dchain_strikes% targets, dealing %dchain_damage% magical damage to each.",
+  "Description": "Active: Static Charge - Places a charged shield on a target unit which has a %static_chance%%% chance to release a shocking bolt at a nearby attacker and %static_strikes% additional enemies.\\nPassive: Chain Lightning - Grants a chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets, dealing %chain_damage% magical damage to each.",
   "DisplayName": "Mjollnir",
   "Lore": "Thor's magical hammer, made for him by the dwarves Brok and Eitri."
  },
@@ -1710,7 +1710,7 @@
   "Lore": "A powerful staff used by a master warrior."
  },
  "item_moon_shard": {
-  "Description": "Use: Consume the Moon Shard to permanently gain %consumed_bonus% attack speed. Does not stack.\\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision.",
+  "Description": "Use: Consume the Moon Shard to permanently gain %consumed_bonus% attack speed and %consumed_bonus_night_vision% bonus night vision. Does not stack.\\nPassive: Shade Sight - Grants %bonus_night_vision% bonus night vision.",
   "DisplayName": "Moon Shard",
   "Lore": "Said to be a tear from the lunar goddess Selemene."
  },
@@ -1843,6 +1843,9 @@
  },
  "item_recipe_bloodthorn": {
   "DisplayName": "Bloodthorn Recipe"
+ },
+ "item_recipe_bracer": {
+  "DisplayName": "Bracer Recipe"
  },
  "item_recipe_buckler": {
   "DisplayName": "Buckler Recipe"
@@ -2077,7 +2080,7 @@
   "Lore": "A mask commonly used by mages and warlocks for various rituals."
  },
  "item_solar_crest": {
-  "Description": "Active: Shine - Temporarily removes the armor and evasion from Solar Crest. When cast on an ally it grants them %allied_armor% armor and %allied_evasion%%% evasion. When cast on an enemy, it removes %enemy_armor_reduction_tooltip% of their armor and blinds them, causing them to miss %miss_chance%%% of their attacks. Cannot target magic immune enemies.",
+  "Description": "Active: Shine - Temporarily removes the armor and evasion from Solar Crest. When cast on an ally it grants them %bonus_armor% armor and %bonus_evasion%%% evasion. When cast on an enemy, it removes %bonus_armor% of their armor and grants your allies to have %truestrike_chance%%% True Strike chance on the target. Cannot target magic immune enemies.",
   "DisplayName": "Solar Crest",
   "Lore": "A talisman forged to honor the daytime sky."
  },
@@ -2130,7 +2133,7 @@
   "Lore": "What a hero truly needs."
  },
  "item_tranquil_boots": {
-  "Description": "Passive: Break - Whenever you attack or are attacked, the health regeneration and 30 Movement Speed are lost for 13 seconds.",
+  "Description": "Passive: Break - Whenever you attack or are attacked, the health regeneration and 25 Movement Speed are lost for 13 seconds.",
   "DisplayName": "Tranquil Boots",
   "Lore": "While they increase the longevity of the wearer, this boot is not particularly reliable."
  },
@@ -2356,12 +2359,12 @@
   "Lore": "Chronoptic energy bursts from one plane to the other, evaporating anything it touches."
  },
  "leshrac_lightning_storm": {
-  "Description": "Summons a lightning storm that blasts the target enemy unit, then strikes any nearby enemy units. Struck enemies are slowed.",
+  "Description": "Summons a lightning storm that blasts the target enemy unit, then strikes any nearby enemy units. Struck enemies are slowed.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Lightning Storm",
   "Lore": "The Tormented Soul's mastery of the elements is evident in the massive storms that strike down armies before him."
  },
  "leshrac_pulse_nova": {
-  "Description": "Creates waves of damaging energy around Leshrac, one per second, to damage nearby enemy units.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Creates waves of damaging energy around Leshrac, one per second, to damage nearby enemy units.",
   "DisplayName": "Pulse Nova",
   "Lore": "If necessary, the Tormented Soul can manipulate space time itself, ravaging lesser beings."
  },
@@ -2577,7 +2580,7 @@
   "DisplayName": "Invisibility"
  },
  "magnataur_empower": {
-  "Description": "Gives an allied unit bonus damage and cleave on attack.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Gives an allied unit bonus damage and cleave on attack.",
   "DisplayName": "Empower",
   "Lore": "With a deep bellow, Magnus displays his true power."
  },
@@ -2587,7 +2590,7 @@
   "Lore": "Magnus fights with the fury of the erupting Mt. Joerlak."
  },
  "magnataur_shockwave": {
-  "Description": "Magnus sends out a wave of force, damaging enemy units in a line.",
+  "Description": "Magnus sends out a wave of force, damaging enemy units in a line.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Shockwave",
   "Lore": "Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations."
  },
@@ -2602,7 +2605,7 @@
   "Lore": "While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
  },
  "medusa_mystic_snake": {
-  "Description": "A mystic snake made of energy jumps from target to target dealing damage and stealing mana. After it reaches its last target, it returns to Medusa to replenish her with mana. The snake deals more damage per jump and steals %snake_mana_steal%%% of the targets' total mana. Deals Pure damage to units petrified by Stone Gaze.",
+  "Description": "A mystic snake made of energy jumps from target to target dealing damage and stealing mana. After it reaches its last target, it returns to Medusa to replenish her with mana. The snake deals more damage per jump and steals %snake_mana_steal%%% of the targets' total mana. Deals Pure damage to units petrified by Stone Gaze.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Mystic Snake",
   "Lore": "The Gorgon's curse is her greatest strength."
  },
@@ -2647,12 +2650,12 @@
   "Lore": "Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her allies in a cloak of shadows."
  },
  "mirana_leap": {
-  "Description": "Mirana leaps forward into battle, empowering allied units with a ferocious roar that grants bonus attack and movement speed. Speed bonus lasts 10 seconds.",
+  "Description": "Mirana leaps forward into battle, empowering allied units with a ferocious roar that grants bonus attack and movement speed. Speed bonus lasts 5 seconds.",
   "DisplayName": "Leap",
   "Lore": "Both friend and foe alike recognize Mirana's iconic white beast in the heat of battle."
  },
  "mirana_starfall": {
-  "Description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %dstarfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Starstorm",
   "Lore": "The Goddess breaks the strata to empower her Princess in the time of need."
  },
@@ -2689,7 +2692,7 @@
   "DisplayName": "Revert Form"
  },
  "monkey_king_wukongs_command": {
-  "Description": "Monkey King creates a circular formation of soldiers that spread out from his position. If Monkey King leaves the area his soldiers disperse. The soldiers have Monkey King's attack and only target heroes. Monkey King and all his soldiers receive bonus damage for the spell's duration.",
+  "Description": "Monkey King creates a circular formation of soldiers that spread out from his position. If Monkey King leaves the area his soldiers disperse. The soldiers have Monkey King's attack and only target heroes. Monkey King grants bonus armor for the spell's duration.",
   "DisplayName": "Wukong's Command",
   "Lore": "Monkey King rips out a tuft of fur to blow at his enemies, charging each strand to transform into a copy of himself."
  },
@@ -2852,7 +2855,7 @@
   "Lore": "It is a humbling sight to see when the mightiest of warriors become afraid of the dark."
  },
  "night_stalker_hunter_in_the_night": {
-  "Description": "Night Stalker is in his element at night, attacking and moving with great swiftness.",
+  "Description": "Night Stalker is in his element at night, attacking and moving with great swiftness. Can be activated during night to grant Night Stalker flying movement for %duration% seconds.",
   "DisplayName": "Hunter in the Night",
   "Lore": "The hunting prowess of Balanar improves as the night beckons."
  },
@@ -4007,7 +4010,7 @@
   "Lore": "Harbinger's outworldly knowledge allows it to tap into the ebb and flow of all spiritual energy, infusing it into his being."
  },
  "obsidian_destroyer_astral_imprisonment": {
-  "Description": "Places a target unit into an astral prison. The hidden unit is invulnerable and disabled. When the astral prison implodes, it deals %damage% damage to enemies in a %radius% radius around the target.",
+  "Description": "Places a target unit into an astral prison. The hidden unit is invulnerable and disabled. When the astral prison implodes, it deals %damage% damage to enemies in a %radius% radius around the target.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Astral Imprisonment",
   "Lore": "Locked away in the pocket between this world and the Outworld, victims realize their infantile knowledge and mortality."
  },
@@ -4017,7 +4020,7 @@
   "Lore": "The crystals of the Outworld produce arcane power, and the Harbinger channels it into the world of mortals."
  },
  "obsidian_destroyer_sanity_eclipse": {
-  "Description": "Unleashes a psychic blast that removes %mana_drain%%% of the mana from affected heroes, while also damaging them based on the difference between the affected hero's Intelligence and Outworld Devourer's. If an enemy hero has the same or higher Intelligence than Outworld Devourer, Sanity's Eclipse will not cause damage. Sanity's Eclipse can hit units trapped by Astral Imprisonment.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Unleashes a psychic blast that removes %mana_drain%%% of the mana from affected heroes, while also damaging them based on the difference between the affected hero's Intelligence and Outworld Devourer's. If an enemy hero has the same or higher Intelligence than Outworld Devourer, Sanity's Eclipse will not cause damage. Sanity's Eclipse can hit units trapped by Astral Imprisonment.",
   "DisplayName": "Sanity's Eclipse",
   "Lore": "When an Outworld crystal ruptures, cataclysmic energies are released, and the reverberations of this power are felt interdimensionally."
  },
@@ -4081,7 +4084,7 @@
   "Lore": "An unbreakable prophecy resounds: a chosen ally shall briefly suffer no magics.  Other kinds of suffering however..."
  },
  "oracle_fortunes_end": {
-  "Description": "CHANNELED - Gathers Oracle's power into a bolt of scouring energy that, when released, damages, stops movement, and purges enemies of buffs in an area around the target. If target is an ally it will only purge. Can be channeled for up to %max_channel_time_tooltip% seconds. The stop duration is equal to the time spent channeling.\\n\\nDISPEL TYPE: Basic Dispel",
+  "Description": "CHANNELED - Gathers Oracle's power into a bolt of scouring energy that, when released, damages, roots, and purges enemies of buffs in an area around the target. If target is an ally it will only purge. Can be channeled for up to %max_channel_time_tooltip% seconds. The stop duration is equal to the time spent channeling.\\n\\nDISPEL TYPE: Basic Dispel",
   "DisplayName": "Fortune's End",
   "Lore": "The astral orb crackles with power while raw energy lances out, temporarily disrupting an enemy's connection to their own body."
  },
@@ -4179,7 +4182,7 @@
   "DisplayName": "Thunder Clap"
  },
  "puck_dream_coil": {
-  "Description": "Creates a coil of volatile magic that latches onto enemy Heroes, stunning them for %dstun_duration% seconds and damaging them.  If the enemy hero stretches the coil by moving too far away, it snaps, stunning and dealing additional damage.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Creates a coil of volatile magic that latches onto enemy Heroes, stunning them for %stun_duration% seconds and damaging them.  If the enemy hero stretches the coil by moving too far away, it snaps, stunning and dealing additional damage.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Dream Coil",
   "Lore": "The Faerie Dragon sows confusion by forcing its enemies to vividly dream about their own mortality."
  },
@@ -4228,7 +4231,7 @@
   "Lore": "A now-mastered relic from his childhood, Pugna delights in banishing others into the Nether Realm, whether for good, evil, or simple enjoyment."
  },
  "pugna_life_drain": {
-  "Description": "CHANNELED - When cast on an enemy, Pugna drains health from the target enemy unit to heal himself. If Pugna has full HP, and the enemy target is a Hero, Life Drain will restore mana instead.\\n\\nWhen cast on an ally, Pugna will drain his own health into his ally.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "CHANNELED - When cast on an enemy, Pugna drains health from the target enemy unit to heal himself and granting vision over the target. If Pugna has full HP, and the enemy target is a Hero, Life Drain will restore mana instead.\\n\\nWhen cast on an ally, Pugna will drain his own health into his ally.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Life Drain",
   "Lore": "Pugna has truly become more powerful than even the grandmaster of Oblivion."
  },
@@ -4409,7 +4412,7 @@
   "Lore": "Crixalis often lies in wait, burrowing under the surface to ambush his adversaries."
  },
  "sandking_caustic_finale": {
-  "Description": "Sand King's attacks inject a venom that causes enemy units to violently explode when its timer expires, or when the unit dies, damaging and slowing nearby enemies. Deals %caustic_finale_expire_dmg_pct_tooltip%%% damage if its timer expires.\\n\\nCaustic Finale is a Unique Attack Modifier, and does not stack with other Unique Attack Modifier.",
+  "Description": "Sand King's attacks inject a venom that causes enemy units to violently explode when its timer expires, or when the unit dies, damaging and slowing nearby enemies. Deals %caustic_finale_expire_dmg_pct_tooltip%%% damage if its timer expires.",
   "DisplayName": "Caustic Finale",
   "Lore": "An injection from Crixalis makes one brittle and as dry as the arid wastes, subject to implosive demise."
  },
@@ -4459,7 +4462,7 @@
   "DisplayName": "Shadow Poison Release"
  },
  "shadow_demon_soul_catcher": {
-  "Description": "Curses a random enemy in an area to take increased damage.  Units under the effect of Disruption can still be affected by Soul Catcher.",
+  "Description": "Applies damage amplification on enemies in an area. The amplification is evenly spread among all enemies in the area. Units under the effect of Disruption can still be affected by Soul Catcher.",
   "DisplayName": "Soul Catcher",
   "Lore": "Trying to resist the Shadow Demon's corruption is mostly a useless endeavor."
  },
@@ -4522,12 +4525,12 @@
   "Lore": "Nortrom's lack of incantations is less of a problem for him than it is for his adversaries."
  },
  "silencer_glaives_of_wisdom": {
-  "Description": "Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence.",
+  "Description": "Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Glaives of Wisdom",
   "Lore": "Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
  },
  "silencer_global_silence": {
-  "Description": "Silencer stops all sound, preventing enemy heroes and units on the map from casting spells.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Silencer stops all sound, preventing enemy heroes and units on the map from casting spells.",
   "DisplayName": "Global Silence",
   "Lore": "With a shock to the ground, all magic and sound pauses, and Nortrom fulfills his prophecy."
  },
@@ -4723,6 +4726,9 @@
  "special_bonus_armor_2": {
   "DisplayName": "+2 Armor"
  },
+ "special_bonus_armor_20": {
+  "DisplayName": "+20 Armor"
+ },
  "special_bonus_armor_3": {
   "DisplayName": "+3 Armor"
  },
@@ -4768,6 +4774,9 @@
  "special_bonus_attack_damage_25": {
   "DisplayName": "+25 Damage"
  },
+ "special_bonus_attack_damage_250": {
+  "DisplayName": "+250 Damage"
+ },
  "special_bonus_attack_damage_30": {
   "DisplayName": "+30 Damage"
  },
@@ -4776,6 +4785,9 @@
  },
  "special_bonus_attack_damage_40": {
   "DisplayName": "+40 Damage"
+ },
+ "special_bonus_attack_damage_400": {
+  "DisplayName": "+400 Damage"
  },
  "special_bonus_attack_damage_45": {
   "DisplayName": "+45 Damage"
@@ -4861,6 +4873,9 @@
  "special_bonus_attack_speed_60": {
   "DisplayName": "+60 Attack Speed"
  },
+ "special_bonus_attack_speed_70": {
+  "DisplayName": "+70 Attack Speed"
+ },
  "special_bonus_attack_speed_80": {
   "DisplayName": "+80 Attack Speed"
  },
@@ -4912,6 +4927,12 @@
  "special_bonus_cooldown_reduction_25": {
   "DisplayName": "25% Cooldown Reduction"
  },
+ "special_bonus_cooldown_reduction_30": {
+  "DisplayName": "30% Cooldown Reduction"
+ },
+ "special_bonus_cooldown_reduction_40": {
+  "DisplayName": "40% Cooldown Reduction"
+ },
  "special_bonus_cooldown_reduction_8": {
   "DisplayName": "8% Cooldown Reduction"
  },
@@ -4951,6 +4972,9 @@
  "special_bonus_exp_boost_35": {
   "DisplayName": "+35% XP Gain"
  },
+ "special_bonus_exp_boost_40": {
+  "DisplayName": "+40% XP Gain"
+ },
  "special_bonus_exp_boost_5": {
   "DisplayName": "+5% XP Gain"
  },
@@ -4978,6 +5002,9 @@
  "special_bonus_gold_income_50": {
   "DisplayName": "+300 Gold/Min"
  },
+ "special_bonus_gold_income_70": {
+  "DisplayName": "+420 Gold/Min"
+ },
  "special_bonus_hp_100": {
   "DisplayName": "+100 Health"
  },
@@ -5004,6 +5031,9 @@
  },
  "special_bonus_hp_300": {
   "DisplayName": "+300 Health"
+ },
+ "special_bonus_hp_325": {
+  "DisplayName": "+325 Health"
  },
  "special_bonus_hp_350": {
   "DisplayName": "+350 Health"
@@ -5143,6 +5173,9 @@
  "special_bonus_movement_speed_10": {
   "DisplayName": "+10 Movement Speed"
  },
+ "special_bonus_movement_speed_100": {
+  "DisplayName": "+100 Movement Speed"
+ },
  "special_bonus_movement_speed_15": {
   "DisplayName": "+15 Movement Speed"
  },
@@ -5187,6 +5220,9 @@
  },
  "special_bonus_mp_200": {
   "DisplayName": "+200 Mana"
+ },
+ "special_bonus_mp_225": {
+  "DisplayName": "+225 Mana"
  },
  "special_bonus_mp_250": {
   "DisplayName": "+250 Mana"
@@ -5290,8 +5326,20 @@
  "special_bonus_spell_amplify_8": {
   "DisplayName": "+8% Spell Amplification"
  },
+ "special_bonus_spell_lifesteal_10": {
+  "DisplayName": "10% Spell Lifesteal"
+ },
+ "special_bonus_spell_lifesteal_13": {
+  "DisplayName": "13% Spell Lifesteal"
+ },
+ "special_bonus_spell_lifesteal_15": {
+  "DisplayName": "15% Spell Lifesteal"
+ },
  "special_bonus_spell_lifesteal_20": {
   "DisplayName": "20% Spell Lifesteal"
+ },
+ "special_bonus_spell_lifesteal_30": {
+  "DisplayName": "30% Spell Lifesteal"
  },
  "special_bonus_spell_lifesteal_70": {
   "DisplayName": "70% Spell Lifesteal"
@@ -5339,7 +5387,7 @@
   "DisplayName": "Undefined"
  },
  "special_bonus_unique_abaddon": {
-  "DisplayName": "+200 Aphotic Shield Health"
+  "DisplayName": "+300 Aphotic Shield Health"
  },
  "special_bonus_unique_alchemist": {
   "DisplayName": "-5 Acid Spray Armor"
@@ -5348,13 +5396,16 @@
   "DisplayName": "+80 Unstable Concoction Damage"
  },
  "special_bonus_unique_ancient_apparition_1": {
-  "DisplayName": "3 Charges of Cold Feet"
+  "DisplayName": "4 Charges of Cold Feet"
  },
  "special_bonus_unique_ancient_apparition_2": {
-  "DisplayName": "+80 Chilling Touch Damage"
+  "DisplayName": "+100 Chilling Touch Damage"
  },
  "special_bonus_unique_ancient_apparition_3": {
   "DisplayName": "-1s Ice Vortex Cooldown"
+ },
+ "special_bonus_unique_ancient_apparition_4": {
+  "DisplayName": "+8% Ice Vortex Slow/Resistance"
  },
  "special_bonus_unique_antimage": {
   "DisplayName": "-1s Blink Cooldown"
@@ -5363,7 +5414,7 @@
   "DisplayName": "-50s Mana Void Cooldown"
  },
  "special_bonus_unique_arc_warden": {
-  "DisplayName": "+175 Spark Wraith Damage"
+  "DisplayName": "+250 Spark Wraith Damage"
  },
  "special_bonus_unique_arc_warden_2": {
   "DisplayName": "+20 Flux DPS"
@@ -5372,7 +5423,7 @@
   "DisplayName": "+100 Battle Hunger DPS"
  },
  "special_bonus_unique_bane_1": {
-  "DisplayName": "+75 Enfeeble Damage Reduction"
+  "DisplayName": "+90 Enfeeble Damage Reduction"
  },
  "special_bonus_unique_bane_2": {
   "DisplayName": "+200 Brain Sap Damage/Heal"
@@ -5381,13 +5432,16 @@
   "DisplayName": "+8s Firefly Duration"
  },
  "special_bonus_unique_batrider_2": {
-  "DisplayName": "+200 Flamebreak AoE/Knockback"
+  "DisplayName": "+300 Flamebreak AoE/Knockback"
  },
  "special_bonus_unique_beastmaster": {
   "DisplayName": "+250 Wild Axes Damage"
  },
+ "special_bonus_unique_beastmaster_2": {
+  "DisplayName": "+1 Boar Summoned"
+ },
  "special_bonus_unique_bloodseeker": {
-  "DisplayName": "-7s Bloodrite Cooldown"
+  "DisplayName": "-7s Blood Rite Cooldown"
  },
  "special_bonus_unique_bloodseeker_2": {
   "DisplayName": "+75 Blood Rite Damage"
@@ -5402,28 +5456,31 @@
   "DisplayName": "+75 Shuriken Toss Damage"
  },
  "special_bonus_unique_brewmaster": {
-  "DisplayName": "+20 Primal Split Unit Armor"
+  "DisplayName": "+2000 Health to Primal Split Units"
  },
  "special_bonus_unique_brewmaster_2": {
   "DisplayName": "+75 Thunder Clap Damage"
+ },
+ "special_bonus_unique_brewmaster_3": {
+  "DisplayName": "+2s Thunderlap Slow"
  },
  "special_bonus_unique_bristleback": {
   "DisplayName": "+4 Max Goo Stacks"
  },
  "special_bonus_unique_bristleback_2": {
-  "DisplayName": "+20 Quill Stack Damage"
+  "DisplayName": "+25 Quill Stack Damage"
  },
  "special_bonus_unique_broodmother_1": {
   "DisplayName": "+8 Max Webs"
  },
  "special_bonus_unique_broodmother_2": {
-  "DisplayName": "+200 Spiders Health"
+  "DisplayName": "+225 Spiders Health"
  },
  "special_bonus_unique_broodmother_3": {
   "DisplayName": "+60 Spawn Spiderling Damage"
  },
  "special_bonus_unique_broodmother_4": {
-  "DisplayName": "+8 Spiderlings Attack Damage"
+  "DisplayName": "+12 Spiders Attack Damage"
  },
  "special_bonus_unique_centaur_1": {
   "DisplayName": "Gains Return Aura"
@@ -5443,6 +5500,9 @@
  "special_bonus_unique_chen_3": {
   "DisplayName": "-10s Test of Faith Cooldown"
  },
+ "special_bonus_unique_chen_4": {
+  "DisplayName": "+1000 Creep Health"
+ },
  "special_bonus_unique_clinkz_1": {
   "DisplayName": "+30 Searing Arrows Damage"
  },
@@ -5455,11 +5515,17 @@
  "special_bonus_unique_clockwerk_2": {
   "DisplayName": "+75 Rocket Flare Damage"
  },
+ "special_bonus_unique_clockwerk_3": {
+  "DisplayName": "+40 Battery Assault Damage"
+ },
  "special_bonus_unique_crystal_maiden_1": {
   "DisplayName": "+1.5s Frostbite Duration"
  },
  "special_bonus_unique_crystal_maiden_2": {
-  "DisplayName": "+250 Crystal Nova Damage"
+  "DisplayName": "+300 Crystal Nova Damage"
+ },
+ "special_bonus_unique_crystal_maiden_3": {
+  "DisplayName": "+50 Freezing Field Damage"
  },
  "special_bonus_unique_dark_seer": {
   "DisplayName": "+80 Ion Shell Damage"
@@ -5473,17 +5539,23 @@
  "special_bonus_unique_dazzle_2": {
   "DisplayName": "+60 Shadow Wave Heal"
  },
+ "special_bonus_unique_dazzle_3": {
+  "DisplayName": "+25 Poison Touch DPS"
+ },
  "special_bonus_unique_death_prophet": {
-  "DisplayName": "+6 Exorcism Spirits"
+  "DisplayName": "+8 Exorcism Spirits"
  },
  "special_bonus_unique_death_prophet_2": {
-  "DisplayName": "-1s Crypt Swarm Cooldown"
+  "DisplayName": "-1.5s Crypt Swarm Cooldown"
  },
  "special_bonus_unique_disruptor": {
   "DisplayName": "+4 Thunder Strike Hits"
  },
  "special_bonus_unique_disruptor_2": {
   "DisplayName": "-3s Kinetic Field Cooldown"
+ },
+ "special_bonus_unique_disruptor_3": {
+  "DisplayName": "+40 Thunder Strike Damage"
  },
  "special_bonus_unique_doom_1": {
   "DisplayName": "+2% Infernal Blade Damage"
@@ -5498,7 +5570,7 @@
   "DisplayName": "+15 Scorched Earth Damage/Heal"
  },
  "special_bonus_unique_doom_5": {
-  "DisplayName": "+35 Doom DPS"
+  "DisplayName": "+40 Doom DPS"
  },
  "special_bonus_unique_dragon_knight": {
   "DisplayName": "2x Dragon Blood HP Regen/Armor"
@@ -5515,11 +5587,17 @@
  "special_bonus_unique_earth_spirit": {
   "DisplayName": "+300 Rolling Boulder Damage"
  },
+ "special_bonus_unique_earth_spirit_2": {
+  "DisplayName": "Geomagnetic Grip Targets Allies"
+ },
  "special_bonus_unique_earthshaker": {
   "DisplayName": "-2s Enchant Totem Cooldown"
  },
  "special_bonus_unique_earthshaker_2": {
   "DisplayName": "+40 Echo Damage"
+ },
+ "special_bonus_unique_earthshaker_3": {
+  "DisplayName": "+350 Fissure Range"
  },
  "special_bonus_unique_elder_titan": {
   "DisplayName": "+100 Astral Spirit Hero Attack"
@@ -5534,22 +5612,34 @@
   "DisplayName": "+2s Searing Chains"
  },
  "special_bonus_unique_enchantress_1": {
-  "DisplayName": "+10s Nature's Attendants Duration"
+  "DisplayName": "Enchant Affects Ancients"
  },
  "special_bonus_unique_enchantress_2": {
-  "DisplayName": "+12 Nature's Attendants Wisps"
+  "DisplayName": "+8 Nature's Attendants Wisps"
  },
  "special_bonus_unique_enchantress_3": {
   "DisplayName": "+60 Untouchable Slow"
  },
+ "special_bonus_unique_enchantress_4": {
+  "DisplayName": "+6% Impetus Damage"
+ },
  "special_bonus_unique_enigma": {
   "DisplayName": "+8 Demonic Conversion Eidolons"
+ },
+ "special_bonus_unique_enigma_2": {
+  "DisplayName": "+1 Malefice Instance"
  },
  "special_bonus_unique_faceless_void": {
   "DisplayName": "+600 Timewalk Cast Range"
  },
  "special_bonus_unique_furion": {
   "DisplayName": "2x Treant HP/Damage"
+ },
+ "special_bonus_unique_furion_2": {
+  "DisplayName": "+4 Treants Summoned"
+ },
+ "special_bonus_unique_furion_3": {
+  "DisplayName": "Removed Teleportation Cooldown"
  },
  "special_bonus_unique_gyrocopter_1": {
   "DisplayName": "3 Homing Missile Charges"
@@ -5558,7 +5648,7 @@
   "DisplayName": "+4 Flak Cannon Attacks"
  },
  "special_bonus_unique_huskar": {
-  "DisplayName": "+400 Life Break Cast Range"
+  "DisplayName": "+500 Life Break Cast Range"
  },
  "special_bonus_unique_huskar_2": {
   "DisplayName": "+5 Burning Spears DPS"
@@ -5576,13 +5666,19 @@
   "DisplayName": "+1.25s Ice Path Duration"
  },
  "special_bonus_unique_jakiro_2": {
-  "DisplayName": "+25 Dual Breath Burn Damage"
+  "DisplayName": "+35 Dual Breath Burn Damage"
+ },
+ "special_bonus_unique_jakiro_3": {
+  "DisplayName": "Macropyre Pure and Pierces Immunity"
  },
  "special_bonus_unique_juggernaut": {
   "DisplayName": "+175 Blade Fury DPS"
  },
  "special_bonus_unique_keeper_of_the_light": {
   "DisplayName": "+200 Illuminate Damage/Heal"
+ },
+ "special_bonus_unique_keeper_of_the_light_2": {
+  "DisplayName": "+300 Chakra Magic Mana"
  },
  "special_bonus_unique_kunkka": {
   "DisplayName": "+200 Torrent AoE"
@@ -5593,11 +5689,17 @@
  "special_bonus_unique_legion_commander": {
   "DisplayName": "+40 Duel Damage Bonus"
  },
+ "special_bonus_unique_legion_commander_2": {
+  "DisplayName": "-8s Press The Attack Cooldown"
+ },
+ "special_bonus_unique_legion_commander_3": {
+  "DisplayName": "+10% Moment Proc Chance"
+ },
  "special_bonus_unique_leshrac_1": {
   "DisplayName": "+50 Diabolic Edict Explosions"
  },
  "special_bonus_unique_leshrac_2": {
-  "DisplayName": "+2s Lightning Storm Slow Duration"
+  "DisplayName": "+3s Lightning Storm Slow Duration"
  },
  "special_bonus_unique_lich_1": {
   "DisplayName": "+35 Frost Armor Structure Armor"
@@ -5606,7 +5708,7 @@
   "DisplayName": "Attacks Apply 30% MS and AS Slow"
  },
  "special_bonus_unique_lich_3": {
-  "DisplayName": "-3s Frost Blast Cooldown"
+  "DisplayName": "-4s Frost Blast Cooldown"
  },
  "special_bonus_unique_lifestealer": {
   "DisplayName": "+1s Rage Duration"
@@ -5615,10 +5717,13 @@
   "DisplayName": "-4s Dragon Slave Cooldown"
  },
  "special_bonus_unique_lina_2": {
-  "DisplayName": "+1 Firey Soul Max Stacks"
+  "DisplayName": "+40/4% Fiery Soul Per Stack"
  },
  "special_bonus_unique_lina_3": {
-  "DisplayName": "+60 Light Strike Array Damage"
+  "DisplayName": "+80 Light Strike Array Damage"
+ },
+ "special_bonus_unique_lina_4": {
+  "DisplayName": "+75 Light Strike AoE"
  },
  "special_bonus_unique_lion": {
   "DisplayName": "+3 Mana Drain Multi Target"
@@ -5627,7 +5732,7 @@
   "DisplayName": "+80 Earth Spike Damage "
  },
  "special_bonus_unique_lone_druid_1": {
-  "DisplayName": "+30 Spirit Bear Damage"
+  "DisplayName": "+50 Spirit Bear Damage"
  },
  "special_bonus_unique_lone_druid_2": {
   "DisplayName": "+12 Spirit Bear Armor"
@@ -5637,6 +5742,9 @@
  },
  "special_bonus_unique_lone_druid_4": {
   "DisplayName": "-10s Savage Roar Cooldown"
+ },
+ "special_bonus_unique_lone_druid_5": {
+  "DisplayName": "+50% Spirit Bear Magic Resistance"
  },
  "special_bonus_unique_luna_1": {
   "DisplayName": "+40 Lucent Beam Damage"
@@ -5650,14 +5758,20 @@
  "special_bonus_unique_lycan_2": {
   "DisplayName": "+2 Wolves Summoned"
  },
+ "special_bonus_unique_lycan_3": {
+  "DisplayName": "+12 Feral HP Regen"
+ },
  "special_bonus_unique_magnus": {
   "DisplayName": "-4s Shockwave Cooldown"
  },
  "special_bonus_unique_magnus_2": {
-  "DisplayName": "+15% Empower Damage/Cleave"
+  "DisplayName": "+10% Empower Damage/Cleave"
+ },
+ "special_bonus_unique_magnus_3": {
+  "DisplayName": "+500 Skewer Range"
  },
  "special_bonus_unique_medusa": {
-  "DisplayName": "+1s Stone Gaze Stun"
+  "DisplayName": "+2s Stone Gaze Stun"
  },
  "special_bonus_unique_medusa_2": {
   "DisplayName": "+1 Split Shot target"
@@ -5699,7 +5813,7 @@
   "DisplayName": "+2 Damage Per Soul"
  },
  "special_bonus_unique_nevermore_2": {
-  "DisplayName": "-7s Shadow Raze Cooldown"
+  "DisplayName": "+125 Shadow Raze Damage"
  },
  "special_bonus_unique_night_stalker": {
   "DisplayName": "-8s Crippling Fear Cooldown"
@@ -5722,6 +5836,9 @@
  "special_bonus_unique_oracle": {
   "DisplayName": "+2 False Promise Duration"
  },
+ "special_bonus_unique_oracle_2": {
+  "DisplayName": "+0.75s Fortune's End Max Duration"
+ },
  "special_bonus_unique_outworld_devourer": {
   "DisplayName": "+60s Arcane Orb Int Steal"
  },
@@ -5741,7 +5858,7 @@
   "DisplayName": "+1s Supernova Stun Duration"
  },
  "special_bonus_unique_phoenix_3": {
-  "DisplayName": "+50 Fire Spirits DPS"
+  "DisplayName": "+65 Fire Spirits DPS"
  },
  "special_bonus_unique_puck": {
   "DisplayName": "+75% Illusory Orb Distance/Speed"
@@ -5755,17 +5872,26 @@
  "special_bonus_unique_pudge_2": {
   "DisplayName": "+120 Rot Damage"
  },
+ "special_bonus_unique_pudge_3": {
+  "DisplayName": "+1s Dismember Duration"
+ },
  "special_bonus_unique_pugna_1": {
   "DisplayName": "+50% Life Drain Heal"
  },
  "special_bonus_unique_pugna_2": {
-  "DisplayName": "+125 Nether Blast Damage"
+  "DisplayName": "+150 Nether Blast Damage"
  },
  "special_bonus_unique_pugna_3": {
   "DisplayName": "+0.5 Netherward Damage Per Mana"
  },
+ "special_bonus_unique_pugna_4": {
+  "DisplayName": "-1s Netherblast Cooldown"
+ },
+ "special_bonus_unique_pugna_5": {
+  "DisplayName": "+1s Decrepify Duration"
+ },
  "special_bonus_unique_queen_of_pain": {
-  "DisplayName": "-3s Shadow Strike Cooldown"
+  "DisplayName": "550 AoE Shadow Strike"
  },
  "special_bonus_unique_razor": {
   "DisplayName": "+14 Static Link Damage Steal"
@@ -5788,17 +5914,29 @@
  "special_bonus_unique_sand_king_2": {
   "DisplayName": "+50 Sand Storm DPS"
  },
+ "special_bonus_unique_sand_king_3": {
+  "DisplayName": "-50 Epicenter Attack Slow"
+ },
  "special_bonus_unique_shadow_demon_1": {
   "DisplayName": "+400 Demonic Purge Damage"
  },
  "special_bonus_unique_shadow_demon_2": {
   "DisplayName": "-6s Soul Catcher Cooldown"
  },
+ "special_bonus_unique_shadow_demon_3": {
+  "DisplayName": "-1.5s Shadow Poison Cooldown"
+ },
  "special_bonus_unique_shadow_shaman_1": {
   "DisplayName": "+1 Serpent Wards Attacks HP"
  },
  "special_bonus_unique_shadow_shaman_2": {
   "DisplayName": "+3s Shackles Duration"
+ },
+ "special_bonus_unique_shadow_shaman_3": {
+  "DisplayName": "+350 Ether Shock Damage"
+ },
+ "special_bonus_unique_shadow_shaman_4": {
+  "DisplayName": "+4 Wards Summoned"
  },
  "special_bonus_unique_silencer": {
   "DisplayName": "+25% Curse Slow"
@@ -5827,17 +5965,26 @@
  "special_bonus_unique_spirit_breaker_2": {
   "DisplayName": "+500 Charge Speed"
  },
+ "special_bonus_unique_spirit_breaker_3": {
+  "DisplayName": "+30% Greater Bash Damage"
+ },
  "special_bonus_unique_storm_spirit": {
   "DisplayName": "+0.75s Electric Vortex"
  },
  "special_bonus_unique_sven": {
-  "DisplayName": "-6s Storm Hammer Cooldown"
+  "DisplayName": "-8s Storm Hammer Cooldown"
  },
  "special_bonus_unique_techies": {
   "DisplayName": "+400 Blast Off Damage"
  },
+ "special_bonus_unique_techies_2": {
+  "DisplayName": "+1 Extra Minefield Sign"
+ },
  "special_bonus_unique_templar_assassin": {
   "DisplayName": "+3 Refraction Instances"
+ },
+ "special_bonus_unique_templar_assassin_2": {
+  "DisplayName": "-8 Meld Armor Reduction"
  },
  "special_bonus_unique_terrorblade": {
   "DisplayName": "-30s Sunder Cooldown"
@@ -5856,6 +6003,9 @@
  },
  "special_bonus_unique_treant": {
   "DisplayName": "+5 Living Armor Block Instances"
+ },
+ "special_bonus_unique_treant_2": {
+  "DisplayName": "+40 Leech Seed Damage/Heal"
  },
  "special_bonus_unique_troll_warlord": {
   "DisplayName": "-7s Whirling Axes Cooldown"
@@ -5890,6 +6040,9 @@
  "special_bonus_unique_venomancer": {
   "DisplayName": "3x Plague Ward HP/Damage"
  },
+ "special_bonus_unique_venomancer_2": {
+  "DisplayName": "+14% Poison Sting Slow"
+ },
  "special_bonus_unique_viper_1": {
   "DisplayName": "Poison Attack Affects Buildings"
  },
@@ -5902,6 +6055,9 @@
  "special_bonus_unique_visage_2": {
   "DisplayName": "+120 Familiars Movement Speed"
  },
+ "special_bonus_unique_visage_3": {
+  "DisplayName": "Soul Assumption Double Strike"
+ },
  "special_bonus_unique_warlock_1": {
   "DisplayName": "Magic Immunity for Chaotic Offering Golems"
  },
@@ -5911,6 +6067,9 @@
  "special_bonus_unique_warlock_3": {
   "DisplayName": "-4s Shadow Word Cooldown"
  },
+ "special_bonus_unique_warlock_4": {
+  "DisplayName": "Summons a Golem on death"
+ },
  "special_bonus_unique_weaver_1": {
   "DisplayName": "+30 Shukuchi Damage"
  },
@@ -5918,10 +6077,13 @@
   "DisplayName": "+200 Shukuchi Movement Speed"
  },
  "special_bonus_unique_windranger": {
-  "DisplayName": "-6s Powershot Cooldown"
+  "DisplayName": "Windrun Grants Invisibility"
  },
  "special_bonus_unique_windranger_2": {
-  "DisplayName": "+25% Windrun Slow"
+  "DisplayName": "+30% Windrun Slow"
+ },
+ "special_bonus_unique_windranger_3": {
+  "DisplayName": "+120 Powershot Damage"
  },
  "special_bonus_unique_winter_wyvern_1": {
   "DisplayName": "+15% Arctic Burn Slow"
@@ -5929,8 +6091,14 @@
  "special_bonus_unique_winter_wyvern_2": {
   "DisplayName": "-3s Splinter Blast Cooldown"
  },
+ "special_bonus_unique_winter_wyvern_3": {
+  "DisplayName": "+1s Cold Embrace Duration"
+ },
  "special_bonus_unique_wisp": {
   "DisplayName": "+150 Spirits Damage"
+ },
+ "special_bonus_unique_wisp_2": {
+  "DisplayName": "Tether Stuns"
  },
  "special_bonus_unique_witch_doctor_1": {
   "DisplayName": "+175 Death Ward Attack Range"
@@ -5938,17 +6106,29 @@
  "special_bonus_unique_witch_doctor_2": {
   "DisplayName": "+20 Voodoo Restoration Heal"
  },
+ "special_bonus_unique_witch_doctor_3": {
+  "DisplayName": "+2 Cask Bounces"
+ },
  "special_bonus_unique_wraith_king_1": {
   "DisplayName": "No Reincarnation Manacost"
  },
  "special_bonus_unique_wraith_king_2": {
-  "DisplayName": "+20% Vampiric Aura Lifesteal"
+  "DisplayName": "+10% Vampiric Aura Lifesteal"
  },
  "special_bonus_unique_wraith_king_3": {
   "DisplayName": "+50 Wraithfire Blast DPS"
  },
+ "special_bonus_unique_wraith_king_4": {
+  "DisplayName": "Reincarnation Casts Wraithfire Blast"
+ },
  "special_bonus_unique_zeus": {
-  "DisplayName": "+1.5% Static Field Damage"
+  "DisplayName": "+2% Static Field Damage"
+ },
+ "special_bonus_unique_zeus_2": {
+  "DisplayName": "+75 Arc Lightning Damage"
+ },
+ "special_bonus_unique_zeus_3": {
+  "DisplayName": "+0.5s Lightning Bolt Ministun"
  },
  "special_bonus_vision_200": {
   "DisplayName": "+200 Vision"
@@ -6167,12 +6347,12 @@
   "Lore": "Inanimate rock becomes animate when called by the Stone Giant."
  },
  "tiny_craggy_exterior": {
-  "Description": "Causes damage to bounce back on Tiny's attackers. Melee enemies that attack Tiny have a chance of being stunned.",
+  "Description": "Causes damage to bounce back on Tiny's attackers. Melee enemies that attack Tiny have a chance of being stunned. The proc chance improves with each level in Grow.",
   "DisplayName": "Craggy Exterior",
   "Lore": "Melee warriors tend to find attacking the Stone Giant largely ineffective."
  },
  "tiny_grow": {
-  "Description": "Tiny gains craggy mass that increases his power at the cost of his attack speed. Increases Tossed unit damage and improves movement speed.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "Tiny gains craggy mass that increases his power at the cost of his attack speed. Increases Tossed unit damage and improves movement speed, and improves Craggy Exterior proc chance.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Grow",
   "Lore": "Watching a hill become a mountain is awe-inspiring - especially if the mountain begins laying waste to adversaries."
  },
@@ -6201,7 +6381,7 @@
   "Lore": "The roots and tendrils of the Treant Protectors are far-reaching, stimulating the growth and rejuvenation of all of nature."
  },
  "treant_natures_guise": {
-  "Description": "Turns you invis when you are within %radius% radius of a tree for %fade_time% seconds. Increasing movement speed by %bonus_move_speed% while invisible, and causes a %bash_duration% seconds bash when attacking out of invisibility.",
+  "Description": "Turns you invis when you are within %radius% radius of a tree for %fade_time% seconds. Increasing movement speed by %bonus_move_speed% while invisible, and causes a %bash_duration% seconds disarming root when attacking out of invisibility.",
   "DisplayName": "Nature's Guise",
   "Lore": "The Protectors don't often come into vision; their natural state being nestled within their leafy brethren."
  },
@@ -6393,7 +6573,7 @@
   "Lore": "Guardians of the Narrow Maze, Necro'lic's Familiars stand watch over his domain."
  },
  "visage_summon_familiars_stone_form": {
-  "Description": "After a short delay, the Familiar turns into stone and smashes into the ground, stunning and damaging all targets in the area.  The Familiar becomes invulnerable, and will regain its health very rapidly.  After %dstone_duration% seconds, the Familiar will automatically leave Stone Form.",
+  "Description": "After a short delay, the Familiar turns into stone and smashes into the ground, stunning and damaging all targets in the area.  The Familiar becomes invulnerable, and will regain its health very rapidly.  After %stone_duration% seconds, the Familiar will automatically leave Stone Form.",
   "DisplayName": "Stone Form"
  },
  "warlock_fatal_bonds": {
@@ -6525,7 +6705,7 @@
   "DisplayName": "Break Tether"
  },
  "witch_doctor_death_ward": {
-  "Description": "CHANNELED - Summons a deadly ward to attack enemy heroes within 700 range. Lasts a maximum of 8 seconds.\\n\\nUpgradable by Aghanim's Scepter.",
+  "Description": "CHANNELED - Summons a deadly ward with true strike to attack enemy heroes within 700 range. Lasts a maximum of 8 seconds.\\n\\nUpgradable by Aghanim's Scepter.",
   "DisplayName": "Death Ward",
   "Lore": "Witch Doctor performs a ritualistic dance, one that haunts the dreams of those who live to recount it."
  },

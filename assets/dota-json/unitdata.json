@@ -642,7 +642,7 @@
       "name": "hp_heal",
       "tooltip": "HEALTH REGEN:",
       "value": [
-       120
+       90
       ]
      },
      {
@@ -661,7 +661,7 @@
      {
       "name": "mp_heal_growth",
       "value": [
-       1
+       0.75
       ]
      },
      {
@@ -1402,13 +1402,13 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_badguys_siege",
   "projectilespeed": 1100,
-  "statushealth": 550,
+  "statushealth": 825,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 4,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 850
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_badguys_siege_diretide": {
   "AttackAcquisitionRange": 800,
@@ -1480,13 +1480,13 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_badguys_siege_upgraded",
   "projectilespeed": 1100,
-  "statushealth": 550,
+  "statushealth": 825,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 4,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 850
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_badguys_siege_upgraded_mega": {
   "AttackAcquisitionRange": 800,
@@ -1519,13 +1519,13 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_badguys_siege_upgraded_mega",
   "projectilespeed": 1100,
-  "statushealth": 550,
+  "statushealth": 825,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 4,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 850
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_badguys_tower1_bot": {
   "AttackAcquisitionRange": 700,
@@ -1534,7 +1534,7 @@
   "HasInventory": 0,
   "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 20,
+  "armorphysical": 14,
   "attackdamagemax": 120,
   "attackdamagemin": 100,
   "attackpoint": 0.6,
@@ -1558,7 +1558,7 @@
   "movementturnrate": 1,
   "name": "npc_dota_badguys_tower1_bot",
   "projectilespeed": 750,
-  "statushealth": 1300,
+  "statushealth": 1400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -1573,7 +1573,7 @@
   "HasInventory": 0,
   "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 20,
+  "armorphysical": 14,
   "attackdamagemax": 120,
   "attackdamagemin": 100,
   "attackpoint": 0.6,
@@ -1597,7 +1597,7 @@
   "movementturnrate": 1,
   "name": "npc_dota_badguys_tower1_mid",
   "projectilespeed": 750,
-  "statushealth": 1300,
+  "statushealth": 1400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -1612,7 +1612,7 @@
   "HasInventory": 0,
   "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 20,
+  "armorphysical": 14,
   "attackdamagemax": 120,
   "attackdamagemin": 100,
   "attackpoint": 0.6,
@@ -1636,7 +1636,7 @@
   "movementturnrate": 1,
   "name": "npc_dota_badguys_tower1_top",
   "projectilespeed": 750,
-  "statushealth": 1300,
+  "statushealth": 1400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -1722,7 +1722,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -1832,7 +1832,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -1942,7 +1942,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -2046,7 +2046,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -2150,7 +2150,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -2254,7 +2254,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -2358,7 +2358,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 30,
+  "armorphysical": 24,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -3461,7 +3461,7 @@
   "HasInventory": 0,
   "abilities": [
    {
-    "AbilityCastPoint": 0.4,
+    "AbilityCastPoint": 0.25,
     "AbilityCastRange": [
      800,
      800,
@@ -3615,9 +3615,11 @@
     "attributes": [
      {
       "name": "bonus_building_damage",
-      "tooltip": "%BONUS BUILDING DAMAGE:",
+      "tooltip": "BONUS BUILDING DAMAGE:",
       "value": [
-       300
+       90,
+       180,
+       270
       ]
      }
     ],
@@ -3760,7 +3762,7 @@
   "attackdamagemin": 25,
   "attackpoint": 0.3,
   "attackrange": 150,
-  "attackrate": 1.35,
+  "attackrate": 1.25,
   "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK",
   "attributeagilitygain": 0,
   "attributebaseagility": 0,
@@ -3794,7 +3796,7 @@
   "HasInventory": 0,
   "abilities": [
    {
-    "AbilityCastPoint": 0.4,
+    "AbilityCastPoint": 0.25,
     "AbilityCastRange": [
      800,
      800,
@@ -3948,9 +3950,11 @@
     "attributes": [
      {
       "name": "bonus_building_damage",
-      "tooltip": "%BONUS BUILDING DAMAGE:",
+      "tooltip": "BONUS BUILDING DAMAGE:",
       "value": [
-       300
+       90,
+       180,
+       270
       ]
      }
     ],
@@ -4093,7 +4097,7 @@
   "attackdamagemin": 55,
   "attackpoint": 0.3,
   "attackrange": 150,
-  "attackrate": 1.35,
+  "attackrate": 1.25,
   "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK",
   "attributeagilitygain": 0,
   "attributebaseagility": 0,
@@ -4127,7 +4131,7 @@
   "HasInventory": 0,
   "abilities": [
    {
-    "AbilityCastPoint": 0.4,
+    "AbilityCastPoint": 0.25,
     "AbilityCastRange": [
      800,
      800,
@@ -4281,9 +4285,11 @@
     "attributes": [
      {
       "name": "bonus_building_damage",
-      "tooltip": "%BONUS BUILDING DAMAGE:",
+      "tooltip": "BONUS BUILDING DAMAGE:",
       "value": [
-       300
+       90,
+       180,
+       270
       ]
      }
     ],
@@ -4426,7 +4432,7 @@
   "attackdamagemin": 85,
   "attackpoint": 0.3,
   "attackrange": 150,
-  "attackrate": 1.35,
+  "attackrate": 1.25,
   "attacktype": "DOTA_UNIT_CAP_MELEE_ATTACK",
   "attributeagilitygain": 0,
   "attributebaseagility": 0,
@@ -4581,16 +4587,16 @@
       "name": "crit_multiplier",
       "tooltip": "%CRIT DAMAGE:",
       "value": [
-       200
+       230
       ]
      },
      {
       "name": "last_proc",
       "tooltip": "CERTAIN TRIGGER TIMER:",
       "value": [
-       16,
-       14,
+       13,
        12,
+       11,
        10
       ]
      }
@@ -4782,16 +4788,16 @@
       "name": "crit_multiplier",
       "tooltip": "%CRIT DAMAGE:",
       "value": [
-       200
+       230
       ]
      },
      {
       "name": "last_proc",
       "tooltip": "CERTAIN TRIGGER TIMER:",
       "value": [
-       16,
-       14,
+       13,
        12,
+       11,
        10
       ]
      }
@@ -4983,16 +4989,16 @@
       "name": "crit_multiplier",
       "tooltip": "%CRIT DAMAGE:",
       "value": [
-       200
+       230
       ]
      },
      {
       "name": "last_proc",
       "tooltip": "CERTAIN TRIGGER TIMER:",
       "value": [
-       16,
-       14,
+       13,
        12,
+       11,
        10
       ]
      }
@@ -5285,7 +5291,7 @@
     "name": "brewmaster_storm_wind_walk"
    },
    {
-    "AbilityCastPoint": 0.3,
+    "AbilityCastPoint": 0.2,
     "AbilityCastRange": [
      850,
      850,
@@ -5315,7 +5321,7 @@
       "name": "duration",
       "tooltip": "DURATION:",
       "value": [
-       4.0
+       4.5
       ]
      },
      {
@@ -5621,7 +5627,7 @@
     "name": "brewmaster_storm_wind_walk"
    },
    {
-    "AbilityCastPoint": 0.3,
+    "AbilityCastPoint": 0.2,
     "AbilityCastRange": [
      850,
      850,
@@ -5651,7 +5657,7 @@
       "name": "duration",
       "tooltip": "DURATION:",
       "value": [
-       4.0
+       4.5
       ]
      },
      {
@@ -5957,7 +5963,7 @@
     "name": "brewmaster_storm_wind_walk"
    },
    {
-    "AbilityCastPoint": 0.3,
+    "AbilityCastPoint": 0.2,
     "AbilityCastRange": [
      850,
      850,
@@ -5987,7 +5993,7 @@
       "name": "duration",
       "tooltip": "DURATION:",
       "value": [
-       4.0
+       4.5
       ]
      },
      {
@@ -7141,9 +7147,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 40,
-  "bountygoldmin": 36,
-  "bountyxp": 45,
+  "bountygoldmax": 38,
+  "bountygoldmin": 34,
+  "bountyxp": 40,
   "displayname": "Melee Creep",
   "level": 0,
   "magicalresistance": 0,
@@ -7155,8 +7161,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 3,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_melee_diretide": {
   "AttackAcquisitionRange": 500,
@@ -7193,8 +7199,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 3,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_melee_upgraded": {
   "AttackAcquisitionRange": 500,
@@ -7231,8 +7237,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_melee_upgraded_mega": {
   "AttackAcquisitionRange": 500,
@@ -7269,8 +7275,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_ranged": {
   "AttackAcquisitionRange": 800,
@@ -7308,8 +7314,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 2,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_ranged_diretide": {
   "AttackAcquisitionRange": 800,
@@ -7347,8 +7353,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 2,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_ranged_upgraded": {
   "AttackAcquisitionRange": 800,
@@ -7386,8 +7392,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_badguys_ranged_upgraded_mega": {
   "AttackAcquisitionRange": 800,
@@ -7425,8 +7431,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_melee": {
   "AttackAcquisitionRange": 500,
@@ -7449,9 +7455,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 40,
-  "bountygoldmin": 36,
-  "bountyxp": 45,
+  "bountygoldmax": 38,
+  "bountygoldmin": 34,
+  "bountyxp": 40,
   "displayname": "Melee Creep",
   "level": 0,
   "magicalresistance": 0,
@@ -7463,8 +7469,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 3,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_melee_diretide": {
   "AttackAcquisitionRange": 500,
@@ -7501,8 +7507,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 3,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_melee_upgraded": {
   "AttackAcquisitionRange": 500,
@@ -7539,8 +7545,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_melee_upgraded_mega": {
   "AttackAcquisitionRange": 500,
@@ -7577,8 +7583,8 @@
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_ranged": {
   "AttackAcquisitionRange": 800,
@@ -7616,8 +7622,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 2,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_ranged_diretide": {
   "AttackAcquisitionRange": 800,
@@ -7655,8 +7661,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 2,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_ranged_upgraded": {
   "AttackAcquisitionRange": 800,
@@ -7694,8 +7700,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_creep_goodguys_ranged_upgraded_mega": {
   "AttackAcquisitionRange": 800,
@@ -7733,8 +7739,8 @@
   "statusmana": 500,
   "statusmanaregen": 0.75,
   "unitlevel": 1,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 800
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_dark_troll_warlord_skeleton_warrior": {
   "AttackAcquisitionRange": 300,
@@ -9280,7 +9286,7 @@
       "name": "hp_heal",
       "tooltip": "HEALTH REGEN:",
       "value": [
-       120
+       90
       ]
      },
      {
@@ -9299,7 +9305,7 @@
      {
       "name": "mp_heal_growth",
       "value": [
-       1
+       0.75
       ]
      },
      {
@@ -10040,13 +10046,13 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_goodguys_siege",
   "projectilespeed": 1100,
-  "statushealth": 550,
+  "statushealth": 825,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 4,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 850
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_goodguys_siege_diretide": {
   "AttackAcquisitionRange": 800,
@@ -10118,13 +10124,13 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_goodguys_siege_upgraded",
   "projectilespeed": 1100,
-  "statushealth": 550,
+  "statushealth": 825,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 4,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 850
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_goodguys_siege_upgraded_mega": {
   "AttackAcquisitionRange": 800,
@@ -10157,13 +10163,13 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_goodguys_siege_upgraded_mega",
   "projectilespeed": 1100,
-  "statushealth": 550,
+  "statushealth": 825,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
   "unitlevel": 4,
-  "visiondaytimerange": 850,
-  "visionnighttimerange": 850
+  "visiondaytimerange": 750,
+  "visionnighttimerange": 750
  },
  "npc_dota_goodguys_tower1_bot": {
   "AttackAcquisitionRange": 700,
@@ -10172,7 +10178,7 @@
   "HasInventory": 0,
   "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 20,
+  "armorphysical": 14,
   "attackdamagemax": 120,
   "attackdamagemin": 100,
   "attackpoint": 0.6,
@@ -10196,7 +10202,7 @@
   "movementturnrate": 1,
   "name": "npc_dota_goodguys_tower1_bot",
   "projectilespeed": 750,
-  "statushealth": 1300,
+  "statushealth": 1400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -10211,7 +10217,7 @@
   "HasInventory": 0,
   "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 20,
+  "armorphysical": 14,
   "attackdamagemax": 120,
   "attackdamagemin": 100,
   "attackpoint": 0.6,
@@ -10235,7 +10241,7 @@
   "movementturnrate": 1,
   "name": "npc_dota_goodguys_tower1_mid",
   "projectilespeed": 750,
-  "statushealth": 1300,
+  "statushealth": 1400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -10250,7 +10256,7 @@
   "HasInventory": 0,
   "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 20,
+  "armorphysical": 14,
   "attackdamagemax": 120,
   "attackdamagemin": 100,
   "attackpoint": 0.6,
@@ -10274,7 +10280,7 @@
   "movementturnrate": 1,
   "name": "npc_dota_goodguys_tower1_top",
   "projectilespeed": 750,
-  "statushealth": 1300,
+  "statushealth": 1400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -10360,7 +10366,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -10470,7 +10476,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -10580,7 +10586,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -10684,7 +10690,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -10788,7 +10794,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -10892,7 +10898,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 22,
+  "armorphysical": 16,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -10996,7 +11002,7 @@
    }
   ],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
-  "armorphysical": 30,
+  "armorphysical": 24,
   "attackdamagemax": 162,
   "attackdamagemin": 142,
   "attackpoint": 0.6,
@@ -13656,9 +13662,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 25,
-  "bountygoldmin": 25,
-  "bountyxp": 0,
+  "bountygoldmax": 75,
+  "bountygoldmin": 75,
+  "bountyxp": 75,
   "displayname": "Healing Ward",
   "level": 0,
   "magicalresistance": 0,
@@ -16291,9 +16297,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 45,
-  "bountygoldmin": 37,
-  "bountyxp": 88,
+  "bountygoldmax": 36,
+  "bountygoldmin": 30,
+  "bountyxp": 70,
   "displayname": "Alpha Wolf",
   "level": 0,
   "magicalresistance": 0,
@@ -16531,9 +16537,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 97,
-  "bountygoldmin": 89,
-  "bountyxp": 155,
+  "bountygoldmax": 78,
+  "bountygoldmin": 71,
+  "bountyxp": 124,
   "displayname": "Ancient Thunderhide",
   "level": 0,
   "magicalresistance": 70,
@@ -16808,9 +16814,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 190,
-  "bountygoldmin": 150,
-  "bountyxp": 155,
+  "bountygoldmax": 152,
+  "bountygoldmin": 120,
+  "bountyxp": 124,
   "displayname": "Ancient Black Dragon",
   "level": 0,
   "magicalresistance": 70,
@@ -16847,9 +16853,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 45,
-  "bountygoldmin": 35,
-  "bountyxp": 62,
+  "bountygoldmax": 36,
+  "bountygoldmin": 28,
+  "bountyxp": 50,
   "displayname": "Ancient Black Drake",
   "level": 0,
   "magicalresistance": 0,
@@ -16945,9 +16951,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 78,
-  "bountygoldmin": 66,
-  "bountyxp": 119,
+  "bountygoldmax": 62,
+  "bountygoldmin": 53,
+  "bountyxp": 95,
   "displayname": "Centaur Conqueror",
   "level": 0,
   "magicalresistance": 0,
@@ -17058,9 +17064,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 24,
-  "bountygoldmin": 20,
-  "bountyxp": 41,
+  "bountygoldmax": 19,
+  "bountygoldmin": 16,
+  "bountyxp": 33,
   "displayname": "Centaur Courser",
   "level": 0,
   "magicalresistance": 0,
@@ -17097,9 +17103,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 33,
-  "bountygoldmin": 26,
-  "bountyxp": 62,
+  "bountygoldmax": 26,
+  "bountygoldmin": 21,
+  "bountyxp": 50,
   "displayname": "Hill Troll",
   "level": 0,
   "magicalresistance": 0,
@@ -17234,9 +17240,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 62,
-  "bountygoldmin": 54,
-  "bountyxp": 119,
+  "bountygoldmax": 50,
+  "bountygoldmin": 43,
+  "bountyxp": 95,
   "displayname": "Dark Troll Summoner",
   "level": 0,
   "magicalresistance": 0,
@@ -17273,9 +17279,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 170,
-  "bountygoldmin": 152,
-  "bountyxp": 155,
+  "bountygoldmax": 136,
+  "bountygoldmin": 122,
+  "bountyxp": 124,
   "displayname": "Ancient Primal Stalker",
   "level": 0,
   "magicalresistance": 70,
@@ -17424,9 +17430,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 87,
-  "bountygoldmin": 67,
-  "bountyxp": 119,
+  "bountygoldmax": 70,
+  "bountygoldmin": 54,
+  "bountyxp": 95,
   "displayname": "Wildwing Ripper",
   "level": 0,
   "magicalresistance": 0,
@@ -17463,9 +17469,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 23,
-  "bountygoldmin": 20,
-  "bountyxp": 41,
+  "bountygoldmax": 18,
+  "bountygoldmin": 16,
+  "bountyxp": 33,
   "displayname": "Fell Spirit",
   "level": 0,
   "magicalresistance": 0,
@@ -17502,9 +17508,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 26,
-  "bountygoldmin": 22,
-  "bountyxp": 41,
+  "bountygoldmax": 21,
+  "bountygoldmin": 18,
+  "bountyxp": 33,
   "displayname": "Hill Troll Berserker",
   "level": 0,
   "magicalresistance": 0,
@@ -17658,9 +17664,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 25,
-  "bountygoldmin": 21,
-  "bountyxp": 41,
+  "bountygoldmax": 20,
+  "bountygoldmin": 17,
+  "bountyxp": 31,
   "displayname": "Hill Troll Priest",
   "level": 0,
   "magicalresistance": 0,
@@ -17771,9 +17777,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 40,
-  "bountygoldmin": 30,
-  "bountyxp": 62,
+  "bountygoldmax": 32,
+  "bountygoldmin": 24,
+  "bountyxp": 50,
   "displayname": "Ghost",
   "level": 0,
   "magicalresistance": 0,
@@ -17794,78 +17800,11 @@
   "AttackRangeBuffer": 250,
   "FollowRange": 100,
   "HasInventory": 0,
-  "abilities": [
-   {
-    "AbilityCastPoint": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "AbilityCastRange": 0,
-    "AbilityCastRangeBuffer": 250,
-    "AbilityChannelTime": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "AbilityDuration": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "AbilityModifierSupportBonus": 0,
-    "AbilityModifierSupportValue": 1,
-    "ID": 5307,
-    "abilitytype": "DOTA_ABILITY_TYPE_BASIC",
-    "attributes": [
-     {
-      "name": "crit_chance",
-      "tooltip": "%CHANCE:",
-      "value": [
-       20
-      ]
-     },
-     {
-      "name": "crit_mult",
-      "tooltip": "%CRITICAL DAMAGE:",
-      "value": [
-       200
-      ]
-     }
-    ],
-    "behavior": [
-     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    ],
-    "cooldown": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "damage": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "displayname": "Critical Strike",
-    "level": 0,
-    "manacost": [
-     0,
-     0,
-     0,
-     0
-    ],
-    "name": "giant_wolf_critical_strike"
-   }
-  ],
+  "abilities": [],
   "abilityunitdamagetype": "DAMAGE_TYPE_ArmorPhysical",
   "armorphysical": 1,
-  "attackdamagemax": 24,
-  "attackdamagemin": 21,
+  "attackdamagemax": 33,
+  "attackdamagemin": 29,
   "attackpoint": 0.33,
   "attackrange": 90,
   "attackrate": 1.45,
@@ -17877,9 +17816,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 26,
-  "bountygoldmin": 22,
-  "bountyxp": 62,
+  "bountygoldmax": 21,
+  "bountygoldmin": 18,
+  "bountyxp": 50,
   "displayname": "Giant Wolf",
   "level": 0,
   "magicalresistance": 0,
@@ -17991,9 +17930,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 29,
-  "bountygoldmin": 21,
-  "bountyxp": 41,
+  "bountygoldmax": 23,
+  "bountygoldmin": 17,
+  "bountyxp": 33,
   "displayname": "Vhoul Assassin",
   "level": 0,
   "magicalresistance": 0,
@@ -18097,9 +18036,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 121,
-  "bountygoldmin": 107,
-  "bountyxp": 155,
+  "bountygoldmax": 97,
+  "bountygoldmin": 86,
+  "bountyxp": 124,
   "displayname": "Ancient Granite Golem",
   "level": 0,
   "magicalresistance": 70,
@@ -18136,9 +18075,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 27,
-  "bountygoldmin": 24,
-  "bountyxp": 41,
+  "bountygoldmax": 22,
+  "bountygoldmin": 19,
+  "bountyxp": 33,
   "displayname": "Harpy Scout",
   "level": 0,
   "magicalresistance": 0,
@@ -18252,9 +18191,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 37,
-  "bountygoldmin": 33,
-  "bountyxp": 62,
+  "bountygoldmax": 30,
+  "bountygoldmin": 26,
+  "bountyxp": 50,
   "displayname": "Harpy Stormcrafter",
   "level": 0,
   "magicalresistance": 0,
@@ -18291,9 +18230,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 70,
-  "bountygoldmin": 52,
-  "bountyxp": 119,
+  "bountygoldmax": 56,
+  "bountygoldmin": 42,
+  "bountyxp": 95,
   "displayname": "Ancient Stalker",
   "level": 0,
   "magicalresistance": 70,
@@ -18330,9 +18269,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 9,
-  "bountygoldmin": 7,
-  "bountyxp": 25,
+  "bountygoldmax": 7,
+  "bountygoldmin": 6,
+  "bountyxp": 20,
   "displayname": "Kobold",
   "level": 0,
   "magicalresistance": 0,
@@ -18436,9 +18375,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 29,
-  "bountygoldmin": 23,
-  "bountyxp": 41,
+  "bountygoldmax": 23,
+  "bountygoldmin": 18,
+  "bountyxp": 33,
   "displayname": "Kobold Foreman",
   "level": 0,
   "magicalresistance": 0,
@@ -18475,9 +18414,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 19,
-  "bountygoldmin": 17,
-  "bountyxp": 25,
+  "bountygoldmax": 15,
+  "bountygoldmin": 14,
+  "bountyxp": 20,
   "displayname": "Kobold Soldier",
   "level": 0,
   "magicalresistance": 0,
@@ -18666,9 +18605,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 34,
-  "bountygoldmin": 30,
-  "bountyxp": 42,
+  "bountygoldmax": 27,
+  "bountygoldmin": 24,
+  "bountyxp": 34,
   "displayname": "Mud Golem",
   "level": 0,
   "magicalresistance": 50,
@@ -18769,9 +18708,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 16,
-  "bountygoldmin": 10,
-  "bountyxp": 23,
+  "bountygoldmax": 13,
+  "bountygoldmin": 8,
+  "bountyxp": 18,
   "displayname": "Shard Golem",
   "level": 0,
   "magicalresistance": 50,
@@ -18872,9 +18811,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 16,
-  "bountygoldmin": 10,
-  "bountyxp": 23,
+  "bountygoldmax": 13,
+  "bountygoldmin": 8,
+  "bountyxp": 18,
   "displayname": "Doom Shard",
   "level": 0,
   "magicalresistance": 50,
@@ -18989,9 +18928,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 45,
-  "bountygoldmin": 35,
-  "bountyxp": 62,
+  "bountygoldmax": 36,
+  "bountygoldmin": 28,
+  "bountyxp": 50,
   "displayname": "Ogre Frostmage",
   "level": 0,
   "magicalresistance": 0,
@@ -19028,9 +18967,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 47,
-  "bountygoldmin": 23,
-  "bountyxp": 41,
+  "bountygoldmax": 38,
+  "bountygoldmin": 18,
+  "bountyxp": 33,
   "displayname": "Ogre Bruiser",
   "level": 0,
   "magicalresistance": 0,
@@ -19141,9 +19080,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 55,
-  "bountygoldmin": 45,
-  "bountyxp": 88,
+  "bountygoldmax": 44,
+  "bountygoldmin": 36,
+  "bountyxp": 70,
   "displayname": "Hellbear",
   "level": 0,
   "magicalresistance": 0,
@@ -19312,9 +19251,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 88,
-  "bountygoldmin": 76,
-  "bountyxp": 119,
+  "bountygoldmax": 70,
+  "bountygoldmin": 61,
+  "bountyxp": 95,
   "displayname": "Hellbear Smasher",
   "level": 0,
   "magicalresistance": 0,
@@ -19424,9 +19363,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 82,
-  "bountygoldmin": 74,
-  "bountyxp": 62,
+  "bountygoldmax": 66,
+  "bountygoldmin": 59,
+  "bountyxp": 50,
   "displayname": "Ancient Prowler Acolyte",
   "level": 0,
   "magicalresistance": 0,
@@ -19601,9 +19540,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 98,
-  "bountygoldmin": 86,
-  "bountyxp": 119,
+  "bountygoldmax": 78,
+  "bountygoldmin": 69,
+  "bountyxp": 95,
   "displayname": "Ancient Prowler Shaman",
   "level": 0,
   "magicalresistance": 0,
@@ -19640,9 +19579,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 62,
-  "bountygoldmin": 54,
-  "bountyxp": 119,
+  "bountygoldmax": 50,
+  "bountygoldmin": 43,
+  "bountyxp": 95,
   "displayname": "Ancient Rock Golem",
   "level": 0,
   "magicalresistance": 70,
@@ -19809,9 +19748,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 91,
-  "bountygoldmin": 77,
-  "bountyxp": 119,
+  "bountygoldmax": 73,
+  "bountygoldmin": 62,
+  "bountyxp": 95,
   "displayname": "Satyr Tormenter",
   "level": 0,
   "magicalresistance": 0,
@@ -19898,9 +19837,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 33,
-  "bountygoldmin": 27,
-  "bountyxp": 62,
+  "bountygoldmax": 26,
+  "bountygoldmin": 22,
+  "bountyxp": 50,
   "displayname": "Satyr Mindstealer",
   "level": 0,
   "magicalresistance": 0,
@@ -19999,9 +19938,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 17,
-  "bountygoldmin": 15,
-  "bountyxp": 41,
+  "bountygoldmax": 14,
+  "bountygoldmin": 12,
+  "bountyxp": 33,
   "displayname": "Satyr Banisher",
   "level": 0,
   "magicalresistance": 0,
@@ -20038,9 +19977,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 70,
-  "bountygoldmin": 60,
-  "bountyxp": 119,
+  "bountygoldmax": 56,
+  "bountygoldmin": 48,
+  "bountyxp": 95,
   "displayname": "Ancient Rumblehide",
   "level": 0,
   "magicalresistance": 70,
@@ -20077,9 +20016,9 @@
   "attributeintelligencegain": 0,
   "attributeprimary": "DOTA_ATTRIBUTE_STRENGTH",
   "attributestrengthgain": 0,
-  "bountygoldmax": 20,
-  "bountygoldmin": 15,
-  "bountyxp": 25,
+  "bountygoldmax": 16,
+  "bountygoldmin": 12,
+  "bountyxp": 20,
   "displayname": "Wildwing",
   "level": 0,
   "magicalresistance": 0,
@@ -21854,7 +21793,7 @@
   "visionnighttimerange": 0
  },
  "npc_dota_shadow_shaman_ward_1": {
-  "AttackAcquisitionRange": 600,
+  "AttackAcquisitionRange": 650,
   "AttackRangeBuffer": 250,
   "FollowRange": 100,
   "HasInventory": 0,
@@ -21864,7 +21803,7 @@
   "attackdamagemax": 40,
   "attackdamagemin": 40,
   "attackpoint": 0.3,
-  "attackrange": 600,
+  "attackrange": 650,
   "attackrate": 1.5,
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK",
   "attributeagilitygain": 0,
@@ -21893,7 +21832,7 @@
   "visionnighttimerange": 800
  },
  "npc_dota_shadow_shaman_ward_2": {
-  "AttackAcquisitionRange": 600,
+  "AttackAcquisitionRange": 650,
   "AttackRangeBuffer": 250,
   "FollowRange": 100,
   "HasInventory": 0,
@@ -21903,7 +21842,7 @@
   "attackdamagemax": 70,
   "attackdamagemin": 70,
   "attackpoint": 0.3,
-  "attackrange": 600,
+  "attackrange": 650,
   "attackrate": 1.5,
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK",
   "attributeagilitygain": 0,
@@ -21932,7 +21871,7 @@
   "visionnighttimerange": 800
  },
  "npc_dota_shadow_shaman_ward_3": {
-  "AttackAcquisitionRange": 600,
+  "AttackAcquisitionRange": 650,
   "AttackRangeBuffer": 250,
   "FollowRange": 100,
   "HasInventory": 0,
@@ -21942,7 +21881,7 @@
   "attackdamagemax": 100,
   "attackdamagemin": 100,
   "attackpoint": 0.3,
-  "attackrange": 600,
+  "attackrange": 650,
   "attackrate": 1.5,
   "attacktype": "DOTA_UNIT_CAP_RANGED_ATTACK",
   "attributeagilitygain": 0,
@@ -23706,7 +23645,7 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_visage_familiar1",
   "projectilespeed": 900,
-  "statushealth": 300,
+  "statushealth": 400,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
@@ -23840,7 +23779,7 @@
   "movementturnrate": 0.5,
   "name": "npc_dota_visage_familiar2",
   "projectilespeed": 900,
-  "statushealth": 500,
+  "statushealth": 550,
   "statushealthregen": 0,
   "statusmana": 0,
   "statusmanaregen": 0,
