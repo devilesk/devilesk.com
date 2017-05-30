@@ -32,6 +32,8 @@ dota-hero-calculator-table/index.html: [macros/breadcrumb.j2, root.j2, includes/
   base.j2, macros/render_heroes.j2, macros/render_nav.j2, includes/footer.j2]
 dota-hero-calculator/index.html: [includes/footer.j2, root.j2, macros/breadcrumb.j2,
   includes/analytics.j2, macros/render_nav.j2, macros/render_heroes.j2, base.j2]
+dota-interactive-map/index.html: [includes/analytics.j2, includes/footer.j2, macros/render_nav.j2,
+  root.j2]
 dota2/all-hero-challenge-list.html: [root.j2, includes/analytics.j2, includes/footer.j2,
   macros/breadcrumb.j2, macros/render_heroes.j2, base.j2, macros/render_nav.j2]
 dota2/apps/abilitymatching.html: [root.j2, includes/analytics.j2, includes/footer.j2,

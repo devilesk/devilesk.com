@@ -8,7 +8,7 @@ header: Interactive Map
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="app-87d3ff2.min.css" type="text/css">
+<link rel="stylesheet" href="app-d8de68c.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -92,8 +92,9 @@ header: Interactive Map
                 <div class="menu-item">
                     <label class="select-label" for="version-select">Version</label><!--
                      --><select id="version-select">
+                        <option value="706">7.06</option>
                         <option value="700">7.00</option>
-                        <option value="687">6.87</option>
+                        <option value="688">6.88</option>
                     </select>
                 </div>
                 <hr>
@@ -173,14 +174,19 @@ header: Interactive Map
                         <label for="base-menu-toggle" class="root checkbox inverse">Base Layers</label>
                         <div id="base-menu" class="menu-item-group sub-menu"><!--
                          --><div class="menu-item">
-                                <input type="radio" name="base-type" value="700" id="base-700-option" checked />
+                                <input type="radio" name="base-type" value="706" id="base-706-option" checked />
+                                <label for="base-706-option" class="checkbox">7.06</label>
+                                <div id="base-706-menu" class="menu-item-group sub-menu"></div>
+                            </div><!--
+                         --><div class="menu-item">
+                                <input type="radio" name="base-type" value="700" id="base-700-option" />
                                 <label for="base-700-option" class="checkbox">7.00</label>
                                 <div id="base-700-menu" class="menu-item-group sub-menu"></div>
                             </div><!--
                          --><div class="menu-item">
-                                <input type="radio" name="base-type" value="687" id="base-687-option" />
-                                <label for="base-687-option" class="checkbox">6.87</label>
-                                <div id="base-687-menu" class="menu-item-group sub-menu"></div>
+                                <input type="radio" name="base-type" value="688" id="base-688-option" />
+                                <label for="base-688-option" class="checkbox">6.88</label>
+                                <div id="base-688-menu" class="menu-item-group sub-menu"></div>
                             </div>
                         </div>
                     </div>
@@ -280,7 +286,7 @@ header: Interactive Map
     
     {% block js %}
         {{ super() }}
-        <script src="bundle-87d3ff2.min.js"></script>
-        <script>InteractiveMap("http://devilesk.com/media/images/map/", "img/map_data.png")</script>
+        <script src="bundle-d8de68c.min.js"></script>
+        <script>InteractiveMap("http://devilesk.com/media/images/map2/", "img/map_data.png")</script>
     {% endblock js %}
 {% endblock body %}
