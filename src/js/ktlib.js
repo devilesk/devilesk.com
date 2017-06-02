@@ -38,10 +38,10 @@ var KTLIB = (function () {
       return this.statushealth + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_STRENGTH', level, bonusLevel) * 20;
     },
     statusmana: function (level, bonusLevel) {
-      return this.statusmana + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 12;
+      return this.statusmana + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 11;
     },
     statushealthregen: function (level, bonusLevel) {
-      return this.statushealthregen + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_STRENGTH', level, bonusLevel) * 0.03;
+      return this.statushealthregen + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_STRENGTH', level, bonusLevel) * 0.06;
     },
     statusmanaregen: function (level, bonusLevel) {
       return this.statusmanaregen + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 0.04;
