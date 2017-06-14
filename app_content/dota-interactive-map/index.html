@@ -8,7 +8,7 @@ header: Interactive Map
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="app-d8de68c.min.css" type="text/css">
+<link rel="stylesheet" href="app-a87da0a.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -99,15 +99,10 @@ header: Interactive Map
                 </div>
                 <hr>
                 <div class="menu-item">
-                    <input type="button" id="reset" value="Reset Map"/>
+                    <input type="button" id="reset" class="button" value="Reset Map"/>
                 </div>
-                <hr>
-                <div class="menu-item">
-                    <input type="button" id="help-open" value="Help"/>
-                </div>
-                <hr>
-                <div class="menu-item">
-                    <input type="button" id="about-open" value="About"/>
+                <div class="menu-item button-half-container">
+                    <input type="button" id="help-open" class="button-half" value="Help"/><input type="button" id="about-open" class="button-half" value="About"/>
                 </div>
             </div>
         </div>
@@ -286,7 +281,7 @@ header: Interactive Map
     
     {% block js %}
         {{ super() }}
-        <script src="bundle-d8de68c.min.js"></script>
+        <script src="bundle-a87da0a.min.js"></script>
         <script>InteractiveMap("http://devilesk.com/media/images/map2/", "img/map_data.png")</script>
     {% endblock js %}
 {% endblock body %}
