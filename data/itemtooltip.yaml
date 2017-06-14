@@ -356,10 +356,10 @@
   lore: Capturing the majestic call of an eagle, this mystical horn brings limitless
     dexterity to those who hear it.
 - attributes: '+ 10 Intelligence<br>+ 10 Strength<br>+ 10 Attack Speed<br>+ 15 Damage<br>+
-    75% Mana Regeneration<br>MOVEMENT SLOW: 100%<br>SLOW DURATION: 0.6'
+    75% Mana Regeneration<br>MOVEMENT SLOW: 100%<br>SLOW DURATION: 0.7'
   cd: '5'
   description: 'Passive: Causes melee attacks to attack twice in quick succession.
-    The double attacks apply a 0.6 second 100% movement slow on each strike.'
+    The double attacks apply a 0.7 second 100% movement slow on each strike.'
   displayname: Echo Sabre
   id: echo_sabre
   itemcost: '2650'
@@ -546,7 +546,7 @@
   itemcost: '900'
   lore: The helmet of a legendary warrior who fell in battle.
 - attributes: '+ 2 All Attributes<br>+ 10 Attack Speed<br>AURA ATTACK SPEED: 10<br>AURA
-    HEALTH REGEN: 10<br>DOMINATED HEALTH MINIMUM: 1400<br>CREEP MOVEMENT SPEED: 425'
+    HEALTH REGEN: 10<br>DOMINATED HEALTH MINIMUM: 1500<br>CREEP MOVEMENT SPEED: 425'
   cd: '60'
   description: 'Active: Dominate - Take control of a non-hero, non-ancient target
     unit and sets its movement speed to 425. If a dominated creep''s base health is
@@ -782,7 +782,7 @@
     AURA MOVE SPEED: 5 / 7 / 9%<br>ARCHER AURA ATTACK SPEED: 5 / 10 / 15'
   cd: '90'
   description: 'Active: Demonic Summoning - Summons a Warrior and an Archer to fight
-    for you for 45 seconds, whose strength and abilities increase as Necronomicon
+    for you for 50 seconds, whose strength and abilities increase as Necronomicon
     is upgraded. Warrior gains True Sight at level 3. Upgradable.'
   displayname: Necronomicon
   id: necronomicon
