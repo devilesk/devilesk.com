@@ -1,0 +1,38 @@
+---
+extends: base.j2
+title: Dota 2 Map Images
+description: High Resolution Dota 2 Map Images
+active_menu: page-community
+header: Map Images
+---
+
+{% block main %}
+{% for map in maps -%}
+<div class="row">
+    <h3 class="col-md-12" id="patch_{{ map.patch }}">{{ map.patch }}</h3>
+    {% for column in map.tilesets -%}
+    <div class="col-md-6">
+        {% for tileset in column -%}
+        <div class="media">
+            <div class="media-left">
+                <img class="media-object" src="/media/images/map2/{{ map.id}}/{{ tileset.id }}/thumbnail.jpg" alt="{{ map.patch }}_{{ tileset.id }}">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{ tileset.name }}</h4>
+                <a href="/media/images/map2/{{ map.id}}/{{ tileset.id }}/dotamap5_25.jpg" download>1024x1024</a>
+                <a href="/media/images/map2/{{ map.id}}/{{ tileset.id }}/dotamap4_25.jpg" download>2048x2048</a>
+                <a href="/media/images/map2/{{ map.id}}/{{ tileset.id }}/dotamap3_25.jpg" download>4096x4096</a>
+                <a href="/media/images/map2/{{ map.id}}/{{ tileset.id }}/dotamap2_25.jpg" download>8192x8192</a>
+                <a href="/media/images/map2/{{ map.id}}/{{ tileset.id }}/dotamap1_25.jpg" download>16384x16384</a>
+            </div>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+    <hr class="col-md-12">
+</div>
+{%- endfor %}
+<div class="row">
+<p>Images on this page are 25% jpg quality. Contact me if you need higher quality images.</p>
+</div>
+{%- endblock %}

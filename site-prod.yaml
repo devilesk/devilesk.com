@@ -21,6 +21,7 @@ context:
         sitenews: yaml/sitenews.yaml
         patches: yaml/patches.yaml
         apps: yaml/apps.yaml
+        maps: yaml/maps.yaml
 deploy_root: www
 media_root: media
 media_url: /media
