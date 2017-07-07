@@ -150,7 +150,7 @@
     the owner seems to have infinite vitality and spirit.
 - attributes: '+ 25 Intelligence<br>+ 30 Attack Speed<br>+ 60 Damage<br>+ 150% Mana
     Regeneration<br>CRITICAL CHANCE: 20%<br>CRITICAL DAMAGE: 175%<br>SILENCE INCREASED
-    DAMAGE: 30.0%<br>SILENCE DURATION: 5.0<br>SILENCE CRITICAL DAMAGE: 145.0%'
+    DAMAGE: 30.0%<br>SILENCE DURATION: 5.0<br>SILENCE CRITICAL DAMAGE: 140.0%'
   cd: '18'
   description: 'Active: Silences a target for 5.0 seconds and amplifies the damage
     it takes by 30.0%. All attacks on the silenced target will have True Strike and
@@ -527,11 +527,11 @@
   lore: Preserved heart of an extinct monster, it bolsters the bearer's fortitude.
 - attributes: '+ 25% Evasion<br>+ 25 Damage<br>+ 20 Strength<br>MAIM CHANCE: 35%<br>MOVEMENT
     SLOW MELEE: -20%<br>ATTACK SLOW MELEE: -20<br>MOVEMENT SLOW RANGED: -10%<br>ATTACK
-    SLOW RANGED: -10<br>MAIM DURATION: 5.0<br>DISARM RANGED DURATION: 5.5<br>DISARM
+    SLOW RANGED: -10<br>MAIM DURATION: 5.0<br>DISARM RANGED DURATION: 5.0<br>DISARM
     MELEE DURATION: 3.0<br>DISARM CAST RANGE: 600'
   cd: '18'
   description: 'Active: Disarm - Prevents a target from attacking. Lasts 3.0 seconds
-    on melee targets, and 5.5 seconds on ranged targets.<br>Passive: Lesser Maim -
+    on melee targets, and 5.0 seconds on ranged targets.<br>Passive: Lesser Maim -
     Each attack has a chance to slow the enemy''s movement and attack speed for 5.0
     seconds.<br><br>Stacks diminishingly with other sources of Evasion.'
   displayname: Heaven's Halberd
@@ -827,8 +827,9 @@
   lore: You grow stronger just by holding it.
 - attributes: 'POISON DAMAGE PER SECOND: 5.0<br>POISON MELEE SLOW: -12%<br>POISON
     RANGED SLOW: -4%<br>POISON DURATION: 3.0'
-  description: 'Passive: Poison Attack - Poisons the target, dealing damage over time
-    and slowing movement based on whether the equipped hero is melee or ranged.'
+  description: 'Passive: Poison Attack - Poisons the target, dealing 5.0 damage per
+    second for 3.0 seconds and slowing movement -12% if the equipped hero is melee
+    or -4% if they are ranged.'
   displayname: Orb of Venom
   id: orb_of_venom
   itemcost: '275'
@@ -1240,7 +1241,7 @@
     magic damage enemies take. Lasts 16.0 seconds.'
   displayname: Veil of Discord
   id: veil_of_discord
-  itemcost: '2240'
+  itemcost: '2340'
   lore: The headwear of corrupt magi.
   mana: '50'
 - attributes: + 250 Health

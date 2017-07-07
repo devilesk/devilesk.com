@@ -753,7 +753,7 @@ npc_dota_hero_alchemist:
       value: [16, 20, 24, 28]
     - name: bounty_multiplier_tooltip
       tooltip: 'BOUNTY RUNE MULTIPLIER:'
-      value: [2]
+      value: [2.5]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
     cooldown: [0, 0, 0, 0]
     damage: [0, 0, 0, 0]
@@ -842,7 +842,7 @@ npc_dota_hero_alchemist:
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_MELEE_ATTACK
   attributeagilitygain: 1.2
-  attributebaseagility: 11
+  attributebaseagility: 16
   attributebaseintelligence: 25
   attributebasestrength: 25
   attributeintelligencegain: 1.8
@@ -1798,7 +1798,7 @@ npc_dota_hero_arc_warden:
   level: 0
   magicalresistance: 25
   movementspeed: 285
-  movementturnrate: 0.4
+  movementturnrate: 0.6
   name: npc_dota_hero_arc_warden
   projectilespeed: 900
   role: Carry,Escape,Nuker
@@ -2737,7 +2737,7 @@ npc_dota_hero_batrider:
       tooltip: 'SCEPTER DAMAGE PER SECOND:'
       value: [100.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [90, 75, 60]
+    cooldown: [100, 80, 60]
     damage: [0, 0, 0, 0]
     displayname: Flaming Lasso
     level: 0
@@ -4083,7 +4083,7 @@ npc_dota_hero_brewmaster:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5907
+      ID: 5939
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
@@ -4091,10 +4091,10 @@ npc_dota_hero_brewmaster:
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +30 Attack Speed
+      displayname: +30 Damage
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_attack_speed_30
+      name: special_bonus_attack_damage_30
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -4197,18 +4197,18 @@ npc_dota_hero_brewmaster:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 6112
+      ID: 6555
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [120]
+        value: [140]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +120 Damage
+      displayname: +140 Attack Speed
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_attack_damage_120
+      name: special_bonus_attack_speed_140
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -4377,8 +4377,8 @@ npc_dota_hero_bristleback:
     name: bristleback_warpath
   abilitylayout: 4
   armorphysical: 1
-  attackdamagemax: 36
-  attackdamagemin: 26
+  attackdamagemax: 32
+  attackdamagemin: 22
   attackpoint: 0.3
   attackrange: 150
   attackrate: 1.8
@@ -4804,11 +4804,11 @@ npc_dota_hero_broodmother:
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [12]
+        value: [14]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +12 Spiders Attack Damage
+      displayname: +14 Spiders Attack Damage
       level: 0
       manacost: [0, 0, 0, 0]
       name: special_bonus_unique_broodmother_4
@@ -5615,7 +5615,7 @@ npc_dota_hero_chen:
     attributes:
     - name: heal_amount
       tooltip: 'HEAL:'
-      value: [225, 325, 425]
+      value: [225, 350, 475]
     - name: ancient_creeps_scepter
       tooltip: 'SCEPTER HOLY PERSUASION ANCIENTS:'
       value: [1, 2, 3]
@@ -5738,18 +5738,18 @@ npc_dota_hero_chen:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 6007
+      ID: 6008
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [15]
+        value: [20]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +90 Gold/Min
+      displayname: +120 Gold/Min
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_gold_income_15
+      name: special_bonus_gold_income_20
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -6504,7 +6504,7 @@ npc_dota_hero_dark_seer:
       tooltip: 'DURATION:'
       value: [3, 4.5, 6, 7.5]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [12, 11, 10, 9]
+    cooldown: [13, 12, 11, 10]
     damage: [0, 0, 0, 0]
     displayname: Surge
     level: 0
@@ -10165,7 +10165,7 @@ npc_dota_hero_enchantress:
     damage: [0, 0, 0, 0]
     displayname: Nature's Attendants
     level: 0
-    manacost: [125, 140, 155, 170]
+    manacost: [125]
     name: enchantress_natures_attendants
   - AbilityCastPoint: [0, 0, 0]
     AbilityCastRange: 550
@@ -10330,7 +10330,7 @@ npc_dota_hero_enchantress:
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [60]
+        value: [-60]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
@@ -10657,6 +10657,8 @@ npc_dota_hero_enigma:
       attributes:
       - name: value
         value: [2]
+      - name: value2
+        value: [1]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
@@ -11086,7 +11088,7 @@ npc_dota_hero_furion:
     - name: treant_hp_bonus
       value: [550]
     - name: treant_damage_bonus
-      value: [32]
+      value: [36]
     - name: treant_large_hp_bonus
       value: [1650]
     - name: treant_large_damage_bonus
@@ -14141,7 +14143,7 @@ npc_dota_hero_legion_commander:
     manacost: [100, 110, 120, 130]
     name: legion_commander_overwhelming_odds
   - AbilityCastPoint: 0.2
-    AbilityCastRange: 800
+    AbilityCastRange: 700
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
     AbilityDuration: [0, 0, 0, 0]
@@ -14524,7 +14526,7 @@ npc_dota_hero_leshrac:
       value: [450]
     - name: damage
       tooltip: 'DAMAGE:'
-      value: [100, 130, 160]
+      value: [100, 140, 180]
     - name: damage_scepter
       value: [160, 190, 220]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_TOGGLE, DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL]
@@ -14627,18 +14629,18 @@ npc_dota_hero_leshrac:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5937
+      ID: 6138
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [10]
+        value: [15]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +10% Magic Resistance
+      displayname: +15% Magic Resistance
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_magic_resistance_10
+      name: special_bonus_magic_resistance_15
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -15255,7 +15257,7 @@ npc_dota_hero_life_stealer:
   attributebasestrength: 25
   attributeintelligencegain: 1.75
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
-  attributestrengthgain: 3.3
+  attributestrengthgain: 3.1
   displayname: Lifestealer
   items: []
   level: 0
@@ -15452,7 +15454,7 @@ npc_dota_hero_lina:
       value: [1075]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_POINT]
     cooldown: [8]
-    damage: [110, 180, 250, 320]
+    damage: [85, 160, 235, 310]
     displayname: Dragon Slave
     level: 0
     manacost: [100, 115, 130, 145]
@@ -15713,13 +15715,13 @@ npc_dota_hero_lina:
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [40]
+        value: [35]
       - name: value2
-        value: [4]
+        value: [3]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +40/4% Fiery Soul Per Stack
+      displayname: +35/3% Fiery Soul Per Stack
       level: 0
       manacost: [0, 0, 0, 0]
       name: special_bonus_unique_lina_2
@@ -16576,18 +16578,18 @@ npc_dota_hero_luna:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5917
+      ID: 5918
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [15]
+        value: [20]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +15 Movement Speed
+      displayname: +20 Movement Speed
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_movement_speed_15
+      name: special_bonus_movement_speed_20
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -16652,18 +16654,18 @@ npc_dota_hero_luna:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5937
+      ID: 6138
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [10]
+        value: [15]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +10% Magic Resistance
+      displayname: +15% Magic Resistance
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_magic_resistance_10
+      name: special_bonus_magic_resistance_15
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -16771,7 +16773,7 @@ npc_dota_hero_lycan:
       tooltip: 'MINION BONUS HEALTH:'
       value: [25, 50, 75, 100]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [55, 50, 45, 40]
+    cooldown: [60, 55, 50, 45]
     damage: [0, 0, 0, 0]
     displayname: Howl
     level: 0
@@ -18316,7 +18318,7 @@ npc_dota_hero_monkey_king:
       tooltip: 'DISTANCE:'
       value: [1200]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN]
-    cooldown: [25]
+    cooldown: [22]
     damage: [0, 0, 0, 0]
     displayname: Boundless Strike
     level: 0
@@ -18524,7 +18526,7 @@ npc_dota_hero_monkey_king:
       value: [8, 14, 20]
     - name: attack_speed
       tooltip: 'SOLDIER ATK SPEED:'
-      value: [1.6]
+      value: [1.4]
     - name: duration
       tooltip: 'DURATION:'
       value: [13.0]
@@ -18966,7 +18968,7 @@ npc_dota_hero_morphling:
   attackdamagemin: 9
   attackpoint: 0.5
   attackrange: 350
-  attackrate: 1.55
+  attackrate: 1.5
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 3.7
   attributebaseagility: 24
@@ -19310,7 +19312,7 @@ npc_dota_hero_naga_siren:
   projectilespeed: 900
   role: Carry,Support,Pusher,Disabler,Initiator,Escape
   statushealth: 200
-  statushealthregen: 0.5
+  statushealthregen: 1.5
   statusmana: 75
   statusmanaregen: 0.01
   talents:
@@ -20243,7 +20245,7 @@ npc_dota_hero_night_stalker:
     - name: duration
       value: [2.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
-    cooldown: [26, 22, 18, 14]
+    cooldown: [30, 26, 22, 18]
     damage: [0, 0, 0, 0]
     displayname: Hunter in the Night
     level: 0
@@ -20284,7 +20286,7 @@ npc_dota_hero_night_stalker:
   attacktype: DOTA_UNIT_CAP_MELEE_ATTACK
   attributeagilitygain: 2.25
   attributebaseagility: 18
-  attributebaseintelligence: 16
+  attributebaseintelligence: 13
   attributebasestrength: 23
   attributeintelligencegain: 1.6
   attributeprimary: DOTA_ATTRIBUTE_STRENGTH
@@ -20662,7 +20664,7 @@ npc_dota_hero_nyx_assassin:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 305
+  movementspeed: 300
   movementturnrate: 0.5
   name: npc_dota_hero_nyx_assassin
   projectilespeed: 900
@@ -21410,18 +21412,18 @@ npc_dota_hero_ogre_magi:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5936
+      ID: 6299
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [8]
+        value: [12]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +8% Magic Resistance
+      displayname: +12% Magic Resistance
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_magic_resistance_8
+      name: special_bonus_magic_resistance_12
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -21429,18 +21431,18 @@ npc_dota_hero_ogre_magi:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5903
+      ID: 6195
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [250]
+        value: [350]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +250 Health
+      displayname: +350 Health
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_hp_250
+      name: special_bonus_hp_350
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -21448,18 +21450,18 @@ npc_dota_hero_ogre_magi:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5919
+      ID: 6141
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [25]
+        value: [30]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +25 Movement Speed
+      displayname: +30 Movement Speed
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_movement_speed_25
+      name: special_bonus_movement_speed_30
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -22568,7 +22570,7 @@ npc_dota_hero_phantom_lancer:
   attackrange: 150
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_MELEE_ATTACK
-  attributeagilitygain: 2.6
+  attributeagilitygain: 2.8
   attributebaseagility: 29
   attributebaseintelligence: 21
   attributebasestrength: 21
@@ -23075,18 +23077,18 @@ npc_dota_hero_phoenix:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 6034
+      ID: 5959
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [175]
+        value: [200]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +175 Health
+      displayname: +200 Health
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_hp_175
+      name: special_bonus_hp_200
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -23352,7 +23354,7 @@ npc_dota_hero_puck:
     manacost: [100, 150, 200]
     name: puck_dream_coil
   abilitylayout: 5
-  armorphysical: -1
+  armorphysical: -2
   attackdamagemax: 39
   attackdamagemin: 28
   attackpoint: 0.5
@@ -24155,11 +24157,11 @@ npc_dota_hero_pugna:
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [150]
+        value: [200]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +150 Nether Blast Damage
+      displayname: +200 Nether Blast Damage
       level: 0
       manacost: [0, 0, 0, 0]
       name: special_bonus_unique_pugna_2
@@ -24292,8 +24294,8 @@ npc_dota_hero_queenofpain:
     name: queenofpain_sonic_wave
   abilitylayout: 4
   armorphysical: -1
-  attackdamagemax: 33
-  attackdamagemin: 25
+  attackdamagemax: 29
+  attackdamagemin: 21
   attackpoint: 0.56
   attackrange: 550
   attackrate: 1.5
@@ -24459,18 +24461,18 @@ npc_dota_hero_queenofpain:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 6061
+      ID: 6575
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [70]
+        value: [60]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: 70% Spell Lifesteal
+      displayname: 60% Spell Lifesteal
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_spell_lifesteal_70
+      name: special_bonus_spell_lifesteal_60
   team: Bad
   visiondaytimerange: 1800
   visionnighttimerange: 800
@@ -24505,7 +24507,7 @@ npc_dota_hero_rattletrap:
     damage: [20, 45, 70, 95]
     displayname: Battery Assault
     level: 0
-    manacost: [75, 75, 75, 75]
+    manacost: [100]
     name: rattletrap_battery_assault
   - AbilityCastPoint: 0.2
     AbilityCastRange: 0
@@ -24612,8 +24614,8 @@ npc_dota_hero_rattletrap:
     name: rattletrap_hookshot
   abilitylayout: 4
   armorphysical: 0
-  attackdamagemax: 33
-  attackdamagemin: 31
+  attackdamagemax: 30
+  attackdamagemin: 28
   attackpoint: 0.33
   attackrange: 150
   attackrate: 1.7
@@ -24942,7 +24944,7 @@ npc_dota_hero_razor:
   attackrange: 475
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
-  attributeagilitygain: 2
+  attributeagilitygain: 1.8
   attributebaseagility: 22
   attributebaseintelligence: 21
   attributebasestrength: 21
@@ -25922,11 +25924,9 @@ npc_dota_hero_sand_king:
     - name: caustic_finale_damage
       tooltip: 'EXPLODE DEATH DAMAGE:'
       value: [90, 130, 170, 220]
-    - name: caustic_finale_damage_expire_tooltip
+    - name: caustic_finale_damage_expire
       tooltip: 'EXPLODE TIMER DAMAGE:'
-      value: [45, 65, 85, 110]
-    - name: caustic_finale_damage_reduced
-      value: [50.0]
+      value: [20, 50, 80, 110]
     - name: caustic_finale_duration
       tooltip: 'EXPLODE TIMER:'
       value: [6.0]
@@ -26316,7 +26316,7 @@ npc_dota_hero_shadow_demon:
       tooltip: 'SCEPTER CHARGE RESTORE TIME:'
       value: [40]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [50, 50, 50]
+    cooldown: [40]
     damage: [0, 0, 0, 0]
     displayname: Demonic Purge
     level: 0
@@ -26333,7 +26333,7 @@ npc_dota_hero_shadow_demon:
   attributeagilitygain: 2.2
   attributebaseagility: 18
   attributebaseintelligence: 23
-  attributebasestrength: 19
+  attributebasestrength: 21
   attributeintelligencegain: 2.7
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
   attributestrengthgain: 2.2
@@ -28911,7 +28911,7 @@ npc_dota_hero_sniper:
   attackrange: 550
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
-  attributeagilitygain: 2.5
+  attributeagilitygain: 2.7
   attributebaseagility: 21
   attributebaseintelligence: 15
   attributebasestrength: 16
@@ -29247,7 +29247,7 @@ npc_dota_hero_spectre:
   attributeagilitygain: 1.8
   attributebaseagility: 23
   attributebaseintelligence: 16
-  attributebasestrength: 19
+  attributebasestrength: 20
   attributeintelligencegain: 1.9
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
   attributestrengthgain: 2.3
@@ -29329,18 +29329,18 @@ npc_dota_hero_spectre:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5918
+      ID: 5919
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [20]
+        value: [25]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +20 Movement Speed
+      displayname: +25 Movement Speed
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_movement_speed_20
+      name: special_bonus_movement_speed_25
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -30153,7 +30153,7 @@ npc_dota_hero_sven:
       tooltip: 'DURATION:'
       value: [8]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
-    cooldown: [32, 26, 20, 14]
+    cooldown: [34, 28, 22, 16]
     damage: [0, 0, 0, 0]
     displayname: Warcry
     level: 0
@@ -34543,7 +34543,7 @@ npc_dota_hero_venomancer:
   attributebasestrength: 18
   attributeintelligencegain: 1.8
   attributeprimary: DOTA_ATTRIBUTE_AGILITY
-  attributestrengthgain: 2.15
+  attributestrengthgain: 1.9
   displayname: Venomancer
   items: []
   level: 0
@@ -35075,7 +35075,7 @@ npc_dota_hero_visage:
     damage: [0, 0, 0, 0]
     displayname: Grave Chill
     level: 0
-    manacost: [100]
+    manacost: [90]
     name: visage_grave_chill
   - AbilityCastPoint: [0.2, 0.2, 0.2, 0.2]
     AbilityCastRange: [900, 900, 900, 900]
@@ -36100,7 +36100,7 @@ npc_dota_hero_windrunner:
     damage: [0, 0, 0, 0]
     displayname: Windrun
     level: 0
-    manacost: [75]
+    manacost: [60]
     name: windrunner_windrun
   - AbilityCastPoint: 0
     AbilityCastRange: 600
@@ -36352,7 +36352,7 @@ npc_dota_hero_winter_wyvern:
       value: [5.0]
     - name: move_slow
       tooltip: '%MOVEMENT SLOW:'
-      value: [19, 26, 33, 40]
+      value: [22, 28, 34, 40]
     - name: night_vision_bonus
       tooltip: 'ADDED NIGHT VISION RANGE:'
       value: [400]
@@ -36426,7 +36426,7 @@ npc_dota_hero_winter_wyvern:
       value: [4.0]
     - name: heal_additive
       tooltip: 'BASE HEALTH REGEN:'
-      value: [20]
+      value: [25]
     - name: heal_percentage
       tooltip: '%MAX HEALTH REGEN:'
       value: [3, 4, 5, 6]
@@ -36761,7 +36761,7 @@ npc_dota_hero_wisp:
     damage: [0, 0, 0, 0]
     displayname: Spirits
     level: 0
-    manacost: [120, 130, 140, 150]
+    manacost: [150]
     name: wisp_spirits
   - AbilityCastPoint: [0, 0, 0, 0]
     AbilityCastRange: 0

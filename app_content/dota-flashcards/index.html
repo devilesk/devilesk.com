@@ -1,0 +1,189 @@
+---
+extends: base.j2
+title: Dota 2 Flashcards
+description: Dota 2 Flashcards. Train your heroes, items, and abilities knowledge using flashcards.
+active_menu: page-webapps
+header: Hero Flashcards
+---
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="app-741b5db.min.css" type="text/css">
+{% endblock head %}
+
+{% block body %}
+    <div id="container" class="col-md-12">
+        <!-- Nav tabs -->
+        <ul id="tabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><span class="tab-text">Home</span><span class="tab-icon glyphicon glyphicon-home"></span></a>
+            </li>
+            <li role="presentation"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab"><span class="tab-text">Heroes</span><span class="tab-icon glyphicon glyphicon-user"></span> <span class="tab-icon glyphicon glyphicon-list"></a>
+            </li>
+            <li role="presentation"><a href="#attributes" aria-controls="attributes" role="tab" data-toggle="tab"><span class="tab-text">Attributes</span><span class="tab-icon glyphicon glyphicon-tower"></span> <span class="tab-icon glyphicon glyphicon-list"></a>
+            </li>
+            <li role="presentation"><a href="#other" aria-controls="other" role="tab" data-toggle="tab"><span class="tab-text">Settings</span><span class="tab-icon glyphicon glyphicon-cog"></span></a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="has-slider" data-bind="css: { 'info-bar-visible': infoBarVisible }">
+                    <div class="slider" id="slider">
+                        <div class="slider-panel contents" data-bind="html: text">Loading...</div>
+                        <div class="slider-panel contents" data-bind="html: text">Loading...</div>
+                        <div class="slider-panel contents" data-bind="html: text">Loading...</div>
+                    </div>
+                </div>
+                <button id="btn-user-input" class="btn btn-danger btn-lg btn-block" data-bind="click: wrong, text: state() == 1 ? 'Don\'t know' : 'Got it wrong'"></button>
+                <div id="info-bar" data-bind="visible: infoBarVisible">
+                    <span class="pull-left" data-bind="text: stats.deck">0</span>
+                    <span class="text-success" data-bind="text: stats.correct">0</span> / <span class="text-danger" data-bind="text: stats.wrong">0</span> / <span class="text-primary" data-bind="text: stats.correct() + stats.wrong()">0</span>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="heroes">
+                <div id="heroes-options" data-toggle="buttons" class="form-group btn-group-vertical options-list" data-bind="foreach: heroes, checkbox: selectedHeroes">
+                    <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" data-bind="attr: {value: $data.heroName, id: 'cb_' + $data.heroName}"> <span data-bind="text: $data.heroDisplayName"></span>
+                    </label>
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary" data-bind="click: selectAllHeroes">Select All</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary" data-bind="click: deselectAllHeroes">Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="attributes">
+                <div id="attributes-options" data-toggle="buttons" class="form-group btn-group-vertical options-list" data-bind="foreach: attributes, checkbox: selectedAttributes">
+                    <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" data-bind="attr: {value: $data.id, id: 'cb_' + $data.id}"> <span data-bind="text: $data.name"></span>
+                    </label>
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary" data-bind="click: selectAllAttributes">Select All</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary" data-bind="click: deselectAllAttributes">Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="other">
+                <div id="other-content" class="col-md-12">
+                    <div class="form-group">
+                        <label>Card Replacement Strategy <a role="button" data-toggle="collapse" href="#help-card-strategy" aria-expanded="false" aria-controls="help-card-strategy">[?]</a></label>
+                        <div class="collapse" id="help-card-strategy">
+                            <div class="well help-well">
+                                <dl class="dl-horizontal">
+                                    <dt>Send to Back</dt>
+                                    <dd>Return cards to the end of the deck</dd>
+                                    <dt>Random</dt>
+                                    <dd>Return cards to a random position</dd>
+                                    <dt>Training</dt>
+                                    <dd>Return skipped/wrong cards towards the front and correct cards towards the back.</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="btn-group btn-group-justified" data-toggle="buttons" data-bind="radio: drawStrategy">
+                            <label class="btn btn-primary">
+                                <input type="radio" name="drawStrategy" value="back" /> Send to Back
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="drawStrategy" value="random" /> Random
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="drawStrategy" value="training" /> Training
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" data-bind="click: shuffleDeck">Shuffle Cards</button>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label>Question Categories</label>
+                        <div class="btn-group btn-group-justified" data-toggle="buttons" data-bind="checkbox: questionTypes">
+                            <label class="btn btn-primary">
+                                <input type="checkbox" value="attributes" /> Attributes
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="checkbox" value="abilities" /> Abilities
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group well" data-bind="visible: abilityQuestionTypesVisible">
+                        <label>Ability Categories</label>
+                        <div class="btn-group btn-group-justified btn-group-sm" data-toggle="buttons" data-bind="checkbox: abilityQuestionTypes">
+                            <label class="btn btn-primary">
+                                <input type="checkbox" value="attributes" /> Properties
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="checkbox" value="cooldown" /> Cooldown
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="checkbox" value="manacost" /> Mana Cost
+                            </label>
+                        </div>
+                    </div>
+                    <div id="level-sliders">
+                        <div class="form-group">
+                            <label>Hero Level Minimum: <span data-bind="text: minLevel"></span></label>
+                            <input class="range-slider form-control" type="range" min="1" max="25" data-bind="value: minLevel, valueUpdate: 'input'"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Hero Level Maximum: <span data-bind="text: maxLevel"></span></label>
+                            <input class="range-slider form-control" type="range" min="1" max="25" data-bind="value: maxLevel, valueUpdate: 'input'"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group" data-toggle="buttons">
+                        <label class="btn btn-block btn-primary">
+                            <input type="checkbox" data-bind="checkbox: textToSpeech" /> Text to Speech
+                        </label>
+                        <label class="btn btn-block btn-primary">
+                            <input type="checkbox" data-bind="checkbox: autoPlay" /> Autoplay
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Autoplay Interval <a role="button" data-toggle="collapse" href="#help-autoplay" aria-expanded="false" aria-controls="help-autoplay">[?]</a></label>
+                        <div class="collapse" id="help-autoplay">
+                            <div class="well help-well">
+                                Time between cards in milliseconds when autoplay is on.
+                            </div>
+                        </div>
+                        <input class="form-control" type="text" data-bind="value: autoPlayDelay"/>
+                    </div>
+                    <div class="form-group" data-toggle="buttons">
+                        <label class="btn btn-block btn-primary">
+                            <input type="checkbox" data-bind="checkbox: infoBarVisible" /> Info bar
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="form-group text-center">
+                        <div>Version <span id="releaseTag"></span></div>
+                        <div id="buildDate"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% block js %}
+        {{ super() }}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+window.HeroCalcData = {};
+$.when(
+    $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
+    $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
+    $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
+    $.ajax({dataType: "script", cache: true, url: "bundle-741b5db.min.js"})
+).done(function () { DotaFlashCardsApp(); });
+</script>
+    {% endblock js %}
+{% endblock body %}
