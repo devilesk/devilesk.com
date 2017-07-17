@@ -29,8 +29,8 @@ blog/tags/update.html: [base.j2, macros/breadcrumb.j2, root.j2, macros/render_he
   includes/analytics.j2, tagged_posts.j2, macros/render_nav.j2, includes/footer.j2]
 dota-drawable-map/index.html: [root.j2, includes/footer.j2, macros/render_nav.j2,
   includes/analytics.j2]
-dota-flashcards/index.html: [macros/render_heroes.j2, base.j2, root.j2, includes/footer.j2,
-  macros/breadcrumb.j2, includes/analytics.j2, macros/render_nav.j2]
+dota-flashcards/index.html: [macros/render_heroes.j2, macros/breadcrumb.j2, includes/footer.j2,
+  macros/render_nav.j2, base.j2, root.j2, includes/analytics.j2]
 dota-hero-calculator-table/index.html: [macros/render_nav.j2, includes/footer.j2,
   root.j2, macros/render_heroes.j2, base.j2, includes/analytics.j2, macros/breadcrumb.j2]
 dota-hero-calculator/index.html: [includes/footer.j2, base.j2, macros/render_nav.j2,
