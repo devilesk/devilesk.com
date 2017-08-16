@@ -7,7 +7,7 @@ header: Hero Calculator
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="app-fb41263.min.css" type="text/css">
+<link rel="stylesheet" href="app-e0cdd50.min.css" type="text/css">
 {% endblock page_head %}
 
 {% block nav %}
@@ -320,7 +320,7 @@ $.when(
     $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-fb41263.min.js"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-e0cdd50.min.js"})
 ).done(function () { DotaHeroCalculator(appConfig); });
 </script>
 {% endblock scripts %}
