@@ -8,7 +8,7 @@ header: Interactive Map
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="app-175d520.min.css" type="text/css">
+<link rel="stylesheet" href="app-7462caf.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -279,9 +279,12 @@ header: Interactive Map
         <div id="coordinates"></div>
     </div>
     
+    {% block analytics %}
+        {{ super() }}
+    {% endblock analytics %}
     {% block js %}
         {{ super() }}
-        <script src="bundle-175d520.min.js"></script>
-        <script>InteractiveMap("http://devilesk.com/media/images/map2/", "img/map_data.png")</script>
+        <script src="bundle-7462caf.min.js"></script>
+        <script>InteractiveMap("//devilesk.com/media/images/map2/", "img/map_data.png")</script>
     {% endblock js %}
 {% endblock body %}

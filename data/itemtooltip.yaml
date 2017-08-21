@@ -1,68 +1,61 @@
-- attributes: '+ 250 Health<br>+ 15 HP Regeneration<br>BLOCK DAMAGE MELEE: 70<br>BLOCK
-    DAMAGE RANGED: 35<br>BLOCK CHANCE: 50<br>+ 10 Damage<br>+ 10 Strength<br>BASH
-    MELEE CHANCE: 25%<br>BASH RANGED CHANCE: 10%<br>BASH STUN DURATION: 1.4<br>BASH
-    BONUS DAMAGE: 85<br>OVERWHELM STUN DURATION: 2.0'
+- attributes: + 250 Health<br>+ 15 HP Regeneration<br>+ 10 Damage<br>+ 10 Strength
   cd: '35'
-  description: 'Active: Overwhelm - Stuns a target enemy unit for 2.0 seconds. Pierces
-    Spell Immunity.<br>Passive: Bash - Grants each attack a chance to stun the target
-    for 1.4 seconds and deal 85 bonus damage, based on whether the equipped hero is
-    ranged or melee.<br>Passive: Damage Block - Grants the wielder a 50% chance to
-    block damage from incoming attacks based on whether the equipped hero is melee
-    or ranged.'
+  description: '<h1>Active: Overwhelm</h1> Stuns a target enemy unit for 2.0 seconds.
+    <br><br>Pierces Spell Immunity.<br><h1>Passive: Bash</h1> Grants melee heroes
+    a 25% chance on hit to stun the target for 1.4 seconds and deal 85 bonus damage.  Bash
+    chance for ranged heroes is 10%. <br><h1>Passive: Damage Block</h1>Grants a 50%
+    chance to block 70 damage on melee heroes, and 35 damage on ranged.'
   displayname: Abyssal Blade
   id: abyssal_blade
   itemcost: '6400'
   lore: The lost blade of the Commander of the Abyss, this edge cuts into an enemy's
     soul.
   mana: '75'
-- attributes: '+ 250 Mana<br>+ 100% Mana Regeneration<br>+ 220 Cast Range<br>SPELL
-    DAMAGE AMP: 6%'
-  description: 'Passive: Increases spell cast range by 220 and spell damage output
-    by 6%'
+- attributes: + 250 Mana<br>+ 100% Mana Regeneration<br>+ 6% Spell Amplification
+  description: '<h1>Passive: Aethereal Focus</h1> Increases targeted spell and item
+    cast range by 220.'
   displayname: Aether Lens
   id: aether_lens
   itemcost: '2350'
   lore: Polished with the incantation of his final breath, the gift of a dying mage
     to his sickly son.
 - attributes: + 10 All Attributes<br>+ 175 Health<br>+ 175 Mana
-  description: 'Passive: Ultimate Upgrade - Upgrades the ultimate, and some abilities,
-    of certain heroes.'
+  description: '<h1>Passive: Ultimate Upgrade</h1>Upgrades the ultimate, and some
+    abilities, of certain heroes.'
   displayname: Aghanim's Scepter
   id: ultimate_scepter
   itemcost: '4200'
   lore: The scepter of a wizard with demigod-like powers.
-- description: 'Use: Deploy Courier - Deploys a creature to carry items to and from
-    your team''s base.'
+- description: '<h1>Use: Deploy Courier</h1> Deploys a creature to carry items to
+    and from your team''s base.'
   displayname: Animal Courier
   id: courier
   itemcost: '100'
   lore: Losing the courier is punishable by death.
-- attributes: '+ 50 Movement Speed<br>+ 250 Mana<br>REPLENISH MANA RESTORE: 135<br>REPLENISH
-    CAST RADIUS: 900'
+- attributes: + 50 Movement Speed<br>+ 250 Mana
   cd: '55'
-  description: 'Active: Replenish Mana - Restores mana to all allies in a 900 area
-    around the hero.<br><br>Flat movement speed bonuses from multiple pairs of boots
-    do not stack.'
+  description: '<h1>Active: Replenish Mana</h1>Restores 135 mana to all nearby allies.<br>Flat
+    movement speed bonuses from multiple pairs of boots do not stack.<br><br>Radius:
+    900'
   displayname: Arcane Boots
   id: arcane_boots
   itemcost: '1300'
   lore: Magi equipped with these boots are valued in battle.
 - attributes: + 9 Damage<br>+ 25 Attack Speed<br>+ 5 Armor<br>+ 7 HP Regeneration
   cd: '0'
-  description: 'Active: Toggle Unholy Strength - When active, Unholy Strength grants
-    +31 damage, +25 strength and +4 armor, but drains 45 health per second.  You cannot
-    die from the health drain when Unholy Strength is activated, nor from the strength
-    loss when Unholy Strength is deactivated.'
+  description: '<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants
+    +31 damage, +25 strength and +4 armor, but drains 45 health per second.<br><br>
+    You cannot die from the health drain when Unholy Strength is activated, nor from
+    the strength loss when Unholy Strength is deactivated.'
   displayname: Armlet of Mordiggian
   id: armlet
   itemcost: '2370'
   lore: Weapon of choice among brutes, the bearer sacrifices his life energy to gain
     immense strength and power.
-- attributes: '+ 30 Attack Speed<br>+ 10 Armor<br>AURA ATTACK SPEED: 25<br>AURA ALLY
-    BONUS ARMOR: 5<br>AURA ENEMY ARMOR REDUCTION: -5'
-  description: 'Passive: Assault Aura - Grants attack speed and armor to nearby allied
-    units and structures, and decreases the armor of nearby enemies.<br><br>Multiple
-    instances of Assault Aura do not stack.'
+- attributes: + 30 Attack Speed<br>+ 10 Armor
+  description: '<h1>Passive: Assault Aura</h1> Grants 25 attack speed and 5 armor
+    to nearby allied units and structures, and decreases nearby enemy unit and structure
+    armor by -5.<br><br>Radius: 900'
   displayname: Assault Cuirass
   id: assault
   itemcost: '5250'
@@ -73,15 +66,13 @@
   id: boots_of_elves
   itemcost: '450'
   lore: A tensile fabric often used for its light weight and ease of movement.
-- attributes: '+ 55 Damage<br>+ 6 HP Regeneration<br>+ 150% Mana Regeneration<br>CLEAVE
-    DAMAGE: 40%<br>QUELL MELEE DAMAGE: 160%<br>QUELL RANGED DAMAGE: 125%<br>CHOP TREE
-    CAST RANGE: 350<br>CHOP WARD CAST RANGE: 450'
+- attributes: + 55 Damage<br>+ 6 HP Regeneration<br>+ 150% Mana Regeneration
   cd: '4'
-  description: 'Active: Chop Tree/Ward - Destroy a target tree or ward. Chop cast
-    range is increased when targetting wards.<br>Passive: Quell - Increases attack
-    damage against non-hero units, based on whether the equipped hero is ranged or
-    melee. Does not provide bonus damage against Roshan.<br>Passive: Cleave - Deals
-    a percent of attack damage in an area around the target. Ranged units cannot Cleave.'
+  description: '<h1>Active: Chop Tree/Ward</h1> Destroy a target tree or ward.<br><br>Tree
+    Cast Range: 350<br>Ward Cast Range: 450 <br><h1>Passive: Quell</h1> Increases
+    attack damage against non-hero units by 60% for melee heroes, and 25% for ranged.
+    <br><h1>Passive: Cleave</h1> Deals 40% of attack damage in a cone up to 570 around
+    the target. (Melee Only)'
   displayname: Battle Fury
   id: bfury
   itemcost: '4500'
@@ -92,21 +83,20 @@
   id: belt_of_strength
   itemcost: '450'
   lore: A valued accessory for improving vitality.
-- attributes: '+ 10 Strength<br>+ 24 Damage<br>AVATAR DURATION: 10 / 9 / 8 / 7 / 6
-    / 5'
+- attributes: + 10 Strength<br>+ 24 Damage
   cd: 80 75 70 65 60 55
-  description: 'Active: Avatar - Grants Spell Immunity and 100% Magic Damage Resistance.  Duration
-    and cooldown decrease with each use.  Some abilities are able to disable through
-    Avatar.<br><br>DISPEL TYPE: Basic Dispel'
+  description: '<h1>Active: Avatar</h1> Grants Spell Immunity and 100% Magic Damage
+    Resistance.  Duration and cooldown decrease with each use. <br><br>Duration: 10
+    / 9 / 8 / 7 / 6 / 5 <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic
+    Dispel</span>'
   displayname: Black King Bar
   id: black_king_bar
   itemcost: '3975'
   lore: A powerful staff imbued with the strength of giants.
-- attributes: '+ 22 Damage<br>+ 6 Armor<br>+ 10 Intelligence<br>DAMAGE RETURN DURATION:
-    4.5'
+- attributes: + 22 Damage<br>+ 6 Armor<br>+ 10 Intelligence
   cd: '20'
-  description: 'Active: Damage Return - Reflects any damage taken back to the unit
-    that dealt the damage.  Lasts 4.5 seconds.'
+  description: '<h1>Active: Damage Return</h1>For 4.5 seconds, duplicates any damage
+    taken back to the unit that dealt the damage.'
   displayname: Blade Mail
   id: blade_mail
   itemcost: '2200'
@@ -122,40 +112,43 @@
   id: blades_of_attack
   itemcost: '420'
   lore: The damage of these small, concealable blades should not be underestimated.
-- attributes: 'ARMOR REDUCTION: -2<br>DURATION: 8.0'
-  description: 'Passive: Your attacks reduce target''s armor for 8.0 seconds.'
+- description: '<h1>Passive: Lesser Corruption</h1> Your attacks reduce the target''s
+    armor by -2 for 8.0 seconds.'
   displayname: Blight Stone
   id: blight_stone
   itemcost: '300'
   lore: An unnerving stone unearthed beneath the Fields of Endless Carnage.
 - cd: '12'
-  description: 'Active: Blink - Teleport to a target point up to 1200 units away.  If
-    damage is taken, Blink Dagger cannot be used for 3.0 seconds.'
+  description: '<h1>Active: Blink</h1> Teleport to a target point up to 1200 units
+    away. <br><br>Blink Dagger cannot be used for 3.0 seconds after taking damage
+    from an enemy hero or Roshan.'
   displayname: Blink Dagger
   id: blink
   itemcost: '2250'
   lore: The fabled dagger used by the fastest assassin ever to walk the lands.
 - attributes: + 475 Health<br>+ 425 Mana<br>+ 9 HP Regeneration<br>+ 200% Mana Regeneration
   cd: '300'
-  description: 'Active: Pocket Deny - Instantly causes you to die.<br>Passive: Bloodpact
-    - Begins with 12 charges, and gains a charge each time an enemy hero dies within
-    1675 range. Each charge grants 1 mana regeneration per second, and reduces respawn
-    time by 3 seconds. If the bearer dies, 500 + 30 health per charge is restored
-    to all allies within a 1675 radius, while the Bloodstone loses a third of its
-    charges.'
+  description: '<h1>Active: Pocket Deny</h1>Instantly causes you to die.<br><br>Must
+    ground target to cast.  Cannot self cast.<br><h1>Passive: Bloodpact</h1>Begins
+    with 12 charges, and gains a charge each time an enemy hero dies within 1600 range.
+    <br><br>Each charge grants 1 mana regeneration per second, and reduces respawn
+    time by 3 seconds. <br><br>If the bearer dies, 500 + 30 health per charge is restored
+    to all nearby allies, while the Bloodstone loses a third of its charges. <br><br>Heal
+    Radius: 1675'
   displayname: Bloodstone
   id: bloodstone
   itemcost: '4850'
   lore: The Bloodstone's bright ruby color is unmistakable on the battlefield, as
     the owner seems to have infinite vitality and spirit.
-- attributes: '+ 25 Intelligence<br>+ 30 Attack Speed<br>+ 60 Damage<br>+ 150% Mana
-    Regeneration<br>CRITICAL CHANCE: 20%<br>CRITICAL DAMAGE: 175%<br>SILENCE INCREASED
-    DAMAGE: 30.0%<br>SILENCE DURATION: 5.0<br>SILENCE CRITICAL DAMAGE: 140.0%'
+- attributes: + 25 Intelligence<br>+ 30 Attack Speed<br>+ 60 Damage<br>+ 150% Mana
+    Regeneration
   cd: '18'
-  description: 'Active: Silences a target for 5.0 seconds and amplifies the damage
-    it takes by 30.0%. All attacks on the silenced target will have True Strike and
-    land a crit on impact.<br>Passive: Critical Strike - Grants each attack a chance
-    to deal additional damage. Critical Strike does not work against buildings.'
+  description: '<h1>Active: Soul Rend</h1> Silences a target for 5.0 seconds. At the
+    end of the silence, an additional 30.0% of all damage taken during the silence
+    will be dealt to the target as magic damage.<br>Range: 900<br><br>All attacks
+    on the silenced target will have True Strike and 100.0% chance to crit for 140.0%
+    more damage.<br><h1>Passive: Critical Strike</h1> Grants a 20% chance for attacks
+    to inflict 175% more damage.'
   displayname: Bloodthorn
   id: bloodthorn
   itemcost: '7195'
@@ -170,23 +163,21 @@
   lore: Fleet footwear, increasing movement.
 - attributes: + 100 Movement Speed
   cd: '45'
-  description: 'Active: Teleport - Teleports you to an allied non-hero unit or structure.
-    Double-click to teleport to your team''s base fountain. Upgradable to allow you
-    to teleport to allied heroes.<br><br>Flat movement speed bonuses from multiple
+  description: '<h1>Active: Teleport</h1>Teleports you to an allied non-hero unit
+    or structure. Teleporting to a unit is interrupted if the target unit dies.<br><br>Shares
+    a cooldown with Town Portal Scroll.<br><br>Flat movement speed bonuses from multiple
     pairs of boots do not stack.'
   displayname: Boots of Travel
   id: travel_boots
   itemcost: '2400'
   lore: Winged boots that grant omnipresence.
   mana: '75'
-- attributes: 'HEALTH RESTORED: 90<br>MANA RESTORED: 60<br>DURATION: 2.5'
-  cd: '0.5'
-  description: 'Use: Regenerate - Consumes a charge to restore Health and Mana over
-    time. Healing stops if attacked.  Bottle can be refilled at your team''s fountain.  Runes
-    can be stored in the Bottle for later use, and are activated automatically after
-    2 minutes.  If Bottle does not have full charges and is placed on a courier, the
-    courier will move 30% slower.<br><br>Hold Control to use Regenerate on an allied
-    hero.  Stored runes cannot be shared.'
+- cd: '0.5'
+  description: '<h1>Active: Regenerate</h1>Consumes a charge to restore 90 health
+    and 60 mana over 2.5 seconds.<br><br>Range: 350<br><br>Healing stops if attacked
+    by an enemy hero or Roshan.  Bottle can be refilled at your team''s fountain.
+    Runes can be stored in the Bottle for later use, and are activated automatically
+    after 2 minutes.'
   displayname: Bottle
   id: bottle
   itemcost: '650'
@@ -202,21 +193,20 @@
   itemcost: '1200'
   lore: The classic weapon of choice for knights, this blade is sturdy and reliable
     for slaying enemies.
-- attributes: '+ 5 Armor<br>+ 2 All Attributes<br>ARMOR CAST RADIUS: 900'
+- attributes: + 5 Armor<br>+ 2 All Attributes
   cd: '25'
-  description: 'Active: Armor Bonus - Gives +2 armor to all allied units in a 900
-    radius.  Lasts 25 seconds on heroes, 30 seconds on units.'
+  description: '<h1>Active: Armor Bonus</h1> Gives +2 armor to all allied units.  Lasts
+    25.0 seconds on heroes, 30.0 seconds on units.<br><br>Radius: 900'
   displayname: Buckler
   id: buckler
   itemcost: '800'
   lore: A powerful shield that imbues the bearer with the strength of heroes past,
     it is capable of protecting entire armies in battle.
   mana: '10'
-- attributes: '+ 35 Agility<br>+ 30 Damage<br>+ 35% Evasion<br>+ 30 Attack Speed<br>FLUTTER
-    BONUS MOVE SPEED: 35%<br>FLUTTER DURATION: 4.0'
+- attributes: + 35 Agility<br>+ 30 Damage<br>+ 35% Evasion<br>+ 30 Attack Speed
   cd: '25'
-  description: 'Active: Flutter - Trade evasion for 35% additional movement speed
-    for 4.0 seconds.<br><br>Stacks diminishingly with other sources of Evasion.'
+  description: '<h1>Active: Flutter</h1> Trades the 35% evasion for 35% additional
+    movement speed for 4.0 seconds.'
   displayname: Butterfly
   id: butterfly
   itemcost: '5525'
@@ -232,9 +222,9 @@
   id: circlet
   itemcost: '165'
   lore: An elegant circlet designed for human princesses.
-- attributes: 'TOTAL MANA RESTORED: 190<br>DURATION: 50'
-  description: 'Use: Restores mana to the target unit over time.  If the unit is attacked
-    by an enemy hero or Roshan, the effect is lost.'
+- description: '<h1>Use: Replenish</h1> Restores 190 mana to the target unit over
+    50 seconds.<br><br>If the unit is attacked by an enemy hero or Roshan, the effect
+    is lost.<br><br>Range: 250'
   displayname: Clarity
   id: clarity
   itemcost: '50'
@@ -251,39 +241,37 @@
   itemcost: '550'
   lore: A cloak made of a magical material that works to dispel any magic cast on
     it.
-- attributes: '+ 250 Health<br>+ 8 HP Regeneration<br>+ 2 All Attributes<br>+ 5 Armor<br>BLOCK
-    DAMAGE MELEE: 70<br>BLOCK DAMAGE RANGED: 35<br>BLOCK CHANCE: 50<br>GUARD ARMOR:
-    2<br>GUARD DURATION: 12<br>GUARD RADIUS: 900<br>GUARD DAMAGE BLOCK: 60'
+- attributes: + 250 Health<br>+ 8 HP Regeneration<br>+ 2 All Attributes<br>+ 5 Armor
   cd: '46'
-  description: 'Active: Guard - Grant nearby allied heroes and buildings a 100% chance
-    to block 60 damage from each incoming attack, along with 2 armor. Lasts 12 seconds.<br>Passive:
-    Damage Block - Grants the wielder a 50% chance to block damage from incoming attacks
-    based on whether the equipped hero is melee or ranged.'
+  description: '<h1>Active: Guard</h1> For 12 seconds, grant nearby allied heroes
+    and buildings +2 armor, and a 100% chance to block 60 damage from each incoming
+    attack.<br><br>Units may only be affected by Guard once every 46.0 seconds.<br><br>Radius:
+    900<br><h1>Passive: Damage Block</h1> Grants a 50% chance to block 70 damage on
+    melee heroes, and 35 damage on ranged.'
   displayname: Crimson Guard
   id: crimson_guard
   itemcost: '3550'
   lore: A cuirass originally built to protect against the dreaded Year Beast.
-- attributes: '+ 30 Damage<br>CRITICAL CHANCE: 20%<br>CRITICAL DAMAGE: 175%'
-  description: 'Passive: Critical Strike - Grants each attack a chance to deal additional
-    damage. Critical Strike does not work against buildings.'
+- attributes: + 30 Damage
+  description: '<h1>Passive: Critical Strike</h1>Grants each attack a 20% chance to
+    deal 175% damage.<br><br> Critical Strike does not work against buildings.'
   displayname: Crystalys
   id: lesser_crit
   itemcost: '2120'
   lore: A blade forged from rare crystals, it seeks weak points in enemy armor.
-- attributes: '+ 80 Damage<br>CRITICAL CHANCE: 30%<br>CRITICAL DAMAGE: 235%'
-  description: 'Passive: Critical Strike - Grants each attack a chance to deal additional
-    damage. Critical Strike does not work against buildings.'
+- attributes: + 80 Damage
+  description: '<h1>Passive: Critical Strike</h1>Grants each attack a 30% chance to
+    deal 135% additional damage.'
   displayname: Daedalus
   id: greater_crit
   itemcost: '5320'
   lore: A weapon of incredible power that is difficult for even the strongest of warriors
     to control.
-- attributes: '+ 13 / 16 / 19 / 22 / 25 Intelligence<br>+ 3 All Attributes<br>+ 9
-    Damage<br>BURST DAMAGE: 400 / 500 / 600 / 700 / 800<br>CAST RANGE: 600 / 650 /
-    700 / 750 / 800'
+- attributes: + 13 / 16 / 19 / 22 / 25 Intelligence<br>+ 3 All Attributes<br>+ 9 Damage
   cd: 35 30 25 20 15
-  description: 'Active: Energy Burst - Emits a powerful burst of magical damage upon
-    a targeted enemy unit. Upgradable.'
+  description: '<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage
+    upon a targeted enemy unit. Upgradable.<br><br>Damage: 400 / 500 / 600 / 700 /
+    800<br>Range: 600 / 650 / 700 / 750 / 800<br>Mana Cost: 180.0'
   displayname: Dagon
   id: dagon
   itemcost: '2720'
@@ -296,55 +284,56 @@
   itemcost: '2200'
   lore: One of the oldest weapons forged by the Demon-Smith Abzidian, it killed its
     maker when he tested its edge.
-- attributes: '+ 50 Damage<br>ARMOR REDUCTION: -7'
-  description: 'Passive: Corruption - Your attacks reduce target''s armor for 15 seconds.'
+- attributes: + 50 Damage
+  description: '<h1>Passive: Corruption</h1> Your attacks reduce the target''s armor
+    by -7 for 15.0 seconds.'
   displayname: Desolator
   id: desolator
   itemcost: '3500'
   lore: A wicked weapon, used in torturing political criminals.
-- attributes: '+ 25 / 35 Agility<br>+ 10 / 15 Intelligence<br>PURGE SLOW DURATION:
-    4.0<br>PURGE CAST RANGE: 600'
+- attributes: + 20 / 30 Agility<br>+ 10 / 15 Intelligence
   cd: '4'
-  description: 'Active: Purge - Targets an enemy, removing buffs from the target and
-    slowing it for 4.0 seconds.<br>Passive: Manabreak - Each attack burns 50 mana
-    from the target, and deals 0.8 physical damage per burned mana. Burns 16 mana
-    per attack from melee illusions and 8 mana per attack from ranged illusions. Does
-    not stack with other manabreak abilities.<br><br>Upgradable.<br><br>DISPEL TYPE:
-    Basic Dispel'
+  description: '<h1>Active: Purge</h1> Targets an enemy, removing buffs from the target
+    and slowing it for 4.0 seconds.<br><br>Range: 600<br><h1>Passive: Manabreak</h1>Each
+    attack burns 50 mana from the target, and deals 0.8 physical damage per burned
+    mana. <br><br>Burns 16 mana per attack from melee illusions and 8 mana per attack
+    from ranged illusions. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic
+    Dispel</span>'
   displayname: Diffusal Blade
   id: diffusal_blade
   itemcost: '3150'
   lore: An enchanted blade that allows the user to cut straight into the enemy's soul.
 - attributes: + 330 Damage
-  description: Drops on death.  Becomes unusable if picked up by an ally of its owner
-    until it is returned to its owner. It is immediately usable by anybody if an enemy
-    of the owner picks it up. A dropped Rapier cannot be picked up by a courier.
+  description: '<h1>Passive: Everlasting</h1> <font color=''#e03e2e''>Dropped on death,
+    and cannot be destroyed.</font> <br><br>Becomes unusable if picked up by an ally
+    of its owner until it is returned to its owner. It is immediately usable by anybody
+    if an enemy of the owner picks it up and is killed. A dropped Rapier cannot be
+    picked up by a courier.'
   displayname: Divine Rapier
   id: rapier
   itemcost: '6000'
   lore: So powerful, it cannot have a single owner.
-- attributes: + 12 Agility<br>+ 12 Strength<br>+ 140 Attack Range
-  description: 'Passive: Increases attack range of ranged heroes by 140.'
+- attributes: + 12 Agility<br>+ 12 Strength
+  description: '<h1>Passive: Dragon''s Reach</h1> Increases attack range of ranged
+    heroes by 140.'
   displayname: Dragon Lance
   id: dragon_lance
   itemcost: '1900'
   lore: The forward charge of the wyvern host grants no quarter.
-- attributes: '+ 6 Intelligence<br>+ 6 Strength<br>+ 3 Agility<br>+ 3 Damage<br>+
-    50% Mana Regeneration<br>AURA MOVE SPEED: 20<br>ENDURANCE ATTACK SPEED: 25<br>ENDURANCE
-    MOVE SPEED: 13%<br>ENDURANCE DURATION: 6<br>AURA/ENDURANCE RADIUS: 900'
+- attributes: + 6 Intelligence<br>+ 6 Strength<br>+ 3 Agility<br>+ 3 Damage<br>+ 50%
+    Mana Regeneration
   cd: '30'
-  description: 'Active: Endurance - Gives bonus +25 attack speed and +13% movement
-    speed to allies in a 900 radius.<br>Passive: Swiftness Aura - Gives bonus movement
-    speed to allies in a 900 radius.<br><br>Multiple instances of Swiftness Aura do
-    not stack.'
+  description: '<h1>Active: Endurance</h1> Gives +25 attack speed and +13% movement
+    speed to nearby allies for 6 seconds. <br><br>Radius: 900<br><h1>Passive: Swiftness
+    Aura</h1>Gives 20 movement speed to nearby allies. <br><br>Radius: 900'
   displayname: Drum of Endurance
   id: ancient_janggo
   itemcost: '1640'
   lore: A relic that enchants the bodies of those around it for swifter movement in
     times of crisis.
-- attributes: 'DURATION: 12<br>RADIUS: 1050<br>SLOW: -20%'
-  cd: '30'
-  description: 'Use: Reveals and slows invisible Heroes in a nearby area.'
+- cd: '30'
+  description: '<h1>Use: Reveal</h1>Reveals and slows invisible Heroes by -20 in a
+    1050 radius around the caster for 12 seconds.'
   displayname: Dust of Appearance
   id: dust
   itemcost: '180'
@@ -355,18 +344,19 @@
   itemcost: '3200'
   lore: Capturing the majestic call of an eagle, this mystical horn brings limitless
     dexterity to those who hear it.
-- attributes: '+ 10 Intelligence<br>+ 10 Strength<br>+ 10 Attack Speed<br>+ 15 Damage<br>+
-    75% Mana Regeneration<br>MOVEMENT SLOW: 100%<br>SLOW DURATION: 0.7'
+- attributes: + 10 Intelligence<br>+ 10 Strength<br>+ 10 Attack Speed<br>+ 15 Damage<br>+
+    75% Mana Regeneration
   cd: '5'
-  description: 'Passive: Causes melee attacks to attack twice in quick succession.
-    The double attacks apply a 0.7 second 100% movement slow on each strike.'
+  description: '<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice
+    in quick succession. The double attacks apply a 100% movement slow for 0.7 seconds
+    on each strike.'
   displayname: Echo Sabre
   id: echo_sabre
   itemcost: '2650'
   lore: A deceptively swift blade imbued with resonant magic.
-- attributes: '+ 1.0 HP Regeneration<br>MANA RESTORED: 150'
-  description: 'Use: Consume the mango to instantly restore 150 mana.<br><br>Hold
-    Control to use Enchanted Mango on an allied hero.'
+- attributes: + 1.0 HP Regeneration
+  description: '<h1>Use: Eat Mango</h1> Instantly restore 150 mana.<br><br>Range:
+    400'
   displayname: Enchanted Mango
   id: enchanted_mango
   itemcost: '100'
@@ -377,63 +367,58 @@
   itemcost: '900'
   lore: This lapis gemstone is commonly added to the collection of wizards seeking
     to improve their presence in combat.
-- attributes: '+ 40 Agility<br>+ 10 Strength<br>+ 10 Intelligence<br>BLAST ENEMY MOVE
-    SLOW: -80%<br>BLAST ENEMY DURATION: 3.0<br>BLAST ALLY/SELF DURATION: 4.0<br>INCREASED
-    MAGIC DAMAGE: -40%'
+- attributes: + 40 Agility<br>+ 10 Strength<br>+ 10 Intelligence
   cd: '20'
-  description: 'Active: Ether Blast - Launches a projectile which converts the target
-    to ethereal form, increasing any incoming magic damage they take, while rendering
-    them immune to physical damage and unable to attack.  Can be cast on self.  If
-    the target is an enemy, it is also slowed, and takes 2.0x your primary attribute
-    + 75 as magical damage.<br>Using a Town Portal Scroll or Boots of Travel will
-    not dispel Ethereal Form.'
+  description: '<h1>Active: Ether Blast</h1>Converts the target unit to ethereal form,
+    rendering them immune to physical damage, but unable to attack and -40% more vulnerable
+    to magic damage.  Lasts for 4.0 seconds on allies and 3.0 seconds on enemies.<br><br>  Enemy
+    targets are also slowed by -80%, and take 2.0x your primary attribute + 75 as
+    magical damage.<br><br>Range: 800'
   displayname: Ethereal Blade
   id: ethereal_blade
   itemcost: '4700'
   lore: A flickering blade of a ghastly nature, it is capable of dealing damage in
     both magical and physical planes.
   mana: '100'
-- attributes: '+ 10 Intelligence<br>+ 150% Mana Regeneration<br>+ 40 Movement Speed<br>CYCLONE
-    DURATION: 2.5<br>CYCLONE CAST RANGE: 575'
+- attributes: + 10 Intelligence<br>+ 150% Mana Regeneration<br>+ 40 Movement Speed
   cd: '23'
-  description: 'Active: Cyclone - Sweeps a target unit up into cyclone, making them
-    invulnerable for 2.5 seconds. Cyclone can be cast on yourself. Enemy units take
-    50 magical damage upon landing.<br><br>DISPEL TYPE: Basic Dispel'
+  description: '<h1>Active: Cyclone</h1> Sweeps a target unit up into a cyclone, making
+    them invulnerable for 2.5 seconds. Cyclone can only be cast on enemy units or
+    yourself.<br><br>Enemy units take 50 magical damage upon landing.<br><br>Range:
+    575<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>'
   displayname: Eul's Scepter of Divinity
   id: cyclone
   itemcost: '2750'
   lore: A mysterious scepter passed down through the ages, its disruptive winds can
     be used for good or evil.
   mana: '175'
-- attributes: '+ 25 All Attributes<br>+ 225 Health<br>+ 250 Mana<br>COLD MOVE SLOW:
-    -35%<br>COLD ATTACK SLOW: -45<br>COLD MELEE DURATION: 5.0<br>COLD RANGED DURATION:
-    2.5'
-  description: 'Passive: Cold Attack - Each attack slows the movement and attack speed
-    of the target. The duration of the slow is based on whether the equipped hero
-    is melee or ranged.'
+- attributes: + 25 All Attributes<br>+ 225 Health<br>+ 250 Mana
+  description: '<h1>Passive: Cold Attack</h1> Attacks lower enemy attack speed by
+    -45 and movement speed by -35%. <br><br>Lasts 5.0 seconds when used by melee heroes,
+    and 2.5 seconds when used by ranged.'
   displayname: Eye of Skadi
   id: skadi
   itemcost: '5775'
   lore: Extremely rare artifact, guarded by the azure dragons.
-- attributes: '+ 2 Damage<br>HEALTH RESTORED: 75'
+- attributes: + 2 Damage
   cd: '5'
-  description: 'Use: Consume the Faerie Fire to instantly restore 75 HP'
+  description: '<h1>Use: Imbue</h1> Instantly restores 75 HP.'
   displayname: Faerie Fire
   id: faerie_fire
   itemcost: '70'
   lore: The ethereal flames from the ever-burning ruins of Kindertree ignite across
     realities.
-- description: Upgrades your team's Animal Courier to a Flying Courier, granting it
-    swift, unobstructed movement to carry items to and from your team's base.<br><br>Requires
-    a deployed Animal Courier.
+- description: '<h1>Use: Upgrade Courier</h1>Upgrades your team''s Animal Courier
+    to a Flying Courier, granting it swift, unobstructed movement to carry items to
+    and from your team''s base. <br><br>Requires a deployed Animal Courier.'
   displayname: Flying Courier
   id: flying_courier
   itemcost: '150'
   lore: The faithful mount upon which soar the fortunes of battle.
 - attributes: + 10 Intelligence<br>+ 6 HP Regeneration
   cd: '20'
-  description: 'Active: Force - Pushes any target unit 600 units in the direction
-    it is facing.  Double click to instantly cast Force on yourself.'
+  description: '<h1>Active: Force</h1>Pushes any target unit 600 units in the direction
+    it is facing.<br><br>Range: 800'
   displayname: Force Staff
   id: force_staff
   itemcost: '2250'
@@ -444,31 +429,29 @@
   id: gauntlets
   itemcost: '150'
   lore: Studded leather gloves that add brute strength.
-- attributes: 'TRUE SIGHT RADIUS: 900'
-  description: 'Passive: True Sight - Adds the ability to see invisible units and
-    wards to any allied vision within its carrier''s range.<br>Dropped on death, and
-    cannot be destroyed.'
+- description: '<h1>Passive: True Sight</h1> Grants the ability to see invisible units
+    and wards to any allied vision within 900 range of its carrier. <br><h1>Passive:
+    Everlasting</h1><font color=''#e03e2e''>Dropped on death, and cannot be destroyed.</font>'
   displayname: Gem of True Sight
   id: gem
   itemcost: '900'
   lore: Not one thrall creature of the depths,\nNor spirit bound in drowning's keep,\nNor
     Maelrawn the Tentacular,\nShall rest till seas, gem comes to sleep.
-- attributes: '+ 5 All Attributes<br>GHOST DURATION: 4.0<br>GHOST ADDED MAGIC DAMAGE:
-    -40%'
+- attributes: + 5 All Attributes
   cd: '20'
-  description: 'Active: Ghost Form - Enter ghost form, becoming immune to physical
-    damage, yet unable to attack and taking 40% extra magic damage.<br>Using a Town
-    Portal Scroll or Boots of Travel  will not dispel Ghost Form.'
+  description: '<h1>Active: Ghost Form</h1> You enter ghost form for 4.0 seconds,
+    becoming immune to physical damage, but are unable to attack and -40% more vulnerable
+    to magic damage.'
   displayname: Ghost Scepter
   id: ghost
   itemcost: '1500'
   lore: Imbues the wielder with a ghostly presence, allowing them to evade physical
     damage.
-- attributes: '+ 20 Attack Speed<br>+ 15% Spell Resistance<br>GLIMMER FADE TIME: 0.6<br>GLIMMER
-    MAGIC RESISTANCE: 45%<br>GLIMMER DURATION: 5.0'
+- attributes: + 20 Attack Speed<br>+ 15% Spell Resistance
   cd: '14'
-  description: 'Active: Glimmer - After a 0.6 second delay, grants invisibility and
-    45% magic resistance to you or a target allied unit. Can be cast while channelling.'
+  description: '<h1>Active: Glimmer</h1> After a 0.6 second delay, grants invisibility
+    and 45% magic resistance to you or a target allied unit for 5.0 seconds.<br><br>Range:
+    800<br><br>Can be cast while channelling.'
   displayname: Glimmer Cape
   id: glimmer_cape
   itemcost: '1850'
@@ -479,61 +462,58 @@
   id: gloves
   itemcost: '500'
   lore: A pair of magical gloves that seems to render weapons weightless.
-- attributes: '+ 55 Movement Speed<br>+ 250 Mana<br>+ 5 All Attributes<br>+ 5 Armor<br>AURA
-    HEALTH REGEN: 4<br>AURA ARMOR: 2<br>AURA BOOST HEALTH REGEN: 15<br>AURA BOOST
-    ARMOR: 15<br>AURA BOOST THRESHOLD: 20%<br>MEND HEAL: 250<br>MEND MANA RESTORE:
-    160<br>AURA/MEND RADIUS: 900'
+- attributes: + 55 Movement Speed<br>+ 250 Mana<br>+ 5 All Attributes<br>+ 5 Armor
   cd: '40'
-  description: 'Active: Mend - Restores 250 health and 160 mana to nearby allies,
-    and removes most negative buffs from the caster.<br>Passive: Guardian Aura - Provides
-    nearby allies with 4 health regeneration and 2 bonus armor. If an allied hero''s
-    health falls below 20%, they receive 15 health regeneration and 15 armor.<br><br>DISPEL
-    TYPE: Basic Dispel'
+  description: '<h1>Active: Mend</h1>Restores 250 health and 160 mana to nearby allies,
+    and removes most negative effects from the caster.<br><br>Radius: 900<br>Dispel
+    Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span><br><h1>Passive:
+    Guardian Aura</h1> Provides nearby allies with 4 health regeneration and 2 bonus
+    armor. If an allied hero''s health falls below 20%, they receive 15 health regeneration
+    and 15 armor.<br>Flat movement speed bonuses from multiple pairs of boots do not
+    stack.'
   displayname: Guardian Greaves
   id: guardian_greaves
   itemcost: '5375'
   lore: One of many holy instruments constructed to honor the Omniscience.
-- attributes: '+ 30 Attack Speed<br>TRANSMUTE CAST RANGE: 600'
+- attributes: + 30 Attack Speed
   cd: '100'
-  description: 'Active: Transmute - Kills a non-hero target for 200 gold and 1.85x
-    experience.  Cannot be used on Ancient Creeps.'
+  description: '<h1>Active: Transmute</h1> Kills a non-hero target for 200 gold and
+    1.85x experience. <br><br> Cannot be used on Ancient Creeps.<br><br>Range: 600'
   displayname: Hand of Midas
   id: hand_of_midas
   itemcost: '2150'
   lore: Preserved through unknown magical means, the Hand of Midas is a weapon of
     greed, sacrificing animals to line the owner's pockets.
-- attributes: '+ 2 All Attributes<br>AURA HEALTH REGEN: 3<br>AURA REGEN RADIUS: 900'
-  description: 'Passive: Regeneration Aura - Restores health to allies in a 900 unit
-    radius.<br><br>Multiple instances of Regeneration Aura do not stack.'
+- attributes: + 2 All Attributes
+  description: '<h1>Passive: Regeneration Aura</h1>Grants 3 health regeneration to
+    allies.<br><br>Radius: 900'
   displayname: Headdress
   id: headdress
   itemcost: '675'
   lore: Creates a soothing aura that restores allies in battle.
-- attributes: 'DURATION: 8<br>HEALTH RESTORED: 400'
-  description: 'Use: Restores health to the target unit over time.  If the unit is
-    attacked by an enemy hero or Roshan, the effect is lost.'
+- description: '<h1>Use: Salve</h1> Restores 400 health to the target unit over 8
+    seconds.<br><br>If the unit is attacked by an enemy hero or Roshan, the effect
+    is lost.<br><br>Range: 250'
   displayname: Healing Salve
   id: flask
   itemcost: '110'
   lore: A magical salve that can quickly mend even the deepest of wounds.
-- attributes: '+ 40 Strength<br>+ 500 Health<br>HEALTH RESTORED PER SECOND: 7.0%'
+- attributes: + 40 Strength<br>+ 500 Health
   cd: '7'
-  description: 'Passive: Health Regeneration - Restores a percentage of max health
-    per second. If damage is taken from an enemy hero or Roshan, this ability is disabled
-    for 5 seconds for melee heroes, or 7 seconds for ranged heroes.'
+  description: '<h1>Passive: Health Regeneration</h1>Restores 7.0% of max health per
+    second. <br><br>If damage is taken from an enemy hero or Roshan, this ability
+    is disabled for 5 seconds for melee heroes, or 7 seconds for ranged heroes.'
   displayname: Heart of Tarrasque
   id: heart
   itemcost: '5200'
   lore: Preserved heart of an extinct monster, it bolsters the bearer's fortitude.
-- attributes: '+ 25% Evasion<br>+ 25 Damage<br>+ 20 Strength<br>MAIM CHANCE: 35%<br>MOVEMENT
-    SLOW MELEE: -20%<br>ATTACK SLOW MELEE: -20<br>MOVEMENT SLOW RANGED: -10%<br>ATTACK
-    SLOW RANGED: -10<br>MAIM DURATION: 5.0<br>DISARM RANGED DURATION: 5.0<br>DISARM
-    MELEE DURATION: 3.0<br>DISARM CAST RANGE: 600'
+- attributes: + 25% Evasion<br>+ 25 Damage<br>+ 20 Strength
   cd: '18'
-  description: 'Active: Disarm - Prevents a target from attacking. Lasts 3.0 seconds
-    on melee targets, and 5.0 seconds on ranged targets.<br>Passive: Lesser Maim -
-    Each attack has a chance to slow the enemy''s movement and attack speed for 5.0
-    seconds.<br><br>Stacks diminishingly with other sources of Evasion.'
+  description: '<h1>Active: Disarm</h1>Prevents a target from attacking for 3.0 seconds
+    on melee targets, and 5.0 seconds on ranged targets.<br><br>Range: 600 <br><h1>Passive:
+    Lesser Maim</h1>Each attack has a 35% chance to reduce enemy hero movement speed
+    by -20% and attack speed by -20 if the user is melee. Reduces enemy hero movement
+    by -10% and attack speed by -10 if the user is ranged. Effect lasts 5.0 seconds.'
   displayname: Heaven's Halberd
   id: heavens_halberd
   itemcost: '3400'
@@ -545,35 +525,35 @@
   id: helm_of_iron_will
   itemcost: '900'
   lore: The helmet of a legendary warrior who fell in battle.
-- attributes: '+ 2 All Attributes<br>+ 10 Attack Speed<br>AURA ATTACK SPEED: 10<br>AURA
-    HEALTH REGEN: 10<br>DOMINATED HEALTH MINIMUM: 1500<br>CREEP MOVEMENT SPEED: 425'
+- attributes: + 2 All Attributes<br>+ 10 Attack Speed
   cd: '60'
-  description: 'Active: Dominate - Take control of a non-hero, non-ancient target
-    unit and sets its movement speed to 425. If a dominated creep''s base health is
-    naturally below the health minimum, its base health will be raised to the health
-    minimum.'
+  description: '<h1>Active: Dominate</h1>Takes control of one neutral, non-ancient
+    target unit and sets its movement speed to 425 and max health to a minimum of
+    1500.<br><br>Dominated units with a max health of greater than 1500 retain their
+    original max health.  Dominated unit''s bounty is set to %tooltip_bounty% gold.<br><br>Range:
+    700<br><h1>Passive: Dominator Aura</h1> Increases nearby allies'' attack speed
+    by 15 and health regen by 10.<br><br>Radius: 900'
   displayname: Helm of the Dominator
   id: helm_of_the_dominator
   itemcost: '2025'
   lore: The powerful headpiece of a dead necromancer.
-- attributes: '+ 8 HP Regeneration<br>+ 25% Spell Resistance<br>BARRIER BLOCK: 325<br>BARRIER
-    DURATION: 12'
+- attributes: + 8 HP Regeneration<br>+ 25% Spell Resistance
   cd: '60'
-  description: 'Active: Creates a spell shield that absorbs up to 325 magical damage.'
+  description: '<h1>Active: Barrier</h1> Creates a spell shield that absorbs up to
+    325 magical damage.  Lasts 12 seconds.'
   displayname: Hood of Defiance
   id: hood_of_defiance
   itemcost: '1725'
   lore: A furred, magic resistant headpiece that is feared by wizards.
   mana: '75'
-- attributes: '+ 10 Intelligence<br>+ 6 HP Regeneration<br>+ 20 Agility<br>+ 15 Strength<br>+
-    140 Attack Range<br>UNLIMITED RANGE DURATION: 5.0<br>CAST RANGE ON ENEMY: 400<br>UNLIMITED
-    RANGE ATTACKS: 4'
+- attributes: + 10 Intelligence<br>+ 6 HP Regeneration<br>+ 20 Agility<br>+ 15 Strength
   cd: '15'
-  description: 'Active: When used on an enemy, it pushes you both away from each other
-    450 units each, and allows you to attack the target without range restrictions
-    for 4 attacks for a maximum of 5.0 seconds. Grants 100 Attack Speed during the
-    attacks. Works like Force Staff when used on self or allies.<br>Passive: Increases
-    attack range of ranged heroes by 140.'
+  description: '<h1>Active: Hurricane Thrust</h1> Pushes you and target enemy 450
+    units away from each other, and for 5.0 seconds, allows you to make 4 attacks
+    against the target without range restrictions and with +100 attack speed.<br><br>Works
+    like Force Staff when used on self or allies.<br><br>Allied Range: 800<br>Enemy
+    Range: 400<br><h1>Passive:  Dragon''s Reach</h1> Increases attack range of ranged
+    heroes by 140.'
   displayname: Hurricane Pike
   id: hurricane_pike
   itemcost: '4650'
@@ -584,35 +564,37 @@
   id: hyperstone
   itemcost: '2000'
   lore: A mystical, carved stone that boosts the fervor of the holder.
-- attributes: 'MANA REGEN: 0.85<br>MAGIC DAMAGE BLOCK: 120<br>INITIAL CHARGES: 5'
+- attributes: + 0.85 Mana Regeneration
   cd: '7'
-  description: 'Passive: Consumes a charge to block 120 magic damage from damage instances
-    over 50 damage. Comes with 5 charges. When the charges are gone, the item disappears.'
+  description: '<h1>Passive: Magical Damage Block</h1> Consumes a charge to block
+    120 magic damage from damage instances over 50 damage. <br><br>Comes with 5 charges.
+    When the charges are gone, the item disappears.'
   displayname: Infused Raindrop
   id: infused_raindrop
   itemcost: '225'
   lore: Elemental protection from magical assaults.
-- attributes: '+ 1 All Attributes<br>TREE DURATION: 20'
+- attributes: + 1 All Attributes
   cd: '0'
-  description: 'Active: Targets the ground to plant a happy little tree that lasts
-    for 20 seconds.'
+  description: '<h1>Use: Plant Tree</h1> Targets the ground to plant a happy little
+    tree that lasts for 20 seconds.<br><br>Range: 200'
   displayname: Iron Branch
   id: branches
   itemcost: '50'
   lore: A seemingly ordinary branch, its ironlike qualities are bestowed upon the
     bearer.
-- attributes: 'QUELL MELEE DAMAGE: 24<br>QUELL RANGED DAMAGE: 7<br>CAST RANGE: 350<br>CAST
-    RANGE ON WARDS: 450<br>+ 2 Armor'
+- attributes: + 2 Armor
   cd: '20'
-  description: 'Active: Targets a non-player enemy unit to remove 40% of its current
-    HP.<br>Passive: Quell - Increases attack damage against non-hero units, based
-    on whether the equipped hero is ranged or melee.'
+  description: '<h1>Active: Chop</h1>Targets a non-player enemy unit to remove 40%
+    of its current HP.<br><br>If cast on a tree or ward, instantly destroys it.<br><br>Unit
+    Range: 350<br>Tree Range: 350<BR>Ward Range: 450<br><h1>Passive: Quell</h1>Increases
+    attack damage against non-hero units by 24 for melee heroes, and 7 for ranged.'
   displayname: Iron Talon
   id: iron_talon
   itemcost: '500'
   lore: A simple but effective weapon devised to quell a great Hellbear uprising.
-- attributes: '+ 10 Damage<br>CHANCE TO PIERCE: 25%<br>PIERCE DAMAGE: 85'
-  description: 'Passive: Pierce - Grants each attack a chance to deal bonus damage.'
+- attributes: + 10 Damage
+  description: '<h1>Passive: Pierce</h1>Grants each attack a 25% chance to deal 85
+    bonus damage.'
   displayname: Javelin
   id: javelin
   itemcost: '1500'
@@ -621,66 +603,62 @@
 - attributes: + 15 All Attributes<br>+ 6 HP Regeneration<br>+ 150% Mana Regeneration<br>+
     15 Damage
   cd: '13'
-  description: 'Passive: Spellblock - Blocks most targeted spells once every 13.0
-    seconds.<br>Active: Transfer Spellblock - Temporarily removes Spellblock from
-    the item''s owner and transfers it to an allied unit.'
+  description: '<h1>Passive: Spellblock</h1>Blocks most targeted spells once every
+    13.0 seconds.<br><h1>Active: Transfer Spellblock</h1>Temporarily removes Spellblock
+    from the item''s owner and transfers it to an allied unit for 13.0 seconds.<br><br>Range:
+    700'
   displayname: Linken's Sphere
   id: sphere
   itemcost: '4850'
   lore: This magical sphere once protected one of the most famous heroes in history.
-- attributes: '+ 10 Damage<br>+ 10 Armor<br>+ 6 HP Regeneration<br>+ 125% Mana Regeneration<br>+
-    250 Mana<br>ECHO DURATION: 6.0<br>ECHO CAST RANGE: 900.0'
+- attributes: + 10 Damage<br>+ 10 Armor<br>+ 6 HP Regeneration<br>+ 125% Mana Regeneration<br>+
+    250 Mana
   cd: '15'
-  description: 'Active: Echo Shell - Applies a shield to the target unit which re-casts
-    most targeted spells back to their caster. The shielded unit will still take damage
-    from the spell. Dispels negative buffs when applied.<br><br>DISPEL TYPE: Basic
-    Dispel'
+  description: '<h1>Active: Echo Shell</h1>Applies a shield to the target unit for
+    6.0 seconds which re-casts most targeted spells back to their caster.<br><br>The
+    shielded unit will still take damage from the spell. <br><br>Range: 900.0<br>Dispel
+    Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>'
   displayname: Lotus Orb
   id: lotus_orb
   itemcost: '4000'
   lore: The jewel at its center still reflects a pale image of its creator.
   mana: '75'
-- attributes: '+ 24 Damage<br>+ 25 Attack Speed<br>CHAIN CHANCE: 25%<br>CHAIN DAMAGE:
-    120<br>CHAIN TARGETS: 4<br>CHAIN LEAP RADIUS: 900'
-  description: 'Passive: Chain Lightning - Grants a chance on attack to release a
-    bolt of electricity that leaps between 4 targets, dealing 120 magical damage to
-    each.'
+- attributes: + 24 Damage<br>+ 25 Attack Speed
+  description: '<h1>Passive: Chain Lightning</h1>Grants a 25% chance on attack to
+    release a bolt of electricity that leaps between 4 targets within a 900 radius,
+    dealing 120 magical damage to each.'
   displayname: Maelstrom
   id: maelstrom
   itemcost: '2800'
   lore: A hammer forged for the gods themselves, Maelstrom allows its user to harness
     the power of lightning.
-- attributes: 'HEALTH/MANA PER CHARGE: 15'
-  cd: '13'
-  description: 'Active: Energy Charge - Instantly restores health and mana based on
-    the number of charges stored. Gains a charge (max 10) whenever a nearby visible
-    enemy uses an ability.'
+- cd: '13'
+  description: '<h1>Active: Energy Charge</h1> Instantly restores 15 health and mana
+    per charge stored.<br><br> Max 10 charges. Gains a charge whenever a visible enemy
+    within 1200 range uses an ability.'
   displayname: Magic Stick
   id: magic_stick
   itemcost: '200'
   lore: A simple wand used to channel magic energies, it is favored by apprentice
     wizards and great warlocks alike.
-- attributes: '+ 4 All Attributes<br>HEALTH/MANA PER CHARGE: 15'
+- attributes: + 4 All Attributes
   cd: '13'
-  description: 'Active: Energy Charge - Instantly restores health and mana based on
-    the number of charges stored. Gains a charge (max 17) whenever a nearby visible
-    enemy uses an ability.'
+  description: '<h1>Active: Energy Charge</h1>Instantly restores 15 health and mana
+    per charge stored. <br><br>Max 17 charges. Gains a charge whenever a visible enemy
+    within 1200 range uses an ability.'
   displayname: Magic Wand
   id: magic_wand
   itemcost: '465'
   lore: A simple wand used to channel magic energies, it is favored by apprentice
     wizards and great warlocks alike.
-- attributes: '+ 10 Strength<br>+ 26 Agility<br>+ 10 Intelligence<br>+ 15 Attack Speed<br>+
-    10% Movement Speed<br>NUMBER OF IMAGES: 2<br>IMAGE DURATION: 20<br>MELEE IMAGE
-    DAMAGE: 33%<br>MELEE IMAGE DAMAGE TAKEN: 350%<br>RANGED IMAGE DAMAGE: 28%<br>RANGED
-    IMAGE DAMAGE TAKEN: 400%'
+- attributes: + 10 Strength<br>+ 26 Agility<br>+ 10 Intelligence<br>+ 15 Attack Speed<br>+
+    10% Movement Speed
   cd: '45'
-  description: 'Active: Mirror Image - Creates 2 images of your hero that last 20
-    seconds. Melee heroes have a 30 second cooldown on this ability, while for Ranged
-    heroes the cooldown is 45 seconds.<br><br>Melee images deal 33% damage and take
-    350% damage, while Ranged images deal 28% and take 400% damage.<br><br>Yasha-based
-    movement speed bonuses from multiple items do not stack.<br><br>DISPEL TYPE: Basic
-    Dispel'
+  description: '<h1>Active: Mirror Image</h1>Creates 2 images of your hero that last
+    20 seconds. <br><br>Melee images deal 33% damage and take 350% damage, while Ranged
+    images deal 28% and take 400% damage. <br><br>Cooldown increased by 15.0 seconds
+    on ranged heroes.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic
+    Dispel</span>'
   displayname: Manta Style
   id: manta
   itemcost: '5000'
@@ -691,36 +669,33 @@
   id: mantle
   itemcost: '150'
   lore: A beautiful sapphire mantle worn by generations of queens.
-- attributes: '+ 20 Damage<br>+ 10 Attack Speed<br>LIFESTEAL: 15%<br>BERSERK ATTACK
-    SPEED: 110<br>BERSERK MOVE SPEED: 17%<br>BERSERK ARMOR REDUCTION: 5<br>BERSERK
-    DURATION: 8.0'
-  cd: '20'
-  description: 'Active: Berserk - Gives 110 attack speed and 17% movement speed, but
-    reduces your armor by 5 and silences you.  Lasts 8.0 seconds.<br>Passive: Lifesteal
-    - Heals the attacker for a percentage of attack damage dealt.<br><br>Mask of Madness
-    is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers.'
+- attributes: + 20 Damage<br>+ 10 Attack Speed
+  cd: '22'
+  description: '<h1>Active: Berserk</h1>Gives 110 attack speed and 17% movement speed,
+    but reduces your armor by 6 and silences you.  Lasts 8.0 seconds.<br><h1>Passive:
+    Lifesteal</h1>Heals the attacker for 15% of attack damage dealt. <br><br>Mask
+    of Madness is a Unique Attack Modifier, and does not stack with other Unique Attack
+    Modifiers.'
   displayname: Mask of Madness
   id: mask_of_madness
   itemcost: '1975'
   lore: Once this mask is worn, its bearer becomes an uncontrollable aggressive force.
   mana: '25'
-- attributes: '+ 7 Armor<br>+ 50% Mana Regeneration<br>VALOR ARMOR REDUCTION: -7<br>VALOR
-    DURATION: 7<br>VALOR CAST RANGE: 1000'
+- attributes: + 7 Armor<br>+ 50% Mana Regeneration
   cd: '7'
-  description: 'Active: Valor - If cast on an ally, increases their armor while reducing
-    the caster''s. If cast on an enemy, reduces the armor of both the enemy and the
-    caster. Cannot target magic immune enemies.'
+  description: '<h1>Active: Valor</h1> If cast on an ally, grants them the 7 armor,
+    and removing it from the caster. <br><br>If cast on an enemy, reduces 7 armor
+    on both the enemy and the caster. <br><br>Cannot target magic immune enemies.<br><br>Range:
+    1000'
   displayname: Medallion of Courage
   id: medallion_of_courage
   itemcost: '1175'
   lore: The bearer has no fear of combat.
-- attributes: '+ 5 All Attributes<br>+ 5 Armor<br>AURA HEALTH REGEN: 4<br>RESTORE
-    HEAL: 250<br>RESTORE ARMOR: 2<br>RESTORE ARMOR DURATION: 25<br>AURA/RESTORE RADIUS:
-    900'
+- attributes: + 5 All Attributes<br>+ 5 Armor
   cd: '65'
-  description: 'Active: Restore - Heals 250 health and gives +2 armor to allied units
-    in a 900 radius.<br>Passive: Mekansm Aura - Grants 4 health regeneration to allied
-    units in a 900 radius.<br><br>Multiple instances of Mekansm Aura do not stack.'
+  description: '<h1>Active: Restore</h1>Heals 250 health and gives +2 armor to allied
+    units in a 900 radius.<br><h1>Passive: Mekansm Aura</h1>Grants 4 health regeneration
+    to allied units in a 900 radius.'
   displayname: Mekansm
   id: mekansm
   itemcost: '2375'
@@ -731,41 +706,39 @@
   id: mithril_hammer
   itemcost: '1600'
   lore: A hammer forged of pure mithril.
-- attributes: '+ 24 Damage<br>+ 80 Attack Speed<br>STATIC DURATION: 15.0<br>STATIC
-    CHANCE: 20%<br>STATIC DAMAGE: 200<br>STATIC RELEASE RADIUS: 900<br>CHAIN CHANCE:
-    25%<br>CHAIN DAMAGE: 150<br>CHAIN TARGETS: 12<br>CHAIN LEAP RADIUS: 900'
+- attributes: + 24 Damage<br>+ 80 Attack Speed
   cd: '35'
-  description: 'Active: Static Charge - Places a charged shield on a target unit which
-    has a 20% chance to release a shocking bolt at a nearby attacker and 4 additional
-    enemies.<br>Passive: Chain Lightning - Grants a chance on attack to release a
-    bolt of electricity that leaps between 12 targets, dealing 150 magical damage
+  description: '<h1>Active: Static Charge</h1>Places a charged shield on a target
+    unit for 15.0 seconds which has a 20% chance to release a 200 damage shocking
+    bolt at a nearby attacker and 4 additional enemies.<br><br>Range: 800<br><h1>Passive:
+    Chain Lightning</h1>Grants a 25 chance on attack to release a bolt of electricity
+    that leaps between 12 targets within a 900 radius, dealing 150 magical damage
     to each.'
   displayname: Mjollnir
   id: mjollnir
   itemcost: '5700'
   lore: Thor's magical hammer, made for him by the dwarves Brok and Eitri.
   mana: '50'
-- attributes: '+ 66 Damage<br>MINI-BASH CHANCE: 35%<br>MINI-BASH DAMAGE: 160'
-  description: 'Passive: Mini-Bash - Grants each attack a chance to deal bonus damage
-    and deal a mini-stun.<br>Passive: True Strike - Prevents your attacks from missing.
-    True Strike does not work when attacking enemy structures.'
+- attributes: + 66 Damage
+  description: '<h1>Passive: Mini-Bash</h1>Grants each attack a 35% chance to mini-stun
+    and deal 160 bonus damage.<br><h1>Passive: True Strike</h1>Prevents your attacks
+    from missing enemy units.'
   displayname: Monkey King Bar
   id: monkey_king_bar
   itemcost: '5200'
   lore: A powerful staff used by a master warrior.
-- attributes: '+ 120 Attack Speed<br>SHADE BONUS NIGHT VISION: 300<br>CONSUME ATTACK
-    SPEED: 60<br>CONSUME NIGHT VISION: 150'
-  description: 'Use: Consume the Moon Shard to permanently gain 60 attack speed and
-    150 bonus night vision. Does not stack.<br>Passive: Shade Sight - Grants 300 bonus
-    night vision.'
+- attributes: + 120 Attack Speed
+  description: '<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain 60
+    attack speed and 150 bonus night vision. Max 1 use.<br><h1>Passive: Shade Sight</h1>Grants
+    300 bonus night vision.'
   displayname: Moon Shard
   id: moon_shard
   itemcost: '4000'
   lore: Said to be a tear from the lunar goddess Selemene.
-- attributes: '+ 10 Damage<br>LIFESTEAL: 15%'
-  description: 'Passive: Lifesteal - Heals the attacker for a percentage of attack
-    damage dealt.<br><br>Morbid Mask is a Unique Attack Modifier, and does not stack
-    with other Unique Attack Modifiers.'
+- attributes: + 10 Damage
+  description: '<h1>Passive: Lifesteal</h1>Heals the attacker for 15% of attack damage
+    dealt. <br><br>Morbid Mask is a Unique Attack Modifier, and does not stack with
+    other Unique Attack Modifiers.'
   displayname: Morbid Mask
   id: lifesteal
   itemcost: '1100'
@@ -775,15 +748,16 @@
   id: mystic_staff
   itemcost: '2700'
   lore: Enigmatic staff made of only the most expensive crystals.
-- attributes: '+ 15 / 21 / 24 Intelligence<br>+ 8 / 12 / 16 Strength<br>WARRIOR HEALTH:
-    700 / 800 / 900<br>WARRIOR DAMAGE: 75 / 100 / 125<br>WARRIOR MANA BREAK: 20 /
-    30 / 40<br>WARRIOR LAST WILL DMG: 550 / 675 / 800<br>ARCHER HEALTH: 700 / 800
-    / 900<br>ARCHER DAMAGE: 60 / 90 / 120<br>ARCHER MANA BURN: 200 / 300 / 400<br>ARCHER
-    AURA MOVE SPEED: 5 / 7 / 9%<br>ARCHER AURA ATTACK SPEED: 5 / 10 / 15'
+- attributes: + 15 / 21 / 24 Intelligence<br>+ 8 / 12 / 16 Strength
   cd: '90'
-  description: 'Active: Demonic Summoning - Summons a Warrior and an Archer to fight
-    for you for 50 seconds, whose strength and abilities increase as Necronomicon
-    is upgraded. Warrior gains True Sight at level 3. Upgradable.'
+  description: '<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer
+    to fight for you for 50 seconds.<br><br><h1>Warrior:</h1>Burns mana every hit,
+    and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health:
+    700 / 800 / 900<br>Damage: 75 / 100 / 125<br>Mana Break Damage: 20 / 30 / 40<br>Last
+    Will Damage: 550 / 675 / 800<br><br><h1>Archer:</h1>Has an activated mana burn
+    ability, and a passive movement and attack speed aura.<br>Health: 700 / 800 /
+    900<br>Damage: 60 / 90 / 120<br>Mana Burn Damage: 125 / 175 / 225<br>Aura Move
+    Speed: 5 / 7 / 9<br>Aura Attack Speed: 5 / 10 / 15<br>Aura Radius: 900'
   displayname: Necronomicon
   id: necronomicon
   itemcost: '2650'
@@ -802,20 +776,19 @@
   itemcost: '1650'
   lore: Deceptively hidden as an ordinary quarterstaff, it is actually very powerful,
     much like the Eldritch who originally possessed it.
-- attributes: 'VISION RANGE: 1600<br>DURATION (MINUTES): 6'
-  cd: '1'
-  description: 'Use: Plants an Observer Ward, an invisible watcher that gives vision
-    of its surrounding area to your team. Lasts 6 minutes.<br><br>Hold Control to
-    give one Observer Ward to an allied hero.'
+- cd: '1'
+  description: '<h1>Use: Plant</h1>Plants an Observer Ward, an invisible watcher that
+    gives ground vision in a 1600 radius to your team. Lasts 6 minutes.<br><br>Hold
+    Control to give one Observer Ward to an allied hero.<br><br>Range: 500'
   displayname: Observer Ward
   id: ward_observer
   itemcost: '60'
   lore: A form of half-sentient plant, often cultivated by apprentice wizards.
-- attributes: '+ 25 Intelligence<br>+ 425 Health<br>+ 425 Mana<br>COOLDOWN REDUCTION:
-    25%<br>HERO SPELL LIFESTEAL: 25.0%<br>CREEP SPELL LIFESTEAL: 5.0%'
-  description: 'Passive: Cooldown Reduction - Reduces the cooldown time of all spells
-    and items by 25%.<br>Passive: Spell Lifesteal - A percentage of damage caused
-    by spells is returned to the caster as health.'
+- attributes: + 25 Intelligence<br>+ 425 Health<br>+ 425 Mana
+  description: '<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all
+    spells and items by 25%.<br><h1>Passive: Spell Lifesteal</h1>25.0% of spell damage
+    dealt to enemy heroes is returned to the caster as health, regardless of spell
+    damage type.  <br><br>Lifesteal reduced to 5.0% against creeps.'
   displayname: Octarine Core
   id: octarine_core
   itemcost: '5900'
@@ -825,21 +798,19 @@
   id: ogre_axe
   itemcost: '1000'
   lore: You grow stronger just by holding it.
-- attributes: 'POISON DAMAGE PER SECOND: 5.0<br>POISON MELEE SLOW: -12%<br>POISON
-    RANGED SLOW: -4%<br>POISON DURATION: 3.0'
-  description: 'Passive: Poison Attack - Poisons the target, dealing 5.0 damage per
-    second for 3.0 seconds and slowing movement -12% if the equipped hero is melee
+- description: '<h1>Passive: Poison Attack</h1>Poisons the target, dealing 5.0 damage
+    per second for 3.0 seconds and slowing movement -12% if the equipped hero is melee,
     or -4% if they are ranged.'
   displayname: Orb of Venom
   id: orb_of_venom
   itemcost: '275'
   lore: Envenoms your veapon with the venom of a venomous viper.
-- attributes: '+ 25 Intelligence<br>+ 30 Attack Speed<br>+ 30 Damage<br>+ 150% Mana
-    Regeneration<br>SOUL BURN INCREASED DAMAGE: 30.0%<br>SOUL BURN DURATION: 5.0'
+- attributes: + 25 Intelligence<br>+ 30 Attack Speed<br>+ 30 Damage<br>+ 150% Mana
+    Regeneration
   cd: '18'
-  description: 'Active: Soul Burn - Silences the target unit for 5.0 seconds. At the
-    end of the silence, 30.0% of the damage received while silenced is inflicted as
-    bonus magical damage.'
+  description: '<h1>Active: Soul Burn</h1>Silences the target unit for 5.0 seconds.
+    At the end of the silence, 30.0% of the damage received while silenced is inflicted
+    as bonus magical damage.<br><br>Range: 900'
   displayname: Orchid Malevolence
   id: orchid
   itemcost: '4075'
@@ -850,24 +821,21 @@
   id: pers
   itemcost: '1700'
   lore: A gem that grants heart to the bearer.
-- attributes: '+ 45 Movement Speed<br>+ 24 Damage<br>PHASE MOVE BOOST MELEE: 24%<br>PHASE
-    MOVE BOOST RANGED: 20%<br>PHASE DURATION: 2.5'
+- attributes: + 45 Movement Speed<br>+ 24 Damage
   cd: '8'
-  description: 'Active: Phase - Gives increased movement speed and lets you move through
-    units.  The increased movement speed is based on whether the equipped hero is
-    melee or ranged.<br><br>Flat movement speed bonuses from multiple pairs of boots
-    do not stack.'
+  description: '<h1>Active: Phase</h1> Gives 24% increased movement speed on melee
+    heroes, and 20% on ranged heroes, and lets you move through units for 2.5 seconds.<br><br>Flat
+    movement speed bonuses from multiple pairs of boots do not stack.'
   displayname: Phase Boots
   id: phase_boots
   itemcost: '1240'
   lore: Boots that allow the wearer to travel between the ether.
-- attributes: '+ 8 HP Regeneration<br>+ 30% Spell Resistance<br>AURA HEALTH REGEN:
-    4<br>AURA MAGIC RESISTANCE: 10%<br>AURA RADIUS: 900<br>BARRIER SPELL BLOCK: 400<br>BARRIER
-    DURATION: 12<br>BARRIER CAST RADIUS: 900'
+- attributes: + 8 HP Regeneration<br>+ 30% Spell Resistance
   cd: '60'
-  description: 'Active: Barrier - Gives a shield that blocks 400 spell damage to all
-    allies in a 900 radius.<br>Passive: Insight Aura - Gives allied units 4 health
-    regeneration and 10% magic resistance in a 900 radius.'
+  description: '<h1>Active: Barrier</h1>Gives a shield that blocks 400 spell damage
+    to all nearby allies. Lasts 12 seconds.<br><br>Radius: 900<br><h1>Passive: Insight
+    Aura</h1> Gives allied units 4 health regeneration and 10% magic resistance.<br><br>Radius:
+    900'
   displayname: Pipe of Insight
   id: pipe
   itemcost: '3200'
@@ -884,21 +852,18 @@
   id: point_booster
   itemcost: '1200'
   lore: A perfectly formed amethyst that nourishes body and mind when held.
-- attributes: '+ 6 Agility<br>MELEE DAMAGE BLOCK: 20<br>RANGED DAMAGE BLOCK: 10<br>CREEP
-    BLOCK CHANCE: 50%'
-  description: 'Passive: Damage Block - Blocks physical attack damage based on whether
-    the equipped hero is ranged or melee.  Poor Man''s Shield will always block attacks
-    from enemy Heroes, but has a 50% chance to block damage from creeps.'
+- attributes: + 6 Agility
+  description: '<h1>Passive: Damage Block</h1>Grants a 100% chance for melee heroes
+    to block 20 damage from enemy heroes.  Blocks 10 damage on ranged heroes.<br><br>Has
+    a 50% chance to block damage from creeps.'
   displayname: Poor Man's Shield
   id: poor_mans_shield
   itemcost: '500'
   lore: A busted old shield that seems to block more than it should.
 - attributes: + 45 Movement Speed<br>+ 10 Selected Attribute<br>+ 25 Attack Speed
-  description: 'Active: Switch Attribute - Changes selected attribute between Strength,
-    Agility and Intelligence.<br><br>Power Treads can be built using a Belt of Strength,
-    Band of Elvenskin, or a Robe of the Magi.  Flat movement speed bonuses from multiple
-    pairs of boots do not stack, nor does the attack speed bonus from multiple Power
-    Treads.'
+  description: '<h1>Active: Switch Attribute</h1>Switches between +10 Strength, +10
+    Agility, or +10 Intelligence.<br><br>Flat movement speed bonuses from multiple
+    pairs of boots do not stack.'
   displayname: Power Treads
   id: power_treads
   itemcost: '1350'
@@ -908,21 +873,18 @@
   id: quarterstaff
   itemcost: '875'
   lore: A basic staff that allows you to strike quickly.
-- attributes: 'QUELL MELEE DAMAGE: 24<br>QUELL RANGED DAMAGE: 7<br>CHOP TREE CAST
-    RANGE: 350<br>CHOP WARD CAST RANGE: 450'
-  cd: '4'
-  description: 'Active: Chop Tree/Ward - Destroy a target tree or ward. Chop cast
-    range is increased when targetting wards.<br>Passive: Quell - Increases attack
-    damage against non-hero units, based on whether the equipped hero is ranged or
-    melee.'
+- cd: '4'
+  description: '<h1>Active: Chop Tree/Ward</h1> Destroy a target tree or ward. Chop
+    cast range is increased when targeting wards.<br><br>Tree Range: 350<BR>Ward Range:
+    450<br><h1>Passive: Quell</h1> Increases attack damage against non-hero units
+    by 24 for melee heroes, and 7 for ranged.'
   displayname: Quelling Blade
   id: quelling_blade
   itemcost: '200'
   lore: The axe of a fallen gnome, it allows you to effectively maneuver the forest.
-- attributes: '+ 65 Damage<br>BURN DAMAGE PER SECOND: 60<br>BURN MISS CHANCE: 17%<br>BURN
-    RADIUS: 700'
-  description: 'Active: Toggle Burn - When active, scorches nearby enemies for 60
-    damage per second and blinds them, causing them to miss 17% of their attacks.'
+- attributes: + 65 Damage
+  description: '<h1>Toggle: Burn</h1> When active, scorches enemies for 60 damage
+    per second, and causes them to miss 17% of their attacks.<br><br>Radius: 700'
   displayname: Radiance
   id: radiance
   itemcost: '5150'
@@ -935,26 +897,25 @@
   lore: A massive axe capable of tearing whole mountains down.
 - attributes: + 12 HP Regeneration<br>+ 250% Mana Regeneration<br>+ 20 Damage
   cd: '195'
-  description: 'Active: Reset Cooldowns - Resets the cooldowns of all your items and
-    abilities.'
+  description: '<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items
+    and abilities.'
   displayname: Refresher Orb
   id: refresher
   itemcost: '5200'
   lore: A powerful artifact created for wizards.
   mana: '375'
-- attributes: '+ 10 Damage<br>+ 3 Strength<br>+ 9 Agility<br>+ 3 Intelligence<br>AURA
-    MANA REGEN: 0.65<br>AURA BONUS ARMOR: 2'
-  description: 'Passive: Aquila Aura - Grants mana regeneration and armor in a 900
-    area of effect.<br>Active: Toggle whether the aura affects other non-hero units.<br><br>Multiple
-    instances of Aquila Aura do not stack.'
+- attributes: + 10 Damage<br>+ 3 Strength<br>+ 9 Agility<br>+ 3 Intelligence
+  description: '<h1>Passive: Aquila Aura</h1>Grants 0.65 mana regeneration and 2 armor
+    to nearby allies.<br><br>Radius: 900<br><h1>Toggle: Aura</h1> Deactivate to stop
+    affecting non-hero units.'
   displayname: Ring of Aquila
   id: ring_of_aquila
   itemcost: '985'
   lore: The ring of the fallen Warlord Aquila continues to support armies in battle.
-- attributes: '+ 7 Damage<br>AURA MANA REGEN: 0.65<br>AURA BONUS ARMOR: 2'
-  description: 'Passive: Basilius Aura - Grants mana regeneration and armor in a 900
-    area of effect.<br>Active: Toggle whether the aura affects other non-hero units.<br><br>Multiple
-    instances of Basilius Aura do not stack.'
+- attributes: + 7 Damage
+  description: '<h1>Passive: Basilius Aura</h1>Grants 0.65 mana regeneration and 2
+    armor in a 900 radius.<br><h1>Toggle: Aura</h1>Deactivate aura to stop effecting
+    non-hero units.'
   displayname: Ring of Basilius
   id: ring_of_basilius
   itemcost: '500'
@@ -979,10 +940,10 @@
   id: robe
   itemcost: '450'
   lore: This robe corrupts the soul of the user, but provides wisdom in return.
-- attributes: '+ 20 Intelligence<br>+ 15 Strength<br>+ 6 Agility<br>+ 6 Damage<br>CRIPPLE
-    DURATION: 2.0'
+- attributes: + 20 Intelligence<br>+ 15 Strength<br>+ 6 Agility<br>+ 6 Damage
   cd: '16'
-  description: 'Active: Cripple - Roots the target for 2.0 seconds.'
+  description: '<h1>Active: Cripple</h1>Roots the target for 2.0 seconds.<br><br>Range:
+    1150'
   displayname: Rod of Atos
   id: rod_of_atos
   itemcost: '3080'
@@ -999,116 +960,109 @@
   id: sobi_mask
   itemcost: '325'
   lore: A mask commonly used by mages and warlocks for various rituals.
-- attributes: '+ 10 Damage<br>+ 16 Strength<br>MAIM CHANCE: 30%<br>MOVEMENT SLOW MELEE:
-    -20%<br>ATTACK SLOW MELEE: -20<br>MOVEMENT SLOW RANGED: -10%<br>ATTACK SLOW RANGED:
-    -10<br>MAIM DURATION: 5.0'
-  description: 'Passive: Lesser Maim - Each attack has a chance to slow the enemy''s
-    movement and attack speed for 5.0 seconds.'
+- attributes: + 10 Damage<br>+ 16 Strength
+  description: '<h1>Passive: Lesser Maim</h1>Each attack has a 30% chance to reduce
+    enemy hero movement speed by -20% and attack speed by -20 when used by a melee
+    hero. Reduces enemy hero movement by -10% and attack speed by -10 when used by
+    a ranged hero. Effect lasts 5.0 seconds.'
   displayname: Sange
   id: sange
   itemcost: '1950'
   lore: Sange is an unusually accurate weapon, seeking weak points automatically.
-- attributes: '+ 16 Damage<br>+ 16 Strength<br>+ 16 Agility<br>+ 16 Attack Speed<br>+
-    16% Movement Speed<br>MAIM CHANCE: 40%<br>MOVEMENT SLOW MELEE: -26%<br>ATTACK
-    SLOW MELEE: -26<br>MOVEMENT SLOW RANGED: -13%<br>ATTACK SLOW RANGED: -13<br>MAIM
-    DURATION: 5.0'
-  description: 'Passive: Greater Maim - Each attack has a chance to slow the enemy''s
-    movement and attack speed for 5.0 seconds.<br><br>Yasha-based movement speed bonuses
-    from multiple items do not stack.'
+- attributes: + 16 Damage<br>+ 16 Strength<br>+ 16 Agility<br>+ 16 Attack Speed<br>+
+    16% Movement Speed
+  description: '<h1>Passive: Greater Maim</h1>Each attack has a 40% chance to reduce
+    enemy hero movement speed by -26% and attack speed by -26 when used by a melee
+    hero. Reduces enemy hero movement by -13% and attack speed by -13 when used by
+    a ranged hero. Effect lasts 5.0 seconds.'
   displayname: Sange and Yasha
   id: sange_and_yasha
   itemcost: '3900'
   lore: Sange and Yasha, when attuned by the moonlight and used together, become a
     very powerful combination.
-- attributes: '+ 25 Strength<br>+ 50 Damage<br>LIFESTEAL: 25%<br>UNHOLY RAGE LIFESTEAL:
-    200%<br>UNHOLY RAGE DURATION: 4.5'
+- attributes: + 25 Strength<br>+ 50 Damage
   cd: '35'
-  description: 'Active: Unholy Rage - Increases Lifesteal percentage to 200% for 4.5
-    seconds.<br>Passive: Lifesteal - Heals the attacker for a percentage of attack
-    damage dealt.<br><br>Satanic is a Unique Attack Modifier, and does not stack with
-    other Unique Attack Modifiers.'
+  description: '<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to 200%
+    for 4.5 seconds. <br><h1>Passive: Lifesteal</h1>Heals the attacker for 25% of
+    attack damage dealt. <br><br>Satanic is a Unique Attack Modifier, and does not
+    stack with other Unique Attack Modifiers.'
   displayname: Satanic
   id: satanic
   itemcost: '5700'
   lore: Immense power at the cost of your soul.
-- attributes: '+ 10 Strength<br>+ 10 Agility<br>+ 35 Intelligence<br>+ 150% Mana Regeneration<br>HEX
-    DURATION: 3.5'
+- attributes: + 10 Strength<br>+ 10 Agility<br>+ 35 Intelligence<br>+ 150% Mana Regeneration
   cd: '22'
-  description: 'Active: Hex - Turns a target unit into a harmless critter for 3.5
-    seconds. Instantly destroys illusions.'
+  description: '<h1>Active: Hex</h1>Turns a target unit into a harmless critter for
+    3.5 seconds. The target has a base movement speed of 140 and will be silenced,
+    muted, and disarmed.<br>Instantly destroys illusions.<br><br>Range: 800'
   displayname: Scythe of Vyse
   id: sheepstick
   itemcost: '5700'
   lore: The most guarded relic among the cult of Vyse, it is the most coveted weapon
     among magi.
   mana: '100'
-- attributes: 'TRUE SIGHT RANGE: 850<br>DURATION (MINUTES): 4'
-  cd: '1'
-  description: 'Use: Plants a Sentry Ward, an invisible watcher that grants True Sight,
-    the ability to see invisible enemy units and wards, to any existing allied vision
-    within its range. Lasts 4 minutes.<br><br>Hold Control to give one Sentry Ward
-    to an allied hero.'
+- cd: '1'
+  description: '<h1>Use: Plant</h1> Plants a Sentry Ward, an invisible watcher that
+    grants True Sight, the ability to see invisible enemy units and wards, to any
+    existing allied vision within a 850 radius.<br>Duration: 4 minutes.<br><br>Does
+    not grant ground vision.<br>Hold Control to give one Sentry Ward to an allied
+    hero.<br><br>Range: 500'
   displayname: Sentry Ward
   id: ward_sentry
   itemcost: '100'
   lore: A form of plant originally grown in the garden of a fearful king.
-- attributes: '+ 20 Attack Speed<br>FADE TIME: 1.25'
+- attributes: + 20 Attack Speed
   cd: '7'
-  description: 'Active: Fade - Grants invisibility to you or a target allied hero
-    after a 1.25 second fade time. Moving breaks the invisibility. There is no cooldown
-    when using this item on yourself.'
+  description: '<h1>Active: Fade</h1>Grants invisibility to you or a target allied
+    hero as long as target unit remains still.  <br><br>Has a 1.25 second fade time,
+    and breaks instantly upon moving. <br><br>There is no cooldown when using this
+    item on yourself.'
   displayname: Shadow Amulet
   id: shadow_amulet
   itemcost: '1300'
   lore: A small talisman that clouds the senses of one's enemies when held perfectly
     still.
-- attributes: '+ 22 Damage<br>+ 30 Attack Speed<br>SHADOW WALK DURATION: 14.0<br>SHADOW
-    WALK DAMAGE: 175'
+- attributes: + 22 Damage<br>+ 30 Attack Speed
   cd: '28'
-  description: 'Active: Shadow Walk - Makes you invisible until the duration ends,
+  description: '<h1>Active: Shadow Walk</h1>Makes you invisible for 14.0 seconds,
     or until you attack or cast a spell.  While Shadow Walk is active, you move 20%
-    faster and can move through units.  If attacking to end the invisibility, you
-    gain 175 bonus damage on that attack.  Lasts 14.0 seconds.'
+    faster and can move through units.  <br><br>If attacking to end the invisibility,
+    you gain 175 bonus damage on that attack.'
   displayname: Shadow Blade
   id: invis_sword
   itemcost: '2700'
   lore: The blade of a fallen king, it allows you to move unseen and strike from the
     shadows.
   mana: '75'
-- attributes: '+ 30 Intelligence<br>+ 15 Armor<br>AURA ATTACK SLOW: -45<br>BLAST DAMAGE:
-    200<br>BLAST MOVEMENT SLOW: -40%<br>BLAST SLOW DURATION: 4.0<br>BLAST RADIUS:
-    900'
+- attributes: + 30 Intelligence<br>+ 15 Armor
   cd: '30'
-  description: 'Active: Arctic Blast - Emits a freezing wave that deals 200 magical
-    damage to enemies and slows their movement by -40% for 4.0 seconds.<br>Passive:
-    Freezing Aura - Reduces the attack speed of all enemies in a 900 radius.<br><br>Multiple
-    instances of Freezing Aura do not stack.'
+  description: '<h1>Active: Arctic Blast</h1> Emits a freezing wave that deals 200
+    magical damage to enemies and slows their movement by -40% for 4.0 seconds.<br><br>Radius:
+    900<br><h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies
+    by -45. <br><br>Radius: 900'
   displayname: Shiva's Guard
   id: shivas_guard
   itemcost: '4750'
   lore: Said to have belonged to a goddess, today it retains much of its former power.
   mana: '100'
-- attributes: '+ 30 Damage<br>+ 30 Attack Speed<br>+ 15 All Attributes<br>SHADOW WALK
-    DURATION: 14.0<br>BONUS ATTACK DAMAGE: 175<br>ENEMY DAMAGE REDUCTION: -50%<br>REDUCTION
-    DURATION: 5.0'
+- attributes: + 30 Damage<br>+ 30 Attack Speed<br>+ 15 All Attributes
   cd: '24'
-  description: 'Active: Shadow Walk - Makes you invisible until the duration ends,
+  description: '<h1>Active: Shadow Walk</h1>Makes you invisible for 14.0 seconds,
     or until you attack or cast a spell.  While invisible, you move 20% faster and
-    can move through units.  Attacking to end the invisibility will deal 175 bonus
-    damage to the target, disable their passive abilities, and reduce their damage
-    output.'
+    can move through units.  <br><br>Attacking to end the invisibility will deal 175
+    bonus damage to the target, and for 5.0 seconds, disable their passive abilities,
+    and reduce their damage output by -50%.'
   displayname: Silver Edge
   id: silver_edge
   itemcost: '5550'
   lore: Once used to slay an unjust king, only to have the kingdom erupt into civil
     war in the aftermath.
   mana: '75'
-- attributes: '+ 10 Damage<br>+ 10 Strength<br>BASH MELEE CHANCE: 25%<br>BASH RANGED
-    CHANCE: 10%<br>BASH STUN DURATION: 1.4<br>BASH BONUS DAMAGE: 85'
+- attributes: + 10 Damage<br>+ 10 Strength
   cd: '2.3'
-  description: 'Passive: Bash - Grants each attack a chance to stun the target for
-    1.4 seconds and deal 85 bonus damage, based on whether the equipped hero is ranged
-    or melee.'
+  description: '<h1>Passive: Bash</h1> Grants melee heroes a 25% chance on hit to
+    stun the target for 1.4 seconds and deal 85 bonus damage.  Bash chance for ranged
+    heroes is 10%.'
   displayname: Skull Basher
   id: basher
   itemcost: '2700'
@@ -1119,23 +1073,23 @@
   id: slippers
   itemcost: '150'
   lore: Light boots made from spider skin that tingles your senses.
-- attributes: 'BONUS SPEED: 15%<br>DURATION: 35.0'
-  cd: '1'
-  description: 'Use: Upon activation, the user and all nearby allied player-controlled
-    units gain invisibility and bonus movement speed for a brief time.  Minimap icons
-    will also be hidden.  Attacking, or moving within 1025 range of an enemy hero
-    or tower, will break the invisibility.'
+- cd: '1'
+  description: '<h1>Use: Disguise</h1> The user and all nearby allied player-controlled
+    units in a 1025 radius gain Deceit and 15% bonus movement speed for 35.0 seconds.
+    <br><br>Attacking, or moving within 1025 range of an enemy hero or tower, will
+    break the invisibility. <br><br>Disguise grants invisibility that is immune to
+    True Sight.'
   displayname: Smoke of Deceit
   id: smoke_of_deceit
   itemcost: '50'
   lore: The charlatan wizard Myrddin's only true contribution to the arcane arts.
-- attributes: '+ 10 Armor<br>+ 75% Mana Regeneration<br>+ 20% Evasion<br>ACCURACY:
-    35%<br>SHINE DURATION: 7<br>SHINE CAST RANGE: 1000'
+- attributes: + 10 Armor<br>+ 75% Mana Regeneration<br>+ 20% Evasion
   cd: '7'
-  description: 'Active: Shine - Temporarily removes the armor and evasion from Solar
-    Crest. When cast on an ally it grants them 10 armor and 20% evasion. When cast
-    on an enemy, it removes 10 of their armor and grants your allies to have 35% Accuracy
-    on the target. Cannot target magic immune enemies.'
+  description: '<h1>Active: Shine</h1>When cast on an ally, grants them 10 armor and
+    20% evasion. When cast on an enemy, removes 10 of their armor and grants your
+    allies 35% Accuracy on the target. <br><br>Removes the armor and evasion from
+    the caster when used. <br><br> Cannot target magic immune enemies.<br><br>Range:
+    1000'
   displayname: Solar Crest
   id: solar_crest
   itemcost: '2625'
@@ -1145,11 +1099,11 @@
   id: soul_booster
   itemcost: '3200'
   lore: Regain lost courage.
-- attributes: '+ 3 HP Regeneration<br>+ 50% Mana Regeneration<br>SACRIFICE DURATION:
-    10'
+- attributes: + 3 HP Regeneration<br>+ 50% Mana Regeneration
   cd: '30'
-  description: 'Active: Sacrifice - Consume 150 health to temporarily gain 150 mana.  Lasts
-    10 seconds.'
+  description: '<h1>Active: Sacrifice</h1> Consume 150 health to temporarily gain
+    150 mana.  Lasts 10 seconds.<br><br>If the mana gained cannot fit in your mana
+    pool, it creates a buffer of mana that will be used before your mana pool.'
   displayname: Soul Ring
   id: soul_ring
   itemcost: '750'
@@ -1159,40 +1113,36 @@
   id: staff_of_wizardry
   itemcost: '1000'
   lore: A staff of magical powers passed down from the eldest mages.
-- attributes: 'MELEE DAMAGE BLOCK: 16<br>RANGED DAMAGE BLOCK: 8<br>BLOCK CHANCE: 50%'
-  description: 'Passive: Damage Block - Gives a chance to block damage based on whether
-    the equipped hero is melee or ranged.'
+- description: '<h1>Passive: Damage Block</h1>Gives a 50% chance to block 16 damage
+    on melee heroes, and 8 damage on ranged.'
   displayname: Stout Shield
   id: stout_shield
   itemcost: '200'
   lore: One man's wine barrel bottom is another man's shield.
 - attributes: + 20% Evasion
-  description: Stacks diminishingly with other sources of Evasion.
   displayname: Talisman of Evasion
   id: talisman_of_evasion
   itemcost: '1450'
   lore: A necklace that allows you to anticipate enemy attacks.
-- attributes: 'EAT TREE HEALTH RESTORED: 115<br>EAT WARD HEALTH RESTORED: 230<br>EAT
-    WARD CAST RANGE: 450<br>HEAL DURATION: 16.0'
-  description: 'Use: Eat a Tree or Ward - Consume a target tree or ward to gradually
-    restore health.<br><br>Comes with 4 charges.  Can be used on an allied hero to
-    give them one Tango.'
+- description: '<h1>Use: Devour</h1> Consume a target tree to restore 115 health over
+    16.0 seconds. Consuming a ward or Ironwood Tree doubles the heal amount.<br><br>Comes
+    with 4 charges.  Can be used on an allied hero to give them one Tango.<br><br>Range:
+    165<br>Ward Range: 450'
   displayname: Tango
   id: tango
   itemcost: '125'
   lore: Forage to survive on the battlefield.
-- attributes: 'XP BONUS BASE: 500<br>XP BONUS PER USE: 135<br>Tomes Used by Owner''s
-    Team: 0'
-  cd: '0'
-  description: 'Use: Grants you 500 experience plus 135 per tome consumed by your
-    team.'
+- cd: '0'
+  description: '<h1>Use: Enlighten</h1>Grants you 500 experience plus 135 per tome
+    consumed by your team.<br><br>Tomes Used By Team: 0'
   displayname: Tome of Knowledge
   id: tome_of_knowledge
   itemcost: '150'
   lore: That which raises beast to man and man to god.
 - cd: '80'
-  description: 'Use: Teleport - Teleports you to a target friendly building. Double-click
-    to teleport to your team''s base fountain.'
+  description: '<h1>Use: Teleport</h1>After channeling for 3.0 seconds, teleports
+    you to a target friendly building. <br><br>Double-click to teleport to your team''s
+    base fountain.'
   displayname: Town Portal Scroll
   id: tpscroll
   itemcost: '50'
@@ -1200,8 +1150,10 @@
   mana: '75'
 - attributes: + 90 Movement Speed<br>+ 14 HP Regeneration
   cd: '13'
-  description: 'Passive: Break - Whenever you attack or are attacked, the health regeneration
-    and 25 Movement Speed are lost for 13 seconds.'
+  description: '<h1>Passive: Break</h1> Whenever you attack or are attacked, the bonus
+    %bonus_health_health% HP regen is lost and the movement speed bonus is reduced
+    to 65 for 13 seconds.<br><br>Flat movement speed bonuses from multiple pairs of
+    boots do not stack.'
   displayname: Tranquil Boots
   id: tranquil_boots
   itemcost: '975'
@@ -1212,33 +1164,29 @@
   id: ultimate_orb
   itemcost: '2150'
   lore: A mystical orb containing the essence of life.
-- attributes: 'MANA REGEN: 1.0<br>+ 2 All Attributes<br>+ 2.0 Armor<br>RELEASE ALLY
-    TOTAL HEAL: 400<br>RELEASE ENEMY TOTAL DAMAGE: 150<br>SOUL RELEASE DURATION: 8.0<br>SOUL
-    RELEASE CAST RANGE: 950'
+- attributes: + 1.0 Mana Regeneration<br>+ 2 All Attributes<br>+ 2.0 Armor
   cd: '7'
-  description: 'Active: Soul Release - Heals health over time to friendly units, but
-    deals pure damage over time to enemy units.  The healing effect is lost if the
-    affected ally takes damage from an enemy hero or tower.<br>Gains charges every
-    time an enemy hero dies within 1400 units.  Only the closest Urn to the dying
-    hero will gain a charge.'
+  description: '<h1>Active: Soul Release</h1> Heals 400 health over 8.0 seconds when
+    cast on allies, and deals 150 pure damage over 8.0 seconds when cast on enemies.  <br><br>The
+    healing effect is lost if the affected ally takes damage from an enemy hero or
+    tower. <br><br>Gains charges every time an enemy hero dies within 1400 units.  Only
+    the closest Urn to the dying hero will gain a charge.<br><br>Range: 950'
   displayname: Urn of Shadows
   id: urn_of_shadows
   itemcost: '875'
   lore: Contains the ashes of powerful demons.
-- attributes: '+ 250 Health<br>+ 8 HP Regeneration<br>BLOCK DAMAGE MELEE: 70<br>BLOCK
-    DAMAGE RANGED: 35<br>BLOCK CHANCE: 50'
-  description: 'Passive: Damage Block - Grants the wielder a 50% chance to block damage
-    from incoming attacks based on whether the equipped hero is melee or ranged.'
+- attributes: + 250 Health<br>+ 8 HP Regeneration
+  description: '<h1>Passive: Damage Block</h1> Grants a 50% chance to block 70 damage
+    from incoming attacks on melee heroes, and 35 damage on ranged.'
   displayname: Vanguard
   id: vanguard
   itemcost: '2150'
   lore: A powerful shield that defends its wielder from even the most vicious of attacks.
-- attributes: '+ 6 HP Regeneration<br>+ 6 Armor<br>+ 6 Agility<br>+ 6 Strength<br>+
-    6 Damage<br>+ 12 Intelligence<br>INCREASED MAGIC DAMAGE: -25%<br>MAGIC WEAKNESS
-    RADIUS: 600<br>MAGIC WEAKNESS DURATION: 16.0'
+- attributes: + 6 HP Regeneration<br>+ 6 Armor<br>+ 6 Agility<br>+ 6 Strength<br>+
+    6 Damage<br>+ 12 Intelligence
   cd: '20'
-  description: 'Active: Magic Weakness - Emits a weakening blast that increases the
-    magic damage enemies take. Lasts 16.0 seconds.'
+  description: '<h1>Active: Magic Weakness</h1> Cast a 600 radius blast that decreases
+    enemy magic resistance by -25%.<br><br>Range: 1000<br>Duration: 16.0 seconds.'
   displayname: Veil of Discord
   id: veil_of_discord
   itemcost: '2340'
@@ -1249,13 +1197,10 @@
   id: vitality_booster
   itemcost: '1100'
   lore: A ruby gemstone that has been passed down through generations of warrior kin.
-- attributes: '+ 2 All Attributes<br>AURA HEALTH REGEN: 3<br>AURA MANA REGEN: 0.8<br>AURA
-    BONUS ARMOR: 4<br>AURA BONUS ATTACK DAMAGE: 15%<br>AURA MELEE LIFESTEAL: 15%<br>AURA
-    RANGED LIFESTEAL: 10%<br>AURA RADIUS: 900'
-  description: 'Passive: Vladmir''s Aura - Grants lifesteal, health regeneration,
-    mana regeneration, bonus attack damage, and armor to allies in a 900 radius.  The
-    lifesteal percentage is based on whether the hero affected by the aura is melee
-    or ranged.<br><br>Multiple instances of Vladmir''s Aura do not stack.'
+- attributes: + 2 All Attributes
+  description: '<h1>Passive: Vladmir''s Aura</h1>Grants lifesteal (15% for melee heroes,
+    10% for ranged), 3 health regeneration, 0.8 mana regeneration, 15% bonus attack
+    damage, and 4 armor to nearby allies. <br><br>Radius: 900'
   displayname: Vladmir's Offering
   id: vladmir
   itemcost: '2275'
@@ -1267,7 +1212,7 @@
   lore: Jewelry that was once used to channel nether realm magic, this ring pulses
     with energy.
 - attributes: + 20 Movement Speed
-  description: 'Passive: Gives increased movement speed.'
+  description: Bonuses from multiple Wind Laces do not stack.
   displayname: Wind Lace
   id: wind_lace
   itemcost: '250'
@@ -1278,7 +1223,6 @@
   itemcost: '485'
   lore: A circlet with faint whispers echoing about it.
 - attributes: + 16 Agility<br>+ 10 Attack Speed<br>+ 8% Movement Speed
-  description: Yasha-based movement speed bonuses from multiple items do not stack.
   displayname: Yasha
   id: yasha
   itemcost: '1950'

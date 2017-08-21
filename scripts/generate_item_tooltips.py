@@ -28,6 +28,7 @@ def main():
         '$move_speed': 'Movement Speed',
         '$evasion': 'Evasion',
         '$spell_resist': 'Spell Resistance',
+        '$spell_amp': 'Spell Amplification',
         '$selected_attribute': 'Selected Attribute',
         '$selected_attrib': 'Selected Attribute',
         '$cast_range': 'Cast Range',

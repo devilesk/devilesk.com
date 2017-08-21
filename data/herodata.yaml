@@ -1156,7 +1156,7 @@ npc_dota_hero_ancient_apparition:
     damage: [250, 350, 450]
     displayname: Ice Blast
     level: 0
-    manacost: [100, 125, 150]
+    manacost: [150]
     name: ancient_apparition_ice_blast
   - AbilityCastPoint: [0, 0, 0]
     AbilityCastRange: 0
@@ -2332,7 +2332,7 @@ npc_dota_hero_bane:
     level: 0
     manacost: [70, 100, 130, 160]
     name: bane_brain_sap
-  - AbilityCastPoint: [0.5, 0.5, 0.5, 0.5]
+  - AbilityCastPoint: 0.4
     AbilityCastRange: [500, 550, 600, 650]
     AbilityCastRangeBuffer: 250
     AbilityChannelTime: [0, 0, 0, 0]
@@ -2420,9 +2420,9 @@ npc_dota_hero_bane:
   attackrate: 1.7
   attacktype: DOTA_UNIT_CAP_RANGED_ATTACK
   attributeagilitygain: 2.4
-  attributebaseagility: 22
-  attributebaseintelligence: 22
-  attributebasestrength: 22
+  attributebaseagility: 23
+  attributebaseintelligence: 23
+  attributebasestrength: 23
   attributeintelligencegain: 2.4
   attributeprimary: DOTA_ATTRIBUTE_INTELLECT
   attributestrengthgain: 2.4
@@ -2708,7 +2708,7 @@ npc_dota_hero_batrider:
     damage: [0, 0, 0, 0]
     displayname: Firefly
     level: 0
-    manacost: [100, 100, 100, 100]
+    manacost: [125]
     name: batrider_firefly
   - AbilityCastPoint: [0.2, 0.2, 0.2, 0.2]
     AbilityCastRange: 100
@@ -3424,7 +3424,7 @@ npc_dota_hero_bloodseeker:
     damage: [0, 0, 0, 0]
     displayname: Rupture
     level: 0
-    manacost: [150, 200, 250]
+    manacost: [200, 225, 250]
     name: bloodseeker_rupture
   abilitylayout: 4
   armorphysical: 0
@@ -4167,7 +4167,7 @@ npc_dota_hero_brewmaster:
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +2s Thunderlap Slow
+      displayname: +2s Thunder Clap Slow
       level: 0
       manacost: [0, 0, 0, 0]
       name: special_bonus_unique_brewmaster_3
@@ -5615,7 +5615,7 @@ npc_dota_hero_chen:
     attributes:
     - name: heal_amount
       tooltip: 'HEAL:'
-      value: [225, 350, 475]
+      value: [250, 375, 500]
     - name: ancient_creeps_scepter
       tooltip: 'SCEPTER HOLY PERSUASION ANCIENTS:'
       value: [1, 2, 3]
@@ -9086,7 +9086,7 @@ npc_dota_hero_earthshaker:
       tooltip: 'STUN DURATION:'
       value: [1, 1.25, 1.5, 1.75]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT, DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING]
-    cooldown: [15, 15, 15, 15]
+    cooldown: [18, 17, 16, 15]
     damage: [110, 160, 210, 260]
     displayname: Fissure
     level: 0
@@ -9120,7 +9120,7 @@ npc_dota_hero_earthshaker:
     damage: [0, 0, 0, 0]
     displayname: Enchant Totem
     level: 0
-    manacost: [20, 30, 40, 50]
+    manacost: [35, 40, 45, 50]
     name: earthshaker_enchant_totem
   - AbilityCastPoint: [0, 0, 0, 0]
     AbilityCastRange: 0
@@ -11029,7 +11029,7 @@ npc_dota_hero_furion:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
     - name: vision_range
-      value: [750]
+      value: [500]
     - name: duration
       tooltip: 'DURATION:'
       value: [3, 4, 5, 6]
@@ -11157,7 +11157,7 @@ npc_dota_hero_furion:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 295
+  movementspeed: 290
   movementturnrate: 0.6
   name: npc_dota_hero_furion
   projectilespeed: 1125
@@ -14778,10 +14778,10 @@ npc_dota_hero_lich:
       value: [2, 2, 2, 2]
     - name: slow_movement_speed
       tooltip: '%ENEMY MOVE SLOW:'
-      value: [-30, -30, -30, -30]
+      value: [-24, -26, -28, -30]
     - name: slow_attack_speed
       tooltip: 'ENEMY ATTACK SLOW:'
-      value: [-30]
+      value: [-24, -26, -28, -30]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET, DOTA_ABILITY_BEHAVIOR_AUTOCAST,
       DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK]
     cooldown: [5, 5, 5, 5]
@@ -15749,7 +15749,7 @@ npc_dota_hero_lion:
       value: [125, 125, 125, 125]
     - name: duration
       tooltip: 'STUN DURATION:'
-      value: [1.1, 1.6, 2.1, 2.6]
+      value: [1.4, 1.8, 2.2, 2.6]
     - name: length_buffer
       value: [325]
     - name: speed
@@ -15932,7 +15932,7 @@ npc_dota_hero_lion:
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: '+80 Earth Spike Damage '
+      displayname: +80 Earth Spike Damage
       level: 0
       manacost: [0, 0, 0, 0]
       name: special_bonus_unique_lion_2
@@ -15981,18 +15981,18 @@ npc_dota_hero_lion:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5949
+      ID: 6600
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [8]
+        value: [300]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +8% Spell Amplification
+      displayname: +300 Finger of Death Damage
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_spell_amplify_8
+      name: special_bonus_unique_lion_3
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -18360,7 +18360,7 @@ npc_dota_hero_monkey_king:
       value: [500]
     - name: impact_damage_tooltip
       tooltip: 'PRIMAL SPRING DAMAGE:'
-      value: [100, 180, 260, 340]
+      value: [140, 210, 280, 350]
     - name: impact_movement_slow_tooltip
       tooltip: '%PRIMAL SPRING SLOW:'
       value: [20, 40, 60, 80]
@@ -19539,7 +19539,7 @@ npc_dota_hero_necrolyte:
       value: [750]
     - name: bonus_damage
       tooltip: '%INCREASED MAGIC DAMAGE:'
-      value: [-20]
+      value: [-25]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
     cooldown: [28, 24, 20, 16]
     damage: [0, 0, 0, 0]
@@ -19596,7 +19596,7 @@ npc_dota_hero_necrolyte:
       tooltip: 'ADDED RESPAWN TIME:'
       value: [10, 20, 30]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [90, 80, 70]
+    cooldown: [100]
     damage: [0, 0, 0, 0]
     displayname: Reaper's Scythe
     level: 0
@@ -20263,7 +20263,7 @@ npc_dota_hero_night_stalker:
     attributes:
     - name: duration
       tooltip: 'DURATION:'
-      value: [50.0]
+      value: [40.0]
     - name: blind_percentage
       value: [-25, -30, -35]
     - name: fixed_vision
@@ -20543,7 +20543,7 @@ npc_dota_hero_nyx_assassin:
       value: [0]
     - name: burrow_aoe
       value: [300]
-    - name: damage_reflect_pct_tooltip
+    - name: damage_reflect_pct
       tooltip: '%DAMAGE REFLECTED:'
       value: [100]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
@@ -20647,8 +20647,8 @@ npc_dota_hero_nyx_assassin:
     name: nyx_assassin_vendetta
   abilitylayout: 4
   armorphysical: 1
-  attackdamagemax: 34
-  attackdamagemin: 30
+  attackdamagemax: 31
+  attackdamagemin: 27
   attackpoint: 0.46
   attackrange: 150
   attackrate: 1.7
@@ -20822,7 +20822,7 @@ npc_dota_hero_nyx_assassin:
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: 200% Spiked Carapace Damage
+      displayname: +100% Spiked Carapace Damage
       level: 0
       manacost: [0, 0, 0, 0]
       name: special_bonus_unique_nyx
@@ -23231,7 +23231,7 @@ npc_dota_hero_puck:
     - name: orb_speed
       value: [651]
     - name: orb_vision
-      value: [550]
+      value: [450]
     - name: vision_duration
       value: [3.34, 3.34, 3.34, 3.34]
     behavior: [DOTA_ABILITY_BEHAVIOR_POINT]
@@ -23282,7 +23282,7 @@ npc_dota_hero_puck:
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT,
       DOTA_ABILITY_BEHAVIOR_CHANNELLED, DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK,
       DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES]
-    cooldown: [6, 6, 6, 6]
+    cooldown: [6]
     damage: [0, 0, 0, 0]
     displayname: Phase Shift
     level: 0
@@ -26396,18 +26396,18 @@ npc_dota_hero_shadow_demon:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5947
+      ID: 6003
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [75]
+        value: [100]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +75 Cast Range
+      displayname: +100 Cast Range
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_cast_range_75
+      name: special_bonus_cast_range_100
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -26415,18 +26415,18 @@ npc_dota_hero_shadow_demon:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5949
+      ID: 5989
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [8]
+        value: [10]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +8% Spell Amplification
+      displayname: +10% Spell Amplification
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_spell_amplify_8
+      name: special_bonus_spell_amplify_10
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -27642,7 +27642,7 @@ npc_dota_hero_skeleton_king:
       tooltip: 'SCEPTER DEATH DELAY RADIUS:'
       value: [1200]
     behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
-    cooldown: [240, 140, 40]
+    cooldown: [200, 120, 40]
     damage: [0, 0, 0, 0]
     displayname: Reincarnation
     level: 0
@@ -27722,18 +27722,18 @@ npc_dota_hero_skeleton_king:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5917
+      ID: 6141
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [15]
+        value: [30]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +15 Movement Speed
+      displayname: +30 Movement Speed
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_movement_speed_15
+      name: special_bonus_movement_speed_30
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -27968,7 +27968,7 @@ npc_dota_hero_skywrath_mage:
     damage: [0, 0, 0, 0]
     displayname: Mystic Flare
     level: 0
-    manacost: [350, 575, 800]
+    manacost: [300, 550, 800]
     name: skywrath_mage_mystic_flare
   abilitylayout: 4
   armorphysical: -2
@@ -28044,18 +28044,18 @@ npc_dota_hero_skywrath_mage:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 6564
+      ID: 6550
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [10]
+        value: [15]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: 10% Spell Lifesteal
+      displayname: 15% Spell Lifesteal
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_spell_lifesteal_10
+      name: special_bonus_spell_lifesteal_15
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -29218,10 +29218,10 @@ npc_dota_hero_spectre:
       tooltip: 'HAUNT DURATION:'
       value: [5, 6, 7]
     - name: illusion_damage_outgoing
-      value: [-70]
+      value: [-60]
     - name: tooltip_outgoing
       tooltip: '%HAUNT DAMAGE:'
-      value: [30]
+      value: [40]
     - name: illusion_damage_incoming
       value: [100, 100, 100]
     - name: tooltip_illusion_total_damage_incoming
@@ -29581,7 +29581,7 @@ npc_dota_hero_spirit_breaker:
   items: []
   level: 0
   magicalresistance: 25
-  movementspeed: 290
+  movementspeed: 285
   movementturnrate: 0.4
   name: npc_dota_hero_spirit_breaker
   projectilespeed: 900
@@ -30090,7 +30090,7 @@ npc_dota_hero_sven:
       value: [1000]
     - name: bolt_stun_duration
       tooltip: 'DURATION:'
-      value: [2.0]
+      value: [1.7, 1.8, 1.9, 2]
     - name: bolt_aoe
       tooltip: 'RADIUS:'
       value: [255]
@@ -30153,7 +30153,7 @@ npc_dota_hero_sven:
       tooltip: 'DURATION:'
       value: [8]
     behavior: [DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE]
-    cooldown: [34, 28, 22, 16]
+    cooldown: [35, 30, 25, 20]
     damage: [0, 0, 0, 0]
     displayname: Warcry
     level: 0
@@ -32105,7 +32105,7 @@ npc_dota_hero_tiny:
     damage: [0, 0, 0, 0]
     displayname: Toss
     level: 0
-    manacost: [120, 120, 120, 120]
+    manacost: [90, 100, 110, 120]
     name: tiny_toss
   - AbilityCastPoint: [0, 0, 0, 0]
     AbilityCastRange: 0
@@ -32163,7 +32163,7 @@ npc_dota_hero_tiny:
       value: [35, 50, 65]
     - name: bonus_range_scepter
       tooltip: 'SCEPTER BONUS RANGE:'
-      value: [85]
+      value: [150]
     - name: cleave_starting_width
       value: [150]
     - name: cleave_ending_width
@@ -33533,10 +33533,10 @@ npc_dota_hero_undying:
     abilitytype: DOTA_ABILITY_TYPE_BASIC
     attributes:
     - name: tombstone_health
-      value: [6, 8, 10, 14]
+      value: [8, 10, 12, 16]
     - name: hits_to_destroy_tooltip
       tooltip: 'ATTACKS TO DESTROY:'
-      value: [3, 4, 5, 7]
+      value: [4, 5, 6, 8]
     - name: duration
       tooltip: 'TOMBSTONE DURATION:'
       value: [15, 20, 25, 30]
@@ -36019,7 +36019,7 @@ npc_dota_hero_windrunner:
       value: [0.75, 0.75, 0.75, 0.75]
     - name: stun_duration
       tooltip: 'SHACKLE DURATION:'
-      value: [1.5, 2.25, 3, 3.75]
+      value: [2, 2.6, 3.2, 3.8]
     - name: shackle_distance
       value: [575]
     - name: arrow_speed
@@ -36029,7 +36029,7 @@ npc_dota_hero_windrunner:
     - name: shackle_angle
       value: [23.0]
     behavior: [DOTA_ABILITY_BEHAVIOR_UNIT_TARGET]
-    cooldown: [12, 12, 12, 12]
+    cooldown: [18, 16, 14, 12]
     damage: [0, 0, 0, 0]
     displayname: Shackleshot
     level: 0
@@ -36543,18 +36543,18 @@ npc_dota_hero_winter_wyvern:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5918
+      ID: 6077
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [20]
+        value: [35]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +20 Movement Speed
+      displayname: +35 Movement Speed
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_movement_speed_20
+      name: special_bonus_movement_speed_35
     - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
@@ -36562,18 +36562,18 @@ npc_dota_hero_winter_wyvern:
       AbilityDuration: [0, 0, 0, 0]
       AbilityModifierSupportBonus: 0
       AbilityModifierSupportValue: 1
-      ID: 5941
+      ID: 5942
       abilitytype: DOTA_ABILITY_TYPE_ATTRIBUTES
       attributes:
       - name: value
-        value: [50]
+        value: [75]
       behavior: [DOTA_ABILITY_BEHAVIOR_PASSIVE]
       cooldown: [0, 0, 0, 0]
       damage: [0, 0, 0, 0]
-      displayname: +50 Damage
+      displayname: +75 Damage
       level: 0
       manacost: [0, 0, 0, 0]
-      name: special_bonus_attack_damage_50
+      name: special_bonus_attack_damage_75
   - - AbilityCastPoint: [0, 0, 0, 0]
       AbilityCastRange: 0
       AbilityCastRangeBuffer: 250
