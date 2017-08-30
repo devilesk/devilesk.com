@@ -1,5 +1,5 @@
 ---
-extends: base.j2
+extends: root.j2
 title: Dota 2 Flashcards
 description: Dota 2 Flashcards. Train your heroes, items, and abilities knowledge using flashcards.
 active_menu: page-webapps
@@ -8,7 +8,8 @@ header: Hero Flashcards
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="app-35b63a8.min.css" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="app-127aa28.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -171,6 +172,9 @@ header: Hero Flashcards
         </div>
     </div>
     
+    {% block analytics %}
+        {{ super() }}
+    {% endblock analytics %}
     {% block js %}
         {{ super() }}
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
@@ -182,7 +186,7 @@ $.when(
     $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-35b63a8.min.js"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-127aa28.min.js"})
 ).done(function () { DotaFlashCardsApp(); });
 </script>
     {% endblock js %}
