@@ -1,0 +1,29 @@
+---
+extends: base.j2
+title: Dota 2 Custom Games
+description: Dota 2 custom games created by devilesk.
+active_menu: page-community
+header: Custom Games
+---
+                
+{% block main %}
+<div class="row">
+    {% for column in customgames -%}
+    <div class="col-md-6">
+        {% for item in column -%}
+        <div class="media">
+            <a href="{{ item.url }}">
+                <div class="media-left">
+                    <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ item.name }}</h4>
+                    {{ item.description }}
+                </div>
+            </a>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</div>
+{%- endblock %}

@@ -101,6 +101,25 @@ page_script: mosaics/index
         
         <div class="col-md-6">
             <div class="well page-block">
+                <h3 class="page-block-header">Custom Games<a href="/dota2/customgames" class="btn btn-default btn-xs glyphicon glyphicon-menu-right pull-right"></a></h3>
+                {% for column in customgames -%}
+                {% for item in column -%}
+                <div class="media">
+                    <a href="{{ item.url }}">
+                        <div class="media-left">
+                            <img class="media-object" src="{{ item.image }}" alt="{{ item.name }}">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ item.name }}</h4>
+                            {{ item.description }}
+                        </div>
+                    </a>
+                </div>
+                {%- endfor %}
+                {%- endfor %}
+            </div>
+            
+            <div class="well page-block">
                 <h3 class="page-block-header">Resources</h3>
                 <div class="row">
                     <ul class="col-md-6 list-unstyled">

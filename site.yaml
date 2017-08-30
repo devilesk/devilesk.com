@@ -23,6 +23,7 @@ context:
         patches: yaml/patches.yaml
         apps: yaml/apps.yaml
         maps: yaml/maps.yaml
+        customgames: yaml/customgames.yaml
 deploy_root: build
 media_root: media
 media_url: /media
@@ -40,7 +41,6 @@ plugins:
 - hyde.ext.plugins.meta.TaggerPlugin
 - hyde.ext.plugins.text.SyntextPlugin
 - hyde.ext.plugins.text.TextlinksPlugin
-- hyde.ext.plugins.js.UglifyPlugin
 - plugins.hero_functions.HeroFunctionsPlugin
 - plugins.asset_rev.AssetRevPlugin
 sorter:
