@@ -30,13 +30,13 @@ blog/tags/update.html: [macros/render_nav.j2, tagged_posts.j2, includes/analytic
   includes/footer.j2, root.j2, base.j2, macros/breadcrumb.j2, macros/render_heroes.j2]
 dota-drawable-map/index.html: [root.j2, includes/footer.j2, macros/render_nav.j2,
   includes/analytics.j2]
-dota-flashcards/index.html: [macros/render_heroes.j2, macros/breadcrumb.j2, includes/footer.j2,
-  macros/render_nav.j2, base.j2, root.j2, includes/analytics.j2]
+dota-flashcards/index.html: [includes/footer.j2, macros/render_heroes.j2, includes/analytics.j2,
+  base.j2, root.j2, macros/render_nav.j2, macros/breadcrumb.j2]
 dota-hero-calculator-table/index.html: [macros/breadcrumb.j2, root.j2, includes/analytics.j2,
   macros/render_heroes.j2, base.j2, includes/footer.j2, macros/render_nav.j2]
-dota-hero-calculator/index.html: [includes/analytics.j2, macros/render_heroes.j2,
-  macros/render_nav.j2, base.j2, includes/footer.j2, macros/breadcrumb.j2, root.j2]
-dota-interactive-map/index.html: [root.j2, includes/footer.j2, includes/analytics.j2,
+dota-hero-calculator/index.html: [includes/footer.j2, macros/breadcrumb.j2, includes/analytics.j2,
+  macros/render_heroes.j2, root.j2, macros/render_nav.j2, base.j2]
+dota-interactive-map/index.html: [includes/footer.j2, includes/analytics.j2, root.j2,
   macros/render_nav.j2]
 dota2/all-hero-challenge-list.html: [macros/render_nav.j2, includes/analytics.j2,
   includes/footer.j2, root.j2, base.j2, macros/breadcrumb.j2, macros/render_heroes.j2]
