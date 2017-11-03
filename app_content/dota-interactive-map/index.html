@@ -8,7 +8,7 @@ header: Interactive Map
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="app-ceb9cab.min.css" type="text/css">
+<link rel="stylesheet" href="app-c4bc70e.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -92,6 +92,7 @@ header: Interactive Map
                 <div class="menu-item">
                     <label class="select-label" for="version-select">Version</label><!--
                      --><select id="version-select">
+                        <option value="707">7.07</option>
                         <option value="706">7.06</option>
                         <option value="700">7.00</option>
                         <option value="688">6.88</option>
@@ -169,7 +170,12 @@ header: Interactive Map
                         <label for="base-menu-toggle" class="root checkbox inverse">Base Layers</label>
                         <div id="base-menu" class="menu-item-group sub-menu"><!--
                          --><div class="menu-item">
-                                <input type="radio" name="base-type" value="706" id="base-706-option" checked />
+                                <input type="radio" name="base-type" value="707" id="base-707-option" checked />
+                                <label for="base-707-option" class="checkbox">7.07</label>
+                                <div id="base-707-menu" class="menu-item-group sub-menu"></div>
+                            </div><!--
+                         --><div class="menu-item">
+                                <input type="radio" name="base-type" value="706" id="base-706-option" />
                                 <label for="base-706-option" class="checkbox">7.06</label>
                                 <div id="base-706-menu" class="menu-item-group sub-menu"></div>
                             </div><!--
@@ -284,7 +290,7 @@ header: Interactive Map
     {% endblock analytics %}
     {% block js %}
         {{ super() }}
-        <script src="bundle-ceb9cab.min.js"></script>
-        <script>InteractiveMap("//devilesk.com/media/images/map2/", "img/map_data.png")</script>
+        <script src="bundle-c4bc70e.min.js"></script>
+        <script>InteractiveMap("//devilesk.com/media/images/map2/", "img/map_data_707.png")</script>
     {% endblock js %}
 {% endblock body %}
