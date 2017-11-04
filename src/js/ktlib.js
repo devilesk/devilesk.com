@@ -32,19 +32,19 @@ var KTLIB = (function () {
   attributes = attributeOptions.map(function (a) { return a.id; }),
   attributeModifiers = {
     armorphysical: function (level, bonusLevel) {
-      return this.armorphysical + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_AGILITY', level, bonusLevel) * 0.14;
+      return this.armorphysical + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_AGILITY', level, bonusLevel) * (1/6);
     },
     statushealth: function (level, bonusLevel) {
       return this.statushealth + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_STRENGTH', level, bonusLevel) * 20;
     },
     statusmana: function (level, bonusLevel) {
-      return this.statusmana + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 11;
+      return this.statusmana + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 12;
     },
     statushealthregen: function (level, bonusLevel) {
-      return this.statushealthregen + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_STRENGTH', level, bonusLevel) * 0.06;
+      return this.statushealthregen * (1 + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_STRENGTH', level, bonusLevel) * 0.007);
     },
     statusmanaregen: function (level, bonusLevel) {
-      return this.statusmanaregen + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 0.04;
+      return this.statusmanaregen * (1 + getAttributeAtLevel.call(this, 'DOTA_ATTRIBUTE_INTELLECT', level, bonusLevel) * 0.02);
     },
     attackdamagemax: function (level, bonusLevel) {
       return this.attackdamagemax + getAttributeAtLevel.call(this, this.attributeprimary, level, bonusLevel);
@@ -60,7 +60,7 @@ var KTLIB = (function () {
     ehp: function (level, bonusLevel) {
       var armor = attributeModifiers.armorphysical.apply(this, arguments);
       var health = attributeModifiers.statushealth.apply(this, arguments);
-      return health / (1 - 0.06*armor / (1 + (0.06 * armor)));
+      return health / (1 - 0.05*armor / (1 + (0.05 * armor)));
     },
     mehp: function (level, bonusLevel) {
       var health = attributeModifiers.statushealth.apply(this, arguments);
