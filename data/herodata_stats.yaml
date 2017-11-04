@@ -403,17 +403,17 @@ npc_dota_hero_clinkz:
     health: 500
     mana: 267
   16:
-    armor: 9.22
-    attackspersecond: 1.02
-    damagemax: 94
-    damagemin: 88
+    armor: 7.82
+    attackspersecond: 0.96
+    damagemax: 84
+    damagemin: 78
     health: 1100
     mana: 567
   25:
-    armor: 15.94
-    attackspersecond: 1.3
-    damagemax: 142
-    damagemin: 136
+    armor: 13.56
+    attackspersecond: 1.2
+    damagemax: 125
+    damagemin: 119
     health: 1800
     mana: 951
 npc_dota_hero_crystal_maiden:
@@ -460,6 +460,28 @@ npc_dota_hero_dark_seer:
     damagemin: 138
     health: 2280
     mana: 1359
+npc_dota_hero_dark_willow:
+  1:
+    armor: 1.52
+    attackspersecond: 0.91
+    damagemax: 53
+    damagemin: 45
+    health: 560
+    mana: 315
+  16:
+    armor: 5.16
+    attackspersecond: 1.11
+    damagemax: 100
+    damagemin: 92
+    health: 1140
+    mana: 879
+  25:
+    armor: 9.64
+    attackspersecond: 1.36
+    damagemax: 145
+    damagemin: 137
+    health: 1820
+    mana: 1419
 npc_dota_hero_dazzle:
   1:
     armor: 1.94
@@ -1212,22 +1234,22 @@ npc_dota_hero_monkey_king:
   1:
     armor: 0.08
     attackspersecond: 0.72
-    damagemax: 58
-    damagemin: 52
+    damagemax: 55
+    damagemin: 49
     health: 560
     mana: 315
   16:
     armor: 7.08
     attackspersecond: 1.01
-    damagemax: 108
-    damagemin: 102
+    damagemax: 105
+    damagemin: 99
     health: 1440
     mana: 663
   25:
     armor: 13.52
     attackspersecond: 1.29
-    damagemax: 154
-    damagemin: 148
+    damagemax: 151
+    damagemin: 145
     health: 2300
     mana: 1071
 npc_dota_hero_morphling:
@@ -1237,21 +1259,21 @@ npc_dota_hero_morphling:
     damagemax: 42
     damagemin: 33
     health: 580
-    mana: 279
+    mana: 231
   16:
     armor: 9.34
     attackspersecond: 1.21
     damagemax: 99
     damagemin: 90
     health: 1300
-    mana: 495
+    mana: 447
   25:
     armor: 16.48
     attackspersecond: 1.55
     damagemax: 150
     damagemin: 141
     health: 2080
-    mana: 831
+    mana: 783
 npc_dota_hero_naga_siren:
   1:
     armor: 5.94
@@ -1450,6 +1472,28 @@ npc_dota_hero_oracle:
     damagemin: 128
     health: 2000
     mana: 1419
+npc_dota_hero_pangolier:
+  1:
+    armor: 3.52
+    attackspersecond: 0.69
+    damagemax: 53
+    damagemin: 47
+    health: 520
+    mana: 267
+  16:
+    armor: 9.68
+    attackspersecond: 0.95
+    damagemax: 97
+    damagemin: 91
+    health: 1300
+    mana: 627
+  25:
+    armor: 15.7
+    attackspersecond: 1.21
+    damagemax: 140
+    damagemin: 134
+    health: 2120
+    mana: 1047
 npc_dota_hero_phantom_assassin:
   1:
     armor: 4.22
@@ -1813,16 +1857,16 @@ npc_dota_hero_skeleton_king:
   16:
     armor: 6.3
     attackspersecond: 0.86
-    damagemax: 113
-    damagemin: 111
-    health: 1640
+    damagemax: 107
+    damagemin: 105
+    health: 1520
     mana: 603
   25:
     armor: 10.92
     attackspersecond: 1.05
-    damagemax: 159
-    damagemin: 157
-    health: 2560
+    damagemax: 150
+    damagemin: 148
+    health: 2380
     mana: 987
 npc_dota_hero_skywrath_mage:
   1:
@@ -2112,22 +2156,22 @@ npc_dota_hero_tinker:
     mana: 1299
 npc_dota_hero_tiny:
   1:
-    armor: 0.26
-    attackspersecond: 0.64
+    armor: 0.0
+    attackspersecond: 0.59
     damagemax: 76
     damagemin: 70
     health: 720
     mana: 279
   16:
-    armor: 2.36
-    attackspersecond: 0.73
+    armor: 0.28
+    attackspersecond: 0.6
     damagemax: 127
     damagemin: 121
     health: 1740
     mana: 591
   25:
-    armor: 6.0
-    attackspersecond: 0.89
+    armor: 2.8
+    attackspersecond: 0.71
     damagemax: 175
     damagemin: 169
     health: 2700
@@ -2268,41 +2312,41 @@ npc_dota_hero_venomancer:
   1:
     armor: 3.08
     attackspersecond: 0.72
-    damagemax: 43
-    damagemin: 41
+    damagemax: 40
+    damagemin: 38
     health: 560
     mana: 279
   16:
     armor: 9.24
     attackspersecond: 0.98
-    damagemax: 87
-    damagemin: 85
+    damagemax: 84
+    damagemin: 82
     health: 1160
     mana: 627
   25:
     armor: 15.26
     attackspersecond: 1.23
-    damagemax: 130
-    damagemin: 128
+    damagemax: 127
+    damagemin: 125
     health: 1860
     mana: 1035
 npc_dota_hero_viper:
   1:
-    armor: 1.94
+    armor: 0.94
     attackspersecond: 0.71
     damagemax: 46
     damagemin: 44
     health: 600
     mana: 255
   16:
-    armor: 8.24
+    armor: 7.24
     attackspersecond: 0.98
     damagemax: 91
     damagemin: 89
     health: 1360
     mana: 603
   25:
-    armor: 14.4
+    armor: 13.4
     attackspersecond: 1.24
     damagemax: 135
     damagemin: 133

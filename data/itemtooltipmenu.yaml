@@ -1,6 +1,8 @@
 - data:
   - displayname: Abyssal Blade
     id: abyssal_blade
+  - displayname: Aeon Disk
+    id: combo_breaker
   - displayname: Aether Lens
     id: aether_lens
   - displayname: Aghanim's Scepter
@@ -101,8 +103,6 @@
     id: skadi
   - displayname: Faerie Fire
     id: faerie_fire
-  - displayname: Flying Courier
-    id: flying_courier
   - displayname: Force Staff
     id: force_staff
   - displayname: Gauntlets of Strength
@@ -139,14 +139,14 @@
     id: hurricane_pike
   - displayname: Hyperstone
     id: hyperstone
-  - displayname: Infused Raindrop
+  - displayname: Infused Raindrops
     id: infused_raindrop
   - displayname: Iron Branch
     id: branches
-  - displayname: Iron Talon
-    id: iron_talon
   - displayname: Javelin
     id: javelin
+  - displayname: Kaya
+    id: trident
   name: H&ndash;K
 - data:
   - displayname: Linken's Sphere
@@ -169,6 +169,8 @@
     id: medallion_of_courage
   - displayname: Mekansm
     id: mekansm
+  - displayname: Meteor Hammer
+    id: meteor_hammer
   - displayname: Mithril Hammer
     id: mithril_hammer
   - displayname: Mjollnir
@@ -187,13 +189,15 @@
     id: necronomicon
   - displayname: Null Talisman
     id: null_talisman
+  - displayname: Nullifier
+    id: nullifier
   - displayname: Oblivion Staff
     id: oblivion_staff
   - displayname: Observer Ward
     id: ward_observer
   - displayname: Octarine Core
     id: octarine_core
-  - displayname: Ogre Club
+  - displayname: Ogre Axe
     id: ogre_axe
   - displayname: Orb of Venom
     id: orb_of_venom
@@ -209,8 +213,6 @@
     id: platemail
   - displayname: Point Booster
     id: point_booster
-  - displayname: Poor Man's Shield
-    id: poor_mans_shield
   - displayname: Power Treads
     id: power_treads
   name: N&ndash;P
@@ -275,6 +277,8 @@
     id: soul_booster
   - displayname: Soul Ring
     id: soul_ring
+  - displayname: Spirit Vessel
+    id: spirit_vessel
   - displayname: Staff of Wizardry
     id: staff_of_wizardry
   - displayname: Stout Shield
