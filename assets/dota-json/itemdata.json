@@ -95,7 +95,7 @@
   "cooldown": [
    35
   ],
-  "description": "<h1>Active: Overwhelm</h1> Stuns a target enemy unit for %stun_duration% seconds. <br><br>Pierces Spell Immunity.\\n<h1>Passive: Bash</h1> Grants melee heroes a %bash_chance_melee%%% chance on hit to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage.  Bash pierces evasion. Bash chance for ranged heroes is %bash_chance_ranged%%.",
+  "description": "<h1>Active: Overwhelm</h1> Stuns a target enemy unit for %stun_duration% seconds. <br><br>Pierces Spell Immunity.\\n<h1>Passive: Bash</h1> Grants melee heroes a %bash_chance_melee%%% chance on hit to stun the target for %bash_duration% seconds and deal %bonus_chance_damage% bonus damage.  Bash pierces evasion. Bash chance for ranged heroes is %bash_chance_ranged%%.\\n<h1>Passive: Damage Block</h1> Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged.",
   "displayname": "Abyssal Blade",
   "id": 208,
   "itemcost": 6400,
@@ -138,6 +138,60 @@
   "lore": "The Immortal was said to own a shield that protected him from death itself.",
   "manacost": [],
   "name": "item_aegis"
+ },
+ "item_aeon_disk": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
+  "ItemAliases": [
+   "ad;aeon",
+   "disk"
+  ],
+  "ItemQuality": "epic",
+  "ItemShopTags": "str;regen_health;health_pool",
+  "attributes": [
+   {
+    "name": "bonus_health",
+    "tooltip": "+$health",
+    "value": [
+     250
+    ]
+   },
+   {
+    "name": "bonus_mana",
+    "tooltip": "+$mana",
+    "value": [
+     250
+    ]
+   },
+   {
+    "name": "health_threshold_pct",
+    "value": [
+     80
+    ]
+   },
+   {
+    "name": "status_resistance",
+    "value": [
+     25
+    ]
+   },
+   {
+    "name": "buff_duration",
+    "value": [
+     2.5
+    ]
+   }
+  ],
+  "cooldown": [
+   100
+  ],
+  "description": "<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. \\n\\n<h1>Passive: Status Resistance</h1> Reduces status effect durations by %status_resistance%%. ",
+  "displayname": "Aeon Disk",
+  "id": 256,
+  "itemcost": 3600,
+  "level": 0,
+  "lore": "A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe.",
+  "manacost": [],
+  "name": "item_aeon_disk"
  },
  "item_aether_lens": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
@@ -583,7 +637,7 @@
     "name": "bonus_damage",
     "tooltip": "+$damage",
     "value": [
-     50
+     45
     ]
    },
    {
@@ -994,6 +1048,12 @@
     ]
    },
    {
+    "name": "mana_per_charge",
+    "value": [
+     "0.35"
+    ]
+   },
+   {
     "name": "var_Type",
     "value": [
      "F",
@@ -1007,12 +1067,6 @@
      "O",
      "A",
      "T"
-    ]
-   },
-   {
-    "name": "mana_per_charge",
-    "value": [
-     "0.4"
     ]
    }
   ],
@@ -1119,7 +1173,7 @@
   "cooldown": [
    18
   ],
-  "description": "<h1>Active: Soul Rend</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magic damage.<br>Range: %tooltip_range%<br><br>All attacks on the silenced target will have True Strike and %tooltip_crit_chance%%% chance to crit for %target_crit_multiplier%%% more damage.\\n<h1>Passive: Critical Strike</h1> Grants a %crit_chance%%% chance for attacks to inflict %crit_multiplier%%% more damage.",
+  "description": "<h1>Active: Soul Rend</h1> Silences a target for %silence_duration% seconds. At the end of the silence, an additional %silence_damage_percent%%% of all damage taken during the silence will be dealt to the target as magic damage.<br>Range: %tooltip_range%<br><br>All attacks on the silenced target will have True Strike and %tooltip_crit_chance%%% chance to crit for %target_crit_multiplier%%% damage.\\n<h1>Passive: Critical Strike</h1> Grants a %crit_chance%%% chance for attacks to inflict %crit_multiplier%%% damage.",
   "displayname": "Bloodthorn",
   "id": 250,
   "itemcost": 7195,
@@ -1651,60 +1705,6 @@
   "lore": "A cloak made of a magical material that works to dispel any magic cast on it.",
   "manacost": [],
   "name": "item_cloak"
- },
- "item_combo_breaker": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
-  "ItemAliases": [
-   "ad;aeon",
-   "disk"
-  ],
-  "ItemQuality": "epic",
-  "ItemShopTags": "str;regen_health;health_pool",
-  "attributes": [
-   {
-    "name": "bonus_health",
-    "tooltip": "+$health",
-    "value": [
-     250
-    ]
-   },
-   {
-    "name": "bonus_mana",
-    "tooltip": "+$mana",
-    "value": [
-     250
-    ]
-   },
-   {
-    "name": "health_threshold_pct",
-    "value": [
-     80
-    ]
-   },
-   {
-    "name": "status_resistance",
-    "value": [
-     25
-    ]
-   },
-   {
-    "name": "buff_duration",
-    "value": [
-     2.5
-    ]
-   }
-  ],
-  "cooldown": [
-   100
-  ],
-  "description": "<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. \\n\\n<h1>Passive: Status Resistance</h1> Reduces status effect durations by %status_resistance%%. ",
-  "displayname": "Aeon Disk",
-  "id": 256,
-  "itemcost": 3750,
-  "level": 0,
-  "lore": "A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe.",
-  "manacost": [],
-  "name": "item_combo_breaker"
  },
  "item_courier": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET",
@@ -2537,7 +2537,7 @@
   "cooldown": [
    15
   ],
-  "description": "<h1>Active: Purge</h1> Targets an enemy, slowing it for %purge_slow_duration% seconds.<br><br>Range: %cast_range_tooltip%\\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions.",
+  "description": "<h1>Active: Inhibit</h1> Targets an enemy, slowing it for %purge_slow_duration% seconds.<br><br>Range: %cast_range_tooltip%\\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions.",
   "displayname": "Diffusal Blade",
   "id": 174,
   "itemcost": 3150,
@@ -3326,7 +3326,7 @@
    }
   ],
   "cooldown": [],
-  "description": "<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %tooltip_crit_damage%%% additional damage.",
+  "description": "<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage.",
   "displayname": "Daedalus",
   "id": 141,
   "itemcost": 5320,
@@ -4160,87 +4160,6 @@
   ],
   "name": "item_invis_sword"
  },
- "item_iron_talon": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 350,
-  "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES",
-  "AbilityUnitTargetTeam": "DOTA_UNIT_TARGET_TEAM_CUSTOM",
-  "AbilityUnitTargetType": [
-   "DOTA_UNIT_TARGET_TREE",
-   "DOTA_UNIT_TARGET_CUSTOM"
-  ],
-  "ItemAliases": [
-   "quelling",
-   "blade"
-  ],
-  "ItemQuality": "common",
-  "ItemShopTags": "damage",
-  "attributes": [
-   {
-    "name": "damage_bonus",
-    "value": [
-     24
-    ]
-   },
-   {
-    "name": "damage_bonus_ranged",
-    "value": [
-     7
-    ]
-   },
-   {
-    "name": "quelling_range_tooltip",
-    "value": [
-     350
-    ]
-   },
-   {
-    "name": "cast_range_ward",
-    "value": [
-     450
-    ]
-   },
-   {
-    "name": "creep_damage_pct",
-    "value": [
-     40
-    ]
-   },
-   {
-    "name": "bonus_health_regen",
-    "tooltip": "+$hp_regen",
-    "value": [
-     2.0
-    ]
-   },
-   {
-    "name": "alternative_cooldown",
-    "value": [
-     4
-    ]
-   },
-   {
-    "name": "tooltip_range",
-    "value": [
-     350
-    ]
-   }
-  ],
-  "cooldown": [
-   20
-  ],
-  "description": "<h1>Active: Chop</h1>Targets a non-player enemy unit to remove %creep_damage_pct%%% of its current HP.<br><br>If cast on a tree or ward, instantly destroys it.<br><br>Unit Range: %tooltip_range%<br>Tree Range: %quelling_range_tooltip%<BR>Ward Range: %cast_range_ward%\\n<h1>Passive: Quell</h1>Increases attack damage against non-hero units by %damage_bonus% for melee heroes, and %damage_bonus_ranged% for ranged.",
-  "displayname": "Iron Talon",
-  "id": 239,
-  "itemcost": 0,
-  "level": 0,
-  "lore": "A simple but effective weapon devised to quell a great Hellbear uprising.",
-  "manacost": [
-   0
-  ],
-  "name": "item_iron_talon"
- },
  "item_javelin": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
   "ItemAliases": "javelin",
@@ -4269,6 +4188,44 @@
   "lore": "A rather typical spear that can sometimes pierce through an enemy's armor when used to attack.",
   "manacost": [],
   "name": "item_javelin"
+ },
+ "item_kaya": {
+  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
+  "ItemAliases": "ky;kaya",
+  "ItemQuality": "epic",
+  "ItemShopTags": "int;mana",
+  "attributes": [
+   {
+    "name": "bonus_intellect",
+    "tooltip": "+$int",
+    "value": [
+     16
+    ]
+   },
+   {
+    "name": "spell_amp",
+    "tooltip": "%+Spell Amplification",
+    "value": [
+     10
+    ]
+   },
+   {
+    "name": "manacost_reduction",
+    "tooltip": "%+Manacost and Manaloss Reduction",
+    "value": [
+     10
+    ]
+   }
+  ],
+  "cooldown": [],
+  "description": null,
+  "displayname": "Kaya",
+  "id": 259,
+  "itemcost": 1950,
+  "level": 0,
+  "lore": "The staff of a renowned sorceress, lost for countless millennia.",
+  "manacost": [],
+  "name": "item_kaya"
  },
  "item_lesser_crit": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
@@ -4303,7 +4260,7 @@
    }
   ],
   "cooldown": [],
-  "description": "<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %tooltip_crit_damage%%% additional damage.",
+  "description": "<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage.",
   "displayname": "Crystalys",
   "id": 149,
   "itemcost": 2120,
@@ -4815,7 +4772,7 @@
    {
     "name": "berserk_armor_reduction",
     "value": [
-     6
+     7
     ]
    },
    {
@@ -5022,13 +4979,13 @@
    {
     "name": "burn_dps_buildings",
     "value": [
-     60
+     50
     ]
    },
    {
     "name": "burn_dps_units",
     "value": [
-     115
+     90
     ]
    },
    {
@@ -5040,7 +4997,7 @@
    {
     "name": "stun_duration",
     "value": [
-     1.75
+     2.0
     ]
    },
    {
@@ -5066,12 +5023,24 @@
     "value": [
      3
     ]
+   },
+   {
+    "name": "impact_damage_buildings",
+    "value": [
+     75
+    ]
+   },
+   {
+    "name": "impact_damage_units",
+    "value": [
+     150
+    ]
    }
   ],
   "cooldown": [
    40
   ],
-  "description": "<h1>Active: Meteor Hammer</h1> CHANNELED - After a succesful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds. Deals damage over time to enemies units and buildings for %burn_duration% seconds.<BR><BR>Building DPS: %burn_dps_buildings% <BR>Non-Building DPS: %burn_dps_units% <BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds.",
+  "description": "<h1>Active: Meteor Hammer</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. Continues to deal damage over time to enemies units and buildings for %burn_duration% seconds.<BR><BR>Building Impact Damage: %impact_damage_buildings% <BR>Building Over Time Damage: %burn_dps_buildings% <BR><BR>Non-Building Impact Damage: %impact_damage_units% <BR>Non-Building Over Time Damage: %burn_dps_units% <BR><BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds.",
   "displayname": "Meteor Hammer",
   "id": 223,
   "itemcost": 2625,
@@ -5499,13 +5468,15 @@
   "cooldown": [
    90
   ],
-  "description": "<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer to fight for you for %summon_duration% seconds.<br><br><h1>Warrior:</h1>Burns mana every hit, and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has an activated mana burn ability, and a passive movement and attack speed aura.<br>Health: %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Mana Burn Damage: %archer_mana_burn%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%",
+  "description": "<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer to fight for you for %summon_duration% seconds.<br><br><h1>Warrior:</h1>Burns mana every hit, and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has a passive movement and attack speed aura. Gains Purge at Level 3.<br>Health: %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%",
   "displayname": "Necronomicon",
   "id": 106,
   "itemcost": 2400,
   "level": 0,
   "lore": "Considered the ultimate in necromancy and demonology, a powerful malefic force is locked within its pages.",
-  "manacost": [],
+  "manacost": [
+   50
+  ],
   "name": "item_necronomicon"
  },
  "item_necronomicon_2": {
@@ -5646,7 +5617,7 @@
   "cooldown": [
    90
   ],
-  "description": "<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer to fight for you for %summon_duration% seconds.<br><br><h1>Warrior:</h1>Burns mana every hit, and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has an activated mana burn ability, and a passive movement and attack speed aura.<br>Health: %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Mana Burn Damage: %archer_mana_burn%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%",
+  "description": "<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer to fight for you for %summon_duration% seconds.<br><br><h1>Warrior:</h1>Burns mana every hit, and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has a passive movement and attack speed aura. Gains Purge at Level 3.<br>Health: %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%",
   "displayname": "Necronomicon",
   "id": 193,
   "itemcost": 3700,
@@ -5793,7 +5764,7 @@
   "cooldown": [
    90
   ],
-  "description": "<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer to fight for you for %summon_duration% seconds.<br><br><h1>Warrior:</h1>Burns mana every hit, and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has an activated mana burn ability, and a passive movement and attack speed aura.<br>Health: %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Mana Burn Damage: %archer_mana_burn%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%",
+  "description": "<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer to fight for you for %summon_duration% seconds.<br><br><h1>Warrior:</h1>Burns mana every hit, and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has a passive movement and attack speed aura. Gains Purge at Level 3.<br>Health: %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%",
   "displayname": "Necronomicon",
   "id": 194,
   "itemcost": 5000,
@@ -6460,78 +6431,6 @@
   "manacost": [],
   "name": "item_point_booster"
  },
- "item_poor_mans_shield": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
-  "ItemAliases": [
-   "pms;poor",
-   "man's",
-   "shield"
-  ],
-  "ItemQuality": "common",
-  "ItemShopTags": "agi;block",
-  "attributes": [
-   {
-    "name": "bonus_agility",
-    "tooltip": "+$agi",
-    "value": [
-     6
-    ]
-   },
-   {
-    "name": "damage_block_melee",
-    "value": [
-     18
-    ]
-   },
-   {
-    "name": "damage_block_ranged",
-    "value": [
-     9
-    ]
-   },
-   {
-    "name": "block_chance",
-    "value": [
-     50
-    ]
-   },
-   {
-    "name": "block_chance",
-    "value": [
-     50
-    ]
-   },
-   {
-    "name": "bonus_block_melee",
-    "value": [
-     30
-    ]
-   },
-   {
-    "name": "bonus_block_range",
-    "value": [
-     15
-    ]
-   },
-   {
-    "name": "bonus_block_duration",
-    "value": [
-     5.0
-    ]
-   }
-  ],
-  "cooldown": [
-   25
-  ],
-  "description": "<h1>Passive: Damage Block</h1>When cooldown is ready, blocks %bonus_block_melee% damage on melee heroes and %bonus_block_range% on ranged heroes. Only triggers on attacks from heroes. <br><br>Gives a %block_chance%%% chance to block %damage_block_melee% damage on melee heroes, and %damage_block_ranged% damage on ranged.",
-  "displayname": "Poor Man's Shield",
-  "id": 71,
-  "itemcost": 0,
-  "level": 0,
-  "lore": "A busted old shield that seems to block more than it should.",
-  "manacost": [],
-  "name": "item_poor_mans_shield"
- },
  "item_power_treads": {
   "AbilityBehavior": [
    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE",
@@ -6789,6 +6688,25 @@
   "lore": null,
   "manacost": [],
   "name": "item_recipe_abyssal_blade"
+ },
+ "item_recipe_aeon_disk": {
+  "ItemRecipe": 1,
+  "ItemRequirements": [
+   "item_vitality_booster",
+   "item_energy_booster",
+   "item_recipe_aeon_disk"
+  ],
+  "ItemResult": "item_aeon_disk",
+  "attributes": [],
+  "cooldown": [],
+  "description": null,
+  "displayname": "Aeon Disk Recipe",
+  "id": 255,
+  "itemcost": 1600,
+  "level": 0,
+  "lore": null,
+  "manacost": [],
+  "name": "item_recipe_aeon_disk"
  },
  "item_recipe_aether_lens": {
   "ItemRecipe": 1,
@@ -7052,25 +6970,6 @@
   "lore": null,
   "manacost": [],
   "name": "item_recipe_butterfly"
- },
- "item_recipe_combo_breaker": {
-  "ItemRecipe": 1,
-  "ItemRequirements": [
-   "item_vitality_booster",
-   "item_energy_booster",
-   "item_recipe_combo_breaker"
-  ],
-  "ItemResult": "item_combo_breaker",
-  "attributes": [],
-  "cooldown": [],
-  "description": null,
-  "displayname": "Aeon Disk Recipe",
-  "id": 255,
-  "itemcost": 1750,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_recipe_combo_breaker"
  },
  "item_recipe_crimson_guard": {
   "ItemRecipe": 1,
@@ -7509,18 +7408,23 @@
   "manacost": [],
   "name": "item_recipe_invis_sword"
  },
- "item_recipe_iron_talon": {
+ "item_recipe_kaya": {
   "ItemRecipe": 1,
+  "ItemRequirements": [
+   "item_staff_of_wizardry",
+   "item_robe",
+   "item_recipe_kaya"
+  ],
+  "ItemResult": "item_kaya",
   "attributes": [],
   "cooldown": [],
   "description": null,
-  "displayname": "Iron Talon Recipe",
-  "id": 238,
-  "itemcost": 0,
+  "id": 258,
+  "itemcost": 500,
   "level": 0,
   "lore": null,
   "manacost": [],
-  "name": "item_recipe_iron_talon"
+  "name": "item_recipe_kaya"
  },
  "item_recipe_lesser_crit": {
   "ItemRecipe": 1,
@@ -7945,19 +7849,6 @@
   "manacost": [],
   "name": "item_recipe_pipe"
  },
- "item_recipe_poor_mans_shield": {
-  "ItemRecipe": 1,
-  "ItemResult": "item_poor_mans_shield",
-  "attributes": [],
-  "cooldown": [],
-  "description": null,
-  "id": 70,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_recipe_poor_mans_shield"
- },
  "item_recipe_power_treads": {
   "ItemRecipe": 1,
   "ItemRequirements": [
@@ -8358,24 +8249,6 @@
   "lore": null,
   "manacost": [],
   "name": "item_recipe_travel_boots_2"
- },
- "item_recipe_trident": {
-  "ItemRecipe": 1,
-  "ItemRequirements": [
-   "item_staff_of_wizardry",
-   "item_robe",
-   "item_recipe_trident"
-  ],
-  "ItemResult": "item_trident",
-  "attributes": [],
-  "cooldown": [],
-  "description": null,
-  "id": 258,
-  "itemcost": 500,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_recipe_trident"
  },
  "item_recipe_ultimate_scepter": {
   "ItemRecipe": 1,
@@ -8830,202 +8703,6 @@
   "lore": "This ring is considered a good luck charm among the Gnomes.",
   "manacost": [],
   "name": "item_ring_of_regen"
- },
- "item_river_painter": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to transform the water into liquid chrome for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Chrome",
-  "id": 1021,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter"
- },
- "item_river_painter2": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to dry up the water for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect . Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Dry",
-  "id": 1022,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter2"
- },
- "item_river_painter3": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to transform the water into a green slime for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Slime",
-  "id": 1023,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter3"
- },
- "item_river_painter4": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to make the water oily for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Oil",
-  "id": 1024,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter4"
- },
- "item_river_painter5": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to make the water electric for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Electrified",
-  "id": 1025,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter5"
- },
- "item_river_painter6": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to transform the water into a purple bubbling potion for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Potion",
-  "id": 1026,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter6"
- },
- "item_river_painter7": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_POINT",
-  "AbilityCastPoint": 0,
-  "AbilityCastRange": 200,
-  "ItemAliases": "paint",
-  "ItemQuality": "component",
-  "ItemStackable": 1,
-  "ItemStockTime": 900,
-  "attributes": [
-   {
-    "name": "paint_duration",
-    "value": [
-     900
-    ]
-   }
-  ],
-  "cooldown": [
-   0
-  ],
-  "description": "Pour this serum into the river to transform the water into blood for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently consume one charge from your Armory supply upon expiration of the effect. Charges do not get consumed if the effect is replaced by a stronger vial before expiration.</font> Vials can only be used if at least one charge remains in your Armory. Charges will only be used by successfully enchanting the river, and will not be consumed if the item is sold, dropped, or destroyed during a game. You can only cast a vial on the river if there's not a stronger vial already in effect.",
-  "displayname": "River Vial: Blood",
-  "id": 1027,
-  "itemcost": 0,
-  "level": 0,
-  "lore": null,
-  "manacost": [],
-  "name": "item_river_painter7"
  },
  "item_robe": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
@@ -9621,7 +9298,7 @@
   "cooldown": [
    24
   ],
-  "description": "<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus damage to the target, and for %backstab_duration% seconds, disable their passive abilities, and reduce their damage output by %backstab_reduction%%%.",
+  "description": "<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus damage to the target, and for %backstab_duration% seconds, disable their passive abilities.",
   "displayname": "Silver Edge",
   "id": 249,
   "itemcost": 5550,
@@ -10672,44 +10349,6 @@
   ],
   "name": "item_travel_boots_2"
  },
- "item_trident": {
-  "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
-  "ItemAliases": "ky;kaya",
-  "ItemQuality": "epic",
-  "ItemShopTags": "int;mana",
-  "attributes": [
-   {
-    "name": "bonus_intellect",
-    "tooltip": "+$int",
-    "value": [
-     16
-    ]
-   },
-   {
-    "name": "spell_amp",
-    "tooltip": "%+Spell Amplification",
-    "value": [
-     10
-    ]
-   },
-   {
-    "name": "manacost_reduction",
-    "tooltip": "%+Manacost and Manaloss Reduction",
-    "value": [
-     10
-    ]
-   }
-  ],
-  "cooldown": [],
-  "description": null,
-  "displayname": "Kaya",
-  "id": 259,
-  "itemcost": 1950,
-  "level": 0,
-  "lore": "The staff of a renowned sorceress, lost for countless millennia.",
-  "manacost": [],
-  "name": "item_trident"
- },
  "item_ultimate_orb": {
   "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
   "ItemAliases": [
@@ -11404,7 +11043,7 @@
   "id": 244,
   "itemcost": 250,
   "level": 0,
-  "lore": "Hasten to battle on wind-touched heels",
+  "lore": "Hasten to battle on wind-touched heels.",
   "manacost": [],
   "name": "item_wind_lace"
  },

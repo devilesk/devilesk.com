@@ -85,7 +85,7 @@
   "lore": "In his encounter with the Dead Gods, Anti-Mage learned the value of being elusive."
  },
  "antimage_mana_break": {
-  "description": "Burns an opponent's mana on each attack.  Mana Break deals 60%% of the mana burned as damage to the target.",
+  "description": "Burns an opponent's mana on each attack.  Mana Break deals 50%% of the mana burned as damage to the target.",
   "lore": "A modified technique of the Turstarkuri monks' peaceful ways is to turn magical energies on their owner."
  },
  "antimage_mana_void": {
@@ -173,6 +173,8 @@
   "description": "Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to 10 stacks.  The extra damage is halved against creeps.",
   "lore": "It's not uncommon to hear the Rider cackle while he increases the flammability of his opponents."
  },
+ "bear_empty1": {},
+ "bear_empty2": {},
  "beastmaster_boar_poison": {
   "description": "Inflicts a poison that slows attack and movement speeds."
  },
@@ -191,11 +193,11 @@
   "lore": "Beastmaster's ability to incite the innate strength of animals was seen in the mauling of the king of Slom."
  },
  "beastmaster_primal_roar": {
-  "description": "Beastmaster lets loose a deafening roar that stuns, and shoves open a path to its target. All units in the path of the roar are damaged, while units shoved aside by the roar have their movement and attack speed slowed.\\n\\nUpgradable by Aghanim's Scepter.",
+  "description": "Beastmaster lets loose a deafening roar that stuns, and shoves open a path to its target. All units in the path of the roar are damaged, while units shoved aside by the roar have their movement and attack speed slowed. Additionally, Beastmaster and his units gain 30% movement speed for 3 seconds.\\n\\nUpgradable by Aghanim's Scepter.",
   "lore": "The Beastmaster has learned to channel his primal instincts into an animalistic roar, causing devastation in the ranks of enemies."
  },
  "beastmaster_wild_axes": {
-  "description": "Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path.  Each axe can hit an enemy once.",
+  "description": "Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path.  Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units.",
   "lore": "While learning to maneuver in nature alone, the Beastmaster also mastered the use of a pair of tomahawks, adept at cutting down trees as well as adversaries."
  },
  "big_thunder_lizard_frenzy": {
@@ -493,11 +495,11 @@
   "description": "The Dark Troll Summoner stirs the ground underfoot, raising the remains of trolls long dead, bringing to life two skeleton Warriors who will fight at his side."
  },
  "dark_willow_bedlam": {
-  "description": "Dark Willow's pet wisp roams around her for the duraton, rapidly attacking nearby enemies.  Bedlam cannot be used while Terrorize is active.",
+  "description": "Dark Willow's pet wisp roams around her for the duration, rapidly attacking nearby enemies.  Bedlam cannot be used while Terrorize is active.",
   "lore": "You'll have to excuse my friend Jex. He's really into murder."
  },
  "dark_willow_bramble_maze": {
-  "description": "Dark Willow creates a maze of brambles in the target area.  Enemies that walk into a bramble take damage and are rooted.",
+  "description": "Dark Willow creates a maze of brambles in the target area.  Enemies that walk into a bramble are rooted and take damage over time.",
   "lore": "The fae realm exists all around you, merely waiting to draw you in..."
  },
  "dark_willow_cursed_crown": {
@@ -513,7 +515,7 @@
   "lore": "You think you know the first thing about fear? Jex'll show you what that word truly means..."
  },
  "dazzle_poison_touch": {
-  "description": "Releases a cone of poisonous magic that strikes multiple enemy units. Deals damage over time and slows the targets. Anytime the targets get attacked, the debuff duration is refreshed ",
+  "description": "Releases a cone of poisonous magic that strikes multiple enemy units. Deals damage over time and slows the targets. Anytime the targets get attacked, the debuff duration is refreshed.",
   "lore": "One of the few Dezun rites used for offensive purposes, the paralytic enchantment often proves useful."
  },
  "dazzle_shadow_wave": {
@@ -795,6 +797,7 @@
   "description": "Damaging energy bounces around the map, striking enemies close to the cast point that are in vision. Each enemy hit beyond the first adds damage.\\n\\nUpgradable by Aghanim's Scepter.",
   "lore": "Nature's Prophet calls Verodicia's fury to strike down those who might ravage the wilderness."
  },
+ "generic_hidden": {},
  "ghost_frost_attack": {
   "description": "The Ghost launches an eerie attack that chills her enemies to their bones."
  },
@@ -1374,8 +1377,8 @@
   "lore": "Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her allies in a cloak of shadows."
  },
  "mirana_leap": {
-  "description": "Mirana leaps forward into battle, empowering allied units with a ferocious roar that grants bonus attack and movement speed. Speed bonus lasts %leap_bonus_duration% seconds.",
-  "lore": "Both friend and foe alike recognize Mirana's iconic white beast in the heat of battle."
+  "description": "Mirana leaps forward into battle, empowering herself with a ferocious roar that grants bonus attack and movement speed. Speed bonus lasts %leap_bonus_duration% seconds.",
+  "lore": "None can fail to recognize Mirana's iconic white beast in the heat of battle."
  },
  "mirana_starfall": {
   "description": "Calls down a wave of meteors to damage nearby enemy units. The closest enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a second time for 75%% of the damage.\\n\\nUpgradable by Aghanim's Scepter.",
@@ -1522,15 +1525,15 @@
   "lore": "The captured souls of those past slain are released to ravage their former allies."
  },
  "nevermore_shadowraze1": {
-  "description": "Shadow Fiend razes the area in front of him, dealing damage to enemy units in an area. Adds a stacking magic resistance reduction debuff on the target. ",
+  "description": "Shadow Fiend razes the ground directly in front of him, dealing damage to enemy units in the area. Adds a stacking damage amplifier on the target that causes the enemy to take bonus Shadow Raze damage per stack.",
   "lore": "Nevermore's trademark for harvesting souls."
  },
  "nevermore_shadowraze2": {
-  "description": "Shadow Fiend razes the area in front of him, dealing damage to enemy units in an area. Adds a stacking magic resistance reduction debuff on the target. ",
+  "description": "Shadow Fiend razes the ground a short distance away from him, dealing damage to enemy units in the area. Adds a stacking damage amplifier on the target that causes the enemy to take bonus Shadow Raze damage per stack.",
   "lore": "Nevermore's trademark for harvesting souls."
  },
  "nevermore_shadowraze3": {
-  "description": "Shadow Fiend razes the area in front of him, dealing damage to enemy units in an area. Adds a stacking magic resistance reduction debuff on the target. ",
+  "description": "Shadow Fiend razes the ground a longer distance away from him, dealing damage to enemy units in the area. Adds a stacking damage amplifier on the target that causes the enemy to take bonus Shadow Raze damage per stack.",
   "lore": "Nevermore's trademark for harvesting souls."
  },
  "night_stalker_crippling_fear": {
@@ -1829,7 +1832,7 @@
  },
  "razor_unstable_current": {
   "description": "Razor moves with increased speed, and hits a random nearby unit with a jolt of electricity every %hit_interval% seconds. The jolt deals damages, slows, and purges buffs from enemies.\\n\\nDISPEL TYPE: Basic Dispel",
-  "lore": "Attacking the Lightning Revenant is rewarded with shock therapy."
+  "lore": "Merely approaching the Lightning Revenant is rewarded with shock therapy."
  },
  "riki_blink_strike": {
   "description": "Teleports behind the target unit, striking for bonus damage if it is an enemy.",
@@ -1902,7 +1905,7 @@
  "rubick_hidden2": {},
  "rubick_hidden3": {},
  "rubick_null_field": {
-  "description": "Rubick's mastery of the arcane nullifies nearby enemy senses, reducing their magic resistance.",
+  "description": "Rubick's mastery of the arcane creates an aura that nullifies nearby enemy senses or increases his own. Can be toggled offensively or defensively to reduce enemy magic resistance or increase allied magic resistance.",
   "lore": "Not every magus can be a Grand Magus..."
  },
  "rubick_spell_steal": {
@@ -2362,6 +2365,7 @@
  "special_bonus_mp_regen_8": {},
  "special_bonus_night_vision_1000": {},
  "special_bonus_night_vision_400": {},
+ "special_bonus_night_vision_500": {},
  "special_bonus_night_vision_600": {},
  "special_bonus_reincarnation_200": {},
  "special_bonus_respawn_reduction_15": {},
@@ -2418,6 +2422,7 @@
  "special_bonus_unique_alchemist": {},
  "special_bonus_unique_alchemist_2": {},
  "special_bonus_unique_alchemist_3": {},
+ "special_bonus_unique_alchemist_4": {},
  "special_bonus_unique_ancient_apparition_1": {},
  "special_bonus_unique_ancient_apparition_2": {},
  "special_bonus_unique_ancient_apparition_3": {},
@@ -2625,6 +2630,7 @@
  "special_bonus_unique_medusa_4": {},
  "special_bonus_unique_meepo": {},
  "special_bonus_unique_meepo_2": {},
+ "special_bonus_unique_meepo_3": {},
  "special_bonus_unique_mirana_1": {},
  "special_bonus_unique_mirana_2": {},
  "special_bonus_unique_mirana_3": {},
@@ -2641,9 +2647,13 @@
  "special_bonus_unique_morphling_3": {},
  "special_bonus_unique_morphling_4": {},
  "special_bonus_unique_morphling_5": {},
+ "special_bonus_unique_morphling_6": {},
+ "special_bonus_unique_morphling_7": {},
+ "special_bonus_unique_morphling_8": {},
  "special_bonus_unique_naga_siren": {},
  "special_bonus_unique_naga_siren_2": {},
  "special_bonus_unique_naga_siren_3": {},
+ "special_bonus_unique_naga_siren_4": {},
  "special_bonus_unique_necrophos": {},
  "special_bonus_unique_necrophos_2": {},
  "special_bonus_unique_nevermore_1": {},
@@ -2689,6 +2699,7 @@
  "special_bonus_unique_puck": {},
  "special_bonus_unique_puck_2": {},
  "special_bonus_unique_puck_3": {},
+ "special_bonus_unique_puck_4": {},
  "special_bonus_unique_pudge_1": {},
  "special_bonus_unique_pudge_2": {},
  "special_bonus_unique_pudge_3": {},
@@ -2774,6 +2785,7 @@
  "special_bonus_unique_templar_assassin_3": {},
  "special_bonus_unique_templar_assassin_4": {},
  "special_bonus_unique_templar_assassin_5": {},
+ "special_bonus_unique_templar_assassin_6": {},
  "special_bonus_unique_terrorblade": {},
  "special_bonus_unique_terrorblade_2": {},
  "special_bonus_unique_terrorblade_3": {},
@@ -2987,7 +2999,7 @@
   "lore": "Her blades pierce the skin as much as the mind, furthering her understanding of the mystery that is reality."
  },
  "templar_assassin_psionic_trap": {
-  "description": "Templar Assassin places mystical traps that invisibly monitor enemy movement. When sprung at her command, they exert a slowing influence of 30%% in the area. Traps charge up to slow an additional 5%% every second, up to 50%%. Deals bonus damage when fully charged.",
+  "description": "Templar Assassin places mystical traps that invisibly monitor enemy movement. When sprung at her command, they exert a slowing influence of %movement_speed_min%%% in the area. Traps charge up to slow %movement_speed_max%%% after %trap_max_charge_duration% seconds. Deals bonus damage when fully charged.",
   "lore": "Calling upon the reach of the Hidden Temple, none escape the eye of the Templar."
  },
  "templar_assassin_refraction": {
@@ -3063,7 +3075,7 @@
   "lore": "Watching a hill become a mountain is awe-inspiring - especially if the mountain begins laying waste to adversaries."
  },
  "tiny_toss": {
-  "description": "Grabs the nearest unit in a 275 radius around Tiny, ally or enemy, and launches it at the target unit or rune to deal damage where they land.  If the tossed unit is an enemy, it will take an extra 20%% damage. Toss does more damage with each level in Grow.",
+  "description": "Grabs the nearest unit in a 275 radius around Tiny, ally or enemy, and launches it at the target unit or rune to deal damage where they land.  If the tossed unit is an enemy, it will take an extra 20%% damage.",
   "lore": "Tiny's gargantuan stature allows him to catapult even the sturdiest of warriors."
  },
  "tiny_toss_tree": {
@@ -3086,7 +3098,7 @@
   "lore": "The roots and tendrils of the Treant Protectors are far-reaching, stimulating the growth and rejuvenation of all of nature."
  },
  "treant_natures_guise": {
-  "description": "Turns Treant invisible when he is within %radius% radius of a tree for %fade_time% seconds. Increases movement speed by %bonus_move_speed% while invisible, and causes a %bash_duration% seconds disarming root when attacking out of invisibility.",
+  "description": "Turns Treant invisible after a short delay when he is within close radius of a tree. Increases movement speed while invisible, and causes a disarming root when attacking out of invisibility.",
   "lore": "The Protectors don't often come into vision; their natural state being nestled within their leafy brethren."
  },
  "treant_overgrowth": {
@@ -3133,7 +3145,8 @@
   "lore": "Tales are still told of the wild feat that ended the grand brawl at White Fields."
  },
  "tusk_walrus_kick": {
-  "description": "Kicks the target unit back, damaging them and slowing their movement speed."
+  "description": "Kicks the target unit back, damaging them and slowing their movement speed.",
+  "lore": "Tusk may have made his name with his fists, but the wise enemy is wary of any and all limbs."
  },
  "tusk_walrus_punch": {
   "description": "Tusk connects with his mighty Walrus Punch, a critical strike so powerful it launches its victim into the air. The victim is slowed upon landing.",
@@ -3243,7 +3256,7 @@
   "description": "After a short delay, the Familiar turns into stone and smashes into the ground, stunning and damaging all targets in the area.  The Familiar becomes invulnerable, and will regain its health very rapidly.  After %stone_duration% seconds, the Familiar will automatically leave Stone Form."
  },
  "warlock_fatal_bonds": {
-  "description": "Binds several enemy units together, causing %damage_share_percentage%%% of the damage dealt to one of them to be felt by the others.",
+  "description": "Binds several enemy units together, causing a percentage of the damage dealt to one of them to be felt by the others.",
   "lore": "An ancient incantation that links the vital energies of multiple lifeforms into one collective body."
  },
  "warlock_golem_flaming_fists": {
