@@ -140,7 +140,7 @@ antimage_blink:
   Lore: In his encounter with the Dead Gods, Anti-Mage learned the value of being
     elusive.
 antimage_mana_break:
-  Description: Burns an opponent's mana on each attack.  Mana Break deals 60%% of
+  Description: Burns an opponent's mana on each attack.  Mana Break deals 50%% of
     the mana burned as damage to the target.
   DisplayName: Mana Break
   Lore: A modified technique of the Turstarkuri monks' peaceful ways is to turn magical
@@ -275,6 +275,10 @@ batrider_sticky_napalm:
   DisplayName: Sticky Napalm
   Lore: It's not uncommon to hear the Rider cackle while he increases the flammability
     of his opponents.
+bear_empty1:
+  DisplayName: Empty
+bear_empty2:
+  DisplayName: Empty
 beastmaster_boar_poison:
   Description: Inflicts a poison that slows attack and movement speeds.
   DisplayName: Poison
@@ -300,14 +304,16 @@ beastmaster_inner_beast:
 beastmaster_primal_roar:
   Description: Beastmaster lets loose a deafening roar that stuns, and shoves open
     a path to its target. All units in the path of the roar are damaged, while units
-    shoved aside by the roar have their movement and attack speed slowed.\n\nUpgradable
+    shoved aside by the roar have their movement and attack speed slowed. Additionally,
+    Beastmaster and his units gain 30% movement speed for 3 seconds.\n\nUpgradable
     by Aghanim's Scepter.
   DisplayName: Primal Roar
   Lore: The Beastmaster has learned to channel his primal instincts into an animalistic
     roar, causing devastation in the ranks of enemies.
 beastmaster_wild_axes:
   Description: Beastmaster sends his axes flying and calls them home again, slicing
-    through enemy units and trees along their path.  Each axe can hit an enemy once.
+    through enemy units and trees along their path.  Each axe can hit an enemy once,
+    and amplifies subsequent damage from Beastmaster and his units.
   DisplayName: Wild Axes
   Lore: While learning to maneuver in nature alone, the Beastmaster also mastered
     the use of a pair of tomahawks, adept at cutting down trees as well as adversaries.
@@ -736,13 +742,13 @@ dark_troll_warlord_raise_dead:
     his side.
   DisplayName: Raise Dead
 dark_willow_bedlam:
-  Description: Dark Willow's pet wisp roams around her for the duraton, rapidly attacking
+  Description: Dark Willow's pet wisp roams around her for the duration, rapidly attacking
     nearby enemies.  Bedlam cannot be used while Terrorize is active.
   DisplayName: Bedlam
   Lore: You'll have to excuse my friend Jex. He's really into murder.
 dark_willow_bramble_maze:
   Description: Dark Willow creates a maze of brambles in the target area.  Enemies
-    that walk into a bramble take damage and are rooted.
+    that walk into a bramble are rooted and take damage over time.
   DisplayName: Bramble Maze
   Lore: The fae realm exists all around you, merely waiting to draw you in...
 dark_willow_cursed_crown:
@@ -765,9 +771,9 @@ dark_willow_terrorize:
   Lore: You think you know the first thing about fear? Jex'll show you what that word
     truly means...
 dazzle_poison_touch:
-  Description: 'Releases a cone of poisonous magic that strikes multiple enemy units.
+  Description: Releases a cone of poisonous magic that strikes multiple enemy units.
     Deals damage over time and slows the targets. Anytime the targets get attacked,
-    the debuff duration is refreshed '
+    the debuff duration is refreshed.
   DisplayName: Poison Touch
   Lore: One of the few Dezun rites used for offensive purposes, the paralytic enchantment
     often proves useful.
@@ -1563,7 +1569,9 @@ item_abyssal_blade:
     seconds. <br><br>Pierces Spell Immunity.\n<h1>Passive: Bash</h1> Grants melee
     heroes a %bash_chance_melee%%% chance on hit to stun the target for %bash_duration%
     seconds and deal %bonus_chance_damage% bonus damage.  Bash pierces evasion. Bash
-    chance for ranged heroes is %bash_chance_ranged%%.'
+    chance for ranged heroes is %bash_chance_ranged%%.\n<h1>Passive: Damage Block</h1>
+    Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming
+    attacks on melee heroes, and %block_damage_ranged% damage on ranged.'
   DisplayName: Abyssal Blade
   Lore: The lost blade of the Commander of the Abyss, this edge cuts into an enemy's
     soul.
@@ -1575,6 +1583,15 @@ item_aegis:
     (dispels on damage).'
   DisplayName: Aegis of the Immortal
   Lore: The Immortal was said to own a shield that protected him from death itself.
+item_aeon_disk:
+  Description: '<h1>Passive: Combo Breaker</h1> When you take damage and your health
+    falls below %health_threshold_pct%%, a strong dispel is applied and you gain a
+    %buff_duration% second buff that causes all damage you deal and are dealt to be
+    reduced to zero. Only triggers on player based damage. \n\n<h1>Passive: Status
+    Resistance</h1> Reduces status effect durations by %status_resistance%%. '
+  DisplayName: Aeon Disk
+  Lore: A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many
+    believe.
 item_aether_lens:
   Description: '<h1>Passive: Aethereal Focus</h1> Increases targeted spell and item
     cast range by %cast_range_bonus%.'
@@ -1675,9 +1692,9 @@ item_bloodthorn:
     seconds. At the end of the silence, an additional %silence_damage_percent%%% of
     all damage taken during the silence will be dealt to the target as magic damage.<br>Range:
     %tooltip_range%<br><br>All attacks on the silenced target will have True Strike
-    and %tooltip_crit_chance%%% chance to crit for %target_crit_multiplier%%% more
-    damage.\n<h1>Passive: Critical Strike</h1> Grants a %crit_chance%%% chance for
-    attacks to inflict %crit_multiplier%%% more damage.'
+    and %tooltip_crit_chance%%% chance to crit for %target_crit_multiplier%%% damage.\n<h1>Passive:
+    Critical Strike</h1> Grants a %crit_chance%%% chance for attacks to inflict %crit_multiplier%%%
+    damage.'
   DisplayName: Bloodthorn
   Lore: A reviled blade that bites deeper with each wriggle of its victim's final
     throes.
@@ -1748,15 +1765,6 @@ item_cloak:
   DisplayName: Cloak
   Lore: A cloak made of a magical material that works to dispel any magic cast on
     it.
-item_combo_breaker:
-  Description: '<h1>Passive: Combo Breaker</h1> When you take damage and your health
-    falls below %health_threshold_pct%%, a strong dispel is applied and you gain a
-    %buff_duration% second buff that causes all damage you deal and are dealt to be
-    reduced to zero. Only triggers on player based damage. \n\n<h1>Passive: Status
-    Resistance</h1> Reduces status effect durations by %status_resistance%%. '
-  DisplayName: Aeon Disk
-  Lore: A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many
-    believe.
 item_courier:
   Description: '<h1>Use: Deploy Courier</h1> Deploys a creature to carry items to
     and from your team''s base.'
@@ -1826,7 +1834,7 @@ item_desolator:
   DisplayName: Desolator
   Lore: A wicked weapon, used in torturing political criminals.
 item_diffusal_blade:
-  Description: '<h1>Active: Purge</h1> Targets an enemy, slowing it for %purge_slow_duration%
+  Description: '<h1>Active: Inhibit</h1> Targets an enemy, slowing it for %purge_slow_duration%
     seconds.<br><br>Range: %cast_range_tooltip%\n<h1>Passive: Manabreak</h1>Each attack
     burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical
     damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana
@@ -1918,7 +1926,7 @@ item_gloves:
   Lore: A pair of magical gloves that seems to render weapons weightless.
 item_greater_crit:
   Description: '<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%%
-    chance to deal %tooltip_crit_damage%%% additional damage.'
+    chance to deal %crit_multiplier%%% damage.'
   DisplayName: Daedalus
   Lore: A weapon of incredible power that is difficult for even the strongest of warriors
     to control.
@@ -2009,23 +2017,18 @@ item_invis_sword:
   DisplayName: Shadow Blade
   Lore: The blade of a fallen king, it allows you to move unseen and strike from the
     shadows.
-item_iron_talon:
-  Description: '<h1>Active: Chop</h1>Targets a non-player enemy unit to remove %creep_damage_pct%%%
-    of its current HP.<br><br>If cast on a tree or ward, instantly destroys it.<br><br>Unit
-    Range: %tooltip_range%<br>Tree Range: %quelling_range_tooltip%<BR>Ward Range:
-    %cast_range_ward%\n<h1>Passive: Quell</h1>Increases attack damage against non-hero
-    units by %damage_bonus% for melee heroes, and %damage_bonus_ranged% for ranged.'
-  DisplayName: Iron Talon
-  Lore: A simple but effective weapon devised to quell a great Hellbear uprising.
 item_javelin:
   Description: '<h1>Passive: Pierce</h1>Grants each attack a %bonus_chance%%% chance
     to pierce through evasion and deal %bonus_chance_damage% bonus damage.'
   DisplayName: Javelin
   Lore: A rather typical spear that can sometimes pierce through an enemy's armor
     when used to attack.
+item_kaya:
+  DisplayName: Kaya
+  Lore: The staff of a renowned sorceress, lost for countless millennia.
 item_lesser_crit:
   Description: '<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%%
-    chance to deal %tooltip_crit_damage%%% additional damage.'
+    chance to deal %crit_multiplier%%% damage.'
   DisplayName: Crystalys
   Lore: A blade forged from rare crystals, it seeks weak points in enemy armor.
 item_lifesteal:
@@ -2096,11 +2099,14 @@ item_mekansm:
   DisplayName: Mekansm
   Lore: A glowing jewel formed out of assorted parts that somehow fit together perfectly.
 item_meteor_hammer:
-  Description: '<h1>Active: Meteor Hammer</h1> CHANNELED - After a succesful channel,
+  Description: '<h1>Active: Meteor Hammer</h1> CHANNELED - After a successful channel,
     summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration%
-    seconds. Deals damage over time to enemies units and buildings for %burn_duration%
-    seconds.<BR><BR>Building DPS: %burn_dps_buildings% <BR>Non-Building DPS: %burn_dps_units%
-    <BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds.'
+    seconds and dealing impact damage. Continues to deal damage over time to enemies
+    units and buildings for %burn_duration% seconds.<BR><BR>Building Impact Damage:
+    %impact_damage_buildings% <BR>Building Over Time Damage: %burn_dps_buildings%
+    <BR><BR>Non-Building Impact Damage: %impact_damage_units% <BR>Non-Building Over
+    Time Damage: %burn_dps_units% <BR><BR>Channel Duration: %max_duration% seconds.<BR>Landing
+    Time: %land_time% seconds.'
   DisplayName: Meteor Hammer
   Lore: An enchanted hammer forged of metals discovered in the ruins of a village
     destroyed by a great star storm.
@@ -2137,10 +2143,9 @@ item_necronomicon:
     mana every hit, and deals magical damage to whoever kills it.  Gains True Sight
     at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana
     Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has
-    an activated mana burn ability, and a passive movement and attack speed aura.<br>Health:
-    %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Mana Burn Damage:
-    %archer_mana_burn%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed:
-    %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%'
+    a passive movement and attack speed aura. Gains Purge at Level 3.<br>Health: %archer_health_tooltip%<br>Damage:
+    %archer_damage_tooltip%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack
+    Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%'
   DisplayName: Necronomicon
   Lore: Considered the ultimate in necromancy and demonology, a powerful malefic force
     is locked within its pages.
@@ -2150,10 +2155,9 @@ item_necronomicon_2:
     mana every hit, and deals magical damage to whoever kills it.  Gains True Sight
     at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana
     Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has
-    an activated mana burn ability, and a passive movement and attack speed aura.<br>Health:
-    %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Mana Burn Damage:
-    %archer_mana_burn%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed:
-    %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%'
+    a passive movement and attack speed aura. Gains Purge at Level 3.<br>Health: %archer_health_tooltip%<br>Damage:
+    %archer_damage_tooltip%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack
+    Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%'
   DisplayName: Necronomicon
   Lore: Considered the ultimate in necromancy and demonology, a powerful malefic force
     is locked within its pages.
@@ -2163,10 +2167,9 @@ item_necronomicon_3:
     mana every hit, and deals magical damage to whoever kills it.  Gains True Sight
     at level 3.<br>Health: %warrior_health_tooltip%<br>Damage: %warrior_damage_tooltip%<br>Mana
     Break Damage: %warrior_mana_break_tooltip%<br>Last Will Damage: %explosion%<br><br><h1>Archer:</h1>Has
-    an activated mana burn ability, and a passive movement and attack speed aura.<br>Health:
-    %archer_health_tooltip%<br>Damage: %archer_damage_tooltip%<br>Mana Burn Damage:
-    %archer_mana_burn%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack Speed:
-    %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%'
+    a passive movement and attack speed aura. Gains Purge at Level 3.<br>Health: %archer_health_tooltip%<br>Damage:
+    %archer_damage_tooltip%<br>Aura Move Speed: %archer_move_speed%<br>Aura Attack
+    Speed: %archer_attack_speed%<br>Aura Radius: %archer_aura_radius_tooltip%'
   DisplayName: Necronomicon
   Lore: Considered the ultimate in necromancy and demonology, a powerful malefic force
     is locked within its pages.
@@ -2234,13 +2237,6 @@ item_point_booster:
   Description: ''
   DisplayName: Point Booster
   Lore: A perfectly formed amethyst that nourishes body and mind when held.
-item_poor_mans_shield:
-  Description: '<h1>Passive: Damage Block</h1>When cooldown is ready, blocks %bonus_block_melee%
-    damage on melee heroes and %bonus_block_range% on ranged heroes. Only triggers
-    on attacks from heroes. <br><br>Gives a %block_chance%%% chance to block %damage_block_melee%
-    damage on melee heroes, and %damage_block_ranged% damage on ranged.'
-  DisplayName: Poor Man's Shield
-  Lore: A busted old shield that seems to block more than it should.
 item_power_treads:
   Description: '<h1>Active: Switch Attribute</h1>Switches between +%bonus_stat% Strength,
     +%bonus_stat% Agility, or +%bonus_stat% Intelligence.<br><br>Flat movement speed
@@ -2278,6 +2274,8 @@ item_reaver:
   Lore: A massive axe capable of tearing whole mountains down.
 item_recipe_abyssal_blade:
   DisplayName: Abyssal Blade Recipe
+item_recipe_aeon_disk:
+  DisplayName: Aeon Disk Recipe
 item_recipe_aether_lens:
   DisplayName: Aether Lens Recipe
 item_recipe_ancient_janggo:
@@ -2298,8 +2296,6 @@ item_recipe_bracer:
   DisplayName: Bracer Recipe
 item_recipe_buckler:
   DisplayName: Buckler Recipe
-item_recipe_combo_breaker:
-  DisplayName: Aeon Disk Recipe
 item_recipe_crimson_guard:
   DisplayName: Crimson Guard Recipe
 item_recipe_cyclone:
@@ -2324,8 +2320,6 @@ item_recipe_helm_of_the_dominator:
   DisplayName: Helm of the Dominator Recipe
 item_recipe_hurricane_pike:
   DisplayName: Hurricane Pike Recipe
-item_recipe_iron_talon:
-  DisplayName: Iron Talon Recipe
 item_recipe_lesser_crit:
   DisplayName: Crystalys Recipe
 item_recipe_maelstrom:
@@ -2410,78 +2404,6 @@ item_ring_of_protection:
 item_ring_of_regen:
   DisplayName: Ring of Regen
   Lore: This ring is considered a good luck charm among the Gnomes.
-item_river_painter:
-  Description: Pour this serum into the river to transform the water into liquid chrome
-    for 15 minutes. <font color='#FF5555'>Using this item on the river will permanently
-    consume one charge from your Armory supply upon expiration of the effect. Charges
-    do not get consumed if the effect is replaced by a stronger vial before expiration.</font>
-    Vials can only be used if at least one charge remains in your Armory. Charges
-    will only be used by successfully enchanting the river, and will not be consumed
-    if the item is sold, dropped, or destroyed during a game. You can only cast a
-    vial on the river if there's not a stronger vial already in effect.
-  DisplayName: 'River Vial: Chrome'
-item_river_painter2:
-  Description: Pour this serum into the river to dry up the water for 15 minutes.
-    <font color='#FF5555'>Using this item on the river will permanently consume one
-    charge from your Armory supply upon expiration of the effect . Charges do not
-    get consumed if the effect is replaced by a stronger vial before expiration.</font>
-    Vials can only be used if at least one charge remains in your Armory. Charges
-    will only be used by successfully enchanting the river, and will not be consumed
-    if the item is sold, dropped, or destroyed during a game. You can only cast a
-    vial on the river if there's not a stronger vial already in effect.
-  DisplayName: 'River Vial: Dry'
-item_river_painter3:
-  Description: Pour this serum into the river to transform the water into a green
-    slime for 15 minutes. <font color='#FF5555'>Using this item on the river will
-    permanently consume one charge from your Armory supply upon expiration of the
-    effect. Charges do not get consumed if the effect is replaced by a stronger vial
-    before expiration.</font> Vials can only be used if at least one charge remains
-    in your Armory. Charges will only be used by successfully enchanting the river,
-    and will not be consumed if the item is sold, dropped, or destroyed during a game.
-    You can only cast a vial on the river if there's not a stronger vial already in
-    effect.
-  DisplayName: 'River Vial: Slime'
-item_river_painter4:
-  Description: Pour this serum into the river to make the water oily for 15 minutes.
-    <font color='#FF5555'>Using this item on the river will permanently consume one
-    charge from your Armory supply upon expiration of the effect. Charges do not get
-    consumed if the effect is replaced by a stronger vial before expiration.</font>
-    Vials can only be used if at least one charge remains in your Armory. Charges
-    will only be used by successfully enchanting the river, and will not be consumed
-    if the item is sold, dropped, or destroyed during a game. You can only cast a
-    vial on the river if there's not a stronger vial already in effect.
-  DisplayName: 'River Vial: Oil'
-item_river_painter5:
-  Description: Pour this serum into the river to make the water electric for 15 minutes.
-    <font color='#FF5555'>Using this item on the river will permanently consume one
-    charge from your Armory supply upon expiration of the effect. Charges do not get
-    consumed if the effect is replaced by a stronger vial before expiration.</font>
-    Vials can only be used if at least one charge remains in your Armory. Charges
-    will only be used by successfully enchanting the river, and will not be consumed
-    if the item is sold, dropped, or destroyed during a game. You can only cast a
-    vial on the river if there's not a stronger vial already in effect.
-  DisplayName: 'River Vial: Electrified'
-item_river_painter6:
-  Description: Pour this serum into the river to transform the water into a purple
-    bubbling potion for 15 minutes. <font color='#FF5555'>Using this item on the river
-    will permanently consume one charge from your Armory supply upon expiration of
-    the effect. Charges do not get consumed if the effect is replaced by a stronger
-    vial before expiration.</font> Vials can only be used if at least one charge remains
-    in your Armory. Charges will only be used by successfully enchanting the river,
-    and will not be consumed if the item is sold, dropped, or destroyed during a game.
-    You can only cast a vial on the river if there's not a stronger vial already in
-    effect.
-  DisplayName: 'River Vial: Potion'
-item_river_painter7:
-  Description: Pour this serum into the river to transform the water into blood for
-    15 minutes. <font color='#FF5555'>Using this item on the river will permanently
-    consume one charge from your Armory supply upon expiration of the effect. Charges
-    do not get consumed if the effect is replaced by a stronger vial before expiration.</font>
-    Vials can only be used if at least one charge remains in your Armory. Charges
-    will only be used by successfully enchanting the river, and will not be consumed
-    if the item is sold, dropped, or destroyed during a game. You can only cast a
-    vial on the river if there's not a stronger vial already in effect.
-  DisplayName: 'River Vial: Blood'
 item_robe:
   DisplayName: Robe of the Magi
   Lore: This robe corrupts the soul of the user, but provides wisdom in return.
@@ -2543,7 +2465,7 @@ item_silver_edge:
     seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%%
     faster and can move through units.  <br><br>Attacking to end the invisibility
     will deal %windwalk_bonus_damage% bonus damage to the target, and for %backstab_duration%
-    seconds, disable their passive abilities, and reduce their damage output by %backstab_reduction%%%.'
+    seconds, disable their passive abilities.'
   DisplayName: Silver Edge
   Lore: Once used to slay an unjust king, only to have the kingdom erupt into civil
     war in the aftermath.
@@ -2664,9 +2586,6 @@ item_travel_boots_2:
     bonuses from multiple pairs of boots do not stack.'
   DisplayName: Boots of Travel
   Lore: Winged boots that grant omnipresence.
-item_trident:
-  DisplayName: Kaya
-  Lore: The staff of a renowned sorceress, lost for countless millennia.
 item_ultimate_orb:
   DisplayName: Ultimate Orb
   Lore: A mystical orb containing the essence of life.
@@ -2733,7 +2652,7 @@ item_ward_sentry:
 item_wind_lace:
   Description: Bonuses from multiple Wind Laces do not stack.
   DisplayName: Wind Lace
-  Lore: Hasten to battle on wind-touched heels
+  Lore: Hasten to battle on wind-touched heels.
 item_wraith_band:
   DisplayName: Wraith Band
   Lore: A circlet with faint whispers echoing about it.
@@ -3260,12 +3179,11 @@ mirana_invis:
   Lore: Her tenure with Selemene allows Mirana to eclipse the ground, wrapping her
     allies in a cloak of shadows.
 mirana_leap:
-  Description: Mirana leaps forward into battle, empowering allied units with a ferocious
+  Description: Mirana leaps forward into battle, empowering herself with a ferocious
     roar that grants bonus attack and movement speed. Speed bonus lasts %leap_bonus_duration%
     seconds.
   DisplayName: Leap
-  Lore: Both friend and foe alike recognize Mirana's iconic white beast in the heat
-    of battle.
+  Lore: None can fail to recognize Mirana's iconic white beast in the heat of battle.
 mirana_starfall:
   Description: Calls down a wave of meteors to damage nearby enemy units. The closest
     enemy unit to Mirana in a %starfall_secondary_radius% radius will be struck a
@@ -3479,18 +3397,21 @@ nevermore_requiem:
   Lore: The captured souls of those past slain are released to ravage their former
     allies.
 nevermore_shadowraze1:
-  Description: 'Shadow Fiend razes the area in front of him, dealing damage to enemy
-    units in an area. Adds a stacking magic resistance reduction debuff on the target. '
+  Description: Shadow Fiend razes the ground directly in front of him, dealing damage
+    to enemy units in the area. Adds a stacking damage amplifier on the target that
+    causes the enemy to take bonus Shadow Raze damage per stack.
   DisplayName: Shadowraze
   Lore: Nevermore's trademark for harvesting souls.
 nevermore_shadowraze2:
-  Description: 'Shadow Fiend razes the area in front of him, dealing damage to enemy
-    units in an area. Adds a stacking magic resistance reduction debuff on the target. '
+  Description: Shadow Fiend razes the ground a short distance away from him, dealing
+    damage to enemy units in the area. Adds a stacking damage amplifier on the target
+    that causes the enemy to take bonus Shadow Raze damage per stack.
   DisplayName: Shadowraze
   Lore: Nevermore's trademark for harvesting souls.
 nevermore_shadowraze3:
-  Description: 'Shadow Fiend razes the area in front of him, dealing damage to enemy
-    units in an area. Adds a stacking magic resistance reduction debuff on the target. '
+  Description: Shadow Fiend razes the ground a longer distance away from him, dealing
+    damage to enemy units in the area. Adds a stacking damage amplifier on the target
+    that causes the enemy to take bonus Shadow Raze damage per stack.
   DisplayName: Shadowraze
   Lore: Nevermore's trademark for harvesting souls.
 night_stalker_crippling_fear:
@@ -4084,10 +4005,10 @@ npc_dota_hero_broodmother:
     if necessary, until she could ensure her nursery might once more be a safe and
     wholesome environment for her precious spiderspawn.
   DisplayName: Broodmother
-  Hype: Hiding invisibly within her webs, Broodmother births an army of spiders to
-    lead her team's forces toward the enemy base. As prey wanders near, she joins
-    her children and attacks, slowing foes with incapacitating bites as she indulges
-    her insatiable hunger.
+  Hype: Hiding within her webs, Broodmother births an army of spiders to lead her
+    team's forces toward the enemy base. As prey wanders near, she joins her children
+    and attacks, slowing foes with incapacitating bites as she indulges her insatiable
+    hunger.
 npc_dota_hero_centaur:
   Bio: "It's said that a centaur's road is paved with the corpses of the fallen. \
     \ For the one called Warrunner, it has been a long road indeed.  To outsiders,\
@@ -6860,7 +6781,7 @@ razor_unstable_current:
     a jolt of electricity every %hit_interval% seconds. The jolt deals damages, slows,
     and purges buffs from enemies.\n\nDISPEL TYPE: Basic Dispel'
   DisplayName: Unstable Current
-  Lore: Attacking the Lightning Revenant is rewarded with shock therapy.
+  Lore: Merely approaching the Lightning Revenant is rewarded with shock therapy.
 riki_blink_strike:
   Description: Teleports behind the target unit, striking for bonus damage if it is
     an enemy.
@@ -6942,8 +6863,9 @@ rubick_fade_bolt:
   Lore: Rubick's favorite spell for dispatching would-be assassins is a rather simple
     conjuration.
 rubick_null_field:
-  Description: Rubick's mastery of the arcane nullifies nearby enemy senses, reducing
-    their magic resistance.
+  Description: Rubick's mastery of the arcane creates an aura that nullifies nearby
+    enemy senses or increases his own. Can be toggled offensively or defensively to
+    reduce enemy magic resistance or increase allied magic resistance.
   DisplayName: Null Field
   Lore: Not every magus can be a Grand Magus...
 rubick_spell_steal:
@@ -7759,6 +7681,8 @@ special_bonus_night_vision_1000:
   DisplayName: +1000 Night Vision
 special_bonus_night_vision_400:
   DisplayName: +400 Night Vision
+special_bonus_night_vision_500:
+  DisplayName: +500 Night Vision
 special_bonus_night_vision_600:
   DisplayName: +600 Night Vision
 special_bonus_reincarnation_200:
@@ -7866,11 +7790,13 @@ special_bonus_unique_abaddon_2:
 special_bonus_unique_abaddon_3:
   DisplayName: +25% Curse of Avernus MS Slow
 special_bonus_unique_alchemist:
-  DisplayName: -8s Unstable Concoction Cooldown
+  DisplayName: -5s Unstable Concoction Cooldown
 special_bonus_unique_alchemist_2:
-  DisplayName: +200 Unstable Concoction Damage
+  DisplayName: +360 Unstable Concoction Damage
 special_bonus_unique_alchemist_3:
   DisplayName: -0.2 Chemical Rage Base Attack Time
+special_bonus_unique_alchemist_4:
+  DisplayName: +30 Chemical Rage Regeneration
 special_bonus_unique_ancient_apparition_1:
   DisplayName: 4 Charges of Cold Feet
 special_bonus_unique_ancient_apparition_2:
@@ -7882,13 +7808,13 @@ special_bonus_unique_ancient_apparition_4:
 special_bonus_unique_ancient_apparition_5:
   DisplayName: +4% Ice Blast Kill Threshold
 special_bonus_unique_antimage:
-  DisplayName: -1s Blink Cooldown
+  DisplayName: -2s Blink Cooldown
 special_bonus_unique_antimage_2:
   DisplayName: -50s Mana Void Cooldown
 special_bonus_unique_antimage_3:
   DisplayName: +300 Blink Cast Range
 special_bonus_unique_antimage_4:
-  DisplayName: +30% Spell Shield
+  DisplayName: +25% Spell Shield
 special_bonus_unique_antimage_5:
   DisplayName: Blink Uncontrollable Illusion
 special_bonus_unique_arc_warden:
@@ -7916,7 +7842,7 @@ special_bonus_unique_batrider_2:
 special_bonus_unique_batrider_3:
   DisplayName: +2s Flamebreak Burn Duration
 special_bonus_unique_beastmaster:
-  DisplayName: +120 Wild Axes Damage
+  DisplayName: +100 Wild Axes Damage
 special_bonus_unique_beastmaster_2:
   DisplayName: +40 Boar Damage
 special_bonus_unique_beastmaster_3:
@@ -7952,11 +7878,11 @@ special_bonus_unique_bristleback_2:
 special_bonus_unique_bristleback_3:
   DisplayName: +20 Warpath Damage Per Stack
 special_bonus_unique_broodmother_1:
-  DisplayName: +75 Insatiable Hunger Damage/Lifesteal
+  DisplayName: +60 Insatiable Hunger Damage/Lifesteal
 special_bonus_unique_broodmother_2:
   DisplayName: +350 Spiders Health
 special_bonus_unique_broodmother_3:
-  DisplayName: +60 Spawn Spiderling Damage
+  DisplayName: +75 Spawn Spiderling Damage
 special_bonus_unique_broodmother_4:
   DisplayName: +20 Spiders Attack Damage
 special_bonus_unique_centaur_1:
@@ -8058,11 +7984,11 @@ special_bonus_unique_dragon_knight_2:
 special_bonus_unique_drow_ranger_1:
   DisplayName: +20% Precision Aura Damage
 special_bonus_unique_drow_ranger_2:
-  DisplayName: +300 Gust Distance/Knockback
+  DisplayName: +400 Gust Distance/Knockback
 special_bonus_unique_drow_ranger_3:
   DisplayName: +20 Marksmanship Agility
 special_bonus_unique_drow_ranger_4:
-  DisplayName: +1.5s Gust Duration
+  DisplayName: +2s Gust Duration
 special_bonus_unique_earth_spirit:
   DisplayName: +200 Rolling Boulder Damage
 special_bonus_unique_earth_spirit_2:
@@ -8082,11 +8008,11 @@ special_bonus_unique_elder_titan_2:
 special_bonus_unique_elder_titan_3:
   DisplayName: -75 Earth Splitter Cooldown
 special_bonus_unique_ember_spirit_1:
-  DisplayName: +150 Flame Guard Absorption
+  DisplayName: +200 Flame Guard Absorption
 special_bonus_unique_ember_spirit_2:
   DisplayName: +1s Searing Chains
 special_bonus_unique_ember_spirit_3:
-  DisplayName: +30 Flame Guard DPS
+  DisplayName: +50 Flame Guard DPS
 special_bonus_unique_ember_spirit_4:
   DisplayName: 2 Sleight of Fist Charges
 special_bonus_unique_ember_spirit_5:
@@ -8246,9 +8172,9 @@ special_bonus_unique_lone_druid_9:
 special_bonus_unique_luna_1:
   DisplayName: +100 Lucent Beam Damage
 special_bonus_unique_luna_2:
-  DisplayName: -2s Lucent Beam Cooldown
+  DisplayName: -3s Lucent Beam Cooldown
 special_bonus_unique_luna_3:
-  DisplayName: +24 Luna Blessing Damage
+  DisplayName: +24 Lunar Blessing Damage
 special_bonus_unique_luna_4:
   DisplayName: +0.25s Lucent Beam Ministun
 special_bonus_unique_luna_5:
@@ -8274,17 +8200,19 @@ special_bonus_unique_magnus_4:
 special_bonus_unique_magnus_5:
   DisplayName: +0.75s Reverse Polarity Stun Duration
 special_bonus_unique_medusa:
-  DisplayName: +2s Stone Gaze Duration
+  DisplayName: +2.5s Stone Gaze Duration
 special_bonus_unique_medusa_2:
   DisplayName: +7 Split Shot target
 special_bonus_unique_medusa_3:
-  DisplayName: +10% Mystic Snake Mana Steal
+  DisplayName: +15% Mystic Snake Mana Steal
 special_bonus_unique_medusa_4:
   DisplayName: Split Shot Uses Modifiers
 special_bonus_unique_meepo:
-  DisplayName: -4s Poof Cooldown
+  DisplayName: -5s Poof Cooldown
 special_bonus_unique_meepo_2:
   DisplayName: +40 Poof Damage
+special_bonus_unique_meepo_3:
+  DisplayName: -4s Earthbind Cooldown
 special_bonus_unique_mirana_1:
   DisplayName: +100 Leap Attack Speed
 special_bonus_unique_mirana_2:
@@ -8304,11 +8232,11 @@ special_bonus_unique_monkey_king_4:
 special_bonus_unique_monkey_king_5:
   DisplayName: 150 Tree Dance Vision AoE
 special_bonus_unique_monkey_king_6:
-  DisplayName: +1 Wukong Command Ring
+  DisplayName: +1 Wukong's Command Ring
 special_bonus_unique_monkey_king_7:
   DisplayName: +300 Tree Dance Cast Range
 special_bonus_unique_morphling_1:
-  DisplayName: +800 Waveform Range
+  DisplayName: +300 Waveform Range
 special_bonus_unique_morphling_2:
   DisplayName: -25s Morph Cooldown
 special_bonus_unique_morphling_3:
@@ -8317,12 +8245,20 @@ special_bonus_unique_morphling_4:
   DisplayName: Waveform Attacks Targets
 special_bonus_unique_morphling_5:
   DisplayName: Morph Targets Allies
+special_bonus_unique_morphling_6:
+  DisplayName: 2 Waveform Charges
+special_bonus_unique_morphling_7:
+  DisplayName: -5s Adaptive Strike Cooldown
+special_bonus_unique_morphling_8:
+  DisplayName: +15s Morph Duration
 special_bonus_unique_naga_siren:
   DisplayName: +1 Mirror Image Illusion
 special_bonus_unique_naga_siren_2:
   DisplayName: -5s Ensnare Cooldown
 special_bonus_unique_naga_siren_3:
   DisplayName: -6 Rip Tide Armor
+special_bonus_unique_naga_siren_4:
+  DisplayName: +10% Mirror Image Damage
 special_bonus_unique_necrophos:
   DisplayName: -1.5s Death Pulse Cooldown
 special_bonus_unique_necrophos_2:
@@ -8380,7 +8316,7 @@ special_bonus_unique_pangolier_3:
 special_bonus_unique_pangolier_4:
   DisplayName: -3s Swashbuckle Cooldown
 special_bonus_unique_pangolier_5:
-  DisplayName: -12s Rolling Thunder
+  DisplayName: -16s Rolling Thunder
 special_bonus_unique_phantom_assassin:
   DisplayName: Double Strike Stifling Dagger
 special_bonus_unique_phantom_assassin_2:
@@ -8411,6 +8347,8 @@ special_bonus_unique_puck_2:
   DisplayName: -5s Waning Rift Cooldown
 special_bonus_unique_puck_3:
   DisplayName: Dream Coil Rapid Fire
+special_bonus_unique_puck_4:
+  DisplayName: +40 Waning Rift Damage
 special_bonus_unique_pudge_1:
   DisplayName: +2.0 Flesh Heap Stack Str
 special_bonus_unique_pudge_2:
@@ -8444,7 +8382,7 @@ special_bonus_unique_razor_4:
 special_bonus_unique_riki_1:
   DisplayName: +0.20 Backstab Multiplier
 special_bonus_unique_riki_2:
-  DisplayName: -4s Smokescreen Cooldown
+  DisplayName: -5s Smokescreen Cooldown
 special_bonus_unique_riki_3:
   DisplayName: +900 Blink Strike Cast Range
 special_bonus_unique_riki_4:
@@ -8490,7 +8428,7 @@ special_bonus_unique_shadow_shaman_4:
 special_bonus_unique_shadow_shaman_5:
   DisplayName: -4s Hex Cooldown
 special_bonus_unique_silencer:
-  DisplayName: +30 Curse Of The Silent Damage
+  DisplayName: +30 Arcane Curse Damage
 special_bonus_unique_silencer_2:
   DisplayName: +2 Intelligence Steal
 special_bonus_unique_silencer_3:
@@ -8524,7 +8462,7 @@ special_bonus_unique_slark_3:
 special_bonus_unique_slark_4:
   DisplayName: +120s Essence Shift Duration
 special_bonus_unique_sniper_1:
-  DisplayName: +20 Shrapnel DPS
+  DisplayName: +25 Shrapnel DPS
 special_bonus_unique_sniper_2:
   DisplayName: +6 Shrapnel Charges
 special_bonus_unique_sniper_3:
@@ -8558,7 +8496,7 @@ special_bonus_unique_storm_spirit_4:
 special_bonus_unique_storm_spirit_5:
   DisplayName: +80 Static Remnant Damage
 special_bonus_unique_sven:
-  DisplayName: -8s Storm Hammer Cooldown
+  DisplayName: -9s Storm Hammer Cooldown
 special_bonus_unique_sven_2:
   DisplayName: +40 STR God's Strength
 special_bonus_unique_sven_3:
@@ -8581,10 +8519,12 @@ special_bonus_unique_templar_assassin_4:
   DisplayName: Refraction Dispels
 special_bonus_unique_templar_assassin_5:
   DisplayName: Psi Blades Spill Paralyzes
+special_bonus_unique_templar_assassin_6:
+  DisplayName: +3 Psionic Traps
 special_bonus_unique_terrorblade:
   DisplayName: -35s Sunder Cooldown
 special_bonus_unique_terrorblade_2:
-  DisplayName: -8s Reflection Cooldown
+  DisplayName: -10s Reflection Cooldown
 special_bonus_unique_terrorblade_3:
   DisplayName: +300 Metamorphosis Attack Range
 special_bonus_unique_tidehunter:
@@ -8608,13 +8548,13 @@ special_bonus_unique_tinker_2:
 special_bonus_unique_tinker_3:
   DisplayName: +0.3s Heat Seeking Missile Ministun
 special_bonus_unique_tiny:
-  DisplayName: +75 Avalanche Damage
+  DisplayName: +125 Avalanche Damage
 special_bonus_unique_tiny_2:
   DisplayName: 3 Toss Charges
 special_bonus_unique_tiny_3:
   DisplayName: -12s Avalanche Cooldown
 special_bonus_unique_tiny_4:
-  DisplayName: -10s Tree Grab CD
+  DisplayName: -7s Tree Grab CD
 special_bonus_unique_tiny_5:
   DisplayName: Toss Requires No Target
 special_bonus_unique_treant:
@@ -8682,7 +8622,7 @@ special_bonus_unique_vengeful_spirit_3:
 special_bonus_unique_vengeful_spirit_4:
   DisplayName: -1 Wave of Terror Armor
 special_bonus_unique_vengeful_spirit_5:
-  DisplayName: -4s Magic Missile Cooldown
+  DisplayName: -5s Magic Missile Cooldown
 special_bonus_unique_vengeful_spirit_6:
   DisplayName: -6s Wave of Terror Cooldown
 special_bonus_unique_venomancer:
@@ -8698,7 +8638,7 @@ special_bonus_unique_venomancer_5:
 special_bonus_unique_venomancer_6:
   DisplayName: +600 Poison Nova AoE
 special_bonus_unique_viper_1:
-  DisplayName: +6 Corrosive Skin DPS
+  DisplayName: +6 Corrosive Skin Stats
 special_bonus_unique_viper_2:
   DisplayName: +100 Viper Strike DPS
 special_bonus_unique_viper_3:
@@ -8744,7 +8684,7 @@ special_bonus_unique_windranger:
 special_bonus_unique_windranger_2:
   DisplayName: +30% Windrun Slow
 special_bonus_unique_windranger_3:
-  DisplayName: +90 Powershot Damage
+  DisplayName: +100 Powershot Damage
 special_bonus_unique_windranger_4:
   DisplayName: +20% Ministun Focus Fire
 special_bonus_unique_windranger_5:
@@ -8958,9 +8898,9 @@ templar_assassin_psi_blades:
     of the mystery that is reality.
 templar_assassin_psionic_trap:
   Description: Templar Assassin places mystical traps that invisibly monitor enemy
-    movement. When sprung at her command, they exert a slowing influence of 30%% in
-    the area. Traps charge up to slow an additional 5%% every second, up to 50%%.
-    Deals bonus damage when fully charged.
+    movement. When sprung at her command, they exert a slowing influence of %movement_speed_min%%%
+    in the area. Traps charge up to slow %movement_speed_max%%% after %trap_max_charge_duration%
+    seconds. Deals bonus damage when fully charged.
   DisplayName: Psionic Trap
   Lore: Calling upon the reach of the Hidden Temple, none escape the eye of the Templar.
 templar_assassin_refraction:
@@ -9068,8 +9008,7 @@ tiny_grow:
 tiny_toss:
   Description: Grabs the nearest unit in a 275 radius around Tiny, ally or enemy,
     and launches it at the target unit or rune to deal damage where they land.  If
-    the tossed unit is an enemy, it will take an extra 20%% damage. Toss does more
-    damage with each level in Grow.
+    the tossed unit is an enemy, it will take an extra 20%% damage.
   DisplayName: Toss
   Lore: Tiny's gargantuan stature allows him to catapult even the sturdiest of warriors.
 tiny_toss_tree:
@@ -9103,10 +9042,9 @@ treant_living_armor:
   Lore: The roots and tendrils of the Treant Protectors are far-reaching, stimulating
     the growth and rejuvenation of all of nature.
 treant_natures_guise:
-  Description: Turns Treant invisible when he is within %radius% radius of a tree
-    for %fade_time% seconds. Increases movement speed by %bonus_move_speed% while
-    invisible, and causes a %bash_duration% seconds disarming root when attacking
-    out of invisibility.
+  Description: Turns Treant invisible after a short delay when he is within close
+    radius of a tree. Increases movement speed while invisible, and causes a disarming
+    root when attacking out of invisibility.
   DisplayName: Nature's Guise
   Lore: The Protectors don't often come into vision; their natural state being nestled
     within their leafy brethren.
@@ -9176,6 +9114,8 @@ tusk_walrus_kick:
   Description: Kicks the target unit back, damaging them and slowing their movement
     speed.
   DisplayName: Walrus Kick
+  Lore: Tusk may have made his name with his fists, but the wise enemy is wary of
+    any and all limbs.
 tusk_walrus_punch:
   Description: Tusk connects with his mighty Walrus Punch, a critical strike so powerful
     it launches its victim into the air. The victim is slowed upon landing.
@@ -9343,8 +9283,8 @@ visage_summon_familiars_stone_form:
     seconds, the Familiar will automatically leave Stone Form.
   DisplayName: Stone Form
 warlock_fatal_bonds:
-  Description: Binds several enemy units together, causing %damage_share_percentage%%%
-    of the damage dealt to one of them to be felt by the others.
+  Description: Binds several enemy units together, causing a percentage of the damage
+    dealt to one of them to be felt by the others.
   DisplayName: Fatal Bonds
   Lore: An ancient incantation that links the vital energies of multiple lifeforms
     into one collective body.
