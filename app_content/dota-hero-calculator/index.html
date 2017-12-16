@@ -7,7 +7,7 @@ header: Hero Calculator
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="app-e22c502.min.css" type="text/css">
+<link rel="stylesheet" href="app-937fe61.min.css" type="text/css">
 {% endblock page_head %}
 
 {% block nav %}
@@ -26,6 +26,10 @@ header: Hero Calculator
             <strong style="cursor:pointer" class="pull-right shop-button" data-bind="toggle: displayShop, visible: !displayShop() && !shopPopout()">Shop</strong>
         </div>
     </header>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>7.07 updates are under development</strong>
+    </div>
     <h4 id="spinner">Loading...</h4>
     <div id="hero-calc-wrapper" class="initial-hidden" style="display:none;width:100%;">
         <ul class="nav nav-tabs">
@@ -314,13 +318,13 @@ header: Hero Calculator
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-var appConfig = { abilityTooltipPath: "/media/dota-json/abilitytooltipdata.json" };
+var appConfig = { abilityTooltipPath: "/media/dota-json/abilitytooltipdata.json", reportEmail: "support@devilesk.com" };
 window.HeroCalcData = {};
 $.when(
     $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-e22c502.min.js"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-937fe61.min.js"})
 ).done(function () { DotaHeroCalculator(appConfig); });
 </script>
 {% endblock scripts %}
