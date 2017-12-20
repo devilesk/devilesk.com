@@ -34,7 +34,13 @@
 
     .item_field {
         display:block;
+        
+        h1 {
+            font-size: 20px;
+            margin-top: 15px;
+        }
     }
+
     #item_name {
         font-weight:bold;
         display:inline;
