@@ -21,7 +21,7 @@
     effect durations by 25%. '
   displayname: Aeon Disk
   id: aeon_disk
-  itemcost: '3600'
+  itemcost: '3350'
   lore: A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many
     believe.
 - attributes: + 450 Mana<br>+ 1.25 Mana Regeneration
@@ -215,7 +215,7 @@
   lore: A powerful shield that imbues the bearer with the strength of heroes past,
     it is capable of protecting entire armies in battle.
   mana: '10'
-- attributes: + 35 Agility<br>+ 30 Damage<br>+ 35% Evasion<br>+ 30 Attack Speed
+- attributes: + 35 Agility<br>+ 25 Damage<br>+ 35% Evasion<br>+ 30 Attack Speed
   cd: '25'
   description: '<h1>Active: Flutter</h1> Grants 35% additional movement speed for
     2.0 seconds.'
@@ -527,14 +527,14 @@
   id: helm_of_iron_will
   itemcost: '900'
   lore: The helmet of a legendary warrior who fell in battle.
-- attributes: + 2 All Attributes<br>+ 10 Attack Speed
+- attributes: + 2 All Attributes<br>+ 5 Attack Speed
   cd: '60'
   description: '<h1>Active: Dominate</h1>Takes control of one neutral, non-ancient
     target unit and sets its movement speed to 425 and max health to a minimum of
     1500.<br><br>Dominated units with a max health of greater than 1500 retain their
     original max health.  Dominated unit''s bounty is set to %tooltip_bounty% gold.<br><br>Range:
     700<br><h1>Passive: Dominator Aura</h1> Increases nearby allies'' attack speed
-    by 15 and health regen by 8.<br><br>Radius: 900'
+    by 20 and health regen by 8.<br><br>Radius: 900'
   displayname: Helm of the Dominator
   id: helm_of_the_dominator
   itemcost: '2000'
@@ -549,7 +549,7 @@
   lore: A furred, magic resistant headpiece that is feared by wizards.
   mana: '75'
 - attributes: + 13 Intelligence<br>+ 5.5 HP Regeneration<br>+ 20 Agility<br>+ 15 Strength
-  cd: '15'
+  cd: '18'
   description: '<h1>Active: Hurricane Thrust</h1> Pushes you and target enemy 450
     units away from each other, and for 5.0 seconds, allows you to make 4 attacks
     against the target without range restrictions and with +100 attack speed.<br><br>Works
@@ -605,7 +605,7 @@
     700'
   displayname: Linken's Sphere
   id: sphere
-  itemcost: '4850'
+  itemcost: '5050'
   lore: This magical sphere once protected one of the most famous heroes in history.
 - attributes: + 10 Armor<br>+ 5.5 HP Regeneration<br>+ 1.75 Mana Regeneration<br>+
     250 Mana
@@ -647,8 +647,8 @@
   itemcost: '400'
   lore: A simple wand used to channel magic energies, it is favored by apprentice
     wizards and great warlocks alike.
-- attributes: + 10 Strength<br>+ 26 Agility<br>+ 10 Intelligence<br>+ 15 Attack Speed<br>+
-    10% Movement Speed
+- attributes: + 10 Strength<br>+ 26 Agility<br>+ 10 Intelligence<br>+ 10 Attack Speed<br>+
+    8% Movement Speed
   cd: '45'
   description: '<h1>Active: Mirror Image</h1>Creates 2 images of your hero that last
     20 seconds. <br><br>Melee images deal 33% damage and take 350% damage, while Ranged
@@ -667,8 +667,8 @@
   lore: A beautiful sapphire mantle worn by generations of queens.
 - attributes: + 20 Damage<br>+ 10 Attack Speed
   cd: '22'
-  description: '<h1>Active: Berserk</h1>Gives 110 attack speed and 17% movement speed,
-    but reduces your armor by 7 and silences you.  Lasts 8.0 seconds.<br><h1>Passive:
+  description: '<h1>Active: Berserk</h1>Gives 110 attack speed and 12% movement speed,
+    but reduces your armor by 8 and silences you.  Lasts 8.0 seconds.<br><h1>Passive:
     Lifesteal</h1>Heals the attacker for 15% of attack damage dealt.'
   displayname: Mask of Madness
   id: mask_of_madness
@@ -703,7 +703,7 @@
     dealing impact damage. Continues to deal damage over time to enemies units and
     buildings for 6 seconds.<BR><BR>Building Impact Damage: 75 <BR>Building Over Time
     Damage: 50 <BR><BR>Non-Building Impact Damage: 150 <BR>Non-Building Over Time
-    Damage: 90 <BR><BR>Channel Duration: 3 seconds.<BR>Landing Time: 0.5 seconds.'
+    Damage: 90 <BR><BR>Channel Duration: 2.5 seconds.<BR>Landing Time: 0.5 seconds.'
   displayname: Meteor Hammer
   id: meteor_hammer
   itemcost: '2625'
@@ -760,7 +760,7 @@
   description: '<h1>Active: Demonic Summoning</h1>Summons a Warrior and an Archer
     to fight for you for 50 seconds.<br><br><h1>Warrior:</h1>Burns mana every hit,
     and deals magical damage to whoever kills it.  Gains True Sight at level 3.<br>Health:
-    700 / 800 / 900<br>Damage: 75 / 100 / 125<br>Mana Break Damage: 20 / 30 / 40<br>Last
+    700 / 800 / 900<br>Damage: 75 / 100 / 125<br>Mana Break Damage: 30 / 40 / 50<br>Last
     Will Damage: 550 / 675 / 800<br><br><h1>Archer:</h1>Has a passive movement and
     attack speed aura. Gains Purge at Level 3.<br>Health: 700 / 800 / 900<br>Damage:
     60 / 90 / 120<br>Aura Move Speed: 5 / 7 / 9<br>Aura Attack Speed: 5 / 10 / 15<br>Aura
@@ -777,7 +777,7 @@
   itemcost: '465'
   lore: A small gemstone attached to several chains.
 - attributes: + 65 Damage<br>+ 5 Armor<br>+ 5 HP Regeneration
-  cd: '14'
+  cd: '13'
   description: '<h1>Active: Nullify</h1> Dispels the target and mutes them for 5.0
     seconds. Anytime the muted target is attacked, it will be slowed by 100% for 0.4
     seconds.'
@@ -785,7 +785,7 @@
   id: nullifier
   itemcost: '4700'
   lore: A dangerous weapon pilfered from an inverse dimension.
-  mana: '100'
+  mana: '75'
 - attributes: + 10 Intelligence<br>+ 10 Attack Speed<br>+ 10 Damage<br>+ 0.75 Mana
     Regeneration
   displayname: Oblivion Staff

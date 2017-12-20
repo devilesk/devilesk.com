@@ -6233,7 +6233,9 @@ a.pswp__share--download:hover {
   position: relative;
   left: 0;
   top: 0;
-  display: block; }
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
   .slick-track:before, .slick-track:after {
     content: "";
     display: table; }
@@ -7802,6 +7804,9 @@ table.highlight-row tbody tr:hover {
 
 .page-items .item_field {
   display: block; }
+  .page-items .item_field h1 {
+    font-size: 20px;
+    margin-top: 15px; }
 
 .page-items #item_name {
   font-weight: bold;
