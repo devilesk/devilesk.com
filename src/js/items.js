@@ -82,21 +82,24 @@ $(function () {
 	}
 
 	var ability_vars = {
-		'$health':'Health',
-		'$mana':'Mana',
-		'$armor':'Armor',
-		'$damage':'Damage',
-		'$str':'Strength',
-		'$int':'Intelligence',
-		'$agi':'Agility',
-		'$all':'All Attributes',
-		'$attack':'Attack Speed',
-		'$hp_regen':'HP Regeneration',
-		'$mana_regen':'Mana Regeneration',
-		'$move_speed':'Movement Speed',
-		'$evasion':'Evasion',
-		'$spell_resist':'Spell Resistance',
-		'$selected_attribute':'Selected Attribute'
+        '$health': 'Health',
+        '$mana': 'Mana',
+        '$armor': 'Armor',
+        '$damage': 'Damage',
+        '$str': 'Strength',
+        '$int': 'Intelligence',
+        '$agi': 'Agility',
+        '$all': 'All Attributes',
+        '$attack': 'Attack Speed',
+        '$hp_regen': 'HP Regeneration',
+        '$mana_regen': 'Mana Regeneration',
+        '$move_speed': 'Movement Speed',
+        '$evasion': 'Evasion',
+        '$spell_resist': 'Spell Resistance',
+        '$selected_attribute': 'Selected Attribute',
+        '$selected_attrib': 'Selected Attribute',
+        '$cast_range': 'Cast Range',
+        '$attack_range': 'Attack Range'
 	}
 
 	function getTooltipItemAttributes(item) {
@@ -177,15 +180,15 @@ $(function () {
 			item_data[i.replace('item_', '')] = data.html();
 		}
     
-    $('#search-items').keyup(function () {
-      var searchVal = $(this).val().toLowerCase();
-      $(".shop-item").removeClass('no-match');
-      $(".shop-item").filter(function( index ) {
-        var itemId = $(this).find('.items-sprite-70x50').attr('id').toLowerCase();
-        var itemName = itemData['item_' + itemId].displayname.toLowerCase();
-        return itemId.indexOf(searchVal) === -1 && itemName.indexOf(searchVal) === -1 && itemName.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
-      }).addClass('no-match');
-    });
+        $('#search-items').keyup(function () {
+            var searchVal = $(this).val().toLowerCase();
+            $(".shop-item").removeClass('no-match');
+            $(".shop-item").filter(function( index ) {
+            var itemId = $(this).find('.items-sprite-70x50').attr('id').toLowerCase();
+            var itemName = itemData['item_' + itemId].displayname.toLowerCase();
+                return itemId.indexOf(searchVal) === -1 && itemName.indexOf(searchVal) === -1 && itemName.match(/\b(\w)/g).join('').indexOf(searchVal) === -1;
+            }).addClass('no-match');
+        });
     
 	});
 });

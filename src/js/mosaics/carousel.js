@@ -11,7 +11,7 @@ var slides = [];
 heroes.forEach(function(hero, index) {
     var $thumbnail = $('<div>');
     var $thumbnailImg = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg">')
-    $thumbnail.data('index', index);
+    $thumbnailImg.data('index', index);
     slides.push($thumbnail);
     $thumbnail.append($thumbnailImg);
     $('.slick-carousel').append($thumbnail);
@@ -51,7 +51,7 @@ $('.slick-carousel').on('lazyLoaded', function(event, slick, direction){
 });
 
 carousel.on('click', '.slick-slide', function(e) {
-    var $slide = $(e.currentTarget);
+    var $slide = $(e.currentTarget).find('img');
     var index = $slide.data('index');
     openGallery(index);
 })
@@ -84,6 +84,6 @@ var items = heroes.map(function(hero) {
         src: '/media/images/mosaics/mosaics/' + hero + '.jpg',
         w: 1920,
         h: 1080,
-        title: '<a href="/dota2/mosaics">Go to mosaic gallery page &#187;</a>'
+        title: '<a href="/dota2/mosaics#&gid=hero&pid=' + hero + '">Go to mosaic gallery page &#187;</a>'
     }
 });

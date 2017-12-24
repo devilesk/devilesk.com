@@ -33,8 +33,8 @@ heroes.forEach(function(hero) {
     var $mainSlide = $('<div>');
     var $mainImage = $('<img data-lazy="/media/images/mosaics/mosaics/' + hero + '.jpg">')
     var $thumbnailImg = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg">')
-    $thumbnail.data('hero', hero);
-    $mainSlide.data('hero', hero);
+    $thumbnailImg.data('hero', hero);
+    $mainImage.data('hero', hero);
     slides.push($mainImage);
     $thumbnail.append($thumbnailImg);
     $mainSlide.append($mainImage);
@@ -83,8 +83,9 @@ var carouselNav = $('.slick-carousel-nav').slick({
 });
 
 carousel.on('click', '.slick-slide', function(e) {
-    var $slide = $(e.currentTarget);
+    var $slide = $(e.currentTarget).find('img');
     var hero = $slide.data('hero');
+    console.log($slide, hero);
     openGallery('hero', hero);
 })
 

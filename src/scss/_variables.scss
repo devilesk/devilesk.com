@@ -26,7 +26,7 @@ $gray-lighter:           lighten($gray-base, 40%); // #eee
 $brand-primary:         #202b40;
 $brand-success:         #245011;
 $brand-info:            #235b77;
-$brand-warning:         #764210;
+$brand-warning:         #c76808;
 $brand-danger:          #6a2222;
 
 
@@ -509,19 +509,19 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             #3c763d !default;
+$state-success-text:             #68ca69 !default;
 $state-success-bg:               #245011;
 $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
 
-$state-info-text:                #31708f !default;
+$state-info-text:                #50b1e0 !default;
 $state-info-bg:                  #235b77;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
-$state-warning-text:             #8a6d3b !default;
-$state-warning-bg:               #8c4f13;
+$state-warning-text:             #dcaf59 !default;
+$state-warning-bg:               #c76808;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 
-$state-danger-text:              #a94442 !default;
+$state-danger-text:              #dc5c59 !default;
 $state-danger-bg:                #7d2828;
 $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
@@ -615,7 +615,7 @@ $modal-title-padding:         15px !default;
 $modal-title-line-height:     $line-height-base !default;
 
 //** Background color of modal content area
-$modal-content-bg:                             #fff !default;
+$modal-content-bg:                             $color-1c1d1f !default;
 //** Modal content border color
 $modal-content-border-color:                   rgba(0,0,0,.2) !default;
 //** Modal content border color **for IE8**
@@ -626,7 +626,7 @@ $modal-backdrop-bg:           #000 !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .5 !default;
 //** Modal header border color
-$modal-header-border-color:   #e5e5e5 !default;
+$modal-header-border-color:   $gray-dark !default;
 //** Modal footer border color
 $modal-footer-border-color:   $modal-header-border-color !default;
 
@@ -840,7 +840,7 @@ $carousel-caption-color:                      #fff !default;
 //##
 
 $close-font-weight:           bold !default;
-$close-color:                 #000 !default;
+$close-color:                 #fff !default;
 $close-text-shadow:           0 1px 0 #fff !default;
 
 
