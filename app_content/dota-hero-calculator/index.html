@@ -7,7 +7,7 @@ header: Hero Calculator
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="app-937fe61.min.css" type="text/css">
+<link rel="stylesheet" href="app-a6d7963.min.css" type="text/css">
 {% endblock page_head %}
 
 {% block nav %}
@@ -91,18 +91,6 @@ header: Hero Calculator
                                 <input type="radio" name="optionsRadios" id="optionsRadios2" value="1" data-bind="value: '1', checked: $root.layout">
                                 Row Layout
                               </label>
-                            </div>
-                        </div>
-                        <label>Change how the stat groups are ordered.</label>
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-md-8">
-                                    <select class="form-control" multiple="multiple" height="4" data-bind="options: $root.allItems , optionsText: 'name', selectedOptions: $root.selectedItems"> </select>
-                                </div>
-                                <div class="col-md-4 btn-group-vertical">
-                                    <button class="btn btn-default" data-bind="click: $root.moveUp, enable: $root.allItems().length > 1">Move Up</button>
-                                    <button class="btn btn-default" data-bind="click: $root.moveDown, enable: $root.allItems().length > 1">Move Down</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -324,7 +312,7 @@ $.when(
     $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-937fe61.min.js"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-a6d7963.min.js"})
 ).done(function () { DotaHeroCalculator(appConfig); });
 </script>
 {% endblock scripts %}
