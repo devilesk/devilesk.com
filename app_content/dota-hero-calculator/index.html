@@ -7,7 +7,7 @@ header: Hero Calculator
 ---
 
 {% block page_head %}
-<link rel="stylesheet" href="app-a6d7963.min.css" type="text/css">
+<link rel="stylesheet" href="app-b6531ed.min.css" type="text/css">
 {% endblock page_head %}
 
 {% block nav %}
@@ -106,15 +106,20 @@ header: Hero Calculator
         <div class="form" data-bind="css: { 'col-md-12': !shopDock() || !displayShop() || shopPopout(), 'col-md-8': shopDock() && displayShop() && !shopPopout()}">
             <div>
                 <div class="form-group text-right">
-                    <button class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope"></span> Report a bug</button>
+                    <button class="btn btn-default btn-option" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope"></span> Report a bug</button>
                 </div>
                 <div class="form-group text-right">
-                    <button class="btn btn-default" data-bind="click: save"><span class="glyphicon glyphicon-floppy-disk"></span> Save build</button>
+                    <button class="btn btn-default btn-option" data-bind="click: save"><span class="glyphicon glyphicon-floppy-disk"></span> Save build</button>
                 </div>
                 <div class="form-group text-right col-md-6 col-md-offset-6" style="padding:0" data-bind="visible: saveLink">
                     <div class="input-group">
                         <div class="input-group-addon"><div class="glyphicon glyphicon-link"></div></div>
-                        <input type="text" id="savelink" class="form-control text-right" data-bind="value: saveLink" onClick="this.select()"></input>
+                        <input type="text" id="savelink" class="form-control text-right" data-bind="value: saveLink" onClick="this.select()" readonly></input>
+                        <span class="input-group-btn">
+                            <button id="save-copy" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="bottom" title="Copy to clipboard" data-bind="click: copySave, event: { mouseout: resetCopyTooltip }">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </button>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -312,7 +317,7 @@ $.when(
     $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-a6d7963.min.js"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-b6531ed.min.js"})
 ).done(function () { DotaHeroCalculator(appConfig); });
 </script>
 {% endblock scripts %}
