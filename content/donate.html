@@ -1,0 +1,45 @@
+---
+extends: base.j2
+title: Donate to devilesk
+description: Support the site and donate to devilesk.
+header: Donate
+page_script: donate
+no_breadcrumbs: true
+---
+
+{% block main %}
+<div class="row">
+    <div class="col-md-6 panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for coin in crypto -%}
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="header-{{ coin.id }}">
+            <h4 class="panel-title">
+                <a {% if loop.index == 1 %}class="collapsed" {% endif %}role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ coin.id }}" aria-expanded="true" aria-controls="collapseOne">{{ coin.header }}</a>
+                <div class="input-group" style="margin-top: 15px">
+                    <input id="input-address-{{ coin.id }}" class="form-control input-address" type="text" value="{{ coin.address }}" readonly>
+                    <span class="input-group-btn">
+                        <button id="input-address-btn-{{ coin.id }}" class="btn btn-default input-address-btn" type="button" data-toggle="tooltip" data-placement="bottom" title="Copy to clipboard">
+                            <span class="glyphicon glyphicon-copy"></span>
+                        </button>
+                    </span>
+                </div>
+            </a>
+        </div>
+        <div id="collapse-{{ coin.id }}" class="panel-collapse collapse{% if loop.index == 1 %} in{% endif %}" role="tabpanel" aria-labelledby="header-{{ coin.id }}">
+            <div class="panel-body text-center">
+                {% include "includes/crypto/" + coin.id + ".j2" %}
+            </div>
+        </div>
+    </div>
+    {%- endfor %}
+    </div>
+    <div class="col-md-6 panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">PayPal</div>
+            <div class="panel-body text-center">
+            {% include "includes/paypal.j2" %}
+            </div>
+        </div>
+    </div>
+</div>
+{%- endblock main %}

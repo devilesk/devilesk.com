@@ -1,6 +1,7 @@
 module.exports = {
     files: [
         './src/js/index.js',
+        './src/js/donate.js',
         './src/js/items.js',
         './src/js/heroes/patchhistory.js',
         './src/js/heroes/chart.js',
@@ -16,6 +17,7 @@ module.exports = {
     ],
     outputs: [
         'assets/js/index.js',
+        'assets/js/donate.js',
         'assets/js/items.js',
         'assets/js/heroes/patchhistory.js',
         'assets/js/heroes/chart.js',

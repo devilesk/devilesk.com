@@ -24,6 +24,7 @@ context:
         apps: yaml/apps.yaml
         maps: yaml/maps.yaml
         customgames: yaml/customgames.yaml
+        crypto: yaml/crypto.yaml
 deploy_root: build
 media_root: media
 media_url: /media
