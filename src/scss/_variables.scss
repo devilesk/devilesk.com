@@ -196,7 +196,7 @@ $btn-border-radius-small:        $border-radius-small !default;
 //** `<input>` background color
 $input-bg:                       $color-131415;
 //** `<input disabled>` background color
-$input-bg-disabled:              $gray-darker;
+$input-bg-disabled:              darken($input-bg, 5%);
 
 //** Text color for `<input>`s
 $input-color:                    $gray !default;
