@@ -24,12 +24,14 @@ if (bWatch) opts.plugin = [watchify];
 function bundle() {
     b.bundle()
      .on('error', console.error)
-     .pipe(fs.createWriteStream('assets/js/common.js'));
+     .pipe(fs.createWriteStream('assets/js/common.js'))
+     .on('finish', function () { console.log('bundled'); });
     if (bWatch) {
         var b2 = browserify(opts);
         b2.plugin('factor-bundle', { outputs: outputs.map(function (file) { return file.replace('assets', 'build/media'); }) })
           .bundle()
-          .pipe(fs.createWriteStream('build/media/js/common.js'));
+          .pipe(fs.createWriteStream('build/media/js/common.js'))
+          .on('finish', function () { console.log('bundled'); });
     }
 }
     
