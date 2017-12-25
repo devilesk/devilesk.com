@@ -94,7 +94,7 @@ $.when(
     
     trivia.init($('.btn'));
 });
-},{"../util/shuffle":54,"./trivia/ability-name":36,"./trivia/hero-name":37,"./trivia/item-cost":38,"./trivia/item-name":39,"bootstrap":1,"jquery":25}],39:[function(require,module,exports){
+},{"../util/shuffle":55,"./trivia/ability-name":36,"./trivia/hero-name":37,"./trivia/item-cost":38,"./trivia/item-name":39,"bootstrap":1,"jquery":25}],39:[function(require,module,exports){
 var $ = require('jquery');
 
 function TriviaModule(herodata, itemlistdata, itemdata) {

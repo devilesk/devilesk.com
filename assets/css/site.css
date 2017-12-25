@@ -2282,7 +2282,7 @@ output {
     background-color: transparent; }
   .form-control[disabled], .form-control[readonly],
   fieldset[disabled] .form-control {
-    background-color: #4a4c51;
+    background-color: #070708;
     opacity: 1; }
   .form-control[disabled],
   fieldset[disabled] .form-control {
@@ -6418,6 +6418,8 @@ footer {
     display: inline-block;
     vertical-align: text-top;
     padding-left: 5px; }
+  footer .donate-link {
+    vertical-align: middle; }
   footer a {
     color: #b0b2b7; }
     footer a:hover {
