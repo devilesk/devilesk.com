@@ -9,7 +9,7 @@ header: Hero Flashcards
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="app-127aa28.min.css" type="text/css">
+<link rel="stylesheet" href="app-d263e51.min.css" type="text/css">
 {% endblock head %}
 
 {% block body %}
@@ -186,7 +186,7 @@ $.when(
     $.getJSON("/media/dota-json/herodata.json", function (data) {HeroCalcData.heroData = data;}),
     $.getJSON("/media/dota-json/itemdata.json", function (data) {HeroCalcData.itemData = data;}),
     $.getJSON("/media/dota-json/unitdata.json", function (data) {HeroCalcData.unitData = data;}),
-    $.ajax({dataType: "script", cache: true, url: "bundle-127aa28.min.js"})
+    $.ajax({dataType: "script", cache: true, url: "bundle-d263e51.min.js"})
 ).done(function () { DotaFlashCardsApp(); });
 </script>
     {% endblock js %}
