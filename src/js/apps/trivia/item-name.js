@@ -6,7 +6,7 @@ function TriviaModule(herodata, itemlistdata, itemdata) {
         return itemlistdata.data[item];
     }
     this.buildQuestion = function(items_shuffled, answers_shuffled) {
-        $('#item').attr('src', 'http://cdn.dota2.com/apps/dota2/images/items/' + items_shuffled[0] + '_lg.png');
+        $('#item').attr('src', '/media/images/items/' + items_shuffled[0] + '.png');
         for (var i = 0; i < answers_shuffled.length; i++) {
             $('#answer_' + answers_shuffled[i]).html(itemlistdata.data[items_shuffled[i]]).blur();
         }

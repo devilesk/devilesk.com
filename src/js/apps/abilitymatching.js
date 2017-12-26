@@ -41,7 +41,7 @@ $(function () {
 				}
 			}
 			var portraitImage = new Image();
-			portraitImage.src = "http://media.steampowered.com/apps/dota2/images/heroes/" + h.replace('npc_dota_hero_','') + "_lg.png";
+			portraitImage.src = "/media/images/heroes/" + h.replace('npc_dota_hero_','') + ".png";
 			portraitImage.onload = function () {
 				$('#heroportrait').attr('src', portraitImage.src);
 				imgCount--;
@@ -79,7 +79,7 @@ $(function () {
                         }
                     }).appendTo('#abilitybox_end');
 
-                    var imageUrl = "http://media.steampowered.com/apps/dota2/images/abilities/" + data.abilities[i].name + "_hp2.png";
+                    var imageUrl = "/media/images/spellicons/" + data.abilities[i].name + ".png";
 						overlay = $('<div class="overlay-hover"></div>'),
 						abilityWrapper = $('<div class="ability-wrapper" id=' + data.abilities[i].name + '></div>').draggable({
                             revert: 'invalid'

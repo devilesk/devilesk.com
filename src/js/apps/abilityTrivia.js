@@ -20,8 +20,8 @@ function generateQuestion() {
     //console.log(answers_shuffled);
     rand_ability = itemnames[items_shuffled[progress]];
     //rand_ability = itemnames['invoker_ghost_walk'];
-    $('#ability').attr('src', 'http://cdn.dota2.com/apps/dota2/images/abilities/' + rand_ability.name + '_hp1.png');
-    $('#hero').attr('src','http://cdn.dota2.com/apps/dota2/images/heroes/' + rand_ability.hero.replace('npc_dota_hero_','') + '_full.png');
+    $('#ability').attr('src', '/media/images/spellicons/' + rand_ability.name + '.png');
+    $('#hero').attr('src','/media/images/heroes/' + rand_ability.hero.replace('npc_dota_hero_','') + '.png');
     $('#name').html(herodata[rand_ability.hero].displayname.toUpperCase() + ' - ' + rand_ability.displayname.toUpperCase());
     var attr = [];
     for (var i=0;i<rand_ability.attributes.length;i++) {

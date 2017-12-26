@@ -24,7 +24,7 @@ function TriviaModule(herodata, itemlistdata, itemdata) {
         return data[item].cost;
     }
     this.buildQuestion = function(items_shuffled, answers_shuffled) {
-        $('#item').attr('src', 'http://cdn.dota2.com/apps/dota2/images/items/' + items_shuffled[0].replace('item_', '') + '_lg.png');
+        $('#item').attr('src', '/media/images/items/' + items_shuffled[0].replace('item_', '') + '.png');
         $('#item-name').html(data[items_shuffled[0]].name);
         for (var i = 0; i < answers_shuffled.length; i++) {
             $('#answer_' + answers_shuffled[i]).html(data[items_shuffled[i]].cost).blur();

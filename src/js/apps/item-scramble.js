@@ -117,7 +117,7 @@ $(function() {
         $('#components-container').empty();
         //$('#upgrades-container').empty();
         for (var i = 0; i < components.length; i++) {
-            var $component = $('<img>').attr('src', 'http://cdn.dota2.com/apps/dota2/images/items/' + components[i] + '_lg.png').addClass('component');
+            var $component = $('<img>').attr('src', '/media/images/items/' + components[i] + '.png').addClass('component');
             $component.data('componentName', components[i]);
             componentsList.push($component);
             $component.draggable({
@@ -162,7 +162,7 @@ $(function() {
                     if (completedUpgrades.length > 0) {
                         completedUpgrades.forEach(function(item) {
                             if (upgrades.indexOf(item) == -1) {
-                                var $upgrade = $('<img>').attr('src', 'http://cdn.dota2.com/apps/dota2/images/items/' + item + '_lg.png').addClass('upgrade').data('upgradeName', item);
+                                var $upgrade = $('<img>').attr('src', '/media/images/items/' + item + '.png').addClass('upgrade').data('upgradeName', item);
                                 $('#upgrades-container').append($upgrade.hide().fadeIn(500));
                             } else {
                                 upgrades.splice(upgrades.indexOf(item), 1);
