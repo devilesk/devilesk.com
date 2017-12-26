@@ -17,7 +17,7 @@ id: page-items
     <h2 class="col-md-6">Items</h2>
     <h2 class="col-md-6">
         <div class="form-group">
-            <input type="text" id="search-items" class="form-control" placeholder="Filter...">
+            <input type="text" id="search-items" class="form-control" placeholder="Filter..." aria-label="Item search filter">
         </div>
     </h2>
 </div>
@@ -34,6 +34,7 @@ id: page-items
             {% for item in column.items -%}
             <a class="shop-item" href="/dota2/items/all.html#{{ item }}">
                 <div class="items-sprite-70x50 items-sprite-{{ item }}" id="{{ item }}"></div>
+                <span class="sr-only">{{ item }}</span>
             </a>
             {%- endfor %}
         </div>

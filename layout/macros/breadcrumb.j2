@@ -9,7 +9,9 @@
             {% if p.url == '/dota2/index.html' -%}
                 {% set stop = True %}
             {% endif %}
-            {% do crumbs.insert(0, p) %}
+            {% if p.url != '/index.html' -%}
+                {% do crumbs.insert(0, p) %}
+            {% endif %}
         {% endif %}
     {% endfor %}
     {% if res.name != 'index.html' -%}

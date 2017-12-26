@@ -10,15 +10,15 @@ heroes = shuffle(heroes);
 var slides = [];
 heroes.forEach(function(hero, index) {
     var $thumbnail = $('<div>');
-    var $thumbnailImg = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg">')
+    var $thumbnailImg = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg" alt="">')
     $thumbnailImg.data('index', index);
     slides.push($thumbnail);
     $thumbnail.append($thumbnailImg);
     $('.slick-carousel').append($thumbnail);
 });
 var carousel = $('.slick-carousel').slick({
-    prevArrow:"<button class='btn btn-xs btn-default prev'><span class='glyphicon glyphicon-menu-left'></span></button>",
-    nextArrow:"<button class='btn btn-xs btn-default next'><span class='glyphicon glyphicon-menu-right'></span></button>",
+    prevArrow:"<button class='btn btn-xs btn-default prev' aria-label='Previous'><span class='glyphicon glyphicon-menu-left'></span></button>",
+    nextArrow:"<button class='btn btn-xs btn-default next' aria-label='Next'><span class='glyphicon glyphicon-menu-right'></span></button>",
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 5,

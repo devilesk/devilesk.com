@@ -21,9 +21,9 @@ footer {
     }
     a {
         color: $text-color;
-        
+    
         &:hover {
-            color: darken($text-color, 20%);
+            color: lighten($text-color, 20%);
         }
     }
     border-top: 1px solid #242628;

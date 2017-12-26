@@ -16,7 +16,7 @@ id: page-items-all
 {% for item in itemtooltip -%}
   <div class="form-group">
     <h2 id="{{ item.id }}" class="item_field item_name">{{ item.displayname }}</h2>
-    <img src="{{ media_url_rev('images/gold.png') }}" class="item_cost item_field">
+    <img src="{{ media_url_rev('images/gold.png') }}" class="item_cost item_field" alt="">
     <span class="item_field item_cost">{{ item.itemcost }}</span>
     <div class="item item-{{ item.id }}"></div>
     {% if item.description %}
@@ -32,13 +32,13 @@ id: page-items-all
     {% if item.cd or item.mana %}
     <div class="item_cdmana">
       {% if item.cd %}
-      <img src="{{ media_url_rev('images/cooldown.png') }}" class="item_cooldown item_field">
+      <img src="{{ media_url_rev('images/cooldown.png') }}" class="item_cooldown item_field" alt="">
       <div class="item_field item_cooldown">
         {{ item.cd }}
       </div>
       {%- endif %}
       {% if item.mana %}
-      <img src="{{ media_url_rev('images/manacost.png') }}" class="item_manacost item_field">
+      <img src="{{ media_url_rev('images/manacost.png') }}" class="item_manacost item_field" alt="">
       <div class="item_field item_manacost">
         {{ item.mana }}
       </div>

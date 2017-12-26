@@ -6,6 +6,6 @@
 <time datetime="{{ res.meta.created.strftime('%Y-%m-%d') }}">
     Posted: {{ res.meta.created.strftime('%a, %d %b %Y') }}
 </time>
-<a href="{{ content_url(res.url.rstrip('.html')) }}#disqus_thread"></a>
+<a href="{{ content_url(res.url.rstrip('.html')) }}#disqus_thread">comments</a>
 </article>
 {% endmacro %}
