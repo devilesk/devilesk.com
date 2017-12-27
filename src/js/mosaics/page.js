@@ -81,48 +81,45 @@ function loadImages(slides, index, numCacheAfter, numCacheBefore) {
     }
 }
 
-    var slider = document.getElementById('slider-thumbnails');
+var slider = document.getElementById('slider-thumbnails');
 
-    carousel = lory(slider, {
-        rewind: true,
-        slidesToScroll: 3,
-        enableMouseEvents: true
-    });
+carousel = lory(slider, {
+    rewind: true,
+    slidesToScroll: 3,
+    enableMouseEvents: true
+});
 
 
 
-    var sliderMain = document.getElementById('slider-gallery');
+var sliderMain = document.getElementById('slider-gallery');
 
-    carouselMain = lory(sliderMain, {
-        infinite: 1,
-        enableMouseEvents: true
-    });
-    
-    
-    slider.addEventListener('before.lory.slide', function (event) {
-        if (disableLoad) return;
-        console.log('before slide', event.detail.index, event.detail.nextSlide);
-        var dir = (event.detail.nextSlide - event.detail.index) / Math.abs(event.detail.nextSlide - event.detail.index);
-        var index = event.detail.nextSlide - 1;
-        loadImages(images, index + 4 * dir, 4, 4);
-        /*for (var i = loaded; i < event.detail.nextSlide + 4; i++) {
-            loadImage(images[i]);
-        }*/
-    });
-    
-    slider.addEventListener('after.lory.slide', function (event) {
-        console.log('after slide', event.detail.currentSlide);
-    });
-    
-    sliderMain.addEventListener('before.lory.slide', function (event) {
-        if (disableLoad) return;
-        console.log('before slideMain', event.detail.index, event.detail.nextSlide);
-        loadImages(mosaics, event.detail.nextSlide - 1, 1, 1);
-    });
-    
-    sliderMain.addEventListener('after.lory.slide', function (event) {
-        console.log('after slideMain', event.detail.currentSlide);
-    });
+carouselMain = lory(sliderMain, {
+    infinite: 1,
+    enableMouseEvents: true
+});
+
+
+slider.addEventListener('before.lory.slide', function (event) {
+    if (disableLoad) return;
+    console.log('before slide', event.detail.index, event.detail.nextSlide);
+    var dir = (event.detail.nextSlide - event.detail.index) / Math.abs(event.detail.nextSlide - event.detail.index);
+    var index = event.detail.nextSlide - 1;
+    loadImages(images, index + 4 * dir, 4, 4);
+});
+
+slider.addEventListener('after.lory.slide', function (event) {
+    console.log('after slide', event.detail.currentSlide);
+});
+
+sliderMain.addEventListener('before.lory.slide', function (event) {
+    if (disableLoad) return;
+    console.log('before slideMain', event.detail.index, event.detail.nextSlide);
+    loadImages(mosaics, event.detail.nextSlide - 1, 1, 1);
+});
+
+sliderMain.addEventListener('after.lory.slide', function (event) {
+    console.log('after slideMain', event.detail.currentSlide);
+});
 
 function openGallery(gid, pid) {
     console.log('heroes.indexOf(pid)', pid, heroes.indexOf(pid));

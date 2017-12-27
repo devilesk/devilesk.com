@@ -6419,7 +6419,8 @@ footer {
     vertical-align: text-top;
     padding-left: 5px; }
   footer .donate-link {
-    vertical-align: middle; }
+    vertical-align: middle;
+    font-weight: bold; }
   footer a {
     color: #b0b2b7; }
     footer a:hover {
@@ -7931,9 +7932,14 @@ table.highlight-row tbody tr:hover {
     text-align: center;
     padding: 0;
     height: calc(100% - 30px);
-    border: 1px solid #242628; }
+    border: 1px solid #242628;
+    opacity: 0.8; }
     .lory .prev .glyphicon, .lory .next .glyphicon {
       line-height: 130px; }
+    .lory .prev.disabled, .lory .next.disabled {
+      cursor: not-allowed; }
+      .lory .prev.disabled:hover, .lory .next.disabled:hover {
+        border-color: transparent; }
   .lory .next {
     right: 0; }
   .lory .prev {

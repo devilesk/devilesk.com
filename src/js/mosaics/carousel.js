@@ -28,77 +28,37 @@ function loadImage(element) {
     if (element && !element.src) element.src = element.getAttribute('data-lazy');
 }
 
+function loadImages(slides, index, numCacheAfter, numCacheBefore) {
+    var numSlides = slides.length;
+    numCacheAfter = numCacheAfter || 0;
+    numCacheBefore = numCacheBefore || 0;
+    console.log('loadImages', index, index - numCacheBefore, index + numCacheAfter);
+    for (var i = index - numCacheBefore; i <= index + numCacheAfter; i++) {
+        var currentIndex = (i + numSlides) % numSlides;
+        console.log('loadImages currentIndex', i, currentIndex);
+        loadImage(slides[currentIndex]);
+    }
+}
+
 for (var i = 0; i < 5; i++) {
     loadImage(images[i]);
     loaded = i;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+var slider = document.querySelector('.js_slider');
 
-
-    var slider = document.querySelector('.js_slider');
-
-    carousel = lory(slider, {
-        infinite: 4,
-        slidesToScroll: 3,
-        enableMouseEvents: true
-    });
-    
-    slider.addEventListener('before.lory.slide', function (event) {
-        console.log('slide', event, event.detail.nextSlide + 4);
-        for (var i = loaded; i < event.detail.nextSlide + 4; i++) {
-            loadImage(images[i]);
-        }
-    });
-});
-    
-    
-    /*
-var carousel = $('.slick-carousel').slick({
-    prevArrow:"<button class='btn btn-xs btn-default prev' aria-label='Previous'><span class='glyphicon glyphicon-menu-left'></span></button>",
-    nextArrow:"<button class='btn btn-xs btn-default next' aria-label='Next'><span class='glyphicon glyphicon-menu-right'></span></button>",
-    infinite: true,
-    slidesToShow: 11,
-    variableWidth: true,
-    centerMode: true,
-    speed: 100,
-    initialSlide: 5,
-    swipeToSlide: true,
-    slidesToScroll: 5,
-    rows: 0,
-    lazyLoad: 'ondemand',
-    responsive: [{
-            breakpoint: 960,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3
-            }
-        }, {
-            breakpoint: 640,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 320,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
+carousel = lory(slider, {
+    rewind: true,
+    slidesToScroll: 3,
+    enableMouseEvents: true
 });
 
-$('.slick-carousel').on('lazyLoaded', function(event, slick, direction){
-    console.log('lazyLoaded');
-    $('.slick-carousel').addClass('mosaics-carousel-initialized');
+slider.addEventListener('before.lory.slide', function (event) {
+    console.log('before slide', event.detail.index, event.detail.nextSlide);
+    var dir = (event.detail.nextSlide - event.detail.index) / Math.abs(event.detail.nextSlide - event.detail.index);
+    var index = event.detail.nextSlide - 1;
+    loadImages(images, index + 4 * dir, 4, 4);
 });
-
-carousel.on('click', '.slick-slide', function(e) {
-    var $slide = $(e.currentTarget).find('img');
-    var index = $slide.data('index');
-    openGallery(index);
-})*/
 
 function openGallery(index) {
     var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {

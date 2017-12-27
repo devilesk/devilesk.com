@@ -52,9 +52,18 @@
         padding: 0;
         height: calc(100% - 30px);
         border: 1px solid #242628;
+        opacity: 0.8;
         
         .glyphicon {
             line-height: 130px;
+        }
+        
+        &.disabled {
+            cursor: not-allowed;
+            
+            &:hover {
+                border-color: transparent;
+            }
         }
     }
 
