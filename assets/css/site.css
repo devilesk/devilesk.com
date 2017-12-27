@@ -6424,6 +6424,9 @@ footer {
     color: #b0b2b7; }
     footer a:hover {
       color: #e5e6e8; }
+  @media (max-width: 991px) {
+    footer > .row > div.col-sm-4 {
+      text-align: center; } }
 
 .no-match {
   opacity: 0.1; }
@@ -7562,6 +7565,7 @@ table.highlight-row tbody tr:hover {
   display: none; }
 
 /* show active nested list */
+.bs-docs-sidebar .nav > .group-active > ul.nav,
 .bs-docs-sidebar .nav > .active > ul.nav {
   display: block; }
 
@@ -7899,7 +7903,7 @@ table.highlight-row tbody tr:hover {
 
 .page-items-all .form-group {
   min-height: 1000px;
-  margin-top: 100px; }
+  padding-top: 100px; }
 
 .page-items-all .item {
   box-shadow: inset 0 0 10px #000000; }
@@ -8015,7 +8019,7 @@ table.highlight-row tbody tr:hover {
   box-shadow: 0px 1px 1px 1px black; }
 
 .patch-page .patch-group {
-  margin-bottom: 40px; }
+  padding-top: 40px; }
   .patch-page .patch-group .group-name {
     margin: 0;
     font-size: 20px; }

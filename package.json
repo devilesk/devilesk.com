@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "bootstrap.native": "^2.0.21",
     "dota-datafiles": "*",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
@@ -68,6 +69,7 @@
     ]
   },
   "browserify-shim": {
+    "jquery": "global:$",
     "bootstrap": {
       "exports": "bootstrap",
       "depends": [

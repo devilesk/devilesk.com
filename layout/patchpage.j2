@@ -54,11 +54,7 @@ itemsprite-{{ id }}
                 {% endif %}
                 
                 {% for group in section.data %}
-                <div class="patch-group">
-                    {% if section.data.length != 1 %}
-                    <a class="anchor" id="{{ group.id|join('_') }}"></a>
-                    {% endif %}
-                    
+                <div {% if section.data.length != 1 %}id="{{ group.id|join('_') }}" {% endif %}class="patch-group">                    
                     {% for id in group.id %}
                         {% if section.id == 'heroes' %}
                             <div class="group-icon img-rounded hero heroes-sprite-64x36 heroes-sprite-{{ id }}" title="{{ group.name }}"></div>
@@ -93,10 +89,10 @@ itemsprite-{{ id }}
     </div>
 
     <div class="col-md-3">
-        <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+        <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary" data-spy="affix" data-offset-top="124">
             <ul class="nav bs-docs-sidenav">
                 {% for item in data.menu %}
-                <li>
+                <li class="sidenav-group">
                     <a href="#{{ item.id }}">{{ item.name }}</a>
                     <ul class="nav" data-bind="foreach: submenu">
                         {% for subitem in item.submenu %}

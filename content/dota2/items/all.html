@@ -13,52 +13,42 @@ id: page-items-all
 
 {% block container %}
 <div class="col-md-9">
-{% for item in itemtooltip -%}
-  <div class="form-group">
-    <h2 id="{{ item.id }}" class="item_field item_name">{{ item.displayname }}</h2>
+{% for item in itemtooltip %}
+<div id="{{ item.id }}" class="form-group">
+    <h2 class="item_field item_name">{{ item.displayname }}</h2>
     <img src="{{ media_url_rev('images/gold.png') }}" class="item_cost item_field" alt="">
     <span class="item_field item_cost">{{ item.itemcost }}</span>
     <div class="item item-{{ item.id }}"></div>
     {% if item.description %}
-    <div class="item_field item_description">
-      {{ item.description }}
-    </div>
+        <div class="item_field item_description">{{ item.description }}</div>
     {%- endif %}
     {% if item.attributes %}
-    <div class="item_field item_attributes">
-      {{ item.attributes }}
-    </div>
+        <div class="item_field item_attributes">{{ item.attributes }}</div>
     {%- endif %}
     {% if item.cd or item.mana %}
     <div class="item_cdmana">
-      {% if item.cd %}
-      <img src="{{ media_url_rev('images/cooldown.png') }}" class="item_cooldown item_field" alt="">
-      <div class="item_field item_cooldown">
-        {{ item.cd }}
-      </div>
-      {%- endif %}
-      {% if item.mana %}
-      <img src="{{ media_url_rev('images/manacost.png') }}" class="item_manacost item_field" alt="">
-      <div class="item_field item_manacost">
-        {{ item.mana }}
-      </div>
-      {%- endif %}
+        {% if item.cd %}
+            <img src="{{ media_url_rev('images/cooldown.png') }}" class="item_cooldown item_field" alt="">
+            <div class="item_field item_cooldown">{{ item.cd }}</div>
+        {%- endif %}
+        {% if item.mana %}
+            <img src="{{ media_url_rev('images/manacost.png') }}" class="item_manacost item_field" alt="">
+            <div class="item_field item_manacost">{{ item.mana }}</div>
+        {%- endif %}
     </div>
     {%- endif %}
     {% if item.lore %}
-    <div class="item_field item_lore">
-      {{ item.lore }}
-    </div>
+        <div class="item_field item_lore">{{ item.lore }}</div>
     {%- endif %}
-  </div>
+</div>
 {%- endfor %}
 </div>
 
 <div class="col-md-3">
-  <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+  <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary" data-spy="affix" data-offset-top="124">
     <ul class="nav bs-docs-sidenav">
     {% for menu in itemtooltipmenu -%}
-      <li class="active">
+      <li class="sidenav-group">
         <a href="#{{ menu.data[0].id }}">{{ menu.name }}</a>
         <ul class="nav" data-bind="foreach: data">
         {% for item in menu.data -%}

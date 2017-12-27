@@ -13,3 +13,8 @@ id: page-item-scramble
 <p>Solve by dragging together all the component items to form upgrade items.</p>
 <div id="components-container"></div>
 {% endblock main %}
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{ super() }}
+{%- endblock scripts %}
