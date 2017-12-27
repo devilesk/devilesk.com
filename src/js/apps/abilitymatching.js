@@ -1,105 +1,173 @@
-var $ = jQuery = require('jquery');
-require('jquery-ui/ui/version');
-require('jquery-ui/ui/ie');
-require('jquery-ui/ui/data');
-require('jquery-ui/ui/plugin');
-require('jquery-ui/ui/safe-active-element');
-require('jquery-ui/ui/safe-blur');
-require('jquery-ui/ui/scroll-parent');
-require('jquery-ui/ui/widget');
-require('jquery-ui/ui/widgets/mouse');
-require('jquery-ui/ui/widgets/draggable');
-require('jquery-ui/ui/widgets/droppable');
-require('../lib/jquery.ui.touch-punch');
-//require('bootstrap');
+var MobileDragDrop = require('mobile-drag-drop');
+var getJSON = require('../util/getJSON');
+var dragSrcEl;
+var herodata;
+var heroes;
+var count = 0;
 
-$(function () {
-    $.getJSON("/media/dota-json/herodata.json", function (data) {
-        var heroes = Object.keys(data),
-            herodata = data;
-            
-        createQuestion();
+MobileDragDrop.polyfill();
 
-        function createQuestion() {
-            var h = heroes[Math.floor(Math.random() * heroes.length)],
-                data = herodata[h],
-                count = 0,
-				imgCount = 0;
-			$('#contentcontainer').hide();
-            $('#abilitybox_start').empty();
-            $('#abilitybox_end').empty();
-            $('#heroportrait').empty();
-            $('#heroname').empty();
-			imgCount = data.abilities.filter(function (ability) { 
-				return ability.name != 'attribute_bonus' && ability.displayname != 'Empty' && ability.displayname != ''
-			}).length + 1;
-			
-			function checkShowContent() {
-				if (imgCount == 0) {
-					$('#contentcontainer').show();
-				}
-			}
-			var portraitImage = new Image();
-			portraitImage.src = "/media/images/heroes/" + h.replace('npc_dota_hero_','') + ".png";
-			portraitImage.onload = function () {
-				$('#heroportrait').attr('src', portraitImage.src);
-				imgCount--;
-				checkShowContent();
-			};
-            $('#heroname').text(data.displayname);
-            
-			function setImage(element, src) {
-				element.css('background-image', 'url(' + src + ')');
-				imgCount--;
-				checkShowContent();
-			}
-			
-            for (var i = 0; i < data.abilities.length; i++) {
-                if (data.abilities[i].name != 'attribute_bonus' && data.abilities[i].displayname != 'Empty' && data.abilities[i].displayname != '') {
-                    var abilityboxend = $('<div class=abilitybox_end id=ability_' + i + '></div>').droppable({
-                        accept: '#' + data.abilities[i].name,
-                        tolerance: 'intersect',
-                        drop: function (event, ui) {
-                            var drop_p = $(this).offset(),
-                                drag_p = ui.draggable.offset(),
-                                left_end = drop_p.left - drag_p.left,
-                                top_end = drop_p.top - drag_p.top;
-                            ui.draggable.animate({
-                                top: '+=' + top_end,
-                                left: '+=' + left_end
-                            },
-                                function() {
-                                    count += 1;
-                                    if (count == data.abilities.length - 1) {
-                                        createQuestion();
-                                    }
-                                }
-                            );
-                        }
-                    }).appendTo('#abilitybox_end');
+function handleDragStart(e) {
+    console.log('drag start', e, this);
+    this.classList.add('dragging');
 
-                    var imageUrl = "/media/images/spellicons/" + data.abilities[i].name + ".png";
-						overlay = $('<div class="overlay-hover"></div>'),
-						abilityWrapper = $('<div class="ability-wrapper" id=' + data.abilities[i].name + '></div>').draggable({
-                            revert: 'invalid'
-                        }),
-                        ability = $('<div class="abilitybox"></div>');
-						abilityWrapper.append(overlay);
-						abilityWrapper.append(ability);
+    dragSrcEl = this;
 
-					var abilityImage = new Image();
-					abilityImage.src = imageUrl;
-					abilityImage.onload = setImage(ability, imageUrl);
-						
-                    ability.html($('<div class=abilitytextcontainer></div>').html($('<div class=abilitytext></div>').text(data.abilities[i].displayname)));
-                    if (Math.random() < 0.5) {
-                        abilityWrapper.appendTo('#abilitybox_start');
-                    }
-                    else {
-                        abilityWrapper.prependTo('#abilitybox_start');
-                    }
-                }
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+function handleDragEnter(e) {
+  this.classList.add('dragover');
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) { e.preventDefault(); }
+
+  e.dataTransfer.dropEffect = 'move';
+  return false;
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('dragover');
+}
+
+function handleDrop(event) {
+    if (event.stopPropagation) { event.stopPropagation(); }
+
+    if (dragSrcEl != this) {
+        console.log('dragSrcEl', dragSrcEl);
+        console.log('droppedEl', this);
+        if (dragSrcEl.getAttribute('data-ability-index') == this.getAttribute('data-ability-index')) {
+            dragSrcEl.innerHTML = this.innerHTML;
+            this.innerHTML = event.dataTransfer.getData('text/html');
+            this.setAttribute('draggable', false);
+            dragSrcEl.setAttribute('draggable', false);
+            dragSrcEl.parentNode.removeChild(dragSrcEl);
+            console.log('count', count);
+            count--;
+            console.log('count', count);
+            if (count == 0) {
+                createQuestion();
             }
         }
+    }
+    return false;
+}
+
+function handleDragEnd(e) {
+    var ul = document.getElementById('abilitybox_start');
+    [].forEach.call(ul.children, function (col) {
+        col.classList.remove('dragover');
+        col.classList.remove('dragging');
     });
+}
+
+function createQuestion() {
+    console.log('createQuestion');
+    var h = heroes[Math.floor(Math.random() * heroes.length)],
+        data = herodata[h],
+        imgCount = 0;
+    count = 0;
+    document.getElementById('contentcontainer').style.display = 'none';
+    document.getElementById('abilitybox_start').innerHTML = '';
+    document.getElementById('abilitybox_end').innerHTML = '';
+    document.getElementById('hero-portrait').innerHTML = '';
+    document.getElementById('heroname').innerHTML = '';
+    imgCount = data.abilities.filter(function (ability) { 
+        return ability.name != 'attribute_bonus' && ability.displayname != 'Empty' && ability.displayname != '' && ability.name != 'generic_hidden';
+    }).length + 1;
+    
+    function checkShowContent() {
+        console.log('checkShowContent', imgCount);
+        if (imgCount == 0) {
+            document.getElementById('contentcontainer').style.display = '';
+        }
+    }
+    var portraitImage = new Image();
+    portraitImage.src = "/media/images/heroes/" + h.replace('npc_dota_hero_','') + ".png";
+    portraitImage.onload = function () {
+        document.getElementById('hero-portrait').src = portraitImage.src;
+        imgCount--;
+        checkShowContent();
+    };
+    document.getElementById('heroname').innerHTML = data.displayname;
+    
+    function setImage(element, src) {
+        element.style.backgroundImage = 'url(' + src + ')';
+        imgCount--;
+        checkShowContent();
+    }
+    
+    for (var i = 0; i < data.abilities.length; i++) {
+        if (data.abilities[i].name != 'attribute_bonus' && data.abilities[i].displayname != 'Empty' && data.abilities[i].displayname != '' && data.abilities[i].name != 'generic_hidden') {
+            count++;
+            var abilityboxend = document.createElement('div');
+            abilityboxend.classList.add('abilitybox_end');
+            abilityboxend.id = 'ability_' + i;
+            abilityboxend.setAttribute('data-ability-index', i);
+            document.getElementById('abilitybox_end').appendChild(abilityboxend);
+            abilityboxend.addEventListener('dragover', function (event) {
+                event.preventDefault();
+            });
+            abilityboxend.addEventListener('dragenter', function (event) {
+                event.preventDefault();
+            });
+            abilityboxend.addEventListener('drop', handleDrop);
+
+            var imageUrl = "/media/images/spellicons/" + data.abilities[i].name + ".png";
+            
+            var abilityWrapper = document.createElement('div');
+            abilityWrapper.classList.add('ability-wrapper');
+            abilityWrapper.id = data.abilities[i].name;
+            abilityWrapper.setAttribute('draggable', true);
+            abilityWrapper.setAttribute('data-ability-index', i);
+            
+            var overlay = document.createElement('div');
+            overlay.classList.add('overlay-hover');
+            abilityWrapper.appendChild(overlay);
+            
+            var ability = document.createElement('div');
+            ability.classList.add('abilitybox');
+            abilityWrapper.appendChild(ability);
+
+            var abilityImage = new Image();
+            abilityImage.src = imageUrl;
+            abilityImage.onload = setImage(ability, imageUrl);
+                
+            var abilityTextContainer = document.createElement('div');
+            abilityTextContainer.classList.add('abilitytextcontainer');
+            
+            var abilityText = document.createElement('div');
+            abilityText.classList.add('abilitytext');
+            abilityText.innerHTML = data.abilities[i].displayname;
+            abilityTextContainer.appendChild(abilityText);
+            
+            ability.appendChild(abilityTextContainer);
+            
+            document.getElementById('abilitybox_start').appendChild(abilityWrapper);
+        }
+    }
+    
+    var ul = document.getElementById('abilitybox_start');
+    for (var i = ul.children.length; i >= 0; i--) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
+    
+    [].forEach.call(ul.children, function(col) {
+      col.addEventListener('dragstart', handleDragStart,  false);
+      //col.addEventListener('dragenter', handleDragEnter,  false);
+      //col.addEventListener('dragover',  handleDragOver,   false);
+      col.addEventListener('dragleave', handleDragLeave,  false);
+      //col.addEventListener('drop',      handleDrop,       false);
+      col.addEventListener('dragend',   handleDragEnd,    false);
+    });
+    console.log('count', count);
+}
+    
+getJSON("/media/dota-json/herodata.json", function (data) {
+    heroes = Object.keys(data);
+    herodata = data;
+        
+    createQuestion();
 });

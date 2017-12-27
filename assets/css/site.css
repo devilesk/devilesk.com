@@ -7620,18 +7620,16 @@ table.highlight-row tbody tr:hover {
   font-weight: bold;
   vertical-align: middle;
   position: relative;
-  box-shadow: inset 0 0 10px #000000;
-  border-radius: 10px; }
+  box-shadow: inset 0 0 10px #000000; }
 
 .overlay-hover {
   position: absolute;
   width: 105px;
   height: 105px;
-  z-index: 1000;
-  border-radius: 10px; }
+  z-index: 1000; }
 
 .ability-wrapper, .abilitybox_end {
-  margin: 5px; }
+  margin: 0 10px 20px; }
 
 .abilitytextcontainer {
   width: 105px;
@@ -7649,21 +7647,6 @@ table.highlight-row tbody tr:hover {
 #abilitybox_start, #abilitybox_end {
   display: inline-block;
   width: 100%; }
-
-#portrait-wrapper {
-  display: inline-block;
-  margin: 5px;
-  border-radius: 10px; }
-
-#heroportrait {
-  border-radius: 10px; }
-
-#portrait-overlay {
-  position: absolute;
-  width: 128px;
-  height: 72px;
-  box-shadow: inset 0 0 10px #000000;
-  border-radius: 10px; }
 
 .page-herodata .portraitsprite {
   margin: auto; }
@@ -7907,6 +7890,104 @@ table.highlight-row tbody tr:hover {
 
 .page-items-all .item {
   box-shadow: inset 0 0 10px #000000; }
+
+.lory {
+  position: relative;
+  /**
+     * (optional) define here the style definitions which should be applied on the slider container
+     * e.g. width including further controls like arrows etc.
+     */ }
+  .lory .frame {
+    /**
+         * (optional) wrapper width, specifies width of the slider frame.
+         */
+    /*width: 880px;*/
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap; }
+  .lory .slides {
+    display: inline-block;
+    height: 150px; }
+  .lory li {
+    position: relative;
+    display: inline-block;
+    /**
+         * (optional) if the content inside the slide element has a defined size.
+         */
+    width: 240px;
+    height: 135px;
+    margin: 5px; }
+    .lory li img {
+      box-shadow: 0 1px 1px 1px #000;
+      user-select: none; }
+  .lory .prev, .lory .next {
+    position: absolute;
+    top: 5px;
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+    padding: 0;
+    height: calc(100% - 30px);
+    border: 1px solid #242628; }
+    .lory .prev .glyphicon, .lory .next .glyphicon {
+      line-height: 130px; }
+  .lory .next {
+    right: 0; }
+  .lory .prev {
+    left: 0; }
+  .lory #slider-gallery {
+    position: relative;
+    margin: auto; }
+    .lory #slider-gallery li img {
+      width: 100%;
+      height: 100%; }
+    @media (max-width: 9999px) {
+      .lory #slider-gallery {
+        width: 1139px;
+        height: 670.6875px; }
+        .lory #slider-gallery .slides {
+          height: 640.6875px; }
+        .lory #slider-gallery li {
+          width: 1139px;
+          height: 640.6875px; }
+        .lory #slider-gallery .prev .glyphicon, .lory #slider-gallery .next .glyphicon {
+          line-height: 640.6875px; } }
+    @media (max-width: 1199px) {
+      .lory #slider-gallery {
+        width: 931px;
+        height: 553.6875px; }
+        .lory #slider-gallery .slides {
+          height: 523.6875px; }
+        .lory #slider-gallery li {
+          width: 931px;
+          height: 523.6875px; }
+        .lory #slider-gallery .prev .glyphicon, .lory #slider-gallery .next .glyphicon {
+          line-height: 523.6875px; } }
+    @media (max-width: 991px) {
+      .lory #slider-gallery {
+        width: 707px;
+        height: 427.6875px; }
+        .lory #slider-gallery .slides {
+          height: 397.6875px; }
+        .lory #slider-gallery li {
+          width: 707px;
+          height: 397.6875px; }
+        .lory #slider-gallery .prev .glyphicon, .lory #slider-gallery .next .glyphicon {
+          line-height: 397.6875px; } }
+    @media (max-width: 767px) {
+      .lory #slider-gallery {
+        width: 260px;
+        height: 176.25px; }
+        .lory #slider-gallery .slides {
+          height: 146.25px; }
+        .lory #slider-gallery li {
+          width: 260px;
+          height: 146.25px; }
+        .lory #slider-gallery .prev .glyphicon, .lory #slider-gallery .next .glyphicon {
+          line-height: 146.25px; } }
 
 .submenu {
   margin-top: 15px;

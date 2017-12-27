@@ -100,7 +100,7 @@ function checkStart() {
         trivia.init(document.querySelectorAll('.btn'));
     }
 }
-},{"../util/fadeOut":39,"../util/getJSON":40,"../util/shuffle":42,"./trivia/ability-name":23,"./trivia/hero-name":24,"./trivia/item-cost":25,"./trivia/item-name":26}],26:[function(require,module,exports){
+},{"../util/fadeOut":38,"../util/getJSON":39,"../util/shuffle":41,"./trivia/ability-name":23,"./trivia/hero-name":24,"./trivia/item-cost":25,"./trivia/item-name":26}],26:[function(require,module,exports){
 function TriviaModule(herodata, itemlistdata, itemdata) {
     this.items = Object.keys(itemlistdata.data);
     this.getAnswer = function(item) {

@@ -1,7 +1,7 @@
-var $ = jQuery = require('jquery');
+var lory = require('lory.js').lory;
 var PhotoSwipe = require('photoswipe');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
-require('slick-carousel');
+var heroes = require('./heroes');
 
 var parseHash = function() {
     var hash = window.location.hash.substring(1),
@@ -25,77 +25,119 @@ var parseHash = function() {
     return params;
 };
 
-var heroes = require('./heroes');
+var images = [];
+var mosaics = [];
+var loaded = 0;
+var carousel;
+var carouselMain;
+var disableLoad = false;
 
-var slides = [];
-heroes.forEach(function(hero) {
-    var $thumbnail = $('<div>');
-    var $mainSlide = $('<div>');
-    var $mainImage = $('<img data-lazy="/media/images/mosaics/mosaics/' + hero + '.jpg">')
-    var $thumbnailImg = $('<img data-lazy="/media/images/mosaics/thumbnails/' + hero + '.jpg">')
-    $thumbnailImg.data('hero', hero);
-    $mainImage.data('hero', hero);
-    slides.push($mainImage);
-    $thumbnail.append($thumbnailImg);
-    $mainSlide.append($mainImage);
-    $('.slick-carousel').append($mainSlide);
-    $('.slick-carousel-nav').append($thumbnail);
+console.log('heroes', heroes.length);
+heroes.forEach(function(hero, index) {
+    var slide = document.createElement('li');
+    slide.classList.add('js_slide');
+    document.querySelector("#slider-thumbnails .js_slides").appendChild(slide);
+    var slideImage = document.createElement('img');
+    slideImage.setAttribute('data-lazy', '/media/images/mosaics/thumbnails/' + hero + '.jpg');
+    slideImage.alt = '';
+    slide.appendChild(slideImage);
+    images.push(slideImage);
+    
+    slide.addEventListener('dblclick', function (event) {
+        //openGallery(index);
+        console.log('carouselMain', carouselMain);
+        loadImage(mosaics[index]);
+        loadImage(mosaics[index+1]);
+        carouselMain.slideTo(index);
+    });
+    
+    var slide = document.createElement('li');
+    slide.classList.add('js_slide');
+    document.querySelector("#slider-gallery .js_slides").appendChild(slide);
+    var slideImage = document.createElement('img');
+    slideImage.setAttribute('data-lazy', '/media/images/mosaics/mosaics/' + hero + '.jpg');
+    slideImage.alt = '';
+    slide.appendChild(slideImage);
+    mosaics.push(slideImage);
+    
+    slide.addEventListener('dblclick', function (event) {
+        openGallery('hero', hero);
+    });
 });
 
-var carousel = $('.slick-carousel').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    lazyLoad: 'ondemand',
-    asNavFor: '.slick-carousel-nav'
-});
+function loadImage(element) {
+    if (element && !element.src) element.src = element.getAttribute('data-lazy');
+}
 
-var carouselNav = $('.slick-carousel-nav').slick({
-    prevArrow:"<button class='btn btn-xs btn-default prev'><span class='glyphicon glyphicon-menu-left'></span></button>",
-    nextArrow:"<button class='btn btn-xs btn-default next'><span class='glyphicon glyphicon-menu-right'></span></button>",
-    infinite: true,
-    lazyLoad: 'ondemand',
-    slidesToShow: 10,
-    slidesToScroll: 10,
-    asNavFor: '.slick-carousel',
-    focusOnSelect: true,
-    responsive: [{
-            breakpoint: 960,
-            settings: {
-                slidesToShow: 6,
-                slidesToScroll: 6
-            }
-        }, {
-            breakpoint: 640,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 4
-            }
-        }, {
-            breakpoint: 320,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }
-    ]
-});
+function loadImages(slides, index, numCacheAfter, numCacheBefore) {
+    var numSlides = slides.length;
+    numCacheAfter = numCacheAfter || 0;
+    numCacheBefore = numCacheBefore || 0;
+    console.log('loadImages', index, index - numCacheBefore, index + numCacheAfter);
+    for (var i = index - numCacheBefore; i <= index + numCacheAfter; i++) {
+        var currentIndex = (i + numSlides) % numSlides;
+        console.log('loadImages currentIndex', i, currentIndex);
+        loadImage(slides[currentIndex]);
+    }
+}
 
-carousel.on('click', '.slick-slide', function(e) {
-    var $slide = $(e.currentTarget).find('img');
-    var hero = $slide.data('hero');
-    console.log($slide, hero);
-    openGallery('hero', hero);
-})
+    var slider = document.getElementById('slider-thumbnails');
+
+    carousel = lory(slider, {
+        rewind: true,
+        slidesToScroll: 3,
+        enableMouseEvents: true
+    });
+
+
+
+    var sliderMain = document.getElementById('slider-gallery');
+
+    carouselMain = lory(sliderMain, {
+        infinite: 1,
+        enableMouseEvents: true
+    });
+    
+    
+    slider.addEventListener('before.lory.slide', function (event) {
+        if (disableLoad) return;
+        console.log('before slide', event.detail.index, event.detail.nextSlide);
+        var dir = (event.detail.nextSlide - event.detail.index) / Math.abs(event.detail.nextSlide - event.detail.index);
+        var index = event.detail.nextSlide - 1;
+        loadImages(images, index + 4 * dir, 4, 4);
+        /*for (var i = loaded; i < event.detail.nextSlide + 4; i++) {
+            loadImage(images[i]);
+        }*/
+    });
+    
+    slider.addEventListener('after.lory.slide', function (event) {
+        console.log('after slide', event.detail.currentSlide);
+    });
+    
+    sliderMain.addEventListener('before.lory.slide', function (event) {
+        if (disableLoad) return;
+        console.log('before slideMain', event.detail.index, event.detail.nextSlide);
+        loadImages(mosaics, event.detail.nextSlide - 1, 1, 1);
+    });
+    
+    sliderMain.addEventListener('after.lory.slide', function (event) {
+        console.log('after slideMain', event.detail.currentSlide);
+    });
 
 function openGallery(gid, pid) {
+    console.log('heroes.indexOf(pid)', pid, heroes.indexOf(pid));
     var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
         index: heroes.indexOf(pid),
         galleryUID: gid,
         getThumbBoundsFn: function (index) {
-            carousel.slick('slickGoTo', index, true);
-            var thumbnail = slides[index][0], // find thumbnail
+            console.log('opengallery', index);
+            disableLoad = true;
+            carousel.slideTo(index);
+            carouselMain.slideTo(index);
+            loadImages(images, index, 4, 4);
+            loadImages(mosaics, index, 1, 1);
+            disableLoad = false;
+            var thumbnail = mosaics[index], // find thumbnail
                 pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
                 rect = thumbnail.getBoundingClientRect();
             return {
@@ -125,4 +167,8 @@ var items = heroes.map(function(hero) {
 var hashData = parseHash();
 if (hashData.pid && hashData.gid) {
     openGallery(hashData.gid, hashData.pid);
+}
+else {
+    loadImages(images, 0, 4, 0);
+    loadImages(mosaics, 0, 1, 0);
 }

@@ -1,7 +1,7 @@
-if (document.querySelector('.mosaics-carousel')) {
+if (document.getElementById('slider-mosaics')) {
     require('./carousel');
 }
 
-if (document.querySelector('.mosaics-page')) {
+if (document.getElementById('slider-thumbnails')) {
     require('./page');
 }
