@@ -3,44 +3,43 @@
 <div class="navbar navbar-default {{cls if cls }}" {{attr if attr }}>
 	<div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="sr-only">Toggle Menu</span>
-          </button>
-          <a class="navbar-brand" href="{{ content_url('/dota2') }}"><span class="sr-only">Home</span></a>
+            <a class="navbar-brand" href="{{ content_url('/dota2') }}"><span class="sr-only">Home</span></a>
+            <label for="menu-toggle" class="navbar-toggle collapsed">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="sr-only">Toggle Menu</span>
+            </label>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="top-nav-menu nav navbar-nav">
-			{% for item in menu -%}
-                {% if item.submenu -%}
-                <li class="dropdown {{ 'active' if item.css_class == resource.meta.active_menu }}">
-                  <a href="{{ content_url(item.url) }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.name }} <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
+        <input type="checkbox" id="menu-toggle" class="hidden"/>
+        <ul class="top-nav-menu nav navbar-nav">
+        {% for item in menu %}
+            {% if item.submenu %}
+            <li class="dropdown {{ 'active' if item.css_class == resource.meta.active_menu }}">
+                <a href="{{ content_url(item.url) }}" class="dropdown-toggle" data-toggle="dropdown">{{ item.name }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
                     <li class="mobile-only"><a href="{{ content_url(item.url) }}">{{ item.description }}</a></li>
                     <li class="divider mobile-only"></li>
-                    {% for subitem in item.submenu -%}
-                    {% if subitem.type == 'page' -%}
-                        {% if subitem.url -%}
+                    {% for subitem in item.submenu %}
+                    {% if subitem.type == 'page' %}
+                        {% if subitem.url %}
                             <li><a href="{{ content_url(subitem.url) }}">{{ subitem.name }}</a></li>
-                        {% elif subitem.ext_url -%}
+                        {% elif subitem.ext_url %}
                             <li><a href="{{ subitem.ext_url }}">{{ subitem.name }}</a></li>
                         {% endif %}
-                    {% elif subitem.type == 'header' -%}
+                    {% elif subitem.type == 'header' %}
                     <li class="dropdown-header">{{ subitem.name }}</li>
-                    {% elif subitem.type == 'divider' -%}
+                    {% elif subitem.type == 'divider' %}
                     <li class="divider"></li>
-                    {%- endif %}
-                    {%- endfor %}
-                  </ul>
-                </li>
-                {% else %}
-                <li class="{{ 'active' if item.css_class == resource.meta.active_menu }}"><a href="{{ content_url(item.url) }}">{{ item.name }}</a></li>
-                {%- endif %}
-			{%- endfor %}
-		  </ul>
-		</div>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+            {% else %}
+            <li class="{{ 'active' if item.css_class == resource.meta.active_menu }}"><a href="{{ content_url(item.url) }}">{{ item.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
 	</div>
 </div>
 {%- endif %}

@@ -224,7 +224,7 @@
         line-height:3em;
         font-weight:bold;
     }
-    @media (max-width: 767px) {
+    @media (max-width: $screen-sm-max) {
         .btn {
             line-height:1em;
         }
@@ -238,4 +238,15 @@
             display:none;
         }
     }
+}
+
+@media screen and (max-width: $screen-sm-min) {
+
+    label[for="menu-toggle"] {
+        cursor: pointer;
+    }
+
+  #menu-toggle:not(:checked) + .navbar-nav {
+    display: none;
+  }
 }

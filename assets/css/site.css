@@ -8060,7 +8060,7 @@ table.highlight-row tbody tr:hover {
   line-height: 3em;
   font-weight: bold; }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .page-trivia-app .btn {
     line-height: 1em; }
   .page-trivia-app #hero {
@@ -8068,4 +8068,10 @@ table.highlight-row tbody tr:hover {
   .page-trivia-app h4 {
     font-size: 14px; }
   .page-trivia-app header {
+    display: none; } }
+
+@media screen and (max-width: 768px) {
+  label[for="menu-toggle"] {
+    cursor: pointer; }
+  #menu-toggle:not(:checked) + .navbar-nav {
     display: none; } }
