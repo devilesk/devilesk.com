@@ -71,6 +71,7 @@
     display: none;           
 }
 /* show active nested list */
+.bs-docs-sidebar .nav>.group-active>ul.nav,
 .bs-docs-sidebar .nav>.active>ul.nav {
     display: block;           
 }

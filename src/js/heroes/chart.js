@@ -1,12 +1,11 @@
-var $ = jQuery = require('jquery');
-require('bootstrap');
 var KTLIB = require('../ktlib');
 var QueryString = require('../util/queryString');
+var getJSON = require('../util/getJSON');
 var query_string = QueryString.query_string;
 var updateQueryStringParam = QueryString.updateQueryStringParam;
 
-$(function () {
-  KTLIB.init(function (herodata) {
+
+KTLIB.init(function (herodata) {
     console.log('herodata', herodata);
     var attributeOptions = KTLIB.attributeOptions;
     var attributeModifiers = KTLIB.attributeModifiers;
@@ -19,7 +18,7 @@ $(function () {
     var attributes = attributeOptions.map(function (a) { return a.id; })
     
     console.log('attributes', attributes);
-    $.getJSON("/media/dota-json/heroes.json", function (response) {
+    getJSON("/media/dota-json/heroes.json", function (response) {
       var heroes = response.data;
       console.log(heroes);
       var icons = {};
@@ -230,7 +229,7 @@ $(function () {
           var label = labelY + ' vs. ' + labelX;
           myChart.options.scales.yAxes[0].scaleLabel.labelString = labelY;
           myChart.options.scales.xAxes[0].scaleLabel.labelString = labelX;
-          $('#chart-title').text(label);
+          document.getElementById('chart-title').innerHTML = label;
         }
         
         function getPoint(hero) {
@@ -253,5 +252,4 @@ $(function () {
         ko.applyBindings(viewModel);
       }
     });
-  });
 });

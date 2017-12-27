@@ -1,5 +1,3 @@
-var $ = require('jquery');
-
 function TriviaModule(herodata, itemlistdata, itemdata) {
     var data = {};
     var itemlist = Object.keys(itemlistdata.data);
@@ -24,10 +22,12 @@ function TriviaModule(herodata, itemlistdata, itemdata) {
         return data[item].cost;
     }
     this.buildQuestion = function(items_shuffled, answers_shuffled) {
-        $('#item').attr('src', '/media/images/items/' + items_shuffled[0].replace('item_', '') + '.png');
-        $('#item-name').html(data[items_shuffled[0]].name);
+        document.getElementById('item').src = '/media/images/items/' + items_shuffled[0].replace('item_', '') + '.png';
+        document.getElementById('item-name').innerHTML = data[items_shuffled[0]].name;
         for (var i = 0; i < answers_shuffled.length; i++) {
-            $('#answer_' + answers_shuffled[i]).html(data[items_shuffled[i]].cost).blur();
+            var element = document.getElementById('answer_' + answers_shuffled[i]);
+            element.innerHTML = data[items_shuffled[i]].cost;
+            element.blur();
         }
     }
 }

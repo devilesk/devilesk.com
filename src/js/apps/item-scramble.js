@@ -9,7 +9,7 @@ require('jquery-ui/ui/scroll-parent');
 require('jquery-ui/ui/widget');
 require('jquery-ui/ui/widgets/mouse');
 require('jquery-ui/ui/widgets/draggable');
-require('bootstrap');
+//require('bootstrap');
 var _ = require('underscore');
 
 $(function() {

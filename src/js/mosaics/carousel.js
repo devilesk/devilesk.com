@@ -2,8 +2,9 @@ var $ = jQuery = require('jquery');
 var PhotoSwipe = require('photoswipe');
 var shuffle = require('../util/shuffle');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
-require('slick-carousel');
-
+console.log('$', $);
+var ssss = require('slick-carousel');
+console.log('slick', ssss);
 var heroes = require('./heroes');
 heroes = shuffle(heroes);
 

@@ -11,8 +11,7 @@ require('jquery-ui/ui/widgets/mouse');
 require('jquery-ui/ui/widgets/draggable');
 require('jquery-ui/ui/widgets/droppable');
 require('../lib/jquery.ui.touch-punch');
-require('bootstrap');
-var _ = require('underscore');
+//require('bootstrap');
 
 $(function () {
     $.getJSON("/media/dota-json/herodata.json", function (data) {

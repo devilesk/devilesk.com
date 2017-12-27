@@ -1,11 +1,11 @@
-var $ = jQuery = require('jquery');
-require('bootstrap');
+var getJSON = require('../util/getJSON');
 
-$(function () {
     var heroData = {};
     
-  $('.dropdown-menu').click(function(e) {
-        e.stopPropagation();
+    [].forEach.call(document.querySelectorAll('.dropdown-menu'), function (element) {
+        element.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
     });
 
   function getPrimaryStat(h) {
@@ -303,9 +303,7 @@ $(function () {
     };
   }
 
-  $.getJSON("/media/dota-json/unitdata.json", function (data) {
+  getJSON("/media/dota-json/unitdata.json", function (data) {
     heroData = data;
     ko.applyBindings(new TableViewModel());
   });
-
-});

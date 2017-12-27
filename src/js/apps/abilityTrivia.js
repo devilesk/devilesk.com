@@ -1,6 +1,3 @@
-var $ = jQuery = require('jquery');
-require('bootstrap');
-
 var items = [];
 var itemnames = {};
 var items_shuffled;
@@ -14,15 +11,17 @@ var answerval;
 var correct = 0;
 var herodata;
 var shuffle = require('../util/shuffle');
+var fadeOut = require('../util/fadeOut');
+var getJSON = require('../util/getJSON');
 
 function generateQuestion() {
     var answers_shuffled = shuffle(answers.slice(0));
     //console.log(answers_shuffled);
     rand_ability = itemnames[items_shuffled[progress]];
     //rand_ability = itemnames['invoker_ghost_walk'];
-    $('#ability').attr('src', '/media/images/spellicons/' + rand_ability.name + '.png');
-    $('#hero').attr('src','/media/images/heroes/' + rand_ability.hero.replace('npc_dota_hero_','') + '.png');
-    $('#name').html(herodata[rand_ability.hero].displayname.toUpperCase() + ' - ' + rand_ability.displayname.toUpperCase());
+    document.getElementById('ability').src = '/media/images/spellicons/' + rand_ability.name + '.png';
+    document.getElementById('hero').src = '/media/images/heroes/' + rand_ability.hero.replace('npc_dota_hero_','') + '.png';
+    document.getElementById('name').innerHTML = herodata[rand_ability.hero].displayname.toUpperCase() + ' - ' + rand_ability.displayname.toUpperCase();
     var attr = [];
     for (var i=0;i<rand_ability.attributes.length;i++) {
         if ('tooltip' in rand_ability.attributes[i]) {
@@ -38,15 +37,15 @@ function generateQuestion() {
     
     var attr_shuffled = shuffle(attr.slice(0));
     rand_attr = attr_shuffled[0];
-    $('#tooltip').html(rand_attr.tooltip);
-    //choices = _.flatten(generateAnswerChoices(rand_attr.value));
+    document.getElementById('tooltip').innerHTML = rand_attr.tooltip;
     choices = generateAnswerChoices(rand_attr.value).reduce(function(a, b) {
       return a.concat(b);
     }, []);
     //console.log(choices);
     answerval = choices[choices.length-1];
     for (var i = 0; i < answers_shuffled.length; i++) {
-        $('#answer_' + i).html(choices[i].toString()).blur();
+        document.getElementById('answer_' + i).innerHTML = choices[i].toString();
+        document.getElementById('answer_' + i).blur();
     }
 }
 
@@ -266,7 +265,7 @@ function dividesall(l, d) {
 }
 
 
-$.getJSON("/media/dota-json/herodata.json", function (data) {
+getJSON("/media/dota-json/herodata.json", function (data) {
     herodata = data;
     var ability = [];
     var abilitydata = {};
@@ -280,13 +279,7 @@ $.getJSON("/media/dota-json/herodata.json", function (data) {
                 return ability.name = abilities[i];
             })[0];
             if (a.name != "attribute_bonus" && a.displayname && a.displayname != '') {
-                if (abilities[i] in abilitydata) {
-                    //console.log('?', abilities[i]);
-                    //console.log(abilitydata[abilities[i]]);
-                    //console.log(_.findWhere(herodata[h].abilities, {
-                    //	name: abilities[i]
-                    //}));
-                } else {
+                if (!(abilities[i] in abilitydata)) {
                     if ((a.behavior.indexOf("DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE") == -1 && a.behavior.indexOf("DOTA_ABILITY_BEHAVIOR_HIDDEN") == -1) ||
                         (ability_include.indexOf(a.name) != -1)) {
                         ability.push(a.name);
@@ -301,53 +294,52 @@ $.getJSON("/media/dota-json/herodata.json", function (data) {
     itemnames = abilitydata;
     //console.log(items)
     //console.log(itemnames)
-
-    $('.btn').click(function (e) {
-        if (e.target.id == 'start') {
-            //console.log('click');
-            $('#start_container').hide();
-            $('#question_container').show();
-            $('#score_container').show();
-            items_shuffled = shuffle(items.slice(0));
-            progress = 0;
-            streak = 0;
-            correct = 0;
-            //console.log(items_shuffled);
-            generateQuestion();
-        }
-        else {
-            //console.log(answerval);
-            //console.log($(this).text());
-            if ($(this).text() == answerval) {
-                streak += 1;
-                correct += 1;
-                $('#ans_msg').html('<h3><span class=\"label label-success\">Correct!</span></h3>');
-            } else {
-                $('#ans_msg').html('<h3><span class=\"label label-danger\">Wrong! ' + answerval + '</span></h3>');
+    [].forEach.call(document.querySelectorAll('.btn'), function (element) {
+        element.addEventListener('click', function (event) {
+            if (event.currentTarget.id == 'start') {
+                //console.log('click');
+                document.getElementById('start_container').style.display = 'none';
+                document.getElementById('question_container').style.display = '';
+                document.getElementById('score_container').style.display = '';
+                items_shuffled = shuffle(items.slice(0));
+                progress = 0;
                 streak = 0;
+                correct = 0;
+                //console.log(items_shuffled);
+                generateQuestion();
             }
-            if (streak > longeststreak) {
-                longeststreak = streak;
-                $('#longeststreak').text('Longest Streak: ' + longeststreak);
+            else {
+                //console.log(answerval);
+                if (element.innerHTML == answerval) {
+                    streak += 1;
+                    correct += 1;
+                    document.getElementById('ans_msg').innerHTML = '<h3><span class=\"label label-success\">Correct!</span></h3>';
+                } else {
+                    document.getElementById('ans_msg').innerHTML = '<h3><span class=\"label label-danger\">Wrong! ' + answerval + '</span></h3>';
+                    streak = 0;
+                }
+                /*if (streak > longeststreak) {
+                    longeststreak = streak;
+                    document.getElementById('longeststreak').innerHTML = 'Longest Streak: ' + longeststreak;
+                }*/
+                progress+=1;
+                document.getElementById('ans_msg').style.display = '';
+                fadeOut(document.getElementById('ans_msg'));
+                document.getElementById('streak').innerHTML = 'Current Streak: ' + streak;
+                document.getElementById('correct').innerHTML = 'Correct: ' + correct;
+                event.preventDefault();
+                event.stopImmediatePropagation()
+                element.blur();
+                generateQuestion();
             }
-            progress+=1;
-            $('#ans_msg').stop(false, true, true);
-            $('#ans_msg').show();
-            $('#ans_msg').fadeOut(2000);
-            $('#streak').text('Current Streak: ' + streak);
-            $('#correct').text('Correct: ' + correct);
-            e.preventDefault();
-            e.stopImmediatePropagation()
-            $(this).blur();
-            generateQuestion();
-        }
-        $('#progress').text('Progress: ' + (progress+1) + '/25');
-        if (progress == 25) {
-            $('#progress').text('Final Score: ' + correct + '/25');
-            $('#correct').text('');
-            $('#start').html('Play Again');
-            $('#start_container').show();
-            $('#question_container').hide();
-        }
+            document.getElementById('progress').innerHTML = 'Progress: ' + (progress+1) + '/25';
+            if (progress == 25) {
+                document.getElementById('progress').innerHTML = 'Final Score: ' + correct + '/25';
+                document.getElementById('correct').innerHTML = '';
+                document.getElementById('start').innerHTML = 'Play Again';
+                document.getElementById('start_container').style.display = '';
+                document.getElementById('question_container').style.display = 'none';
+            }
+        });
     });
 });

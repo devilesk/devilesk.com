@@ -1,12 +1,7 @@
-var $ = jQuery = require('jquery');
-require('bootstrap');
+if (document.querySelector('.mosaics-carousel')) {
+    require('./carousel');
+}
 
-$(function () {
-    if ($('.mosaics-carousel').length) {
-        require('./carousel');
-    }
-    
-    if ($('.mosaics-page').length) {
-        require('./page');
-    }
-});
+if (document.querySelector('.mosaics-page')) {
+    require('./page');
+}
