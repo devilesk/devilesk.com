@@ -5,6 +5,11 @@ footer, .push {
     margin-top: $footer-top-margin;
 }
 footer {
+
+    .social-icon {
+        fill: currentColor;
+    }
+    
     .footer-logo {
         width: 32px;
         height: 32px;

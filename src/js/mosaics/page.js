@@ -1,6 +1,7 @@
 var lory = require('lory.js').lory;
 var PhotoSwipe = require('photoswipe');
 var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default');
+var debounce = require('lodash.debounce');
 var heroes = require('./heroes');
 
 var parseHash = function() {
@@ -32,37 +33,57 @@ var carousel;
 var carouselMain;
 var disableLoad = false;
 
-console.log('heroes', heroes.length);
+var debouncedHandler = debounce(function (event) {
+    if (event instanceof MouseEvent) {
+        var index = parseInt(event.target.getAttribute('data-index'));
+        loadImage(mosaics[index]);
+        loadImage(mosaics[index+1]);
+        console.log('debouncedHandler', index, carouselMain);
+        carouselMain.slideTo(index);
+    }
+}, 250, {
+    leading: true,
+    trailing: false
+});
+
+var debouncedHandlerGallery = debounce(function (event) {
+    console.log('debouncedHandlerGallery', event);
+    if (event instanceof MouseEvent) {
+        var index = parseInt(event.target.getAttribute('data-index'));
+        var hero = event.target.getAttribute('data-hero');
+        carousel.slideTo(index);
+        openGallery('hero', hero);
+    }
+}, 250, {
+    leading: true,
+    trailing: false
+});
+
 heroes.forEach(function(hero, index) {
     var slide = document.createElement('li');
     slide.classList.add('js_slide');
     document.querySelector("#slider-thumbnails .js_slides").appendChild(slide);
     var slideImage = document.createElement('img');
     slideImage.setAttribute('data-lazy', '/media/images/mosaics/thumbnails/' + hero + '.jpg');
+    slideImage.setAttribute('data-index', index);
     slideImage.alt = '';
     slide.appendChild(slideImage);
     images.push(slideImage);
     
-    slide.addEventListener('dblclick', function (event) {
-        //openGallery(index);
-        console.log('carouselMain', carouselMain);
-        loadImage(mosaics[index]);
-        loadImage(mosaics[index+1]);
-        carouselMain.slideTo(index);
-    });
+    slide.addEventListener('click', debouncedHandler);
     
-    var slide = document.createElement('li');
-    slide.classList.add('js_slide');
-    document.querySelector("#slider-gallery .js_slides").appendChild(slide);
-    var slideImage = document.createElement('img');
-    slideImage.setAttribute('data-lazy', '/media/images/mosaics/mosaics/' + hero + '.jpg');
-    slideImage.alt = '';
-    slide.appendChild(slideImage);
-    mosaics.push(slideImage);
+    var slideGallery = document.createElement('li');
+    slideGallery.classList.add('js_slide');
+    document.querySelector("#slider-gallery .js_slides").appendChild(slideGallery);
+    var slideImageGallery = document.createElement('img');
+    slideImageGallery.setAttribute('data-lazy', '/media/images/mosaics/mosaics/' + hero + '.jpg');
+    slideImageGallery.setAttribute('data-index', index);
+    slideImageGallery.setAttribute('data-hero', hero);
+    slideImageGallery.alt = '';
+    slideGallery.appendChild(slideImageGallery);
+    mosaics.push(slideImageGallery);
     
-    slide.addEventListener('dblclick', function (event) {
-        openGallery('hero', hero);
-    });
+    slideGallery.addEventListener('click', debouncedHandlerGallery);
 });
 
 function loadImage(element) {
@@ -84,7 +105,6 @@ function loadImages(slides, index, numCacheAfter, numCacheBefore) {
 var slider = document.getElementById('slider-thumbnails');
 
 carousel = lory(slider, {
-    rewind: true,
     slidesToScroll: 3,
     enableMouseEvents: true
 });
@@ -95,31 +115,28 @@ var sliderMain = document.getElementById('slider-gallery');
 
 carouselMain = lory(sliderMain, {
     infinite: 1,
+    slidesToScroll: 1,
     enableMouseEvents: true
 });
 
 
 slider.addEventListener('before.lory.slide', function (event) {
+    console.log('before slide', disableLoad, event.detail.index, event.detail.nextSlide);
     if (disableLoad) return;
-    console.log('before slide', event.detail.index, event.detail.nextSlide);
     var dir = (event.detail.nextSlide - event.detail.index) / Math.abs(event.detail.nextSlide - event.detail.index);
     var index = event.detail.nextSlide - 1;
     loadImages(images, index + 4 * dir, 4, 4);
 });
 
-slider.addEventListener('after.lory.slide', function (event) {
-    console.log('after slide', event.detail.currentSlide);
-});
+slider.addEventListener('after.lory.slide', debouncedHandler);
 
 sliderMain.addEventListener('before.lory.slide', function (event) {
+    console.log('before slideMain', disableLoad, event.detail.index, event.detail.nextSlide);
     if (disableLoad) return;
-    console.log('before slideMain', event.detail.index, event.detail.nextSlide);
     loadImages(mosaics, event.detail.nextSlide - 1, 1, 1);
 });
 
-sliderMain.addEventListener('after.lory.slide', function (event) {
-    console.log('after slideMain', event.detail.currentSlide);
-});
+sliderMain.addEventListener('after.lory.slide', debouncedHandlerGallery);
 
 function openGallery(gid, pid) {
     console.log('heroes.indexOf(pid)', pid, heroes.indexOf(pid));
@@ -129,8 +146,8 @@ function openGallery(gid, pid) {
         getThumbBoundsFn: function (index) {
             console.log('opengallery', index);
             disableLoad = true;
-            carousel.slideTo(index);
-            carouselMain.slideTo(index);
+            //carousel.slideTo(index);
+            //carouselMain.slideTo(index);
             loadImages(images, index, 4, 4);
             loadImages(mosaics, index, 1, 1);
             disableLoad = false;
@@ -164,6 +181,8 @@ var items = heroes.map(function(hero) {
 var hashData = parseHash();
 if (hashData.pid && hashData.gid) {
     openGallery(hashData.gid, hashData.pid);
+    carousel.slideTo(heroes.indexOf(hashData.pid));
+    carouselMain.slideTo(heroes.indexOf(hashData.pid));
 }
 else {
     loadImages(images, 0, 4, 0);

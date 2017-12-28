@@ -24,10 +24,6 @@
     }
 }
 
-.social-icon {
-    fill: currentColor;
-}
-
 .hero_portrait, .ability_portrait {
     box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -50,6 +46,7 @@
 
 .page-block {
     padding: 25px;
+    margin-bottom: 30px;
 }
 .page-block-header {
     margin-top: 0;
@@ -62,47 +59,6 @@
 
 .btn {
     transition: background-color 200ms,color 200ms,linear;
-}
-
-// dota2/index.html
-// dota2/mosaics/index.html
-.slick-slide {
-    margin: 5px;
-}
-.slick-slide img {
-    width: 100%;
-    cursor: pointer;
-    box-shadow: 0px 1px 1px 1px black;
-}
-.slick-carousel-nav {
-    margin: 25px;
-}
-.slick-carousel {
-    margin: 25px 40px;
-}
-.slick-arrow {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    border: 1px solid #242628;
-    
-    &.prev {
-        left: -40px;
-    }
-    
-    &.next {
-        right: -40px;
-    }
-}
-.mosaics-carousel {
-    opacity: 0;
-    
-    &.mosaics-carousel-initialized {
-        opacity: 1;
-        transition: opacity 0.25s ease-in, min-height 0.25s ease-in;
-        min-height: inherit;
-    }
-    min-height: 133px;
 }
 
 .hero-page {
