@@ -19,7 +19,13 @@ fs.readFile('assets/css/site.css', (err, css) => {
     postcss([plugin])
         .process(css, { from: 'assets/css/site.css', to: 'assets/css/site.min.css' })
         .then(result => {
-            fs.writeFile('assets/css/site.min.css', result.css);
-            if ( result.map ) fs.writeFile('assets/css/site.min.css.map', result.map);
+            fs.writeFile('assets/css/site.min.css', result.css, (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+            });
+            if ( result.map ) fs.writeFile('assets/css/site.min.css.map', result.map, (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+            });
         });
 });

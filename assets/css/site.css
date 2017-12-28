@@ -7711,6 +7711,7 @@ table.highlight-row tbody tr:hover {
   .lory li {
     position: relative;
     display: inline-block;
+    vertical-align: top;
     /**
          * (optional) if the content inside the slide element has a defined size.
          */
